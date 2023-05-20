@@ -1,0 +1,53 @@
+{
+  "name": "codemos-modern-for-vscode",
+  "displayName": "Codemos Modern For VSCode",
+  "description": "TODO",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.78.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "codemos-modern-for-vscode.theme",
+        "title": "Create/Update Codemos Modern"
+      }
+    ],
+    "themes": [
+      {
+        "label": "Codemos Modern (Light)",
+        "uiTheme": "vs",
+        "path": "./themes/Codemos Modern (Light)--color-heme.json"
+      },
+      {
+        "label": "Codemos Modern (Dark)",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Codemos Modern (Dark)-color-theme.json"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.78.0",
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "@typescript-eslint/parser": "^5.59.1",
+    "eslint": "^8.39.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^5.0.4"
+  }
+}
