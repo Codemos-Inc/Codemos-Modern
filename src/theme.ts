@@ -11,80 +11,77 @@ export function createDarkTheme(hex6: string) {
     "semanticHighlighting": true,
     "semanticTokenColors": {
       // GENERAL SEMANTIC TOKENS
-
       // namespace: For identifiers that declare or reference a namespace, module, or package.
-      "namespace": colors.D_FILL_TEXT_SEC.value,
+      "namespace": colors.D_FILL_TEXT_PRI.value,
       // module
-      "module": colors.D_FILL_TEXT_SEC.value,
+      "module": colors.D_FILL_TEXT_PRI.value,
       // class: For identifiers that declare or reference a class type.
-      "class": colors.D_BASIC_PRI_YELLOW.value,
+      "class": colors.D_BASIC_DEF_YELLOW_PRI.value,
       // enum: For identifiers that declare or reference an enumeration type.
-      "enum": colors.D_BASIC_PRI_MINT.value,
+      "enum": colors.D_BASIC_DEF_MINT_PRI.value,
       // interface: For identifiers that declare or reference an interface type.
-      "interface": colors.D_BASIC_PRI_MINT.value,
+      "interface": colors.D_BASIC_DEF_MINT_PRI.value,
       // struct: For identifiers that declare or reference a struct type.
-      "struct": colors.D_BASIC_PRI_YELLOW.value,
+      "struct": colors.D_BASIC_DEF_YELLOW_PRI.value,
       // typeParameter: For identifiers that declare or reference a type parameter (generics).
-      "typeParameter": colors.D_BASIC_SEC_MINT.value,
+      "typeParameter": colors.D_BASIC_ALT_MINT_PRI.value,
       // type: For identifiers that declare or reference a type that is not covered above.
-      "type": colors.D_BASIC_PRI_MINT.value,
+      "type": colors.D_BASIC_DEF_MINT_PRI.value,
       // parameter: For identifiers that declare or reference function or method parameters.
-      "parameter": colors.D_BASIC_SEC_ORANGE.value,
+      "parameter": colors.D_BASIC_ALT_ORANGE_PRI.value,
       // variable: For identifiers that declare or reference a local or global variable.
-      "variable": { "foreground": colors.D_BASIC_SEC_ORANGE.value, "underline": true },
+      "variable": { "foreground": colors.D_BASIC_ALT_ORANGE_PRI.value, "underline": true },
       "variable.readonly": { "underline": false },
       // property: For identifiers that declare or reference a member property, member field, or member variable.
-      "property": { "foreground": colors.D_BASIC_SEC_YELLOW.value, "underline": true },
+      "property": { "foreground": colors.D_BASIC_ALT_YELLOW_PRI.value, "underline": true },
       "property.readonly": { "underline": false },
       // enumMember: For identifiers that declare or reference an enumeration property, constant, or member.
-      "enumMember": colors.D_BASIC_SEC_MINT.value,
+      "enumMember": colors.D_BASIC_ALT_MINT_PRI.value,
       // decorator: For identifiers that declare or reference decorators and annotations.
-      "decorator": colors.D_BASIC_PRI_RED.value,
+      "decorator": colors.D_BASIC_DEF_RED_PRI.value,
       // annotation: For identifiers that declare or reference decorators and annotations.
-      "annotation": colors.D_BASIC_PRI_RED.value,
+      "annotation": colors.D_BASIC_DEF_RED_PRI.value,
       // event: For identifiers that declare an event property.
-      "event": colors.D_BASIC_SEC_RED.value,
+      "event": colors.D_BASIC_ALT_RED_PRI.value,
       // function: For identifiers that declare a function.
-      "function": colors.D_BASIC_PRI_ORANGE.value,
+      "function": colors.D_BASIC_DEF_ORANGE_PRI.value,
       // method: For identifiers that declare a method.
-      "method": colors.D_BASIC_PRI_ORANGE.value,
+      "method": colors.D_BASIC_DEF_ORANGE_PRI.value,
       // macro: For identifiers that declare a macro.
-      "macro": colors.D_BASIC_SEC_PINK.value,
+      "macro": colors.D_BASIC_ALT_PINK_PRI.value,
       // label: For identifiers that declare a label.
-      "label": colors.D_BASIC_SEC_PINK.value,
+      "label": colors.D_BASIC_ALT_PINK_PRI.value,
       // comment: For tokens that represent a comment.
-      "comment": { "foreground": colors.D_BASIC_PRI_GREEN.value, "italic": true },
+      "comment": { "foreground": colors.D_BASIC_DEF_GREEN_PRI.value, "italic": true },
       // string: For tokens that represent a string literal.
-      "string": colors.D_BASIC_PRI_BROWN.value,
+      "string": colors.D_BASIC_DEF_BROWN_PRI.value,
       // keyword: For tokens that represent a language keyword.
-      "keyword": colors.D_BASIC_PRI_PINK.value,
+      "keyword": colors.D_BASIC_DEF_PINK_PRI.value,
       // modifier: Style for modifier keywords
-      "modifier": colors.D_BASIC_PRI_BLUE.value,
+      "modifier": colors.D_BASIC_DEF_BLUE_PRI.value,
       // plainKeyword
-      "plainKeyword": colors.D_BASIC_PRI_BLUE.value,
+      "plainKeyword": colors.D_BASIC_DEF_BLUE_PRI.value,
       // number: For tokens that represent a number literal.
-      "number": colors.D_BASIC_SEC_GREEN.value,
+      "number": colors.D_BASIC_ALT_GREEN_PRI.value,
       // regexp: For tokens that represent a regular expression literal.
-      "regexp": colors.D_BASIC_PRI_PURPLE.value,
+      "regexp": colors.D_BASIC_DEF_PURPLE_PRI.value,
       // operator: For tokens that represent an operator.
       "operator": colors.D_FILL_TEXT_SEC.value,
       // builtin: For symbols that are part of the language.
-      "*.builtin": colors.D_BASIC_PRI_BLUE.value,
+      "*.builtin": colors.D_BASIC_DEF_BLUE_PRI.value,
       // static: For class members (static members).
       "*.static": { "italic": true },
       // deprecated: For symbols that should no longer be used.
       "*.deprecated": { "strikethrough": true },
       // abstract: For types and member functions that are abstract.
       "*.abstract": { "bold": true },
-
       // OTHER SEMANTIC TOKENS
-
-      "newOperator": colors.D_BASIC_PRI_BLUE.value,
-      "stringLiteral": colors.D_BASIC_PRI_BROWN.value,
-      "customLiteral": colors.D_BASIC_SEC_BLUE.value,
-      "numberLiteral": colors.D_BASIC_SEC_GREEN.value,
-      "selfParameter": colors.D_BASIC_PRI_YELLOW.value,
-      "magicFunction": colors.D_BASIC_PRI_PURPLE.value
+      "newOperator": colors.D_BASIC_DEF_BLUE_PRI.value,
+      "stringLiteral": colors.D_BASIC_DEF_BROWN_PRI.value,
+      "customLiteral": colors.D_BASIC_ALT_BLUE_PRI.value,
+      "numberLiteral": colors.D_BASIC_ALT_GREEN_PRI.value,
+      "selfParameter": colors.D_BASIC_DEF_YELLOW_PRI.value,
+      "magicFunction": colors.D_BASIC_DEF_PURPLE_PRI.value
     },
     "tokenColors": [
       // GENERAL TEXTMATE TOKENS
@@ -95,15 +92,18 @@ export function createDarkTheme(hex6: string) {
           "entity.name.type.namespace",
           "entity.name.namespace",
           "entity.name.type.module",
+          "entity.name.module",
+          "entity.name.type.package",
+          "entity.name.package",
           "storage.modifier.import",
           "storage.modifier.package",
           "variable.language.wildcard.java",
           "entity.name.scope-resolution"
         ],
         "settings": {
-				  "foreground": colors.D_FILL_TEXT_SEC.value,
+          "foreground": colors.D_FILL_TEXT_PRI.value,
           "fontStyle": ""
-			  }
+        }
       },
       // class
       {
@@ -114,9 +114,9 @@ export function createDarkTheme(hex6: string) {
           "entity.other.attribute-name.class",
         ],
         "settings": {
-				  "foreground": colors.D_BASIC_PRI_YELLOW.value,
+          "foreground": colors.D_BASIC_DEF_YELLOW_PRI.value,
           "fontStyle": ""
-			  }
+        }
       },
       // enum
       {
@@ -124,9 +124,9 @@ export function createDarkTheme(hex6: string) {
           "entity.name.type.enum"
         ],
         "settings": {
-				  "foreground": colors.D_BASIC_PRI_MINT.value,
+          "foreground": colors.D_BASIC_DEF_MINT_PRI.value,
           "fontStyle": ""
-			  }
+        }
       },
       // interface
       {
@@ -135,9 +135,9 @@ export function createDarkTheme(hex6: string) {
           "meta.definition.class.implemented.interfaces"
         ],
         "settings": {
-				  "foreground": colors.D_BASIC_PRI_MINT.value,
+          "foreground": colors.D_BASIC_DEF_MINT_PRI.value,
           "fontStyle": ""
-			  }
+        }
       },
       // struct
       {
@@ -146,9 +146,9 @@ export function createDarkTheme(hex6: string) {
           "storage.type.struct"
         ],
         "settings": {
-				  "foreground": colors.D_BASIC_PRI_MINT.value,
+          "foreground": colors.D_BASIC_DEF_MINT_PRI.value,
           "fontStyle": ""
-			  }
+        }
       },
       // typeParameter
       {
@@ -156,9 +156,9 @@ export function createDarkTheme(hex6: string) {
           "storage.type.generic"
         ],
         "settings": {
-				  "foreground": colors.D_BASIC_SEC_MINT.value,
+          "foreground": colors.D_BASIC_ALT_MINT_PRI.value,
           "fontStyle": ""
-			  }
+        }
       },
       // type
       {
@@ -168,18 +168,18 @@ export function createDarkTheme(hex6: string) {
           "keyword.operator.less"
         ],
         "settings": {
-				  "foreground": colors.D_BASIC_PRI_MINT.value,
+          "foreground": colors.D_BASIC_DEF_MINT_PRI.value,
           "fontStyle": ""
-			  }
+        }
       },
       {
         "scope": [
           "storage.type"
         ],
         "settings": {
-				  "foreground": colors.D_BASIC_PRI_BLUE.value,
+          "foreground": colors.D_BASIC_DEF_BLUE_PRI.value,
           "fontStyle": ""
-			  }
+        }
       },
       // parameter
       {
@@ -187,38 +187,38 @@ export function createDarkTheme(hex6: string) {
           "variable.parameter"
         ],
         "settings": {
-				  "foreground": colors.D_BASIC_SEC_ORANGE.value,
+          "foreground": colors.D_BASIC_ALT_ORANGE_PRI.value,
           "fontStyle": ""
-			  }
+        }
       },
       // variable
       {
         "scope": [
           "variable",
           "meta.method variable",
-				  "meta.function variable",
-				  "meta.block variable",
+          "meta.function variable",
+          "meta.block variable",
           "entity.name.variable",
           "variable.other.readwrite"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_SEC_ORANGE.value,
+          "foreground": colors.D_BASIC_ALT_ORANGE_PRI.value,
           "fontStyle": "underline"
-			  }
+        }
       },
       // variable.readonly
       {
         "scope": [
           "variable.other.constant",
           "meta.method variable.other.constant",
-				  "meta.function variable.other.constant",
-				  "meta.block variable.other.constant",
+          "meta.function variable.other.constant",
+          "meta.block variable.other.constant",
           "entity.name.variable.constant"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_SEC_ORANGE.value,
+          "foreground": colors.D_BASIC_ALT_ORANGE_PRI.value,
           "fontStyle": ""
-			  }
+        }
       },
       // property
       {
@@ -230,9 +230,9 @@ export function createDarkTheme(hex6: string) {
           "entity.name.variable.field"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_SEC_YELLOW.value,
+          "foreground": colors.D_BASIC_ALT_YELLOW_PRI.value,
           "fontStyle": "underline"
-			  }
+        }
       },
       // property.readonly
       {
@@ -244,9 +244,9 @@ export function createDarkTheme(hex6: string) {
           "entity.name.variable.property.constant"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_SEC_YELLOW.value,
+          "foreground": colors.D_BASIC_ALT_YELLOW_PRI.value,
           "fontStyle": ""
-			  }
+        }
       },
       // enumMember
       {
@@ -256,9 +256,9 @@ export function createDarkTheme(hex6: string) {
           "entity.name.variable.enum-member"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_SEC_MINT.value,
+          "foreground": colors.D_BASIC_ALT_MINT_PRI.value,
           "fontStyle": ""
-			  }
+        }
       },
       // decorator
       {
@@ -268,9 +268,9 @@ export function createDarkTheme(hex6: string) {
           "entity.name.function.decorator"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_PRI_RED.value,
+          "foreground": colors.D_BASIC_DEF_RED_PRI.value,
           "fontStyle": ""
-			  }
+        }
       },
       // annotation
       {
@@ -283,9 +283,9 @@ export function createDarkTheme(hex6: string) {
           "support.attribute"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_PRI_RED.value,
+          "foreground": colors.D_BASIC_DEF_RED_PRI.value,
           "fontStyle": ""
-			  }
+        }
       },
       // event
       {
@@ -294,9 +294,9 @@ export function createDarkTheme(hex6: string) {
           "variable.other.event"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_SEC_RED.value,
+          "foreground": colors.D_BASIC_ALT_RED_PRI.value,
           "fontStyle": ""
-			  }
+        }
       },
       // function
       {
@@ -309,9 +309,9 @@ export function createDarkTheme(hex6: string) {
           "entity.other.attribute-name.parent-selector"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_PRI_ORANGE.value,
+          "foreground": colors.D_BASIC_DEF_ORANGE_PRI.value,
           "fontStyle": ""
-			  }
+        }
       },
       // method
       {
@@ -320,9 +320,9 @@ export function createDarkTheme(hex6: string) {
           "entity.name.function.member"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_PRI_ORANGE.value,
+          "foreground": colors.D_BASIC_DEF_ORANGE_PRI.value,
           "fontStyle": ""
-			  }
+        }
       },
       // macro
       {
@@ -335,9 +335,9 @@ export function createDarkTheme(hex6: string) {
           "meta.preprocessor punctuation"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_SEC_PINK.value,
+          "foreground": colors.D_BASIC_ALT_PINK_PRI.value,
           "fontStyle": ""
-			  }
+        }
       },
       // label
       {
@@ -345,9 +345,9 @@ export function createDarkTheme(hex6: string) {
           "entity.name.label"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_SEC_PINK.value,
+          "foreground": colors.D_BASIC_ALT_PINK_PRI.value,
           "fontStyle": ""
-			  }
+        }
       },
       // comment
       {
@@ -355,9 +355,9 @@ export function createDarkTheme(hex6: string) {
           "comment",
         ],
         "settings": {
-          "foreground": colors.D_BASIC_PRI_GREEN.value,
+          "foreground": colors.D_BASIC_DEF_GREEN_PRI.value,
           "fontStyle": "italic"
-			  }
+        }
       },
       // string
       {
@@ -369,9 +369,9 @@ export function createDarkTheme(hex6: string) {
           "meta.embedded.assembly"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_PRI_BROWN.value,
+          "foreground": colors.D_BASIC_DEF_BROWN_PRI.value,
           "fontStyle": ""
-			  }
+        }
       },
       // string template
       {
@@ -382,9 +382,9 @@ export function createDarkTheme(hex6: string) {
           "meta.template.expression"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_SEC_BLUE.value,
+          "foreground": colors.D_BASIC_ALT_BLUE_PRI.value,
           "fontStyle": ""
-			  }
+        }
       },
       // special string
       {
@@ -393,14 +393,14 @@ export function createDarkTheme(hex6: string) {
           "constant.other.unicode-range"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_SEC_BLUE.value,
+          "foreground": colors.D_BASIC_ALT_BLUE_PRI.value,
           "fontStyle": ""
-			  }
+        }
       },
       {
         "scope": "constant.character.escape",
         "settings": {
-          "foreground": colors.D_BASIC_PRI_RED.value,
+          "foreground": colors.D_BASIC_DEF_RED_PRI.value,
           "fontStyle": ""
         }
       },
@@ -418,9 +418,9 @@ export function createDarkTheme(hex6: string) {
           "punctuation.section.embedded.end.php"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_PRI_PINK.value,
+          "foreground": colors.D_BASIC_DEF_PINK_PRI.value,
           "fontStyle": ""
-			  }
+        }
       },
       // modifier
       {
@@ -455,9 +455,9 @@ export function createDarkTheme(hex6: string) {
           "support.constant.media"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_PRI_BLUE.value,
+          "foreground": colors.D_BASIC_DEF_BLUE_PRI.value,
           "fontStyle": ""
-			  }
+        }
       },
       // number
       {
@@ -472,9 +472,9 @@ export function createDarkTheme(hex6: string) {
           "constant.other.reference.link"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_SEC_GREEN.value,
+          "foreground": colors.D_BASIC_ALT_GREEN_PRI.value,
           "fontStyle": ""
-			  }
+        }
       },
       // regexp
       {
@@ -483,7 +483,7 @@ export function createDarkTheme(hex6: string) {
           "constant.regexp"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_PRI_PURPLE.value,
+          "foreground": colors.D_BASIC_DEF_PURPLE_PRI.value,
           "fontStyle": ""
         }
       },
@@ -498,9 +498,9 @@ export function createDarkTheme(hex6: string) {
           "support.other.parenthesis.regexp"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_SEC_PURPLE.value,
+          "foreground": colors.D_BASIC_ALT_PURPLE_PRI.value,
           "fontStyle": ""
-			  }
+        }
       },
       {
         "scope": [
@@ -510,7 +510,7 @@ export function createDarkTheme(hex6: string) {
           "constant.character.set.regexp"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_SEC_PINK.value,
+          "foreground": colors.D_BASIC_ALT_PINK_PRI.value,
           "fontStyle": ""
         }
       },
@@ -520,14 +520,14 @@ export function createDarkTheme(hex6: string) {
           "keyword.control.anchor.regexp"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_SEC_BLUE.value,
+          "foreground": colors.D_BASIC_ALT_BLUE_PRI.value,
           "fontStyle": ""
         }
       },
       {
         "scope": "keyword.operator.quantifier.regexp",
         "settings": {
-          "foreground": colors.D_BASIC_SEC_GREEN.value,
+          "foreground": colors.D_BASIC_ALT_GREEN_PRI.value,
           "fontStyle": ""
         }
       },
@@ -539,7 +539,7 @@ export function createDarkTheme(hex6: string) {
         "settings": {
           "foreground": colors.D_FILL_TEXT_SEC.value,
           "fontStyle": ""
-			  }
+        }
       },
 
       // OTHER TEXTMATE TOKENS
@@ -551,7 +551,7 @@ export function createDarkTheme(hex6: string) {
           "variable.parameter.function.language.special"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_PRI_YELLOW.value,
+          "foreground": colors.D_BASIC_DEF_YELLOW_PRI.value,
           "fontStyle": ""
         }
       },
@@ -565,7 +565,7 @@ export function createDarkTheme(hex6: string) {
           "keyword.type"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_PRI_BLUE.value,
+          "foreground": colors.D_BASIC_DEF_BLUE_PRI.value,
           "fontStyle": ""
         }
       },
@@ -576,7 +576,7 @@ export function createDarkTheme(hex6: string) {
           "keyword.control.new"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_PRI_BLUE.value,
+          "foreground": colors.D_BASIC_DEF_BLUE_PRI.value,
           "fontStyle": ""
         }
       },
@@ -584,11 +584,11 @@ export function createDarkTheme(hex6: string) {
       {
         "scope": [
           "variable.other.constant",
-				  "constant.other.caps",
-				  "constant.other.php"
+          "constant.other.caps",
+          "constant.other.php"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_SEC_MINT.value,
+          "foreground": colors.D_BASIC_ALT_MINT_PRI.value,
           "fontStyle": ""
         }
       },
@@ -602,7 +602,7 @@ export function createDarkTheme(hex6: string) {
           "constant.other.color.rgb-value",
         ],
         "settings": {
-          "foreground": colors.D_BASIC_PRI_BROWN.value,
+          "foreground": colors.D_BASIC_DEF_BROWN_PRI.value,
           "fontStyle": ""
         }
       },
@@ -612,7 +612,7 @@ export function createDarkTheme(hex6: string) {
           "invalid"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_PRI_RED.value,
+          "foreground": colors.D_BASIC_DEF_RED_PRI.value,
           "fontStyle": ""
         }
       },
@@ -622,7 +622,7 @@ export function createDarkTheme(hex6: string) {
           "entity.other.attribute-name.id"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_PRI_PURPLE.value,
+          "foreground": colors.D_BASIC_DEF_PURPLE_PRI.value,
           "fontStyle": ""
         }
       },
@@ -634,7 +634,7 @@ export function createDarkTheme(hex6: string) {
           "meta.property-value"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_SEC_BLUE.value,
+          "foreground": colors.D_BASIC_ALT_BLUE_PRI.value,
           "fontStyle": ""
         }
       },
@@ -644,7 +644,7 @@ export function createDarkTheme(hex6: string) {
           "support.type.vendored.property-name",
         ],
         "settings": {
-          "foreground": colors.D_BASIC_SEC_BLUE.value,
+          "foreground": colors.D_BASIC_ALT_BLUE_PRI.value,
           "fontStyle": "underline"
         }
       },
@@ -654,7 +654,7 @@ export function createDarkTheme(hex6: string) {
           "entity.other.attribute-name.pseudo-class"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_SEC_YELLOW.value,
+          "foreground": colors.D_BASIC_ALT_YELLOW_PRI.value,
           "fontStyle": ""
         }
       },
@@ -664,7 +664,7 @@ export function createDarkTheme(hex6: string) {
           "entity.other.attribute-name.pseudo-element"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_SEC_PURPLE.value,
+          "foreground": colors.D_BASIC_ALT_PURPLE_PRI.value,
           "fontStyle": ""
         }
       },
@@ -679,7 +679,7 @@ export function createDarkTheme(hex6: string) {
           "source.css.less keyword.other.unit"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_SEC_PINK.value,
+          "foreground": colors.D_BASIC_ALT_PINK_PRI.value,
           "fontStyle": ""
         }
       },
@@ -690,7 +690,7 @@ export function createDarkTheme(hex6: string) {
           "markup.heading.setext.1"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_PRI_RED.value,
+          "foreground": colors.D_BASIC_DEF_RED_PRI.value,
           "fontStyle": ""
         }
       },
@@ -700,7 +700,7 @@ export function createDarkTheme(hex6: string) {
           "markup.heading.setext.2"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_PRI_ORANGE.value,
+          "foreground": colors.D_BASIC_DEF_ORANGE_PRI.value,
           "fontStyle": ""
         }
       },
@@ -709,7 +709,7 @@ export function createDarkTheme(hex6: string) {
           "heading.3"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_PRI_YELLOW.value,
+          "foreground": colors.D_BASIC_DEF_YELLOW_PRI.value,
           "fontStyle": ""
         }
       },
@@ -718,7 +718,7 @@ export function createDarkTheme(hex6: string) {
           "heading.4"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_PRI_GREEN.value,
+          "foreground": colors.D_BASIC_DEF_GREEN_PRI.value,
           "fontStyle": ""
         }
       },
@@ -727,7 +727,7 @@ export function createDarkTheme(hex6: string) {
           "heading.5"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_PRI_MINT.value,
+          "foreground": colors.D_BASIC_DEF_MINT_PRI.value,
           "fontStyle": ""
         }
       },
@@ -736,7 +736,7 @@ export function createDarkTheme(hex6: string) {
           "heading.6"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_PRI_BLUE.value,
+          "foreground": colors.D_BASIC_DEF_BLUE_PRI.value,
           "fontStyle": ""
         }
       },
@@ -772,7 +772,7 @@ export function createDarkTheme(hex6: string) {
           "markup.underline"
         ],
         "settings": {
-           "fontStyle": "underline"
+          "fontStyle": "underline"
         }
       },
       {
@@ -780,7 +780,7 @@ export function createDarkTheme(hex6: string) {
           "markup.underline.link"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_SEC_BLUE.value,
+          "foreground": colors.D_BASIC_ALT_BLUE_PRI.value,
           "fontStyle": "underline"
         }
       },
@@ -801,7 +801,7 @@ export function createDarkTheme(hex6: string) {
           "markup.raw.block"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_PRI_PINK.value,
+          "foreground": colors.D_BASIC_DEF_PINK_PRI.value,
           "fontStyle": ""
         }
       },
@@ -810,7 +810,7 @@ export function createDarkTheme(hex6: string) {
           "punctuation.definition.quote.begin"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_PRI_PURPLE.value,
+          "foreground": colors.D_BASIC_DEF_PURPLE_PRI.value,
           "fontStyle": ""
         }
       },
@@ -819,7 +819,7 @@ export function createDarkTheme(hex6: string) {
           "punctuation.definition.tag"
         ],
         "settings": {
-          "foreground": colors.D_FILL_TEXT_TER.value,
+          "foreground": colors.D_FILL_TEXT_SEC.value,
           "fontStyle": ""
         }
       },
@@ -828,777 +828,787 @@ export function createDarkTheme(hex6: string) {
           "meta.separator"
         ],
         "settings": {
-          "foreground": colors.D_BASIC_PRI_BROWN.value,
+          "foreground": colors.D_BASIC_DEF_BROWN_PRI.value,
           "fontStyle": ""
         }
       },
       {
         "scope": "markup.inserted",
         "settings": {
-          "foreground": colors.D_BASIC_PRI_GREEN.value
+          "foreground": colors.D_BASIC_DEF_GREEN_PRI.value
         }
       },
       {
         "scope": "markup.deleted",
         "settings": {
-          "foreground": colors.D_BASIC_PRI_RED.value
+          "foreground": colors.D_BASIC_DEF_RED_PRI.value
         }
       },
       {
         "scope": "markup.changed",
         "settings": {
-          "foreground": colors.D_BASIC_PRI_BLUE.value
+          "foreground": colors.D_BASIC_DEF_BLUE_PRI.value
         }
       },
     ],
     "colors": {
-      // Unknown
-      "mergeEditor.conflict.input1.background": "#000000",
-      "mergeEditor.conflict.input2.background": "#000000",
-      "mergeEditor.conflictingLines.background": "#000000",
-      "widget.border": "#000000",
-      "profileBadge.foreground": "#000000",
-      "editor.wordHighlightTextBackground": "#000000",
-      "editor.wordHighlightTextBorder": "#000000",
-      "editorGutter.commentGlyphForeground": "#000000",
-      "editorGutter.commentUnresolvedGlyphForeground": "#000000",
-      "editorLineNumber.dimmedForeground": "#000000",
-      "editorOverviewRuler.wordHighlightTextForeground": "#000000",
-      "interactive.requestBackground": "#000000",
-      "interactive.requestBorder": "#000000",
-      "interactiveEditor.border": "#000000",
-      "interactiveEditor.regionHighlight": "#000000",
-      "interactiveEditor.shadow": "#000000",
-      "interactiveEditorDiff.inserted": "#000000",
-      "interactiveEditorDiff.removed": "#000000",
-      "interactiveEditorInput.background": "#000000",
-      "interactiveEditorInput.border": "#000000",
-      "interactiveEditorInput.focusBorder": "#000000",
-      "interactiveEditorInput.placeholderForeground": "#000000",
-      "notebookEditorOverviewRuler.runningCellForeground": "#000000",
-      "peekViewEditorStickyScroll.background": "#000000",
-      "profileBadge.background": "#000000",
-      "search.resultsInfoForeground": "#000000",
-      "settings.settingsHeaderHoverForeground": "#000000",
-      "terminal.hoverHighlightBackground": "#000000",
-      "tree.inactiveIndentGuidesStroke": "#000000",
-      //
-      "contrastActiveBorder": "#000000",
-      "contrastBorder": "#000000",
-      //
-      "foreground": "#000000",
-      "descriptionForeground": "#000000",
-      "errorForeground": "#000000",
-      "focusBorder": "#000000",
-      "disabledForeground": "#000000",
-      "widget.shadow": "#000000",
-      "icon.foreground": "#000000",
-      "sash.hoverBorder": "#000000",
-      "selection.background": "#000000",
-      //
-      "window.activeBorder": "#000000",
-      "window.inactiveBorder": "#000000",
-      //
-      "textBlockQuote.background": "#000000",
-      "textBlockQuote.border": "#000000",
-      "textPreformat.foreground": "#000000",
-      "textSeparator.foreground": "#000000",
-      "textCodeBlock.background": "#000000",
-      //
-      "toolbar.hoverBackground": "#000000",
-      "toolbar.hoverOutline": "#000000",
-      "toolbar.activeBackground": "#000000",
-      //
-      "scrollbar.shadow": "#000000",
-      "scrollbarSlider.background": "#000000",
-      "scrollbarSlider.hoverBackground": "#000000",
-      "scrollbarSlider.activeBackground": "#000000",
-      //
-      "badge.foreground": "#000000",
-      "badge.background": "#000000",
-      //
-      "progressBar.background": "#000000",
-      //
-      "activityBar.foreground": "#000000",
-      "activityBar.background": "#000000",
-      "activityBar.inactiveForeground": "#000000",
-      "activityBarBadge.foreground": "#000000",
-      "activityBarBadge.background": "#000000",
-      "activityBar.border": "#000000",
-      "activityBar.activeBackground": "#000000",
-      "activityBar.activeBorder": "#000000",
-      "activityBar.dropBorder": "#000000",
-      "activityBar.activeFocusBorder": "#000000",
-      //
-      "sideBar.background": "#000000",
-      "sideBar.foreground": "#000000",
-      "sideBarSectionHeader.background": "#000000",
-      "sideBarSectionHeader.foreground": "#000000",
-      "sideBarSectionHeader.border": "#000000",
-      "sideBarTitle.foreground": "#000000",
-      "sideBar.border": "#000000",
-      "sideBar.dropBackground": "#000000",
-      "list.inactiveSelectionBackground": "#000000",
-      "list.inactiveSelectionForeground": "#000000",
-      "list.hoverBackground": "#000000",
-      "list.hoverForeground": "#000000",
-      "list.activeSelectionBackground": "#000000",
-      "list.activeSelectionForeground": "#000000",
-      "list.activeSelectionIconForeground": "#000000",
-      //
-      "tree.tableColumnsBorder": "#000000",
-      "tree.tableOddRowsBackground": "#000000",
-      "tree.indentGuidesStroke": "#000000",
-      "list.dropBackground": "#000000",
-      "list.highlightForeground": "#000000",
-      "list.focusBackground": "#000000",
-      "list.focusForeground": "#000000",
-      "list.focusOutline": "#000000",
-      "list.deemphasizedForeground": "#000000",
-      "list.errorForeground": "#000000",
-      "list.warningForeground": "#000000",
-      "list.filterMatchBackground": "#000000",
-      "list.filterMatchBorder": "#000000",
-      "list.focusAndSelectionOutline": "#000000",
-      "list.inactiveFocusBackground": "#000000",
-      "list.inactiveFocusOutline": "#000000",
-      "list.focusHighlightForeground": "#000000",
-      "list.inactiveSelectionIconForeground": "#000000",
-      "list.invalidItemForeground": "#000000",
-      
-      //
-      "listFilterWidget.background": "#000000",
-      "listFilterWidget.outline": "#000000",
-      "listFilterWidget.noMatchesOutline": "#000000",
-      "listFilterWidget.shadow": "#000000",
-      //
-      "statusBar.foreground": "#000000",
-      "statusBar.background": "#000000",
-      "statusBar.border": "#000000",
-      "statusBarItem.hoverBackground": "#000000",
-      "statusBar.debuggingBackground": "#000000",
-      "statusBar.debuggingBorder": "#000000",
-      "statusBar.debuggingForeground": "#000000",
-      "statusBar.noFolderBackground": "#000000",
-      "statusBar.noFolderForeground": "#000000",
-      "statusBar.noFolderBorder": "#000000",
-      "statusBarItem.remoteBackground": "#000000",
-      "statusBarItem.remoteForeground": "#000000",
-      "statusBarItem.errorBackground": "#000000",
-      "statusBarItem.errorForeground": "#000000",
-      "statusBarItem.warningBackground": "#000000",
-      "statusBarItem.warningForeground": "#000000",
-      "statusBarItem.prominentBackground": "#000000",
-      "statusBarItem.prominentHoverBackground": "#000000",
-      "statusBarItem.prominentForeground": "#000000",
-      "statusBarItem.focusBorder": "#000000",
-      "statusBarItem.activeBackground": "#000000",
-      "statusBarItem.compactHoverBackground": "#000000",
-      "statusBar.focusBorder": "#000000",
-      //
-      "titleBar.activeBackground": "#000000",
-      "titleBar.activeForeground": "#000000",
-      "titleBar.inactiveBackground": "#000000",
-      "titleBar.inactiveForeground": "#000000",
-      "titleBar.border": "#000000",
-      //
-      "menubar.selectionForeground": "#000000",
-      "menubar.selectionBackground": "#000000",
-      "menu.foreground": "#000000",
-      "menu.background": "#000000",
-      "menu.selectionForeground": "#000000",
-      "menu.selectionBackground": "#000000",
-      "menu.selectionBorder": "#000000",
-      "menu.separatorBackground": "#000000",
-      "menu.border": "#000000",
-      "menubar.selectionBorder": "#000000",
-      //
-      "button.background": "#000000",
-      "button.foreground": "#000000",
-      "button.hoverBackground": "#000000",
-      "button.secondaryForeground": "#000000",
-      "button.secondaryBackground": "#000000",
-      "button.secondaryHoverBackground": "#000000",
-      "button.border": "#000000",
-      "button.separator": "#000000",
-      //
-      "textLink.foreground": "#000000",
-      "textLink.activeForeground": "#000000",
-      //
-      "extensionButton.prominentBackground": "#000000",
-      "extensionButton.prominentHoverBackground": "#000000",
-      "extensionButton.prominentForeground": "#000000",
-      "extensionButton.background": "#000000",
-      "extensionButton.hoverBackground": "#000000",
-      "extensionButton.foreground": "#000000",
-      "extensionButton.separator": "#000000",
-      "extensionBadge.remoteBackground": "#000000",
-      "extensionBadge.remoteForeground": "#000000",
-      "extensionIcon.preReleaseForeground": "#000000",
-      "extensionIcon.verifiedForeground": "#000000",
-      "extensionIcon.sponsorForeground": "#000000",
-      "extensionIcon.starForeground": "#000000",
-      //
-      "input.background": "#000000",
-      "input.border": "#000000",
-      "input.foreground": "#000000",
-      "input.placeholderForeground": "#000000",
-      //
-      "inputOption.hoverBackground": "#000000",
-      "inputOption.activeBackground": "#000000",
-      "inputOption.activeBorder": "#000000",
-      "inputOption.activeForeground": "#000000",
-      //
-      "inputValidation.errorBackground": "#000000",
-      "inputValidation.errorBorder": "#000000",
-      "inputValidation.errorForeground": "#000000",
-      "inputValidation.warningBackground": "#000000",
-      "inputValidation.warningBorder": "#000000",
-      "inputValidation.warningForeground": "#000000",
-      "inputValidation.infoBackground": "#000000",
-      "inputValidation.infoBorder": "#000000",
-      "inputValidation.infoForeground": "#000000",
-      //
-      "pickerGroup.foreground": "#000000",
-      "pickerGroup.border": "#000000",
-      "quickInputTitle.background": "#000000",
-      "quickInput.background": "#000000",
-      "quickInput.foreground": "#000000",
-      "quickInputList.focusBackground": "#000000",
-      "quickInputList.focusForeground": "#000000",
-      "quickInputList.focusIconForeground": "#000000",
-      //
-      "checkbox.background": "#000000",
-      "checkbox.foreground": "#000000",
-      "checkbox.border": "#000000",
-      "checkbox.selectBorder": "#000000",
-      "checkbox.selectBackground": "#000000",
-      //
-      "dropdown.background": "#000000",
-      "dropdown.listBackground": "#000000",
-      "dropdown.foreground": "#000000",
-      "dropdown.border": "#000000",
-      //
-      "keybindingLabel.border": "#000000",
-      "keybindingLabel.bottomBorder": "#000000",
-      "keybindingLabel.background": "#000000",
-      "keybindingLabel.foreground": "#000000",
-      "keybindingTable.headerBackground": "#000000",
-      "keybindingTable.rowsBackground": "#000000",
-      //
-      "minimapGutter.addedBackground": "#000000",
-      "minimapGutter.modifiedBackground": "#000000",
-      "minimapGutter.deletedBackground": "#000000",
-      //
-      "minimap.foregroundOpacity": "#000000",
-      "minimap.findMatchHighlight": "#000000",
-      "minimap.selectionHighlight": "#000000",
-      "minimap.errorHighlight": "#000000",
-      "minimap.warningHighlight": "#000000",
-      "minimap.background": "#000000",
-      "minimap.selectionOccurrenceHighlight": "#000000",
-      //
-      "minimapSlider.activeBackground": "#000000",
-      "minimapSlider.background": "#000000",
-      "minimapSlider.hoverBackground": "#000000",
-      //
-      "editorGroup.border": "#000000",
-      "editorGroup.dropBackground": "#000000",
-      "editorGroupHeader.noTabsBackground": "#000000",
-      "editorGroupHeader.tabsBackground": "#000000",
-      "editorGroupHeader.tabsBorder": "#000000",
-      "editorGroupHeader.border": "#000000",
-      "editorGroup.emptyBackground": "#000000",
-      "editorGroup.focusedEmptyBorder": "#000000",
-      "editorGroup.dropIntoPromptForeground": "#000000",
-      "editorGroup.dropIntoPromptBackground": "#000000",
-      "editorGroup.dropIntoPromptBorder": "#000000",
-      //
-      "tab.border": "#000000",
-      "tab.lastPinnedBorder": "#000000",
-      "tab.hoverForeground": "#000000",
-      "tab.hoverBackground": "#000000",
-      "tab.hoverBorder": "#000000",
-      "tab.unfocusedHoverForeground": "#000000",
-      "tab.unfocusedHoverBackground": "#000000",
-      "tab.unfocusedHoverBorder": "#000000",
-      "tab.activeForeground": "#000000",
-      "tab.activeBackground": "#000000",
-      "tab.activeBorder": "#000000",
-      "tab.activeBorderTop": "#000000",
-      "tab.activeModifiedBorder": "#000000",
-      "tab.unfocusedActiveForeground": "#000000",
-      "tab.unfocusedActiveBackground": "#000000",
-      "tab.unfocusedActiveBorder": "#000000",
-      "tab.unfocusedActiveBorderTop": "#000000",
-      "tab.unfocusedActiveModifiedBorder": "#000000",
-      "tab.inactiveForeground": "#000000",
-      "tab.inactiveBackground": "#000000",
-      "tab.inactiveModifiedBorder": "#000000",
-      "tab.unfocusedInactiveForeground": "#000000",
-      "tab.unfocusedInactiveBackground": "#000000",
-      "tab.unfocusedInactiveModifiedBorder": "#000000",
-      "editorPane.background": "#000000",
-      "sideBySideEditor.horizontalBorder": "#000000",
-      "sideBySideEditor.verticalBorder": "#000000",
-      //
-      "searchEditor.findMatchBackground": "#000000",
-      "searchEditor.findMatchBorder": "#000000",
-      "searchEditor.textInputBorder": "#000000",
-      //
-      "editor.background": "#000000",
-      "editor.foreground": "#000000",
-      "editorLineNumber.foreground": "#000000",
-      "editorLineNumber.activeForeground": "#000000",
-      "editorCursor.foreground": "#000000",
-      "editorCursor.background": "#000000",
-      //
-      "editor.selectionBackground": "#000000",
-      "editor.selectionForeground": "#000000",
-      "editor.inactiveSelectionBackground": "#000000",
-      "editor.selectionHighlightBackground": "#000000",
-      "editor.selectionHighlightBorder": "#000000",
-      "editor.wordHighlightBackground": "#000000",
-      "editor.wordHighlightBorder": "#000000",
-      "editor.wordHighlightStrongBackground": "#000000",
-      "editor.wordHighlightStrongBorder": "#000000",
-      "editor.findMatchBackground": "#000000",
-      "editor.findMatchBorder": "#000000",
-      "editor.findMatchHighlightBackground": "#000000",
-      "editor.findMatchHighlightBorder": "#000000",
-      "editor.findRangeHighlightBackground": "#000000",
-      "editor.findRangeHighlightBorder": "#000000",
-      "editor.hoverHighlightBackground": "#000000",
-      "editor.lineHighlightBackground": "#000000",
-      "editor.lineHighlightBorder": "#000000",
-      "editorUnicodeHighlight.border": "#000000",
-      "editorUnicodeHighlight.background": "#000000",
-      "editorLink.activeForeground": "#000000",
-      "editor.rangeHighlightBackground": "#000000",
-      "editor.rangeHighlightBorder": "#000000",
-      "editorWhitespace.foreground": "#000000",
-      "editor.symbolHighlightBackground": "#000000",
-      "editor.symbolHighlightBorder": "#000000",
-      "editorIndentGuide.background": "#000000",
-      "editorIndentGuide.activeBackground": "#000000",
-      "editorInlayHint.background": "#000000",
-      "editorInlayHint.foreground": "#000000",
-      "editorInlayHint.typeBackground": "#000000",
-      "editorInlayHint.typeForeground": "#000000",
-      "editorInlayHint.parameterBackground": "#000000",
-      "editorInlayHint.parameterForeground": "#000000",
-      "editorRuler.foreground": "#000000",
-      "editor.linkedEditingBackground": "#000000",
-      "editorCodeLens.foreground": "#000000",
-      "editorLightBulb.foreground": "#000000",
-      "editorLightBulbAutoFix.foreground": "#000000",
-      //
-      "editorBracketMatch.background": "#000000",
-      "editorBracketMatch.border": "#000000",
-      "editorBracketHighlight.foreground1": "#000000",
-      "editorBracketHighlight.foreground2": "#000000",
-      "editorBracketHighlight.foreground3": "#000000",
-      "editorBracketHighlight.foreground4": "#000000",
-      "editorBracketHighlight.foreground5": "#000000",
-      "editorBracketHighlight.foreground6": "#000000",
-      "editorBracketHighlight.unexpectedBracket.foreground": "#000000",
-      "editorBracketPairGuide.activeBackground1": "#000000",
-      "editorBracketPairGuide.background1": "#000000",
-      "editorBracketPairGuide.activeBackground2": "#000000",
-      "editorBracketPairGuide.background2": "#000000",
-      "editorBracketPairGuide.activeBackground3": "#000000",
-      "editorBracketPairGuide.background3": "#000000",
-      "editorBracketPairGuide.activeBackground4": "#000000",
-      "editorBracketPairGuide.background4": "#000000",
-      "editorBracketPairGuide.activeBackground5": "#000000",
-      "editorBracketPairGuide.background5": "#000000",
-      "editorBracketPairGuide.activeBackground6": "#000000",
-      "editorBracketPairGuide.background6": "#000000",
-      //
-      "editor.foldBackground": "#000000",
-      "editorOverviewRuler.background": "#000000",
-      "editorOverviewRuler.border": "#000000",
-      "editorOverviewRuler.findMatchForeground": "#000000",
-      "editorOverviewRuler.rangeHighlightForeground": "#000000",
-      "editorOverviewRuler.selectionHighlightForeground": "#000000",
-      "editorOverviewRuler.wordHighlightForeground": "#000000",
-      "editorOverviewRuler.wordHighlightStrongForeground": "#000000",
-      "editorOverviewRuler.modifiedForeground": "#000000",
-      "editorOverviewRuler.addedForeground": "#000000",
-      "editorOverviewRuler.deletedForeground": "#000000",
-      "editorOverviewRuler.errorForeground": "#000000",
-      "editorOverviewRuler.warningForeground": "#000000",
-      "editorOverviewRuler.infoForeground": "#000000",
-      "editorOverviewRuler.bracketMatchForeground": "#000000",
-      //
-      "editorError.foreground": "#000000",
-      "editorError.background": "#000000",
-      "editorError.border": "#000000",
-      "editorWarning.foreground": "#000000",
-      "editorWarning.background": "#000000",
-      "editorWarning.border": "#000000",
-      "editorInfo.foreground": "#000000",
-      "editorInfo.background": "#000000",
-      "editorInfo.border": "#000000",
-      "editorHint.foreground": "#000000",
-      "editorHint.border": "#000000",
-      "problemsErrorIcon.foreground": "#000000",
-      "problemsWarningIcon.foreground": "#000000",
-      "problemsInfoIcon.foreground": "#000000",
-      "editorUnnecessaryCode.border": "#000000",
-      "editorUnnecessaryCode.opacity": "#000000",
-      //
-      "editorGutter.background": "#000000",
-      "editorGutter.modifiedBackground": "#000000",
-      "editorGutter.addedBackground": "#000000",
-      "editorGutter.deletedBackground": "#000000",
-      "editorGutter.foldingControlForeground": "#000000",
-      //
-      "editorGutter.commentRangeForeground": "#000000",
-      "editorCommentsWidget.resolvedBorder": "#000000",
-      "editorCommentsWidget.unresolvedBorder": "#000000",
-      "editorCommentsWidget.rangeBackground": "#000000",
-      "editorCommentsWidget.rangeBorder": "#000000",
-      "editorCommentsWidget.rangeActiveBackground": "#000000",
-      "editorCommentsWidget.rangeActiveBorder": "#000000",
-      //
-      "diffEditor.insertedTextBackground": "#000000",
-      "diffEditor.insertedTextBorder": "#000000",
-      "diffEditor.removedTextBackground": "#000000",
-      "diffEditor.removedTextBorder": "#000000",
-      "diffEditor.border": "#000000",
-      "diffEditor.diagonalFill": "#000000",
-      "diffEditor.insertedLineBackground": "#000000",
-      "diffEditor.removedLineBackground": "#000000",
-      "diffEditorGutter.insertedLineBackground": "#000000",
-      "diffEditorGutter.removedLineBackground": "#000000",
-      "diffEditorOverview.insertedForeground": "#000000",
-      "diffEditorOverview.removedForeground": "#000000",
-      //
-      "editorWidget.foreground": "#000000",
-      "editorWidget.background": "#000000",
-      "editorWidget.border": "#000000",
-      "editorWidget.resizeBorder": "#000000",
-      "editorSuggestWidget.background": "#000000",
-      "editorSuggestWidget.border": "#000000",
-      "editorSuggestWidget.foreground": "#000000",
-      "editorSuggestWidget.focusHighlightForeground": "#000000",
-      "editorSuggestWidget.highlightForeground": "#000000",
-      "editorSuggestWidget.selectedBackground": "#000000",
-      "editorSuggestWidget.selectedForeground": "#000000",
-      "editorSuggestWidget.selectedIconForeground": "#000000",
-      "editorSuggestWidgetStatus.foreground": "#000000",
-      "editorHoverWidget.background": "#000000",
-      "editorHoverWidget.border": "#000000",
-      "editorHoverWidget.foreground": "#000000",
-      "editorHoverWidget.statusBarBackground": "#000000",
-      "editorHoverWidget.highlightForeground": "#000000",
-      "editorGhostText.background": "#000000",
-      "editorGhostText.border": "#000000",
-      "editorGhostText.foreground": "#000000",
-      "editorStickyScroll.background": "#000000",
-      "editorStickyScrollHover.background": "#000000",
-      "debugExceptionWidget.background": "#000000",
-      "debugExceptionWidget.border": "#000000",
-      "editorMarkerNavigation.background": "#000000",
-      "editorMarkerNavigationError.background": "#000000",
-      "editorMarkerNavigationError.headerBackground": "#000000",
-      "editorMarkerNavigationWarning.background": "#000000",
-      "editorMarkerNavigationWarning.headerBackground": "#000000",
-      "editorMarkerNavigationInfo.background": "#000000",
-      "editorMarkerNavigationInfo.headerBackground": "#000000",
-      "peekView.border": "#000000",
-      "peekViewEditor.background": "#000000",
-      "peekViewEditor.matchHighlightBackground": "#000000",
-      "peekViewEditorGutter.background": "#000000",
-      "peekViewEditor.matchHighlightBorder": "#000000",
-      "peekViewResult.background": "#000000",
-      "peekViewResult.fileForeground": "#000000",
-      "peekViewResult.lineForeground": "#000000",
-      "peekViewResult.matchHighlightBackground": "#000000",
-      "peekViewResult.selectionBackground": "#000000",
-      "peekViewResult.selectionForeground": "#000000",
-      "peekViewTitle.background": "#000000",
-      "peekViewTitleLabel.foreground": "#000000",
-      "peekViewTitleDescription.foreground": "#000000",
-      //
-      "merge.currentHeaderBackground": "#000000",
-      "merge.currentContentBackground": "#000000",
-      "merge.incomingHeaderBackground": "#000000",
-      "merge.incomingContentBackground": "#000000",
-      "merge.border": "#000000",
-      "merge.commonContentBackground": "#000000",
-      "merge.commonHeaderBackground": "#000000",
-      //
-      "editorOverviewRuler.currentContentForeground": "#000000",
-      "editorOverviewRuler.incomingContentForeground": "#000000",
-      "editorOverviewRuler.commonContentForeground": "#000000",
-      //
-      "mergeEditor.change.background": "#000000",
-      "mergeEditor.change.word.background": "#000000",
-      "mergeEditor.conflict.unhandledUnfocused.border": "#000000",
-      "mergeEditor.conflict.unhandledFocused.border": "#000000",
-      "mergeEditor.conflict.handledUnfocused.border": "#000000",
-      "mergeEditor.conflict.handledFocused.border": "#000000",
-      "mergeEditor.conflict.handled.minimapOverViewRuler": "#000000",
-      "mergeEditor.conflict.unhandled.minimapOverViewRuler": "#000000",
-      "mergeEditor.changeBase.background": "#000000",
-      "mergeEditor.changeBase.word.background": "#000000",
-      //
-      "panel.background": "#000000",
-      "panel.border": "#000000",
-      "panel.dropBorder": "#000000",
-      "panelTitle.activeForeground": "#000000",
-      "panelTitle.activeBorder": "#000000",
-      "panelTitle.inactiveForeground": "#000000",
-      "panelInput.border": "#000000",
-      "panelSection.border": "#000000",
-      "panelSection.dropBackground": "#000000",
-      "panelSectionHeader.background": "#000000",
-      "panelSectionHeader.foreground": "#000000",
-      "panelSectionHeader.border": "#000000",
-      //
-      "commandCenter.foreground": "#000000",
-      "commandCenter.background": "#000000",
-      "commandCenter.border": "#000000",
-      "commandCenter.activeForeground": "#000000",
-      "commandCenter.activeBackground": "#000000",
-      "commandCenter.activeBorder": "#000000",
-      "commandCenter.inactiveForeground": "#000000",
-      "commandCenter.inactiveBorder": "#000000",
-      //
-      "notificationCenter.border": "#000000",
-      "notificationCenterHeader.background": "#000000",
-      "notificationCenterHeader.foreground": "#000000",
-      "notificationToast.border": "#000000",
-      "notifications.foreground": "#000000",
-      "notifications.background": "#000000",
-      "notifications.border": "#000000",
-      "notificationLink.foreground": "#000000",
-      "notificationsErrorIcon.foreground": "#000000",
-      "notificationsWarningIcon.foreground": "#000000",
-      "notificationsInfoIcon.foreground": "#000000",
-      //
-      "banner.background": "#000000",
-      "banner.foreground": "#000000",
-      "banner.iconForeground": "#000000",
-      //
-      "terminal.background": "#000000",
-      "terminal.border": "#000000",
-      "terminal.foreground": "#000000",
-      //
-      "terminal.ansiBlack": "#000000",
-      "terminal.ansiBrightBlack": "#000000",
-      "terminal.ansiWhite": "#000000",
-      "terminal.ansiBrightWhite": "#000000",
-      "terminal.ansiRed": "#000000",
-      "terminal.ansiBrightRed": "#000000",
-      "terminal.ansiYellow": "#000000",
-      "terminal.ansiBrightYellow": "#000000",
-      "terminal.ansiGreen": "#000000",
-      "terminal.ansiBrightGreen": "#000000",
-      "terminal.ansiCyan": "#000000",
-      "terminal.ansiBrightCyan": "#000000",
-      "terminal.ansiBlue": "#000000",
-      "terminal.ansiBrightBlue": "#000000",
-      "terminal.ansiMagenta": "#000000",
-      "terminal.ansiBrightMagenta": "#000000",
-      //
-      "terminal.selectionBackground": "#000000",
-      "terminal.selectionForeground": null,
-      "terminal.inactiveSelectionBackground": "#000000",
-      "terminal.findMatchBackground": "#000000",
-      "terminal.findMatchBorder": "#000000",
-      "terminal.findMatchHighlightBackground": "#000000",
-      "terminal.findMatchHighlightBorder": "#000000",
-      "terminalCursor.background": "#000000",
-      "terminalCursor.foreground": "#000000",
-      "terminal.dropBackground": "#000000",
-      "terminal.tab.activeBorder": "#000000",
-      "terminalCommandDecoration.defaultBackground": "#000000",
-      "terminalCommandDecoration.errorBackground": "#000000",
-      "terminalCommandDecoration.successBackground": "#000000",
-      "terminalOverviewRuler.cursorForeground": "#000000",
-      "terminalOverviewRuler.findMatchForeground": "#000000",
-      //
-      "debugToolBar.background": "#000000",
-      "debugToolBar.border": "#000000",
-      "editor.stackFrameHighlightBackground": "#000000",
-      "editor.focusedStackFrameHighlightBackground": "#000000",
-      "editor.inlineValuesBackground": "#000000",
-      "editor.inlineValuesForeground": "#000000",
-      "debugView.exceptionLabelBackground": "#000000",
-      "debugView.exceptionLabelForeground": "#000000",
-      "debugView.stateLabelBackground": "#000000",
-      "debugView.stateLabelForeground": "#000000",
-      "debugView.valueChangedHighlight": "#000000",
-      "debugTokenExpression.name": "#000000",
-      "debugTokenExpression.value": "#000000",
-      "debugTokenExpression.boolean": "#000000",
-      "debugTokenExpression.error": "#000000",
-      "debugTokenExpression.number": "#000000",
-      "debugTokenExpression.string": "#000000",
-      //
-      "testing.iconFailed": "#000000",
-      "testing.iconErrored": "#000000",
-      "testing.iconPassed": "#000000",
-      "testing.iconQueued": "#000000",
-      "testing.iconSkipped": "#000000",
-      "testing.iconUnset": "#000000",
-      "testing.runAction": "#000000",
-      "testing.peekBorder": "#000000",
-      "testing.peekHeaderBackground": "#000000",
-      "testing.message.error.decorationForeground": "#000000",
-      "testing.message.error.lineBackground": "#000000",
-      "testing.message.info.decorationForeground": "#000000",
-      "testing.message.info.lineBackground": "#000000",
-      //
-      "welcomePage.background": "#000000",
-      "welcomePage.tileBackground": "#000000",
-      "welcomePage.tileHoverBackground": "#000000",
-      "welcomePage.tileBorder": "#000000",
-      "welcomePage.progress.background": "#000000",
-      "welcomePage.progress.foreground": "#000000",
-      "walkThrough.embeddedEditorBackground": "#000000",
-      "walkthrough.stepTitle.foreground": "#000000",
-      //
-      "scm.providerBorder": "#000000",
-      //
-      "gitDecoration.addedResourceForeground": "#000000",
-      "gitDecoration.modifiedResourceForeground": "#000000",
-      "gitDecoration.deletedResourceForeground": "#000000",
-      "gitDecoration.conflictingResourceForeground": "#000000",
-      "gitDecoration.ignoredResourceForeground": "#000000",
-      "gitDecoration.renamedResourceForeground": "#000000",
-      "gitDecoration.stageDeletedResourceForeground": "#000000",
-      "gitDecoration.stageModifiedResourceForeground": "#000000",
-      "gitDecoration.submoduleResourceForeground": "#000000",
-      "gitDecoration.untrackedResourceForeground": "#000000",
-      //
-      "settings.headerForeground": "#000000",
-      "settings.modifiedItemIndicator": "#000000",
-      "settings.dropdownBackground": "#000000",
-      "settings.dropdownForeground": "#000000",
-      "settings.dropdownBorder": "#000000",
-      "settings.dropdownListBorder": "#000000",
-      "settings.checkboxBackground": "#000000",
-      "settings.checkboxBorder": "#000000",
-      "settings.checkboxForeground": "#000000",
-      "settings.rowHoverBackground": "#000000",
-      "settings.textInputBackground": "#000000",
-      "settings.textInputForeground": "#000000",
-      "settings.textInputBorder": "#000000",
-      "settings.numberInputBackground": "#000000",
-      "settings.numberInputForeground": "#000000",
-      "settings.numberInputBorder": "#000000",
-      "settings.focusedRowBackground": "#000000",
-      "settings.focusedRowBorder": "#000000",
-      "settings.headerBorder": "#000000",
-      "settings.sashBorder": "#000000",
-      //
-      "breadcrumb.background": "#000000",
-      "breadcrumb.foreground": "#000000",
-      "breadcrumb.activeSelectionForeground": "#000000",
-      "breadcrumb.focusForeground": "#000000",
-      "breadcrumbPicker.background": "#000000",
-      //
-      "editor.snippetFinalTabstopHighlightBackground": "#000000",
-      "editor.snippetFinalTabstopHighlightBorder": "#000000",
-      "editor.snippetTabstopHighlightBackground": "#000000",
-      "editor.snippetTabstopHighlightBorder": "#000000",
-      //
-      "symbolIcon.constantForeground": "#000000",
-      "symbolIcon.colorForeground": "#000000",
-      "symbolIcon.enumeratorForeground": "#000000",
-      "symbolIcon.enumeratorMemberForeground": "#000000",
-      "symbolIcon.eventForeground": "#000000",
-      "symbolIcon.functionForeground": "#000000",
-      "symbolIcon.fieldForeground": "#000000",
-      "symbolIcon.fileForeground": "#000000",
-      "symbolIcon.folderForeground": "#000000",
-      "symbolIcon.interfaceForeground": "#000000",
-      "symbolIcon.variableForeground": "#000000",
-      "symbolIcon.moduleForeground": "#000000",
-      "symbolIcon.arrayForeground": "#000000",
-      "symbolIcon.booleanForeground": "#000000",
-      "symbolIcon.operatorForeground": "#000000",
-      "symbolIcon.propertyForeground": "#000000",
-      "symbolIcon.referenceForeground": "#000000",
-      "symbolIcon.snippetForeground": "#000000",
-      "symbolIcon.structForeground": "#000000",
-      "symbolIcon.textForeground": "#000000",
-      "symbolIcon.typeParameterForeground": "#000000",
-      "symbolIcon.unitForeground": "#000000",
-      "symbolIcon.nullForeground": "#000000",
-      "symbolIcon.classForeground": "#000000",
-      "symbolIcon.methodForeground": "#000000",
-      "symbolIcon.stringForeground": "#000000",
-      "symbolIcon.constructorForeground": "#000000",
-      "symbolIcon.numberForeground": "#000000",
-      "symbolIcon.objectForeground": "#000000",
-      "symbolIcon.keyForeground": "#000000",
-      "symbolIcon.keywordForeground": "#000000",
-      "symbolIcon.namespaceForeground": "#000000",
-      "symbolIcon.packageForeground": "#000000",
-      //
-      "debugIcon.breakpointForeground": "#000000",
-      "debugIcon.breakpointDisabledForeground": "#000000",
-      "debugIcon.breakpointUnverifiedForeground": "#000000",
-      "debugIcon.breakpointCurrentStackframeForeground": "#000000",
-      "debugIcon.breakpointStackframeForeground": "#000000",
-      "debugIcon.continueForeground": "#000000",
-      "debugIcon.startForeground": "#000000",
-      "debugIcon.pauseForeground": "#000000",
-      "debugIcon.stopForeground": "#000000",
-      "debugIcon.disconnectForeground": "#000000",
-      "debugIcon.restartForeground": "#000000",
-      "debugIcon.stepOverForeground": "#000000",
-      "debugIcon.stepIntoForeground": "#000000",
-      "debugIcon.stepOutForeground": "#000000",
-      "debugIcon.stepBackForeground": "#000000",
-      "debugConsole.infoForeground": "#000000",
-      "debugConsole.warningForeground": "#000000",
-      "debugConsole.errorForeground": "#000000",
-      "debugConsole.sourceForeground": "#000000",
-      "debugConsoleInputIcon.foreground": "#000000",
-      //
-      "interactive.activeCodeBorder": "#000000",
-      "interactive.inactiveCodeBorder": "#000000",
-      //
-      "notebook.editorBackground": "#000000",
-      "notebook.cellBorderColor": "#000000",
-      "notebook.cellEditorBackground": "#000000",
-      "notebook.cellHoverBackground": "#000000",
-      "notebook.cellInsertionIndicator": "#000000",
-      "notebook.cellStatusBarItemHoverBackground": "#000000",
-      "notebook.cellToolbarSeparator": "#000000",
-      "notebook.focusedCellBackground": "#000000",
-      "notebook.focusedCellBorder": "#000000",
-      "notebook.focusedEditorBorder": "#000000",
-      "notebook.inactiveFocusedCellBorder": "#000000",
-      "notebook.selectedCellBackground": "#000000",
-      "notebook.outputContainerBackgroundColor": "#000000",
-      "notebook.outputContainerBorderColor": "#000000",
-      "notebook.inactiveSelectedCellBorder": "#000000",
-      "notebook.selectedCellBorder": "#000000",
-      "notebookStatusErrorIcon.foreground": "#000000",
-      "notebookStatusRunningIcon.foreground": "#000000",
-      "notebookStatusSuccessIcon.foreground": "#000000",
-      "notebookScrollbarSlider.hoverBackground": "#000000",
-      "notebookScrollbarSlider.activeBackground": "#000000",
-      "notebookScrollbarSlider.background": "#000000",
-      "notebook.symbolHighlightBackground": "#000000",
-      //
-      "charts.foreground": "#000000",
-      "charts.blue": "#000000",
-      "charts.green": "#000000",
-      "charts.lines": "#000000",
-      "charts.orange": "#000000",
-      "charts.purple": "#000000",
-      "charts.red": "#000000",
-      "charts.yellow": "#000000",
-      //
-      "ports.iconRunningProcessForeground": "#000000"
+      // @{VSCODE: v1.78.2}
+      // activityBar | @{VSCODE}
+      "activityBar.activeBackground": colors.D_BG_LAYER.value,
+      "activityBar.activeBorder": colors.D_FILL_ACCENT_PRI.value,
+      "activityBar.activeFocusBorder": colors.D_BASIC_NEU_PRI.value,
+      "activityBar.background": colors.D_BG_SOLID_BASE.value,
+      "activityBar.border": colors.D_STROKE_DIVIDER.value,
+      "activityBar.dropBorder": colors.D_FILL_ACCENT_PRI.value,
+      "activityBar.foreground": colors.D_FILL_TEXT_PRI.value,
+      "activityBar.inactiveForeground": colors.D_FILL_TEXT_SEC.value,
+      "activityBarBadge.background": colors.D_FILL_ACCENT_PRI.value,
+      "activityBarBadge.foreground": colors.D_FILL_TEXT_ON_COLOR_PRI.value,
+      // badge | @{VSCODE}
+      "badge.background": colors.D_FILL_ACCENT_PRI.value,
+      "badge.foreground": colors.D_FILL_TEXT_ON_COLOR_PRI.value,
+      // banner | @{VSCODE}
+      "banner.background": colors.D_FILL_ACCENT_PRI.value,
+      "banner.foreground": colors.D_FILL_TEXT_ON_COLOR_PRI.value,
+      "banner.iconForeground": colors.D_FILL_TEXT_ON_COLOR_PRI.value,
+      // breadcrumb | @{VSCODE}
+      "breadcrumb.activeSelectionForeground": colors.D_FILL_ACCENT_TEXT_PRI.value,
+      "breadcrumb.background": colors.D_BG_SOLID_BASE.value,
+      "breadcrumb.focusForeground": colors.D_FILL_TEXT_PRI.value,
+      "breadcrumb.foreground": colors.D_FILL_TEXT_SEC.value,
+      // breadcrumbPicker | @{VSCODE}
+      "breadcrumbPicker.background": colors.D_BG_SOLID_ON_CANVAS.value,
+      // button | @{VSCODE}
+      "button.background": colors.D_FILL_ACCENT_PRI.value,
+      "button.border": colors.D_STROKE_CONTROL.value,
+      "button.foreground": colors.D_FILL_TEXT_ON_COLOR_PRI.value,
+      "button.hoverBackground": colors.D_FILL_ACCENT_SEC.value,
+      "button.secondaryBackground": colors.D_FILL_CONTROL_PRI.value,
+      "button.secondaryForeground": colors.D_FILL_TEXT_PRI.value,
+      "button.secondaryHoverBackground": colors.D_FILL_CONTROL_SEC.value,
+      "button.separator": colors.D_FILL_TEXT_ON_COLOR_PRI.value,
+      // charts | @{VSCODE}
+      "charts.blue": colors.D_BASIC_DEF_BLUE_PRI.value,
+      "charts.foreground": colors.D_FILL_TEXT_ON_COLOR_PRI.value,
+      "charts.green": colors.D_BASIC_DEF_GREEN_PRI.value,
+      "charts.lines": colors.D_STROKE_DIVIDER.value,
+      "charts.orange": colors.D_BASIC_DEF_ORANGE_PRI.value,
+      "charts.purple": colors.D_BASIC_DEF_PURPLE_PRI.value,
+      "charts.red": colors.D_BASIC_DEF_RED_PRI.value,
+      "charts.yellow": colors.D_BASIC_DEF_YELLOW_PRI.value,
+      // checkbox | @{VSCODE}
+      "checkbox.background": colors.D_FILL_CONTROL_ALT.value,
+      "checkbox.border": colors.D_STROKE_CONTROL_STRONG.value,
+      "checkbox.foreground": colors.D_FILL_TEXT_ON_COLOR_PRI.value,
+      "checkbox.selectBackground": colors.D_FILL_ACCENT_PRI.value,
+      // commandCenter | @{VSCODE}
+      "commandCenter.activeBackground": colors.D_FILL_CONTROL_SEC.value,
+      "commandCenter.activeBorder": colors.D_STROKE_CONTROL.value,
+      "commandCenter.activeForeground": colors.D_FILL_TEXT_PRI.value,
+      "commandCenter.background": colors.D_FILL_CONTROL_PRI.value,
+      "commandCenter.border": colors.D_STROKE_CONTROL.value,
+      "commandCenter.foreground": colors.D_FILL_TEXT_SEC.value,
+      "commandCenter.inactiveBorder": colors.D_FILL_CONTROL_SEC.value,
+      "commandCenter.inactiveForeground": colors.D_FILL_TEXT_DIS.value,
+      // contrast | @{VSCODE}
+      "contrastActiveBorder": colors.DL_TRANSPARENT.value,
+      "contrastBorder": colors.DL_TRANSPARENT.value,
+      // debugConsole | @{VSCODE}
+      "debugConsole.errorForeground": colors.D_BASIC_DEF_RED_PRI.value,
+      "debugConsole.infoForeground": colors.D_BASIC_DEF_BLUE_PRI.value,
+      "debugConsole.sourceForeground": colors.D_FILL_TEXT_PRI.value,
+      "debugConsole.warningForeground": colors.D_BASIC_DEF_ORANGE_PRI.value,
+      "debugConsoleInputIcon.foreground": colors.D_FILL_ACCENT_PRI.value,
+      // debugExceptionWidget | @{VSCODE}
+      "debugExceptionWidget.background": colors.D_BASIC_LC_RED_PRI.value,
+      "debugExceptionWidget.border": colors.D_STROKE_SURFACE_FLYOUT.value,
+      // debugIcon | @{VSCODE}
+      "debugIcon.breakpointCurrentStackframeForeground": colors.D_BASIC_DEF_YELLOW_PRI.value,
+      "debugIcon.breakpointDisabledForeground": colors.D_FILL_TEXT_DIS.value,
+      "debugIcon.breakpointForeground": colors.D_BASIC_DEF_RED_PRI.value,
+      "debugIcon.breakpointStackframeForeground": colors.D_BASIC_DEF_YELLOW_TER.value,
+      "debugIcon.breakpointUnverifiedForeground": colors.D_BASIC_DEF_ORANGE_PRI.value,
+      "debugIcon.continueForeground": colors.D_BASIC_DEF_GREEN_PRI.value,
+      "debugIcon.disconnectForeground": colors.D_BASIC_DEF_RED_PRI.value,
+      "debugIcon.pauseForeground": colors.D_BASIC_DEF_YELLOW_PRI.value,
+      "debugIcon.restartForeground": colors.D_BASIC_DEF_GREEN_PRI.value,
+      "debugIcon.startForeground": colors.D_BASIC_DEF_GREEN_PRI.value,
+      "debugIcon.stepBackForeground": colors.D_BASIC_DEF_BLUE_PRI.value,
+      "debugIcon.stepIntoForeground": colors.D_BASIC_DEF_BLUE_PRI.value,
+      "debugIcon.stepOutForeground": colors.D_BASIC_DEF_BLUE_PRI.value,
+      "debugIcon.stepOverForeground": colors.D_BASIC_DEF_BLUE_PRI.value,
+      "debugIcon.stopForeground": colors.D_BASIC_DEF_RED_PRI.value,
+      // debugTokenExpression | @{VSCODE}
+      "debugTokenExpression.boolean": colors.D_BASIC_DEF_BLUE_PRI.value,
+      "debugTokenExpression.error": colors.D_BASIC_DEF_RED_PRI.value,
+      "debugTokenExpression.name": colors.D_FILL_ACCENT_TEXT_PRI.value,
+      "debugTokenExpression.number": colors.D_BASIC_ALT_GREEN_PRI.value,
+      "debugTokenExpression.string": colors.D_BASIC_DEF_BROWN_PRI.value,
+      "debugTokenExpression.value": colors.D_BASIC_DEF_MINT_PRI.value,
+      // debugView | @{VSCODE}
+      "debugView.exceptionLabelBackground": colors.D_BASIC_DEF_RED_PRI.value,
+      "debugView.exceptionLabelForeground": colors.D_FILL_TEXT_ON_COLOR_PRI.value,
+      "debugView.stateLabelBackground": colors.D_BG_LAYER.value,
+      "debugView.stateLabelForeground": colors.D_FILL_TEXT_PRI.value,
+      "debugView.valueChangedHighlight": colors.D_BASIC_ALT_BLUE_PRI.value,
+      // descriptionForeground | @{VSCODE}
+      "descriptionForeground": colors.D_FILL_TEXT_SEC.value,
+      // diffEditor | @{VSCODE}
+      "diffEditor.border": colors.D_STROKE_DIVIDER.value,
+      "diffEditor.diagonalFill": colors.D_STROKE_DIVIDER.value,
+      "diffEditor.insertedLineBackground": colors.D_BASIC_DEF_GREEN_QUI.value,
+      "diffEditor.insertedTextBackground": colors.D_BASIC_DEF_GREEN_QUA.value,
+      "diffEditor.insertedTextBorder": colors.DL_TRANSPARENT.value,
+      "diffEditor.removedLineBackground": colors.D_BASIC_DEF_RED_QUI.value,
+      "diffEditor.removedTextBackground": colors.D_BASIC_DEF_RED_QUA.value,
+      "diffEditor.removedTextBorder": colors.DL_TRANSPARENT.value,
+      // disabledForeground | @{VSCODE}
+      "disabledForeground": colors.D_FILL_TEXT_DIS.value,
+      // dropdown | @{VSCODE}
+      "dropdown.background": colors.D_FILL_CONTROL_PRI.value,
+      "dropdown.border": colors.D_STROKE_CONTROL.value,
+      "dropdown.foreground": colors.D_FILL_TEXT_PRI.value,
+      "dropdown.listBackground": colors.D_BG_SOLID_FLYOUT.value,
+      // editor | @{VSCODE}
+      "editor.background": colors.D_BG_SOLID_CANVAS.value,
+      "editor.findMatchBackground": colors.D_BASIC_DEF_MINT_QUA.value,
+      "editor.findMatchBorder": colors.D_STROKE_CONTROL.value,
+      "editor.findMatchHighlightBackground": colors.D_BASIC_DEF_MINT_QUI.value,
+      "editor.findMatchHighlightBorder": colors.D_STROKE_CONTROL.value,
+      "editor.findRangeHighlightBackground": colors.D_BASIC_NEU_SEP.value,
+      "editor.findRangeHighlightBorder": null,
+      "editor.focusedStackFrameHighlightBackground": colors.D_BASIC_DEF_YELLOW_QUI.value,
+      "editor.foldBackground": colors.D_BASIC_NEU_SEP.value,
+      "editor.foreground": colors.D_FILL_TEXT_SEC.value,
+      "editor.hoverHighlightBackground": colors.D_BASIC_NEU_SEP.value,
+      "editor.inactiveSelectionBackground": colors.D_BASIC_NEU_SEP.value,
+      "editor.inlineValuesBackground": colors.D_BASIC_DEF_YELLOW_QUI.value,
+      "editor.inlineValuesForeground": colors.D_BASIC_DEF_YELLOW_PRI.value,
+      "editor.lineHighlightBackground": null,
+      "editor.lineHighlightBorder": colors.D_STROKE_CONTROL.value,
+      "editor.linkedEditingBackground": colors.D_BASIC_DEF_BLUE_QUA.value,
+      "editor.rangeHighlightBackground": colors.D_BASIC_NEU_SEP.value,
+      "editor.rangeHighlightBorder": null,
+      "editor.selectionBackground": colors.D_BASIC_NEU_SEN.value,
+      "editor.selectionForeground": colors.D_FILL_TEXT_PRI.value,
+      "editor.selectionHighlightBackground": colors.D_BASIC_NEU_SEP.value,
+      "editor.selectionHighlightBorder": colors.D_STROKE_CONTROL.value,
+      "editor.snippetFinalTabstopHighlightBackground": null,
+      "editor.snippetFinalTabstopHighlightBorder": colors.D_BASIC_DEF_BLUE_PRI.value,
+      "editor.snippetTabstopHighlightBackground": colors.D_BASIC_DEF_BLUE_QUA.value,
+      "editor.snippetTabstopHighlightBorder": colors.D_STROKE_CONTROL.value,
+      "editor.stackFrameHighlightBackground": colors.D_BASIC_DEF_YELLOW_QUA.value,
+      "editor.symbolHighlightBackground": null,
+      "editor.symbolHighlightBorder": colors.D_BASIC_DEF_PURPLE_PRI.value,
+      "editor.wordHighlightBackground": colors.D_BASIC_LC_PINK_QUA.value,
+      "editor.wordHighlightBorder": colors.D_STROKE_CONTROL.value,
+      "editor.wordHighlightStrongBackground": colors.D_BASIC_DEF_PURPLE_QUA.value,
+      "editor.wordHighlightStrongBorder": colors.D_STROKE_CONTROL.value,
+      "editor.wordHighlightTextBackground": colors.D_BASIC_LC_PINK_QUA.value,
+      "editor.wordHighlightTextBorder": colors.D_STROKE_CONTROL.value,
+      // editorBracketHighlight | @{VSCODE}
+      "editorBracketHighlight.foreground1": colors.D_BASIC_ALT_YELLOW_PRI.value,
+      "editorBracketHighlight.foreground2": colors.D_BASIC_ALT_ORANGE_PRI.value,
+      "editorBracketHighlight.foreground3": colors.D_BASIC_ALT_RED_PRI.value,
+      "editorBracketHighlight.foreground4": colors.D_BASIC_ALT_PURPLE_PRI.value,
+      "editorBracketHighlight.foreground5": colors.D_BASIC_ALT_BLUE_PRI.value,
+      "editorBracketHighlight.foreground6": colors.D_BASIC_ALT_GREEN_PRI.value,
+      "editorBracketHighlight.unexpectedBracket.foreground": colors.D_BASIC_DEF_RED_PRI.value,
+      // editorBracketMatch | @{VSCODE}
+      "editorBracketMatch.background": colors.D_BASIC_DEF_PINK_QUA.value,
+      "editorBracketMatch.border": colors.D_STROKE_CONTROL.value,
+      // editorCodeLens | @{VSCODE}
+      "editorCodeLens.foreground": colors.D_FILL_TEXT_TER.value,
+      // editorCommentsWidget | @{VSCODE}
+      "editorCommentsWidget.rangeActiveBackground": colors.D_BASIC_DEF_BLUE_QUA.value,
+      "editorCommentsWidget.rangeActiveBorder": colors.DL_TRANSPARENT.value,
+      "editorCommentsWidget.rangeBackground": colors.D_BASIC_DEF_BLUE_QUI.value,
+      "editorCommentsWidget.rangeBorder": colors.DL_TRANSPARENT.value,
+      "editorCommentsWidget.resolvedBorder": colors.D_BASIC_DEF_GREEN_PRI.value,
+      "editorCommentsWidget.unresolvedBorder": colors.D_BASIC_DEF_RED_PRI.value,
+      // editorCursor | @{VSCODE}
+      "editorCursor.background": colors.D_FILL_TEXT_ON_COLOR_PRI.value,
+      "editorCursor.foreground": colors.D_FILL_ACCENT_PRI.value,
+      // editorError | @{VSCODE}
+      "editorError.background": null,
+      "editorError.border": null,
+      "editorError.foreground": colors.D_BASIC_DEF_RED_PRI.value,
+      // editorGhostText | @{VSCODE}
+      "editorGhostText.background": null,
+      "editorGhostText.border": null,
+      "editorGhostText.foreground": colors.D_FILL_TEXT_DIS.value,
+      // editorGroup | @{VSCODE}
+      "editorGroup.border": colors.D_STROKE_DIVIDER.value,
+      "editorGroup.dropBackground": colors.D_BG_SMOKE.value,
+      "editorGroup.dropIntoPromptBackground": colors.D_BG_SOLID_FLYOUT.value,
+      "editorGroup.dropIntoPromptBorder": colors.D_STROKE_SURFACE_FLYOUT.value,
+      "editorGroup.dropIntoPromptForeground": colors.D_FILL_TEXT_PRI.value,
+      "editorGroup.emptyBackground": colors.D_BG_SOLID_BASE.value,
+      "editorGroup.focusedEmptyBorder": null,
+      // editorGroupHeader | @{VSCODE}
+      "editorGroupHeader.border": colors.D_STROKE_DIVIDER.value,
+      "editorGroupHeader.noTabsBackground": colors.D_BG_SOLID_BASE.value,
+      "editorGroupHeader.tabsBackground": colors.D_BG_SOLID_BASE.value,
+      "editorGroupHeader.tabsBorder": colors.D_STROKE_DIVIDER.value,
+      // editorGutter | @{VSCODE}
+      "editorGutter.addedBackground": colors.D_BASIC_DEF_GREEN_PRI.value,
+      "editorGutter.background": colors.D_BG_SOLID_BASE.value,
+      "editorGutter.commentGlyphForeground": colors.D_BASIC_NEU_QUA.value,
+      "editorGutter.commentRangeForeground": colors.D_BG_SOLID_ON_CANVAS.value,
+      "editorGutter.commentUnresolvedGlyphForeground": colors.D_BASIC_DEF_BLUE_PRI.value,
+      "editorGutter.deletedBackground": colors.D_BASIC_DEF_RED_PRI.value,
+      "editorGutter.foldingControlForeground": colors.D_BASIC_NEU_QUA.value,
+      "editorGutter.modifiedBackground": colors.D_BASIC_DEF_BLUE_PRI.value,
+      // editorHint | @{VSCODE}
+      "editorHint.border": null,
+      "editorHint.foreground": colors.D_BASIC_NEU_PRI.value,
+      // editorHoverWidget | @{VSCODE}
+      "editorHoverWidget.background": colors.D_BG_SOLID_FLYOUT.value,
+      "editorHoverWidget.border": colors.D_STROKE_SURFACE_FLYOUT.value,
+      "editorHoverWidget.foreground": colors.D_FILL_TEXT_PRI.value,
+      "editorHoverWidget.highlightForeground": colors.D_FILL_TEXT_ON_COLOR_PRI.value,
+      "editorHoverWidget.statusBarBackground": colors.D_BG_LAYER.value,
+      // editorIndentGuide | @{VSCODE}
+      "editorIndentGuide.activeBackground": colors.D_BASIC_NEU_QUA.value,
+      "editorIndentGuide.background": colors.D_BASIC_NEU_QUI.value,
+      // editorInfo | @{VSCODE}
+      "editorInfo.background": null,
+      "editorInfo.border": null,
+      "editorInfo.foreground": colors.D_BASIC_DEF_BLUE_PRI.value,
+      // editorInlayHint | @{VSCODE}
+      "editorInlayHint.background": colors.D_BASIC_NEU_SEN.value,
+      "editorInlayHint.foreground": colors.D_FILL_TEXT_SEC.value,
+      "editorInlayHint.parameterBackground": colors.D_BASIC_LC_ORANGE_PRI.value,
+      "editorInlayHint.parameterForeground": colors.D_BASIC_ALT_ORANGE_PRI.value,
+      "editorInlayHint.typeBackground": colors.D_BASIC_LC_MINT_PRI.value,
+      "editorInlayHint.typeForeground": colors.D_BASIC_DEF_MINT_PRI.value,
+      // editorLightBulb | @{VSCODE}
+      "editorLightBulb.foreground": colors.D_BASIC_DEF_YELLOW_PRI.value,
+      "editorLightBulbAutoFix.foreground": colors.D_BASIC_DEF_YELLOW_PRI.value,
+      // editorLineNumber | @{VSCODE}
+      "editorLineNumber.activeForeground": colors.D_FILL_TEXT_PRI.value,
+      "editorLineNumber.dimmedForeground": colors.D_FILL_TEXT_DIS.value,
+      "editorLineNumber.foreground": colors.D_FILL_TEXT_TER.value,
+      // editorLink | @{VSCODE}
+      "editorLink.activeForeground": colors.D_FILL_ACCENT_TEXT_PRI.value,
+      // editorMarkerNavigation | @{VSCODE}
+      "editorMarkerNavigation.background": colors.D_BG_SOLID_FLYOUT.value,
+      "editorMarkerNavigationError.background": colors.D_BASIC_DEF_RED_PRI.value,
+      "editorMarkerNavigationError.headerBackground": colors.D_BASIC_LC_RED_PRI.value,
+      "editorMarkerNavigationInfo.background": colors.D_BASIC_DEF_BLUE_PRI.value,
+      "editorMarkerNavigationInfo.headerBackground": colors.D_BASIC_LC_BLUE_PRI.value,
+      "editorMarkerNavigationWarning.background": colors.D_BASIC_DEF_ORANGE_PRI.value,
+      "editorMarkerNavigationWarning.headerBackground": colors.D_BASIC_LC_ORANGE_PRI.value,
+      // editorOverviewRuler | @{VSCODE}
+      "editorOverviewRuler.addedForeground": colors.D_BASIC_DEF_GREEN_SEC.value,
+      "editorOverviewRuler.background": colors.D_BG_SOLID_BASE.value,
+      "editorOverviewRuler.border": colors.D_STROKE_CONTROL.value,
+      "editorOverviewRuler.bracketMatchForeground": colors.D_BASIC_DEF_BROWN_SEC.value,
+      "editorOverviewRuler.commonContentForeground": colors.D_BASIC_NEU_QUA.value,
+      "editorOverviewRuler.currentContentForeground": colors.D_BASIC_DEF_MINT_TER.value,
+      "editorOverviewRuler.deletedForeground": colors.D_BASIC_DEF_RED_SEC.value,
+      "editorOverviewRuler.errorForeground": colors.D_BASIC_DEF_RED_PRI.value,
+      "editorOverviewRuler.findMatchForeground": colors.D_BASIC_DEF_MINT_SEC.value,
+      "editorOverviewRuler.incomingContentForeground": colors.D_BASIC_DEF_BLUE_TER.value,
+      "editorOverviewRuler.infoForeground": colors.D_BASIC_DEF_BLUE_PRI.value,
+      "editorOverviewRuler.modifiedForeground": colors.D_BASIC_DEF_BLUE_SEC.value,
+      "editorOverviewRuler.rangeHighlightForeground": colors.D_BASIC_NEU_SEP.value,
+      "editorOverviewRuler.selectionHighlightForeground": colors.D_BASIC_NEU_SEN.value,
+      "editorOverviewRuler.warningForeground": colors.D_BASIC_DEF_ORANGE_PRI.value,
+      "editorOverviewRuler.wordHighlightForeground": colors.D_BASIC_DEF_PINK_SEC.value,
+      "editorOverviewRuler.wordHighlightStrongForeground": colors.D_BASIC_DEF_PURPLE_SEC.value,
+      "editorOverviewRuler.wordHighlightTextForeground": colors.D_BASIC_DEF_PINK_SEC.value,
+      // editorPane | @{VSCODE}
+      "editorPane.background": colors.D_BG_SOLID_BASE.value,
+      // editorRuler | @{VSCODE}
+      "editorRuler.foreground": colors.D_STROKE_DIVIDER.value,
+      // editorStickyScroll | @{VSCODE}
+      "editorStickyScroll.background": colors.D_BG_SOLID_SURFACE.value,
+      "editorStickyScrollHover.background": colors.D_FILL_CONTROL_PRI.value,
+      // editorSuggestWidget | @{VSCODE}
+      "editorSuggestWidget.background": colors.D_BG_SOLID_FLYOUT.value,
+      "editorSuggestWidget.border": colors.D_STROKE_SURFACE_FLYOUT.value,
+      "editorSuggestWidget.focusHighlightForeground": colors.D_FILL_ACCENT_TEXT_PRI.value,
+      "editorSuggestWidget.foreground": colors.D_FILL_TEXT_SEC.value,
+      "editorSuggestWidget.highlightForeground": colors.D_FILL_ACCENT_TEXT_PRI.value,
+      "editorSuggestWidget.selectedBackground": colors.D_FILL_CONTROL_PRI.value,
+      "editorSuggestWidget.selectedForeground": colors.D_FILL_TEXT_PRI.value,
+      "editorSuggestWidget.selectedIconForeground": colors.D_FILL_TEXT_PRI.value,
+      "editorSuggestWidgetStatus.foreground": colors.D_FILL_ACCENT_PRI.value,
+      // editorUnicodeHighlight | @{VSCODE}
+      "editorUnicodeHighlight.background": null,
+      "editorUnicodeHighlight.border": colors.D_BASIC_DEF_YELLOW_PRI.value,
+      // editorUnnecessaryCode | @{VSCODE}
+      "editorUnnecessaryCode.border": null,
+      "editorUnnecessaryCode.opacity": colors.D_BASIC_NEU_QUA.value,
+      // editorWarning | @{VSCODE}
+      "editorWarning.background": null,
+      "editorWarning.border": null,
+      "editorWarning.foreground": colors.D_BASIC_DEF_ORANGE_PRI.value,
+      // editorWhitespace | @{VSCODE}
+      "editorWhitespace.foreground": colors.D_FILL_TEXT_DIS.value,
+      // editorWidget | @{VSCODE}
+      "editorWidget.background": colors.D_BG_SOLID_FLYOUT.value,
+      "editorWidget.border": colors.D_STROKE_SURFACE_FLYOUT.value,
+      "editorWidget.foreground": colors.D_FILL_TEXT_PRI.value,
+      "editorWidget.resizeBorder": colors.D_FILL_ACCENT_PRI.value,
+      // errorForeground | @{VSCODE}
+      "errorForeground": colors.D_BASIC_DEF_RED_PRI.value,
+      // extensionBadge | @{VSCODE}
+      "extensionBadge.remoteBackground": colors.D_BASIC_DEF_BLUE_PRI.value,
+      "extensionBadge.remoteForeground": colors.D_FILL_TEXT_ON_COLOR_PRI.value,
+      // extensionButton | @{VSCODE}
+      "extensionButton.background": colors.D_FILL_ACCENT_PRI.value,
+      "extensionButton.foreground": colors.D_FILL_TEXT_ON_COLOR_PRI.value,
+      "extensionButton.hoverBackground": colors.D_FILL_ACCENT_SEC.value,
+      "extensionButton.prominentBackground": colors.D_FILL_ACCENT_PRI.value,
+      "extensionButton.prominentForeground": colors.D_FILL_TEXT_ON_COLOR_PRI.value,
+      "extensionButton.prominentHoverBackground": colors.D_FILL_ACCENT_SEC.value,
+      "extensionButton.separator": colors.D_FILL_TEXT_ON_COLOR_PRI.value,
+      // extensionIcon | @{VSCODE}
+      "extensionIcon.preReleaseForeground": colors.D_BASIC_DEF_MINT_PRI.value,
+      "extensionIcon.sponsorForeground": colors.D_BASIC_DEF_RED_PRI.value,
+      "extensionIcon.starForeground": colors.D_BASIC_DEF_YELLOW_PRI.value,
+      "extensionIcon.verifiedForeground": colors.D_BASIC_DEF_BLUE_PRI.value,
+      // focusBorder | @{VSCODE}
+      "focusBorder": colors.D_STROKE_FOCUS.value,
+      // foreground | @{VSCODE}
+      "foreground": colors.D_FILL_TEXT_PRI.value,
+      // gitDecoration | @{VSCODE}
+      "gitDecoration.addedResourceForeground": colors.D_BASIC_DEF_GREEN_PRI.value,
+      "gitDecoration.conflictingResourceForeground": colors.D_BASIC_DEF_ORANGE_PRI.value,
+      "gitDecoration.deletedResourceForeground": colors.D_BASIC_DEF_RED_PRI.value,
+      "gitDecoration.ignoredResourceForeground": colors.D_FILL_TEXT_TER.value,
+      "gitDecoration.modifiedResourceForeground": colors.D_BASIC_DEF_BLUE_PRI.value,
+      "gitDecoration.renamedResourceForeground": colors.D_BASIC_DEF_YELLOW_PRI.value,
+      "gitDecoration.stageDeletedResourceForeground": colors.D_BASIC_ALT_RED_PRI.value,
+      "gitDecoration.stageModifiedResourceForeground": colors.D_BASIC_ALT_BLUE_PRI.value,
+      "gitDecoration.submoduleResourceForeground": colors.D_BASIC_DEF_MINT_PRI.value,
+      "gitDecoration.untrackedResourceForeground": colors.D_BASIC_ALT_GREEN_PRI.value,
+      // input | @{VSCODE}
+      "input.background": colors.D_FILL_CONTROL_PRI.value,
+      "input.border": colors.D_STROKE_CONTROL.value,
+      "input.foreground": colors.D_FILL_TEXT_PRI.value,
+      "input.placeholderForeground": colors.D_FILL_TEXT_SEC.value,
+      // inputOption | @{VSCODE}
+      "inputOption.activeBackground": colors.D_FILL_ACCENT_PRI.value,
+      "inputOption.activeBorder": colors.D_STROKE_CONTROL.value,
+      "inputOption.activeForeground": colors.D_FILL_TEXT_ON_COLOR_PRI.value,
+      "inputOption.hoverBackground": colors.D_FILL_CONTROL_PRI.value,
+      // inputValidation | @{VSCODE}
+      "inputValidation.errorBackground": colors.D_FILL_SYSTEM_BG_CRITICAL.value,
+      "inputValidation.errorBorder": colors.D_BASIC_DEF_RED_QUA.value,
+      "inputValidation.errorForeground": colors.D_FILL_SYSTEM_FG_CRITICAL.value,
+      "inputValidation.infoBackground": colors.D_FILL_SYSTEM_BG_INFO.value,
+      "inputValidation.infoBorder": colors.D_BASIC_DEF_BLUE_QUA.value,
+      "inputValidation.infoForeground": colors.D_FILL_SYSTEM_FG_INFO.value,
+      "inputValidation.warningBackground": colors.D_FILL_SYSTEM_BG_CAUTION.value,
+      "inputValidation.warningBorder": colors.D_BASIC_DEF_ORANGE_QUA.value,
+      "inputValidation.warningForeground": colors.D_FILL_SYSTEM_FG_CAUTION.value,
+      // interactive | @{VSCODE} !{FUTURE} ?{Github Copilot X}
+      "interactive.activeCodeBorder": "#FF0000",
+      "interactive.inactiveCodeBorder": "#FF0000",
+      "interactive.requestBackground": "#FF0000",
+      "interactive.requestBorder": "#FF0000",
+      // interactiveEditor | @{VSCODE} !{FUTURE} ?{Github Copilot X}
+      "interactiveEditor.border": "#FF0000",
+      "interactiveEditor.regionHighlight": "#FF0000",
+      "interactiveEditor.shadow": "#FF0000",
+      "interactiveEditorDiff.inserted": "#FF0000",
+      "interactiveEditorDiff.removed": "#FF0000",
+      "interactiveEditorInput.background": "#FF0000",
+      "interactiveEditorInput.border": "#FF0000",
+      "interactiveEditorInput.focusBorder": "#FF0000",
+      "interactiveEditorInput.placeholderForeground": "#FF0000",
+      // issues | @{Github Pull Requests and Issues}
+      "issues.closed": colors.D_BASIC_DEF_PURPLE_PRI.value,
+      "issues.newIssueDecoration": colors.D_FILL_TEXT_DIS.value,
+      "issues.open": colors.D_BASIC_DEF_GREEN_PRI.value,
+      // keybindingLabel | @{VSCODE}
+      "keybindingLabel.background": colors.D_FILL_CONTROL_PRI.value,
+      "keybindingLabel.border": colors.D_STROKE_CONTROL.value,
+      "keybindingLabel.bottomBorder": colors.D_FILL_CONTROL_ALT.value,
+      "keybindingLabel.foreground": colors.D_FILL_TEXT_PRI.value,
+      "keybindingTable.headerBackground": colors.D_BG_SOLID_ON_CANVAS.value,
+      "keybindingTable.rowsBackground": colors.D_BG_SOLID_ON_CANVAS.value,
+      // list | @{VSCODE}
+      "list.activeSelectionBackground": colors.D_BASIC_NEU_SEN.value,
+      "list.activeSelectionForeground": colors.D_FILL_TEXT_PRI.value,
+      "list.activeSelectionIconForeground": colors.D_FILL_TEXT_PRI.value,
+      "list.deemphasizedForeground": colors.D_FILL_TEXT_TER.value,
+      "list.dropBackground": colors.D_BG_SMOKE.value,
+      "list.errorForeground": colors.D_BASIC_DEF_RED_PRI.value,
+      "list.filterMatchBackground": colors.D_BASIC_DEF_MINT_QUA.value,
+      "list.filterMatchBorder": colors.D_STROKE_CONTROL.value,
+      "list.focusAndSelectionOutline": colors.D_STROKE_FOCUS.value,
+      "list.focusBackground": colors.D_BASIC_NEU_SEP.value,
+      "list.focusForeground": colors.D_FILL_TEXT_PRI.value,
+      "list.focusHighlightForeground": colors.D_FILL_ACCENT_TEXT_PRI.value,
+      "list.focusOutline": colors.D_STROKE_CONTROL.value,
+      "list.highlightForeground": colors.D_FILL_ACCENT_TEXT_PRI.value,
+      "list.hoverBackground": colors.D_BASIC_NEU_SEP.value,
+      "list.hoverForeground": colors.D_FILL_TEXT_PRI.value,
+      "list.inactiveFocusBackground": colors.D_BASIC_NEU_SEP.value,
+      "list.inactiveFocusOutline": colors.D_STROKE_CARD.value,
+      "list.inactiveSelectionBackground": colors.D_BASIC_NEU_SEN.value,
+      "list.inactiveSelectionForeground": colors.D_FILL_TEXT_PRI.value,
+      "list.inactiveSelectionIconForeground": colors.D_FILL_TEXT_PRI.value,
+      "list.invalidItemForeground": colors.D_BASIC_DEF_RED_PRI.value,
+      "list.warningForeground": colors.D_BASIC_DEF_ORANGE_PRI.value,
+      // listFilterWidget | @{VSCODE}
+      "listFilterWidget.background": colors.D_BG_SOLID_FLYOUT.value,
+      "listFilterWidget.noMatchesOutline": colors.D_BASIC_DEF_RED_PRI.value,
+      "listFilterWidget.outline": colors.D_STROKE_SURFACE_FLYOUT.value,
+      "listFilterWidget.shadow": colors.D_SHADOW.value,
+      // menu | @{VSCODE}
+      "menu.background": colors.D_BG_SOLID_FLYOUT.value,
+      "menu.border": colors.D_STROKE_SURFACE_FLYOUT.value,
+      "menu.foreground": colors.D_FILL_TEXT_PRI.value,
+      "menu.selectionBackground": colors.D_BASIC_NEU_SEP.value,
+      "menu.selectionBorder": colors.D_STROKE_CONTROL.value,
+      "menu.selectionForeground": colors.D_FILL_TEXT_PRI.value,
+      "menu.separatorBackground": colors.D_STROKE_DIVIDER.value,
+      // menuBar | @{VSCODE}
+      "menubar.selectionBackground": colors.D_FILL_CONTROL_PRI.value,
+      "menubar.selectionBorder": colors.D_STROKE_CONTROL.value,
+      "menubar.selectionForeground": colors.D_FILL_TEXT_PRI.value,
+      // merge | @{VSCODE}
+      "merge.border": colors.D_STROKE_CONTROL.value,
+      "merge.commonContentBackground": colors.D_BASIC_NEU_SEP.value,
+      "merge.commonHeaderBackground": colors.D_BASIC_NEU_QUI.value,
+      "merge.currentContentBackground": colors.D_BASIC_DEF_MINT_QUI.value,
+      "merge.currentHeaderBackground": colors.D_BASIC_DEF_MINT_TER.value,
+      "merge.incomingContentBackground": colors.D_BASIC_DEF_BLUE_QUI.value,
+      "merge.incomingHeaderBackground": colors.D_BASIC_DEF_BLUE_TER.value,
+      // mergeEditor | @{VSCODE}
+      "mergeEditor.change.background": colors.D_BASIC_NEU_SEP.value,
+      "mergeEditor.change.word.background": colors.D_BASIC_NEU_SEN.value,
+      "mergeEditor.changeBase.background": colors.D_BASIC_NEU_SEP.value,
+      "mergeEditor.changeBase.word.background": colors.D_BASIC_NEU_SEN.value,
+      "mergeEditor.conflict.handled.minimapOverViewRuler": colors.D_BASIC_DEF_GREEN_TER.value,
+      "mergeEditor.conflict.handledFocused.border": colors.D_BASIC_DEF_GREEN_PRI.value,
+      "mergeEditor.conflict.handledUnfocused.border": colors.D_BASIC_DEF_GREEN_TER.value,
+      "mergeEditor.conflict.input1.background": colors.D_BASIC_DEF_BLUE_TER.value,
+      "mergeEditor.conflict.input2.background": colors.D_BASIC_LC_MINT_TER.value,
+      "mergeEditor.conflict.unhandled.minimapOverViewRuler": colors.D_BASIC_DEF_RED_TER.value,
+      "mergeEditor.conflict.unhandledFocused.border": colors.D_BASIC_DEF_RED_PRI.value,
+      "mergeEditor.conflict.unhandledUnfocused.border": colors.D_BASIC_DEF_RED_TER.value,
+      "mergeEditor.conflictingLines.background": colors.D_BASIC_DEF_ORANGE_QUI.value,
+      // minimap | @{VSCODE}
+      "minimap.background": colors.D_BG_SOLID_SURFACE.value,
+      "minimap.errorHighlight": colors.D_BASIC_DEF_RED_QUA.value,
+      "minimap.findMatchHighlight": colors.D_BASIC_DEF_MINT_QUA.value,
+      "minimap.foregroundOpacity": colors.DL_OPAQUE.value,
+      "minimap.selectionHighlight": colors.D_BASIC_NEU_QUA.value,
+      "minimap.selectionOccurrenceHighlight": colors.D_BASIC_NEU_QUI.value,
+      "minimap.warningHighlight": colors.D_BASIC_DEF_ORANGE_QUA.value,
+      // minimapGutter | @{VSCODE}
+      "minimapGutter.addedBackground": colors.D_BASIC_DEF_GREEN_PRI.value,
+      "minimapGutter.deletedBackground": colors.D_BASIC_DEF_RED_PRI.value,
+      "minimapGutter.modifiedBackground": colors.D_BASIC_DEF_BLUE_PRI.value,
+      // minimapSlider | @{VSCODE}
+      "minimapSlider.activeBackground": colors.D_FILL_CONTROL_TER.value,
+      "minimapSlider.background": colors.D_FILL_CONTROL_PRI.value,
+      "minimapSlider.hoverBackground": colors.D_FILL_CONTROL_SEC.value,
+      // notebook | @{VSCODE} !{DEPRECATED}
+      "notebook.cellBorderColor": colors.D_STROKE_CONTROL.value,
+      "notebook.cellEditorBackground": colors.D_BG_SOLID_BASE.value,
+      "notebook.cellHoverBackground": colors.D_BG_CARD_PRI.value,
+      "notebook.cellInsertionIndicator": colors.D_FILL_ACCENT_PRI.value,
+      "notebook.cellStatusBarItemHoverBackground": colors.D_FILL_CONTROL_PRI.value,
+      "notebook.cellToolbarSeparator": colors.D_STROKE_SURFACE_FLYOUT.value,
+      "notebook.editorBackground": colors.D_BG_SOLID_CANVAS.value,
+      "notebook.focusedCellBackground": colors.D_BG_CARD_PRI.value,
+      "notebook.focusedCellBorder": colors.D_FILL_ACCENT_PRI.value,
+      "notebook.focusedEditorBorder": colors.D_STROKE_FOCUS.value,
+      "notebook.inactiveFocusedCellBorder": colors.D_STROKE_CONTROL.value,
+      "notebook.inactiveSelectedCellBorder": colors.D_STROKE_FOCUS.value,
+      "notebook.outputContainerBackgroundColor": colors.D_BG_SOLID_SURFACE.value,
+      "notebook.outputContainerBorderColor": colors.D_STROKE_CONTROL.value,
+      "notebook.selectedCellBackground": colors.D_BG_CARD_PRI.value,
+      "notebook.selectedCellBorder": colors.D_FILL_ACCENT_PRI.value,
+      "notebook.symbolHighlightBackground": "#ff0000",
+      "notebookEditorOverviewRuler.runningCellForeground": colors.D_BASIC_DEF_YELLOW_PRI.value,
+      "notebookScrollbarSlider.activeBackground": colors.D_FILL_CONTROL_TER.value,
+      "notebookScrollbarSlider.background": colors.D_FILL_CONTROL_PRI.value,
+      "notebookScrollbarSlider.hoverBackground": colors.D_FILL_CONTROL_SEC.value,
+      "notebookStatusErrorIcon.foreground": colors.D_BASIC_DEF_RED_PRI.value,
+      "notebookStatusRunningIcon.foreground": colors.D_BASIC_DEF_YELLOW_PRI.value,
+      "notebookStatusSuccessIcon.foreground": colors.D_BASIC_DEF_GREEN_PRI.value,
+      // notifications | @{VSCODE}
+      "notificationCenter.border": colors.D_STROKE_SURFACE_FLYOUT.value,
+      "notificationCenterHeader.background": colors.D_BG_SOLID_BASE.value,
+      "notificationCenterHeader.foreground": colors.D_FILL_TEXT_PRI.value,
+      "notificationLink.foreground": colors.D_FILL_ACCENT_TEXT_PRI.value,
+      "notifications.background": colors.D_BG_SOLID_FLYOUT.value,
+      "notifications.border": colors.D_STROKE_DIVIDER.value,
+      "notifications.foreground": colors.D_FILL_TEXT_PRI.value,
+      "notificationsErrorIcon.foreground": colors.D_BASIC_DEF_RED_PRI.value,
+      "notificationsInfoIcon.foreground": colors.D_BASIC_DEF_BLUE_PRI.value,
+      "notificationsWarningIcon.foreground": colors.D_BASIC_DEF_ORANGE_PRI.value,
+      "notificationToast.border": colors.D_STROKE_SURFACE_FLYOUT.value,
+      // panel | @{VSCODE}
+      "panel.background": colors.D_BG_SOLID_SURFACE.value,
+      "panel.border": colors.D_STROKE_DIVIDER.value,
+      "panel.dropBorder": colors.D_FILL_ACCENT_PRI.value,
+      "panelInput.border": colors.D_STROKE_CONTROL.value,
+      "panelSection.border": colors.D_STROKE_FOCUS.value,
+      "panelSection.dropBackground": colors.D_BG_SMOKE.value,
+      "panelSectionHeader.background": colors.D_BG_LAYER.value,
+      "panelSectionHeader.border": colors.D_STROKE_FOCUS.value,
+      "panelSectionHeader.foreground": colors.D_FILL_TEXT_SEC.value,
+      "panelTitle.activeBorder": colors.D_FILL_ACCENT_PRI.value,
+      "panelTitle.activeForeground": colors.D_FILL_TEXT_PRI.value,
+      "panelTitle.inactiveForeground": colors.D_FILL_TEXT_SEC.value,
+      // peekView | @{VSCODE}
+      "peekView.border": colors.D_BASIC_DEF_MINT_PRI.value,
+      "peekViewEditor.background": colors.D_BG_SOLID_SURFACE.value,
+      "peekViewEditor.matchHighlightBackground": colors.D_BASIC_DEF_MINT_QUA.value,
+      "peekViewEditor.matchHighlightBorder": colors.D_STROKE_CONTROL.value,
+      "peekViewEditorGutter.background": colors.D_BG_SOLID_CANVAS.value,
+      "peekViewEditorStickyScroll.background": colors.D_BG_SOLID_BASE.value,
+      "peekViewResult.background": colors.D_BG_SOLID_BASE.value,
+      "peekViewResult.fileForeground": colors.D_FILL_TEXT_SEC.value,
+      "peekViewResult.lineForeground": colors.D_FILL_TEXT_SEC.value,
+      "peekViewResult.matchHighlightBackground": colors.D_BASIC_DEF_MINT_QUA.value,
+      "peekViewResult.selectionBackground": colors.D_BASIC_NEU_SEN.value,
+      "peekViewResult.selectionForeground": colors.D_FILL_TEXT_PRI.value,
+      "peekViewTitle.background": colors.D_BASIC_LC_MINT_PRI.value,
+      "peekViewTitleDescription.foreground": colors.D_FILL_TEXT_SEC.value,
+      "peekViewTitleLabel.foreground": colors.D_BASIC_ALT_MINT_PRI.value,
+      // pickerGroup | @{VSCODE}
+      "pickerGroup.border": colors.D_STROKE_DIVIDER.value,
+      "pickerGroup.foreground": colors.D_FILL_ACCENT_TEXT_PRI.value,
+      // ports | @{VSCODE}
+		  "ports.iconRunningProcessForeground": colors.D_BASIC_DEF_GREEN_PRI.value,
+      // problems | @{VSCODE}
+      "problemsErrorIcon.foreground": colors.D_BASIC_DEF_RED_PRI.value,
+      "problemsInfoIcon.foreground": colors.D_BASIC_DEF_BLUE_PRI.value,
+      "problemsWarningIcon.foreground": colors.D_BASIC_DEF_ORANGE_PRI.value,
+      // progressBar | @{VSCODE}
+		  "progressBar.background": colors.D_FILL_ACCENT_PRI.value,
+      // profileBadge | @{VSCODE}
+      "profileBadge.background": colors.D_FILL_CONTROL_CUSTOM.value,
+      "profileBadge.foreground": colors.D_FILL_TEXT_SEC.value,
+      // sash | @{VSCODE}
+		  "sash.hoverBorder": colors.D_STROKE_FOCUS.value,
+      // scm | @{VSCODE}
+		  "scm.providerBorder": colors.D_STROKE_FOCUS.value,
+      // search | @{VSCODE}
+      "search.resultsInfoForeground": colors.D_FILL_TEXT_TER.value,
+      "searchEditor.findMatchBackground": colors.D_BASIC_DEF_MINT_QUA.value,
+      "searchEditor.findMatchBorder": colors.D_STROKE_CONTROL.value,
+      "searchEditor.textInputBorder": colors.D_STROKE_CONTROL.value,
+      // selection | @{VSCODE}
+		  "selection.background": colors.D_BASIC_NEU_SEN.value,
+      // settings | @{VSCODE}
+      "settings.checkboxBackground": colors.D_FILL_CONTROL_PRI.value,
+      "settings.checkboxBorder": colors.D_STROKE_CONTROL.value,
+      "settings.checkboxForeground": colors.D_FILL_TEXT_PRI.value,
+      "settings.dropdownBackground": colors.D_FILL_CONTROL_PRI.value,
+      "settings.dropdownBorder": colors.D_STROKE_CONTROL.value,
+      "settings.dropdownForeground": colors.D_FILL_TEXT_PRI.value,
+      "settings.dropdownListBorder": colors.D_STROKE_SURFACE_FLYOUT.value,
+      "settings.focusedRowBackground": colors.D_FILL_CONTROL_TER.value,
+      "settings.focusedRowBorder": colors.D_BG_CARD_PRI.value,
+      "settings.headerBorder": colors.D_STROKE_DIVIDER.value,
+      "settings.headerForeground": colors.D_FILL_TEXT_PRI.value,
+      "settings.modifiedItemIndicator": colors.D_BASIC_DEF_BLUE_PRI.value,
+      "settings.numberInputBackground": colors.D_FILL_CONTROL_PRI.value,
+      "settings.numberInputBorder": colors.D_STROKE_CONTROL.value,
+      "settings.numberInputForeground": colors.D_FILL_TEXT_PRI.value,
+      "settings.rowHoverBackground": colors.D_BG_CARD_PRI.value,
+      "settings.sashBorder": colors.D_STROKE_FOCUS.value,
+      "settings.settingsHeaderHoverForeground": colors.D_FILL_TEXT_ACT.value,
+      "settings.textInputBackground": colors.D_FILL_CONTROL_PRI.value,
+      "settings.textInputBorder": colors.D_STROKE_CONTROL.value,
+      "settings.textInputForeground": colors.D_FILL_TEXT_PRI.value,
+      // sideBar | @{VSCODE}
+      "sideBar.background": colors.D_BG_SOLID_SURFACE.value,
+      "sideBar.border": colors.D_STROKE_DIVIDER.value,
+      "sideBar.dropBackground": colors.D_BG_SMOKE.value,
+      "sideBar.foreground": colors.D_FILL_TEXT_SEC.value,
+      "sideBarSectionHeader.background": colors.D_BG_LAYER.value,
+      "sideBarSectionHeader.border": colors.D_STROKE_FOCUS.value,
+      "sideBarSectionHeader.foreground": colors.D_FILL_TEXT_SEC.value,
+      "sideBarTitle.foreground": colors.D_FILL_TEXT_PRI.value,
+      // sideBySideEditor | @{VSCODE}
+      "sideBySideEditor.horizontalBorder": colors.D_STROKE_DIVIDER.value,
+      "sideBySideEditor.verticalBorder": colors.D_STROKE_DIVIDER.value,
+      // statusBar | @{VSCODE}
+      "statusBar.background": colors.D_BG_SOLID_BASE.value,
+      "statusBar.border": colors.D_STROKE_CONTROL.value,
+      "statusBar.debuggingBackground": colors.D_BASIC_LC_YELLOW_PRI.value,
+      "statusBar.debuggingBorder": colors.D_STROKE_CONTROL.value,
+      "statusBar.debuggingForeground": colors.D_BASIC_ALT_YELLOW_PRI.value,
+      "statusBar.focusBorder": colors.D_STROKE_FOCUS.value,
+      "statusBar.foreground": colors.D_FILL_TEXT_PRI.value,
+      "statusBar.noFolderBackground": colors.D_BASIC_LC_RED_PRI.value,
+      "statusBar.noFolderBorder": colors.D_STROKE_CONTROL.value,
+      "statusBar.noFolderForeground": colors.D_BASIC_ALT_RED_PRI.value,
+      // statusBarItem | @{VSCODE}
+      "statusBarItem.activeBackground": colors.D_FILL_CONTROL_TER.value,
+      "statusBarItem.compactHoverBackground": colors.D_FILL_CONTROL_DBL.value,
+      "statusBarItem.errorBackground": colors.D_BASIC_LC_RED_PRI.value,
+      "statusBarItem.errorForeground": colors.D_BASIC_ALT_RED_PRI.value,
+      "statusBarItem.focusBorder": colors.D_STROKE_FOCUS.value,
+      "statusBarItem.hoverBackground": colors.D_FILL_CONTROL_PRI.value,
+      "statusBarItem.prominentBackground": colors.D_FILL_CONTROL_CUSTOM.value,
+      "statusBarItem.prominentForeground": colors.D_FILL_TEXT_PRI.value,
+      "statusBarItem.prominentHoverBackground": colors.D_FILL_CONTROL_SEC.value,
+      "statusBarItem.remoteBackground": colors.D_BASIC_LC_MINT_PRI.value,
+      "statusBarItem.remoteForeground": colors.D_BASIC_ALT_MINT_PRI.value,
+      "statusBarItem.warningBackground": colors.D_BASIC_LC_ORANGE_PRI.value,
+      "statusBarItem.warningForeground": colors.D_BASIC_ALT_ORANGE_PRI.value,
+      // symbolIcon | @{VSCODE}
+      "symbolIcon.arrayForeground": colors.D_BASIC_DEF_BLUE_PRI.value,
+      "symbolIcon.booleanForeground": colors.D_BASIC_DEF_BLUE_PRI.value,
+      "symbolIcon.classForeground": colors.D_BASIC_DEF_YELLOW_PRI.value,
+      "symbolIcon.colorForeground": colors.D_FILL_TEXT_SEC.value,
+      "symbolIcon.constantForeground": colors.D_BASIC_ALT_MINT_PRI.value,
+      "symbolIcon.constructorForeground": colors.D_BASIC_DEF_ORANGE_PRI.value,
+      "symbolIcon.enumeratorForeground": colors.D_BASIC_DEF_MINT_PRI.value,
+      "symbolIcon.enumeratorMemberForeground": colors.D_BASIC_ALT_MINT_PRI.value,
+      "symbolIcon.eventForeground": colors.D_BASIC_ALT_RED_PRI.value,
+      "symbolIcon.fieldForeground": colors.D_BASIC_ALT_YELLOW_PRI.value,
+      "symbolIcon.fileForeground": colors.D_FILL_TEXT_SEC.value,
+      "symbolIcon.folderForeground": colors.D_FILL_TEXT_SEC.value,
+      "symbolIcon.functionForeground": colors.D_BASIC_DEF_ORANGE_PRI.value,
+      "symbolIcon.interfaceForeground": colors.D_BASIC_DEF_MINT_PRI.value,
+      "symbolIcon.keyForeground": colors.D_BASIC_ALT_PURPLE_PRI.value,
+      "symbolIcon.keywordForeground": colors.D_BASIC_DEF_PINK_PRI.value,
+      "symbolIcon.methodForeground": colors.D_BASIC_DEF_ORANGE_PRI.value,
+      "symbolIcon.moduleForeground": colors.D_FILL_TEXT_SEC.value,
+      "symbolIcon.namespaceForeground": colors.D_FILL_TEXT_SEC.value,
+      "symbolIcon.nullForeground": colors.D_BASIC_DEF_BLUE_PRI.value,
+      "symbolIcon.numberForeground": colors.D_BASIC_ALT_GREEN_PRI.value,
+      "symbolIcon.objectForeground": colors.D_BASIC_DEF_MINT_PRI.value,
+      "symbolIcon.operatorForeground": colors.D_FILL_TEXT_SEC.value,
+      "symbolIcon.packageForeground": colors.D_FILL_TEXT_SEC.value,
+      "symbolIcon.propertyForeground": colors.D_BASIC_ALT_YELLOW_PRI.value,
+      "symbolIcon.referenceForeground": colors.D_BASIC_DEF_PURPLE_PRI.value,
+      "symbolIcon.snippetForeground": colors.D_BASIC_ALT_BLUE_PRI.value,
+      "symbolIcon.stringForeground": colors.D_BASIC_DEF_BROWN_PRI.value,
+      "symbolIcon.structForeground": colors.D_BASIC_DEF_YELLOW_PRI.value,
+      "symbolIcon.textForeground": colors.D_FILL_TEXT_SEC.value,
+      "symbolIcon.typeParameterForeground": colors.D_BASIC_ALT_MINT_PRI.value,
+      "symbolIcon.unitForeground": colors.D_BASIC_ALT_GREEN_PRI.value,
+      "symbolIcon.variableForeground": colors.D_BASIC_ALT_ORANGE_PRI.value,
+      // tab | @{VSCODE}
+      "tab.activeBackground": colors.D_BG_SOLID_ON_CANVAS.value,
+      "tab.activeBorder": colors.D_STROKE_CONTROL.value,
+      "tab.activeBorderTop": colors.D_STROKE_CONTROL.value,
+      "tab.activeForeground": colors.D_FILL_TEXT_PRI.value,
+      "tab.activeModifiedBorder": colors.D_BASIC_DEF_BLUE_QUA.value,
+      "tab.border": colors.D_STROKE_CONTROL.value,
+      "tab.hoverBackground": colors.D_FILL_CONTROL_PRI.value,
+      "tab.hoverBorder": colors.D_STROKE_CONTROL.value,
+      "tab.hoverForeground": colors.D_FILL_TEXT_PRI.value,
+      "tab.inactiveBackground": colors.D_BG_SOLID_CANVAS.value,
+      "tab.inactiveForeground": colors.D_FILL_TEXT_SEC.value,
+      "tab.inactiveModifiedBorder": colors.D_BASIC_DEF_BLUE_QUA.value,
+      "tab.lastPinnedBorder": colors.D_STROKE_FOCUS.value,
+      "tab.unfocusedActiveBackground": colors.D_BG_SOLID_CANVAS.value,
+      "tab.unfocusedActiveBorder": colors.D_STROKE_CONTROL.value,
+      "tab.unfocusedActiveBorderTop": colors.D_STROKE_CONTROL.value,
+      "tab.unfocusedActiveForeground": colors.D_FILL_TEXT_SEC.value,
+      "tab.unfocusedActiveModifiedBorder": colors.D_BASIC_DEF_BLUE_QUI.value,
+      "tab.unfocusedHoverBackground": colors.D_FILL_CONTROL_PRI.value,
+      "tab.unfocusedHoverBorder": colors.D_STROKE_CONTROL.value,
+      "tab.unfocusedHoverForeground": colors.D_FILL_TEXT_SEC.value,
+      "tab.unfocusedInactiveBackground": colors.D_BG_SOLID_SURFACE.value,
+      "tab.unfocusedInactiveForeground": colors.D_FILL_TEXT_TER.value,
+      "tab.unfocusedInactiveModifiedBorder": colors.D_BASIC_DEF_BLUE_QUI.value,
+      // terminal | @{VSCODE}
+      "terminal.ansiBlack": colors.D_FILL_TEXT_ON_COLOR_PRI.value,
+      "terminal.ansiBlue": colors.D_BASIC_DEF_BLUE_PRI.value,
+      "terminal.ansiBrightBlack": colors.D_BASIC_NEU_SEN.value,
+      "terminal.ansiBrightBlue": colors.D_BASIC_ALT_BLUE_PRI.value,
+      "terminal.ansiBrightCyan": colors.D_BASIC_ALT_MINT_PRI.value,
+      "terminal.ansiBrightGreen": colors.D_BASIC_ALT_GREEN_PRI.value,
+      "terminal.ansiBrightMagenta": colors.D_BASIC_ALT_PINK_PRI.value,
+      "terminal.ansiBrightRed": colors.D_BASIC_ALT_RED_PRI.value,
+      "terminal.ansiBrightWhite": colors.D_BASIC_NEU_PRI.value,
+      "terminal.ansiBrightYellow": colors.D_BASIC_ALT_YELLOW_PRI.value,
+      "terminal.ansiCyan": colors.D_BASIC_DEF_MINT_PRI.value,
+      "terminal.ansiGreen": colors.D_BASIC_DEF_GREEN_PRI.value,
+      "terminal.ansiMagenta": colors.D_BASIC_DEF_PINK_PRI.value,
+      "terminal.ansiRed": colors.D_BASIC_DEF_RED_PRI.value,
+      "terminal.ansiWhite": colors.D_BASIC_NEU_TER.value,
+      "terminal.ansiYellow": colors.D_BASIC_DEF_YELLOW_PRI.value,
+      "terminal.background": colors.D_BG_SOLID_CANVAS.value,
+      "terminal.border": colors.D_STROKE_DIVIDER.value,
+      "terminal.dropBackground": colors.D_BG_SMOKE.value,
+      "terminal.findMatchBackground": colors.D_BASIC_DEF_MINT_QUA.value,
+      "terminal.findMatchBorder": colors.D_STROKE_CONTROL.value,
+      "terminal.findMatchHighlightBackground": colors.D_BASIC_DEF_MINT_QUI.value,
+      "terminal.findMatchHighlightBorder": colors.D_STROKE_CONTROL.value,
+      "terminal.foreground": colors.D_FILL_TEXT_PRI.value,
+      "terminal.hoverHighlightBackground": colors.D_BASIC_NEU_SEP.value,
+      "terminal.inactiveSelectionBackground": colors.D_BASIC_NEU_SEP.value,
+      "terminal.selectionBackground": colors.D_BASIC_NEU_SEN.value,
+      "terminal.selectionForeground": colors.D_FILL_TEXT_PRI.value,
+      "terminal.tab.activeBorder": colors.D_FILL_ACCENT_PRI.value,
+      "terminalCommandDecoration.defaultBackground": colors.D_BASIC_DEF_BLUE_PRI.value,
+      "terminalCommandDecoration.errorBackground": colors.D_BASIC_DEF_RED_PRI.value,
+      "terminalCommandDecoration.successBackground": colors.D_BASIC_DEF_GREEN_PRI.value,
+      "terminalCursor.background": colors.D_FILL_ACCENT_PRI.value,
+      "terminalCursor.foreground": colors.D_FILL_TEXT_ON_COLOR_PRI.value,
+      "terminalOverviewRuler.cursorForeground": colors.D_FILL_ACCENT_PRI.value,
+      "terminalOverviewRuler.findMatchForeground": colors.D_BASIC_DEF_MINT_SEC.value,
+      // testing | @{VSCODE}
+      "testing.iconErrored": colors.D_BASIC_DEF_RED_PRI.value,
+      "testing.iconFailed": colors.D_BASIC_DEF_RED_PRI.value,
+      "testing.iconPassed": colors.D_BASIC_DEF_GREEN_PRI.value,
+      "testing.iconQueued": colors.D_BASIC_DEF_YELLOW_PRI.value,
+      "testing.iconSkipped": colors.D_BASIC_NEU_TER.value,
+      "testing.iconUnset": colors.D_BASIC_NEU_TER.value,
+      "testing.message.error.decorationForeground": colors.D_BASIC_DEF_RED_PRI.value,
+      "testing.message.error.lineBackground": colors.D_BASIC_DEF_RED_QUA.value,
+      "testing.message.info.decorationForeground": colors.D_BASIC_DEF_BLUE_PRI.value,
+      "testing.message.info.lineBackground": colors.D_BASIC_DEF_BLUE_QUA.value,
+      "testing.peekBorder": colors.D_BASIC_ALT_RED_PRI.value,
+      "testing.peekHeaderBackground": colors.D_BASIC_LC_RED_PRI.value,
+      "testing.runAction": colors.D_BASIC_DEF_GREEN_PRI.value,
+      // text | @{VSCODE}
+      "textBlockQuote.background": colors.D_BASIC_NEU_SEP.value,
+      "textBlockQuote.border": colors.D_FILL_ACCENT_PRI.value,
+      "textCodeBlock.background": colors.D_BASIC_NEU_SEP.value,
+      "textLink.activeForeground": colors.D_FILL_ACCENT_SEC.value,
+      "textLink.foreground": colors.D_FILL_ACCENT_PRI.value,
+      "textPreformat.foreground": colors.D_BASIC_DEF_RED_PRI.value,
+      "textSeparator.foreground": colors.D_STROKE_DIVIDER.value,
+      // titleBar | @{VSCODE}
+      "titleBar.activeBackground": colors.D_BG_SOLID_BASE.value,
+      "titleBar.activeForeground": colors.D_FILL_TEXT_PRI.value,
+      "titleBar.border": colors.D_STROKE_DIVIDER.value,
+      "titleBar.inactiveBackground": colors.D_BG_SOLID_BASE.value,
+      "titleBar.inactiveForeground": colors.D_FILL_TEXT_SEC.value,
+      // toolbar | @{VSCODE}
+      "toolbar.activeBackground": colors.D_FILL_CONTROL_TER.value,
+      "toolbar.hoverBackground": colors.D_FILL_CONTROL_PRI.value,
+      "toolbar.hoverOutline": colors.D_STROKE_CONTROL.value,
+      // tree | @{VSCODE}
+      "tree.inactiveIndentGuidesStroke": colors.D_BASIC_NEU_QUI.value,
+      "tree.indentGuidesStroke": colors.D_BASIC_NEU_QUA.value,
+      "tree.tableColumnsBorder": colors.D_STROKE_DIVIDER.value,
+      "tree.tableOddRowsBackground": colors.D_BG_SOLID_ON_CANVAS.value,
+      // walkThrough | @{VSCODE}
+      "walkThrough.embeddedEditorBackground": colors.D_BG_SOLID_ON_CANVAS.value,
+      "walkthrough.stepTitle.foreground": colors.D_FILL_TEXT_PRI.value,
+      // welcomePage | @{VSCODE}
+      "welcomePage.background": colors.D_BG_SOLID_CANVAS.value,
+      "welcomePage.progress.background": colors.D_BASIC_NEU_SEP.value,
+      "welcomePage.progress.foreground": colors.D_FILL_ACCENT_PRI.value,
+      "welcomePage.tileBackground": colors.D_FILL_CONTROL_PRI.value,
+      "welcomePage.tileBorder": colors.D_STROKE_CONTROL.value,
+      "welcomePage.tileHoverBackground": colors.D_FILL_CONTROL_SEC.value,
+      // widget | @{VSCODE}
+      "widget.border": colors.D_STROKE_SURFACE_FLYOUT.value,
+      "widget.shadow": colors.D_SHADOW.value,
+      // window | @{VSCODE}
+      "window.activeBorder": colors.D_STROKE_SURFACE_LAYER.value,
+      "window.inactiveBorder": colors.D_STROKE_SURFACE_LAYER.value
     }
   };
   exportObjectAsJsonFile(themeObject, "Codemos Modern (Dark)-color-theme.json");
@@ -1619,4 +1629,3 @@ function exportObjectAsJsonFile(objectToExport: any, fileName: string) {
     }
   });
 }
- 
