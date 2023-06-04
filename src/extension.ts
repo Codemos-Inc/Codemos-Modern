@@ -6,7 +6,7 @@ type RGB = [number, number, number];
 export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      "codemos-modern-for-vscode.theme",
+      "codemos-modern.theme",
       async () => {
         const dayNight = await vscode.window.showQuickPick(
           [
@@ -37,29 +37,28 @@ export function activate(context: vscode.ExtensionContext) {
         const hex6 = hex7.substring(1);
         var hexRegex = /[0-9A-Fa-f]{6}/g;
         if (!hex6.match(hexRegex)) {
-          vscode.window.showErrorMessage("Invalid color code");
+          await vscode.window.showErrorMessage("Invalid color code");
           return;
         }
 
         if (dayNight.label === "Dark") {
           if (contrastChecker(hex6, "Dark")) {
-            theme.createDarkTheme(hex6);
-            await vscode.workspace
-              .getConfiguration()
-              .update("workbench.colorTheme", "Codemos Modern (Dark)", true);
+            await theme.createTheme(hex6, true);
+            await vscode.workspace.getConfiguration()
+              .update("workbench.colorTheme", "Codemos Modern (Dark)");
           } else {
-            vscode.window.showErrorMessage(
+            await vscode.window.showErrorMessage(
               "Accent color must have at least 4.5:1 contrast with black"
             );
             return;
           }
         } else {
           if (contrastChecker(hex6, "Light")) {
-            await vscode.workspace
-              .getConfiguration()
-              .update("workbench.colorTheme", "Codemos Modern (Light)", true);
+            await theme.createTheme(hex6, false);
+            await vscode.workspace.getConfiguration()
+              .update("workbench.colorTheme", "Codemos Modern (Light)");
           } else {
-            vscode.window.showErrorMessage(
+            await vscode.window.showErrorMessage(
               "Accent color must have at least 4.5:1 contrast with white"
             );
             return;

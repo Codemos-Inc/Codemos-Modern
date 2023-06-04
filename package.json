@@ -1,6 +1,6 @@
 {
-  "name": "codemos-modern-for-vscode",
-  "displayName": "Codemos Modern For VSCode",
+  "name": "codemos-modern",
+  "displayName": "Codemos Modern",
   "description": "TODO",
   "version": "0.0.1",
   "engines": {
@@ -14,15 +14,15 @@
   "contributes": {
     "commands": [
       {
-        "command": "codemos-modern-for-vscode.theme",
-        "title": "Create/Update Codemos Modern"
+        "command": "codemos-modern.theme",
+        "title": "Codemos Modern: Create Theme"
       }
     ],
     "themes": [
       {
         "label": "Codemos Modern (Light)",
         "uiTheme": "vs",
-        "path": "./themes/Codemos Modern (Light)--color-heme.json"
+        "path": "./themes/Codemos Modern (Light)-color-theme.json"
       },
       {
         "label": "Codemos Modern (Dark)",
