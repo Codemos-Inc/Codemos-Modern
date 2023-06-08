@@ -1,14 +1,66 @@
 {
   "name": "codemos-modern",
   "displayName": "Codemos Modern",
-  "description": "TODO",
-  "version": "0.0.1",
+  "description": "Professional modern theme from Codemos",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.78.0"
   },
-  "categories": [
-    "Themes"
+  "publisher": "Codemos Inc.",
+  "author": {
+    "name": "Emrecan Karaçayır",
+    "url": "https://codemos.dev",
+    "email": "dev.emrecan.karacayir@gmail.com"
+  },
+  "license": "MIT",
+  "icon": "./images/icon.png",
+  "galleryBanner": {
+    "color": "#181818",
+    "theme": "dark"
+  },
+  "extensionKind": [
+    "ui"
   ],
+  "categories": [
+    "Themes",
+    "Other"
+  ],
+  "keywords": [
+    "theme",
+    "codemos",
+    "modern",
+    "professional",
+    "dark",
+    "light",
+    "codemos modern",
+    "modern theme",
+    "color theme",
+    "vscode",
+    "accent",
+    "accent color",
+    "accent theme",
+    "fluent",
+    "fluent design",
+    "fluent theme",
+    "accent",
+    "accent color",
+    "accent theme",
+    "mica",
+    "acrylic",
+    "windows 11"
+  ],
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "homepage": "https://codemos.dev",
+  "sponsor": {
+    "url": "https://github.com/sponsors/EmrecanKaracayir"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/EmrecanKaracayir"
+  },
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {

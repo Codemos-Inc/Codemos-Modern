@@ -1,108 +1,128 @@
 import * as vscode from "vscode";
 import * as theme from "./theme";
+import { checkHEX, contrastChecker } from "./util/color";
 
-type RGB = [number, number, number];
+export enum ColorMode {
+  Dark = 0,
+  Light = 1,
+}
+
+export enum AdaptiveMode {
+  None = 0,
+  Gentle = 15,
+  Aggressive = 25,
+}
 
 export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
     vscode.commands.registerCommand(
       "codemos-modern.theme",
       async () => {
-        const dayNight = await vscode.window.showQuickPick(
+        const colorModeStr = await vscode.window.showQuickPick(
           [
-            { label: "Dark", description: "Color Theme" },
-            { label: "Light", description: "Color Theme" },
+            { label: "Dark", description: "Color Mode" },
+            { label: "Light", description: "Color Mode" }
           ],
           {
-            title: "Codemos Modern 1/2",
+            title: "Codemos Modern 1/3",
             placeHolder: "Select a color mode",
             ignoreFocusOut: true,
           }
         );
-        if (dayNight === undefined) {
+        let colorMode: ColorMode;
+        if (colorModeStr === undefined) {
           return;
         }
-
-        const hex7 = await vscode.window.showInputBox({
-          title: "Codemos Modern 2/2",
+        switch (colorModeStr.label) {
+          case "Dark":
+            colorMode = ColorMode.Dark;
+            break;
+          case "Light":
+            colorMode = ColorMode.Light;
+            break;
+          default:
+            return;
+        }
+        const accentHEX7 = await vscode.window.showInputBox({
+          title: `Codemos Modern ${colorModeStr.label} 2/3`,
           prompt: "Accent color in HEX color code (e.g., #60CDFF)",
           value: "#XXXXXX",
           valueSelection: [1, 7],
           ignoreFocusOut: true,
         });
-        if (hex7 === undefined) {
+        if (accentHEX7 === undefined) {
           return;
         }
-
-        const hex6 = hex7.substring(1);
-        var hexRegex = /[0-9A-Fa-f]{6}/g;
-        if (!hex6.match(hexRegex)) {
+        const AccentHEX = accentHEX7.substring(1);
+        if (!checkHEX(AccentHEX)) {
           await vscode.window.showErrorMessage("Invalid color code");
           return;
         }
-
-        if (dayNight.label === "Dark") {
-          if (contrastChecker(hex6, "Dark")) {
-            await theme.createTheme(hex6, true);
+        switch (colorMode) {
+          case ColorMode.Dark:
+            if (!contrastChecker(AccentHEX, "000000")) {
+              await vscode.window.showErrorMessage(
+                "Accent color must have at least 4.5:1 contrast with black"
+              );
+              return;
+            }
+            break;
+          case ColorMode.Light:
+            if (!contrastChecker(AccentHEX, "FFFFFF")) {
+              await vscode.window.showErrorMessage(
+                "Accent color must have at least 4.5:1 contrast with white"
+              );
+              return;
+            }
+            break;
+          default:
+            return;
+        }
+        const adaptiveModeStr = await vscode.window.showQuickPick(
+          [
+            { label: "None", description: "Adaptive Mode" },
+            { label: "Gentle", description: "Adaptive Mode" },
+            { label: "Aggressive", description: "Adaptive Mode" }
+          ],
+          {
+            title: `Codemos Modern ${colorModeStr.label} 3/3`,
+            placeHolder: "Select an adaptive mode (Intensity of the accent color adaptation)",
+            ignoreFocusOut: true,
+          }
+        );
+        let adaptiveMode: AdaptiveMode;
+        if (adaptiveModeStr === undefined) {
+          return;
+        }
+        switch (adaptiveModeStr.label) {
+          case "None":
+            adaptiveMode = AdaptiveMode.None;
+            break;
+          case "Gentle":
+            adaptiveMode = AdaptiveMode.Gentle;
+            break;
+          case "Aggressive":
+            adaptiveMode = AdaptiveMode.Aggressive;
+            break;
+          default:
+            return;
+        }
+        await theme.createTheme(AccentHEX, colorMode, adaptiveMode);
+        switch (colorMode) {
+          case ColorMode.Dark:
             await vscode.workspace.getConfiguration()
               .update("workbench.colorTheme", "Codemos Modern (Dark)");
-          } else {
-            await vscode.window.showErrorMessage(
-              "Accent color must have at least 4.5:1 contrast with black"
-            );
-            return;
-          }
-        } else {
-          if (contrastChecker(hex6, "Light")) {
-            await theme.createTheme(hex6, false);
+          case ColorMode.Light:
             await vscode.workspace.getConfiguration()
               .update("workbench.colorTheme", "Codemos Modern (Light)");
-          } else {
-            await vscode.window.showErrorMessage(
-              "Accent color must have at least 4.5:1 contrast with white"
-            );
+            break;
+          default:
             return;
-          }
         }
+        await vscode.window.showInformationMessage(
+          "Your Codemos Modern is ready!"
+        );
       }
     )
   );
 }
-
-function contrastChecker(hex6: string, colorMode: string): boolean {
-  const fgRGB = getRgbColorFromHex(hex6);
-  let bgRGB: RGB;
-  if (colorMode === "Dark") {
-    bgRGB = [0, 0, 0];
-  } else {
-    bgRGB = [255, 255, 255];
-  }
-  const contrastRatio = contrast(fgRGB, bgRGB);
-  return contrastRatio < 1 / 4.5;
-}
-
-function getRgbColorFromHex(hex: string): RGB {
-  const value = parseInt(hex, 16);
-  const r = (value >> 16) & 255;
-  const g = (value >> 8) & 255;
-  const b = value & 255;
-  return [r, g, b] as RGB;
-}
-
-function contrast(foregroundColor: RGB, backgroundColor: RGB): number {
-  const foregroundLumiance = luminance(foregroundColor);
-  const backgroundLuminance = luminance(backgroundColor);
-  return backgroundLuminance < foregroundLumiance
-    ? (backgroundLuminance + 0.05) / (foregroundLumiance + 0.05)
-    : (foregroundLumiance + 0.05) / (backgroundLuminance + 0.05);
-}
-
-function luminance(rgb: RGB): number {
-  const [r, g, b] = rgb.map((v) => {
-    v /= 255;
-    return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
-  });
-  return r * 0.2126 + g * 0.7152 + b * 0.0722;
-}
-
-export function deactivate() {}
