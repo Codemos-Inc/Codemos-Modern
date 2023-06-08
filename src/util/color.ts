@@ -1,5 +1,3 @@
-import { AdaptiveMode } from "../extension";
-
 type RGB = [number, number, number];
 type HSL = [number, number, number];
 

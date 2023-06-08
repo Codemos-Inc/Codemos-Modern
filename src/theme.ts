@@ -940,7 +940,7 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       },
     ],
     "colors": {
-      // @{VSCODE: v1.78.2}
+      // @{VSCODE: v1.79.0}
       // activityBar | @{VSCODE}
       "activityBar.activeBackground": colors.FILL_CONTROL.rest,
       "activityBar.activeBorder": colors.FILL_ACCENT.pri,
@@ -984,6 +984,9 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "charts.purple": colors.BASIC_DEF_PURPLE.pri,
       "charts.red": colors.BASIC_DEF_RED.pri,
       "charts.yellow": colors.BASIC_DEF_YELLOW.pri,
+      // chat | @{VSCODE}
+      "chat.requestBackground": colors.FILL_CONTROL.rest,
+      "chat.requestBorder": colors.STROKE_DIVIDER.default,
       // checkbox | @{VSCODE}
       "checkbox.background": colors.FILL_CONTROL.rest,
       "checkbox.border": colors.STROKE_CONTROL.default,
@@ -999,6 +1002,9 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "commandCenter.foreground": colors.FILL_TEXT.pri,
       "commandCenter.inactiveBorder": colors.STROKE_CONTROL.default,
       "commandCenter.inactiveForeground": colors.FILL_TEXT.sec,
+      // commentsView | @{VSCODE}
+      "commentsView.resolvedIcon": colors.FILL_TEXT.sec,
+      "commentsView.unresolvedIcon": colors.BASIC_DEF_BLUE.pri,
       // contrast | @{VSCODE}
       "contrastActiveBorder": colors.TRANSPARENT.value,
       "contrastBorder": colors.TRANSPARENT.value,
@@ -1045,7 +1051,7 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "debugView.valueChangedHighlight": colors.BASIC_ALT_BLUE.pri,
       // descriptionForeground | @{VSCODE}
       "descriptionForeground": colors.FILL_TEXT.sec,
-      // diffEditor | @{VSCODE}
+      // diffEditor | @{VSCODE} !{FUTURE}
       "diffEditor.border": colors.STROKE_DIVIDER.default,
       "diffEditor.diagonalFill": colors.STROKE_DIVIDER.default,
       "diffEditor.insertedLineBackground": colors.BASIC_DEF_GREEN.qui,
@@ -1054,6 +1060,7 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "diffEditor.removedLineBackground": colors.BASIC_DEF_RED.qui,
       "diffEditor.removedTextBackground": colors.BASIC_DEF_RED.qua,
       "diffEditor.removedTextBorder": colors.TRANSPARENT.value,
+      "diffEditor.unchangedRegionBackground": "#ff0000",
       // diffEditorGutter | @{VSCODE}
       "diffEditorGutter.insertedLineBackground": null,
       "diffEditorGutter.removedLineBackground": null,
@@ -1214,6 +1221,8 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "editorOverviewRuler.background": colors.BG_SOLID.base,
       "editorOverviewRuler.border": colors.TRANSPARENT.value,
       "editorOverviewRuler.bracketMatchForeground": colors.BASIC_DEF_BROWN.sec,
+      "editorOverviewRuler.commentForeground": colors.FILL_TEXT.ghost,
+		  "editorOverviewRuler.commentUnresolvedForeground": colors.BASIC_DEF_BLUE.sec,
       "editorOverviewRuler.commonContentForeground": colors.BASIC_NEUTRAL.qua,
       "editorOverviewRuler.currentContentForeground": colors.BASIC_DEF_MINT.ter,
       "editorOverviewRuler.deletedForeground": colors.BASIC_DEF_RED.sec,
@@ -1317,21 +1326,19 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "inputValidation.warningBackground": colors.FILL_SYSTEM_BG.orange,
       "inputValidation.warningBorder": colors.BASIC_DEF_ORANGE.qua,
       "inputValidation.warningForeground": colors.FILL_SYSTEM_FG.orange,
-      // interactive | @{VSCODE} !{FUTURE} ?{Github Copilot X}
+      // interactive | @{VSCODE} !{FUTURE}
       "interactive.activeCodeBorder": "#FF0000",
       "interactive.inactiveCodeBorder": "#FF0000",
-      "interactive.requestBackground": "#FF0000",
-      "interactive.requestBorder": "#FF0000",
-      // interactiveEditor | @{VSCODE} !{FUTURE} ?{Github Copilot X}
-      "interactiveEditor.border": "#FF0000",
-      "interactiveEditor.regionHighlight": "#FF0000",
-      "interactiveEditor.shadow": "#FF0000",
-      "interactiveEditorDiff.inserted": "#FF0000",
-      "interactiveEditorDiff.removed": "#FF0000",
-      "interactiveEditorInput.background": "#FF0000",
-      "interactiveEditorInput.border": "#FF0000",
-      "interactiveEditorInput.focusBorder": "#FF0000",
-      "interactiveEditorInput.placeholderForeground": "#FF0000",
+      // interactiveEditor | @{VSCODE}
+      "interactiveEditor.border": colors.STROKE_SURFACE.flyout,
+      "interactiveEditor.regionHighlight": colors.BASIC_NEUTRAL.sep,
+      "interactiveEditor.shadow": colors.SHADOW.default,
+      "interactiveEditorDiff.inserted": colors.BASIC_DEF_GREEN.qui,
+      "interactiveEditorDiff.removed": colors.BASIC_DEF_RED.qui,
+      "interactiveEditorInput.background": colors.FILL_CONTROL.rest,
+      "interactiveEditorInput.border": colors.STROKE_CONTROL.default,
+      "interactiveEditorInput.focusBorder": colors.STROKE_FOCUS.default,
+      "interactiveEditorInput.placeholderForeground": colors.FILL_TEXT.sec,
       // issues | @{Github Pull Requests and Issues}
       "issues.closed": colors.BASIC_DEF_PURPLE.pri,
       "issues.newIssueDecoration": colors.FILL_TEXT.ghost,
@@ -1422,7 +1429,7 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "minimapSlider.activeBackground": colors.FILL_CONTROL.pressed,
       "minimapSlider.background": colors.FILL_CONTROL.rest,
       "minimapSlider.hoverBackground": colors.FILL_CONTROL.hover,
-      // notebook | @{VSCODE} !{DEPRECATED}
+      // notebook | @{VSCODE} !{UNKNOWN}
       "notebook.cellBorderColor": colors.STROKE_CONTROL.default,
       "notebook.cellEditorBackground": colors.BG_SOLID.base,
       "notebook.cellHoverBackground": colors.FILL_CONTROL.subtle,
@@ -1576,6 +1583,8 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "statusBar.noFolderBackground": colors.FILL_SYSTEM_BG.red,
       "statusBar.noFolderBorder": colors.STROKE_CONTROL.default,
       "statusBar.noFolderForeground": colors.FILL_SYSTEM_FG.red,
+      "statusBar.offlineBackground": colors.FILL_SYSTEM_BG.red,
+      "statusBar.offlineForeground": colors.FILL_SYSTEM_FG.red,
       // statusBarItem | @{VSCODE}
       "statusBarItem.activeBackground": colors.FILL_CONTROL.pressed,
       "statusBarItem.compactHoverBackground": colors.FILL_CONTROL.doubleHover,

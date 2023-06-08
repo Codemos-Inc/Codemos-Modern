@@ -2,7 +2,6 @@
 const OP100 = "FF";
 const OP090 = "E6";
 const OP078 = "C7";
-const OP060 = "99";
 const OP054 = "8A";
 const OP040 = "66";
 const OP036 = "5C";
