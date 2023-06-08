@@ -112,6 +112,7 @@ export function activate(context: vscode.ExtensionContext) {
           case ColorMode.Dark:
             await vscode.workspace.getConfiguration()
               .update("workbench.colorTheme", "Codemos Modern (Dark)");
+            break;
           case ColorMode.Light:
             await vscode.workspace.getConfiguration()
               .update("workbench.colorTheme", "Codemos Modern (Light)");
