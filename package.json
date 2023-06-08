@@ -54,9 +54,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/Codemos-Inc/codemos-modern"
   },
-  "homepage": "https://codemos.dev",
+  "homepage": "https://github.com/Codemos-Inc/codemos-modern",
   "sponsor": {
     "url": "https://github.com/sponsors/EmrecanKaracayir"
   },
