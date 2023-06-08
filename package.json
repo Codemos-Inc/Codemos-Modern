@@ -1,7 +1,7 @@
 {
   "name": "codemos-modern",
   "displayName": "Codemos Modern",
-  "description": "Professional modern theme from Codemos",
+  "description": "Innovative, carefully crafted theme suite for VS Code",
   "version": "1.0.0",
   "engines": {
     "vscode": "^1.79.0"
@@ -13,6 +13,7 @@
     "email": "dev.emrecan.karacayir@gmail.com"
   },
   "license": "MIT",
+  "readme": "README.md",
   "icon": "./images/icon.png",
   "galleryBanner": {
     "color": "#181818",
@@ -52,6 +53,9 @@
     "winui 3",
     "Windows App SDK"
   ],
+  "release": {
+    "repositoryUrl": "https://github.com/Codemos-Inc/codemos-modern"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Codemos-Inc/codemos-modern"
