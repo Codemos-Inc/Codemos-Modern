@@ -97,9 +97,9 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
     "semanticTokenColors": {
       // GENERAL SEMANTIC TOKENS
       // namespace: For identifiers that declare or reference a namespace, module, or package.
-      "namespace": colors.FILL_TEXT.pri,
+      "namespace": colors.FILL_TEXT.sec,
       // module
-      "module": colors.FILL_TEXT.pri,
+      "module": colors.FILL_TEXT.sec,
       // class: For identifiers that declare or reference a class type.
       "class": colors.BASIC_DEF_YELLOW.pri,
       // enum: For identifiers that declare or reference an enumeration type.
@@ -171,7 +171,7 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
     "tokenColors": [
       // GENERAL TEXTMATE TOKENS
 
-      // namespace
+      // namespace, module, package
       {
         "scope": [
           "entity.name.type.namespace",
@@ -186,7 +186,7 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
           "entity.name.scope-resolution"
         ],
         "settings": {
-          "foreground": colors.FILL_TEXT.pri,
+          "foreground": colors.FILL_TEXT.sec,
           "fontStyle": ""
         }
       },
@@ -1039,7 +1039,7 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "debugTokenExpression.name": colors.FILL_ACCENT_TEXT.pri,
       "debugTokenExpression.number": colors.BASIC_ALT_GREEN.pri,
       "debugTokenExpression.string": colors.BASIC_DEF_BROWN.pri,
-      "debugTokenExpression.pri": colors.BASIC_DEF_MINT.pri,
+      "debugTokenExpression.value": colors.BASIC_DEF_MINT.pri,
       // debugToolBar | @{VSCODE}
       "debugToolBar.background": colors.BG_SOLID.flyout,
       "debugToolBar.border": colors.STROKE_SURFACE.flyout,
@@ -1128,12 +1128,12 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "editorBracketPairGuide.activeBackground4": colors.BASIC_ALT_PURPLE.pri,
       "editorBracketPairGuide.activeBackground5": colors.BASIC_ALT_BLUE.pri,
       "editorBracketPairGuide.activeBackground6": colors.BASIC_ALT_GREEN.pri,
-      "editorBracketPairGuide.background1": colors.BASIC_ALT_YELLOW.sec,
-      "editorBracketPairGuide.background2": colors.BASIC_ALT_ORANGE.sec,
-      "editorBracketPairGuide.background3": colors.BASIC_ALT_RED.sec,
-      "editorBracketPairGuide.background4": colors.BASIC_ALT_PURPLE.sec,
-      "editorBracketPairGuide.background5": colors.BASIC_ALT_BLUE.sec,
-      "editorBracketPairGuide.background6": colors.BASIC_ALT_GREEN.sec,
+      "editorBracketPairGuide.background1": colors.BASIC_ALT_YELLOW.ter,
+      "editorBracketPairGuide.background2": colors.BASIC_ALT_ORANGE.ter,
+      "editorBracketPairGuide.background3": colors.BASIC_ALT_RED.ter,
+      "editorBracketPairGuide.background4": colors.BASIC_ALT_PURPLE.ter,
+      "editorBracketPairGuide.background5": colors.BASIC_ALT_BLUE.ter,
+      "editorBracketPairGuide.background6": colors.BASIC_ALT_GREEN.ter,
       // editorCodeLens | @{VSCODE}
       "editorCodeLens.foreground": colors.FILL_TEXT.disabled,
       // editorCommentsWidget | @{VSCODE}

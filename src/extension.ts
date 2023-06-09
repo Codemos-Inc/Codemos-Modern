@@ -121,8 +121,12 @@ export function activate(context: vscode.ExtensionContext) {
             return;
         }
         await vscode.window.showInformationMessage(
-          "Your Codemos Modern is ready!"
-        );
+          "Your Codemos Modern is ready!", "Apply Codemos Modern"
+        ).then(selectedAction => {
+          if (selectedAction === "Apply Codemos Modern") {
+            vscode.commands.executeCommand('workbench.action.reloadWindow');
+          }
+        });
       }
     )
   );
