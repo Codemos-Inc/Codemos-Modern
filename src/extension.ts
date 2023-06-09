@@ -1,16 +1,16 @@
 import * as vscode from "vscode";
 import * as theme from "./theme";
-import { checkHEX, contrastChecker } from "./util/color";
+import { checkHex, contrastChecker } from "./util/color";
 
 export enum ColorMode {
-  Dark = 0,
-  Light = 1,
+  dark = 0,
+  light = 1,
 }
 
 export enum AdaptiveMode {
-  None = 0,
-  Gentle = 15,
-  Aggressive = 25,
+  none = 0,
+  gentle = 15,
+  aggressive = 25,
 }
 
 export function activate(context: vscode.ExtensionContext) {
@@ -35,40 +35,40 @@ export function activate(context: vscode.ExtensionContext) {
         }
         switch (colorModeStr.label) {
           case "Dark":
-            colorMode = ColorMode.Dark;
+            colorMode = ColorMode.dark;
             break;
           case "Light":
-            colorMode = ColorMode.Light;
+            colorMode = ColorMode.light;
             break;
           default:
             return;
         }
-        const accentHEX7 = await vscode.window.showInputBox({
+        const accentHex7 = await vscode.window.showInputBox({
           title: `Codemos Modern ${colorModeStr.label} 2/3`,
-          prompt: "Accent color in HEX color code (e.g., #60CDFF)",
+          prompt: "Accent color in hex color code (e.g., #60CDFF)",
           value: "#XXXXXX",
           valueSelection: [1, 7],
           ignoreFocusOut: true,
         });
-        if (accentHEX7 === undefined) {
+        if (accentHex7 === undefined) {
           return;
         }
-        const AccentHEX = accentHEX7.substring(1);
-        if (!checkHEX(AccentHEX)) {
+        const accentHex = accentHex7.substring(1);
+        if (!checkHex(accentHex)) {
           await vscode.window.showErrorMessage("Invalid color code");
           return;
         }
         switch (colorMode) {
-          case ColorMode.Dark:
-            if (!contrastChecker(AccentHEX, "000000")) {
+          case ColorMode.dark:
+            if (!contrastChecker(accentHex, "000000")) {
               await vscode.window.showErrorMessage(
                 "Accent color must have at least 4.5:1 contrast with black"
               );
               return;
             }
             break;
-          case ColorMode.Light:
-            if (!contrastChecker(AccentHEX, "FFFFFF")) {
+          case ColorMode.light:
+            if (!contrastChecker(accentHex, "FFFFFF")) {
               await vscode.window.showErrorMessage(
                 "Accent color must have at least 4.5:1 contrast with white"
               );
@@ -96,26 +96,26 @@ export function activate(context: vscode.ExtensionContext) {
         }
         switch (adaptiveModeStr.label) {
           case "None":
-            adaptiveMode = AdaptiveMode.None;
+            adaptiveMode = AdaptiveMode.none;
             break;
           case "Gentle":
-            adaptiveMode = AdaptiveMode.Gentle;
+            adaptiveMode = AdaptiveMode.gentle;
             break;
           case "Aggressive":
-            adaptiveMode = AdaptiveMode.Aggressive;
+            adaptiveMode = AdaptiveMode.aggressive;
             break;
           default:
             return;
         }
-        await theme.createTheme(AccentHEX, colorMode, adaptiveMode);
+        await theme.createTheme(accentHex, colorMode, adaptiveMode);
         switch (colorMode) {
-          case ColorMode.Dark:
+          case ColorMode.dark:
             await vscode.workspace.getConfiguration()
-              .update("workbench.colorTheme", "Codemos Modern (Dark)");
+              .update("workbench.colorTheme", "Codemos Modern (Dark)", vscode.ConfigurationTarget.Global);
             break;
-          case ColorMode.Light:
+          case ColorMode.light:
             await vscode.workspace.getConfiguration()
-              .update("workbench.colorTheme", "Codemos Modern (Light)");
+              .update("workbench.colorTheme", "Codemos Modern (Light)", vscode.ConfigurationTarget.Global);
             break;
           default:
             return;

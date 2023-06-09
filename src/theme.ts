@@ -8,11 +8,11 @@ import { ColorMode } from "./extension";
 import { AdaptiveMode } from "./extension";
 import * as colorUtils from "./util/color";
 
-export async function createTheme(accentHEX: string, colorMode: ColorMode, adaptiveMode: AdaptiveMode) {
+export async function createTheme(accentHex: string, colorMode: ColorMode, adaptiveMode: AdaptiveMode) {
   switch (colorMode) {
-    case ColorMode.Dark:
-      darkColors.updateAccent(accentHEX);
-      if (adaptiveMode === AdaptiveMode.None) {
+    case ColorMode.dark:
+      darkColors.updateAccent(accentHex);
+      if (adaptiveMode === AdaptiveMode.none) {
         darkColors.resetLVL1();
         darkColors.resetLVL2();
         darkColors.resetLVL3();
@@ -20,13 +20,13 @@ export async function createTheme(accentHEX: string, colorMode: ColorMode, adapt
         darkColors.resetLVL5();
       }
       else {
-        adaptTheme(accentHEX, colorMode, adaptiveMode);
+        adaptTheme(accentHex, colorMode, adaptiveMode);
       }
       await applyTheme(darkColors, true);
       break;
-    case ColorMode.Light:
-      lightColors.updateAccent(accentHEX);
-      if (adaptiveMode === AdaptiveMode.None) {
+    case ColorMode.light:
+      lightColors.updateAccent(accentHex);
+      if (adaptiveMode === AdaptiveMode.none) {
         lightColors.resetLVL1();
         lightColors.resetLVL2();
         lightColors.resetLVL3();
@@ -34,7 +34,7 @@ export async function createTheme(accentHEX: string, colorMode: ColorMode, adapt
         lightColors.resetLVL5();
       }
       else {
-        adaptTheme(accentHEX, colorMode, adaptiveMode);
+        adaptTheme(accentHex, colorMode, adaptiveMode);
       }
       await applyTheme(lightColors, false);
       break;
@@ -43,43 +43,43 @@ export async function createTheme(accentHEX: string, colorMode: ColorMode, adapt
   }
 }
 
-function adaptTheme(accentHEX: string, colorMode: ColorMode, adaptiveMode: AdaptiveMode) {
+function adaptTheme(accentHex: string, colorMode: ColorMode, adaptiveMode: AdaptiveMode) {
   switch (colorMode) {
-    case ColorMode.Dark:
+    case ColorMode.dark:
       switch (adaptiveMode) {
-        case AdaptiveMode.Gentle:
-          darkColors.updateLVL1(colorUtils.contrastBalancer(accentHEX, darkColors.LVL1_GENTLE, darkColors.LVL1_DEF, true));
-          darkColors.updateLVL2(colorUtils.contrastBalancer(accentHEX, darkColors.LVL2_GENTLE, darkColors.LVL2_DEF, true));
-          darkColors.updateLVL3(colorUtils.contrastBalancer(accentHEX, darkColors.LVL3_GENTLE, darkColors.LVL3_DEF, true));
-          darkColors.updateLVL4(colorUtils.contrastBalancer(accentHEX, darkColors.LVL4_GENTLE, darkColors.LVL4_DEF, true));
-          darkColors.updateLVL5(colorUtils.contrastBalancer(accentHEX, darkColors.LVL5_GENTLE, darkColors.LVL5_DEF, true));
+        case AdaptiveMode.gentle:
+          darkColors.updateLVL1(colorUtils.contrastBalancer(accentHex, darkColors.LVL1_GENTLE, darkColors.LVL1_DEF, true));
+          darkColors.updateLVL2(colorUtils.contrastBalancer(accentHex, darkColors.LVL2_GENTLE, darkColors.LVL2_DEF, true));
+          darkColors.updateLVL3(colorUtils.contrastBalancer(accentHex, darkColors.LVL3_GENTLE, darkColors.LVL3_DEF, true));
+          darkColors.updateLVL4(colorUtils.contrastBalancer(accentHex, darkColors.LVL4_GENTLE, darkColors.LVL4_DEF, true));
+          darkColors.updateLVL5(colorUtils.contrastBalancer(accentHex, darkColors.LVL5_GENTLE, darkColors.LVL5_DEF, true));
           break;
-        case AdaptiveMode.Aggressive:
-          darkColors.updateLVL1(colorUtils.contrastBalancer(accentHEX, darkColors.LVL1_AGGRESSIVE, darkColors.LVL1_DEF, true));
-          darkColors.updateLVL2(colorUtils.contrastBalancer(accentHEX, darkColors.LVL2_AGGRESSIVE, darkColors.LVL2_DEF, true));
-          darkColors.updateLVL3(colorUtils.contrastBalancer(accentHEX, darkColors.LVL3_AGGRESSIVE, darkColors.LVL3_DEF, true));
-          darkColors.updateLVL4(colorUtils.contrastBalancer(accentHEX, darkColors.LVL4_AGGRESSIVE, darkColors.LVL4_DEF, true));
-          darkColors.updateLVL5(colorUtils.contrastBalancer(accentHEX, darkColors.LVL5_AGGRESSIVE, darkColors.LVL5_DEF, true));
+        case AdaptiveMode.aggressive:
+          darkColors.updateLVL1(colorUtils.contrastBalancer(accentHex, darkColors.LVL1_AGGRESSIVE, darkColors.LVL1_DEF, true));
+          darkColors.updateLVL2(colorUtils.contrastBalancer(accentHex, darkColors.LVL2_AGGRESSIVE, darkColors.LVL2_DEF, true));
+          darkColors.updateLVL3(colorUtils.contrastBalancer(accentHex, darkColors.LVL3_AGGRESSIVE, darkColors.LVL3_DEF, true));
+          darkColors.updateLVL4(colorUtils.contrastBalancer(accentHex, darkColors.LVL4_AGGRESSIVE, darkColors.LVL4_DEF, true));
+          darkColors.updateLVL5(colorUtils.contrastBalancer(accentHex, darkColors.LVL5_AGGRESSIVE, darkColors.LVL5_DEF, true));
           break;
         default:
           break;
       }
       break;
-    case ColorMode.Light:
+    case ColorMode.light:
       switch (adaptiveMode) {
-        case AdaptiveMode.Gentle:
-          lightColors.updateLVL1(colorUtils.contrastBalancer(accentHEX, lightColors.LVL1_GENTLE, lightColors.LVL1_DEF, false));
-          lightColors.updateLVL2(colorUtils.contrastBalancer(accentHEX, lightColors.LVL2_GENTLE, lightColors.LVL2_DEF, false));
-          lightColors.updateLVL3(colorUtils.contrastBalancer(accentHEX, lightColors.LVL3_GENTLE, lightColors.LVL3_DEF, false));
-          lightColors.updateLVL4(colorUtils.contrastBalancer(accentHEX, lightColors.LVL4_GENTLE, lightColors.LVL4_DEF, false));
-          lightColors.updateLVL5(colorUtils.contrastBalancer(accentHEX, lightColors.LVL5_GENTLE, lightColors.LVL5_DEF, false));
+        case AdaptiveMode.gentle:
+          lightColors.updateLVL1(colorUtils.contrastBalancer(accentHex, lightColors.LVL1_GENTLE, lightColors.LVL1_DEF, false));
+          lightColors.updateLVL2(colorUtils.contrastBalancer(accentHex, lightColors.LVL2_GENTLE, lightColors.LVL2_DEF, false));
+          lightColors.updateLVL3(colorUtils.contrastBalancer(accentHex, lightColors.LVL3_GENTLE, lightColors.LVL3_DEF, false));
+          lightColors.updateLVL4(colorUtils.contrastBalancer(accentHex, lightColors.LVL4_GENTLE, lightColors.LVL4_DEF, false));
+          lightColors.updateLVL5(colorUtils.contrastBalancer(accentHex, lightColors.LVL5_GENTLE, lightColors.LVL5_DEF, false));
           break;
-        case AdaptiveMode.Aggressive:
-          lightColors.updateLVL1(colorUtils.contrastBalancer(accentHEX, lightColors.LVL1_AGGRESSIVE, lightColors.LVL1_DEF, false));
-          lightColors.updateLVL2(colorUtils.contrastBalancer(accentHEX, lightColors.LVL2_AGGRESSIVE, lightColors.LVL2_DEF, false));
-          lightColors.updateLVL3(colorUtils.contrastBalancer(accentHEX, lightColors.LVL3_AGGRESSIVE, lightColors.LVL3_DEF, false));
-          lightColors.updateLVL4(colorUtils.contrastBalancer(accentHEX, lightColors.LVL4_AGGRESSIVE, lightColors.LVL4_DEF, false));
-          lightColors.updateLVL5(colorUtils.contrastBalancer(accentHEX, lightColors.LVL5_AGGRESSIVE, lightColors.LVL5_DEF, false));
+        case AdaptiveMode.aggressive:
+          lightColors.updateLVL1(colorUtils.contrastBalancer(accentHex, lightColors.LVL1_AGGRESSIVE, lightColors.LVL1_DEF, false));
+          lightColors.updateLVL2(colorUtils.contrastBalancer(accentHex, lightColors.LVL2_AGGRESSIVE, lightColors.LVL2_DEF, false));
+          lightColors.updateLVL3(colorUtils.contrastBalancer(accentHex, lightColors.LVL3_AGGRESSIVE, lightColors.LVL3_DEF, false));
+          lightColors.updateLVL4(colorUtils.contrastBalancer(accentHex, lightColors.LVL4_AGGRESSIVE, lightColors.LVL4_DEF, false));
+          lightColors.updateLVL5(colorUtils.contrastBalancer(accentHex, lightColors.LVL5_AGGRESSIVE, lightColors.LVL5_DEF, false));
           break;
         default:
           break;
@@ -1183,7 +1183,7 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "editorHoverWidget.background": colors.BG_SOLID.flyout,
       "editorHoverWidget.border": colors.STROKE_SURFACE.flyout,
       "editorHoverWidget.foreground": colors.FILL_TEXT.pri,
-      "editorHoverWidget.highlightForeground": colors.FILL_TEXT_ON_COLOR.pri,
+      "editorHoverWidget.highlightForeground": colors.FILL_TEXT.active,
       "editorHoverWidget.statusBarBackground": colors.FILL_CONTROL.subtle,
       // editorIndentGuide | @{VSCODE}
       "editorIndentGuide.activeBackground": colors.BASIC_NEUTRAL.qua,

@@ -15,8 +15,8 @@ const OP004 = "0A";
 const OP002 = "07";
 // 2 ACCENT COLOR
 let ACCENT = "#000000";
-export function updateAccent(HEX: string) {
-  ACCENT = `#${HEX}`;
+export function updateAccent(hex: string) {
+  ACCENT = `#${hex}`;
 }
 // 3 FUNDAMENTAL COLOR
 // 3.1 Common
@@ -64,7 +64,7 @@ export const LVL2_AGGRESSIVE = 54;
 export const LVL3_DEF = "F8F8F8";
 export const LVL3_GENTLE = 36;
 export const LVL3_AGGRESSIVE = 85;
-export const LVL4_DEF = "FCFCFC";
+export const LVL4_DEF = "FBFBFB";
 export const LVL4_GENTLE = 60;
 export const LVL4_AGGRESSIVE = 100;
 export const LVL5_DEF = "CACACA";
@@ -80,32 +80,32 @@ let T_LVL5 = "#BBBBBB";
 export function resetLVL1() {
   T_LVL1 = `#${LVL1_DEF}`;
 }
-export function updateLVL1(HEX: string) {
-  T_LVL1 = `#${HEX}`;
+export function updateLVL1(hex: string) {
+  T_LVL1 = `#${hex}`;
 }
 export function resetLVL2() {
   T_LVL2 = `#${LVL2_DEF}`;
 }
-export function updateLVL2(HEX: string) {
-  T_LVL2 = `#${HEX}`;
+export function updateLVL2(hex: string) {
+  T_LVL2 = `#${hex}`;
 }
 export function resetLVL3() {
   T_LVL3 = `#${LVL3_DEF}`;
 }
-export function updateLVL3(HEX: string) {
-  T_LVL3 = `#${HEX}`;
+export function updateLVL3(hex: string) {
+  T_LVL3 = `#${hex}`;
 }
 export function resetLVL4() {
   T_LVL4 = `#${LVL4_DEF}`;
 }
-export function updateLVL4(HEX: string) {
-  T_LVL4 = `#${HEX}`;
+export function updateLVL4(hex: string) {
+  T_LVL4 = `#${hex}`;
 }
 export function resetLVL5() {
   T_LVL5 = `#${LVL5_DEF}`;
 }
-export function updateLVL5(HEX: string) {
-  T_LVL5 = `#${HEX}`;
+export function updateLVL5(hex: string) {
+  T_LVL5 = `#${hex}`;
 }
 // T THEME
 // T.1 Basic Color
