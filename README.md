@@ -21,7 +21,7 @@ Innovative, modern theme suite for VS Code
 
 # 📚 Table of Contents
 
-- [📖 About](#📖-About)
+- [📖 About](#%F0%9F%93%96-About)
 - [📦 Installation](#📦-Installation)
 - [📝 Documentation](#📝-Documentation)
 - [📷 Screenshots](#📷-Screenshots)
