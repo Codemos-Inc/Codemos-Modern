@@ -5,7 +5,6 @@ const OP072 = "B8";
 const OP050 = "80";
 const OP040 = "66";
 const OP032 = "52";
-const OP030 = "4D";
 const OP020 = "33";
 const OP014 = "24";
 const OP012 = "1F";

@@ -636,7 +636,11 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       {
         "scope": [
           "variable.language",
-          "variable.parameter.function.language.special"
+          "variable.parameter.function.language.special",
+          "keyword.other.this",
+          "variable.language.this",
+          "variable.language.super",
+          "variable.language.special.self"
         ],
         "settings": {
           "foreground": colors.BASIC_DEF_YELLOW.pri,
@@ -936,6 +940,13 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
         "scope": "markup.changed",
         "settings": {
           "foreground": colors.BASIC_DEF_BLUE.pri
+        }
+      },
+      // magicFunction
+      {
+        "scope": "support.function.magic.python",
+        "settings": {
+          "foreground": colors.BASIC_DEF_PURPLE.pri
         }
       },
     ],
@@ -1259,7 +1270,7 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "editorUnicodeHighlight.border": colors.BASIC_DEF_YELLOW.pri,
       // editorUnnecessaryCode | @{VSCODE}
       "editorUnnecessaryCode.border": null,
-      "editorUnnecessaryCode.opacity": colors.FILL_TEXT.disabled,
+      "editorUnnecessaryCode.opacity": colors.FILL_TEXT.sec,
       // editorWarning | @{VSCODE}
       "editorWarning.background": null,
       "editorWarning.border": null,

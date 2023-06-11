@@ -6,6 +6,27 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [1.0.3] - 2023-06-11
+
+### Added
+
+- `README.md` file with detailed showcase and documentation.
+- New images for the `README.md` file.
+- New TextMate scopes for **magic functions** and **this, self keywords**.
+
+### Changed
+
+- Extension icon to be more inline with our desing language. (It is now a gif)
+
+### Fixed
+
+- The opacity value of the color attribute `editorUnnecessaryCode.opacity` to make it less intense.
+
+### Removed
+
+- Old extension icon.
+- Unused opacity attribute in `light.ts`.
+
 ## [1.0.2] - 2023-06-09
 
 ### Added
@@ -40,7 +61,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - Initial release
 
-[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.0.2...HEAD
+[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.0.3...HEAD
+[1.0.3]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/Codemos-Inc/codemos-modern/releases/tag/v1.0.0

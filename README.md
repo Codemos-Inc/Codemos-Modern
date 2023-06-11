@@ -21,12 +21,12 @@ Innovative, modern theme suite for VS Code
 
 # 📚 Table of Contents
 
-- [📖 About](#-About)
-- [📦 Installation](#📦-Installation)
-- [📝 Documentation](#📝-Documentation)
-- [📷 Screenshots](#📷-Screenshots)
-- [🙌🏼 Contribution](#🙌🏼-Contribution)
-- [📜 License](#📜-License)
+- [📖 About](#-about)
+- [📦 Installation](#-installation)
+- [📝 Documentation](#-documentation)
+- [📷 Screenshots](#-screenshots)
+- [🙌🏼 Contribution](#-contribution)
+- [📜 License](#-license)
 
 <br/>
 
@@ -46,7 +46,6 @@ Codemos Modern is a variant of the Codemos theme family. It is built from the gr
 
 We built Codemos Modern with these fundamental principles:
 
-
 - **Finest Quality:** As all of our themes, our modern theme should be of the highest quality. It should be well thought out and well designed. It should be a pleasure to use.
 - **Unopinionated Design:** Our modern theme should stay neutral and not force a specific design language on the user. User should be able to make it their own.
 - **Minimal:** Our modern theme should use the bare essentials to create a simple and uncluttered UI. It should not be distracting.
@@ -55,7 +54,7 @@ We built Codemos Modern with these fundamental principles:
 
 <br/>
 
-> **NOTE:** Don't forget to read the [documentation](#📝-Documentation) for essentioal information about the Codemos Modern.
+> **NOTE:** Don't forget to read the [documentation](#-documentation) for essentioal information about the Codemos Modern.
 
 <br/>
 
@@ -66,12 +65,12 @@ We built Codemos Modern with these fundamental principles:
 1. Click **Install**
 1. Open the **Command Palette** with `Ctrl+Shift+P` or `⌘⇧P`
 1. Select **Codemos Modern: Create Theme** and create your own Codemos Modern
-1. When your theme is ready, click **Apply** to apply it
+1. When your theme is ready, click **Apply Codemos Modern** to apply it
 1. Enjoy! 🎉
 
 <br/>
 
-> **NOTE:** Read the [documentation](#📝-Documentation) for how to use the command **Codemos Modern: Create Theme** and further information about the Codemos Modern.
+> **NOTE:** Read the [documentation](#-documentation) for how to use the command **Codemos Modern: Create Theme** and further information about the Codemos Modern.
 
 <br/>
 
@@ -79,28 +78,146 @@ We built Codemos Modern with these fundamental principles:
 
 In this section, you can find the documentation for the Codemos Modern.
 
+- [Customization](#customization)
+- [Adaptability](#adaptability)
+- [Color and code intelligibility](#color-and-code-intelligibility)
+
+<br/>
 
 ## **Customization**
 
 Codemos Modern provides three customization options through the command **Codemos Modern: Create Theme**.
 
-> **NOTE:** You can activate this command from the **Comand Palette**. See [how you can](#📦-Installation).
+<br/>
 
-1. **Color mode:** You can select which color mode your theme would use. (Dark/Light) ![color-mode](./images/docs-1-1.png)
+> **NOTE:** You can activate command **Codemos Modern: Create Theme** from the **Comand Palette**. See [Installation Section](#-installation) to learn how to do it.
 
+<br/>
+
+1. **Color mode:** You can select which color mode your theme would use. (Dark/Light)
+
+![color-mode](./images/docs-1-1.png)
+
+2. **Accent color:** You can select which accent color your theme would use. (Accent color determines the color of the important ui elements; buttons, badges, links, emphasized text, etc.)
+
+![accent-color](./images/docs-1-2.png)
+
+> **NOTE:** You are required to provide an accent color which has at least a 4.5:1 ratio over black or white depending on the color mode you've selected. You can use [this awesome tool](https://contrast.tools/) to check the contrast ratio of your accent color.
+
+<br/>
+
+3. **Adaptation Mode:** You can select which adaptation mode your theme would use. (Adaptation mode determines how much your accent color influence the rest of the UI. See [Adaptability Section](#-adaptability) for more information.)
+
+![adaptation-mode](./images/docs-1-3.png)
+
+4. **Enjoy 🎉:** Click **Apply Codemos Modern** to apply your Codemos Modern.
+
+![apply](./images/docs-1-4.png)
 
 ## **Adaptability**
 
-## **Color**
+Adaptability mode is a unique feature of Codemos Modern. Before explaining the feature, we need to explain our motivation to create this feature.
+
+With the launch of [Windows 11](https://www.microsoft.com/en-us/windows/windows-11), Microsoft introduced the [Mica material](https://learn.microsoft.com/en-us/windows/apps/design/style/mica) as a part of Windows 11's design system. Mica and its corresponding Apple counterpart [NSVisualEffectView](https://developer.apple.com/documentation/appkit/nsvisualeffectview) achieves the goal of making apps feel more in line with the operating system. Currently, VS Code doesn't provide these kinds of material. 
+
+There has been several attempts by the community to bring [glassmorphism](https://uxdesign.cc/glassmorphism-in-user-interfaces-1f39bb1308c9) to VS Code. An example extension which stands out is the [Vibrancy Continued](https://marketplace.visualstudio.com/items?itemName=illixion.vscode-vibrancy-continued) or the original, [Vibrancy](https://marketplace.visualstudio.com/items?itemName=eyhn.vscode-vibrancy). However, these extensions are not perfect. Because of the nature of VS Code, implementing a feature like this needs hacky solutions. These hacky solutions involve modifying/patching the VS Code installation, leaving you with a VS Code installation that is [unsupported](https://code.visualstudio.com/docs/supporting/FAQ#_installation-appears-to-be-corrupt-unsupported). These hacky solutions causes instabilities and UI inconsistences. 
+
+We at Codemos, wanted to create a solution that doesn't involve modifying/patching the VS Code installation and doesn't cause any unwanted consequences. We wanted to create a solution that is built into the theme itself. That's why we created the **Adaptability mode**.
+
+<br/>
+
+### How it works?
+
+When creating your Codemos Modern, you are asked to select an Adaptability mode, see [Customization Section](#-customization). Currently, there are three options to choose from; **None**, **Gentle** and **Aggressive**. We are planning to add more options in the future.
+
+When you select an Adaptability mode other than **None**, a clever algorithm will be used to trick your eyes into thinking that the UI has transparency effects. This is done by using the accent color as the reference when calculating the opaque color of the UI elements. This way, the UI elements will adapt to your accent color and UI elenents will look like they are letting the light pass through.
+
+<br/>
+
+### Adaptability modes
+
+- **None:** This is the default option. When you select this option, other UI elements such as background colors will not adapt to your accent color. This is the safest option.
+
+- **Gentle:** This is the recommended option. When you select this option, other UI elements such as background colors will start to adapt to your accent color. This option is the most balanced option.
+
+- **Aggressive:** This is the most extreme option. When you select this option, other UI elements such as background colors will adapt to your accent color as much as possible. This option is the most glassmorphic option.
+
+![adaptability-modes](./images/docs-2-1.png)
+
+> **NOTE:** We are currently monitoring this feature and planning to improve it in the future. If you have any suggestions, please [contribute](#-contribution).
+
+<br/>
+
+## **Color and code intelligibility**
+
+Color is the essential part of code editing. Codemos Modern provides a carefully crafted color palette to make your code editing experience more intelligible and enjoyable.
+
+Our color palette takes its foundations from the Visual Studio/Visual Studio Code color palette. We've made this classic color palette more modern and more accessible. We've also added some new colors to the palette to make it more complete. Every color has a **meaning** and is **consistent** across all the UI. While feeling familiar, it also feels fresh and modern.
+
+Before we dive into color reference, we have one more contribution to code intelligibility. We used text decorations cleverly to give users more information about their code.
+
+These decorations are:
+
+- ~~Strike-through~~: This decoration is used to indicate that the symbol is deprecated.
+- **Bold**: This decoration is used to indicate that the symbol is abstract.
+- *Italic*: This decoration is used to indicate that the symbol is static.
+- <u>Underline</u>: This decoration is used to indicate that the symbol allows write access (not read-only).
+
+<br/>
+
+> **NOTE:** Codemos Modern uses both **Semantic Highlighting** and **Syntax Highlighting**. Semantic Highlighting is a new vesion of token coloring with more capabilities and simplified tokenizing but not yet widely adopted by language extensions. See [Semantic Highlighting](https://code.visualstudio.com/api/language-extensions/semantic-highlight-guide) and [Syntax Highlighting](https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide) for more information. We strongly recommend you to use a language extension that supports Semantic Highlighting. We are planning to add support for more languages in the future. Pleae [contribute](#-contribution) if you want to help us.
+
+<br/>
+
+![color-reference](./images/docs-3-1.png)
 
 <br/>
 
 # 📷 Screenshots
 
+In this section you can find how Codemos Modern looks and feels in most used languages.
+
+- [JavaScript](#javascript)
+- [Python](#python)
+- [Java](#java)
+- [C++](#cpp)
+- [HTML](#html)
+- [CSS](#css)
+
+<br/>
+
+### JavaScript
+
+![javascript](./images/ss-1.png)
+
+### Python
+
+![python](./images/ss-2.png)
+
+### Java
+
+![java](./images/ss-3.png)
+
+### C++
+
+![cpp](./images/ss-4.png)
+
+### HTML
+
+![html](./images/ss-5.png)
+
+### CSS
+
+![css](./images/ss-6.png)
+
 <br/>
 
 # 🙌🏼 Contribution
 
+We are open to any kind of contribution. If you want to contribute to Codemos Modern, please join us on [GitHub](https://github.com/Codemos-Inc/Codemos-Modern).
+
 <br/>
 
 # 📜 License
+
+Codemos Modern is licensed under the [MIT License](https://opensource.org/license/mit/).
