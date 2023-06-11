@@ -1,5 +1,7 @@
 <div align="center">
 
+<br/>
+
 <img src="./images/icon.gif" width="200"/>
 
 <br/>
@@ -21,20 +23,20 @@ Innovative, modern theme suite for VS Code
 
 # 📚 Table of Contents
 
-- [📖 About](#-about)
-- [📦 Installation](#-installation)
-- [📝 Documentation](#-documentation)
-- [📷 Screenshots](#-screenshots)
-- [🙌🏼 Contribution](#-contribution)
-- [📜 License](#-license)
+- [📖 About](#rdme-about)
+- [📦 Installation](#rdme-install)
+- [📝 Documentation](#rdme-doc)
+- [📷 Screenshots](#rdme-ss)
+- [🙌🏼 Contribution](#rdme-contrib)
+- [📜 License](#rdme-license)
 
 <br/>
 
-# 📖 About
+<h1 id="rdme-about">📖 About</h1>
 
 We at Codemos, are delighted to bring our most beloved theme family to [Visual Studio Code](https://code.visualstudio.com/). Just as VS Code redefined code editing, we're going to redefine how it should look.
 
-Codemos Modern is a variant of the Codemos theme family. It is built from the ground up to be the best modern theme for VS Code. It gets its core principles from the Codemos design language and our [Modern theme principles](#Modern-theme-principles).
+Codemos Modern is a variant of the Codemos theme family. It is built from the ground up to be the best modern theme for VS Code. It gets its core principles from the Codemos design language and our [Modern theme principles](#modern-theme-principles).
 
 <br/>
 
@@ -54,11 +56,11 @@ We built Codemos Modern with these fundamental principles:
 
 <br/>
 
-> **NOTE:** Don't forget to read the [documentation](#-documentation) for essentioal information about the Codemos Modern.
+> **NOTE:** Don't forget to read the [documentation](#rdme-doc) for essentioal information about the Codemos Modern.
 
 <br/>
 
-# 📦 Installation
+<h1 id="rdme-install">📦 Installation</h1>
 
 1. Open the **Extensions** sidebar in VS Code
 1. Search for `Codemos Modern`
@@ -70,11 +72,11 @@ We built Codemos Modern with these fundamental principles:
 
 <br/>
 
-> **NOTE:** Read the [documentation](#-documentation) for how to use the command **Codemos Modern: Create Theme** and further information about the Codemos Modern.
+> **NOTE:** Read the [documentation](#rdme-doc) for how to use the command **Codemos Modern: Create Theme** and further information about the Codemos Modern.
 
 <br/>
 
-# 📝 Documentation
+<h1 id="rdme-doc">📝 Documentation</h1>
 
 In this section, you can find the documentation for the Codemos Modern.
 
@@ -90,7 +92,7 @@ Codemos Modern provides three customization options through the command **Codemo
 
 <br/>
 
-> **NOTE:** You can activate command **Codemos Modern: Create Theme** from the **Comand Palette**. See [Installation Section](#-installation) to learn how to do it.
+> **NOTE:** You can activate command **Codemos Modern: Create Theme** from the **Comand Palette**. See [Installation Section](#rdme-install) to learn how to do it.
 
 <br/>
 
@@ -106,7 +108,7 @@ Codemos Modern provides three customization options through the command **Codemo
 
 <br/>
 
-3. **Adaptation Mode:** You can select which adaptation mode your theme would use. (Adaptation mode determines how much your accent color influence the rest of the UI. See [Adaptability Section](#-adaptability) for more information.)
+3. **Adaptation Mode:** You can select which adaptation mode your theme would use. (Adaptation mode determines how much your accent color influence the rest of the UI. See [Adaptability Section](#adaptability) for more information.)
 
 ![adaptation-mode](./images/docs-1-3.png)
 
@@ -128,7 +130,7 @@ We at Codemos, wanted to create a solution that doesn't involve modifying/patchi
 
 ### How it works?
 
-When creating your Codemos Modern, you are asked to select an Adaptability mode, see [Customization Section](#-customization). Currently, there are three options to choose from; **None**, **Gentle** and **Aggressive**. We are planning to add more options in the future.
+When creating your Codemos Modern, you are asked to select an Adaptability mode, see [Customization Section](#customization). Currently, there are three options to choose from; **None**, **Gentle** and **Aggressive**. We are planning to add more options in the future.
 
 When you select an Adaptability mode other than **None**, a clever algorithm will be used to trick your eyes into thinking that the UI has transparency effects. This is done by using the accent color as the reference when calculating the opaque color of the UI elements. This way, the UI elements will adapt to your accent color and UI elenents will look like they are letting the light pass through.
 
@@ -144,7 +146,7 @@ When you select an Adaptability mode other than **None**, a clever algorithm wil
 
 ![adaptability-modes](./images/docs-2-1.png)
 
-> **NOTE:** We are currently monitoring this feature and planning to improve it in the future. If you have any suggestions, please [contribute](#-contribution).
+> **NOTE:** We are currently monitoring this feature and planning to improve it in the future. If you have any suggestions, please [contribute](#rdme-contrib).
 
 <br/>
 
@@ -165,7 +167,7 @@ These decorations are:
 
 <br/>
 
-> **NOTE:** Codemos Modern uses both **Semantic Highlighting** and **Syntax Highlighting**. Semantic Highlighting is a new vesion of token coloring with more capabilities and simplified tokenizing but not yet widely adopted by language extensions. See [Semantic Highlighting](https://code.visualstudio.com/api/language-extensions/semantic-highlight-guide) and [Syntax Highlighting](https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide) for more information. We strongly recommend you to use a language extension that supports Semantic Highlighting. We are planning to add support for more languages in the future. Pleae [contribute](#-contribution) if you want to help us.
+> **NOTE:** Codemos Modern uses both **Semantic Highlighting** and **Syntax Highlighting**. Semantic Highlighting is a new vesion of token coloring with more capabilities and simplified tokenizing but not yet widely adopted by language extensions. See [Semantic Highlighting](https://code.visualstudio.com/api/language-extensions/semantic-highlight-guide) and [Syntax Highlighting](https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide) for more information. We strongly recommend you to use a language extension that supports Semantic Highlighting. We are planning to add support for more languages in the future. Pleae [contribute](#rdme-contrib) if you want to help us.
 
 <br/>
 
@@ -173,7 +175,7 @@ These decorations are:
 
 <br/>
 
-# 📷 Screenshots
+<h1 id="rdme-ss">📷 Screenshots</h1>
 
 In this section you can find how Codemos Modern looks and feels in most used languages.
 
@@ -212,12 +214,12 @@ In this section you can find how Codemos Modern looks and feels in most used lan
 
 <br/>
 
-# 🙌🏼 Contribution
+<h1 id="rdme-contrib">🙌🏼 Contribution</h1>
 
 We are open to any kind of contribution. If you want to contribute to Codemos Modern, please join us on [GitHub](https://github.com/Codemos-Inc/Codemos-Modern).
 
 <br/>
 
-# 📜 License
+<h1 id="rdme-license">📜 License</h1>
 
 Codemos Modern is licensed under the [MIT License](https://opensource.org/license/mit/).
