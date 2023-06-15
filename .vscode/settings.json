@@ -1,9 +1,65 @@
 {
-    "files.exclude": {
-        "out": false
+  "files.exclude": {
+    "out": false
+  },
+  "search.exclude": {
+    "out": true
+  },
+  "typescript.tsc.autoDetect": "off",
+  "todo-tree.general.showActivityBarBadge": true,
+  "todo-tree.general.statusBar": "tags",
+  "todo-tree.general.tags": ["🔴", "🟠", "🟡", "🟢", "🔵"],
+  "todo-tree.highlights.customHighlight": {
+    "🔴": {
+      "foreground": "#f8312f",
+      "gutterIcon": true,
+      "icon": "alert",
+      "opacity": 0,
+      "rulerColour": "#f8312f",
+      "rulerLane": "center",
+      "textDecoration": "none",
+      "type": "text-and-comment"
     },
-    "search.exclude": {
-        "out": true
+    "🔵": {
+      "foreground": "#0074ba",
+      "gutterIcon": true,
+      "icon": "alert",
+      "opacity": 0,
+      "rulerColour": "#0074ba",
+      "rulerLane": "center",
+      "textDecoration": "none",
+      "type": "text-and-comment"
     },
-    "typescript.tsc.autoDetect": "off"
+    "🟠": {
+      "foreground": "#ff6723",
+      "gutterIcon": true,
+      "icon": "alert",
+      "opacity": 0,
+      "rulerColour": "#f8312f",
+      "rulerLane": "center",
+      "textDecoration": "none",
+      "type": "text-and-comment"
+    },
+    "🟡": {
+      "foreground": "#fcd53f",
+      "gutterIcon": true,
+      "icon": "alert",
+      "opacity": 0,
+      "rulerColour": "#fcd53f",
+      "rulerLane": "center",
+      "textDecoration": "none",
+      "type": "text-and-comment"
+    },
+    "🟢": {
+      "foreground": "#00d26a",
+      "gutterIcon": true,
+      "icon": "alert",
+      "opacity": 0,
+      "rulerColour": "#00d26a",
+      "rulerLane": "center",
+      "textDecoration": "none",
+      "type": "text-and-comment"
+    }
+  },
+  "todo-tree.highlights.highlightDelay": 0
 }

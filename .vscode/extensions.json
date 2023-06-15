@@ -1,5 +1,8 @@
 {
-	"recommendations": [
-		"dbaeumer.vscode-eslint"
-	]
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "streetsidesoftware.code-spell-checker",
+    "gruntfuggly.todo-tree"
+  ]
 }
