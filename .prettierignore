@@ -1,0 +1,4 @@
+*.vsix
+node_modules
+out
+themes
