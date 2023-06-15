@@ -1,10 +1,10 @@
+.github/**
 .vscode/**
-.vscode-test/**
 src/**
-.gitignore
-.yarnrc
-**/tsconfig.json
+**/.cspell.json
+**/.eslintignore
 **/.eslintrc.json
-**/*.map
-**/*.ts
-template-color-theme.json
+**/.gitignore
+**/.prettierignore
+**/.prettierrc.json
+**/tsconfig.json
