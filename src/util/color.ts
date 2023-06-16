@@ -18,28 +18,38 @@ function rgbToHsl(rgb: RGB): HSL {
   const r = rgb[0] / 255;
   const g = rgb[1] / 255;
   const b = rgb[2] / 255;
-  // Calculat cmin, cmax, delta
-  const cmin = Math.min(r, g, b);
-  const cmax = Math.max(r, g, b);
-  const delta = cmax - cmin;
+  // Calculate cMin, cMax, delta
+  const cMin = Math.min(r, g, b);
+  const cMax = Math.max(r, g, b);
+  const delta = cMax - cMin;
   // initialize hue, saturation, lightness
   let h = 0;
   let s = 0;
   let l = 0;
   // Calculate hue
   // No difference
-  if (delta === 0) { h = 0; }
+  if (delta === 0) {
+    h = 0;
+  }
   // Red is max
-  else if (cmax === r) { h = ((g - b) / delta) % 6; }
+  else if (cMax === r) {
+    h = ((g - b) / delta) % 6;
+  }
   // Green is max
-  else if (cmax === g) { h = (b - r) / delta + 2; }
+  else if (cMax === g) {
+    h = (b - r) / delta + 2;
+  }
   // Blue is max
-  else { h = (r - g) / delta + 4; }
+  else {
+    h = (r - g) / delta + 4;
+  }
   h = Math.round(h * 60);
   // Make negative hues positive behind 360°
-  if (h < 0) { h += 360; }
+  if (h < 0) {
+    h += 360;
+  }
   // Calculate lightness
-  l = (cmax + cmin) / 2;
+  l = (cMax + cMin) / 2;
   // Calculate saturation
   s = delta === 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
   // Multiply l and s by 100
@@ -49,27 +59,41 @@ function rgbToHsl(rgb: RGB): HSL {
 }
 
 function hslToHex(hsl: HSL): string {
-  let [h, s, l] = hsl;
+  const h = hsl[0];
+  let s = hsl[1];
+  let l = hsl[2];
   s /= 100;
   l /= 100;
-  let c = (1 - Math.abs(2 * l - 1)) * s,
-    x = c * (1 - Math.abs((h / 60) % 2 - 1)),
-    m = l - c / 2,
-    r = 0,
-    g = 0,
-    b = 0;
+  const c = (1 - Math.abs(2 * l - 1)) * s;
+  const x = c * (1 - Math.abs(((h / 60) % 2) - 1));
+  const m = l - c / 2;
+  let r = 0;
+  let g = 0;
+  let b = 0;
   if (0 <= h && h < 60) {
-    r = c; g = x; b = 0;
+    r = c;
+    g = x;
+    b = 0;
   } else if (60 <= h && h < 120) {
-    r = x; g = c; b = 0;
+    r = x;
+    g = c;
+    b = 0;
   } else if (120 <= h && h < 180) {
-    r = 0; g = c; b = x;
+    r = 0;
+    g = c;
+    b = x;
   } else if (180 <= h && h < 240) {
-    r = 0; g = x; b = c;
+    r = 0;
+    g = x;
+    b = c;
   } else if (240 <= h && h < 300) {
-    r = x; g = 0; b = c;
+    r = x;
+    g = 0;
+    b = c;
   } else if (300 <= h && h < 360) {
-    r = c; g = 0; b = x;
+    r = c;
+    g = 0;
+    b = x;
   }
   r = Math.round((r + m) * 255);
   g = Math.round((g + m) * 255);
@@ -90,11 +114,11 @@ export function contrastChecker(hex: string, referenceHex: string): boolean {
 }
 
 function contrast(foregroundRgb: RGB, backgroundRgb: RGB): number {
-  const foregroundLumiance = luminance(foregroundRgb);
+  const foregroundLuminance = luminance(foregroundRgb);
   const backgroundLuminance = luminance(backgroundRgb);
-  return backgroundLuminance < foregroundLumiance
-    ? (backgroundLuminance + 0.05) / (foregroundLumiance + 0.05)
-    : (foregroundLumiance + 0.05) / (backgroundLuminance + 0.05);
+  return backgroundLuminance < foregroundLuminance
+    ? (backgroundLuminance + 0.05) / (foregroundLuminance + 0.05)
+    : (foregroundLuminance + 0.05) / (backgroundLuminance + 0.05);
 }
 
 function luminance(rgb: RGB): number {
@@ -115,12 +139,12 @@ export function contrastBalancer(
   const s = saturation;
   let l = willDarken ? 100 : 0;
 
-  let found: boolean = false;
+  let found = false;
   let minimumDifference: number = Number.MAX_SAFE_INTEGER;
   let currentColor: string = hslToHex([h, s, l]);
   let prevColor: string = hslToHex([h, s, l]);
   while (!found) {
-    let currentDifference = contrastCheckerValue(currentColor, referenceHex);
+    const currentDifference = contrastCheckerValue(currentColor, referenceHex);
     if (currentDifference > minimumDifference) {
       found = true;
       break;

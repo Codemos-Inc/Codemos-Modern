@@ -4,11 +4,14 @@ import * as path from "path";
 import * as vscode from "vscode";
 import * as darkColors from "./color/dark";
 import * as lightColors from "./color/light";
-import { ColorMode } from "./extension";
-import { AdaptiveMode } from "./extension";
+import { AdaptiveMode, ColorMode } from "./extension";
 import * as colorUtils from "./util/color";
 
-export async function createTheme(accentHex: string, colorMode: ColorMode, adaptiveMode: AdaptiveMode) {
+export async function createTheme(
+  accentHex: string,
+  colorMode: ColorMode,
+  adaptiveMode: AdaptiveMode
+) {
   switch (colorMode) {
     case ColorMode.dark:
       darkColors.updateAccent(accentHex);
@@ -18,8 +21,7 @@ export async function createTheme(accentHex: string, colorMode: ColorMode, adapt
         darkColors.resetLVL3();
         darkColors.resetLVL4();
         darkColors.resetLVL5();
-      }
-      else {
+      } else {
         adaptTheme(accentHex, colorMode, adaptiveMode);
       }
       await applyTheme(darkColors, true);
@@ -32,8 +34,7 @@ export async function createTheme(accentHex: string, colorMode: ColorMode, adapt
         lightColors.resetLVL3();
         lightColors.resetLVL4();
         lightColors.resetLVL5();
-      }
-      else {
+      } else {
         adaptTheme(accentHex, colorMode, adaptiveMode);
       }
       await applyTheme(lightColors, false);
@@ -43,23 +44,97 @@ export async function createTheme(accentHex: string, colorMode: ColorMode, adapt
   }
 }
 
-function adaptTheme(accentHex: string, colorMode: ColorMode, adaptiveMode: AdaptiveMode) {
+function adaptTheme(
+  accentHex: string,
+  colorMode: ColorMode,
+  adaptiveMode: AdaptiveMode
+) {
   switch (colorMode) {
     case ColorMode.dark:
       switch (adaptiveMode) {
         case AdaptiveMode.gentle:
-          darkColors.updateLVL1(colorUtils.contrastBalancer(accentHex, darkColors.LVL1_GENTLE, darkColors.LVL1_DEF, true));
-          darkColors.updateLVL2(colorUtils.contrastBalancer(accentHex, darkColors.LVL2_GENTLE, darkColors.LVL2_DEF, true));
-          darkColors.updateLVL3(colorUtils.contrastBalancer(accentHex, darkColors.LVL3_GENTLE, darkColors.LVL3_DEF, true));
-          darkColors.updateLVL4(colorUtils.contrastBalancer(accentHex, darkColors.LVL4_GENTLE, darkColors.LVL4_DEF, true));
-          darkColors.updateLVL5(colorUtils.contrastBalancer(accentHex, darkColors.LVL5_GENTLE, darkColors.LVL5_DEF, true));
+          darkColors.updateLVL1(
+            colorUtils.contrastBalancer(
+              accentHex,
+              darkColors.LVL1_GENTLE,
+              darkColors.LVL1_DEF,
+              true
+            )
+          );
+          darkColors.updateLVL2(
+            colorUtils.contrastBalancer(
+              accentHex,
+              darkColors.LVL2_GENTLE,
+              darkColors.LVL2_DEF,
+              true
+            )
+          );
+          darkColors.updateLVL3(
+            colorUtils.contrastBalancer(
+              accentHex,
+              darkColors.LVL3_GENTLE,
+              darkColors.LVL3_DEF,
+              true
+            )
+          );
+          darkColors.updateLVL4(
+            colorUtils.contrastBalancer(
+              accentHex,
+              darkColors.LVL4_GENTLE,
+              darkColors.LVL4_DEF,
+              true
+            )
+          );
+          darkColors.updateLVL5(
+            colorUtils.contrastBalancer(
+              accentHex,
+              darkColors.LVL5_GENTLE,
+              darkColors.LVL5_DEF,
+              true
+            )
+          );
           break;
         case AdaptiveMode.aggressive:
-          darkColors.updateLVL1(colorUtils.contrastBalancer(accentHex, darkColors.LVL1_AGGRESSIVE, darkColors.LVL1_DEF, true));
-          darkColors.updateLVL2(colorUtils.contrastBalancer(accentHex, darkColors.LVL2_AGGRESSIVE, darkColors.LVL2_DEF, true));
-          darkColors.updateLVL3(colorUtils.contrastBalancer(accentHex, darkColors.LVL3_AGGRESSIVE, darkColors.LVL3_DEF, true));
-          darkColors.updateLVL4(colorUtils.contrastBalancer(accentHex, darkColors.LVL4_AGGRESSIVE, darkColors.LVL4_DEF, true));
-          darkColors.updateLVL5(colorUtils.contrastBalancer(accentHex, darkColors.LVL5_AGGRESSIVE, darkColors.LVL5_DEF, true));
+          darkColors.updateLVL1(
+            colorUtils.contrastBalancer(
+              accentHex,
+              darkColors.LVL1_AGGRESSIVE,
+              darkColors.LVL1_DEF,
+              true
+            )
+          );
+          darkColors.updateLVL2(
+            colorUtils.contrastBalancer(
+              accentHex,
+              darkColors.LVL2_AGGRESSIVE,
+              darkColors.LVL2_DEF,
+              true
+            )
+          );
+          darkColors.updateLVL3(
+            colorUtils.contrastBalancer(
+              accentHex,
+              darkColors.LVL3_AGGRESSIVE,
+              darkColors.LVL3_DEF,
+              true
+            )
+          );
+          darkColors.updateLVL4(
+            colorUtils.contrastBalancer(
+              accentHex,
+              darkColors.LVL4_AGGRESSIVE,
+              darkColors.LVL4_DEF,
+              true
+            )
+          );
+          darkColors.updateLVL5(
+            colorUtils.contrastBalancer(
+              accentHex,
+              darkColors.LVL5_AGGRESSIVE,
+              darkColors.LVL5_DEF,
+              true
+            )
+          );
           break;
         default:
           break;
@@ -68,18 +143,88 @@ function adaptTheme(accentHex: string, colorMode: ColorMode, adaptiveMode: Adapt
     case ColorMode.light:
       switch (adaptiveMode) {
         case AdaptiveMode.gentle:
-          lightColors.updateLVL1(colorUtils.contrastBalancer(accentHex, lightColors.LVL1_GENTLE, lightColors.LVL1_DEF, false));
-          lightColors.updateLVL2(colorUtils.contrastBalancer(accentHex, lightColors.LVL2_GENTLE, lightColors.LVL2_DEF, false));
-          lightColors.updateLVL3(colorUtils.contrastBalancer(accentHex, lightColors.LVL3_GENTLE, lightColors.LVL3_DEF, false));
-          lightColors.updateLVL4(colorUtils.contrastBalancer(accentHex, lightColors.LVL4_GENTLE, lightColors.LVL4_DEF, false));
-          lightColors.updateLVL5(colorUtils.contrastBalancer(accentHex, lightColors.LVL5_GENTLE, lightColors.LVL5_DEF, false));
+          lightColors.updateLVL1(
+            colorUtils.contrastBalancer(
+              accentHex,
+              lightColors.LVL1_GENTLE,
+              lightColors.LVL1_DEF,
+              false
+            )
+          );
+          lightColors.updateLVL2(
+            colorUtils.contrastBalancer(
+              accentHex,
+              lightColors.LVL2_GENTLE,
+              lightColors.LVL2_DEF,
+              false
+            )
+          );
+          lightColors.updateLVL3(
+            colorUtils.contrastBalancer(
+              accentHex,
+              lightColors.LVL3_GENTLE,
+              lightColors.LVL3_DEF,
+              false
+            )
+          );
+          lightColors.updateLVL4(
+            colorUtils.contrastBalancer(
+              accentHex,
+              lightColors.LVL4_GENTLE,
+              lightColors.LVL4_DEF,
+              false
+            )
+          );
+          lightColors.updateLVL5(
+            colorUtils.contrastBalancer(
+              accentHex,
+              lightColors.LVL5_GENTLE,
+              lightColors.LVL5_DEF,
+              false
+            )
+          );
           break;
         case AdaptiveMode.aggressive:
-          lightColors.updateLVL1(colorUtils.contrastBalancer(accentHex, lightColors.LVL1_AGGRESSIVE, lightColors.LVL1_DEF, false));
-          lightColors.updateLVL2(colorUtils.contrastBalancer(accentHex, lightColors.LVL2_AGGRESSIVE, lightColors.LVL2_DEF, false));
-          lightColors.updateLVL3(colorUtils.contrastBalancer(accentHex, lightColors.LVL3_AGGRESSIVE, lightColors.LVL3_DEF, false));
-          lightColors.updateLVL4(colorUtils.contrastBalancer(accentHex, lightColors.LVL4_AGGRESSIVE, lightColors.LVL4_DEF, false));
-          lightColors.updateLVL5(colorUtils.contrastBalancer(accentHex, lightColors.LVL5_AGGRESSIVE, lightColors.LVL5_DEF, false));
+          lightColors.updateLVL1(
+            colorUtils.contrastBalancer(
+              accentHex,
+              lightColors.LVL1_AGGRESSIVE,
+              lightColors.LVL1_DEF,
+              false
+            )
+          );
+          lightColors.updateLVL2(
+            colorUtils.contrastBalancer(
+              accentHex,
+              lightColors.LVL2_AGGRESSIVE,
+              lightColors.LVL2_DEF,
+              false
+            )
+          );
+          lightColors.updateLVL3(
+            colorUtils.contrastBalancer(
+              accentHex,
+              lightColors.LVL3_AGGRESSIVE,
+              lightColors.LVL3_DEF,
+              false
+            )
+          );
+          lightColors.updateLVL4(
+            colorUtils.contrastBalancer(
+              accentHex,
+              lightColors.LVL4_AGGRESSIVE,
+              lightColors.LVL4_DEF,
+              false
+            )
+          );
+          lightColors.updateLVL5(
+            colorUtils.contrastBalancer(
+              accentHex,
+              lightColors.LVL5_AGGRESSIVE,
+              lightColors.LVL5_DEF,
+              false
+            )
+          );
           break;
         default:
           break;
@@ -90,90 +235,93 @@ function adaptTheme(accentHex: string, colorMode: ColorMode, adaptiveMode: Adapt
   }
 }
 
-async function applyTheme(colors: typeof darkColors | typeof lightColors, isDarkMode: boolean) {
+async function applyTheme(
+  colors: typeof darkColors | typeof lightColors,
+  isDarkMode: boolean
+) {
   const themeObject = {
-    "$schema": "vscode://schemas/color-theme",
-    "semanticHighlighting": true,
-    "semanticTokenColors": {
+    $schema: "vscode://schemas/color-theme",
+    semanticHighlighting: true,
+    semanticTokenColors: {
       // GENERAL SEMANTIC TOKENS
       // namespace: For identifiers that declare or reference a namespace, module, or package.
-      "namespace": colors.FILL_TEXT.sec,
+      namespace: colors.FILL_TEXT.sec,
       // module
-      "module": colors.FILL_TEXT.sec,
+      module: colors.FILL_TEXT.sec,
       // class: For identifiers that declare or reference a class type.
-      "class": colors.BASIC_DEF_YELLOW.pri,
+      class: colors.BASIC_DEF_YELLOW.pri,
       // enum: For identifiers that declare or reference an enumeration type.
-      "enum": colors.BASIC_DEF_MINT.pri,
+      enum: colors.BASIC_DEF_MINT.pri,
       // interface: For identifiers that declare or reference an interface type.
-      "interface": colors.BASIC_DEF_MINT.pri,
+      interface: colors.BASIC_DEF_MINT.pri,
       // struct: For identifiers that declare or reference a struct type.
-      "struct": colors.BASIC_DEF_YELLOW.pri,
+      struct: colors.BASIC_DEF_YELLOW.pri,
       // typeParameter: For identifiers that declare or reference a type parameter (generics).
-      "typeParameter": colors.BASIC_ALT_MINT.pri,
+      typeParameter: colors.BASIC_ALT_MINT.pri,
       // type: For identifiers that declare or reference a type that is not covered above.
-      "type": colors.BASIC_DEF_MINT.pri,
+      type: colors.BASIC_DEF_MINT.pri,
       // parameter: For identifiers that declare or reference function or method parameters.
-      "parameter": colors.BASIC_ALT_ORANGE.pri,
+      parameter: colors.BASIC_ALT_ORANGE.pri,
       // variable: For identifiers that declare or reference a local or global variable.
-      "variable": { "foreground": colors.BASIC_ALT_ORANGE.pri, "underline": true },
-      "variable.readonly": { "underline": false },
+      variable: { foreground: colors.BASIC_ALT_ORANGE.pri, underline: true },
+      "variable.readonly": { underline: false },
       // property: For identifiers that declare or reference a member property, member field, or member variable.
-      "property": { "foreground": colors.BASIC_ALT_YELLOW.pri, "underline": true },
-      "property.readonly": { "underline": false },
+      property: { foreground: colors.BASIC_ALT_YELLOW.pri, underline: true },
+      "property.readonly": { underline: false },
       // enumMember: For identifiers that declare or reference an enumeration property, constant, or member.
-      "enumMember": colors.BASIC_ALT_MINT.pri,
+      enumMember: colors.BASIC_ALT_MINT.pri,
       // decorator: For identifiers that declare or reference decorators and annotations.
-      "decorator": colors.BASIC_DEF_RED.pri,
+      decorator: colors.BASIC_DEF_RED.pri,
       // annotation: For identifiers that declare or reference decorators and annotations.
-      "annotation": colors.BASIC_DEF_RED.pri,
+      annotation: colors.BASIC_DEF_RED.pri,
       // event: For identifiers that declare an event property.
-      "event": colors.BASIC_ALT_RED.pri,
+      event: colors.BASIC_ALT_RED.pri,
       // function: For identifiers that declare a function.
-      "function": colors.BASIC_DEF_ORANGE.pri,
+      function: colors.BASIC_DEF_ORANGE.pri,
       // method: For identifiers that declare a method.
-      "method": colors.BASIC_DEF_ORANGE.pri,
+      method: colors.BASIC_DEF_ORANGE.pri,
       // macro: For identifiers that declare a macro.
-      "macro": colors.BASIC_ALT_PINK.pri,
+      macro: colors.BASIC_ALT_PINK.pri,
       // label: For identifiers that declare a label.
-      "label": colors.BASIC_ALT_PINK.pri,
+      label: colors.BASIC_ALT_PINK.pri,
       // comment: For tokens that represent a comment.
-      "comment": { "foreground": colors.BASIC_DEF_GREEN.pri, "italic": true },
+      comment: { foreground: colors.BASIC_DEF_GREEN.pri, italic: true },
       // string: For tokens that represent a string literal.
-      "string": colors.BASIC_DEF_BROWN.pri,
+      string: colors.BASIC_DEF_BROWN.pri,
       // keyword: For tokens that represent a language keyword.
-      "keyword": colors.BASIC_DEF_PINK.pri,
+      keyword: colors.BASIC_DEF_PINK.pri,
       // modifier: Style for modifier keywords
-      "modifier": colors.BASIC_DEF_BLUE.pri,
+      modifier: colors.BASIC_DEF_BLUE.pri,
       // plainKeyword
-      "plainKeyword": colors.BASIC_DEF_BLUE.pri,
+      plainKeyword: colors.BASIC_DEF_BLUE.pri,
       // number: For tokens that represent a number literal.
-      "number": colors.BASIC_ALT_GREEN.pri,
+      number: colors.BASIC_ALT_GREEN.pri,
       // regexp: For tokens that represent a regular expression literal.
-      "regexp": colors.BASIC_DEF_PURPLE.pri,
+      regexp: colors.BASIC_DEF_PURPLE.pri,
       // operator: For tokens that represent an operator.
-      "operator": colors.FILL_TEXT.sec,
+      operator: colors.FILL_TEXT.sec,
       // builtin: For symbols that are part of the language.
       "*.builtin": colors.BASIC_DEF_BLUE.pri,
       // static: For class members (static members).
-      "*.static": { "italic": true },
+      "*.static": { italic: true },
       // deprecated: For symbols that should no longer be used.
-      "*.deprecated": { "strikethrough": true },
+      "*.deprecated": { strikethrough: true },
       // abstract: For types and member functions that are abstract.
-      "*.abstract": { "bold": true },
+      "*.abstract": { bold: true },
       // OTHER SEMANTIC TOKENS
-      "newOperator": colors.BASIC_DEF_BLUE.pri,
-      "stringLiteral": colors.BASIC_DEF_BROWN.pri,
-      "customLiteral": colors.BASIC_ALT_BLUE.pri,
-      "numberLiteral": colors.BASIC_ALT_GREEN.pri,
-      "selfParameter": colors.BASIC_DEF_YELLOW.pri,
-      "magicFunction": colors.BASIC_DEF_PURPLE.pri
+      newOperator: colors.BASIC_DEF_BLUE.pri,
+      stringLiteral: colors.BASIC_DEF_BROWN.pri,
+      customLiteral: colors.BASIC_ALT_BLUE.pri,
+      numberLiteral: colors.BASIC_ALT_GREEN.pri,
+      selfParameter: colors.BASIC_DEF_YELLOW.pri,
+      magicFunction: colors.BASIC_DEF_PURPLE.pri,
     },
-    "tokenColors": [
+    tokenColors: [
       // GENERAL TEXTMATE TOKENS
 
       // namespace, module, package
       {
-        "scope": [
+        scope: [
           "entity.name.type.namespace",
           "entity.name.namespace",
           "entity.name.type.module",
@@ -183,317 +331,294 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
           "storage.modifier.import",
           "storage.modifier.package",
           "variable.language.wildcard.java",
-          "entity.name.scope-resolution"
+          "entity.name.scope-resolution",
         ],
-        "settings": {
-          "foreground": colors.FILL_TEXT.sec,
-          "fontStyle": ""
-        }
+        settings: {
+          foreground: colors.FILL_TEXT.sec,
+          fontStyle: "",
+        },
       },
       // class
       {
-        "scope": [
+        scope: [
           "entity.name.type.class",
           "entity.other.inherited-class",
           "meta.definition.class.inherited.classes",
           "entity.other.attribute-name.class",
         ],
-        "settings": {
-          "foreground": colors.BASIC_DEF_YELLOW.pri,
-          "fontStyle": ""
-        }
+        settings: {
+          foreground: colors.BASIC_DEF_YELLOW.pri,
+          fontStyle: "",
+        },
       },
       // enum
       {
-        "scope": [
-          "entity.name.type.enum"
-        ],
-        "settings": {
-          "foreground": colors.BASIC_DEF_MINT.pri,
-          "fontStyle": ""
-        }
+        scope: ["entity.name.type.enum"],
+        settings: {
+          foreground: colors.BASIC_DEF_MINT.pri,
+          fontStyle: "",
+        },
       },
       // interface
       {
-        "scope": [
+        scope: [
           "entity.name.type.interface",
-          "meta.definition.class.implemented.interfaces"
+          "meta.definition.class.implemented.interfaces",
         ],
-        "settings": {
-          "foreground": colors.BASIC_DEF_MINT.pri,
-          "fontStyle": ""
-        }
+        settings: {
+          foreground: colors.BASIC_DEF_MINT.pri,
+          fontStyle: "",
+        },
       },
       // struct
       {
-        "scope": [
-          "entity.name.type.struct",
-          "storage.type.struct"
-        ],
-        "settings": {
-          "foreground": colors.BASIC_DEF_MINT.pri,
-          "fontStyle": ""
-        }
+        scope: ["entity.name.type.struct", "storage.type.struct"],
+        settings: {
+          foreground: colors.BASIC_DEF_MINT.pri,
+          fontStyle: "",
+        },
       },
       // typeParameter
       {
-        "scope": [
-          "storage.type.generic"
-        ],
-        "settings": {
-          "foreground": colors.BASIC_ALT_MINT.pri,
-          "fontStyle": ""
-        }
+        scope: ["storage.type.generic"],
+        settings: {
+          foreground: colors.BASIC_ALT_MINT.pri,
+          fontStyle: "",
+        },
       },
       // type
       {
-        "scope": [
+        scope: [
           "entity.name.type",
           "entity.name.tag",
-          "keyword.operator.less"
+          "keyword.operator.less",
+          "support.type",
         ],
-        "settings": {
-          "foreground": colors.BASIC_DEF_MINT.pri,
-          "fontStyle": ""
-        }
+        settings: {
+          foreground: colors.BASIC_DEF_MINT.pri,
+          fontStyle: "",
+        },
       },
       {
-        "scope": [
-          "storage.type"
-        ],
-        "settings": {
-          "foreground": colors.BASIC_DEF_BLUE.pri,
-          "fontStyle": ""
-        }
+        scope: ["storage.type"],
+        settings: {
+          foreground: colors.BASIC_DEF_BLUE.pri,
+          fontStyle: "",
+        },
       },
       // parameter
       {
-        "scope": [
-          "variable.parameter"
-        ],
-        "settings": {
-          "foreground": colors.BASIC_ALT_ORANGE.pri,
-          "fontStyle": ""
-        }
+        scope: ["variable.parameter"],
+        settings: {
+          foreground: colors.BASIC_ALT_ORANGE.pri,
+          fontStyle: "",
+        },
       },
       // variable
       {
-        "scope": [
+        scope: [
           "variable",
           "meta.method variable",
           "meta.function variable",
           "meta.block variable",
           "entity.name.variable",
-          "variable.other.readwrite"
+          "variable.other.readwrite",
         ],
-        "settings": {
-          "foreground": colors.BASIC_ALT_ORANGE.pri,
-          "fontStyle": "underline"
-        }
+        settings: {
+          foreground: colors.BASIC_ALT_ORANGE.pri,
+          fontStyle: "underline",
+        },
       },
       // variable.readonly
       {
-        "scope": [
+        scope: [
           "variable.other.constant",
           "meta.method variable.other.constant",
           "meta.function variable.other.constant",
           "meta.block variable.other.constant",
-          "entity.name.variable.constant"
+          "entity.name.variable.constant",
         ],
-        "settings": {
-          "foreground": colors.BASIC_ALT_ORANGE.pri,
-          "fontStyle": ""
-        }
+        settings: {
+          foreground: colors.BASIC_ALT_ORANGE.pri,
+          fontStyle: "",
+        },
       },
       // property
       {
-        "scope": [
+        scope: [
           "variable.other.property",
           "meta.class variable",
           "meta.interface variable",
           "entity.name.variable.property",
           "entity.name.variable.field",
-          "meta.attribute.python"
+          "meta.attribute.python",
         ],
-        "settings": {
-          "foreground": colors.BASIC_ALT_YELLOW.pri,
-          "fontStyle": "underline"
-        }
+        settings: {
+          foreground: colors.BASIC_ALT_YELLOW.pri,
+          fontStyle: "underline",
+        },
       },
       // property.readonly
       {
-        "scope": [
+        scope: [
           "variable.other.constant.property",
           "meta.class variable.other.constant",
           "meta.interface variable.other.constant",
           "entity.name.variable.field.constant",
           "entity.name.variable.property.constant",
-          "meta.attribute.constant.python"
+          "meta.attribute.constant.python",
         ],
-        "settings": {
-          "foreground": colors.BASIC_ALT_YELLOW.pri,
-          "fontStyle": ""
-        }
+        settings: {
+          foreground: colors.BASIC_ALT_YELLOW.pri,
+          fontStyle: "",
+        },
       },
       // enumMember
       {
-        "scope": [
+        scope: [
           "variable.other.enummember",
           "constant.other.enum",
-          "entity.name.variable.enum-member"
+          "entity.name.variable.enum-member",
         ],
-        "settings": {
-          "foreground": colors.BASIC_ALT_MINT.pri,
-          "fontStyle": ""
-        }
+        settings: {
+          foreground: colors.BASIC_ALT_MINT.pri,
+          fontStyle: "",
+        },
       },
       // decorator
       {
-        "scope": [
+        scope: [
           "meta.decorator",
           "meta.function.decorator",
-          "entity.name.function.decorator"
+          "entity.name.function.decorator",
         ],
-        "settings": {
-          "foreground": colors.BASIC_DEF_RED.pri,
-          "fontStyle": ""
-        }
+        settings: {
+          foreground: colors.BASIC_DEF_RED.pri,
+          fontStyle: "",
+        },
       },
       // annotation
       {
-        "scope": [
+        scope: [
           "entity.name.type.annotation",
           "meta.declaration.annotation",
           "storage.type.annotation",
           "entity.other.attribute",
           "meta.attribute",
-          "support.attribute"
+          "support.attribute",
         ],
-        "settings": {
-          "foreground": colors.BASIC_DEF_RED.pri,
-          "fontStyle": ""
-        }
+        settings: {
+          foreground: colors.BASIC_DEF_RED.pri,
+          fontStyle: "",
+        },
       },
       // event
       {
-        "scope": [
-          "keyword.other.event",
-          "variable.other.event"
-        ],
-        "settings": {
-          "foreground": colors.BASIC_ALT_RED.pri,
-          "fontStyle": ""
-        }
+        scope: ["keyword.other.event", "variable.other.event"],
+        settings: {
+          foreground: colors.BASIC_ALT_RED.pri,
+          fontStyle: "",
+        },
       },
       // function
       {
-        "scope": [
+        scope: [
           "entity.name.function",
           "support.function",
           "support.constant.handlebars",
           "source.powershell variable.other.member",
           "entity.name.operator.custom-literal",
-          "entity.other.attribute-name.parent-selector"
+          "entity.other.attribute-name.parent-selector",
         ],
-        "settings": {
-          "foreground": colors.BASIC_DEF_ORANGE.pri,
-          "fontStyle": ""
-        }
+        settings: {
+          foreground: colors.BASIC_DEF_ORANGE.pri,
+          fontStyle: "",
+        },
       },
       // method
       {
-        "scope": [
-          "entity.name.method",
-          "entity.name.function.member"
-        ],
-        "settings": {
-          "foreground": colors.BASIC_DEF_ORANGE.pri,
-          "fontStyle": ""
-        }
+        scope: ["entity.name.method", "entity.name.function.member"],
+        settings: {
+          foreground: colors.BASIC_DEF_ORANGE.pri,
+          fontStyle: "",
+        },
       },
       // macro
       {
-        "scope": [
+        scope: [
           "meta.preprocessor.macro",
           "keyword.preprocessor",
           "keyword.control.directive",
           "entity.name.function.macro",
           "entity.name.function.preprocessor",
-          "meta.preprocessor punctuation"
+          "meta.preprocessor punctuation",
         ],
-        "settings": {
-          "foreground": colors.BASIC_ALT_PINK.pri,
-          "fontStyle": ""
-        }
+        settings: {
+          foreground: colors.BASIC_ALT_PINK.pri,
+          fontStyle: "",
+        },
       },
       // label
       {
-        "scope": [
-          "entity.name.label"
-        ],
-        "settings": {
-          "foreground": colors.BASIC_ALT_PINK.pri,
-          "fontStyle": ""
-        }
+        scope: ["entity.name.label"],
+        settings: {
+          foreground: colors.BASIC_ALT_PINK.pri,
+          fontStyle: "",
+        },
       },
       // comment
       {
-        "scope": [
-          "comment",
-        ],
-        "settings": {
-          "foreground": colors.BASIC_DEF_GREEN.pri,
-          "fontStyle": "italic"
-        }
+        scope: ["comment"],
+        settings: {
+          foreground: colors.BASIC_DEF_GREEN.pri,
+          fontStyle: "italic",
+        },
       },
       // string
       {
-        "scope": [
+        scope: [
           "string",
           "string.tag",
           "string.value",
           "meta.preprocessor.string",
-          "meta.embedded.assembly"
+          "meta.embedded.assembly",
         ],
-        "settings": {
-          "foreground": colors.BASIC_DEF_BROWN.pri,
-          "fontStyle": ""
-        }
+        settings: {
+          foreground: colors.BASIC_DEF_BROWN.pri,
+          fontStyle: "",
+        },
       },
       // string template
       {
-        "scope": [
+        scope: [
           "punctuation.definition.template-expression.begin",
           "punctuation.definition.template-expression.end",
           "punctuation.section.embedded",
-          "meta.template.expression"
+          "meta.template.expression",
         ],
-        "settings": {
-          "foreground": colors.BASIC_ALT_BLUE.pri,
-          "fontStyle": ""
-        }
+        settings: {
+          foreground: colors.BASIC_ALT_BLUE.pri,
+          fontStyle: "",
+        },
       },
       // special string
       {
-        "scope": [
-          "constant.character",
-          "constant.other.unicode-range"
-        ],
-        "settings": {
-          "foreground": colors.BASIC_ALT_BLUE.pri,
-          "fontStyle": ""
-        }
+        scope: ["constant.character", "constant.other.unicode-range"],
+        settings: {
+          foreground: colors.BASIC_ALT_BLUE.pri,
+          fontStyle: "",
+        },
       },
       {
-        "scope": "constant.character.escape",
-        "settings": {
-          "foreground": colors.BASIC_DEF_RED.pri,
-          "fontStyle": ""
-        }
+        scope: "constant.character.escape",
+        settings: {
+          foreground: colors.BASIC_DEF_RED.pri,
+          fontStyle: "",
+        },
       },
       // keyword
       {
-        "scope": [
+        scope: [
           "keyword",
           "storage.type.package",
           "storage.type.import",
@@ -502,16 +627,16 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
           "keyword.other.operator",
           "entity.name.operator",
           "punctuation.section.embedded.begin.php",
-          "punctuation.section.embedded.end.php"
+          "punctuation.section.embedded.end.php",
         ],
-        "settings": {
-          "foreground": colors.BASIC_DEF_PINK.pri,
-          "fontStyle": ""
-        }
+        settings: {
+          foreground: colors.BASIC_DEF_PINK.pri,
+          fontStyle: "",
+        },
       },
       // modifier
       {
-        "scope": [
+        scope: [
           "storage",
           "storage.modifier",
           "keyword.operator.expression",
@@ -539,16 +664,16 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
           "keyword.operator.shape",
           "support.constant.font-name",
           "support.constant.media-type",
-          "support.constant.media"
+          "support.constant.media",
         ],
-        "settings": {
-          "foreground": colors.BASIC_DEF_BLUE.pri,
-          "fontStyle": ""
-        }
+        settings: {
+          foreground: colors.BASIC_DEF_BLUE.pri,
+          fontStyle: "",
+        },
       },
       // number
       {
-        "scope": [
+        scope: [
           "constant.numeric",
           "keyword.operator.plus.exponent",
           "keyword.operator.minus.exponent",
@@ -556,401 +681,346 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
           "meta.preprocessor.numeric",
           "source.css.less meta.property-value constant.numeric",
           "source.css.less meta.property-value keyword.other.unit",
-          "constant.other.reference.link"
+          "constant.other.reference.link",
         ],
-        "settings": {
-          "foreground": colors.BASIC_ALT_GREEN.pri,
-          "fontStyle": ""
-        }
+        settings: {
+          foreground: colors.BASIC_ALT_GREEN.pri,
+          fontStyle: "",
+        },
       },
       // regexp
       {
-        "scope": [
-          "string.regexp",
-          "constant.regexp"
-        ],
-        "settings": {
-          "foreground": colors.BASIC_DEF_PURPLE.pri,
-          "fontStyle": ""
-        }
+        scope: ["string.regexp", "constant.regexp"],
+        settings: {
+          foreground: colors.BASIC_DEF_PURPLE.pri,
+          fontStyle: "",
+        },
       },
       {
-        "scope": [
+        scope: [
           "punctuation.definition.group.regexp",
           "punctuation.definition.group.assertion.regexp",
           "punctuation.definition.character-class.regexp",
           "punctuation.character.set.begin.regexp",
           "punctuation.character.set.end.regexp",
           "keyword.operator.negation.regexp",
-          "support.other.parenthesis.regexp"
+          "support.other.parenthesis.regexp",
         ],
-        "settings": {
-          "foreground": colors.BASIC_ALT_PURPLE.pri,
-          "fontStyle": ""
-        }
+        settings: {
+          foreground: colors.BASIC_ALT_PURPLE.pri,
+          fontStyle: "",
+        },
       },
       {
-        "scope": [
+        scope: [
           "constant.character.character-class.regexp",
           "constant.other.character-class.set.regexp",
           "constant.other.character-class.regexp",
-          "constant.character.set.regexp"
+          "constant.character.set.regexp",
         ],
-        "settings": {
-          "foreground": colors.BASIC_ALT_PINK.pri,
-          "fontStyle": ""
-        }
+        settings: {
+          foreground: colors.BASIC_ALT_PINK.pri,
+          fontStyle: "",
+        },
       },
       {
-        "scope": [
-          "keyword.operator.or.regexp",
-          "keyword.control.anchor.regexp"
-        ],
-        "settings": {
-          "foreground": colors.BASIC_ALT_BLUE.pri,
-          "fontStyle": ""
-        }
+        scope: ["keyword.operator.or.regexp", "keyword.control.anchor.regexp"],
+        settings: {
+          foreground: colors.BASIC_ALT_BLUE.pri,
+          fontStyle: "",
+        },
       },
       {
-        "scope": "keyword.operator.quantifier.regexp",
-        "settings": {
-          "foreground": colors.BASIC_ALT_GREEN.pri,
-          "fontStyle": ""
-        }
+        scope: "keyword.operator.quantifier.regexp",
+        settings: {
+          foreground: colors.BASIC_ALT_GREEN.pri,
+          fontStyle: "",
+        },
       },
       // operator
       {
-        "scope": [
-          "keyword.operator",
-          "punctuation.separator.key-value"
-        ],
-        "settings": {
-          "foreground": colors.FILL_TEXT.sec,
-          "fontStyle": ""
-        }
+        scope: ["keyword.operator", "punctuation.separator.key-value"],
+        settings: {
+          foreground: colors.FILL_TEXT.sec,
+          fontStyle: "",
+        },
       },
 
       // OTHER TEXTMATE TOKENS
 
       // this, self, etc.
       {
-        "scope": [
+        scope: [
           "variable.language",
           "variable.parameter.function.language.special",
           "keyword.other.this",
           "variable.language.this",
           "variable.language.super",
-          "variable.language.special.self"
+          "variable.language.special.self",
         ],
-        "settings": {
-          "foreground": colors.BASIC_DEF_YELLOW.pri,
-          "fontStyle": ""
-        }
+        settings: {
+          foreground: colors.BASIC_DEF_YELLOW.pri,
+          fontStyle: "",
+        },
       },
       // primitive
       {
-        "scope": [
+        scope: [
           "storage.type.primitive",
           "storage.type.built-in",
           "support.type.primitive",
           "support.type.built-in",
-          "keyword.type"
+          "keyword.type",
         ],
-        "settings": {
-          "foreground": colors.BASIC_DEF_BLUE.pri,
-          "fontStyle": ""
-        }
+        settings: {
+          foreground: colors.BASIC_DEF_BLUE.pri,
+          fontStyle: "",
+        },
       },
       // new operator
       {
-        "scope": [
-          "keyword.operator.new",
-          "keyword.control.new"
-        ],
-        "settings": {
-          "foreground": colors.BASIC_DEF_BLUE.pri,
-          "fontStyle": ""
-        }
+        scope: ["keyword.operator.new", "keyword.control.new"],
+        settings: {
+          foreground: colors.BASIC_DEF_BLUE.pri,
+          fontStyle: "",
+        },
       },
       // constant
       {
-        "scope": [
+        scope: [
           "variable.other.constant",
           "constant.other.caps",
-          "constant.other.php"
+          "constant.other.php",
         ],
-        "settings": {
-          "foreground": colors.BASIC_ALT_MINT.pri,
-          "fontStyle": ""
-        }
+        settings: {
+          foreground: colors.BASIC_ALT_MINT.pri,
+          fontStyle: "",
+        },
       },
       // color
       {
-        "scope": [
+        scope: [
           "variable.other.color",
           "constant.other.color",
           "support.constant.color",
           "constant.other.rgb-value",
           "constant.other.color.rgb-value",
         ],
-        "settings": {
-          "foreground": colors.BASIC_DEF_BROWN.pri,
-          "fontStyle": ""
-        }
+        settings: {
+          foreground: colors.BASIC_DEF_BROWN.pri,
+          fontStyle: "",
+        },
       },
       // invalid
       {
-        "scope": [
-          "invalid"
-        ],
-        "settings": {
-          "foreground": colors.BASIC_DEF_RED.pri,
-          "fontStyle": ""
-        }
+        scope: ["invalid"],
+        settings: {
+          foreground: colors.BASIC_DEF_RED.pri,
+          fontStyle: "",
+        },
       },
       // id
       {
-        "scope": [
-          "entity.other.attribute-name.id"
-        ],
-        "settings": {
-          "foreground": colors.BASIC_DEF_PURPLE.pri,
-          "fontStyle": ""
-        }
+        scope: ["entity.other.attribute-name.id"],
+        settings: {
+          foreground: colors.BASIC_DEF_PURPLE.pri,
+          fontStyle: "",
+        },
       },
       // property-name, attribute-name
       {
-        "scope": [
+        scope: [
           "support.type.property-name",
           "entity.other.attribute-name",
-          "meta.property-value"
+          "meta.property-value",
         ],
-        "settings": {
-          "foreground": colors.BASIC_ALT_BLUE.pri,
-          "fontStyle": ""
-        }
+        settings: {
+          foreground: colors.BASIC_ALT_BLUE.pri,
+          fontStyle: "",
+        },
       },
       // property-name-vendored
       {
-        "scope": [
-          "support.type.vendored.property-name",
-        ],
-        "settings": {
-          "foreground": colors.BASIC_ALT_BLUE.pri,
-          "fontStyle": "underline"
-        }
+        scope: ["support.type.vendored.property-name"],
+        settings: {
+          foreground: colors.BASIC_ALT_BLUE.pri,
+          fontStyle: "underline",
+        },
       },
-      // psuedo-class
+      // pseudo-class
       {
-        "scope": [
-          "entity.other.attribute-name.pseudo-class"
-        ],
-        "settings": {
-          "foreground": colors.BASIC_ALT_YELLOW.pri,
-          "fontStyle": ""
-        }
+        scope: ["entity.other.attribute-name.pseudo-class"],
+        settings: {
+          foreground: colors.BASIC_ALT_YELLOW.pri,
+          fontStyle: "",
+        },
       },
-      // psuedo-element
+      // pseudo-element
       {
-        "scope": [
-          "entity.other.attribute-name.pseudo-element"
-        ],
-        "settings": {
-          "foreground": colors.BASIC_ALT_PURPLE.pri,
-          "fontStyle": ""
-        }
+        scope: ["entity.other.attribute-name.pseudo-element"],
+        settings: {
+          foreground: colors.BASIC_ALT_PURPLE.pri,
+          fontStyle: "",
+        },
       },
       // other keyword
       {
-        "scope": [
+        scope: [
           "entity.other.keyframe-offset",
           "entity.name.tag.reference",
           "meta.at-rule.keyframes",
           "entity.other.attribute-name.scss",
           "source.css.less constant.numeric",
-          "source.css.less keyword.other.unit"
+          "source.css.less keyword.other.unit",
         ],
-        "settings": {
-          "foreground": colors.BASIC_ALT_PINK.pri,
-          "fontStyle": ""
-        }
+        settings: {
+          foreground: colors.BASIC_ALT_PINK.pri,
+          fontStyle: "",
+        },
       },
       // markdown
       {
-        "scope": [
-          "heading.1",
-          "markup.heading.setext.1"
-        ],
-        "settings": {
-          "foreground": colors.BASIC_DEF_RED.pri,
-          "fontStyle": ""
-        }
+        scope: ["heading.1", "markup.heading.setext.1"],
+        settings: {
+          foreground: colors.BASIC_DEF_RED.pri,
+          fontStyle: "",
+        },
       },
       {
-        "scope": [
-          "heading.2",
-          "markup.heading.setext.2"
-        ],
-        "settings": {
-          "foreground": colors.BASIC_DEF_ORANGE.pri,
-          "fontStyle": ""
-        }
+        scope: ["heading.2", "markup.heading.setext.2"],
+        settings: {
+          foreground: colors.BASIC_DEF_ORANGE.pri,
+          fontStyle: "",
+        },
       },
       {
-        "scope": [
-          "heading.3"
-        ],
-        "settings": {
-          "foreground": colors.BASIC_DEF_YELLOW.pri,
-          "fontStyle": ""
-        }
+        scope: ["heading.3"],
+        settings: {
+          foreground: colors.BASIC_DEF_YELLOW.pri,
+          fontStyle: "",
+        },
       },
       {
-        "scope": [
-          "heading.4"
-        ],
-        "settings": {
-          "foreground": colors.BASIC_DEF_GREEN.pri,
-          "fontStyle": ""
-        }
+        scope: ["heading.4"],
+        settings: {
+          foreground: colors.BASIC_DEF_GREEN.pri,
+          fontStyle: "",
+        },
       },
       {
-        "scope": [
-          "heading.5"
-        ],
-        "settings": {
-          "foreground": colors.BASIC_DEF_MINT.pri,
-          "fontStyle": ""
-        }
+        scope: ["heading.5"],
+        settings: {
+          foreground: colors.BASIC_DEF_MINT.pri,
+          fontStyle: "",
+        },
       },
       {
-        "scope": [
-          "heading.6"
-        ],
-        "settings": {
-          "foreground": colors.BASIC_DEF_BLUE.pri,
-          "fontStyle": ""
-        }
+        scope: ["heading.6"],
+        settings: {
+          foreground: colors.BASIC_DEF_BLUE.pri,
+          fontStyle: "",
+        },
       },
       {
-        "scope": [
-          "emphasis",
-          "markup.italic"
-        ],
-        "settings": {
-          "fontStyle": "italic"
-        }
+        scope: ["emphasis", "markup.italic"],
+        settings: {
+          fontStyle: "italic",
+        },
       },
       {
-        "scope": [
-          "strong",
-          "markup.bold"
-        ],
-        "settings": {
-          "fontStyle": "bold"
-        }
+        scope: ["strong", "markup.bold"],
+        settings: {
+          fontStyle: "bold",
+        },
       },
       {
-        "scope": [
-          "deleted",
-          "markup.strikethrough"
-        ],
-        "settings": {
-          "fontStyle": "strikethrough"
-        }
+        scope: ["deleted", "markup.strikethrough"],
+        settings: {
+          fontStyle: "strikethrough",
+        },
       },
       {
-        "scope": [
-          "markup.underline"
-        ],
-        "settings": {
-          "fontStyle": "underline"
-        }
+        scope: ["markup.underline"],
+        settings: {
+          fontStyle: "underline",
+        },
       },
       {
-        "scope": [
-          "markup.underline.link"
-        ],
-        "settings": {
-          "foreground": colors.BASIC_ALT_BLUE.pri,
-          "fontStyle": "underline"
-        }
+        scope: ["markup.underline.link"],
+        settings: {
+          foreground: colors.BASIC_ALT_BLUE.pri,
+          fontStyle: "underline",
+        },
       },
       {
-        "scope": [
+        scope: [
           "string.other.link",
-          "punctuation.definition.list.begin.markdown"
+          "punctuation.definition.list.begin.markdown",
         ],
-        "settings": {
-          "foreground": colors.FILL_ACCENT_TEXT.pri,
-          "fontStyle": ""
-        }
+        settings: {
+          foreground: colors.FILL_ACCENT_TEXT.pri,
+          fontStyle: "",
+        },
       },
       {
-        "scope": [
+        scope: [
           "markup.fenced_code.block",
           "markup.inline.raw",
-          "markup.raw.block"
+          "markup.raw.block",
         ],
-        "settings": {
-          "foreground": colors.BASIC_DEF_PINK.pri,
-          "fontStyle": ""
-        }
+        settings: {
+          foreground: colors.BASIC_DEF_PINK.pri,
+          fontStyle: "",
+        },
       },
       {
-        "scope": [
-          "punctuation.definition.quote.begin"
-        ],
-        "settings": {
-          "foreground": colors.BASIC_DEF_PURPLE.pri,
-          "fontStyle": ""
-        }
+        scope: ["punctuation.definition.quote.begin"],
+        settings: {
+          foreground: colors.BASIC_DEF_PURPLE.pri,
+          fontStyle: "",
+        },
       },
       {
-        "scope": [
-          "punctuation.definition.tag"
-        ],
-        "settings": {
-          "foreground": colors.FILL_TEXT.sec,
-          "fontStyle": ""
-        }
+        scope: ["punctuation.definition.tag"],
+        settings: {
+          foreground: colors.FILL_TEXT.sec,
+          fontStyle: "",
+        },
       },
       {
-        "scope": [
-          "meta.separator"
-        ],
-        "settings": {
-          "foreground": colors.BASIC_DEF_BROWN.pri,
-          "fontStyle": ""
-        }
+        scope: ["meta.separator"],
+        settings: {
+          foreground: colors.BASIC_DEF_BROWN.pri,
+          fontStyle: "",
+        },
       },
       {
-        "scope": "markup.inserted",
-        "settings": {
-          "foreground": colors.BASIC_DEF_GREEN.pri
-        }
+        scope: "markup.inserted",
+        settings: {
+          foreground: colors.BASIC_DEF_GREEN.pri,
+        },
       },
       {
-        "scope": "markup.deleted",
-        "settings": {
-          "foreground": colors.BASIC_DEF_RED.pri
-        }
+        scope: "markup.deleted",
+        settings: {
+          foreground: colors.BASIC_DEF_RED.pri,
+        },
       },
       {
-        "scope": "markup.changed",
-        "settings": {
-          "foreground": colors.BASIC_DEF_BLUE.pri
-        }
+        scope: "markup.changed",
+        settings: {
+          foreground: colors.BASIC_DEF_BLUE.pri,
+        },
       },
       // magicFunction
       {
-        "scope": "support.function.magic.python",
-        "settings": {
-          "foreground": colors.BASIC_DEF_PURPLE.pri
-        }
+        scope: "support.function.magic.python",
+        settings: {
+          foreground: colors.BASIC_DEF_PURPLE.pri,
+        },
       },
     ],
-    "colors": {
+    colors: {
       // @{VSCODE: v1.79.0}
       // activityBar | @{VSCODE}
       "activityBar.activeBackground": colors.FILL_CONTROL.rest,
@@ -1017,8 +1087,8 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "commentsView.resolvedIcon": colors.FILL_TEXT.sec,
       "commentsView.unresolvedIcon": colors.BASIC_DEF_BLUE.pri,
       // contrast | @{VSCODE}
-      "contrastActiveBorder": colors.TRANSPARENT.value,
-      "contrastBorder": colors.TRANSPARENT.value,
+      contrastActiveBorder: colors.TRANSPARENT.value,
+      contrastBorder: colors.TRANSPARENT.value,
       // debugConsole | @{VSCODE}
       "debugConsole.errorForeground": colors.BASIC_DEF_RED.pri,
       "debugConsole.infoForeground": colors.BASIC_DEF_BLUE.pri,
@@ -1029,7 +1099,8 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "debugExceptionWidget.background": colors.BASIC_LC_RED.pri,
       "debugExceptionWidget.border": colors.STROKE_SURFACE.flyout,
       // debugIcon | @{VSCODE}
-      "debugIcon.breakpointCurrentStackframeForeground": colors.BASIC_DEF_YELLOW.pri,
+      "debugIcon.breakpointCurrentStackframeForeground":
+        colors.BASIC_DEF_YELLOW.pri,
       "debugIcon.breakpointDisabledForeground": colors.BASIC_NEUTRAL.qua,
       "debugIcon.breakpointForeground": colors.BASIC_DEF_RED.pri,
       "debugIcon.breakpointStackframeForeground": colors.BASIC_DEF_YELLOW.ter,
@@ -1061,7 +1132,7 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "debugView.stateLabelForeground": colors.FILL_TEXT.pri,
       "debugView.valueChangedHighlight": colors.BASIC_ALT_BLUE.pri,
       // descriptionForeground | @{VSCODE}
-      "descriptionForeground": colors.FILL_TEXT.sec,
+      descriptionForeground: colors.FILL_TEXT.sec,
       // diffEditor | @{VSCODE} !{FUTURE}
       "diffEditor.border": colors.STROKE_DIVIDER.default,
       "diffEditor.diagonalFill": colors.STROKE_DIVIDER.default,
@@ -1071,14 +1142,14 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "diffEditor.removedLineBackground": colors.BASIC_DEF_RED.qui,
       "diffEditor.removedTextBackground": colors.BASIC_DEF_RED.qua,
       "diffEditor.removedTextBorder": colors.TRANSPARENT.value,
-      "diffEditor.unchangedRegionBackground": "#ff0000",
+      "diffEditor.unchangedRegionBackground": "#ff0000", // 🔴 Change to onCanvas
       // diffEditorGutter | @{VSCODE}
       "diffEditorGutter.insertedLineBackground": null,
       "diffEditorGutter.removedLineBackground": null,
       "diffEditorOverview.insertedForeground": colors.BASIC_DEF_GREEN.sec,
       "diffEditorOverview.removedForeground": colors.BASIC_DEF_RED.sec,
       // disabledForeground | @{VSCODE}
-      "disabledForeground": colors.FILL_TEXT.disabled,
+      disabledForeground: colors.FILL_TEXT.disabled,
       // dropdown | @{VSCODE}
       "dropdown.background": colors.FILL_CONTROL.rest,
       "dropdown.border": colors.STROKE_CONTROL.default,
@@ -1092,7 +1163,8 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "editor.findMatchHighlightBorder": colors.STROKE_CONTROL.default,
       "editor.findRangeHighlightBackground": colors.BASIC_NEUTRAL.sep,
       "editor.findRangeHighlightBorder": null,
-      "editor.focusedStackFrameHighlightBackground": colors.BASIC_DEF_YELLOW.qui,
+      "editor.focusedStackFrameHighlightBackground":
+        colors.BASIC_DEF_YELLOW.qui,
       "editor.foldBackground": colors.BASIC_NEUTRAL.sep,
       "editor.foreground": colors.FILL_TEXT.sec,
       "editor.hoverHighlightBackground": colors.BASIC_NEUTRAL.sep,
@@ -1128,7 +1200,8 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "editorBracketHighlight.foreground4": colors.BASIC_ALT_PURPLE.pri,
       "editorBracketHighlight.foreground5": colors.BASIC_ALT_BLUE.pri,
       "editorBracketHighlight.foreground6": colors.BASIC_ALT_GREEN.pri,
-      "editorBracketHighlight.unexpectedBracket.foreground": colors.BASIC_DEF_RED.pri,
+      "editorBracketHighlight.unexpectedBracket.foreground":
+        colors.BASIC_DEF_RED.pri,
       // editorBracketMatch | @{VSCODE}
       "editorBracketMatch.background": colors.BASIC_DEF_BROWN.qua,
       "editorBracketMatch.border": colors.STROKE_CONTROL.default,
@@ -1183,7 +1256,8 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "editorGutter.background": colors.BG_SOLID.base,
       "editorGutter.commentGlyphForeground": colors.FILL_TEXT.sec,
       "editorGutter.commentRangeForeground": colors.FILL_CONTROL.prominent,
-      "editorGutter.commentUnresolvedGlyphForeground": colors.BASIC_DEF_BLUE.pri,
+      "editorGutter.commentUnresolvedGlyphForeground":
+        colors.BASIC_DEF_BLUE.pri,
       "editorGutter.deletedBackground": colors.BASIC_DEF_RED.pri,
       "editorGutter.foldingControlForeground": colors.FILL_TEXT.sec,
       "editorGutter.modifiedBackground": colors.BASIC_DEF_BLUE.pri,
@@ -1226,28 +1300,34 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "editorMarkerNavigationInfo.background": colors.BASIC_DEF_BLUE.pri,
       "editorMarkerNavigationInfo.headerBackground": colors.BASIC_LC_BLUE.pri,
       "editorMarkerNavigationWarning.background": colors.BASIC_DEF_ORANGE.pri,
-      "editorMarkerNavigationWarning.headerBackground": colors.BASIC_LC_ORANGE.pri,
+      "editorMarkerNavigationWarning.headerBackground":
+        colors.BASIC_LC_ORANGE.pri,
       // editorOverviewRuler | @{VSCODE}
       "editorOverviewRuler.addedForeground": colors.BASIC_DEF_GREEN.sec,
       "editorOverviewRuler.background": colors.BG_SOLID.base,
       "editorOverviewRuler.border": colors.TRANSPARENT.value,
       "editorOverviewRuler.bracketMatchForeground": colors.BASIC_DEF_BROWN.sec,
       "editorOverviewRuler.commentForeground": colors.FILL_TEXT.ghost,
-		  "editorOverviewRuler.commentUnresolvedForeground": colors.BASIC_DEF_BLUE.sec,
+      "editorOverviewRuler.commentUnresolvedForeground":
+        colors.BASIC_DEF_BLUE.sec,
       "editorOverviewRuler.commonContentForeground": colors.BASIC_NEUTRAL.qua,
       "editorOverviewRuler.currentContentForeground": colors.BASIC_DEF_MINT.ter,
       "editorOverviewRuler.deletedForeground": colors.BASIC_DEF_RED.sec,
       "editorOverviewRuler.errorForeground": colors.BASIC_DEF_RED.pri,
       "editorOverviewRuler.findMatchForeground": colors.BASIC_DEF_MINT.sec,
-      "editorOverviewRuler.incomingContentForeground": colors.BASIC_DEF_BLUE.ter,
+      "editorOverviewRuler.incomingContentForeground":
+        colors.BASIC_DEF_BLUE.ter,
       "editorOverviewRuler.infoForeground": colors.BASIC_DEF_BLUE.pri,
       "editorOverviewRuler.modifiedForeground": colors.BASIC_DEF_BLUE.sec,
       "editorOverviewRuler.rangeHighlightForeground": colors.BASIC_NEUTRAL.sep,
-      "editorOverviewRuler.selectionHighlightForeground": colors.BASIC_NEUTRAL.sen,
+      "editorOverviewRuler.selectionHighlightForeground":
+        colors.BASIC_NEUTRAL.sen,
       "editorOverviewRuler.warningForeground": colors.BASIC_DEF_ORANGE.pri,
       "editorOverviewRuler.wordHighlightForeground": colors.BASIC_DEF_PINK.sec,
-      "editorOverviewRuler.wordHighlightStrongForeground": colors.BASIC_DEF_PURPLE.sec,
-      "editorOverviewRuler.wordHighlightTextForeground": colors.BASIC_DEF_PINK.sec,
+      "editorOverviewRuler.wordHighlightStrongForeground":
+        colors.BASIC_DEF_PURPLE.sec,
+      "editorOverviewRuler.wordHighlightTextForeground":
+        colors.BASIC_DEF_PINK.sec,
       // editorPane | @{VSCODE}
       "editorPane.background": colors.BG_SOLID.base,
       // editorRuler | @{VSCODE}
@@ -1258,7 +1338,8 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       // editorSuggestWidget | @{VSCODE}
       "editorSuggestWidget.background": colors.BG_SOLID.flyout,
       "editorSuggestWidget.border": colors.STROKE_SURFACE.flyout,
-      "editorSuggestWidget.focusHighlightForeground": colors.FILL_ACCENT_TEXT.pri,
+      "editorSuggestWidget.focusHighlightForeground":
+        colors.FILL_ACCENT_TEXT.pri,
       "editorSuggestWidget.foreground": colors.FILL_TEXT.sec,
       "editorSuggestWidget.highlightForeground": colors.FILL_ACCENT_TEXT.pri,
       "editorSuggestWidget.selectedBackground": colors.FILL_CONTROL.rest,
@@ -1283,7 +1364,7 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "editorWidget.foreground": colors.FILL_TEXT.pri,
       "editorWidget.resizeBorder": colors.FILL_ACCENT.pri,
       // errorForeground | @{VSCODE}
-      "errorForeground": colors.BASIC_DEF_RED.pri,
+      errorForeground: colors.BASIC_DEF_RED.pri,
       // extensionBadge | @{VSCODE}
       "extensionBadge.remoteBackground": colors.BASIC_DEF_MINT.pri,
       "extensionBadge.remoteForeground": colors.FILL_TEXT_ON_COLOR.pri,
@@ -1301,18 +1382,20 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "extensionIcon.starForeground": colors.BASIC_DEF_YELLOW.pri,
       "extensionIcon.verifiedForeground": colors.BASIC_DEF_BLUE.pri,
       // focusBorder | @{VSCODE}
-      "focusBorder": colors.STROKE_FOCUS.default,
+      focusBorder: colors.STROKE_FOCUS.default,
       // foreground | @{VSCODE}
-      "foreground": colors.FILL_TEXT.pri,
+      foreground: colors.FILL_TEXT.pri,
       // gitDecoration | @{VSCODE}
       "gitDecoration.addedResourceForeground": colors.BASIC_DEF_GREEN.pri,
-      "gitDecoration.conflictingResourceForeground": colors.BASIC_DEF_ORANGE.pri,
+      "gitDecoration.conflictingResourceForeground":
+        colors.BASIC_DEF_ORANGE.pri,
       "gitDecoration.deletedResourceForeground": colors.BASIC_ALT_RED.pri,
       "gitDecoration.ignoredResourceForeground": colors.FILL_TEXT.disabled,
       "gitDecoration.modifiedResourceForeground": colors.BASIC_ALT_BLUE.pri,
       "gitDecoration.renamedResourceForeground": colors.BASIC_DEF_YELLOW.pri,
       "gitDecoration.stageDeletedResourceForeground": colors.BASIC_DEF_RED.pri,
-      "gitDecoration.stageModifiedResourceForeground": colors.BASIC_DEF_BLUE.pri,
+      "gitDecoration.stageModifiedResourceForeground":
+        colors.BASIC_DEF_BLUE.pri,
       "gitDecoration.submoduleResourceForeground": colors.BASIC_DEF_MINT.pri,
       "gitDecoration.untrackedResourceForeground": colors.BASIC_ALT_GREEN.pri,
       // icon | @{VSCODE}
@@ -1338,8 +1421,8 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "inputValidation.warningBorder": colors.BASIC_DEF_ORANGE.qua,
       "inputValidation.warningForeground": colors.FILL_SYSTEM_FG.orange,
       // interactive | @{VSCODE} !{FUTURE}
-      "interactive.activeCodeBorder": "#FF0000",
-      "interactive.inactiveCodeBorder": "#FF0000",
+      "interactive.activeCodeBorder": "#FF0000", // 🔵 Still Unknown
+      "interactive.inactiveCodeBorder": "#FF0000", // 🔵 Still Unknown
       // interactiveEditor | @{VSCODE}
       "interactiveEditor.border": colors.STROKE_SURFACE.flyout,
       "interactiveEditor.regionHighlight": colors.BASIC_NEUTRAL.sep,
@@ -1415,14 +1498,18 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "mergeEditor.change.word.background": colors.BASIC_NEUTRAL.sen,
       "mergeEditor.changeBase.background": colors.BASIC_NEUTRAL.sep,
       "mergeEditor.changeBase.word.background": colors.BASIC_NEUTRAL.sen,
-      "mergeEditor.conflict.handled.minimapOverViewRuler": colors.BASIC_DEF_GREEN.ter,
+      "mergeEditor.conflict.handled.minimapOverViewRuler":
+        colors.BASIC_DEF_GREEN.ter,
       "mergeEditor.conflict.handledFocused.border": colors.BASIC_DEF_GREEN.pri,
-      "mergeEditor.conflict.handledUnfocused.border": colors.BASIC_DEF_GREEN.ter,
+      "mergeEditor.conflict.handledUnfocused.border":
+        colors.BASIC_DEF_GREEN.ter,
       "mergeEditor.conflict.input1.background": colors.BASIC_DEF_BLUE.ter,
       "mergeEditor.conflict.input2.background": colors.BASIC_DEF_MINT.ter,
-      "mergeEditor.conflict.unhandled.minimapOverViewRuler": colors.BASIC_DEF_RED.ter,
+      "mergeEditor.conflict.unhandled.minimapOverViewRuler":
+        colors.BASIC_DEF_RED.ter,
       "mergeEditor.conflict.unhandledFocused.border": colors.BASIC_DEF_RED.pri,
-      "mergeEditor.conflict.unhandledUnfocused.border": colors.BASIC_DEF_RED.ter,
+      "mergeEditor.conflict.unhandledUnfocused.border":
+        colors.BASIC_DEF_RED.ter,
       "mergeEditor.conflictingLines.background": colors.BASIC_DEF_ORANGE.qui,
       // minimap | @{VSCODE}
       "minimap.background": colors.BG_SOLID.surface,
@@ -1457,8 +1544,9 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "notebook.outputContainerBorderColor": colors.STROKE_CONTROL.default,
       "notebook.selectedCellBackground": colors.FILL_CONTROL.subtle,
       "notebook.selectedCellBorder": colors.FILL_ACCENT.pri,
-      "notebook.symbolHighlightBackground": "#ff0000",
-      "notebookEditorOverviewRuler.runningCellForeground": colors.BASIC_DEF_YELLOW.pri,
+      "notebook.symbolHighlightBackground": "#ff0000", // 🔵 Still Unknown
+      "notebookEditorOverviewRuler.runningCellForeground":
+        colors.BASIC_DEF_YELLOW.pri,
       "notebookScrollbarSlider.activeBackground": colors.FILL_CONTROL.pressed,
       "notebookScrollbarSlider.background": colors.FILL_CONTROL.rest,
       "notebookScrollbarSlider.hoverBackground": colors.FILL_CONTROL.hover,
@@ -1758,14 +1846,19 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "widget.shadow": colors.SHADOW.default,
       // window | @{VSCODE}
       "window.activeBorder": colors.STROKE_SURFACE.layer,
-      "window.inactiveBorder": colors.STROKE_SURFACE.layer
-    }
+      "window.inactiveBorder": colors.STROKE_SURFACE.layer,
+    },
   };
-  await exportObjectAsJsonFile(themeObject, `Codemos Modern (${isDarkMode ? "Dark" : "Light"})-color-theme.json`);
+  await exportObjectAsJsonFile(
+    themeObject,
+    `Codemos Modern (${isDarkMode ? "Dark" : "Light"})-color-theme.json`
+  );
 }
 
-
-async function exportObjectAsJsonFile(objectToExport: any, fileName: string) {
+async function exportObjectAsJsonFile(
+  objectToExport: object,
+  fileName: string
+) {
   // Convert object to JSON string
   const jsonString = JSON.stringify(objectToExport);
 
@@ -1773,7 +1866,7 @@ async function exportObjectAsJsonFile(objectToExport: any, fileName: string) {
   const filePath = path.join(__dirname, "..", "themes", fileName);
 
   // Write the JSON string to a file
-  await fs.writeFile(filePath, jsonString, "utf8", (err) => {
+  fs.writeFile(filePath, jsonString, "utf8", (err) => {
     if (err) {
       vscode.window.showErrorMessage(err.message);
     }

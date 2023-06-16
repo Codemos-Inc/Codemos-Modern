@@ -22,7 +22,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 
-- Extension icon to be more inline with our desing language. (It is now a gif)
+- Extension icon to be more inline with our design language. (It is now a gif)
 
 ### Fixed
 

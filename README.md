@@ -56,7 +56,7 @@ We built Codemos Modern with these fundamental principles:
 
 <br/>
 
-> **NOTE:** Don't forget to read the [documentation](#rdme-doc) for essentioal information about the Codemos Modern.
+> **NOTE:** Don't forget to read the [documentation](#rdme-doc) for essential information about the Codemos Modern.
 
 <br/>
 
@@ -92,7 +92,7 @@ Codemos Modern provides three customization options through the command **Codemo
 
 <br/>
 
-> **NOTE:** You can activate command **Codemos Modern: Create Theme** from the **Comand Palette**. See [Installation Section](#rdme-install) to learn how to do it.
+> **NOTE:** You can activate command **Codemos Modern: Create Theme** from the **Command Palette**. See [Installation Section](#rdme-install) to learn how to do it.
 
 <br/>
 
@@ -120,9 +120,9 @@ Codemos Modern provides three customization options through the command **Codemo
 
 Adaptability mode is a unique feature of Codemos Modern. Before explaining the feature, we need to explain our motivation to create this feature.
 
-With the launch of [Windows 11](https://www.microsoft.com/en-us/windows/windows-11), Microsoft introduced the [Mica material](https://learn.microsoft.com/en-us/windows/apps/design/style/mica) as a part of Windows 11's design system. Mica and its corresponding Apple counterpart [NSVisualEffectView](https://developer.apple.com/documentation/appkit/nsvisualeffectview) achieves the goal of making apps feel more in line with the operating system. Currently, VS Code doesn't provide these kinds of material. 
+With the launch of [Windows 11](https://www.microsoft.com/en-us/windows/windows-11), Microsoft introduced the [Mica material](https://learn.microsoft.com/en-us/windows/apps/design/style/mica) as a part of Windows 11's design system. Mica and its corresponding Apple counterpart [NSVisualEffectView](https://developer.apple.com/documentation/appkit/nsvisualeffectview) achieves the goal of making apps feel more in line with the operating system. Currently, VS Code doesn't provide these kinds of material.
 
-There has been several attempts by the community to bring [glassmorphism](https://uxdesign.cc/glassmorphism-in-user-interfaces-1f39bb1308c9) to VS Code. An example extension which stands out is the [Vibrancy Continued](https://marketplace.visualstudio.com/items?itemName=illixion.vscode-vibrancy-continued) or the original, [Vibrancy](https://marketplace.visualstudio.com/items?itemName=eyhn.vscode-vibrancy). However, these extensions are not perfect. Because of the nature of VS Code, implementing a feature like this needs hacky solutions. These hacky solutions involve modifying/patching the VS Code installation, leaving you with a VS Code installation that is [unsupported](https://code.visualstudio.com/docs/supporting/FAQ#_installation-appears-to-be-corrupt-unsupported). These hacky solutions causes instabilities and UI inconsistences. 
+There has been several attempts by the community to bring [glassmorphism](https://uxdesign.cc/glassmorphism-in-user-interfaces-1f39bb1308c9) to VS Code. An example extension which stands out is the [Vibrancy Continued](https://marketplace.visualstudio.com/items?itemName=illixion.vscode-vibrancy-continued) or the original, [Vibrancy](https://marketplace.visualstudio.com/items?itemName=eyhn.vscode-vibrancy). However, these extensions are not perfect. Because of the nature of VS Code, implementing a feature like this needs hacky solutions. These hacky solutions involve modifying/patching the VS Code installation, leaving you with a VS Code installation that is [unsupported](https://code.visualstudio.com/docs/supporting/FAQ#_installation-appears-to-be-corrupt-unsupported). These hacky solutions causes instabilities and UI inconsistences.
 
 We at Codemos, wanted to create a solution that doesn't involve modifying/patching the VS Code installation and doesn't cause any unwanted consequences. We wanted to create a solution that is built into the theme itself. That's why we created the **Adaptability mode**.
 
@@ -132,7 +132,7 @@ We at Codemos, wanted to create a solution that doesn't involve modifying/patchi
 
 When creating your Codemos Modern, you are asked to select an Adaptability mode, see [Customization Section](#customization). Currently, there are three options to choose from; **None**, **Gentle** and **Aggressive**. We are planning to add more options in the future.
 
-When you select an Adaptability mode other than **None**, a clever algorithm will be used to trick your eyes into thinking that the UI has transparency effects. This is done by using the accent color as the reference when calculating the opaque color of the UI elements. This way, the UI elements will adapt to your accent color and UI elenents will look like they are letting the light pass through.
+When you select an Adaptability mode other than **None**, a clever algorithm will be used to trick your eyes into thinking that the UI has transparency effects. This is done by using the accent color as the reference when calculating the opaque color of the UI elements. This way, the UI elements will adapt to your accent color and UI elements will look like they are letting the light pass through.
 
 <br/>
 
@@ -142,7 +142,7 @@ When you select an Adaptability mode other than **None**, a clever algorithm wil
 
 - **Gentle:** This is the recommended option. When you select this option, other UI elements such as background colors will start to adapt to your accent color. This option is the most balanced option.
 
-- **Aggressive:** This is the most extreme option. When you select this option, other UI elements such as background colors will adapt to your accent color as much as possible. This option is the most glassmorphic option.
+- **Aggressive:** This is the most extreme option. When you select this option, other UI elements such as background colors will adapt to your accent color as much as possible. This option is the most glassmorphism option.
 
 ![adaptability-modes](./images/docs-2-1.png)
 
@@ -162,12 +162,12 @@ These decorations are:
 
 - ~~Strike-through~~: This decoration is used to indicate that the symbol is deprecated.
 - **Bold**: This decoration is used to indicate that the symbol is abstract.
-- *Italic*: This decoration is used to indicate that the symbol is static.
+- _Italic_: This decoration is used to indicate that the symbol is static.
 - <u>Underline</u>: This decoration is used to indicate that the symbol allows write access (not read-only).
 
 <br/>
 
-> **NOTE:** Codemos Modern uses both **Semantic Highlighting** and **Syntax Highlighting**. Semantic Highlighting is a new vesion of token coloring with more capabilities and simplified tokenizing but not yet widely adopted by language extensions. See [Semantic Highlighting](https://code.visualstudio.com/api/language-extensions/semantic-highlight-guide) and [Syntax Highlighting](https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide) for more information. We strongly recommend you to use a language extension that supports Semantic Highlighting. We are planning to add support for more languages in the future. Pleae [contribute](#rdme-contrib) if you want to help us.
+> **NOTE:** Codemos Modern uses both **Semantic Highlighting** and **Syntax Highlighting**. Semantic Highlighting is a new version of token coloring with more capabilities and simplified tokenizing but not yet widely adopted by language extensions. See [Semantic Highlighting](https://code.visualstudio.com/api/language-extensions/semantic-highlight-guide) and [Syntax Highlighting](https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide) for more information. We strongly recommend you to use a language extension that supports Semantic Highlighting. We are planning to add support for more languages in the future. Please [contribute](#rdme-contrib) if you want to help us.
 
 <br/>
 
