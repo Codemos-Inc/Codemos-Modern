@@ -678,20 +678,20 @@ export const FILL_TAB = {
 };
 export const FILL_TERMINAL = {
   get fg() {
-    return `#DDDDDD${OP100}`;
+    return `#CCCCCC${OP100}`;
   },
   // --------------------------------------------------
   get hc() {
-    return `#DDDDDD${OP100}`;
-  },
-  get hq() {
     return `#CCCCCC${OP100}`;
   },
+  get hq() {
+    return `#BBBBBB${OP100}`;
+  },
   get lq() {
-    return `#333333${OP100}`;
+    return `#444444${OP100}`;
   },
   get lc() {
-    return `#222222${OP100}`;
+    return `#333333${OP100}`;
   },
 };
 // T.3 Stroke Color
