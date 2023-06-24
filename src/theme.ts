@@ -772,8 +772,8 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "commentsView.resolvedIcon": colors.FILL_TEXT.sec,
       "commentsView.unresolvedIcon": colors.BASIC_DEF_BLUE.pri,
       // contrast | @{VSCODE}
-      contrastActiveBorder: colors.TRANSPARENT.value,
-      contrastBorder: colors.TRANSPARENT.value,
+      contrastActiveBorder: null,
+      contrastBorder: null,
       // debugConsole | @{VSCODE}
       "debugConsole.errorForeground": colors.BASIC_DEF_RED.pri,
       "debugConsole.infoForeground": colors.BASIC_DEF_BLUE.pri,
@@ -1610,8 +1610,8 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "widget.border": colors.STROKE_SURFACE.flyout,
       "widget.shadow": colors.SHADOW.default,
       // window | @{VSCODE}
-      "window.activeBorder": colors.STROKE_SURFACE.layer,
-      "window.inactiveBorder": colors.STROKE_SURFACE.layer,
+      "window.activeBorder": null,
+      "window.inactiveBorder": null,
     },
   };
   await exportObjectAsJsonFile(themeObject, `Codemos Modern (${isDarkMode ? "Dark" : "Light"})-color-theme.json`);
