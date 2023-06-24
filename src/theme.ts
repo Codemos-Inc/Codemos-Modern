@@ -1142,7 +1142,7 @@ async function applyTheme(
       "diffEditor.removedLineBackground": colors.BASIC_DEF_RED.qui,
       "diffEditor.removedTextBackground": colors.BASIC_DEF_RED.qua,
       "diffEditor.removedTextBorder": colors.TRANSPARENT.value,
-      "diffEditor.unchangedRegionBackground": "#ff0000", // 🔴 Change to onCanvas
+      "diffEditor.unchangedRegionBackground": colors.BG_SOLID.onCanvas,
       // diffEditorGutter | @{VSCODE}
       "diffEditorGutter.insertedLineBackground": null,
       "diffEditorGutter.removedLineBackground": null,
@@ -1365,6 +1365,33 @@ async function applyTheme(
       "editorWidget.resizeBorder": colors.FILL_ACCENT.pri,
       // errorForeground | @{VSCODE}
       errorForeground: colors.BASIC_DEF_RED.pri,
+      // errorLens | @{ErrorLens}
+      "errorLens.errorBackground": colors.BASIC_DEF_RED.qui,
+      "errorLens.errorBackgroundLight": colors.BASIC_DEF_RED.qui,
+      "errorLens.errorForeground": colors.BASIC_DEF_RED.pri,
+      "errorLens.errorForegroundLight": colors.BASIC_DEF_RED.pri,
+      "errorLens.errorMessageBackground": colors.BASIC_DEF_RED.qui,
+      "errorLens.hintBackground": colors.BASIC_DEF_MINT.qui,
+      "errorLens.hintBackgroundLight": colors.BASIC_DEF_MINT.qui,
+      "errorLens.hintForeground": colors.BASIC_DEF_MINT.pri,
+      "errorLens.hintForegroundLight": colors.BASIC_DEF_MINT.pri,
+      "errorLens.hintMessageBackground": colors.BASIC_DEF_MINT.qui,
+      "errorLens.infoBackground": colors.BASIC_DEF_BLUE.qui,
+      "errorLens.infoBackgroundLight": colors.BASIC_DEF_BLUE.qui,
+      "errorLens.infoForeground": colors.BASIC_DEF_BLUE.pri,
+      "errorLens.infoForegroundLight": colors.BASIC_DEF_BLUE.pri,
+      "errorLens.infoMessageBackground": colors.BASIC_DEF_BLUE.qui,
+      "errorLens.statusBarErrorForeground": colors.BASIC_ALT_RED.pri,
+      "errorLens.statusBarHintForeground": colors.BASIC_ALT_MINT.pri,
+      "errorLens.statusBarIconErrorForeground": colors.BASIC_ALT_RED.pri,
+      "errorLens.statusBarIconWarningForeground": colors.BASIC_ALT_ORANGE.pri,
+      "errorLens.statusBarInfoForeground": colors.BASIC_ALT_BLUE.pri,
+      "errorLens.statusBarWarningForeground": colors.BASIC_ALT_ORANGE.pri,
+      "errorLens.warningBackground": colors.BASIC_DEF_ORANGE.qui,
+      "errorLens.warningBackgroundLight": colors.BASIC_DEF_ORANGE.qui,
+      "errorLens.warningForeground": colors.BASIC_DEF_ORANGE.pri,
+      "errorLens.warningForegroundLight": colors.BASIC_DEF_ORANGE.pri,
+      "errorLens.warningMessageBackground": colors.BASIC_DEF_ORANGE.qui,
       // extensionBadge | @{VSCODE}
       "extensionBadge.remoteBackground": colors.BASIC_DEF_MINT.pri,
       "extensionBadge.remoteForeground": colors.FILL_TEXT_ON_COLOR.pri,
@@ -1421,8 +1448,8 @@ async function applyTheme(
       "inputValidation.warningBorder": colors.BASIC_DEF_ORANGE.qua,
       "inputValidation.warningForeground": colors.FILL_SYSTEM_FG.orange,
       // interactive | @{VSCODE} !{FUTURE}
-      "interactive.activeCodeBorder": "#FF0000", // 🔵 Still Unknown
-      "interactive.inactiveCodeBorder": "#FF0000", // 🔵 Still Unknown
+      "interactive.activeCodeBorder": "#FF0000", // 🔵 Unknown attribute
+      "interactive.inactiveCodeBorder": "#FF0000", // 🔵 Unknown attribute
       // interactiveEditor | @{VSCODE}
       "interactiveEditor.border": colors.STROKE_SURFACE.flyout,
       "interactiveEditor.regionHighlight": colors.BASIC_NEUTRAL.sep,
@@ -1544,7 +1571,7 @@ async function applyTheme(
       "notebook.outputContainerBorderColor": colors.STROKE_CONTROL.default,
       "notebook.selectedCellBackground": colors.FILL_CONTROL.subtle,
       "notebook.selectedCellBorder": colors.FILL_ACCENT.pri,
-      "notebook.symbolHighlightBackground": "#ff0000", // 🔵 Still Unknown
+      "notebook.symbolHighlightBackground": "#ff0000", // 🔵 Unknown attribute
       "notebookEditorOverviewRuler.runningCellForeground":
         colors.BASIC_DEF_YELLOW.pri,
       "notebookScrollbarSlider.activeBackground": colors.FILL_CONTROL.pressed,

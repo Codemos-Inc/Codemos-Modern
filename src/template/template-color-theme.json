@@ -126,7 +126,7 @@
 		"diffEditorGutter.removedLineBackground": null,
 		"diffEditorOverview.insertedForeground": "#45aa41c7",
 		"diffEditorOverview.removedForeground": "#EA6162c7",
-		// disabledForground | @{VSCODE}
+		// disabledForeground | @{VSCODE}
 		"disabledForeground": "#ffffff5C",
 		// dropdown | @{VSCODE}
 		"dropdown.background": "#ffffff0f",
@@ -333,6 +333,33 @@
 		"editorWidget.resizeBorder": "#ff00ff",
 		// errorForeground | @{VSCODE}
 		"errorForeground": "#EA6162",
+		// errorLens | @{ErrorLens}
+		"errorLens.errorBackground": "#ef636333",
+		"errorLens.errorBackgroundLight": "#ef636333",
+		"errorLens.errorForeground": "#ef6363",
+		"errorLens.errorForegroundLight": "#ef6363",
+		"errorLens.errorMessageBackground": "#ff0000",
+		"errorLens.hintBackground": "#ff0000",
+		"errorLens.hintBackgroundLight": "#ff0000",
+		"errorLens.hintForeground": "#ff0000",
+		"errorLens.hintForegroundLight": "#ff0000",
+		"errorLens.hintMessageBackground": "#ff0000",
+		"errorLens.infoBackground": "#ff0000",
+		"errorLens.infoBackgroundLight": "#ff0000",
+		"errorLens.infoForeground": "#ff0000",
+		"errorLens.infoForegroundLight": "#ff0000",
+		"errorLens.infoMessageBackground": "#ff0000",
+		"errorLens.statusBarErrorForeground": "#ff0000",
+		"errorLens.statusBarHintForeground": "#ff0000",
+		"errorLens.statusBarIconErrorForeground": "#ff0000",
+		"errorLens.statusBarIconWarningForeground": "#ff0000",
+		"errorLens.statusBarInfoForeground": "#ff0000",
+		"errorLens.statusBarWarningForeground": "#ff0000",
+		"errorLens.warningBackground": "#ff0000",
+		"errorLens.warningBackgroundLight": "#ff0000",
+		"errorLens.warningForeground": "#ff0000",
+		"errorLens.warningForegroundLight": "#ff0000",
+		"errorLens.warningMessageBackground": "#ff0000",
 		// extensionBadge | @{VSCODE}
 		"extensionBadge.remoteBackground": "#46A599",
 		"extensionBadge.remoteForeground": "#000000",
