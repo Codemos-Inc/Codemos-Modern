@@ -21,7 +21,7 @@ Innovative, modern theme suite for VS Code
 
 </div>
 
-# 📚 Table of Contents
+## 📚 Table of Contents
 
 - [📖 About](#rdme-about)
 - [📦 Installation](#rdme-install)
@@ -34,7 +34,7 @@ Innovative, modern theme suite for VS Code
 
 <br/>
 
-<h1 id="rdme-about">📖 About</h1>
+<h2 id="rdme-about">📖 About</h1>
 
 We at Codemos, are delighted to bring our most beloved theme family to [Visual Studio Code](https://code.visualstudio.com/). Just as VS Code redefined code editing, we're going to redefine how it should look.
 
@@ -46,7 +46,7 @@ Codemos Modern is a variant of the Codemos theme family. It is built from the gr
 
 <br/>
 
-## **Modern theme principles**
+### **Modern theme principles**
 
 We built Codemos Modern with these fundamental principles:
 
@@ -58,7 +58,7 @@ We built Codemos Modern with these fundamental principles:
 
 <br/>
 
-<h1 id="rdme-install">📦 Installation</h1>
+<h2 id="rdme-install">📦 Installation</h1>
 
 1. Open the **Extensions** sidebar in VS Code
 1. Search for `Codemos Modern`
@@ -74,7 +74,7 @@ We built Codemos Modern with these fundamental principles:
 
 <br/>
 
-<h1 id="rdme-doc">📝 Documentation</h1>
+<h2 id="rdme-doc">📝 Documentation</h1>
 
 In this section, you can find the documentation for the Codemos Modern.
 
@@ -84,7 +84,7 @@ In this section, you can find the documentation for the Codemos Modern.
 
 <br/>
 
-## **Customization**
+### **Customization**
 
 Codemos Modern provides three customization options through the command **Codemos Modern: Create Theme**.
 
@@ -114,7 +114,7 @@ Codemos Modern provides three customization options through the command **Codemo
 
 ![apply](./images/docs-1-4.png)
 
-## **Adaptability**
+### **Adaptability**
 
 Adaptability mode is a unique feature of Codemos Modern. Before explaining the feature, we need to explain our motivation to create this feature.
 
@@ -126,7 +126,7 @@ We at Codemos, wanted to create a solution that doesn't involve modifying/patchi
 
 <br/>
 
-### How it works?
+#### How it works?
 
 When creating your Codemos Modern, you are asked to select an Adaptability mode, see [Customization Section](#customization). Currently, there are three options to choose from; **None**, **Gentle** and **Aggressive**. We are planning to add more options in the future.
 
@@ -148,7 +148,7 @@ When you select an Adaptability mode other than **None**, a clever algorithm wil
 
 <br/>
 
-## **Color and code intelligibility**
+### **Color and code intelligibility**
 
 Color is the essential part of code editing. Codemos Modern provides a carefully crafted color palette to make your code editing experience more intelligible and enjoyable.
 
@@ -173,13 +173,13 @@ These decorations are:
 
 <br/>
 
-<h1 id="rdme-ext">🧩 Extensions</h1>
+<h2 id="rdme-ext">🧩 Extensions</h1>
 
 We've also decided to theme some of the most used extensions to provide more consistent experience across the entire UI. In order an extension to be themed, it must [contribute themeable colors](https://code.visualstudio.com/api/references/contribution-points#contributes.colors). You can find the list of supported extensions that are themed in Codemos Modern. If your favorite extension is not on the list, visit [Codemos Modern's GitHub repository](https://github.com/Codemos-Inc/Codemos-Modern) and let us know!
 
 <br/>
 
-## Supported Extensions
+### Supported Extensions
 
 - [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens)
 - [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
@@ -188,7 +188,7 @@ We've also decided to theme some of the most used extensions to provide more con
 
 <br/>
 
-<h1 id="rdme-ss">📷 Screenshots</h1>
+<h2 id="rdme-ss">📷 Screenshots</h1>
 
 In this section you can find how Codemos Modern looks and feels in most used languages.
 
@@ -227,7 +227,7 @@ In this section you can find how Codemos Modern looks and feels in most used lan
 
 <br/>
 
-<h1 id="rdme-clog">📋 Change Log</h1>
+<h2 id="rdme-clog">📋 Change Log</h1>
 
 Changes from the last release. If you want to see the full change log, visit [CHANGELOG.md](https://github.com/Codemos-Inc/Codemos-Modern/blob/main/CHANGELOG.md).
 
@@ -251,12 +251,12 @@ Changes from the last release. If you want to see the full change log, visit [CH
 
 <br/>
 
-<h1 id="rdme-contrib">🙌🏼 Contribution</h1>
+<h2 id="rdme-contrib">🙌🏼 Contribution</h1>
 
 We are open to any kind of contribution. If you want to contribute to Codemos Modern, please join us on [GitHub](https://github.com/Codemos-Inc/Codemos-Modern).
 
 <br/>
 
-<h1 id="rdme-license">📜 License</h1>
+<h2 id="rdme-license">📜 License</h1>
 
 Codemos Modern is licensed under the [MIT License](https://github.com/Codemos-Inc/Codemos-Modern/blob/main/LICENSE.md).
