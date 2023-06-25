@@ -65,12 +65,12 @@ We built Codemos Modern with these fundamental principles:
 1. Click **Install**
 1. Open the **Command Palette** with `Ctrl+Shift+P` or `⌘⇧P`
 1. Select **Codemos Modern: Create Theme** and create your own Codemos Modern
-1. When your theme is ready, click **Apply Codemos Modern** to apply it
+1. When your theme is ready, click **Apply** to apply it
 1. Enjoy! 🎉
 
 <br/>
 
-> **NOTE:** Read the [documentation](#rdme-doc) for learning how to use the command **Codemos Modern: Create Theme** and essential information about the Codemos Modern.
+> **NOTE:** Learn the basics about Codemos Modern and how to use **Codemos Modern: Create Theme** by reading the [documentation](#rdme-doc).
 
 <br/>
 
@@ -90,7 +90,7 @@ Codemos Modern provides three customization options through the command **Codemo
 
 <br/>
 
-> **NOTE:** You can activate command **Codemos Modern: Create Theme** from the **Command Palette**. See [Installation Section](#rdme-install) to learn how to do it.
+> **NOTE:** You can activate command **Codemos Modern: Create Theme** from the **Command Palette**. See [Installation section](#rdme-install) to learn how to do it.
 
 <br/>
 
@@ -98,11 +98,11 @@ Codemos Modern provides three customization options through the command **Codemo
 
 ![color-mode](./images/docs-1-1.png)
 
-2. **Accent color:** You can select which accent color your theme would use. (Accent color determines the color of the important ui elements; buttons, badges, links, emphasized text, etc.)
+2. **Accent color:** You can select which accent color your theme would use. (Accent color determines the color of the important ui elements; buttons, badges, links, emphasized text, etc. and effects the adaptability mode.)
 
 ![accent-color](./images/docs-1-2.png)
 
-> **NOTE:** You are required to provide an accent color which has at least a 4.5:1 ratio over black or white depending on the color mode you've selected. You can use [this awesome tool](https://contrast.tools/) to check the contrast ratio of your accent color.
+> **NOTE:** You are required to provide an accent color which has at least a 4.5:1 ratio over black or white depending on the color mode you've selected. You can use [this awesome tool](https://contrast.tools/?tab=wcag-21) to check the contrast ratio of your accent color.
 
 <br/>
 
@@ -116,7 +116,7 @@ Codemos Modern provides three customization options through the command **Codemo
 
 ### **Adaptability**
 
-Adaptability mode is a unique feature of Codemos Modern. Before explaining the feature, we need to explain our motivation to create this feature.
+Adaptability mode is a unique feature of Codemos Modern. Before explaining it, we first need to explain our motivation to create this feature.
 
 With the launch of [Windows 11](https://www.microsoft.com/en-us/windows/windows-11), Microsoft introduced the [Mica material](https://learn.microsoft.com/en-us/windows/apps/design/style/mica) as a part of Windows 11's design system. Mica and its corresponding Apple counterpart [NSVisualEffectView](https://developer.apple.com/documentation/appkit/nsvisualeffectview) achieves the goal of making apps feel more in line with the operating system. Currently, VS Code doesn't provide these kinds of material.
 
@@ -130,17 +130,17 @@ We at Codemos, wanted to create a solution that doesn't involve modifying/patchi
 
 When creating your Codemos Modern, you are asked to select an Adaptability mode, see [Customization Section](#customization). Currently, there are three options to choose from; **None**, **Gentle** and **Aggressive**. We are planning to add more options in the future.
 
-When you select an Adaptability mode other than **None**, a clever algorithm will be used to trick your eyes into thinking that the UI has transparency effects. This is done by using the accent color as the reference when calculating the opaque color of the UI elements. This way, the UI elements will adapt to your accent color and UI elements will look like they are letting the light pass through.
+When you select an Adaptability mode other than **None**, a clever algorithm will be used to trick your eyes into thinking that the UI has transparency effects. This is done by using the accent color as the reference when calculating the opaque color of the UI elements. This way, the UI elements will adapt to your accent color and they will look like they are letting the light pass through them.
 
 <br/>
 
 ### Adaptability modes
 
-- **None:** This is the default option. When you select this option, other UI elements such as background colors will not adapt to your accent color. This is the safest option.
+- **None:** This is the default option. When you select this option, other UI elements such as background colors will not adapt to your accent color. This is the default option.
 
 - **Gentle:** This is the recommended option. When you select this option, other UI elements such as background colors will start to adapt to your accent color. This option is the most balanced option.
 
-- **Aggressive:** This is the most extreme option. When you select this option, other UI elements such as background colors will adapt to your accent color as much as possible. This option is the most glassmorphism option.
+- **Aggressive:** This is the most extreme option. When you select this option, other UI elements such as background colors will adapt to your accent color as much as possible. This option is the most glassmorphic option.
 
 ![adaptability-modes](./images/docs-2-1.png)
 
@@ -152,16 +152,16 @@ When you select an Adaptability mode other than **None**, a clever algorithm wil
 
 Color is the essential part of code editing. Codemos Modern provides a carefully crafted color palette to make your code editing experience more intelligible and enjoyable.
 
-Our color palette takes its foundations from the Visual Studio/Visual Studio Code color palette. We've made this classic color palette more modern and more accessible. We've also added some new colors to the palette to make it more complete. Every color has a **meaning** and is **consistent** across all the UI. While feeling familiar, it also feels fresh and modern.
+Our color palette takes its foundations from the original Visual Studio/Visual Studio Code color palette. We've made this classic color palette more modern and more accessible. We've also added some new colors to the palette to make it more complete. Every color has a **meaning** and is **consistent** across all the UI. While feeling familiar, it also feels fresh and modern.
 
-Before we dive into color reference, we have one more contribution to code intelligibility. We used text decorations cleverly to give users more information about their code.
+Before we dive into color reference, we have one more contribution to code intelligibility. We used text decorations cleverly to give our users more information about their code.
 
 These decorations are:
 
 - <del>Strike-through</del>: This decoration is used to indicate that the symbol is deprecated.
 - <strong>Bold</strong>: This decoration is used to indicate that the symbol is abstract.
 - <em>Italic</em>: This decoration is used to indicate that the symbol is static.
-- <u>Underline</u>: This decoration is used to indicate that the symbol allows write access (not read-only).
+- <ins>Underline</ins>: This decoration is used to indicate that the symbol allows write access (not read-only).
 
 <br/>
 
@@ -211,7 +211,7 @@ In this section you can find how Codemos Modern looks and feels in most used lan
 
 ![java](./images/ss-3.png)
 
-### C++
+<h3 id="cpp">C++</h3>
 
 ![cpp](./images/ss-4.png)
 
