@@ -177,8 +177,6 @@ These decorations are:
 
 We've also decided to theme some of the most used extensions to provide more consistent experience across the entire UI. In order an extension to be themed, it must [contribute themeable colors](https://code.visualstudio.com/api/references/contribution-points#contributes.colors). You can find the list of supported extensions that are themed in Codemos Modern. If your favorite extension is not on the list, visit [Codemos Modern's GitHub repository](https://github.com/Codemos-Inc/Codemos-Modern) and let us know!
 
-<br/>
-
 ### Supported Extensions
 
 - [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens)
