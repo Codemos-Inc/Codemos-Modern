@@ -7,7 +7,11 @@ import * as lightColors from "./color/light";
 import { AdaptiveMode, ColorMode } from "./extension";
 import * as colorUtils from "./util/color";
 
-export async function createTheme(accentHex: string, colorMode: ColorMode, adaptiveMode: AdaptiveMode) {
+export async function createTheme(
+  accentHex: string,
+  colorMode: ColorMode,
+  adaptiveMode: AdaptiveMode
+) {
   switch (colorMode) {
     case ColorMode.dark:
       darkColors.updateAccent(accentHex);
@@ -40,23 +44,97 @@ export async function createTheme(accentHex: string, colorMode: ColorMode, adapt
   }
 }
 
-function adaptTheme(accentHex: string, colorMode: ColorMode, adaptiveMode: AdaptiveMode) {
+function adaptTheme(
+  accentHex: string,
+  colorMode: ColorMode,
+  adaptiveMode: AdaptiveMode
+) {
   switch (colorMode) {
     case ColorMode.dark:
       switch (adaptiveMode) {
         case AdaptiveMode.gentle:
-          darkColors.updateLVL1(colorUtils.contrastBalancer(accentHex, darkColors.LVL1_GENTLE, darkColors.LVL1_DEF, true));
-          darkColors.updateLVL2(colorUtils.contrastBalancer(accentHex, darkColors.LVL2_GENTLE, darkColors.LVL2_DEF, true));
-          darkColors.updateLVL3(colorUtils.contrastBalancer(accentHex, darkColors.LVL3_GENTLE, darkColors.LVL3_DEF, true));
-          darkColors.updateLVL4(colorUtils.contrastBalancer(accentHex, darkColors.LVL4_GENTLE, darkColors.LVL4_DEF, true));
-          darkColors.updateLVL5(colorUtils.contrastBalancer(accentHex, darkColors.LVL5_GENTLE, darkColors.LVL5_DEF, true));
+          darkColors.updateLVL1(
+            colorUtils.contrastBalancer(
+              accentHex,
+              darkColors.LVL1_GENTLE,
+              darkColors.LVL1_DEF,
+              true
+            )
+          );
+          darkColors.updateLVL2(
+            colorUtils.contrastBalancer(
+              accentHex,
+              darkColors.LVL2_GENTLE,
+              darkColors.LVL2_DEF,
+              true
+            )
+          );
+          darkColors.updateLVL3(
+            colorUtils.contrastBalancer(
+              accentHex,
+              darkColors.LVL3_GENTLE,
+              darkColors.LVL3_DEF,
+              true
+            )
+          );
+          darkColors.updateLVL4(
+            colorUtils.contrastBalancer(
+              accentHex,
+              darkColors.LVL4_GENTLE,
+              darkColors.LVL4_DEF,
+              true
+            )
+          );
+          darkColors.updateLVL5(
+            colorUtils.contrastBalancer(
+              accentHex,
+              darkColors.LVL5_GENTLE,
+              darkColors.LVL5_DEF,
+              true
+            )
+          );
           break;
         case AdaptiveMode.aggressive:
-          darkColors.updateLVL1(colorUtils.contrastBalancer(accentHex, darkColors.LVL1_AGGRESSIVE, darkColors.LVL1_DEF, true));
-          darkColors.updateLVL2(colorUtils.contrastBalancer(accentHex, darkColors.LVL2_AGGRESSIVE, darkColors.LVL2_DEF, true));
-          darkColors.updateLVL3(colorUtils.contrastBalancer(accentHex, darkColors.LVL3_AGGRESSIVE, darkColors.LVL3_DEF, true));
-          darkColors.updateLVL4(colorUtils.contrastBalancer(accentHex, darkColors.LVL4_AGGRESSIVE, darkColors.LVL4_DEF, true));
-          darkColors.updateLVL5(colorUtils.contrastBalancer(accentHex, darkColors.LVL5_AGGRESSIVE, darkColors.LVL5_DEF, true));
+          darkColors.updateLVL1(
+            colorUtils.contrastBalancer(
+              accentHex,
+              darkColors.LVL1_AGGRESSIVE,
+              darkColors.LVL1_DEF,
+              true
+            )
+          );
+          darkColors.updateLVL2(
+            colorUtils.contrastBalancer(
+              accentHex,
+              darkColors.LVL2_AGGRESSIVE,
+              darkColors.LVL2_DEF,
+              true
+            )
+          );
+          darkColors.updateLVL3(
+            colorUtils.contrastBalancer(
+              accentHex,
+              darkColors.LVL3_AGGRESSIVE,
+              darkColors.LVL3_DEF,
+              true
+            )
+          );
+          darkColors.updateLVL4(
+            colorUtils.contrastBalancer(
+              accentHex,
+              darkColors.LVL4_AGGRESSIVE,
+              darkColors.LVL4_DEF,
+              true
+            )
+          );
+          darkColors.updateLVL5(
+            colorUtils.contrastBalancer(
+              accentHex,
+              darkColors.LVL5_AGGRESSIVE,
+              darkColors.LVL5_DEF,
+              true
+            )
+          );
           break;
         default:
           break;
@@ -65,18 +143,88 @@ function adaptTheme(accentHex: string, colorMode: ColorMode, adaptiveMode: Adapt
     case ColorMode.light:
       switch (adaptiveMode) {
         case AdaptiveMode.gentle:
-          lightColors.updateLVL1(colorUtils.contrastBalancer(accentHex, lightColors.LVL1_GENTLE, lightColors.LVL1_DEF, false));
-          lightColors.updateLVL2(colorUtils.contrastBalancer(accentHex, lightColors.LVL2_GENTLE, lightColors.LVL2_DEF, false));
-          lightColors.updateLVL3(colorUtils.contrastBalancer(accentHex, lightColors.LVL3_GENTLE, lightColors.LVL3_DEF, false));
-          lightColors.updateLVL4(colorUtils.contrastBalancer(accentHex, lightColors.LVL4_GENTLE, lightColors.LVL4_DEF, false));
-          lightColors.updateLVL5(colorUtils.contrastBalancer(accentHex, lightColors.LVL5_GENTLE, lightColors.LVL5_DEF, false));
+          lightColors.updateLVL1(
+            colorUtils.contrastBalancer(
+              accentHex,
+              lightColors.LVL1_GENTLE,
+              lightColors.LVL1_DEF,
+              false
+            )
+          );
+          lightColors.updateLVL2(
+            colorUtils.contrastBalancer(
+              accentHex,
+              lightColors.LVL2_GENTLE,
+              lightColors.LVL2_DEF,
+              false
+            )
+          );
+          lightColors.updateLVL3(
+            colorUtils.contrastBalancer(
+              accentHex,
+              lightColors.LVL3_GENTLE,
+              lightColors.LVL3_DEF,
+              false
+            )
+          );
+          lightColors.updateLVL4(
+            colorUtils.contrastBalancer(
+              accentHex,
+              lightColors.LVL4_GENTLE,
+              lightColors.LVL4_DEF,
+              false
+            )
+          );
+          lightColors.updateLVL5(
+            colorUtils.contrastBalancer(
+              accentHex,
+              lightColors.LVL5_GENTLE,
+              lightColors.LVL5_DEF,
+              false
+            )
+          );
           break;
         case AdaptiveMode.aggressive:
-          lightColors.updateLVL1(colorUtils.contrastBalancer(accentHex, lightColors.LVL1_AGGRESSIVE, lightColors.LVL1_DEF, false));
-          lightColors.updateLVL2(colorUtils.contrastBalancer(accentHex, lightColors.LVL2_AGGRESSIVE, lightColors.LVL2_DEF, false));
-          lightColors.updateLVL3(colorUtils.contrastBalancer(accentHex, lightColors.LVL3_AGGRESSIVE, lightColors.LVL3_DEF, false));
-          lightColors.updateLVL4(colorUtils.contrastBalancer(accentHex, lightColors.LVL4_AGGRESSIVE, lightColors.LVL4_DEF, false));
-          lightColors.updateLVL5(colorUtils.contrastBalancer(accentHex, lightColors.LVL5_AGGRESSIVE, lightColors.LVL5_DEF, false));
+          lightColors.updateLVL1(
+            colorUtils.contrastBalancer(
+              accentHex,
+              lightColors.LVL1_AGGRESSIVE,
+              lightColors.LVL1_DEF,
+              false
+            )
+          );
+          lightColors.updateLVL2(
+            colorUtils.contrastBalancer(
+              accentHex,
+              lightColors.LVL2_AGGRESSIVE,
+              lightColors.LVL2_DEF,
+              false
+            )
+          );
+          lightColors.updateLVL3(
+            colorUtils.contrastBalancer(
+              accentHex,
+              lightColors.LVL3_AGGRESSIVE,
+              lightColors.LVL3_DEF,
+              false
+            )
+          );
+          lightColors.updateLVL4(
+            colorUtils.contrastBalancer(
+              accentHex,
+              lightColors.LVL4_AGGRESSIVE,
+              lightColors.LVL4_DEF,
+              false
+            )
+          );
+          lightColors.updateLVL5(
+            colorUtils.contrastBalancer(
+              accentHex,
+              lightColors.LVL5_AGGRESSIVE,
+              lightColors.LVL5_DEF,
+              false
+            )
+          );
           break;
         default:
           break;
@@ -87,7 +235,10 @@ function adaptTheme(accentHex: string, colorMode: ColorMode, adaptiveMode: Adapt
   }
 }
 
-async function applyTheme(colors: typeof darkColors | typeof lightColors, isDarkMode: boolean) {
+async function applyTheme(
+  colors: typeof darkColors | typeof lightColors,
+  isDarkMode: boolean
+) {
   const themeObject = {
     $schema: "vscode://schemas/color-theme",
     semanticHighlighting: true,
@@ -170,7 +321,18 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
 
       // namespace, module, package
       {
-        scope: ["entity.name.type.namespace", "entity.name.namespace", "entity.name.type.module", "entity.name.module", "entity.name.type.package", "entity.name.package", "storage.modifier.import", "storage.modifier.package", "variable.language.wildcard.java", "entity.name.scope-resolution"],
+        scope: [
+          "entity.name.type.namespace",
+          "entity.name.namespace",
+          "entity.name.type.module",
+          "entity.name.module",
+          "entity.name.type.package",
+          "entity.name.package",
+          "storage.modifier.import",
+          "storage.modifier.package",
+          "variable.language.wildcard.java",
+          "entity.name.scope-resolution",
+        ],
         settings: {
           foreground: colors.FILL_TEXT.sec,
           fontStyle: "",
@@ -178,7 +340,12 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       },
       // class
       {
-        scope: ["entity.name.type.class", "entity.other.inherited-class", "meta.definition.class.inherited.classes", "entity.other.attribute-name.class"],
+        scope: [
+          "entity.name.type.class",
+          "entity.other.inherited-class",
+          "meta.definition.class.inherited.classes",
+          "entity.other.attribute-name.class",
+        ],
         settings: {
           foreground: colors.BASIC_DEF_YELLOW.pri,
           fontStyle: "",
@@ -194,7 +361,10 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       },
       // interface
       {
-        scope: ["entity.name.type.interface", "meta.definition.class.implemented.interfaces"],
+        scope: [
+          "entity.name.type.interface",
+          "meta.definition.class.implemented.interfaces",
+        ],
         settings: {
           foreground: colors.BASIC_DEF_MINT.pri,
           fontStyle: "",
@@ -218,7 +388,12 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       },
       // type
       {
-        scope: ["entity.name.type", "entity.name.tag", "keyword.operator.less", "support.type"],
+        scope: [
+          "entity.name.type",
+          "entity.name.tag",
+          "keyword.operator.less",
+          "support.type",
+        ],
         settings: {
           foreground: colors.BASIC_DEF_MINT.pri,
           fontStyle: "",
@@ -241,7 +416,14 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       },
       // variable
       {
-        scope: ["variable", "meta.method variable", "meta.function variable", "meta.block variable", "entity.name.variable", "variable.other.readwrite"],
+        scope: [
+          "variable",
+          "meta.method variable",
+          "meta.function variable",
+          "meta.block variable",
+          "entity.name.variable",
+          "variable.other.readwrite",
+        ],
         settings: {
           foreground: colors.BASIC_ALT_ORANGE.pri,
           fontStyle: "underline",
@@ -249,7 +431,13 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       },
       // variable.readonly
       {
-        scope: ["variable.other.constant", "meta.method variable.other.constant", "meta.function variable.other.constant", "meta.block variable.other.constant", "entity.name.variable.constant"],
+        scope: [
+          "variable.other.constant",
+          "meta.method variable.other.constant",
+          "meta.function variable.other.constant",
+          "meta.block variable.other.constant",
+          "entity.name.variable.constant",
+        ],
         settings: {
           foreground: colors.BASIC_ALT_ORANGE.pri,
           fontStyle: "",
@@ -257,7 +445,14 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       },
       // property
       {
-        scope: ["variable.other.property", "meta.class variable", "meta.interface variable", "entity.name.variable.property", "entity.name.variable.field", "meta.attribute.python"],
+        scope: [
+          "variable.other.property",
+          "meta.class variable",
+          "meta.interface variable",
+          "entity.name.variable.property",
+          "entity.name.variable.field",
+          "meta.attribute.python",
+        ],
         settings: {
           foreground: colors.BASIC_ALT_YELLOW.pri,
           fontStyle: "underline",
@@ -265,7 +460,14 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       },
       // property.readonly
       {
-        scope: ["variable.other.constant.property", "meta.class variable.other.constant", "meta.interface variable.other.constant", "entity.name.variable.field.constant", "entity.name.variable.property.constant", "meta.attribute.constant.python"],
+        scope: [
+          "variable.other.constant.property",
+          "meta.class variable.other.constant",
+          "meta.interface variable.other.constant",
+          "entity.name.variable.field.constant",
+          "entity.name.variable.property.constant",
+          "meta.attribute.constant.python",
+        ],
         settings: {
           foreground: colors.BASIC_ALT_YELLOW.pri,
           fontStyle: "",
@@ -273,7 +475,11 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       },
       // enumMember
       {
-        scope: ["variable.other.enummember", "constant.other.enum", "entity.name.variable.enum-member"],
+        scope: [
+          "variable.other.enummember",
+          "constant.other.enum",
+          "entity.name.variable.enum-member",
+        ],
         settings: {
           foreground: colors.BASIC_ALT_MINT.pri,
           fontStyle: "",
@@ -281,7 +487,11 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       },
       // decorator
       {
-        scope: ["meta.decorator", "meta.function.decorator", "entity.name.function.decorator"],
+        scope: [
+          "meta.decorator",
+          "meta.function.decorator",
+          "entity.name.function.decorator",
+        ],
         settings: {
           foreground: colors.BASIC_DEF_RED.pri,
           fontStyle: "",
@@ -289,7 +499,14 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       },
       // annotation
       {
-        scope: ["entity.name.type.annotation", "meta.declaration.annotation", "storage.type.annotation", "entity.other.attribute", "meta.attribute", "support.attribute"],
+        scope: [
+          "entity.name.type.annotation",
+          "meta.declaration.annotation",
+          "storage.type.annotation",
+          "entity.other.attribute",
+          "meta.attribute",
+          "support.attribute",
+        ],
         settings: {
           foreground: colors.BASIC_DEF_RED.pri,
           fontStyle: "",
@@ -305,7 +522,14 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       },
       // function
       {
-        scope: ["entity.name.function", "support.function", "support.constant.handlebars", "source.powershell variable.other.member", "entity.name.operator.custom-literal", "entity.other.attribute-name.parent-selector"],
+        scope: [
+          "entity.name.function",
+          "support.function",
+          "support.constant.handlebars",
+          "source.powershell variable.other.member",
+          "entity.name.operator.custom-literal",
+          "entity.other.attribute-name.parent-selector",
+        ],
         settings: {
           foreground: colors.BASIC_DEF_ORANGE.pri,
           fontStyle: "",
@@ -321,7 +545,14 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       },
       // macro
       {
-        scope: ["meta.preprocessor.macro", "keyword.preprocessor", "keyword.control.directive", "entity.name.function.macro", "entity.name.function.preprocessor", "meta.preprocessor punctuation"],
+        scope: [
+          "meta.preprocessor.macro",
+          "keyword.preprocessor",
+          "keyword.control.directive",
+          "entity.name.function.macro",
+          "entity.name.function.preprocessor",
+          "meta.preprocessor punctuation",
+        ],
         settings: {
           foreground: colors.BASIC_ALT_PINK.pri,
           fontStyle: "",
@@ -345,7 +576,13 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       },
       // string
       {
-        scope: ["string", "string.tag", "string.value", "meta.preprocessor.string", "meta.embedded.assembly"],
+        scope: [
+          "string",
+          "string.tag",
+          "string.value",
+          "meta.preprocessor.string",
+          "meta.embedded.assembly",
+        ],
         settings: {
           foreground: colors.BASIC_DEF_BROWN.pri,
           fontStyle: "",
@@ -353,7 +590,12 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       },
       // string template
       {
-        scope: ["punctuation.definition.template-expression.begin", "punctuation.definition.template-expression.end", "punctuation.section.embedded", "meta.template.expression"],
+        scope: [
+          "punctuation.definition.template-expression.begin",
+          "punctuation.definition.template-expression.end",
+          "punctuation.section.embedded",
+          "meta.template.expression",
+        ],
         settings: {
           foreground: colors.BASIC_ALT_BLUE.pri,
           fontStyle: "",
@@ -376,7 +618,17 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       },
       // keyword
       {
-        scope: ["keyword", "storage.type.package", "storage.type.import", "keyword.operator.delete", "keyword.other.using", "keyword.other.operator", "entity.name.operator", "punctuation.section.embedded.begin.php", "punctuation.section.embedded.end.php"],
+        scope: [
+          "keyword",
+          "storage.type.package",
+          "storage.type.import",
+          "keyword.operator.delete",
+          "keyword.other.using",
+          "keyword.other.operator",
+          "entity.name.operator",
+          "punctuation.section.embedded.begin.php",
+          "punctuation.section.embedded.end.php",
+        ],
         settings: {
           foreground: colors.BASIC_DEF_PINK.pri,
           fontStyle: "",
@@ -421,7 +673,16 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       },
       // number
       {
-        scope: ["constant.numeric", "keyword.operator.plus.exponent", "keyword.operator.minus.exponent", "keyword.other.unit", "meta.preprocessor.numeric", "source.css.less meta.property-value constant.numeric", "source.css.less meta.property-value keyword.other.unit", "constant.other.reference.link"],
+        scope: [
+          "constant.numeric",
+          "keyword.operator.plus.exponent",
+          "keyword.operator.minus.exponent",
+          "keyword.other.unit",
+          "meta.preprocessor.numeric",
+          "source.css.less meta.property-value constant.numeric",
+          "source.css.less meta.property-value keyword.other.unit",
+          "constant.other.reference.link",
+        ],
         settings: {
           foreground: colors.BASIC_ALT_GREEN.pri,
           fontStyle: "",
@@ -436,14 +697,27 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
         },
       },
       {
-        scope: ["punctuation.definition.group.regexp", "punctuation.definition.group.assertion.regexp", "punctuation.definition.character-class.regexp", "punctuation.character.set.begin.regexp", "punctuation.character.set.end.regexp", "keyword.operator.negation.regexp", "support.other.parenthesis.regexp"],
+        scope: [
+          "punctuation.definition.group.regexp",
+          "punctuation.definition.group.assertion.regexp",
+          "punctuation.definition.character-class.regexp",
+          "punctuation.character.set.begin.regexp",
+          "punctuation.character.set.end.regexp",
+          "keyword.operator.negation.regexp",
+          "support.other.parenthesis.regexp",
+        ],
         settings: {
           foreground: colors.BASIC_ALT_PURPLE.pri,
           fontStyle: "",
         },
       },
       {
-        scope: ["constant.character.character-class.regexp", "constant.other.character-class.set.regexp", "constant.other.character-class.regexp", "constant.character.set.regexp"],
+        scope: [
+          "constant.character.character-class.regexp",
+          "constant.other.character-class.set.regexp",
+          "constant.other.character-class.regexp",
+          "constant.character.set.regexp",
+        ],
         settings: {
           foreground: colors.BASIC_ALT_PINK.pri,
           fontStyle: "",
@@ -476,7 +750,14 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
 
       // this, self, etc.
       {
-        scope: ["variable.language", "variable.parameter.function.language.special", "keyword.other.this", "variable.language.this", "variable.language.super", "variable.language.special.self"],
+        scope: [
+          "variable.language",
+          "variable.parameter.function.language.special",
+          "keyword.other.this",
+          "variable.language.this",
+          "variable.language.super",
+          "variable.language.special.self",
+        ],
         settings: {
           foreground: colors.BASIC_DEF_YELLOW.pri,
           fontStyle: "",
@@ -484,7 +765,13 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       },
       // primitive
       {
-        scope: ["storage.type.primitive", "storage.type.built-in", "support.type.primitive", "support.type.built-in", "keyword.type"],
+        scope: [
+          "storage.type.primitive",
+          "storage.type.built-in",
+          "support.type.primitive",
+          "support.type.built-in",
+          "keyword.type",
+        ],
         settings: {
           foreground: colors.BASIC_DEF_BLUE.pri,
           fontStyle: "",
@@ -500,7 +787,11 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       },
       // constant
       {
-        scope: ["variable.other.constant", "constant.other.caps", "constant.other.php"],
+        scope: [
+          "variable.other.constant",
+          "constant.other.caps",
+          "constant.other.php",
+        ],
         settings: {
           foreground: colors.BASIC_ALT_MINT.pri,
           fontStyle: "",
@@ -508,7 +799,13 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       },
       // color
       {
-        scope: ["variable.other.color", "constant.other.color", "support.constant.color", "constant.other.rgb-value", "constant.other.color.rgb-value"],
+        scope: [
+          "variable.other.color",
+          "constant.other.color",
+          "support.constant.color",
+          "constant.other.rgb-value",
+          "constant.other.color.rgb-value",
+        ],
         settings: {
           foreground: colors.BASIC_DEF_BROWN.pri,
           fontStyle: "",
@@ -532,7 +829,11 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       },
       // property-name, attribute-name
       {
-        scope: ["support.type.property-name", "entity.other.attribute-name", "meta.property-value"],
+        scope: [
+          "support.type.property-name",
+          "entity.other.attribute-name",
+          "meta.property-value",
+        ],
         settings: {
           foreground: colors.BASIC_ALT_BLUE.pri,
           fontStyle: "",
@@ -564,7 +865,14 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       },
       // other keyword
       {
-        scope: ["entity.other.keyframe-offset", "entity.name.tag.reference", "meta.at-rule.keyframes", "entity.other.attribute-name.scss", "source.css.less constant.numeric", "source.css.less keyword.other.unit"],
+        scope: [
+          "entity.other.keyframe-offset",
+          "entity.name.tag.reference",
+          "meta.at-rule.keyframes",
+          "entity.other.attribute-name.scss",
+          "source.css.less constant.numeric",
+          "source.css.less keyword.other.unit",
+        ],
         settings: {
           foreground: colors.BASIC_ALT_PINK.pri,
           fontStyle: "",
@@ -645,14 +953,21 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
         },
       },
       {
-        scope: ["string.other.link", "punctuation.definition.list.begin.markdown"],
+        scope: [
+          "string.other.link",
+          "punctuation.definition.list.begin.markdown",
+        ],
         settings: {
           foreground: colors.FILL_ACCENT_TEXT.pri,
           fontStyle: "",
         },
       },
       {
-        scope: ["markup.fenced_code.block", "markup.inline.raw", "markup.raw.block"],
+        scope: [
+          "markup.fenced_code.block",
+          "markup.inline.raw",
+          "markup.raw.block",
+        ],
         settings: {
           foreground: colors.BASIC_DEF_PINK.pri,
           fontStyle: "",
@@ -706,7 +1021,7 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       },
     ],
     colors: {
-      // @{VSCODE: v1.79.0}
+      // @{VSCODE: v1.79.2}
       // activityBar | @{VSCODE}
       "activityBar.activeBackground": colors.FILL_CONTROL.rest,
       "activityBar.activeBorder": colors.FILL_ACCENT.pri,
@@ -784,7 +1099,8 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "debugExceptionWidget.background": colors.BASIC_LC_RED.pri,
       "debugExceptionWidget.border": colors.STROKE_SURFACE.flyout,
       // debugIcon | @{VSCODE}
-      "debugIcon.breakpointCurrentStackframeForeground": colors.BASIC_DEF_YELLOW.pri,
+      "debugIcon.breakpointCurrentStackframeForeground":
+        colors.BASIC_DEF_YELLOW.pri,
       "debugIcon.breakpointDisabledForeground": colors.BASIC_NEUTRAL.qua,
       "debugIcon.breakpointForeground": colors.BASIC_DEF_RED.pri,
       "debugIcon.breakpointStackframeForeground": colors.BASIC_DEF_YELLOW.ter,
@@ -817,7 +1133,7 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "debugView.valueChangedHighlight": colors.BASIC_ALT_BLUE.pri,
       // descriptionForeground | @{VSCODE}
       descriptionForeground: colors.FILL_TEXT.sec,
-      // diffEditor | @{VSCODE} !{FUTURE}
+      // diffEditor | @{VSCODE}
       "diffEditor.border": colors.STROKE_DIVIDER.default,
       "diffEditor.diagonalFill": colors.STROKE_DIVIDER.default,
       "diffEditor.insertedLineBackground": colors.BASIC_DEF_GREEN.qui,
@@ -826,7 +1142,7 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "diffEditor.removedLineBackground": colors.BASIC_DEF_RED.qui,
       "diffEditor.removedTextBackground": colors.BASIC_DEF_RED.qua,
       "diffEditor.removedTextBorder": colors.TRANSPARENT.value,
-      "diffEditor.unchangedRegionBackground": colors.BG_SOLID.onCanvas,
+      "diffEditor.unchangedRegionBackground": colors.FILL_CONTROL.prominent,
       // diffEditorGutter | @{VSCODE}
       "diffEditorGutter.insertedLineBackground": null,
       "diffEditorGutter.removedLineBackground": null,
@@ -847,7 +1163,8 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "editor.findMatchHighlightBorder": colors.STROKE_CONTROL.default,
       "editor.findRangeHighlightBackground": colors.BASIC_NEUTRAL.sep,
       "editor.findRangeHighlightBorder": null,
-      "editor.focusedStackFrameHighlightBackground": colors.BASIC_DEF_YELLOW.qui,
+      "editor.focusedStackFrameHighlightBackground":
+        colors.BASIC_DEF_YELLOW.qui,
       "editor.foldBackground": colors.BASIC_NEUTRAL.sep,
       "editor.foreground": colors.FILL_TEXT.sec,
       "editor.hoverHighlightBackground": colors.BASIC_NEUTRAL.sep,
@@ -883,7 +1200,8 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "editorBracketHighlight.foreground4": colors.BASIC_ALT_PURPLE.pri,
       "editorBracketHighlight.foreground5": colors.BASIC_ALT_BLUE.pri,
       "editorBracketHighlight.foreground6": colors.BASIC_ALT_GREEN.pri,
-      "editorBracketHighlight.unexpectedBracket.foreground": colors.BASIC_DEF_RED.pri,
+      "editorBracketHighlight.unexpectedBracket.foreground":
+        colors.BASIC_DEF_RED.pri,
       // editorBracketMatch | @{VSCODE}
       "editorBracketMatch.background": colors.BASIC_DEF_BROWN.qua,
       "editorBracketMatch.border": colors.STROKE_CONTROL.default,
@@ -938,7 +1256,8 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "editorGutter.background": colors.BG_SOLID.base,
       "editorGutter.commentGlyphForeground": colors.FILL_TEXT.sec,
       "editorGutter.commentRangeForeground": colors.FILL_CONTROL.prominent,
-      "editorGutter.commentUnresolvedGlyphForeground": colors.BASIC_DEF_BLUE.pri,
+      "editorGutter.commentUnresolvedGlyphForeground":
+        colors.BASIC_DEF_BLUE.pri,
       "editorGutter.deletedBackground": colors.BASIC_DEF_RED.pri,
       "editorGutter.foldingControlForeground": colors.FILL_TEXT.sec,
       "editorGutter.modifiedBackground": colors.BASIC_DEF_BLUE.pri,
@@ -981,28 +1300,34 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "editorMarkerNavigationInfo.background": colors.BASIC_DEF_BLUE.pri,
       "editorMarkerNavigationInfo.headerBackground": colors.BASIC_LC_BLUE.pri,
       "editorMarkerNavigationWarning.background": colors.BASIC_DEF_ORANGE.pri,
-      "editorMarkerNavigationWarning.headerBackground": colors.BASIC_LC_ORANGE.pri,
+      "editorMarkerNavigationWarning.headerBackground":
+        colors.BASIC_LC_ORANGE.pri,
       // editorOverviewRuler | @{VSCODE}
       "editorOverviewRuler.addedForeground": colors.BASIC_DEF_GREEN.sec,
       "editorOverviewRuler.background": colors.BG_SOLID.base,
       "editorOverviewRuler.border": colors.TRANSPARENT.value,
       "editorOverviewRuler.bracketMatchForeground": colors.BASIC_DEF_BROWN.sec,
       "editorOverviewRuler.commentForeground": colors.FILL_TEXT.ghost,
-      "editorOverviewRuler.commentUnresolvedForeground": colors.BASIC_DEF_BLUE.sec,
+      "editorOverviewRuler.commentUnresolvedForeground":
+        colors.BASIC_DEF_BLUE.sec,
       "editorOverviewRuler.commonContentForeground": colors.BASIC_NEUTRAL.qua,
       "editorOverviewRuler.currentContentForeground": colors.BASIC_DEF_MINT.ter,
       "editorOverviewRuler.deletedForeground": colors.BASIC_DEF_RED.sec,
       "editorOverviewRuler.errorForeground": colors.BASIC_DEF_RED.pri,
       "editorOverviewRuler.findMatchForeground": colors.BASIC_DEF_MINT.sec,
-      "editorOverviewRuler.incomingContentForeground": colors.BASIC_DEF_BLUE.ter,
+      "editorOverviewRuler.incomingContentForeground":
+        colors.BASIC_DEF_BLUE.ter,
       "editorOverviewRuler.infoForeground": colors.BASIC_DEF_BLUE.pri,
       "editorOverviewRuler.modifiedForeground": colors.BASIC_DEF_BLUE.sec,
       "editorOverviewRuler.rangeHighlightForeground": colors.BASIC_NEUTRAL.sep,
-      "editorOverviewRuler.selectionHighlightForeground": colors.BASIC_NEUTRAL.sen,
+      "editorOverviewRuler.selectionHighlightForeground":
+        colors.BASIC_NEUTRAL.sen,
       "editorOverviewRuler.warningForeground": colors.BASIC_DEF_ORANGE.pri,
       "editorOverviewRuler.wordHighlightForeground": colors.BASIC_DEF_PINK.sec,
-      "editorOverviewRuler.wordHighlightStrongForeground": colors.BASIC_DEF_PURPLE.sec,
-      "editorOverviewRuler.wordHighlightTextForeground": colors.BASIC_DEF_PINK.sec,
+      "editorOverviewRuler.wordHighlightStrongForeground":
+        colors.BASIC_DEF_PURPLE.sec,
+      "editorOverviewRuler.wordHighlightTextForeground":
+        colors.BASIC_DEF_PINK.sec,
       // editorPane | @{VSCODE}
       "editorPane.background": colors.BG_SOLID.base,
       // editorRuler | @{VSCODE}
@@ -1013,7 +1338,8 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       // editorSuggestWidget | @{VSCODE}
       "editorSuggestWidget.background": colors.BG_SOLID.flyout,
       "editorSuggestWidget.border": colors.STROKE_SURFACE.flyout,
-      "editorSuggestWidget.focusHighlightForeground": colors.FILL_ACCENT_TEXT.pri,
+      "editorSuggestWidget.focusHighlightForeground":
+        colors.FILL_ACCENT_TEXT.pri,
       "editorSuggestWidget.foreground": colors.FILL_TEXT.sec,
       "editorSuggestWidget.highlightForeground": colors.FILL_ACCENT_TEXT.pri,
       "editorSuggestWidget.selectedBackground": colors.FILL_CONTROL.rest,
@@ -1039,7 +1365,7 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "editorWidget.resizeBorder": colors.FILL_ACCENT.pri,
       // errorForeground | @{VSCODE}
       errorForeground: colors.BASIC_DEF_RED.pri,
-      // errorLens | @{ErrorLens}
+      // errorLens | @{Error Lens}
       "errorLens.errorBackground": colors.BASIC_DEF_RED.qui,
       "errorLens.errorBackgroundLight": colors.BASIC_DEF_RED.qui,
       "errorLens.errorForeground": colors.BASIC_DEF_RED.pri,
@@ -1088,34 +1414,45 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       foreground: colors.FILL_TEXT.pri,
       // gitDecoration | @{VSCODE}
       "gitDecoration.addedResourceForeground": colors.BASIC_DEF_GREEN.pri,
-      "gitDecoration.conflictingResourceForeground": colors.BASIC_DEF_ORANGE.pri,
+      "gitDecoration.conflictingResourceForeground":
+        colors.BASIC_DEF_ORANGE.pri,
       "gitDecoration.deletedResourceForeground": colors.BASIC_ALT_RED.pri,
       "gitDecoration.ignoredResourceForeground": colors.FILL_TEXT.disabled,
       "gitDecoration.modifiedResourceForeground": colors.BASIC_ALT_BLUE.pri,
       "gitDecoration.renamedResourceForeground": colors.BASIC_DEF_YELLOW.pri,
       "gitDecoration.stageDeletedResourceForeground": colors.BASIC_DEF_RED.pri,
-      "gitDecoration.stageModifiedResourceForeground": colors.BASIC_DEF_BLUE.pri,
+      "gitDecoration.stageModifiedResourceForeground":
+        colors.BASIC_DEF_BLUE.pri,
       "gitDecoration.submoduleResourceForeground": colors.BASIC_DEF_MINT.pri,
       "gitDecoration.untrackedResourceForeground": colors.BASIC_ALT_GREEN.pri,
       // gitLens | @{GitLens}
       "gitlens.closedAutolinkedIssueIconColor": colors.BASIC_DEF_PURPLE.pri,
       "gitlens.closedPullRequestIconColor": colors.BASIC_DEF_RED.pri,
       "gitlens.decorations.addedForegroundColor": colors.BASIC_DEF_GREEN.pri,
-      "gitlens.decorations.branchAheadForegroundColor": colors.BASIC_DEF_GREEN.pri,
-      "gitlens.decorations.branchBehindForegroundColor": colors.BASIC_DEF_ORANGE.pri,
-      "gitlens.decorations.branchDivergedForegroundColor": colors.BASIC_DEF_YELLOW.pri,
-      "gitlens.decorations.branchMissingUpstreamForegroundColor": colors.BASIC_DEF_ORANGE.pri,
-      "gitlens.decorations.branchUnpublishedForegroundColor": colors.BASIC_DEF_BLUE.pri,
+      "gitlens.decorations.branchAheadForegroundColor":
+        colors.BASIC_DEF_GREEN.pri,
+      "gitlens.decorations.branchBehindForegroundColor":
+        colors.BASIC_DEF_ORANGE.pri,
+      "gitlens.decorations.branchDivergedForegroundColor":
+        colors.BASIC_DEF_YELLOW.pri,
+      "gitlens.decorations.branchMissingUpstreamForegroundColor":
+        colors.BASIC_DEF_ORANGE.pri,
+      "gitlens.decorations.branchUnpublishedForegroundColor":
+        colors.BASIC_DEF_BLUE.pri,
       "gitlens.decorations.branchUpToDateForegroundColor": colors.FILL_TEXT.sec,
       "gitlens.decorations.copiedForegroundColor": colors.BASIC_DEF_YELLOW.pri,
       "gitlens.decorations.deletedForegroundColor": colors.BASIC_ALT_RED.pri,
       "gitlens.decorations.ignoredForegroundColor": colors.FILL_TEXT.disabled,
       "gitlens.decorations.modifiedForegroundColor": colors.BASIC_DEF_BLUE.pri,
       "gitlens.decorations.renamedForegroundColor": colors.BASIC_DEF_YELLOW.pri,
-      "gitlens.decorations.untrackedForegroundColor": colors.BASIC_ALT_GREEN.pri,
-      "gitlens.decorations.workspaceRepoMissingForegroundColor": colors.FILL_TEXT.disabled,
-      "gitlens.decorations.workspaceRepoOpenForegroundColor": colors.BASIC_DEF_GREEN.pri,
-      "gitlens.decorations.worktreeView.hasUncommittedChangesForegroundColor": colors.BASIC_ALT_BLUE.pri,
+      "gitlens.decorations.untrackedForegroundColor":
+        colors.BASIC_ALT_GREEN.pri,
+      "gitlens.decorations.workspaceRepoMissingForegroundColor":
+        colors.FILL_TEXT.disabled,
+      "gitlens.decorations.workspaceRepoOpenForegroundColor":
+        colors.BASIC_DEF_GREEN.pri,
+      "gitlens.decorations.worktreeView.hasUncommittedChangesForegroundColor":
+        colors.BASIC_ALT_BLUE.pri,
       "gitlens.graphChangesColumnAddedColor": colors.BASIC_DEF_GREEN.pri,
       "gitlens.graphChangesColumnDeletedColor": colors.BASIC_DEF_RED.pri,
       "gitlens.graphLane10Color": colors.BASIC_DEF_ORANGE.pri,
@@ -1130,14 +1467,17 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "gitlens.graphLane9Color": colors.BASIC_DEF_RED.pri,
       "gitlens.graphMinimapMarkerHeadColor": colors.BASIC_DEF_GREEN.pri,
       "gitlens.graphMinimapMarkerHighlightsColor": colors.BASIC_DEF_MINT.pri,
-      "gitlens.graphMinimapMarkerLocalBranchesColor": colors.BASIC_DEF_PURPLE.pri,
-      "gitlens.graphMinimapMarkerRemoteBranchesColor": colors.BASIC_ALT_MINT.pri,
+      "gitlens.graphMinimapMarkerLocalBranchesColor":
+        colors.BASIC_DEF_PURPLE.pri,
+      "gitlens.graphMinimapMarkerRemoteBranchesColor":
+        colors.BASIC_ALT_MINT.pri,
       "gitlens.graphMinimapMarkerStashesColor": colors.BASIC_DEF_PINK.pri,
       "gitlens.graphMinimapMarkerTagsColor": colors.BASIC_DEF_YELLOW.pri,
       "gitlens.graphMinimapMarkerUpstreamColor": colors.BASIC_ALT_GREEN.pri,
       "gitlens.graphScrollMarkerHeadColor": colors.BASIC_DEF_GREEN.sec,
       "gitlens.graphScrollMarkerHighlightsColor": colors.BASIC_DEF_MINT.sec,
-      "gitlens.graphScrollMarkerLocalBranchesColor": colors.BASIC_DEF_PURPLE.sec,
+      "gitlens.graphScrollMarkerLocalBranchesColor":
+        colors.BASIC_DEF_PURPLE.sec,
       "gitlens.graphScrollMarkerRemoteBranchesColor": colors.BASIC_ALT_MINT.sec,
       "gitlens.graphScrollMarkerStashesColor": colors.BASIC_DEF_PINK.sec,
       "gitlens.graphScrollMarkerTagsColor": colors.BASIC_DEF_YELLOW.sec,
@@ -1255,14 +1595,18 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "mergeEditor.change.word.background": colors.BASIC_NEUTRAL.sen,
       "mergeEditor.changeBase.background": colors.BASIC_NEUTRAL.sep,
       "mergeEditor.changeBase.word.background": colors.BASIC_NEUTRAL.sen,
-      "mergeEditor.conflict.handled.minimapOverViewRuler": colors.BASIC_DEF_GREEN.ter,
+      "mergeEditor.conflict.handled.minimapOverViewRuler":
+        colors.BASIC_DEF_GREEN.ter,
       "mergeEditor.conflict.handledFocused.border": colors.BASIC_DEF_GREEN.pri,
-      "mergeEditor.conflict.handledUnfocused.border": colors.BASIC_DEF_GREEN.ter,
+      "mergeEditor.conflict.handledUnfocused.border":
+        colors.BASIC_DEF_GREEN.ter,
       "mergeEditor.conflict.input1.background": colors.BASIC_DEF_BLUE.ter,
       "mergeEditor.conflict.input2.background": colors.BASIC_DEF_MINT.ter,
-      "mergeEditor.conflict.unhandled.minimapOverViewRuler": colors.BASIC_DEF_RED.ter,
+      "mergeEditor.conflict.unhandled.minimapOverViewRuler":
+        colors.BASIC_DEF_RED.ter,
       "mergeEditor.conflict.unhandledFocused.border": colors.BASIC_DEF_RED.pri,
-      "mergeEditor.conflict.unhandledUnfocused.border": colors.BASIC_DEF_RED.ter,
+      "mergeEditor.conflict.unhandledUnfocused.border":
+        colors.BASIC_DEF_RED.ter,
       "mergeEditor.conflictingLines.background": colors.BASIC_DEF_ORANGE.qui,
       // minimap | @{VSCODE}
       "minimap.background": colors.BG_SOLID.surface,
@@ -1298,7 +1642,8 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "notebook.selectedCellBackground": colors.FILL_CONTROL.subtle,
       "notebook.selectedCellBorder": colors.FILL_ACCENT.pri,
       "notebook.symbolHighlightBackground": "#ff0000", // 🔵 Unknown attribute
-      "notebookEditorOverviewRuler.runningCellForeground": colors.BASIC_DEF_YELLOW.pri,
+      "notebookEditorOverviewRuler.runningCellForeground":
+        colors.BASIC_DEF_YELLOW.pri,
       "notebookScrollbarSlider.activeBackground": colors.FILL_CONTROL.pressed,
       "notebookScrollbarSlider.background": colors.FILL_CONTROL.rest,
       "notebookScrollbarSlider.hoverBackground": colors.FILL_CONTROL.hover,
@@ -1373,19 +1718,29 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "quickInputList.focusForeground": colors.FILL_TEXT.pri,
       "quickInputList.focusIconForeground": colors.FILL_TEXT.pri,
       "quickInputTitle.background": colors.BG_SOLID.base,
-      // remoteHub | @{RemoteRepositories}
+      // remoteHub | @{Remote Repositories}
       "remoteHub.decorations.addedForegroundColor": colors.BASIC_ALT_GREEN.pri,
-      "remoteHub.decorations.conflictForegroundColor": colors.BASIC_DEF_ORANGE.pri,
+      "remoteHub.decorations.conflictForegroundColor":
+        colors.BASIC_DEF_ORANGE.pri,
       "remoteHub.decorations.deletedForegroundColor": colors.BASIC_ALT_RED.pri,
-      "remoteHub.decorations.ignoredResourceForeground": colors.FILL_TEXT.disabled,
-      "remoteHub.decorations.modifiedForegroundColor": colors.BASIC_ALT_BLUE.pri,
-      "remoteHub.decorations.incomingAddedForegroundColor": colors.BASIC_DEF_GREEN.pri,
-      "remoteHub.decorations.incomingDeletedForegroundColor": colors.BASIC_DEF_RED.pri,
-      "remoteHub.decorations.incomingModifiedForegroundColor": colors.BASIC_DEF_BLUE.pri,
-      "remoteHub.decorations.incomingRenamedForegroundColor": colors.BASIC_DEF_YELLOW.pri,
-      "remoteHub.decorations.possibleConflictForegroundColor": colors.BASIC_ALT_ORANGE.pri,
-      "remoteHub.decorations.submoduleForegroundColor": colors.BASIC_DEF_MINT.pri,
-      "remoteHub.decorations.workspaceRepositoriesView.hasUncommittedChangesForegroundColor": colors.BASIC_ALT_BLUE.pri,
+      "remoteHub.decorations.ignoredResourceForeground":
+        colors.FILL_TEXT.disabled,
+      "remoteHub.decorations.modifiedForegroundColor":
+        colors.BASIC_ALT_BLUE.pri,
+      "remoteHub.decorations.incomingAddedForegroundColor":
+        colors.BASIC_DEF_GREEN.pri,
+      "remoteHub.decorations.incomingDeletedForegroundColor":
+        colors.BASIC_DEF_RED.pri,
+      "remoteHub.decorations.incomingModifiedForegroundColor":
+        colors.BASIC_DEF_BLUE.pri,
+      "remoteHub.decorations.incomingRenamedForegroundColor":
+        colors.BASIC_DEF_YELLOW.pri,
+      "remoteHub.decorations.possibleConflictForegroundColor":
+        colors.BASIC_ALT_ORANGE.pri,
+      "remoteHub.decorations.submoduleForegroundColor":
+        colors.BASIC_DEF_MINT.pri,
+      "remoteHub.decorations.workspaceRepositoriesView.hasUncommittedChangesForegroundColor":
+        colors.BASIC_ALT_BLUE.pri,
       // sash | @{VSCODE}
       "sash.hoverBorder": colors.STROKE_FOCUS.default,
       // scm | @{VSCODE}
@@ -1614,10 +1969,16 @@ async function applyTheme(colors: typeof darkColors | typeof lightColors, isDark
       "window.inactiveBorder": null,
     },
   };
-  await exportObjectAsJsonFile(themeObject, `Codemos Modern (${isDarkMode ? "Dark" : "Light"})-color-theme.json`);
+  await exportObjectAsJsonFile(
+    themeObject,
+    `Codemos Modern (${isDarkMode ? "Dark" : "Light"})-color-theme.json`
+  );
 }
 
-async function exportObjectAsJsonFile(objectToExport: object, fileName: string) {
+async function exportObjectAsJsonFile(
+  objectToExport: object,
+  fileName: string
+) {
   // Convert object to JSON string
   const jsonString = JSON.stringify(objectToExport);
 

@@ -1,6 +1,6 @@
 {
-	"name": "WinsCode 11 Dark #60CDFF",
-	"colors": {
+  "name": "WinsCode 11 Dark #60CDFF",
+  "colors": {
     // activityBar | @{VSCODE}
     "activityBar.activeBackground": "#ffffff0f",
     "activityBar.activeBorder": "#ff00ffff",
@@ -333,7 +333,7 @@
     "editorWidget.resizeBorder": "#ff00ff",
     // errorForeground | @{VSCODE}
     "errorForeground": "#EA6162",
-    // errorLens | @{ErrorLens}
+    // errorLens | @{Error Lens}
     "errorLens.errorBackground": "#ef636333",
     "errorLens.errorBackgroundLight": "#ef636333",
     "errorLens.errorForeground": "#ef6363",
