@@ -15,9 +15,12 @@
     "rdme",
     "setext",
     "Stackframe",
+    "themeable",
     "Unopinionated",
+    "unpulled",
     "winui",
-    "wordlike"
+    "wordlike",
+    "worktree"
   ],
   "ignoreWords": [],
   "import": []

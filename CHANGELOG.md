@@ -6,6 +6,26 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [1.1.0] - 2023-06-25
+
+### Added
+
+- Ability to remember user theme configurations. After the version [1.1.0], user configurations will survive throughout updates.
+- Theming support for the early [Diff Editor V2](https://github.com/microsoft/vscode/issues/184164) module.
+- Theming support for [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) extension.
+- Theming support for [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens) extension.
+- Theming support for [Remote Repositories](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-repositories) extension.
+
+### Changed
+
+- Terminal colors to be more inline with other upcoming Codemos Modern releases.
+- Theme created notification to feature a dismissive option for users that don't want to reload the VS Code window now.
+
+### Fixed
+
+- Inability to determine focused elements throughout the UI caused by `contrastBorder` and `contrastActiveBorder` theme attributes.
+- UI shift caused by `window.activeBorder` and `window.inactiveBorder` theme attributes.
+
 ## [1.0.4] - 2023-06-11
 
 ### Fixed
@@ -67,7 +87,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - Initial release
 
-[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.0.4...HEAD
+[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.0.4...v1.1.0
 [1.0.4]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.0.3...v1.0.4
 [1.0.3]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.0.1...v1.0.2

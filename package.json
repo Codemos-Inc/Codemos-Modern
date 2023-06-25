@@ -2,7 +2,7 @@
   "name": "codemos-modern",
   "displayName": "Codemos Modern",
   "description": "Innovative, modern theme suite for VS Code",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "engines": {
     "vscode": "^1.79.0"
   },
@@ -68,7 +68,9 @@
     "type": "github",
     "url": "https://github.com/sponsors/EmrecanKaracayir"
   },
-  "activationEvents": [],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [

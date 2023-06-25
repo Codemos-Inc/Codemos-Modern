@@ -26,7 +26,9 @@ Innovative, modern theme suite for VS Code
 - [📖 About](#rdme-about)
 - [📦 Installation](#rdme-install)
 - [📝 Documentation](#rdme-doc)
+- [🧩 Extensions](#rdme-ext)
 - [📷 Screenshots](#rdme-ss)
+- [📋 Change Log](#rdme-clog)
 - [🙌🏼 Contribution](#rdme-contrib)
 - [📜 License](#rdme-license)
 
@@ -40,7 +42,7 @@ Codemos Modern is a variant of the Codemos theme family. It is built from the gr
 
 <br/>
 
-> _Codemos Modern is designed to be the o**nly modern theme you would ever need** for your code editor._
+> _Codemos Modern is designed to be the **only modern theme you would ever need** for your code editors._
 
 <br/>
 
@@ -56,10 +58,6 @@ We built Codemos Modern with these fundamental principles:
 
 <br/>
 
-> **NOTE:** Don't forget to read the [documentation](#rdme-doc) for essential information about the Codemos Modern.
-
-<br/>
-
 <h1 id="rdme-install">📦 Installation</h1>
 
 1. Open the **Extensions** sidebar in VS Code
@@ -72,7 +70,7 @@ We built Codemos Modern with these fundamental principles:
 
 <br/>
 
-> **NOTE:** Read the [documentation](#rdme-doc) for how to use the command **Codemos Modern: Create Theme** and further information about the Codemos Modern.
+> **NOTE:** Read the [documentation](#rdme-doc) for learning how to use the command **Codemos Modern: Create Theme** and essential information about the Codemos Modern.
 
 <br/>
 
@@ -160,9 +158,9 @@ Before we dive into color reference, we have one more contribution to code intel
 
 These decorations are:
 
-- ~~Strike-through~~: This decoration is used to indicate that the symbol is deprecated.
-- **Bold**: This decoration is used to indicate that the symbol is abstract.
-- _Italic_: This decoration is used to indicate that the symbol is static.
+- <del>Strike-through</del>: This decoration is used to indicate that the symbol is deprecated.
+- <strong>Bold</strong>: This decoration is used to indicate that the symbol is abstract.
+- <em>Italic</em>: This decoration is used to indicate that the symbol is static.
 - <u>Underline</u>: This decoration is used to indicate that the symbol allows write access (not read-only).
 
 <br/>
@@ -172,6 +170,21 @@ These decorations are:
 <br/>
 
 ![color-reference](./images/docs-3-1.png)
+
+<br/>
+
+<h1 id="rdme-ext">🧩 Extensions</h1>
+
+We've also decided to theme some of the most used extensions to provide more consistent experience across the entire UI. In order an extension to be themed, it must [contribute themeable colors](https://code.visualstudio.com/api/references/contribution-points#contributes.colors). You can find the list of supported extensions that are themed in Codemos Modern. If your favorite extension is not on the list, visit [Codemos Modern's GitHub repository](https://github.com/Codemos-Inc/Codemos-Modern) and let us know!
+
+<br/>
+
+## Supported Extensions
+
+- [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens)
+- [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
+- [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+- [Remote Repositories](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-repositories)
 
 <br/>
 
@@ -214,6 +227,30 @@ In this section you can find how Codemos Modern looks and feels in most used lan
 
 <br/>
 
+<h1 id="rdme-clog">📋 Change Log</h1>
+
+Changes from the last release. If you want to see the full change log, visit [CHANGELOG.md](https://github.com/Codemos-Inc/Codemos-Modern/blob/main/CHANGELOG.md).
+
+### Added
+
+- Ability to remember user theme configurations. After the version [1.1.0], user configurations will survive throughout updates.
+- Theming support for the early [Diff Editor V2](https://github.com/microsoft/vscode/issues/184164) module.
+- Theming support for [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) extension.
+- Theming support for [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens) extension.
+- Theming support for [Remote Repositories](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-repositories) extension.
+
+### Changed
+
+- Terminal colors to be more inline with other upcoming Codemos Modern releases.
+- Theme created notification to feature a dismissive option for users that don't want to reload the VS Code window now.
+
+### Fixed
+
+- Inability to determine focused elements throughout the UI caused by `contrastBorder` and `contrastActiveBorder` theme attributes.
+- UI shift caused by `window.activeBorder` and `window.inactiveBorder` theme attributes.
+
+<br/>
+
 <h1 id="rdme-contrib">🙌🏼 Contribution</h1>
 
 We are open to any kind of contribution. If you want to contribute to Codemos Modern, please join us on [GitHub](https://github.com/Codemos-Inc/Codemos-Modern).
@@ -222,4 +259,4 @@ We are open to any kind of contribution. If you want to contribute to Codemos Mo
 
 <h1 id="rdme-license">📜 License</h1>
 
-Codemos Modern is licensed under the [MIT License](https://opensource.org/license/mit/).
+Codemos Modern is licensed under the [MIT License](https://github.com/Codemos-Inc/Codemos-Modern/blob/main/LICENSE.md).

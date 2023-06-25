@@ -5,6 +5,7 @@ src/**
 **/.eslintignore
 **/.eslintrc.json
 **/.gitignore
+**/.nvmrc
 **/.prettierignore
 **/.prettierrc.json
 **/tsconfig.json
