@@ -1537,7 +1537,7 @@ async function applyTheme(
       // keybindingLabel | @{VSCODE}
       "keybindingLabel.background": colors.FILL_CONTROL.rest,
       "keybindingLabel.border": colors.STROKE_CONTROL.default,
-      "keybindingLabel.bottomBorder": colors.STROKE_CONTROL.alt,
+      "keybindingLabel.bottomBorder": colors.STROKE_CONTROL.alt, // 🔴 Fix bottom border as shadow for both dark and light.
       "keybindingLabel.foreground": colors.FILL_TEXT.pri,
       "keybindingTable.headerBackground": colors.BG_SOLID.onCanvas,
       "keybindingTable.rowsBackground": colors.BG_SOLID.onCanvas,
