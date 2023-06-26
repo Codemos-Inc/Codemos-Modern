@@ -14,7 +14,7 @@
   },
   "license": "MIT",
   "readme": "README.md",
-  "icon": "./images/icon.gif",
+  "icon": "./images/icon.png",
   "galleryBanner": {
     "color": "#181818",
     "theme": "dark"
