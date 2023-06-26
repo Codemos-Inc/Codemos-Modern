@@ -2,7 +2,7 @@
   "name": "codemos-modern",
   "displayName": "Codemos Modern",
   "description": "Innovative, modern theme suite for VS Code",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "engines": {
     "vscode": "^1.79.0"
   },
