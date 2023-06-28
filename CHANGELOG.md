@@ -6,6 +6,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [1.1.2] - 2023-06-28
+
+### Added
+
+- Modern to Open VSX Registry.
+
+### Changed
+
+- Extension icon.
+- README.md resources.
+
+### Fixed
+
+- Keybinding views' bottom border.
+
 ## [1.1.0] - 2023-06-25
 
 ### Added
@@ -87,7 +102,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - Initial release
 
-[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.1.0...HEAD
+[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.1.2...HEAD
+[1.1.2]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.1.0...v1.1.2
 [1.1.0]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.0.4...v1.1.0
 [1.0.4]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.0.3...v1.0.4
 [1.0.3]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.0.2...v1.0.3
