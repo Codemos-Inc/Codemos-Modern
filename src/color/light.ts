@@ -702,6 +702,9 @@ export const STROKE_CONTROL = {
   get alt() {
     return `${T_LC}${OP010}`;
   },
+  get shadow() {
+    return `${T_HC}${OP010}`;
+  }
 };
 export const STROKE_DIVIDER = {
   get default() {

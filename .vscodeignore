@@ -1,5 +1,6 @@
 .github/**
 .vscode/**
+images/**
 src/**
 **/.cspell.json
 **/.eslintignore

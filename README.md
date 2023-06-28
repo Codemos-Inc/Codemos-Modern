@@ -2,7 +2,9 @@
 
 <br/>
 
-<img src="./images/icon.png" width="200"/>
+<img src="images/icon.png" width="200"/>
+
+Logo by **[Joshua D. Warren](https://dribbble.com/joshwarren)**
 
 <br/>
 
@@ -17,7 +19,7 @@ Innovative, modern theme suite for VS Code
 
 <br/>
 
-![overview](./images/header-1.png)
+![overview](images/header-1.png)
 
 </div>
 
@@ -96,11 +98,11 @@ Codemos Modern provides three customization options through the command **Codemo
 
 1. **Color mode:** You can select which color mode your theme would use. (Dark/Light)
 
-![color-mode](./images/docs-1-1.png)
+![color-mode](images/docs-1-1.png)
 
 2. **Accent color:** You can select which accent color your theme would use. (Accent color determines the color of the important ui elements; buttons, badges, links, emphasized text, etc. and effects the adaptability mode.)
 
-![accent-color](./images/docs-1-2.png)
+![accent-color](images/docs-1-2.png)
 
 > **NOTE:** You are required to provide an accent color which has at least a 4.5:1 ratio over black or white depending on the color mode you've selected. You can use [this awesome tool](https://contrast.tools/?tab=wcag-21) to check the contrast ratio of your accent color.
 
@@ -108,11 +110,11 @@ Codemos Modern provides three customization options through the command **Codemo
 
 3. **Adaptation Mode:** You can select which adaptation mode your theme would use. (Adaptation mode determines how much your accent color influence the rest of the UI. See [Adaptability Section](#adaptability) for more information.)
 
-![adaptation-mode](./images/docs-1-3.png)
+![adaptation-mode](images/docs-1-3.png)
 
 4. **Enjoy 🎉:** Click **Apply Codemos Modern** to apply your Codemos Modern.
 
-![apply](./images/docs-1-4.png)
+![apply](images/docs-1-4.png)
 
 ### **Adaptability**
 
@@ -142,7 +144,7 @@ When you select an Adaptability mode other than **None**, a clever algorithm wil
 
 - **Aggressive:** This is the most extreme option. When you select this option, other UI elements such as background colors will adapt to your accent color as much as possible. This option is the most glassmorphic option.
 
-![adaptability-modes](./images/docs-2-1.png)
+![adaptability-modes](images/docs-2-1.png)
 
 > **NOTE:** We are currently monitoring this feature and planning to improve it in the future. If you have any suggestions, please [contribute](#rdme-contrib).
 
@@ -169,13 +171,13 @@ These decorations are:
 
 <br/>
 
-![color-reference](./images/docs-3-1.png)
+![color-reference](images/docs-3-1.png)
 
 <br/>
 
 <h2 id="rdme-ext">🧩 Extensions</h1>
 
-We've also decided to theme some of the most used extensions to provide more consistent experience across the entire UI. In order an extension to be themed, it must [contribute themeable colors](https://code.visualstudio.com/api/references/contribution-points#contributes.colors). You can find the list of supported extensions that are themed in Codemos Modern. If your favorite extension is not on the list, visit [Codemos Modern's GitHub repository](https://github.com/Codemos-Inc/Codemos-Modern) and let us know!
+We've also decided to theme some of the most used extensions to provide more consistent experience across the entire UI. In order an extension to be themed, it must [contribute themeable colors](https://code.visualstudio.com/api/references/contribution-points#contributes.colors). You can find the list of supported extensions that are themed in Codemos Modern below. If your favorite extension is not on the list, visit [Codemos Modern's GitHub repository](https://github.com/Codemos-Inc/Codemos-Modern) and let us know!
 
 ### Supported Extensions
 
@@ -196,32 +198,37 @@ In this section you can find how Codemos Modern looks and feels in most used lan
 - [C++](#cpp)
 - [HTML](#html)
 - [CSS](#css)
+- [JSON](#json)
 
 <br/>
 
 ### JavaScript
 
-![javascript](./images/ss-1.png)
+![javascript](images/js.png)
 
 ### Python
 
-![python](./images/ss-2.png)
+![python](images/py.png)
 
 ### Java
 
-![java](./images/ss-3.png)
+![java](images/java.png)
 
 <h3 id="cpp">C++</h3>
 
-![cpp](./images/ss-4.png)
+![cpp](images/cpp.png)
 
 ### HTML
 
-![html](./images/ss-5.png)
+![html](images/html.png)
 
 ### CSS
 
-![css](./images/ss-6.png)
+![css](images/css.png)
+
+### JSON
+
+![json](images/json.png)
 
 <br/>
 
@@ -231,7 +238,7 @@ Changes from the last release. If you want to see the full change log, visit [CH
 
 ### Added
 
-- Ability to remember user theme configurations. After the version [1.1.0], user configurations will survive throughout updates.
+- Ability to remember user theme configurations. After this version, user configurations will survive throughout updates.
 - Theming support for the early [Diff Editor V2](https://github.com/microsoft/vscode/issues/184164) module.
 - Theming support for [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) extension.
 - Theming support for [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens) extension.
@@ -241,11 +248,14 @@ Changes from the last release. If you want to see the full change log, visit [CH
 
 - Terminal colors to be more inline with other upcoming Codemos Modern releases.
 - Theme created notification to feature a dismissive option for users that don't want to reload the VS Code window now.
+- README.md resources.
+- Extension icon.
 
 ### Fixed
 
 - Inability to determine focused elements throughout the UI caused by `contrastBorder` and `contrastActiveBorder` theme attributes.
 - UI shift caused by `window.activeBorder` and `window.inactiveBorder` theme attributes.
+- Keybinding views' bottom border.
 
 <br/>
 

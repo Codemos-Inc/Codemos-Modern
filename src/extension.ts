@@ -231,10 +231,12 @@ async function accentColorInputHelper(
   colorMode: ColorMode
 ) {
   const accentHex = accentHex7.substring(1);
+  // Control HEX color code
   if (!checkHex(accentHex)) {
-    await vscode.window.showErrorMessage("Invalid color code");
+    await vscode.window.showErrorMessage("Invalid color code provided");
     return undefined;
   }
+  // Control contrast ratio
   switch (colorMode) {
     case ColorMode.dark:
       if (!contrastChecker(accentHex, "000000")) {

@@ -2,7 +2,7 @@
   "name": "codemos-modern",
   "displayName": "Codemos Modern",
   "description": "Innovative, modern theme suite for VS Code",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "engines": {
     "vscode": "^1.79.0"
   },
@@ -14,7 +14,7 @@
   },
   "license": "MIT",
   "readme": "README.md",
-  "icon": "./images/icon.png",
+  "icon": "images/icon.png",
   "galleryBanner": {
     "color": "#181818",
     "theme": "dark"
