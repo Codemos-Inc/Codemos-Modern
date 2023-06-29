@@ -3,14 +3,14 @@ import * as theme from "./theme";
 import { checkHex, contrastChecker } from "./util/color";
 
 export enum ColorMode {
-  dark,
-  light,
+  dark = "Dark",
+  light = "Light",
 }
 
 export enum AdaptiveMode {
-  none,
-  gentle,
-  aggressive,
+  none = "None",
+  gentle = "Gentle",
+  aggressive = "Aggressive",
 }
 
 export function activate(context: vscode.ExtensionContext) {
@@ -131,13 +131,6 @@ async function retrieveGlobalState(context: vscode.ExtensionContext) {
   if (!savedVersion || savedVersion === context.extension.packageJSON.version) {
     return;
   }
-  // Retrieve saved color mode
-  const savedColorMode: undefined | ColorMode = context.globalState.get(
-    "codemos-modern.colorMode"
-  );
-  if (!savedColorMode) {
-    return;
-  }
   // Retrieve saved dark variant
   const darkAccentHex: undefined | string = context.globalState.get(
     "codemos-modern.dark.accentHex"
@@ -172,7 +165,17 @@ async function retrieveGlobalState(context: vscode.ExtensionContext) {
     )
     .then((selectedAction) => {
       if (selectedAction === "Apply") {
-        applyTheme(savedColorMode);
+        switch (vscode.window.activeColorTheme.kind) {
+          case vscode.ColorThemeKind.Dark:
+            applyTheme(ColorMode.dark);
+            break;
+          case vscode.ColorThemeKind.Light:
+            applyTheme(ColorMode.light);
+            break;
+          default:
+            applyTheme(ColorMode.dark);
+            return;
+        }
         vscode.commands.executeCommand("workbench.action.reloadWindow");
       }
     });
@@ -188,7 +191,6 @@ async function saveGlobalState(
     "codemos-modern.version",
     context.extension.packageJSON.version
   );
-  await context.globalState.update("codemos-modern.colorMode", colorMode);
   switch (colorMode) {
     case ColorMode.dark:
       await context.globalState.update(
