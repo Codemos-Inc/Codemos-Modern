@@ -4,6 +4,7 @@ images/**
 **/*.map
 src/**
 **/.cspell.json
+**/.editorconfig
 **/.eslintignore
 **/.eslintrc.json
 **/.gitignore
