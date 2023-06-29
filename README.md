@@ -138,11 +138,11 @@ When you select an Adaptability mode other than **None**, a clever algorithm wil
 
 ### Adaptability modes
 
-- **None:** This is the default option. When you select this option, other UI elements such as background colors will not adapt to your accent color. This is the default option.
+- **None:** When you select this option, other UI elements such as background colors will not adapt to your accent color. This is the default option.
 
-- **Gentle:** This is the recommended option. When you select this option, other UI elements such as background colors will start to adapt to your accent color. This option is the most balanced option.
+- **Gentle:** When you select this option, other UI elements such as background colors will start to adapt to your accent color. This option is the most balanced option.
 
-- **Aggressive:** This is the most extreme option. When you select this option, other UI elements such as background colors will adapt to your accent color as much as possible. This option is the most glassmorphic option.
+- **Aggressive:** When you select this option, other UI elements such as background colors will adapt to your accent color as much as possible. This option is the most extreme option.
 
 ![adaptability-modes](images/docs-2-1.png)
 
