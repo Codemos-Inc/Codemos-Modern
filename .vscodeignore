@@ -1,7 +1,6 @@
 .github/**
 .vscode/**
 images/**
-**/*.map
 src/**
 **/.cspell.json
 **/.editorconfig
