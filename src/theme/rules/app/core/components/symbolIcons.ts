@@ -1,0 +1,40 @@
+import { ThemeContext } from "../../../../../@types/theme";
+
+export const getRules = (themeContext: ThemeContext): object => {
+  const colors = themeContext.styles;
+  return {
+    "symbolIcon.arrayForeground": colors.basic.def.blue.pri,
+    "symbolIcon.booleanForeground": colors.basic.def.blue.pri,
+    "symbolIcon.classForeground": colors.basic.def.yellow.pri,
+    "symbolIcon.colorForeground": colors.fill.text.sec,
+    "symbolIcon.constantForeground": colors.basic.alt.mint.pri,
+    "symbolIcon.constructorForeground": colors.basic.def.orange.pri,
+    "symbolIcon.enumeratorForeground": colors.basic.def.mint.pri,
+    "symbolIcon.enumeratorMemberForeground": colors.basic.alt.mint.pri,
+    "symbolIcon.eventForeground": colors.basic.alt.red.pri,
+    "symbolIcon.fieldForeground": colors.basic.alt.yellow.pri,
+    "symbolIcon.fileForeground": colors.fill.text.sec,
+    "symbolIcon.folderForeground": colors.fill.text.sec,
+    "symbolIcon.functionForeground": colors.basic.def.orange.pri,
+    "symbolIcon.interfaceForeground": colors.basic.def.mint.pri,
+    "symbolIcon.keyForeground": colors.basic.alt.purple.pri,
+    "symbolIcon.keywordForeground": colors.basic.def.pink.pri,
+    "symbolIcon.methodForeground": colors.basic.def.orange.pri,
+    "symbolIcon.moduleForeground": colors.fill.text.sec,
+    "symbolIcon.namespaceForeground": colors.fill.text.sec,
+    "symbolIcon.nullForeground": colors.basic.def.blue.pri,
+    "symbolIcon.numberForeground": colors.basic.alt.green.pri,
+    "symbolIcon.objectForeground": colors.basic.def.mint.pri,
+    "symbolIcon.operatorForeground": colors.fill.text.sec,
+    "symbolIcon.packageForeground": colors.fill.text.sec,
+    "symbolIcon.propertyForeground": colors.basic.alt.yellow.pri,
+    "symbolIcon.referenceForeground": colors.basic.def.purple.pri,
+    "symbolIcon.snippetForeground": colors.basic.alt.blue.pri,
+    "symbolIcon.stringForeground": colors.basic.def.brown.pri,
+    "symbolIcon.structForeground": colors.basic.def.yellow.pri,
+    "symbolIcon.textForeground": colors.fill.text.sec,
+    "symbolIcon.typeParameterForeground": colors.basic.alt.mint.pri,
+    "symbolIcon.unitForeground": colors.basic.alt.green.pri,
+    "symbolIcon.variableForeground": colors.basic.alt.orange.pri,
+  };
+};
