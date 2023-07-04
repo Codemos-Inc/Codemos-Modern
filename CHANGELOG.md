@@ -23,10 +23,6 @@ Nothing yet.
 
 - Keybinding views' bottom border.
 
-## [1.2.0] - 2023-06-25
-
-test
-
 ## [1.1.0] - 2023-06-25
 
 ### Added
