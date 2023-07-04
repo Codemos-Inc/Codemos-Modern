@@ -28,7 +28,9 @@ jobs:
           proposed_version=$(node -p "require('./package-lock.json').version")
           echo "Proposed version: $proposed_version"
       - name: Check version
-        run: npx semver -r ">$latest_version" "$proposed_version"
+        run: |
+          echo npx semver -r ">$latest_version" "$proposed_version"
+          npx semver -r ">$latest_version" "$proposed_version"
       - name: Check change log
         run: |
           proposed_version_for_regex=$(echo $proposed_version | sed 's/\./\\./g')
