@@ -43,4 +43,4 @@ jobs:
           proposed_version: ${{ steps.proposed_version.outputs.proposed_version }}
         run: |
           proposed_version_for_regex=$(echo $proposed_version | sed 's/\./\\\\./g')
-          echo grep -E '## \[$proposed_version_for_regex] - [[:digit:]]{4}-[[:digit:]]{2}-[[:digit:]]{2}' CHANGELOG.md
+          grep -E '## \[$proposed_version_for_regex\] - [[:digit:]]{4}-[[:digit:]]{2}-[[:digit:]]{2}' CHANGELOG.md
