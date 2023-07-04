@@ -35,9 +35,7 @@ jobs:
         env:
           latest_version: ${{ steps.latest_version.outputs.latest_version }}
           proposed_version: ${{ steps.proposed_version.outputs.proposed_version }}
-        run: |
-          echo npx semver -r ">$latest_version" "$proposed_version"
-          npx semver -r ">$latest_version" "$proposed_version" > /dev/null && echo "Proposed version is valid" || (echo "Proposed version is invalid" && exit 1)
+        run: npx semver -r ">$latest_version" "$proposed_version" > /dev/null && echo "Proposed version is valid" || (echo "Proposed version is invalid" && exit 1)
       - name: Check change log
         env:
           proposed_version: ${{ steps.proposed_version.outputs.proposed_version }}
