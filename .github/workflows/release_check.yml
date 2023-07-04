@@ -18,8 +18,6 @@ jobs:
         uses: actions/setup-node@v3.6.0
         with:
           node-version-file: ".nvmrc"
-      - name: Install semver
-        run: npm install semver
       - name: Get latest version
         run: |
           latest_tag=$(git describe --tags --abbrev=0)
