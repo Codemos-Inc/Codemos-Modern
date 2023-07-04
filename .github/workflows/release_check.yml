@@ -19,19 +19,28 @@ jobs:
         with:
           node-version-file: ".nvmrc"
       - name: Get latest version
+        id: latest_version
         run: |
           latest_tag=$(git describe --tags --abbrev=0)
           latest_version=$(echo $latest_tag | sed 's/v//')
           echo "Latest version: $latest_version"
+          echo "::set-output name=latest_version::$latest_version"
       - name: Get proposed version
+        id: proposed_version
         run: |
           proposed_version=$(node -p "require('./package-lock.json').version")
           echo "Proposed version: $proposed_version"
+          echo "::set-output name=proposed_version::$proposed_version"
       - name: Check version
+        env:
+          latest_version: ${{ steps.latest_version.outputs.latest_version }}
+          proposed_version: ${{ steps.proposed_version.outputs.proposed_version }}
         run: |
           echo npx semver -r ">$latest_version" "$proposed_version"
           npx semver -r ">$latest_version" "$proposed_version"
       - name: Check change log
+        env:
+          proposed_version: ${{ steps.proposed_version.outputs.proposed_version }}
         run: |
           proposed_version_for_regex=$(echo $proposed_version | sed 's/\./\\./g')
           grep -E '## \[$proposed_version_for_regex] - [[:digit:]]{4}-[[:digit:]]{2}-[[:digit:]]{2}' CHANGELOG.md
