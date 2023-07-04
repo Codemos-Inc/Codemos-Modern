@@ -3,7 +3,7 @@ name: Deploy Extension
 on:
   push:
     tags:
-      - '*'
+      - "*"
 
 jobs:
   deploy:
@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3.6.0
         with:
-          node-version-file: '.nvmrc'
+          node-version-file: ".nvmrc"
       - name: Install dependencies & build
         run: |
           npm ci
