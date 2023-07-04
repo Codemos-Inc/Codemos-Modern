@@ -8,10 +8,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout stable
+      - name: Checkout release
         uses: actions/checkout@v3.5.3
         with:
-          ref: stable
+          ref: release
       - name: Setup Node
         uses: actions/setup-node@v3.6.0
         with:
