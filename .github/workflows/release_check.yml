@@ -23,14 +23,14 @@ jobs:
         run: |
           latest_tag=$(git describe --tags --abbrev=0)
           latest_version=$(echo $latest_tag | sed "s/v//")
-          echo "Latest version: $latest_version"
           echo "latest_version=$latest_version" >> "$GITHUB_OUTPUT"
+          echo "Latest version: $latest_version"
       - name: Get the proposed version
         id: proposed_version
         run: |
           proposed_version=$(node -p "require('./package-lock.json').version")
-          echo "Proposed version: $proposed_version"
           echo "proposed_version=$proposed_version" >> "$GITHUB_OUTPUT"
+          echo "Proposed version: $proposed_version"
       - name: Check version
         env:
           latest_version: ${{ steps.latest_version.outputs.latest_version }}
