@@ -8,19 +8,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 Nothing yet.
 
-## [1.2.0] - 2023-06-28 - This is a release name test for our workflows
-
-### Test
-
-- test test test
-- test test
-- test
-
-### More
-
-- also test
-- test
-
 ## [1.1.2] - 2023-06-28
 
 ### Added
