@@ -42,7 +42,7 @@ jobs:
         run: |
           release_version_for_regex=$(echo $release_version | sed "s/\./\\\\./g")
           echo $release_version_for_regex
-          release_highlight=$(grep -P "(?<=## \[$release_version_for_regex\] - \d{4}-\d{2}-\d{2} - ).*" ./CHANGELOG.md)
+          release_highlight=$(grep -Po "(?<=## \[$release_version_for_regex\] - \d{4}-\d{2}-\d{2} - ).*" ./CHANGELOG.md)
           echo $release_highlight
           release_name=$(echo $release_tag " - " $release_highlight)
           echo $release_name
