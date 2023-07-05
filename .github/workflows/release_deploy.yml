@@ -1,5 +1,8 @@
 name: Release & Deploy
 
+permissions:
+  contents: write
+
 on:
   push:
     branches:
