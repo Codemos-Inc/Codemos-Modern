@@ -44,6 +44,7 @@ jobs:
           release_highlight=$(grep -P "(?<=## \[$release_version_for_regex\] - \d{4}-\d{2}-\d{2} - ).*" ./CHANGELOG.md)
           release_name=$(echo $release_tag " - " $release_highlight)
           release_body="$(grep -Pzo "(?ms)(?<=## \[$release_version_for_regex\] - \d{4}-\d{2}-\d{2} - $release_highlight\n).*?(?=(^## ))" ./CHANGELOG.md)"
+          echo $release_body
           echo $release_body > release_body.md
           prettier --write release_body.md
           release_body=$(cat release_body.md)
