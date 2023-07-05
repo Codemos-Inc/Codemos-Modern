@@ -63,8 +63,8 @@ jobs:
           release_name: ${{ steps.prepare_release.outputs.release_name }}
           release_body: ${{ steps.prepare_release.outputs.release_body }}
         with:
-          tag_name: $release_tag
-          name: $release_name
-          body: "$release_body"
+          tag_name: ${{ env.release_tag }}
+          name: ${{ env.release_name }}
+          body: ${{ env.release_body }}
           files: |
             ./*.vsix
