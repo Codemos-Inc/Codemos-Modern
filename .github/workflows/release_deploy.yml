@@ -26,16 +26,18 @@ jobs:
           npm run build
           npm install -g @vscode/vsce
           vsce package
-      - name: Prepare release tag
-        id: prepare_release_tag
+      - name: Prepare tag
+        id: prepare_tag
         run: |
           release_version=$(node -p "require('./package-lock.json').version")
           release_tag="v$release_version"
+          echo "release_version=$release_version" >> "$GITHUB_OUTPUT"
+          echo "release_tag=$release_tag" >> "$GITHUB_OUTPUT"
       - name: Prepare release
         id: prepare_release
         env:
-          release_version: ${{ steps.prepare_release_tag.outputs.release_version }}
-          release_tag: ${{ steps.prepare_release_tag.outputs.release_tag }}
+          release_version: ${{ steps.prepare_tag.outputs.release_version }}
+          release_tag: ${{ steps.prepare_tag.outputs.release_tag }}
         run: |
           release_version_for_regex=$(echo $release_version | sed "s/\./\\\\./g")
           release_highlight=$(grep -Po "(?<=## \[$release_version_for_regex\] - \d{4}-\d{2}-\d{2} - ).*" ./CHANGELOG.md)
@@ -53,7 +55,7 @@ jobs:
       - name: Create release
         uses: softprops/action-gh-release@v0.1.15
         env:
-          release_tag: ${{ steps.prepare_release_tag.outputs.release_version }}
+          release_tag: ${{ steps.prepare_tag.outputs.release_version }}
           release_name: ${{ steps.prepare_release.outputs.release_name }}
           release_body: ${{ steps.prepare_release.outputs.release_body }}
         with:
