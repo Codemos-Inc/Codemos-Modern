@@ -21,7 +21,7 @@ jobs:
         run: |
           npm ci
           npm run build
-          npm install @vscode/vsce
+          npm install -g @vscode/vsce
           vsce package
       - name: Create release tag
         id: create_release_tag
