@@ -43,7 +43,6 @@ jobs:
           release_highlight=$(grep -Po "(?<=## \[$release_version_for_regex\] - \d{4}-\d{2}-\d{2} - ).*" ./CHANGELOG.md)
           release_name=$(echo $release_tag " - " $release_highlight)
           release_body="$(grep -Pzo "(?ms)(?<=## \[$release_version_for_regex\] - \d{4}-\d{2}-\d{2} - $release_highlight\n).*?(?=(^## ))" ./CHANGELOG.md)"
-          echo "$release_body"
           echo "$release_body" > release_body.md
           npm install -g prettier
           prettier --write release_body.md
@@ -64,3 +63,27 @@ jobs:
           body: ${{ env.release_body }}
           files: |
             ./*.vsix
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout release
+        uses: actions/checkout@v3.5.3
+        with:
+          ref: release
+      - name: Setup Node.js
+        uses: actions/setup-node@v3.6.0
+        with:
+          node-version-file: ".nvmrc"
+      - name: Install dependencies & build
+        run: |
+          npm ci
+          npm run build
+      - name: Publish to Open VSX Registry
+        uses: HaaLeo/publish-vscode-extension@v1
+        with:
+          pat: ${{ secrets.OPEN_VSX_TOKEN }}
+      - name: Publish to Visual Studio Marketplace
+        uses: HaaLeo/publish-vscode-extension@v1
+        with:
+          pat: ${{ secrets.VS_MARKETPLACE_TOKEN }}
+          registryUrl: https://marketplace.visualstudio.com
