@@ -16,7 +16,6 @@ jobs:
         uses: actions/checkout@v3.5.3
         with:
           ref: release
-          ssh-key: ${{ secrets.DEPLOY_SSH_KEY }}
       - name: Setup Node.js
         uses: actions/setup-node@v3.6.0
         with:
@@ -27,21 +26,16 @@ jobs:
           npm run build
           npm install -g @vscode/vsce
           vsce package
-      - name: Create release tag
-        id: create_release_tag
+      - name: Prepare release tag
+        id: prepare_release_tag
         run: |
           release_version=$(node -p "require('./package-lock.json').version")
           release_tag="v$release_version"
-          echo "release_version=$release_version" >> "$GITHUB_OUTPUT"
-          git tag $release_tag
-          echo "release_tag=$release_tag" >> "$GITHUB_OUTPUT"
-          echo "Release tag created: $release_tag"
-          git push origin $release_tag
       - name: Prepare release
         id: prepare_release
         env:
-          release_version: ${{ steps.create_release_tag.outputs.release_version }}
-          release_tag: ${{ steps.create_release_tag.outputs.release_tag }}
+          release_version: ${{ steps.prepare_release_tag.outputs.release_version }}
+          release_tag: ${{ steps.prepare_release_tag.outputs.release_tag }}
         run: |
           release_version_for_regex=$(echo $release_version | sed "s/\./\\\\./g")
           release_highlight=$(grep -Po "(?<=## \[$release_version_for_regex\] - \d{4}-\d{2}-\d{2} - ).*" ./CHANGELOG.md)
@@ -59,12 +53,12 @@ jobs:
       - name: Create release
         uses: softprops/action-gh-release@v0.1.15
         env:
-          release_tag: ${{ steps.create_release_tag.outputs.release_version }}
+          release_tag: ${{ steps.prepare_release_tag.outputs.release_version }}
           release_name: ${{ steps.prepare_release.outputs.release_name }}
           release_body: ${{ steps.prepare_release.outputs.release_body }}
         with:
-          tag_name: $release_tag
-          name: $release_name
-          body: "$release_body"
+          tag_name: ${{ env.release_tag }}
+          name: ${{ env.release_name }}
+          body: ${{ env.release_body }}
           files: |
             ./*.vsix
