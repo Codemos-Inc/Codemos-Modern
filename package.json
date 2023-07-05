@@ -1,18 +1,20 @@
 {
   "name": "codemos-modern",
   "displayName": "Codemos Modern",
-  "publisher": "Codemos",
-  "icon": "res/icon.png",
   "description": "Innovative, modern theme suite for VS Code",
-  "version": "1.2.0",
+  "version": "1.1.2",
+  "engines": {
+    "vscode": "^1.79.0"
+  },
+  "publisher": "Codemos",
+  "author": {
+    "name": "Emrecan Karaçayır",
+    "url": "https://codemos.dev",
+    "email": "dev.emrecan.karacayir@gmail.com"
+  },
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Codemos-Inc/codemos-modern"
-  },
-  "sponsor": {
-    "url": "https://github.com/sponsors/EmrecanKaracayir"
-  },
+  "readme": "README.md",
+  "icon": "res/icon.png",
   "galleryBanner": {
     "color": "#181818",
     "theme": "dark"
@@ -21,25 +23,66 @@
     "ui"
   ],
   "categories": [
-    "Themes"
+    "Themes",
+    "Other"
+  ],
+  "keywords": [
+    "theme",
+    "codemos",
+    "modern",
+    "professional",
+    "dark",
+    "light",
+    "codemos modern",
+    "modern theme",
+    "color theme",
+    "vscode",
+    "accent",
+    "accent color",
+    "accent theme",
+    "fluent",
+    "fluent design",
+    "fluent theme",
+    "accent",
+    "accent color",
+    "accent theme",
+    "mica",
+    "acrylic",
+    "windows 11",
+    "winui",
+    "winui 3",
+    "Windows App SDK"
   ],
   "capabilities": {
     "untrustedWorkspaces": {
       "supported": true
-    }
+    },
+    "virtualWorkspaces": true
   },
-  "engines": {
-    "vscode": "^1.79.0"
+  "release": {
+    "repositoryUrl": "https://github.com/Codemos-Inc/codemos-modern"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Codemos-Inc/codemos-modern"
+  },
+  "homepage": "https://github.com/Codemos-Inc/codemos-modern",
+  "sponsor": {
+    "url": "https://github.com/sponsors/EmrecanKaracayir"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/EmrecanKaracayir"
   },
   "activationEvents": [
     "onStartupFinished"
   ],
-  "main": "./out/main.js",
+  "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "codemosModern.configure",
-        "title": "Codemos Modern: Configure"
+        "command": "codemos-modern.theme",
+        "title": "Codemos Modern: Create Theme"
       }
     ],
     "themes": [
@@ -53,84 +96,22 @@
         "uiTheme": "vs",
         "path": "./themes/Codemos Modern (Light)-color-theme.json"
       }
-    ],
-    "configuration": [
-      {
-        "title": "Codemos Modern",
-        "properties": {
-          "codemosModern.dark.accentColor": {
-            "type": "string",
-            "default": "#CB8569",
-            "markdownDescription": "HEX color code defining the accent color for Codemos Modern (Dark).",
-            "pattern": "^#[0-9A-Fa-f]{6}$",
-            "patternErrorMessage": "Please enter a valid HEX color code. Example: #CB8569"
-          },
-          "codemosModern.dark.adaptiveMode": {
-            "type": "string",
-            "default": "none",
-            "enum": [
-              "none",
-              "gentle",
-              "aggressive"
-            ],
-            "enumDescriptions": [
-              "No adaptation applied.",
-              "Gentle adaptation applied.",
-              "Aggressive adaptation applied"
-            ],
-            "markdownDescription": "Adaptive modes for Codemos Modern (Dark). See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#adaptability) for reference."
-          },
-          "codemosModern.light.accentColor": {
-            "type": "string",
-            "default": "#784F3F",
-            "markdownDescription": "HEX color code defining the accent color for Codemos Modern (Light).",
-            "pattern": "^#[0-9A-Fa-f]{6}$",
-            "patternErrorMessage": "Please enter a valid HEX color code. Example: #784F3F"
-          },
-          "codemosModern.light.adaptiveMode": {
-            "type": "string",
-            "default": "none",
-            "enum": [
-              "none",
-              "gentle",
-              "aggressive"
-            ],
-            "enumDescriptions": [
-              "No adaptation applied.",
-              "Gentle adaptation applied.",
-              "Aggressive adaptation applied"
-            ],
-            "markdownDescription": "Adaptive modes for Codemos Modern (Light). See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#adaptability) for reference."
-          }
-        }
-      }
     ]
   },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
   "devDependencies": {
-    "@types/node": "^20.3.3",
+    "@types/node": "16.x",
     "@types/vscode": "^1.79.0",
     "@typescript-eslint/eslint-plugin": "^5.59.1",
     "@typescript-eslint/parser": "^5.59.1",
     "eslint": "^8.39.0",
     "eslint-config-prettier": "^8.8.0",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.2.3",
-    "prettier": "^2.8.8",
-    "ts-node": "^10.9.1",
+    "prettier": "2.8.8",
     "typescript": "^5.0.4"
-  },
-  "scripts": {
-    "prepare": "husky install",
-    "compile": "tsc",
-    "compile:theme": "ts-node src/hooks/compileThemes.ts",
-    "build": "npm run compile && npm run compile:theme",
-    "format": "prettier --write .",
-    "lint": "eslint src --ext ts && tsc --noEmit",
-    "prebuild": "npm run format && npm run lint",
-    "dev": "DEBUG=1 npm run build"
-  },
-  "lint-staged": {
-    "*.ts": "eslint --fix",
-    "*.{ts,json,md}": "prettier --write"
   }
 }
