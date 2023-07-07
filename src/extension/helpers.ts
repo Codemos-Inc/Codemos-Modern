@@ -1,6 +1,5 @@
 import { join } from "path";
-import { Variant } from "../@types/modern";
-import { ThemePaths } from "../@types/theme";
+import { ThemePaths, Variant } from "../@types";
 
 export const toggleFirstLetterCase = (s: string): string => {
   const c = s.charAt(0);
