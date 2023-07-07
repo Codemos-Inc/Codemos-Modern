@@ -1,5 +1,4 @@
-import { Config, Variant } from "../../@types/modern";
-import { Styles } from "../../@types/modern/variant";
+import { Config, Styles, Variant } from "../../@types";
 import { getStyles as getDarkStyles } from "./dark";
 import { getStyles as getLightStyles } from "./light";
 

@@ -1,19 +1,12 @@
-import { Config, Variant } from "../@types/modern";
-import { ThemeContext } from "../@types/theme";
+import { ThemeContext } from "../@types";
 import { toggleFirstLetterCase } from "../extension/helpers";
-import { getStyles } from "../modern/variants";
 import { getRules } from "./rules";
 
-export const getThemeObject = (variant: Variant, config: Config): object => {
-  const themeContext: ThemeContext = {
-    variantConfig: config[variant],
-    variant: variant,
-    styles: getStyles(variant, config),
-  };
+export const getThemeObject = (themeContext: ThemeContext): object => {
   return {
     $schema: "vscode://schemas/color-theme",
-    name: `Codemos Modern (${toggleFirstLetterCase(variant)})`,
-    type: `${variant}`,
+    name: `Codemos Modern (${toggleFirstLetterCase(themeContext.variant)})`,
+    type: `${themeContext.variant}`,
     semanticHighlighting: true,
     ...getRules(themeContext),
   };

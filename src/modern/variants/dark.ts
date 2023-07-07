@@ -1,10 +1,11 @@
+import { MimicInfo, Palette, Styles, VariantConfig } from "../../@types";
 import {
-  MimicInfo,
-  Palette,
-  Styles,
-  VariantConfig,
-} from "../../@types/modern/variant";
-import { getHexAlpha, getMimicHex7 } from "../../color";
+  chooseTextOnColor,
+  getContrastSafeAccentColorHex7,
+  getHexAlpha,
+  getMimicHex7,
+  getMixedColorHex7,
+} from "../../color";
 
 const palette: Palette = {
   loc: "#000000",
@@ -91,6 +92,7 @@ const mimic5Info: MimicInfo = {
 
 export const getStyles = (variantConfig: VariantConfig): Styles => {
   const accentColor = variantConfig.accentColor;
+  const textOnColor = chooseTextOnColor(accentColor, palette.loc, palette.hic);
   const mimic1Color = getMimicHex7(
     mimic1Info,
     accentColor,
@@ -121,6 +123,15 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
     variantConfig.adaptiveMode,
     true
   );
+  const mixedFgColor = getMixedColorHex7(palette.hic, 54, mimic3Color);
+  let accentTextColor = getContrastSafeAccentColorHex7(
+    accentColor,
+    mixedFgColor,
+    false
+  );
+  if (!accentTextColor) {
+    accentTextColor = palette.basic.def.blue;
+  }
   return {
     basic: {
       def: {
@@ -323,10 +334,11 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
         ghost: `${palette.hic}${getHexAlpha(20)}`,
       },
       accentText: {
-        pri: `${accentColor}${getHexAlpha(100)}`,
+        pri: `${accentTextColor}${getHexAlpha(100)}`,
+        sec: `${accentTextColor}${getHexAlpha(90)}`,
       },
       textOnColor: {
-        pri: `${palette.loc}${getHexAlpha(100)}`,
+        pri: `${textOnColor}${getHexAlpha(100)}`,
       },
       control: {
         doubleHover: `${palette.hic}${getHexAlpha(16)}`,
