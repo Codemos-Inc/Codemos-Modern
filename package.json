@@ -29,7 +29,7 @@
     }
   },
   "engines": {
-    "vscode": "^1.79.0"
+    "vscode": "^1.80.0"
   },
   "activationEvents": [
     "onStartupFinished"
@@ -56,7 +56,7 @@
     ],
     "configuration": [
       {
-        "title": "Codemos Modern",
+        "title": "Dark Variant",
         "properties": {
           "codemosModern.dark.accentColor": {
             "type": "string",
@@ -79,7 +79,12 @@
               "Aggressive adaptation applied"
             ],
             "markdownDescription": "Adaptive modes for Codemos Modern (Dark). See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#adaptability) for reference."
-          },
+          }
+        }
+      },
+      {
+        "title": "Light Variant",
+        "properties": {
           "codemosModern.light.accentColor": {
             "type": "string",
             "default": "#784F3F",
@@ -121,13 +126,14 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "compile": "tsc",
     "compile:theme": "ts-node src/hooks/compileThemes.ts",
+    "compile": "tsc",
     "build": "npm run compile && npm run compile:theme",
-    "format": "prettier --write .",
     "lint": "eslint src --ext ts && tsc --noEmit",
-    "prebuild": "npm run format && npm run lint",
-    "dev": "DEBUG=1 npm run build"
+    "format": "prettier --write .",
+    "clean:manifest": "rm -rf out/.manifest",
+    "prebuild": "npm run clean:manifest && npm run format && npm run lint",
+    "debug": "DEBUG=1 npm run build"
   },
   "lint-staged": {
     "*.ts": "eslint --fix",

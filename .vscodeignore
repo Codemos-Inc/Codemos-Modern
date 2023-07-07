@@ -1,6 +1,8 @@
 .github/**
+.husky/**
 .vscode/**
 images/**
+out/**/*.map.js
 out/hooks/**
 src/**
 **/.cspell.json

@@ -8,22 +8,47 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 Nothing yet.
 
-## [1.1.2] - 2023-06-28
+## [1.2.0] - 2023-07-07 - Configurations to settings ⚙️
+
+### Added
+
+- VS Code v1.80.x support.
+- Theming support for [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) extension.
+- Ability to sync Modern's configurations via VS Code settings.
+- Instant validation for accent color input in the command `Codemos Modern: Configure`.
+
+### Fixed
+
+- Unable to recover theme configurations after updating Modern.
+- Inline chat double layered input bug via a hack. (Copilot [issue](https://github.com/microsoft/vscode-copilot-release/issues/248))
+
+### Changed
+
+- Configuration save location from `globalStorage` to settings. This allows Modern to sync configurations across accounts and profiles.
+- `Codemos Modern: Create Theme` command to `Codemos Modern: Configure`. Although you can configure Modern through settings, it is recommended to use the command for a better experience.
+- Extension icon.
+
+### Removed
+
+- Requirement of providing an accent color with an accessible contrast ratio. Modern will now cleverly handle accent color to keep itself accessible.
+- Obsolete `interactiveEditor.*` color attributes.
+
+## [1.1.2] - 2023-06-28 - Now on Open VSX Registry 💠
 
 ### Added
 
 - Modern to Open VSX Registry.
+
+### Fixed
+
+- Keybinding views' bottom border.
 
 ### Changed
 
 - Extension icon.
 - README.md resources.
 
-### Fixed
-
-- Keybinding views' bottom border.
-
-## [1.1.0] - 2023-06-25
+## [1.1.0] - 2023-06-25 - Saved configurations 💾
 
 ### Added
 
@@ -33,23 +58,23 @@ Nothing yet.
 - Theming support for [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens) extension.
 - Theming support for [Remote Repositories](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-repositories) extension.
 
-### Changed
-
-- Terminal colors to be more inline with other upcoming Codemos Modern releases.
-- Theme created notification to feature a dismissive option for users that don't want to reload the VS Code window now.
-
 ### Fixed
 
 - Inability to determine focused elements throughout the UI caused by `contrastBorder` and `contrastActiveBorder` theme attributes.
 - UI shift caused by `window.activeBorder` and `window.inactiveBorder` theme attributes.
 
-## [1.0.4] - 2023-06-11
+### Changed
+
+- Terminal colors to be more inline with other upcoming Codemos Modern releases.
+- Theme created notification to feature a dismissive option for users that don't want to reload the VS Code window now.
+
+## [1.0.4] - 2023-06-11 - Fixed links in README.md 🧿
 
 ### Fixed
 
 - Anchor links in `README.md`.
 
-## [1.0.3] - 2023-06-11
+## [1.0.3] - 2023-06-11 - Release of documentation 📄
 
 ### Added
 
@@ -57,25 +82,30 @@ Nothing yet.
 - New images for the `README.md` file.
 - New TextMate scopes for **magic functions** and **this, self keywords**.
 
-### Changed
-
-- Extension icon to be more inline with our design language. (It is now a gif)
-
 ### Fixed
 
 - The opacity value of the color attribute `editorUnnecessaryCode.opacity` to make it less intense.
+
+### Changed
+
+- Extension icon to be more inline with our design language. (It is now a gif)
 
 ### Removed
 
 - Old extension icon.
 - Unused opacity attribute in `light.ts`.
 
-## [1.0.2] - 2023-06-09
+## [1.0.2] - 2023-06-09 - Themes are easier to apply 👍🏼
 
 ### Added
 
 - An option to reload the editor window after creating a theme.
 - Template theme for making an easier development experience.
+
+### Fixed
+
+- Editor theme not updating when created from the command `codemos.createTheme`.
+- Wrong color attribute name `debugTokenExpression.pri` to `debugTokenExpression.value`.
 
 ### Changed
 
@@ -83,28 +113,24 @@ Nothing yet.
 - Namespace, module and package syntax highlighting to fit surrounding colors.
 - Inactive bracket guide color to fit surrounding colors.
 
-### Fixed
-
-- Editor theme not updating when created from the command `codemos.createTheme`.
-- Wrong color attribute name `debugTokenExpression.pri` to `debugTokenExpression.value`.
-
-## [1.0.1] - 2023-06-09
-
-### Changed
-
-- Marketplace description for a shorter one.
-- Variable naming to apply eslint standards.
+## [1.0.1] - 2023-06-09 - Critical bug resolved 🪲
 
 ### Fixed
 
 - Scoping conflict resulting with not being able to apply user's theme.
 - `editorHoverWidget.highlightForeground` color attribute for better readability.
 
-## [1.0.0] - 2023-06-09
+### Changed
+
+- Marketplace description for a shorter one.
+- Variable naming to apply eslint standards.
+
+## [1.0.0] - 2023-06-09 - Initial release 🎉
 
 - Initial release
 
-[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.1.2...HEAD
+[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.1.2...v1.2.0
 [1.1.2]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.1.0...v1.1.2
 [1.1.0]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.0.4...v1.1.0
 [1.0.4]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.0.3...v1.0.4

@@ -4,14 +4,12 @@
 
 <img src="res/icon.png" width="200"/>
 
-Logo by **[Joshua D. Warren](https://dribbble.com/joshwarren)**
-
 <br/>
 
 # **Codemos Modern**
 
 [![release](https://img.shields.io/github/release/Codemos-Inc/Codemos-Modern.svg?labelColor=373737&color=45AA41&label=&logo=github&logoColor=white&style=for-the-badge)](https://github.com/Codemos-Inc/Codemos-Modern/releases/latest)
-[![vscode](https://img.shields.io/badge/-v1.79+-4B9ECD.svg?labelColor=373737&logo=visualstudiocode&logoColor=white&style=for-the-badge)](https://code.visualstudio.com/updates/v1_79)
+[![vscode](https://img.shields.io/badge/-v1.80+-4B9ECD.svg?labelColor=373737&logo=visualstudiocode&logoColor=white&style=for-the-badge)](https://code.visualstudio.com/updates/v1_79)
 [![downloads](https://img.shields.io/visual-studio-marketplace/d/codemos.codemos-modern?labelColor=373737&color=9B87EA&label=&logo=docusign&logoColor=white&style=for-the-badge)](https://marketplace.visualstudio.com/items?itemName=Codemos.codemos-modern)
 ![sponsors](https://img.shields.io/github/sponsors/EmrecanKaracayir?labelColor=373737&color=ef6363&label=&logo=githubsponsors&logoColor=white&style=for-the-badge)
 
@@ -40,7 +38,7 @@ Innovative, modern theme suite for VS Code
 
 We at Codemos, are delighted to bring our most beloved theme family to [Visual Studio Code](https://code.visualstudio.com/). Just as VS Code redefined code editing, we're going to redefine how it should look.
 
-Codemos Modern is a variant of the Codemos theme family. It is built from the ground up to be the best modern theme for VS Code. It gets its core principles from the Codemos design language and our [Modern theme principles](#modern-theme-principles).
+Codemos Modern is a member of the Codemos theme family. It is built from the ground up to be the best modern theme for VS Code. It gets its core principles from the Codemos design language and our [Modern theme principles](#modern-theme-principles).
 
 <br/>
 
@@ -66,13 +64,13 @@ We built Codemos Modern with these fundamental principles:
 1. Search for `Codemos Modern`
 1. Click **Install**
 1. Open the **Command Palette** with `Ctrl+Shift+P` or `⌘⇧P`
-1. Select **Codemos Modern: Create Theme** and create your own Codemos Modern
+1. Find **Codemos Modern: Configure** and create your own Codemos Modern
 1. When your theme is ready, click **Apply** to apply it
 1. Enjoy! 🎉
 
 <br/>
 
-> **NOTE:** Learn the basics about Codemos Modern and how to use **Codemos Modern: Create Theme** by reading the [documentation](#rdme-doc).
+> **NOTE:** Learn the basics about Codemos Modern and how to use **Codemos Modern: Configure** by reading the [documentation](#rdme-doc).
 
 <br/>
 
@@ -88,23 +86,23 @@ In this section, you can find the documentation for the Codemos Modern.
 
 ### **Customization**
 
-Codemos Modern provides three customization options through the command **Codemos Modern: Create Theme**.
+Codemos Modern provides three customization options through the command **Codemos Modern: Configure**.
 
 <br/>
 
-> **NOTE:** You can activate command **Codemos Modern: Create Theme** from the **Command Palette**. See [Installation section](#rdme-install) to learn how to do it.
+> **NOTE:** You can activate command **Codemos Modern: Configure** from the **Command Palette**. See [Installation section](#rdme-install) to learn how to do it.
 
 <br/>
 
-1. **Color mode:** You can select which color mode your theme would use. (Dark/Light)
+1. **Variant:** You can select which variant your theme will use. (Dark/Light)
 
-![color-mode](images/docs-1-1.png)
+![variant](images/docs-1-1.png)
 
-2. **Accent color:** You can select which accent color your theme would use. (Accent color determines the color of the important ui elements; buttons, badges, links, emphasized text, etc. and effects the adaptability mode.)
+2. **Accent color:** You can select which accent color your theme will use. (Accent color determines the color of the important ui elements; buttons, badges, links, emphasized text, etc. and effects the adaptability mode.)
 
 ![accent-color](images/docs-1-2.png)
 
-> **NOTE:** You are required to provide an accent color which has at least a 4.5:1 ratio over black or white depending on the color mode you've selected. You can use [this awesome tool](https://contrast.tools/?tab=wcag-21) to check the contrast ratio of your accent color.
+> **NOTE:** In the previous versions of the Codemos Modern you were required to provide a contrast safe accent color. This is no longer the case. You can now provide any color you want and Modern will now cleverly handle accent color to keep itself accessible.
 
 <br/>
 
@@ -184,6 +182,7 @@ We've also decided to theme some of the most used extensions to provide more con
 - [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens)
 - [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
 - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+- [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
 - [Remote Repositories](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-repositories)
 
 <br/>
@@ -234,28 +233,30 @@ In this section you can find how Codemos Modern looks and feels in most used lan
 
 <h2 id="rdme-clog">📋 Change Log</h1>
 
-Changes from the last release. If you want to see the full change log, visit [CHANGELOG.md](https://github.com/Codemos-Inc/Codemos-Modern/blob/main/CHANGELOG.md).
+Changes from the last release shown below. If you want to see the full change log, visit [CHANGELOG.md](https://github.com/Codemos-Inc/Codemos-Modern/blob/main/CHANGELOG.md).
 
 ### Added
 
-- Ability to remember user theme configurations. After this version, user configurations will survive throughout updates.
-- Theming support for the early [Diff Editor V2](https://github.com/microsoft/vscode/issues/184164) module.
-- Theming support for [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) extension.
-- Theming support for [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens) extension.
-- Theming support for [Remote Repositories](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-repositories) extension.
-
-### Changed
-
-- Terminal colors to be more inline with other upcoming Codemos Modern releases.
-- Theme created notification to feature a dismissive option for users that don't want to reload the VS Code window now.
-- README.md resources.
-- Extension icon.
+- VS Code v1.80.x support.
+- Theming support for [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) extension.
+- Ability to sync Modern's configurations via VS Code settings.
+- Instant validation for accent color input in the command `Codemos Modern: Configure`.
 
 ### Fixed
 
-- Inability to determine focused elements throughout the UI caused by `contrastBorder` and `contrastActiveBorder` theme attributes.
-- UI shift caused by `window.activeBorder` and `window.inactiveBorder` theme attributes.
-- Keybinding views' bottom border.
+- Unable to recover theme configurations after updating Modern.
+- Inline chat double layered input bug via a hack. (Copilot [issue](https://github.com/microsoft/vscode-copilot-release/issues/248))
+
+### Changed
+
+- Configuration save location from `globalStorage` to settings. This allows Modern to sync configurations across accounts and profiles.
+- `Codemos Modern: Create Theme` command to `Codemos Modern: Configure`. Although you can configure Modern through settings, it is recommended to use the command for a better experience.
+- Extension icon.
+
+### Removed
+
+- Requirement of providing an accent color with an accessible contrast ratio. Modern will now cleverly handle accent color to keep itself accessible.
+- Obsolete `interactiveEditor.*` color attributes.
 
 <br/>
 
