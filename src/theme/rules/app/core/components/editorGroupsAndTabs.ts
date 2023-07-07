@@ -1,5 +1,5 @@
-import { ThemeContext } from "../../../../../@types/theme";
-import { transparent } from "../../../../../color";
+import { ThemeContext } from "../../../../../@types";
+import { TRANSPARENT } from "../../../../../color/constants";
 
 export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles;
@@ -10,7 +10,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     "editorGroup.dropIntoPromptBorder": colors.stroke.surface.flyout,
     "editorGroup.dropIntoPromptForeground": colors.fill.text.pri,
     "editorGroup.emptyBackground": colors.bg.solid.base,
-    "editorGroup.focusedEmptyBorder": transparent,
+    "editorGroup.focusedEmptyBorder": TRANSPARENT,
     "editorGroupHeader.border": colors.stroke.divider.default,
     "editorGroupHeader.noTabsBackground": colors.bg.solid.base,
     "editorGroupHeader.tabsBackground": colors.bg.solid.base,
@@ -19,25 +19,25 @@ export const getRules = (themeContext: ThemeContext): object => {
     "sideBySideEditor.horizontalBorder": colors.stroke.divider.default,
     "sideBySideEditor.verticalBorder": colors.stroke.divider.default,
     "tab.activeBackground": colors.fill.tab.activeFocused,
-    "tab.activeBorder": transparent,
-    "tab.activeBorderTop": transparent,
+    "tab.activeBorder": TRANSPARENT,
+    "tab.activeBorderTop": TRANSPARENT,
     "tab.activeForeground": colors.fill.text.pri,
     "tab.activeModifiedBorder": colors.basic.def.blue.pri,
     "tab.border": colors.stroke.control.default,
     "tab.hoverBackground": colors.fill.tab.activeFocused,
-    "tab.hoverBorder": transparent,
+    "tab.hoverBorder": TRANSPARENT,
     "tab.hoverForeground": colors.fill.text.pri,
     "tab.inactiveBackground": colors.fill.tab.inactiveFocused,
     "tab.inactiveForeground": colors.fill.text.sec,
     "tab.inactiveModifiedBorder": colors.basic.def.blue.ter,
     "tab.lastPinnedBorder": colors.stroke.focus.default,
     "tab.unfocusedActiveBackground": colors.fill.tab.activeUnfocused,
-    "tab.unfocusedActiveBorder": transparent,
-    "tab.unfocusedActiveBorderTop": transparent,
+    "tab.unfocusedActiveBorder": TRANSPARENT,
+    "tab.unfocusedActiveBorderTop": TRANSPARENT,
     "tab.unfocusedActiveForeground": colors.fill.text.sec,
     "tab.unfocusedActiveModifiedBorder": colors.basic.def.blue.ter,
     "tab.unfocusedHoverBackground": colors.fill.tab.activeUnfocused,
-    "tab.unfocusedHoverBorder": transparent,
+    "tab.unfocusedHoverBorder": TRANSPARENT,
     "tab.unfocusedHoverForeground": colors.fill.text.sec,
     "tab.unfocusedInactiveBackground": colors.fill.tab.inactiveUnfocused,
     "tab.unfocusedInactiveForeground": colors.fill.text.disabled,

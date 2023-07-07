@@ -1,13 +1,13 @@
-import { ThemeContext } from "../../../../../@types/theme";
-import { transparent } from "../../../../../color";
+import { ThemeContext } from "../../../../../@types";
+import { TRANSPARENT } from "../../../../../color/constants";
 
 export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles;
   return {
     "debugExceptionWidget.background": colors.basic.loc.red.pri,
     "debugExceptionWidget.border": colors.stroke.surface.flyout,
-    "editorGhostText.background": transparent,
-    "editorGhostText.border": transparent,
+    "editorGhostText.background": TRANSPARENT,
+    "editorGhostText.border": TRANSPARENT,
     "editorGhostText.foreground": colors.fill.text.ghost,
     "editorHoverWidget.background": colors.bg.solid.flyout,
     "editorHoverWidget.border": colors.stroke.surface.flyout,

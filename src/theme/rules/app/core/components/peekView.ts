@@ -1,4 +1,4 @@
-import { ThemeContext } from "../../../../../@types/theme";
+import { ThemeContext } from "../../../../../@types";
 
 export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles;

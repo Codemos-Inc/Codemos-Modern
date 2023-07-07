@@ -1,5 +1,5 @@
-import { ThemeContext } from "../../../../../@types/theme";
-import { transparent } from "../../../../../color";
+import { ThemeContext } from "../../../../../@types";
+import { TRANSPARENT } from "../../../../../color/constants";
 
 export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles;
@@ -64,7 +64,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     "gitlens.mergedPullRequestIconColor": colors.basic.def.purple.pri,
     "gitlens.openPullRequestIconColor": colors.basic.def.green.pri,
     "gitlens.openAutolinkedIssueIconColor": colors.basic.def.green.pri,
-    "gitlens.trailingLineBackgroundColor": transparent,
+    "gitlens.trailingLineBackgroundColor": TRANSPARENT,
     "gitlens.trailingLineForegroundColor": colors.fill.text.ghost,
     "gitlens.unpublishedChangesIconColor": colors.basic.alt.green.pri,
     "gitlens.unpublishedCommitIconColor": colors.basic.def.green.pri,
