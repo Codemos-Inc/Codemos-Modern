@@ -1,10 +1,17 @@
 import { existsSync, writeFile, writeFileSync } from "fs";
 import { join } from "path";
 import { ConfigurationTarget, commands, window, workspace } from "vscode";
-import { AdaptiveMode, Config, Variant } from "../@types/modern";
-import { ThemePaths } from "../@types/theme";
+import {
+  AdaptiveMode,
+  Config,
+  ThemeContext,
+  ThemePaths,
+  Variant,
+} from "../@types";
 import { defaultConfig } from "../modern";
+import { getStyles } from "../modern/variants";
 import { getThemeObject } from "../theme";
+import { configureSettings } from "../theme/configs";
 import { UpdateReason } from "./enums";
 
 export const isFreshInstall = (): boolean => {
@@ -49,17 +56,17 @@ export const getConfig = (): Config => {
 
 export const updateConfig = (
   variant: Variant,
-  accentColor: string,
+  accentColorHex7: string,
   adaptiveMode: AdaptiveMode
 ) => {
   const variantSection = workspace.getConfiguration(`codemosModern.${variant}`);
   variantSection.update(
-    `.accentColor`,
-    accentColor,
+    `accentColor`,
+    accentColorHex7,
     ConfigurationTarget.Global
   );
   variantSection.update(
-    `.adaptiveMode`,
+    `adaptiveMode`,
     adaptiveMode,
     ConfigurationTarget.Global
   );
@@ -72,7 +79,13 @@ export const updateThemes = async (
 ) => {
   const variants: Variant[] = ["dark", "light"];
   const promises = variants.map(async (variant: Variant) => {
-    return writeThemeFile(themePaths[variant], getThemeObject(variant, config));
+    const themeContext: ThemeContext = {
+      variantConfig: config[variant],
+      variant: variant,
+      styles: getStyles(variant, config),
+    };
+    configureSettings(themeContext);
+    return writeThemeFile(themePaths[variant], getThemeObject(themeContext));
   });
   Promise.all(promises).then(() => {
     promptToReload(updateReason);

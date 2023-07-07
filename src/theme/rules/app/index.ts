@@ -1,4 +1,4 @@
-import { ThemeContext } from "../../../@types/theme";
+import { ThemeContext } from "../../../@types";
 import { getRules as getCoreRules } from "./core";
 import { getRules as getOtherRules } from "./other";
 

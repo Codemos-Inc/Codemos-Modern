@@ -1,0 +1,9 @@
+export const TRANSPARENT = "#00000000";
+
+export const OPAQUE = "#FFFFFFFF";
+
+export const ACCENT_TEXT_MIN_CONTRAST_RATIO = 4.5;
+
+export const ACCENT_TEXT_MAX_CONTRAST_RATIO = 7;
+
+export const ACCENT_TEXT_MINIMUM_COLOR_DIF = 20;

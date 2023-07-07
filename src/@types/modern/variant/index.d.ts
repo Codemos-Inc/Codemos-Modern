@@ -255,6 +255,7 @@ export type Styles = {
     };
     accentText: {
       pri: string;
+      sec: string;
     };
     textOnColor: {
       pri: string;

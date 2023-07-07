@@ -1,5 +1,5 @@
-import { ThemeContext } from "../../../../../@types/theme";
-import { opaque } from "../../../../../color";
+import { ThemeContext } from "../../../../../@types";
+import { OPAQUE } from "../../../../../color/constants";
 
 export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles;
@@ -7,7 +7,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     "minimap.background": colors.bg.solid.surface,
     "minimap.errorHighlight": colors.basic.def.red.qua,
     "minimap.findMatchHighlight": colors.basic.def.mint.qua,
-    "minimap.foregroundOpacity": opaque,
+    "minimap.foregroundOpacity": OPAQUE,
     "minimap.selectionHighlight": colors.basic.neutral.qua,
     "minimap.selectionOccurrenceHighlight": colors.basic.neutral.qui,
     "minimap.warningHighlight": colors.basic.def.orange.qua,

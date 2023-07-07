@@ -1,4 +1,4 @@
-import { Config } from "../@types/modern";
+import { Config } from "../@types";
 
 export const defaultConfig: Config = {
   dark: {
