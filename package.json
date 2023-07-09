@@ -4,7 +4,7 @@
   "publisher": "Codemos",
   "icon": "res/icon.png",
   "description": "Innovative, modern theme suite for VS Code",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -32,7 +32,7 @@
     "vscode": "^1.80.0"
   },
   "activationEvents": [
-    "onStartupFinished"
+    "*"
   ],
   "main": "./out/main.js",
   "contributes": {
@@ -127,12 +127,13 @@
   "scripts": {
     "prepare": "husky install",
     "compile:theme": "ts-node src/hooks/compileThemes.ts",
+    "compile:stateFile": "ts-node src/hooks/compileStateFile.ts",
     "compile": "tsc",
-    "build": "npm run compile && npm run compile:theme",
+    "build": "npm run compile && npm run compile:theme && npm run compile:stateFile",
     "lint": "eslint src --ext ts && tsc --noEmit",
     "format": "prettier --write .",
-    "clean:manifest": "rm -rf out/.manifest",
-    "prebuild": "npm run clean:manifest && npm run format && npm run lint",
+    "clean": "rm -rf out && rm -rf data/.state.json",
+    "prebuild": "npm run clean && npm run format && npm run lint",
     "debug": "DEBUG=1 npm run build"
   },
   "lint-staged": {

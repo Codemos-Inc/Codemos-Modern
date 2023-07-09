@@ -1,4 +1,5 @@
 export * from "./color";
-export * from "./theme";
+export * from "./extension";
 export * from "./modern";
 export * from "./modern/variant";
+export * from "./theme";

@@ -1,4 +1,4 @@
-import { window } from "vscode";
+import { window, workspace } from "vscode";
 import { AdaptiveMode, Variant } from "../@types";
 import { validateHex6 } from "../color";
 import { toggleFirstLetterCase } from "./helpers";
@@ -24,6 +24,9 @@ export const configure = async () => {
     adaptiveModeLabel.replace(/\$\(.*\) /g, "")
   ) as AdaptiveMode;
   updateConfig(variant, accentColor, adaptiveMode);
+  workspace
+    .getConfiguration("workbench")
+    .update("colorTheme", `Codemos Modern (${toggleFirstLetterCase(variant)})`);
 };
 
 const getVariantLabel = async () => {

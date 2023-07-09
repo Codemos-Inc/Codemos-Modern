@@ -114,9 +114,7 @@
     "diffEditor.insertedLineBackground": "#45AA4133",
     "diffEditor.insertedTextBackground": "#45AA415c",
     "diffEditor.insertedTextBorder": "#00000000",
-    "diffEditor.move.border": {
-      "default": "#75757566"
-    },
+    "diffEditor.move.border": "#75757566",
     "diffEditor.removedLineBackground": "#EF636333",
     "diffEditor.removedTextBackground": "#EF63635c",
     "diffEditor.removedTextBorder": "#00000000",

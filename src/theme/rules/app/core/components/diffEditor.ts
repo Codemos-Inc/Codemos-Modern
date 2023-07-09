@@ -8,7 +8,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     "diffEditor.insertedLineBackground": colors.basic.def.green.qui,
     "diffEditor.insertedTextBackground": colors.basic.def.green.qua,
     "diffEditor.insertedTextBorder": TRANSPARENT,
-    "diffEditor.move.border": colors.stroke.focus,
+    "diffEditor.move.border": colors.stroke.focus.default,
     "diffEditor.removedLineBackground": colors.basic.def.red.qui,
     "diffEditor.removedTextBackground": colors.basic.def.red.qua,
     "diffEditor.removedTextBorder": TRANSPARENT,
