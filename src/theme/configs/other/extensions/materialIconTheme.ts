@@ -10,12 +10,12 @@ export const configureExtensionSettings = (
   const extensionSection = workspace.getConfiguration("material-icon-theme");
   extensionSection.update(
     `files.color`,
-    toDefaults ? iconColor : undefined,
+    toDefaults ? undefined : iconColor,
     ConfigurationTarget.Global
   );
   extensionSection.update(
     `folders.color`,
-    toDefaults ? iconColor : undefined,
+    toDefaults ? undefined : iconColor,
     ConfigurationTarget.Global
   );
 };
