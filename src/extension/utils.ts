@@ -1,5 +1,4 @@
-import { existsSync, writeFile, writeFileSync } from "fs";
-import { join } from "path";
+import { writeFile } from "fs";
 import { ConfigurationTarget, commands, window, workspace } from "vscode";
 import {
   AdaptiveMode,
@@ -13,19 +12,16 @@ import { getStyles } from "../modern/variants";
 import { getThemeObject } from "../theme";
 import { configureSettings } from "../theme/configs";
 import { UpdateReason } from "./enums";
+import { getStateObject } from "./state";
 
-export const isFreshInstall = (): boolean => {
-  const manifestPath = join(__dirname, "..", ".manifest");
-  if (existsSync(manifestPath)) {
-    return false;
-  } else {
-    writeFileSync(manifestPath, "state=installed");
-    return true;
-  }
+export const verifyState = (): boolean => {
+  return (
+    JSON.stringify(getStateObject().config) === JSON.stringify(getConfig())
+  );
 };
 
-export const isDefaultConfig = (): boolean => {
-  return getConfig() === defaultConfig;
+export const isUntouched = (): boolean => {
+  return getStateObject().isUntouched;
 };
 
 export const getConfig = (): Config => {
@@ -75,8 +71,10 @@ export const updateConfig = (
 export const updateThemes = async (
   config: Config,
   themePaths: ThemePaths,
-  updateReason: UpdateReason
+  updateReason: UpdateReason,
+  activeColorTheme: Variant | undefined
 ) => {
+  updateThemeConfigs(config, activeColorTheme);
   const variants: Variant[] = ["dark", "light"];
   const promises = variants.map(async (variant: Variant) => {
     const themeContext: ThemeContext = {
@@ -84,12 +82,28 @@ export const updateThemes = async (
       variant: variant,
       styles: getStyles(variant, config),
     };
-    configureSettings(themeContext);
     return writeThemeFile(themePaths[variant], getThemeObject(themeContext));
   });
   Promise.all(promises).then(() => {
     promptToReload(updateReason);
   });
+};
+
+export const updateThemeConfigs = (
+  config: Config,
+  activeColorTheme: Variant | undefined
+) => {
+  const variant = activeColorTheme ? activeColorTheme : "dark";
+  const themeContext: ThemeContext = {
+    variantConfig: config[variant],
+    variant: variant,
+    styles: getStyles(variant, config),
+  };
+  if (!activeColorTheme) {
+    configureSettings(themeContext, true);
+  } else {
+    configureSettings(themeContext, false);
+  }
 };
 
 const writeThemeFile = (themePath: string, themeObject: object) => {

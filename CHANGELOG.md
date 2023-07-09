@@ -8,6 +8,22 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 Nothing yet.
 
+## [1.2.1] - 2023-07-09 - Minor fixes 🛠️
+
+### Added
+
+- Automatic theme change after the command `Codemos Modern: Configure` is executed.
+
+### Fixed
+
+- Codemos Modern not able to detect profile changes.
+- Material Icon Theme configurations not applied correctly.
+
+### Changed
+
+- Event prompt messages.
+- Internal state handling algorithm.
+
 ## [1.2.0] - 2023-07-07 - Configurations to settings ⚙️
 
 ### Added
@@ -129,7 +145,8 @@ Nothing yet.
 
 - Initial release
 
-[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.2.0...HEAD
+[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.2.1...HEAD
+[1.2.1]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.1.2...v1.2.0
 [1.1.2]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.1.0...v1.1.2
 [1.1.0]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.0.4...v1.1.0
