@@ -50,7 +50,7 @@ export const activate = (extensionContext: ExtensionContext) => {
     }
   });
   extensionContext.subscriptions.push(
-    commands.registerCommand("codemosModern.configure", configure)
+    commands.registerCommand("codemosModern.configure", configure),
   );
 };
 
@@ -66,11 +66,11 @@ const updateStateBridge = (config: Config) => {
 const updateThemesBridge = (
   extensionContext: ExtensionContext,
   config: Config,
-  updateReason: UpdateReason
+  updateReason: UpdateReason,
 ) => {
   extensionContext.globalState.update(
     "mostRecentVersion",
-    extensionContext.extension.packageJSON.version
+    extensionContext.extension.packageJSON.version,
   );
   updateThemes(config, getThemePaths(), updateReason, getActiveColorTheme());
 };

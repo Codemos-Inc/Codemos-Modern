@@ -3,7 +3,7 @@ import { configureExtensionSettings as configureMaterialIconThemeSettings } from
 
 export const configureExtensionSettings = (
   themeContext: ThemeContext,
-  toDefaults: boolean
+  toDefaults: boolean,
 ): void => {
   configureMaterialIconThemeSettings(themeContext, toDefaults);
 };

@@ -13,7 +13,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     "inlineChatDiff.inserted": colors.basic.def.green.qui,
     "inlineChatInput.background": getMixedColorHex9(
       colors.fill.control.rest,
-      colors.bg.solid.flyout
+      colors.bg.solid.flyout,
     ), // 🟡 Hacky Solution
     "inlineChatInput.border": colors.stroke.control.default,
     "inlineChatInput.focusBorder": colors.stroke.focus,

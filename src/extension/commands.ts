@@ -10,7 +10,7 @@ export const configure = async () => {
     return;
   }
   const variant = toggleFirstLetterCase(
-    variantLabel.replace(/\$\(.*\) /g, "")
+    variantLabel.replace(/\$\(.*\) /g, ""),
   ) as Variant;
   const accentColor = await getAccentColor(variant);
   if (!accentColor) {
@@ -21,7 +21,7 @@ export const configure = async () => {
     return;
   }
   const adaptiveMode = toggleFirstLetterCase(
-    adaptiveModeLabel.replace(/\$\(.*\) /g, "")
+    adaptiveModeLabel.replace(/\$\(.*\) /g, ""),
   ) as AdaptiveMode;
   updateConfig(variant, accentColor, adaptiveMode);
   workspace
@@ -39,7 +39,7 @@ const getVariantLabel = async () => {
       title: "Codemos Modern 1/3",
       placeHolder: "Select a variant",
       ignoreFocusOut: true,
-    }
+    },
   );
   if (!variant) {
     return undefined;
@@ -83,7 +83,7 @@ const getAdaptiveModeLabel = async (variant: Variant) => {
       placeHolder:
         "Select an adaptive mode (Intensity of the accent color adaptation)",
       ignoreFocusOut: true,
-    }
+    },
   );
   if (!adaptiveMode) {
     return undefined;

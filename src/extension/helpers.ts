@@ -21,8 +21,8 @@ export const getThemePaths = (): ThemePaths => {
         "..",
         "..",
         "themes",
-        `Codemos Modern (${toggleFirstLetterCase(variant)})-color-theme.json`
-      ))
+        `Codemos Modern (${toggleFirstLetterCase(variant)})-color-theme.json`,
+      )),
   );
   return themePaths;
 };

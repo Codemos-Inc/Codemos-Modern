@@ -97,37 +97,37 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
     mimic1Info,
     accentColor,
     variantConfig.adaptiveMode,
-    false
+    false,
   );
   const mimic2Color = getMimicHex7(
     mimic2Info,
     accentColor,
     variantConfig.adaptiveMode,
-    false
+    false,
   );
   const mimic3Color = getMimicHex7(
     mimic3Info,
     accentColor,
     variantConfig.adaptiveMode,
-    false
+    false,
   );
   const mimic4Color = getMimicHex7(
     mimic4Info,
     accentColor,
     variantConfig.adaptiveMode,
-    false
+    false,
   );
   const mimic5Color = getMimicHex7(
     mimic5Info,
     accentColor,
     variantConfig.adaptiveMode,
-    false
+    false,
   );
   const mixedFgColor = getMixedColorHex7(palette.hic, 72, mimic3Color);
   let accentTextColor = getContrastSafeAccentColorHex7(
     accentColor,
     mixedFgColor,
-    true
+    true,
   );
   if (!accentTextColor) {
     accentTextColor = palette.basic.def.blue;

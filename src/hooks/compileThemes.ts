@@ -15,6 +15,6 @@ variants.map((variant) => {
   };
   writeFileSync(
     themePaths[variant],
-    JSON.stringify(getThemeObject(themeContext), null, 2)
+    JSON.stringify(getThemeObject(themeContext), null, 2),
   );
 });

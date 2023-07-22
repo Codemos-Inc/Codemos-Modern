@@ -13,13 +13,13 @@ export const getStateObject = (): StateObject => {
   try {
     const stateString = readFileSync(
       join(__dirname, "..", "..", "data", ".state.json"),
-      "utf-8"
+      "utf-8",
     );
     const stateObject = JSON.parse(stateString);
     return stateObject as StateObject;
   } catch (error) {
     console.error(
-      "Codemos Modern: Unexpected error ocurred while trying to read state file, recreating it with default values."
+      "Codemos Modern: Unexpected error ocurred while trying to read state file, recreating it with default values.",
     );
     writeStateFile(defaultStateObject);
     return defaultStateObject;
@@ -34,6 +34,6 @@ const writeStateFile = (stateObject: StateObject) => {
   const stateString = JSON.stringify(stateObject, null, 2);
   writeFileSync(
     join(__dirname, "..", "..", "data", ".state.json"),
-    stateString
+    stateString,
   );
 };

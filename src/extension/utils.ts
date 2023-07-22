@@ -30,21 +30,21 @@ export const getConfig = (): Config => {
     dark: {
       accentColor: extensionSection.get<string>(
         "dark.accentColor",
-        defaultConfig.dark.accentColor
+        defaultConfig.dark.accentColor,
       ),
       adaptiveMode: extensionSection.get<AdaptiveMode>(
         "dark.adaptiveMode",
-        defaultConfig.dark.adaptiveMode
+        defaultConfig.dark.adaptiveMode,
       ),
     },
     light: {
       accentColor: extensionSection.get<string>(
         "light.accentColor",
-        defaultConfig.light.accentColor
+        defaultConfig.light.accentColor,
       ),
       adaptiveMode: extensionSection.get<AdaptiveMode>(
         "light.adaptiveMode",
-        defaultConfig.light.adaptiveMode
+        defaultConfig.light.adaptiveMode,
       ),
     },
   };
@@ -53,18 +53,18 @@ export const getConfig = (): Config => {
 export const updateConfig = (
   variant: Variant,
   accentColorHex7: string,
-  adaptiveMode: AdaptiveMode
+  adaptiveMode: AdaptiveMode,
 ) => {
   const variantSection = workspace.getConfiguration(`codemosModern.${variant}`);
   variantSection.update(
     `accentColor`,
     accentColorHex7,
-    ConfigurationTarget.Global
+    ConfigurationTarget.Global,
   );
   variantSection.update(
     `adaptiveMode`,
     adaptiveMode,
-    ConfigurationTarget.Global
+    ConfigurationTarget.Global,
   );
 };
 
@@ -72,7 +72,7 @@ export const updateThemes = async (
   config: Config,
   themePaths: ThemePaths,
   updateReason: UpdateReason,
-  activeColorTheme: Variant | undefined
+  activeColorTheme: Variant | undefined,
 ) => {
   updateThemeConfigs(config, activeColorTheme);
   const variants: Variant[] = ["dark", "light"];
@@ -91,7 +91,7 @@ export const updateThemes = async (
 
 export const updateThemeConfigs = (
   config: Config,
-  activeColorTheme: Variant | undefined
+  activeColorTheme: Variant | undefined,
 ) => {
   const variant = activeColorTheme ? activeColorTheme : "dark";
   const themeContext: ThemeContext = {

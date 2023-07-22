@@ -3,7 +3,7 @@ import { configureExtensionSettings } from "./other";
 
 export const configureSettings = (
   themeContext: ThemeContext,
-  toDefaults: boolean
+  toDefaults: boolean,
 ): void => {
   configureExtensionSettings(themeContext, toDefaults);
 };
