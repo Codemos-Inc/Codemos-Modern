@@ -7,7 +7,6 @@ export const getThemeObject = (themeContext: ThemeContext): object => {
     $schema: "vscode://schemas/color-theme",
     name: `Codemos Modern (${toggleFirstLetterCase(themeContext.variant)})`,
     type: `${themeContext.variant}`,
-    semanticHighlighting: true,
     ...getRules(themeContext),
   };
 };

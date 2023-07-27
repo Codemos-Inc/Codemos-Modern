@@ -6,23 +6,25 @@ import {
 } from "vscode";
 import { Config, Variant } from "./@types";
 import { configure } from "./extension/commands";
+import { GLOBAL_STATE_MRV_KEY } from "./extension/constants";
 import { UpdateReason } from "./extension/enums";
 import { getThemePaths } from "./extension/helpers";
 import { getStateObject, updateState } from "./extension/state";
 import {
   getConfig,
   isUntouched,
-  updateThemeConfigs,
-  updateThemes,
+  updateModern,
+  updateSettings,
   verifyState,
 } from "./extension/utils";
 
 export const activate = (extensionContext: ExtensionContext) => {
+  initiateSync(extensionContext);
   if (!verifyState()) {
     let updateReason: UpdateReason;
     if (isUntouched()) {
       const mostRecentVersion =
-        extensionContext.globalState.get("mostRecentVersion");
+        extensionContext.globalState.get(GLOBAL_STATE_MRV_KEY);
       if (!mostRecentVersion) {
         updateReason = UpdateReason.FIRST_INSTALL;
       } else if (
@@ -37,21 +39,32 @@ export const activate = (extensionContext: ExtensionContext) => {
     }
     const config = getConfig();
     updateStateBridge(config);
-    updateThemesBridge(extensionContext, config, updateReason);
+    updateModernBridge(extensionContext, config, updateReason);
   }
   workspace.onDidChangeConfiguration((event: ConfigurationChangeEvent) => {
-    if (event.affectsConfiguration("codemosModern")) {
+    if (event.affectsConfiguration("codemosModern.auxiliaryThemeRegistries")) {
       const config = getConfig();
       updateStateBridge(config);
-      updateThemesBridge(extensionContext, config, UpdateReason.CONFIG_CHANGE);
-    }
-    if (event.affectsConfiguration("workbench.colorTheme")) {
-      updateThemeConfigs(getConfig(), getActiveColorTheme());
+      updateModernBridge(extensionContext, config, UpdateReason.CONFIG_CHANGE);
+    } else if (event.affectsConfiguration("codemosModern.dark")) {
+      const config = getConfig();
+      updateStateBridge(config);
+      updateModernBridge(extensionContext, config, UpdateReason.CONFIG_CHANGE);
+    } else if (event.affectsConfiguration("codemosModern.light")) {
+      const config = getConfig();
+      updateStateBridge(config);
+      updateModernBridge(extensionContext, config, UpdateReason.CONFIG_CHANGE);
+    } else if (event.affectsConfiguration("workbench.colorTheme")) {
+      updateSettings(getConfig(), getActiveVariant());
     }
   });
   extensionContext.subscriptions.push(
     commands.registerCommand("codemosModern.configure", configure),
   );
+};
+
+const initiateSync = (extensionContext: ExtensionContext) => {
+  extensionContext.globalState.setKeysForSync([GLOBAL_STATE_MRV_KEY]);
 };
 
 const updateStateBridge = (config: Config) => {
@@ -63,23 +76,23 @@ const updateStateBridge = (config: Config) => {
   updateState(stateObject);
 };
 
-const updateThemesBridge = (
+const updateModernBridge = (
   extensionContext: ExtensionContext,
   config: Config,
   updateReason: UpdateReason,
 ) => {
   extensionContext.globalState.update(
-    "mostRecentVersion",
+    GLOBAL_STATE_MRV_KEY,
     extensionContext.extension.packageJSON.version,
   );
-  updateThemes(config, getThemePaths(), updateReason, getActiveColorTheme());
+  updateModern(config, getThemePaths(), updateReason, getActiveVariant());
 };
 
-const getActiveColorTheme = (): Variant | undefined => {
-  const activeColorThemeConf = workspace
+const getActiveVariant = (): Variant | undefined => {
+  const activeColorTheme = workspace
     .getConfiguration("workbench")
     .get("colorTheme");
-  switch (activeColorThemeConf) {
+  switch (activeColorTheme) {
     case "Codemos Modern (Dark)":
       return "dark";
     case "Codemos Modern (Light)":

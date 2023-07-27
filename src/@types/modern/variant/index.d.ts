@@ -2,6 +2,7 @@ import { AdaptiveMode } from "..";
 
 export type VariantConfig = {
   accentColor: string;
+  codeTheme: string | null;
   adaptiveMode: AdaptiveMode;
 };
 
