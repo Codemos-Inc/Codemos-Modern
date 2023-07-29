@@ -22,6 +22,10 @@ import {
   showErrorNotification,
   showInformationNotification,
 } from "./notifications";
+import {
+  getIsConfiguredFromCommand,
+  setIsConfiguredFromCommand,
+} from "./sharedState";
 import { getStateObject } from "./state";
 
 export const verifyState = (): boolean => {
@@ -95,7 +99,6 @@ export const updateConfig = (
 export const updateModern = async (
   updateTarget: "none" | "all" | Variant,
   updateReason: UpdateReason,
-  calledFromCommand: boolean,
   config: Config,
   themePaths: ThemePaths,
   activeVariant: Variant | undefined,
@@ -112,7 +115,7 @@ export const updateModern = async (
     default:
       variants = [updateTarget];
   }
-  if (!calledFromCommand) {
+  if (!getIsConfiguredFromCommand()) {
     const success = await prepareAuxiliaryThemeRegistries(
       config.auxiliaryThemeRegistries,
     );
@@ -128,10 +131,12 @@ export const updateModern = async (
       codeThemeObject: null,
     };
     if (themeContext.variantConfig.codeTheme) {
-      prepareAuxiliaryTheme(
-        themeContext.variantConfig.codeTheme,
-        themeContext.variant,
-      );
+      if (!getIsConfiguredFromCommand()) {
+        prepareAuxiliaryTheme(
+          themeContext.variantConfig.codeTheme,
+          themeContext.variant,
+        );
+      }
       themeContext.codeThemeObject = getAuxiliaryThemeObject(
         themeContext.variantConfig.codeTheme,
       );
@@ -145,6 +150,9 @@ export const updateModern = async (
       "workbench.action.reloadWindow",
     );
   });
+  if (getIsConfiguredFromCommand()) {
+    setIsConfiguredFromCommand(false);
+  }
 };
 
 export const updateSettings = (

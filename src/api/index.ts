@@ -12,7 +12,11 @@ import {
   repositoryObtainedMessage,
 } from "./messages";
 
-const octokit = new Octokit();
+const octokit = new Octokit({
+  request: {
+    fetch: require("node-fetch"),
+  },
+});
 
 export const checkIfRepoExists = async (
   owner: string,

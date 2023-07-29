@@ -12,7 +12,7 @@ variants.map((variant) => {
     variant: variant,
     variantConfig: defaultConfig[variant],
     styles: getStyles(variant, defaultConfig),
-    auxiliaryThemeObject: null,
+    codeThemeObject: null,
   };
   writeFileSync(
     themePaths[variant],

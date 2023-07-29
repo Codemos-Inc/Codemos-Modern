@@ -3,6 +3,7 @@ import {
   AuxiliaryThemeId,
   AuxiliaryThemeRegistryId,
   AuxiliaryThemeRegistryIndex,
+  AuxiliaryThemeRegistryIndexWithId,
   NetworkBoundResult,
   Variant,
 } from "../@types";
@@ -134,6 +135,31 @@ export const prepareAuxiliaryThemeRegistries = async (
   return true;
 };
 
+export const getAllAuxiliaryThemeRegistryIndexes = (
+  auxiliaryThemeRegistries: string[],
+): AuxiliaryThemeRegistryIndexWithId[] => {
+  const auxiliaryThemeRegistryIds = getAuxiliaryThemeRegistryIds(
+    auxiliaryThemeRegistries,
+  );
+  const auxiliaryThemeRegistryIndexesWithId: AuxiliaryThemeRegistryIndexWithId[] =
+    [];
+  for (const auxiliaryThemeRegistryId of auxiliaryThemeRegistryIds) {
+    const indexContents = getCachedFileContents(
+      "auxiliary",
+      join(auxiliaryThemeRegistryId.owner, auxiliaryThemeRegistryId.repo),
+      "index.json",
+    );
+    const auxiliaryThemeRegistryIndex = JSON.parse(
+      indexContents,
+    ) as AuxiliaryThemeRegistryIndex;
+    auxiliaryThemeRegistryIndexesWithId.push({
+      auxiliaryThemeRegistryId,
+      auxiliaryThemeRegistryIndex,
+    });
+  }
+  return auxiliaryThemeRegistryIndexesWithId;
+};
+
 export const prepareAuxiliaryTheme = async (
   auxiliaryTheme: string,
   variant: Variant,
@@ -152,7 +178,7 @@ export const prepareAuxiliaryTheme = async (
       auxiliaryThemeId.owner,
       auxiliaryThemeId.repo,
       auxiliaryThemeId.publisher,
-      auxiliaryThemeId.pkg,
+      auxiliaryThemeId.extension,
     ),
     `${auxiliaryThemeId.theme}.json`,
   );
@@ -170,7 +196,7 @@ export const getAuxiliaryThemeObject = (auxiliaryTheme: string): any => {
       auxiliaryThemeId.owner,
       auxiliaryThemeId.repo,
       auxiliaryThemeId.publisher,
-      auxiliaryThemeId.pkg,
+      auxiliaryThemeId.extension,
     ),
     `${auxiliaryThemeId.theme}.json`,
   );
@@ -292,13 +318,13 @@ const checkAuxiliaryRegistryIndexForAuxiliaryTheme = (
   const auxiliaryThemeDark = auxiliaryThemeRegistryIndex.themes.dark.find(
     (auxiliaryThemeInfo) =>
       auxiliaryThemeInfo.publisher === auxiliaryThemeId.publisher &&
-      auxiliaryThemeInfo.pkg === auxiliaryThemeId.pkg &&
+      auxiliaryThemeInfo.extension === auxiliaryThemeId.extension &&
       auxiliaryThemeInfo.theme === auxiliaryThemeId.theme,
   );
   const auxiliaryThemeLight = auxiliaryThemeRegistryIndex.themes.light.find(
     (auxiliaryThemeInfo) =>
       auxiliaryThemeInfo.publisher === auxiliaryThemeId.publisher &&
-      auxiliaryThemeInfo.pkg === auxiliaryThemeId.pkg &&
+      auxiliaryThemeInfo.extension === auxiliaryThemeId.extension &&
       auxiliaryThemeInfo.theme === auxiliaryThemeId.theme,
   );
   switch (variant) {
@@ -307,7 +333,7 @@ const checkAuxiliaryRegistryIndexForAuxiliaryTheme = (
         if (auxiliaryThemeLight) {
           showErrorNotification(
             themeVariantMismatch(
-              `${auxiliaryThemeId.publisher}/${auxiliaryThemeId.pkg}/${auxiliaryThemeId.theme}`,
+              `${auxiliaryThemeId.publisher}/${auxiliaryThemeId.extension}/${auxiliaryThemeId.theme}`,
               variant,
             ),
             null,
@@ -318,7 +344,7 @@ const checkAuxiliaryRegistryIndexForAuxiliaryTheme = (
           showErrorNotification(
             themeNotInRegistry(
               `${auxiliaryThemeId.owner}/${auxiliaryThemeId.repo}`,
-              `${auxiliaryThemeId.publisher}/${auxiliaryThemeId.pkg}/${auxiliaryThemeId.theme}`,
+              `${auxiliaryThemeId.publisher}/${auxiliaryThemeId.extension}/${auxiliaryThemeId.theme}`,
             ),
             null,
             null,
@@ -333,7 +359,7 @@ const checkAuxiliaryRegistryIndexForAuxiliaryTheme = (
         if (auxiliaryThemeDark) {
           showErrorNotification(
             themeVariantMismatch(
-              `${auxiliaryThemeId.publisher}/${auxiliaryThemeId.pkg}/${auxiliaryThemeId.theme}`,
+              `${auxiliaryThemeId.publisher}/${auxiliaryThemeId.extension}/${auxiliaryThemeId.theme}`,
               variant,
             ),
             null,
@@ -344,7 +370,7 @@ const checkAuxiliaryRegistryIndexForAuxiliaryTheme = (
           showErrorNotification(
             themeNotInRegistry(
               `${auxiliaryThemeId.owner}/${auxiliaryThemeId.repo}`,
-              `${auxiliaryThemeId.publisher}/${auxiliaryThemeId.pkg}/${auxiliaryThemeId.theme}`,
+              `${auxiliaryThemeId.publisher}/${auxiliaryThemeId.extension}/${auxiliaryThemeId.theme}`,
             ),
             null,
             null,
@@ -374,7 +400,7 @@ const getAuxiliaryTheme = async (
   const networkBoundResult = await getSingleContentFromRelease(
     auxiliaryThemeId.owner,
     auxiliaryThemeId.repo,
-    `${auxiliaryThemeId.publisher}/${auxiliaryThemeId.pkg}/${auxiliaryThemeId.theme}.json`,
+    `${auxiliaryThemeId.publisher}/${auxiliaryThemeId.extension}/${auxiliaryThemeId.theme}.json`,
     auxiliaryThemeRegistryVersion,
   );
   if (!networkBoundResult.success) {
@@ -388,7 +414,7 @@ const getAuxiliaryTheme = async (
       auxiliaryThemeId.owner,
       auxiliaryThemeId.repo,
       auxiliaryThemeId.publisher,
-      auxiliaryThemeId.pkg,
+      auxiliaryThemeId.extension,
     ),
     `${auxiliaryThemeId.theme}.json`,
     JSON.stringify(data, null, 2),

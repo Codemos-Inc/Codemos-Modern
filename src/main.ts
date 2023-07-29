@@ -39,21 +39,36 @@ export const activate = (extensionContext: ExtensionContext) => {
     }
     const config = getConfig();
     updateStateBridge(config);
-    updateModernBridge(extensionContext, config, updateReason);
+    updateModernBridge(extensionContext, "all", updateReason, config);
   }
   workspace.onDidChangeConfiguration((event: ConfigurationChangeEvent) => {
     if (event.affectsConfiguration("codemosModern.auxiliaryThemeRegistries")) {
       const config = getConfig();
       updateStateBridge(config);
-      updateModernBridge(extensionContext, config, UpdateReason.CONFIG_CHANGE);
+      updateModernBridge(
+        extensionContext,
+        "none",
+        UpdateReason.CONFIG_CHANGE,
+        config,
+      );
     } else if (event.affectsConfiguration("codemosModern.dark")) {
       const config = getConfig();
       updateStateBridge(config);
-      updateModernBridge(extensionContext, config, UpdateReason.CONFIG_CHANGE);
+      updateModernBridge(
+        extensionContext,
+        "dark",
+        UpdateReason.CONFIG_CHANGE,
+        config,
+      );
     } else if (event.affectsConfiguration("codemosModern.light")) {
       const config = getConfig();
       updateStateBridge(config);
-      updateModernBridge(extensionContext, config, UpdateReason.CONFIG_CHANGE);
+      updateModernBridge(
+        extensionContext,
+        "light",
+        UpdateReason.CONFIG_CHANGE,
+        config,
+      );
     } else if (event.affectsConfiguration("workbench.colorTheme")) {
       updateSettings(getConfig(), getActiveVariant());
     }
@@ -78,14 +93,21 @@ const updateStateBridge = (config: Config) => {
 
 const updateModernBridge = (
   extensionContext: ExtensionContext,
-  config: Config,
+  updateTarget: "none" | "all" | Variant,
   updateReason: UpdateReason,
+  config: Config,
 ) => {
   extensionContext.globalState.update(
     GLOBAL_STATE_MRV_KEY,
     extensionContext.extension.packageJSON.version,
   );
-  updateModern(config, getThemePaths(), updateReason, getActiveVariant());
+  updateModern(
+    updateTarget,
+    updateReason,
+    config,
+    getThemePaths(),
+    getActiveVariant(),
+  );
 };
 
 const getActiveVariant = (): Variant | undefined => {

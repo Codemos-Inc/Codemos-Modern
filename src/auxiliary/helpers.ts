@@ -26,7 +26,7 @@ export const isAuxiliaryThemeInfo = (obj: any): obj is AuxiliaryThemeInfo => {
   }
   if (
     typeof obj.publisher !== "string" ||
-    typeof obj.package !== "string" ||
+    typeof obj.extension !== "string" ||
     typeof obj.theme !== "string" ||
     !["Builtin", "Marketplace", "GitHub"].includes(obj.origin) ||
     typeof obj.license !== "string"

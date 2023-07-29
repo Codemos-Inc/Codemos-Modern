@@ -1,0 +1,37 @@
+{
+  "version": "v0.0.2",
+  "themes": {
+    "dark": [
+      {
+        "publisher": "Microsoft",
+        "extension": "Defaults",
+        "theme": "Dark Modern",
+        "origin": "Builtin",
+        "license": "MIT"
+      },
+      {
+        "publisher": "Microsoft",
+        "extension": "Defaults",
+        "theme": "Dark+",
+        "origin": "Builtin",
+        "license": "MIT"
+      }
+    ],
+    "light": [
+      {
+        "publisher": "Microsoft",
+        "extension": "Defaults",
+        "theme": "Light Modern",
+        "origin": "Builtin",
+        "license": "MIT"
+      },
+      {
+        "publisher": "Microsoft",
+        "extension": "Defaults",
+        "theme": "Light+",
+        "origin": "Builtin",
+        "license": "MIT"
+      }
+    ]
+  }
+}

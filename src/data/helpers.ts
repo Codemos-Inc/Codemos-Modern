@@ -12,6 +12,6 @@ export const getAuxiliaryThemeRegistryIds = (
 export const getAuxiliaryThemeId = (
   auxiliaryTheme: string,
 ): AuxiliaryThemeId => {
-  const [owner, repo, publisher, pkg, theme] = auxiliaryTheme.split("/");
-  return { owner, repo, publisher, pkg, theme };
+  const [owner, repo, publisher, extension, theme] = auxiliaryTheme.split("/");
+  return { owner, repo, publisher, extension, theme };
 };

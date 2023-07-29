@@ -1,14 +1,18 @@
 {
-  "version": 1,
-  "isUntouched": true,
+  "isUntouched": false,
   "config": {
+    "auxiliaryThemeRegistries": [
+      "Codemos-Inc/Auxiliary-Theme-Registry"
+    ],
     "dark": {
-      "accentColor": "#CB8569",
-      "adaptiveMode": "none"
+      "accentColor": "#3584e4",
+      "codeTheme": null,
+      "adaptiveMode": "aggressive"
     },
     "light": {
-      "accentColor": "#784F3F",
-      "adaptiveMode": "none"
+      "accentColor": "#1aa5c7",
+      "codeTheme": null,
+      "adaptiveMode": "aggressive"
     }
   }
 }
