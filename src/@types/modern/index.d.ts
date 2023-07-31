@@ -5,13 +5,15 @@ export type AdaptiveMode = "none" | "gentle" | "aggressive";
 export type Config = {
   auxiliaryThemeRegistries: string[];
   dark: {
+    auxiliaryUiTheme: string | null;
     accentColor: string;
-    codeTheme: string | null;
     adaptiveMode: AdaptiveMode;
+    auxiliaryCodeTheme: string | null;
   };
   light: {
+    auxiliaryUiTheme: string | null;
     accentColor: string;
-    codeTheme: string | null;
     adaptiveMode: AdaptiveMode;
+    auxiliaryCodeTheme: string | null;
   };
 };

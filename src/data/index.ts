@@ -22,10 +22,13 @@ import {
   cachingFailed,
   downloadingIndexProgress,
   downloadingIndexesTitle,
+  downloadingThemeTitle,
   invalidRegistry,
+  registryIsNotInRegistries,
   removingFailed,
   themeNotInRegistry,
   themeVariantMismatch,
+  unexpectedDummyDataError,
   unexpectedVariantError,
   updatingIndexProgress,
   updatingIndexesTitle,
@@ -76,24 +79,27 @@ export const prepareAuxiliaryThemeRegistries = async (
   }
   if (uncachedAuxiliaryThemeRegistryIds.length > 0) {
     let success = true;
-    showProgressNotification(downloadingIndexesTitle(), async (progress) => {
-      const increment = 100 / uncachedAuxiliaryThemeRegistryIds.length;
-      for (const auxiliaryThemeRegistryId of uncachedAuxiliaryThemeRegistryIds) {
-        progress.report({
-          message: downloadingIndexProgress(
-            `${auxiliaryThemeRegistryId.owner}/${auxiliaryThemeRegistryId.repo}`,
-          ),
-          increment,
-        });
-        const result = await getAuxiliaryThemeRegistryIndex(
-          auxiliaryThemeRegistryId,
-        );
-        if (!result) {
-          success = false;
-          break;
+    await showProgressNotification(
+      downloadingIndexesTitle(),
+      async (progress) => {
+        const increment = 100 / uncachedAuxiliaryThemeRegistryIds.length;
+        for (const auxiliaryThemeRegistryId of uncachedAuxiliaryThemeRegistryIds) {
+          progress.report({
+            message: downloadingIndexProgress(
+              `${auxiliaryThemeRegistryId.owner}/${auxiliaryThemeRegistryId.repo}`,
+            ),
+            increment: increment === 100 ? undefined : increment,
+          });
+          const result = await getAuxiliaryThemeRegistryIndex(
+            auxiliaryThemeRegistryId,
+          );
+          if (!result) {
+            success = false;
+            break;
+          }
         }
-      }
-    });
+      },
+    );
     if (!success) {
       return false;
     }
@@ -165,6 +171,25 @@ export const prepareAuxiliaryTheme = async (
   variant: Variant,
 ): Promise<boolean> => {
   const auxiliaryThemeId = getAuxiliaryThemeId(auxiliaryTheme);
+  const isAuxiliaryThemeRegistryAvailable =
+    await verifyAvailabilityForAuxiliaryThemeRegistries([auxiliaryThemeId]);
+  if (!isAuxiliaryThemeRegistryAvailable) {
+    return false;
+  }
+  const isAuxiliaryThemeRegistryIndexCached = checkCacheForFile(
+    "auxiliary",
+    join(auxiliaryThemeId.owner, auxiliaryThemeId.repo),
+    "index.json",
+  );
+  if (!isAuxiliaryThemeRegistryIndexCached) {
+    showErrorNotification(
+      registryIsNotInRegistries(
+        `${auxiliaryThemeId.owner}/${auxiliaryThemeId.repo}`,
+      ),
+      null,
+      null,
+    );
+  }
   const isAuxiliaryThemeLegit = checkAuxiliaryRegistryIndexForAuxiliaryTheme(
     auxiliaryThemeId,
     variant,
@@ -397,11 +422,23 @@ const getAuxiliaryTheme = async (
   const auxiliaryThemeRegistryVersion = (
     JSON.parse(indexContents) as AuxiliaryThemeRegistryIndex
   ).version;
-  const networkBoundResult = await getSingleContentFromRelease(
-    auxiliaryThemeId.owner,
-    auxiliaryThemeId.repo,
-    `${auxiliaryThemeId.publisher}/${auxiliaryThemeId.extension}/${auxiliaryThemeId.theme}.json`,
-    auxiliaryThemeRegistryVersion,
+  let networkBoundResult: NetworkBoundResult = {
+    success: false,
+    message: unexpectedDummyDataError(),
+    data: null,
+  };
+  await showProgressNotification(
+    downloadingThemeTitle(
+      `${auxiliaryThemeId.publisher}/${auxiliaryThemeId.extension}/${auxiliaryThemeId.theme}`,
+    ),
+    async () => {
+      networkBoundResult = await getSingleContentFromRelease(
+        auxiliaryThemeId.owner,
+        auxiliaryThemeId.repo,
+        `registry/${auxiliaryThemeId.publisher}/${auxiliaryThemeId.extension}/${auxiliaryThemeId.theme}.json`,
+        auxiliaryThemeRegistryVersion,
+      );
+    },
   );
   if (!networkBoundResult.success) {
     showErrorNotification(networkBoundResult.message, null, null);

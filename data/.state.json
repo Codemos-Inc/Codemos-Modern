@@ -1,18 +1,20 @@
 {
-  "isUntouched": false,
+  "isUntouched": true,
   "config": {
     "auxiliaryThemeRegistries": [
       "Codemos-Inc/Auxiliary-Theme-Registry"
     ],
     "dark": {
-      "accentColor": "#3584e4",
-      "codeTheme": null,
-      "adaptiveMode": "aggressive"
+      "auxiliaryUiTheme": null,
+      "accentColor": "#CB8569",
+      "adaptiveMode": "none",
+      "auxiliaryCodeTheme": null
     },
     "light": {
-      "accentColor": "#1aa5c7",
-      "codeTheme": null,
-      "adaptiveMode": "aggressive"
+      "auxiliaryUiTheme": null,
+      "accentColor": "#784F3F",
+      "adaptiveMode": "none",
+      "auxiliaryCodeTheme": null
     }
   }
 }

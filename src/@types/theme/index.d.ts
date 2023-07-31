@@ -10,5 +10,6 @@ export type ThemeContext = {
   variant: Variant;
   variantConfig: VariantConfig;
   styles: Styles;
-  codeThemeObject: any | null;
+  auxiliaryUiThemeObject: any | null;
+  auxiliaryCodeThemeObject: any | null;
 };

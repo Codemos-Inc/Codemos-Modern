@@ -2,6 +2,7 @@ import { RequestError } from "@octokit/request-error";
 import { Octokit } from "@octokit/rest";
 import { NetworkBoundResult } from "../@types";
 import {
+  apiRateLimitExceeded,
   contentNotFileMessage,
   contentNotFoundMessage,
   latestVersionIndexedMessage,
@@ -34,6 +35,9 @@ export const checkIfRepoExists = async (
     .catch((error: RequestError) => {
       let message: string;
       switch (error.status) {
+        case 403:
+          message = apiRateLimitExceeded();
+          break;
         case 404:
           message = repoNotFoundMessage(`${owner}/${repo}`);
           break;
@@ -64,6 +68,9 @@ export const getLatestVersionTag = async (
     .catch((error: RequestError) => {
       let message: string;
       switch (error.status) {
+        case 403:
+          message = apiRateLimitExceeded();
+          break;
         case 404:
           message = releaseNotFoundMessage(`${owner}/${repo}`);
           break;
@@ -119,6 +126,9 @@ export const getSingleContentFromRelease = async (
     .catch((error: RequestError) => {
       let message: string;
       switch (error.status) {
+        case 403:
+          message = apiRateLimitExceeded();
+          break;
         case 404:
           message = contentNotFoundMessage(`${owner}/${repo}`, path);
           break;

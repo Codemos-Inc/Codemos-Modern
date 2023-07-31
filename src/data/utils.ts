@@ -6,6 +6,8 @@ export const checkCacheForFile = (
   directory: string,
   file: string,
 ): boolean => {
+  directory = directory.toLowerCase();
+  file = file.toLowerCase();
   const path = join(
     __dirname,
     "..",
@@ -24,6 +26,8 @@ export const getCachedFileContents = (
   directory: string,
   file: string,
 ): string => {
+  directory = directory.toLowerCase();
+  file = file.toLowerCase();
   const path = join(
     __dirname,
     "..",
@@ -43,6 +47,8 @@ export const cacheFile = async (
   file: string,
   contents: string,
 ): Promise<void> => {
+  directory = directory.toLowerCase();
+  file = file.toLowerCase();
   const path = join(
     __dirname,
     "..",
@@ -80,6 +86,7 @@ export const deleteCachedDir = async (
   category: string,
   directory: string,
 ): Promise<void> => {
+  directory = directory.toLowerCase();
   const path = join(
     __dirname,
     "..",
@@ -105,6 +112,8 @@ export const checkIfFileCached = (
   directory: string,
   file: string,
 ): boolean => {
+  directory = directory.toLowerCase();
+  file = file.toLowerCase();
   const path = join(
     __dirname,
     "..",

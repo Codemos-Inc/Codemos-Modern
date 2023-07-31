@@ -24,6 +24,10 @@ export const networkErrorMessage = (status: number): string => {
   return `Network error occurred (code "${status}")! Please contact with Codemos.`;
 };
 
+export const apiRateLimitExceeded = (): string => {
+  return `Api rate limit exceeded! Check back an hour later.`;
+};
+
 export const repoNotFoundMessage = (repoId: string): string => {
   return `Repository "${repoId}" not found! Verify that repository exists and is public.`;
 };
@@ -40,5 +44,5 @@ export const contentNotFoundMessage = (
   repoId: string,
   path: string,
 ): string => {
-  return `Path "${path}" for repository "${repoId}" is not valid! Verify that path exists and is accessible.`;
+  return `Path "${path}" in repository "${repoId}" is not valid! Verify that path exists and is accessible.`;
 };

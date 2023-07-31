@@ -46,31 +46,39 @@ export const getConfig = (): Config => {
       defaultConfig.auxiliaryThemeRegistries,
     ),
     dark: {
+      auxiliaryUiTheme: extensionSection.get<string | null>(
+        "dark.auxiliaryUiTheme",
+        defaultConfig.dark.auxiliaryUiTheme,
+      ),
       accentColor: extensionSection.get<string>(
         "dark.accentColor",
         defaultConfig.dark.accentColor,
-      ),
-      codeTheme: extensionSection.get<string | null>(
-        "dark.codeTheme",
-        defaultConfig.dark.codeTheme,
       ),
       adaptiveMode: extensionSection.get<AdaptiveMode>(
         "dark.adaptiveMode",
         defaultConfig.dark.adaptiveMode,
       ),
+      auxiliaryCodeTheme: extensionSection.get<string | null>(
+        "dark.auxiliaryCodeTheme",
+        defaultConfig.dark.auxiliaryCodeTheme,
+      ),
     },
     light: {
+      auxiliaryUiTheme: extensionSection.get<string | null>(
+        "light.auxiliaryUiTheme",
+        defaultConfig.light.auxiliaryUiTheme,
+      ),
       accentColor: extensionSection.get<string>(
         "light.accentColor",
         defaultConfig.light.accentColor,
       ),
-      codeTheme: extensionSection.get<string | null>(
-        "light.codeTheme",
-        defaultConfig.light.codeTheme,
-      ),
       adaptiveMode: extensionSection.get<AdaptiveMode>(
         "light.adaptiveMode",
         defaultConfig.light.adaptiveMode,
+      ),
+      auxiliaryCodeTheme: extensionSection.get<string | null>(
+        "light.auxiliaryCodeTheme",
+        defaultConfig.light.auxiliaryCodeTheme,
       ),
     },
   };
@@ -78,20 +86,30 @@ export const getConfig = (): Config => {
 
 export const updateConfig = (
   variant: Variant,
+  auxiliaryUiTheme: string | null,
   accentColorHex7: string,
-  codeTheme: string | null,
   adaptiveMode: AdaptiveMode,
+  auxiliaryCodeTheme: string | null,
 ) => {
   const variantSection = workspace.getConfiguration(`codemosModern.${variant}`);
+  variantSection.update(
+    `auxiliaryUiTheme`,
+    auxiliaryUiTheme,
+    ConfigurationTarget.Global,
+  );
   variantSection.update(
     `accentColor`,
     accentColorHex7,
     ConfigurationTarget.Global,
   );
-  variantSection.update(`codeTheme`, codeTheme, ConfigurationTarget.Global);
   variantSection.update(
     `adaptiveMode`,
     adaptiveMode,
+    ConfigurationTarget.Global,
+  );
+  variantSection.update(
+    `auxiliaryCodeTheme`,
+    auxiliaryCodeTheme,
     ConfigurationTarget.Global,
   );
 };
@@ -128,27 +146,51 @@ export const updateModern = async (
       variant: variant,
       variantConfig: config[variant] as VariantConfig,
       styles: getStyles(variant, config),
-      codeThemeObject: null,
+      auxiliaryUiThemeObject: null,
+      auxiliaryCodeThemeObject: null,
     };
-    if (themeContext.variantConfig.codeTheme) {
+    if (themeContext.variantConfig.auxiliaryUiTheme) {
       if (!getIsConfiguredFromCommand()) {
-        prepareAuxiliaryTheme(
-          themeContext.variantConfig.codeTheme,
+        const success = await prepareAuxiliaryTheme(
+          themeContext.variantConfig.auxiliaryUiTheme,
           themeContext.variant,
         );
+        if (!success) {
+          return false;
+        }
       }
-      themeContext.codeThemeObject = getAuxiliaryThemeObject(
-        themeContext.variantConfig.codeTheme,
+      themeContext.auxiliaryUiThemeObject = await getAuxiliaryThemeObject(
+        themeContext.variantConfig.auxiliaryUiTheme,
       );
     }
-    return writeThemeFile(themePaths[variant], getThemeObject(themeContext));
+    if (themeContext.variantConfig.auxiliaryCodeTheme) {
+      if (!getIsConfiguredFromCommand()) {
+        const success = await prepareAuxiliaryTheme(
+          themeContext.variantConfig.auxiliaryCodeTheme,
+          themeContext.variant,
+        );
+        if (!success) {
+          return false;
+        }
+      }
+      themeContext.auxiliaryCodeThemeObject = await getAuxiliaryThemeObject(
+        themeContext.variantConfig.auxiliaryCodeTheme,
+      );
+    }
+    writeThemeFile(themePaths[variant], getThemeObject(themeContext));
+    return true;
   });
-  Promise.all(promises).then(() => {
-    showInformationNotification(
-      updateReason,
-      ["Apply", "Later"],
-      "workbench.action.reloadWindow",
-    );
+  Promise.all(promises).then((onFullFilled) => {
+    const allSuccess = onFullFilled.every((result) => {
+      return result === true;
+    });
+    if (allSuccess) {
+      showInformationNotification(
+        updateReason,
+        ["Apply", "Later"],
+        "workbench.action.reloadWindow",
+      );
+    }
   });
   if (getIsConfiguredFromCommand()) {
     setIsConfiguredFromCommand(false);
@@ -164,9 +206,14 @@ export const updateSettings = (
       variant: activeVariant,
       variantConfig: config[activeVariant] as VariantConfig,
       styles: getStyles(activeVariant, config),
-      codeThemeObject: null,
+      auxiliaryUiThemeObject: null,
+      auxiliaryCodeThemeObject: null,
     };
-    configureSettings(themeContext);
+    if (!themeContext.variantConfig.auxiliaryUiTheme) {
+      configureSettings(themeContext);
+    } else {
+      configureSettings(null);
+    }
   } else {
     configureSettings(null);
   }

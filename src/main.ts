@@ -9,6 +9,7 @@ import { configure } from "./extension/commands";
 import { GLOBAL_STATE_MRV_KEY } from "./extension/constants";
 import { UpdateReason } from "./extension/enums";
 import { getThemePaths } from "./extension/helpers";
+import { setIsConfiguredFromCommand } from "./extension/sharedState";
 import { getStateObject, updateState } from "./extension/state";
 import {
   getConfig,
@@ -101,6 +102,7 @@ const updateModernBridge = (
     GLOBAL_STATE_MRV_KEY,
     extensionContext.extension.packageJSON.version,
   );
+  setIsConfiguredFromCommand(false);
   updateModern(
     updateTarget,
     updateReason,

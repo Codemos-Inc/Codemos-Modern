@@ -16,6 +16,10 @@ export const removingFailed = (message: string): string => {
   return `Remove operation failed with the message "${message}". Verify that the cache directory is not in use by any other process.`;
 };
 
+export const registryIsNotInRegistries = (registryId: string): string => {
+  return `Registry "${registryId}" must be added to registries before use. Verify that the registry is amongst registries.`;
+};
+
 export const themeNotInRegistry = (
   registryId: string,
   themeUniqueId: string,
@@ -36,6 +40,10 @@ export const unexpectedVariantError = (variant: Variant): string => {
   return `Unexpected variant "${variant}"! Please Contact with Codemos.`;
 };
 
+export const unexpectedDummyDataError = (): string => {
+  return `Unexpected dummy data! Please Contact with Codemos.`;
+};
+
 // Progress messages
 
 export const downloadingIndexesTitle = (): string => {
@@ -52,4 +60,8 @@ export const updatingIndexesTitle = (): string => {
 
 export const updatingIndexProgress = (registryId: string): string => {
   return `${updatingIndexesTitle()} - "${registryId}"`;
+};
+
+export const downloadingThemeTitle = (themeUniqueId: string): string => {
+  return `${NOTIFICATION_SIGNATURE} Downloading theme... - "${themeUniqueId}"`;
 };

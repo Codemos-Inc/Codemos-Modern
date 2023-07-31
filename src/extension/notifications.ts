@@ -43,7 +43,7 @@ export const showErrorNotification = (
   }
 };
 
-export const showProgressNotification = (
+export const showProgressNotification = async (
   title: string,
   task: (
     progress: Progress<{
@@ -52,7 +52,7 @@ export const showProgressNotification = (
     }>,
   ) => Promise<void>,
 ) => {
-  window.withProgress(
+  await window.withProgress(
     {
       location: ProgressLocation.Notification,
       title: title,
