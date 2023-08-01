@@ -7,7 +7,9 @@ export type ThemePaths = {
 };
 
 export type ThemeContext = {
-  variantConfig: VariantConfig;
   variant: Variant;
+  variantConfig: VariantConfig;
   styles: Styles;
+  auxiliaryUiThemeObject: any | null;
+  auxiliaryCodeThemeObject: any | null;
 };

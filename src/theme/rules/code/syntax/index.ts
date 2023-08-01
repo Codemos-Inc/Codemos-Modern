@@ -462,8 +462,10 @@ const getExtraRules = (themeContext: ThemeContext): object => {
       scope: [
         "storage.type.primitive",
         "storage.type.built-in",
+        "storage.type.builtin",
         "support.type.primitive",
         "support.type.built-in",
+        "support.type.builtin",
         "keyword.type",
       ],
       settings: {

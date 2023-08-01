@@ -3,19 +3,31 @@ import { ThemeContext } from "../../../../@types";
 import { splitHex9 } from "../../../../color/utils";
 
 export const configureExtensionSettings = (
-  themeContext: ThemeContext,
-  toDefaults: boolean,
+  themeContext: ThemeContext | null,
 ) => {
-  const iconColor = splitHex9(themeContext.styles.fill.accentText.pri)[0];
   const extensionSection = workspace.getConfiguration("material-icon-theme");
-  extensionSection.update(
-    `files.color`,
-    toDefaults ? undefined : iconColor,
-    ConfigurationTarget.Global,
-  );
-  extensionSection.update(
-    `folders.color`,
-    toDefaults ? undefined : iconColor,
-    ConfigurationTarget.Global,
-  );
+  if (themeContext) {
+    const iconColor = splitHex9(themeContext.styles.fill.accent.pri)[0];
+    extensionSection.update(
+      `files.color`,
+      iconColor,
+      ConfigurationTarget.Global,
+    );
+    extensionSection.update(
+      `folders.color`,
+      iconColor,
+      ConfigurationTarget.Global,
+    );
+  } else {
+    extensionSection.update(
+      `files.color`,
+      undefined,
+      ConfigurationTarget.Global,
+    );
+    extensionSection.update(
+      `folders.color`,
+      undefined,
+      ConfigurationTarget.Global,
+    );
+  }
 };

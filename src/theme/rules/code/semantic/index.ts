@@ -21,6 +21,9 @@ const getDefaultRules = (themeContext: ThemeContext): object => {
     parameter: colors.basic.alt.orange.pri,
     variable: { foreground: colors.basic.alt.orange.pri, underline: true },
     "variable.readonly": { underline: false },
+    "variable.readonly.defaultLibrary": {
+      foreground: colors.basic.alt.mint.pri,
+    },
     property: { foreground: colors.basic.alt.yellow.pri, underline: true },
     "property.readonly": { underline: false },
     enumMember: colors.basic.alt.mint.pri,

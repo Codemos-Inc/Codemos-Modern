@@ -1,10 +1,9 @@
-import { readFileSync, writeFileSync } from "fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
 import { join } from "path";
 import { StateObject } from "../@types";
 import { defaultConfig } from "../modern";
 
 export const defaultStateObject: StateObject = {
-  version: 1,
   isUntouched: true,
   config: defaultConfig,
 };
@@ -18,6 +17,7 @@ export const getStateObject = (): StateObject => {
     const stateObject = JSON.parse(stateString);
     return stateObject as StateObject;
   } catch (error) {
+    // 🔴 Write output
     console.error(
       "Codemos Modern: Unexpected error ocurred while trying to read state file, recreating it with default values.",
     );
@@ -32,8 +32,11 @@ export const updateState = (stateObject: StateObject) => {
 
 const writeStateFile = (stateObject: StateObject) => {
   const stateString = JSON.stringify(stateObject, null, 2);
-  writeFileSync(
-    join(__dirname, "..", "..", "data", ".state.json"),
-    stateString,
-  );
+  const path = join(__dirname, "..", "..", "data", ".state.json");
+  if (!existsSync(join(__dirname, "..", "..", "data"))) {
+    mkdirSync(join(__dirname, "..", "..", "data"), {
+      recursive: true,
+    });
+  }
+  writeFileSync(path, stateString);
 };

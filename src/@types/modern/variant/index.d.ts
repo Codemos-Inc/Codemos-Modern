@@ -1,8 +1,10 @@
 import { AdaptiveMode } from "..";
 
 export type VariantConfig = {
+  auxiliaryUiTheme: string | null;
   accentColor: string;
   adaptiveMode: AdaptiveMode;
+  auxiliaryCodeTheme: string | null;
 };
 
 export type Palette = {
