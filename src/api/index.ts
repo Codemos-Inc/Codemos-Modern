@@ -13,11 +13,15 @@ import {
   repositoryObtainedMessage,
 } from "./messages";
 
-const octokit = new Octokit({
+let octokit = new Octokit({
   request: {
     fetch: require("node-fetch"),
   },
 });
+
+export const setOctokit = (newOctokit: Octokit) => {
+  octokit = newOctokit;
+};
 
 export const checkIfRepoExists = async (
   owner: string,

@@ -28,9 +28,10 @@ import {
 } from "./sharedState";
 import { getStateObject } from "./state";
 
-export const verifyState = (): boolean => {
+export const verifyState = (config?: Config): boolean => {
   return (
-    JSON.stringify(getStateObject().config) === JSON.stringify(getConfig())
+    JSON.stringify(getStateObject().config) ===
+    JSON.stringify(config ? config : getConfig())
   );
 };
 
@@ -184,7 +185,7 @@ export const updateModern = async (
     const allSuccess = onFullFilled.every((result) => {
       return result === true;
     });
-    if (allSuccess) {
+    if (allSuccess && updateTarget !== "none") {
       showInformationNotification(
         updateReason,
         ["Apply", "Later"],

@@ -55,7 +55,7 @@ export const showProgressNotification = async (
   await window.withProgress(
     {
       location: ProgressLocation.Notification,
-      title: title,
+      title,
       cancellable: false,
     },
     task,

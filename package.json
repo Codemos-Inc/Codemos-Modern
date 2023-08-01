@@ -39,7 +39,11 @@
     "commands": [
       {
         "command": "codemosModern.configure",
-        "title": "Codemos Modern: Configure"
+        "title": "Codemos Modern: Configure ⚙️"
+      },
+      {
+        "command": "codemosModern.authenticate",
+        "title": "Codemos Modern: Authenticate 🔗"
       }
     ],
     "themes": [
@@ -81,7 +85,7 @@
             ],
             "default": null,
             "markdownDescription": "Auxiliary theme to be used as the UI theme for `Codemos Modern (Dark)`. Should be in format `<owner>/<repo>/<publisher>/<extension>/<theme>`. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#modularity) for reference.",
-            "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/.+$",
+            "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/[a-zA-Z0-9-]+/.+/.+$",
             "patternErrorMessage": "Please enter a valid auxiliary theme. Example: Codemos-Inc/Auxiliary-Theme-Registry/Microsoft/Defaults/Dark Modern"
           },
           "codemosModern.dark.accentColor": {
@@ -116,7 +120,7 @@
             ],
             "default": null,
             "markdownDescription": "Auxiliary theme to be used as the code theme for `Codemos Modern (Dark)`. Should be in format `<owner>/<repo>/<publisher>/<extension>/<theme>`. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#modularity) for reference.",
-            "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/.+$",
+            "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/[a-zA-Z0-9-]+/.+/.+$",
             "patternErrorMessage": "Please enter a valid auxiliary theme. Example: Codemos-Inc/Auxiliary-Theme-Registry/Microsoft/Defaults/Dark Modern"
           }
         }
@@ -132,7 +136,7 @@
             ],
             "default": null,
             "markdownDescription": "Auxiliary theme to be used as the UI theme for `Codemos Modern (Light)`. Should be in format `<owner>/<repo>/<publisher>/<extension>/<theme>`. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#modularity) for reference.",
-            "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/.+$",
+            "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/[a-zA-Z0-9-]+/.+/.+$",
             "patternErrorMessage": "Please enter a valid auxiliary theme. Example: Codemos-Inc/Auxiliary-Theme-Registry/Microsoft/Defaults/Light Modern"
           },
           "codemosModern.light.accentColor": {
@@ -167,7 +171,7 @@
             ],
             "default": null,
             "markdownDescription": "Auxiliary theme to be used as the code theme for `Codemos Modern (Light)`. Should be in format `<owner>/<repo>/<publisher>/<extension>/<theme>`. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#modularity) for reference.",
-            "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/.+$",
+            "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/[a-zA-Z0-9-]+/.+/.+$",
             "patternErrorMessage": "Please enter a valid auxiliary theme. Example: Codemos-Inc/Auxiliary-Theme-Registry/Microsoft/Defaults/Light Modern"
           }
         }

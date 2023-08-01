@@ -8,11 +8,14 @@ import {
   prepareAuxiliaryThemeRegistries,
 } from "../data";
 import { getAuxiliaryThemeId } from "../data/helpers";
+import { authenticate } from "./authentication";
+import { NOTIFICATION_SIGNATURE } from "./constants";
 import { toggleFirstLetterCase } from "./helpers";
+import { showProgressNotification } from "./notifications";
 import { setIsConfiguredFromCommand } from "./sharedState";
 import { getConfig, updateConfig } from "./utils";
 
-export const configure = async () => {
+export const configureCommand = async () => {
   //
   const variantLabel = await getVariantLabel();
   if (!variantLabel) {
@@ -91,18 +94,34 @@ export const configure = async () => {
     .update("colorTheme", `Codemos Modern (${toggleFirstLetterCase(variant)})`);
 };
 
+export const authenticateCommand = async () => {
+  showProgressNotification(
+    `${NOTIFICATION_SIGNATURE} Authenticating...`,
+    async () => {
+      const result = await authenticate(true);
+      if (!result.success) {
+        if (result.message) {
+          window.showErrorMessage(result.message);
+        }
+      } else {
+        window.showInformationMessage("Authenticated successfully!");
+      }
+    },
+  );
+};
+
 const getVariantLabel = async () => {
   const variant = await window.showQuickPick(
     [
       {
         label: "$(color-mode) Dark",
         description: "Variant",
-        detail: "Dark-heavy color scheme",
+        detail: "Dark-intensive color scheme",
       },
       {
         label: "$(color-mode) Light",
         description: "Variant",
-        detail: "Light-heavy color scheme",
+        detail: "Light-intensive color scheme",
       },
     ],
     {

@@ -25,7 +25,7 @@ export const networkErrorMessage = (status: number): string => {
 };
 
 export const apiRateLimitExceeded = (): string => {
-  return `Api rate limit exceeded! Check back an hour later.`;
+  return `API rate limit exceeded! Use "Codemos Modern: Authenticate 🔗" to increase your limit.`;
 };
 
 export const repoNotFoundMessage = (repoId: string): string => {
@@ -38,6 +38,10 @@ export const releaseNotFoundMessage = (repoId: string): string => {
 
 export const contentNotFileMessage = (path: string): string => {
   return `Content at "${path}" is not a file! Please contact with Codemos.`;
+};
+
+export const apiUnauthorized = () => {
+  return `Authentication failed. Please try again.`;
 };
 
 export const contentNotFoundMessage = (

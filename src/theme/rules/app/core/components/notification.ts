@@ -4,7 +4,7 @@ export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles;
   return {
     "notificationCenter.border": colors.stroke.surface.flyout,
-    "notificationCenterHeader.background": colors.bg.solid.base,
+    "notificationCenterHeader.background": colors.bg.solid.flyout,
     "notificationCenterHeader.foreground": colors.fill.text.pri,
     "notificationLink.foreground": colors.fill.accentText.pri,
     "notifications.background": colors.bg.solid.flyout,
