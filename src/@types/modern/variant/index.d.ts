@@ -46,10 +46,11 @@ export type Palette = {
 };
 
 export type MimicInfo = {
-  defaultColor: string;
-  adaptation: {
+  floorValue: number;
+  ceilValues: {
     none: number;
     gentle: number;
+    natural: number;
     aggressive: number;
   };
 };

@@ -46,47 +46,52 @@ const palette: Palette = {
 };
 
 const mimic1Info: MimicInfo = {
-  defaultColor: "#181818",
-  adaptation: {
-    none: 0,
-    gentle: 9,
-    aggressive: 17,
+  floorValue: 22,
+  ceilValues: {
+    none: 22,
+    gentle: 31,
+    natural: 38,
+    aggressive: 44,
   },
 };
 
 const mimic2Info: MimicInfo = {
-  defaultColor: "#1C1C1C",
-  adaptation: {
-    none: 0,
-    gentle: 7,
-    aggressive: 15,
+  floorValue: 27,
+  ceilValues: {
+    none: 27,
+    gentle: 35,
+    natural: 42,
+    aggressive: 48,
   },
 };
 
 const mimic3Info: MimicInfo = {
-  defaultColor: "#1F1F1F",
-  adaptation: {
-    none: 0,
-    gentle: 6,
-    aggressive: 13,
+  floorValue: 31,
+  ceilValues: {
+    none: 31,
+    gentle: 39,
+    natural: 45,
+    aggressive: 51,
   },
 };
 
 const mimic4Info: MimicInfo = {
-  defaultColor: "#262626",
-  adaptation: {
-    none: 0,
-    gentle: 5,
-    aggressive: 11,
+  floorValue: 39,
+  ceilValues: {
+    none: 39,
+    gentle: 46,
+    natural: 52,
+    aggressive: 58,
   },
 };
 
 const mimic5Info: MimicInfo = {
-  defaultColor: "#373737",
-  adaptation: {
-    none: 0,
-    gentle: 3,
-    aggressive: 6,
+  floorValue: 54,
+  ceilValues: {
+    none: 54,
+    gentle: 60,
+    natural: 66,
+    aggressive: 71,
   },
 };
 

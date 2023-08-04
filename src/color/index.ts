@@ -1,4 +1,4 @@
-import { AdaptiveMode, HSL, MimicInfo, RGB } from "../@types";
+import { AdaptiveMode, MimicInfo, RGB } from "../@types";
 import { computeCIEDE2000 } from "./cie";
 import {
   ACCENT_TEXT_MAX_CONTRAST_RATIO,
@@ -57,17 +57,54 @@ export const getMimicHex7 = (
   mimicInfo: MimicInfo,
   accentColorHex7: string,
   adaptiveMode: AdaptiveMode,
-  getsDarker: boolean,
+  isDark: boolean,
 ): string => {
-  if (adaptiveMode === "none") {
-    return mimicInfo.defaultColor;
+  const [r, g, b] = hex6ToRgb(getHex6FromHex7(accentColorHex7));
+  const floorValue = mimicInfo.floorValue;
+  const ceilValue = mimicInfo.ceilValues[adaptiveMode];
+  let rMimicVal = Math.round((r / 255) * Math.abs(ceilValue - floorValue));
+  if (isDark) {
+    rMimicVal += floorValue;
+  } else {
+    rMimicVal += ceilValue;
   }
-  const hex6 = getHex6FromHex7(accentColorHex7);
-  const saturation = mimicInfo.adaptation[adaptiveMode];
-  const referenceHex6 = getHex6FromHex7(mimicInfo.defaultColor);
-  return getHex7FromHex6(
-    getBalancedHex6(hex6, saturation, referenceHex6, getsDarker),
-  );
+  let rMimic: number;
+  if (rMimicVal < 0) {
+    rMimic = 0;
+  } else if (rMimicVal > 255) {
+    rMimic = 255;
+  } else {
+    rMimic = rMimicVal;
+  }
+  let gMimicVal = Math.round((g / 255) * Math.abs(ceilValue - floorValue));
+  if (isDark) {
+    gMimicVal += floorValue;
+  } else {
+    gMimicVal += ceilValue;
+  }
+  let gMimic: number;
+  if (gMimicVal < 0) {
+    gMimic = 0;
+  } else if (gMimicVal > 255) {
+    gMimic = 255;
+  } else {
+    gMimic = gMimicVal;
+  }
+  let bMimicVal = Math.round((b / 255) * Math.abs(ceilValue - floorValue));
+  if (isDark) {
+    bMimicVal += floorValue;
+  } else {
+    bMimicVal += ceilValue;
+  }
+  let bMimic: number;
+  if (bMimicVal < 0) {
+    bMimic = 0;
+  } else if (bMimicVal > 255) {
+    bMimic = 255;
+  } else {
+    bMimic = bMimicVal;
+  }
+  return rgbToHex7([rMimic, gMimic, bMimic]);
 };
 
 export const getMixedColorHex7 = (
@@ -168,37 +205,5 @@ const getContrastSafeHex6 = (
     currentColor = hslToHex6(hsl);
   }
 
-  return prevColor;
-};
-
-const getBalancedHex6 = (
-  hex6: string,
-  saturation: number,
-  referenceHex6: string,
-  getsDarker: boolean,
-): string => {
-  const hsl: HSL = [
-    rgbToHsl(hex6ToRgb(hex6))[0],
-    saturation,
-    getsDarker ? 100 : 0,
-  ];
-  let found = false;
-  let minimumContrastRatio: number = Number.MAX_SAFE_INTEGER;
-  let currentColor: string = hslToHex6(hsl);
-  let prevColor: string = hslToHex6(hsl);
-  while (!found) {
-    const currentContrastRatio = getContrastRatioHex6(
-      currentColor,
-      referenceHex6,
-    );
-    if (currentContrastRatio > minimumContrastRatio) {
-      found = true;
-      break;
-    }
-    minimumContrastRatio = currentContrastRatio;
-    prevColor = currentColor;
-    hsl[2] = getsDarker ? hsl[2] - 1 : hsl[2] + 1;
-    currentColor = hslToHex6(hsl);
-  }
   return prevColor;
 };

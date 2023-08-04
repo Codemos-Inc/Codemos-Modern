@@ -170,6 +170,11 @@ const getAdaptiveModeLabel = async (variant: Variant) => {
         detail: "Gentle accent color adaptation",
       },
       {
+        label: "$(circle-large-filled) Natural",
+        description: "Adaptive mode",
+        detail: "Natural accent color adaptation",
+      },
+      {
         label: "$(circle-large-filled) Aggressive",
         description: "Adaptive mode",
         detail: "Aggressive accent color adaptation",

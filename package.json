@@ -103,11 +103,13 @@
             "enum": [
               "none",
               "gentle",
+              "natural",
               "aggressive"
             ],
             "enumDescriptions": [
               "No accent color adaptation",
               "Gentle accent color adaptation",
+              "Natural accent color adaptation",
               "Aggressive accent color adaptation"
             ],
             "markdownDescription": "Adaptive mode to be used in `Codemos Modern (Dark)`. Will be discarded when `codemosModern.dark.uiTheme` is set. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#adaptability) for reference."
@@ -154,11 +156,13 @@
             "enum": [
               "none",
               "gentle",
+              "natural",
               "aggressive"
             ],
             "enumDescriptions": [
               "No accent color adaptation",
               "Gentle accent color adaptation",
+              "Natural accent color adaptation",
               "Aggressive accent color adaptation"
             ],
             "markdownDescription": "Adaptive mode to be used in `Codemos Modern (Dark)`. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#adaptability) for reference."
