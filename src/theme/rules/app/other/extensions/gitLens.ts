@@ -24,6 +24,8 @@ export const getRules = (themeContext: ThemeContext): object => {
     "gitlens.decorations.modifiedForegroundColor": colors.basic.def.blue.pri,
     "gitlens.decorations.renamedForegroundColor": colors.basic.def.yellow.pri,
     "gitlens.decorations.untrackedForegroundColor": colors.basic.alt.green.pri,
+    "gitlens.decorations.workspaceCurrentForegroundColor":
+      colors.basic.def.green.pri,
     "gitlens.decorations.workspaceRepoMissingForegroundColor":
       colors.fill.text.disabled,
     "gitlens.decorations.workspaceRepoOpenForegroundColor":

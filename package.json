@@ -29,7 +29,7 @@
     }
   },
   "engines": {
-    "vscode": "^1.80.0"
+    "vscode": "^1.81.0"
   },
   "activationEvents": [
     "*"
