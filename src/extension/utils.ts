@@ -3,6 +3,7 @@ import { ConfigurationTarget, workspace } from "vscode";
 import {
   AdaptiveMode,
   Config,
+  Design,
   ThemeContext,
   ThemePaths,
   Variant,
@@ -51,6 +52,10 @@ export const getConfig = (): Config => {
         "dark.auxiliaryUiTheme",
         defaultConfig.dark.auxiliaryUiTheme,
       ),
+      design: extensionSection.get<Design>(
+        "dark.design",
+        defaultConfig.dark.design,
+      ),
       accentColor: extensionSection.get<string>(
         "dark.accentColor",
         defaultConfig.dark.accentColor,
@@ -68,6 +73,10 @@ export const getConfig = (): Config => {
       auxiliaryUiTheme: extensionSection.get<string | null>(
         "light.auxiliaryUiTheme",
         defaultConfig.light.auxiliaryUiTheme,
+      ),
+      design: extensionSection.get<Design>(
+        "light.design",
+        defaultConfig.dark.design,
       ),
       accentColor: extensionSection.get<string>(
         "light.accentColor",
@@ -88,6 +97,7 @@ export const getConfig = (): Config => {
 export const updateConfig = (
   variant: Variant,
   auxiliaryUiTheme: string | null,
+  design: Design,
   accentColorHex7: string,
   adaptiveMode: AdaptiveMode,
   auxiliaryCodeTheme: string | null,
@@ -98,6 +108,7 @@ export const updateConfig = (
     auxiliaryUiTheme,
     ConfigurationTarget.Global,
   );
+  variantSection.update(`design`, design, ConfigurationTarget.Global);
   variantSection.update(
     `accentColor`,
     accentColorHex7,

@@ -1,8 +1,9 @@
 import { ThemeContext } from "../../../../../@types";
+import { TRANSPARENT } from "../../../../../color/constants";
 
 export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles;
-  return {
+  const panelRules = {
     "panel.background": colors.bg.solid.surface,
     "panel.border": colors.stroke.divider.default,
     "panel.dropBorder": colors.fill.accent.pri,
@@ -16,4 +17,12 @@ export const getRules = (themeContext: ThemeContext): object => {
     "panelTitle.activeForeground": colors.fill.text.pri,
     "panelTitle.inactiveForeground": colors.fill.text.sec,
   };
+  const design = themeContext.variantConfig.design;
+  if (design === "minimal") {
+    panelRules["panelSectionHeader.background"] = TRANSPARENT;
+    panelRules["panelSectionHeader.border"] = colors.stroke.control.default;
+    panelRules["panelTitle.activeBorder"] = TRANSPARENT;
+    panelRules["panelTitle.activeForeground"] = colors.fill.accent.pri;
+  }
+  return panelRules;
 };

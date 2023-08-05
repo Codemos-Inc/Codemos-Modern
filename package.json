@@ -88,32 +88,48 @@
             "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/[a-zA-Z0-9-]+/.+/.+$",
             "patternErrorMessage": "Please enter a valid auxiliary theme. Example: Codemos-Inc/Auxiliary-Theme-Registry/Microsoft/Defaults/Dark Modern"
           },
-          "codemosModern.dark.accentColor": {
+          "codemosModern.dark.design": {
             "order": 1,
             "type": "string",
+            "default": "modern",
+            "enum": [
+              "modern",
+              "minimal"
+            ],
+            "enumDescriptions": [
+              "Modern's original design",
+              "Minimalistic design"
+            ],
+            "markdownDescription": "Design to be used in `Codemos Modern (Dark)`. Will be discarded when `codemosModern.dark.auxiliaryUiTheme` is set. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#modularity) for reference."
+          },
+          "codemosModern.dark.accentColor": {
+            "order": 2,
+            "type": "string",
             "default": "#CB8569",
-            "markdownDescription": "HEX color code defining the accent color for `Codemos Modern (Dark)`. Will be discarded if `codemosModern.dark.uiTheme` is set.",
+            "markdownDescription": "HEX color code defining the accent color for `Codemos Modern (Dark)`. Will be discarded if `codemosModern.dark.auxiliaryUiTheme` is set.",
             "pattern": "^#[0-9A-Fa-f]{6}$",
             "patternErrorMessage": "Please enter a valid HEX color code. Example: #CB8569"
           },
           "codemosModern.dark.adaptiveMode": {
-            "order": 2,
+            "order": 3,
             "type": "string",
             "default": "none",
             "enum": [
               "none",
               "gentle",
+              "aggressive",
               "aggressive"
             ],
             "enumDescriptions": [
               "No accent color adaptation",
               "Gentle accent color adaptation",
+              "Moderate accent color adaptation",
               "Aggressive accent color adaptation"
             ],
-            "markdownDescription": "Adaptive mode to be used in `Codemos Modern (Dark)`. Will be discarded when `codemosModern.dark.uiTheme` is set. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#adaptability) for reference."
+            "markdownDescription": "Adaptive mode to be used in `Codemos Modern (Dark)`. Will be discarded when `codemosModern.dark.auxiliaryUiTheme` is set. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#adaptability) for reference."
           },
           "codemosModern.dark.auxiliaryCodeTheme": {
-            "order": 3,
+            "order": 4,
             "type": [
               "string",
               "null"
@@ -139,32 +155,48 @@
             "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/[a-zA-Z0-9-]+/.+/.+$",
             "patternErrorMessage": "Please enter a valid auxiliary theme. Example: Codemos-Inc/Auxiliary-Theme-Registry/Microsoft/Defaults/Light Modern"
           },
-          "codemosModern.light.accentColor": {
+          "codemosModern.light.design": {
             "order": 1,
             "type": "string",
+            "default": "modern",
+            "enum": [
+              "modern",
+              "minimal"
+            ],
+            "enumDescriptions": [
+              "Modern's original design",
+              "Minimalistic design"
+            ],
+            "markdownDescription": "Design to be used in `Codemos Modern (Light)`. Will be discarded when `codemosModern.light.auxiliaryUiTheme` is set. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#modularity) for reference."
+          },
+          "codemosModern.light.accentColor": {
+            "order": 2,
+            "type": "string",
             "default": "#784F3F",
-            "markdownDescription": "HEX color code defining the accent color for `Codemos Modern (Light)`. Will be discarded when `codemosModern.light.uiTheme` is set.",
+            "markdownDescription": "HEX color code defining the accent color for `Codemos Modern (Light)`. Will be discarded when `codemosModern.light.auxiliaryUiTheme` is set.",
             "pattern": "^#[0-9A-Fa-f]{6}$",
             "patternErrorMessage": "Please enter a valid HEX color code. Example: #784F3F"
           },
           "codemosModern.light.adaptiveMode": {
-            "order": 2,
+            "order": 3,
             "type": "string",
             "default": "none",
             "enum": [
               "none",
               "gentle",
+              "moderate",
               "aggressive"
             ],
             "enumDescriptions": [
               "No accent color adaptation",
               "Gentle accent color adaptation",
+              "Moderate accent color adaptation",
               "Aggressive accent color adaptation"
             ],
-            "markdownDescription": "Adaptive mode to be used in `Codemos Modern (Dark)`. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#adaptability) for reference."
+            "markdownDescription": "Adaptive mode to be used in `Codemos Modern (Light)`. Will be discarded when `codemosModern.light.auxiliaryUiTheme` is set. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#adaptability) for reference."
           },
           "codemosModern.light.auxiliaryCodeTheme": {
-            "order": 3,
+            "order": 4,
             "type": [
               "string",
               "null"

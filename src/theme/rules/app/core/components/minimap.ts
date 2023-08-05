@@ -3,7 +3,7 @@ import { OPAQUE } from "../../../../../color/constants";
 
 export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles;
-  return {
+  const minimapRules = {
     "minimap.background": colors.bg.solid.surface,
     "minimap.errorHighlight": colors.basic.def.red.qua,
     "minimap.findMatchHighlight": colors.basic.def.mint.qua,
@@ -18,4 +18,9 @@ export const getRules = (themeContext: ThemeContext): object => {
     "minimapSlider.background": colors.fill.control.rest,
     "minimapSlider.hoverBackground": colors.fill.control.hover,
   };
+  const design = themeContext.variantConfig.design;
+  if (design === "minimal") {
+    minimapRules["minimap.background"] = colors.bg.solid.canvas;
+  }
+  return minimapRules;
 };

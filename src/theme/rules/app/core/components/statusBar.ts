@@ -2,7 +2,7 @@ import { ThemeContext } from "../../../../../@types";
 
 export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles;
-  return {
+  const statusBarRules = {
     "statusBar.background": colors.bg.solid.base,
     "statusBar.border": colors.stroke.control.default,
     "statusBar.debuggingBackground": colors.fill.system.bg.yellow,
@@ -29,4 +29,10 @@ export const getRules = (themeContext: ThemeContext): object => {
     "statusBarItem.warningBackground": colors.fill.system.bg.orange,
     "statusBarItem.warningForeground": colors.fill.system.fg.orange,
   };
+  const design = themeContext.variantConfig.design;
+  if (design === "minimal") {
+    statusBarRules["statusBar.noFolderBackground"] = colors.bg.solid.base;
+    statusBarRules["statusBar.noFolderForeground"] = colors.fill.text.pri;
+  }
+  return statusBarRules;
 };

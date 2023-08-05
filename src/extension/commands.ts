@@ -1,5 +1,5 @@
 import { QuickPickItem, QuickPickItemKind, window, workspace } from "vscode";
-import { AdaptiveMode, Variant } from "../@types";
+import { AdaptiveMode, Design, Variant } from "../@types";
 import { verifiedOwners } from "../auxiliary";
 import { validateHex6 } from "../color";
 import {
@@ -44,6 +44,16 @@ export const configureCommand = async () => {
     }
     auxiliaryUiTheme = auxiliaryUiThemeCandidate;
   }
+  const designLabel = !auxiliaryUiTheme ? await getDesign(variant) : null;
+  if (!designLabel && !auxiliaryUiTheme) {
+    return;
+  }
+  let design = null;
+  if (designLabel) {
+    design = toggleFirstLetterCase(
+      designLabel.replace(/\$\(.*\) /g, ""),
+    ) as Design;
+  }
   const accentColor = !auxiliaryUiTheme ? await getAccentColor(variant) : null;
   if (!accentColor && !auxiliaryUiTheme) {
     return;
@@ -85,6 +95,7 @@ export const configureCommand = async () => {
   updateConfig(
     variant,
     auxiliaryUiTheme,
+    !design ? getConfig()[variant].design : design,
     !accentColor ? getConfig()[variant].accentColor : accentColor,
     !adaptiveMode ? getConfig()[variant].adaptiveMode : adaptiveMode,
     auxiliaryCodeTheme,
@@ -136,6 +147,32 @@ const getVariantLabel = async () => {
   return variant.label;
 };
 
+const getDesign = async (variant: Variant) => {
+  const design = await window.showQuickPick(
+    [
+      {
+        label: "$(symbol-color) Modern",
+        description: "Design",
+        detail: "Modern's original design",
+      },
+      {
+        label: "$(symbol-color) Minimal",
+        description: "Design",
+        detail: "Minimalistic design",
+      },
+    ],
+    {
+      title: `Codemos Modern (${toggleFirstLetterCase(variant)}): UI Theme`,
+      placeHolder: "Select a design",
+      ignoreFocusOut: true,
+    },
+  );
+  if (!design) {
+    return undefined;
+  }
+  return design.label;
+};
+
 const getAccentColor = async (variant: Variant) => {
   const accentColorHex7 = await window.showInputBox({
     title: `Codemos Modern (${toggleFirstLetterCase(variant)}): UI Theme`,
@@ -170,6 +207,11 @@ const getAdaptiveModeLabel = async (variant: Variant) => {
         detail: "Gentle accent color adaptation",
       },
       {
+        label: "$(circle-large-filled) Moderate",
+        description: "Adaptive mode",
+        detail: "Moderate accent color adaptation",
+      },
+      {
         label: "$(circle-large-filled) Aggressive",
         description: "Adaptive mode",
         detail: "Aggressive accent color adaptation",
@@ -200,11 +242,12 @@ const getAuxiliaryThemeExtension = async (
   variant: Variant,
   kind: "ui" | "code",
 ) => {
+  const kindLabel = kind === "ui" ? "UI" : "Code";
   const quickPick = window.createQuickPick();
-  quickPick.title = `Codemos Modern (${toggleFirstLetterCase(variant)}): ${
-    kind === "ui" ? "UI" : "Code"
-  } Theme`;
-  quickPick.placeholder = `Select a ${kind} theme extension`;
+  quickPick.title = `Codemos Modern (${toggleFirstLetterCase(
+    variant,
+  )}): ${kindLabel} Theme`;
+  quickPick.placeholder = `Select a ${kindLabel} theme extension`;
   quickPick.ignoreFocusOut = true;
   quickPick.busy = true;
   quickPick.show();
@@ -295,13 +338,14 @@ const getAuxiliaryTheme = async (
   auxiliaryThemeExtension: string,
   kind: "ui" | "code",
 ) => {
+  const kindLabel = kind === "ui" ? "UI" : "Code";
   const quickPick = window.createQuickPick();
-  quickPick.title = `Codemos Modern (${toggleFirstLetterCase(variant)}): ${
-    kind === "ui" ? "UI" : "Code"
-  } Theme`;
+  quickPick.title = `Codemos Modern (${toggleFirstLetterCase(
+    variant,
+  )}): ${kindLabel} Theme`;
   quickPick.placeholder = `Select a variant of "${
     getAuxiliaryThemeId(auxiliaryThemeExtension).extension
-  }" to be used as ${kind} theme`;
+  }" to be used as the ${kindLabel} theme`;
   quickPick.ignoreFocusOut = true;
   quickPick.busy = true;
   quickPick.show();

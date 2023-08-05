@@ -1,11 +1,11 @@
-import { MimicInfo, Palette, Styles, VariantConfig } from "../../@types";
+import { MimicInfo, Palette, Styles, VariantConfig } from "../../../@types";
 import {
   chooseTextOnColor,
   getContrastSafeAccentColorHex7,
   getHexAlpha,
   getMimicHex7,
   getMixedColorHex7,
-} from "../../color";
+} from "../../../color";
 
 const palette: Palette = {
   loc: "#FFFFFF",
@@ -46,47 +46,97 @@ const palette: Palette = {
 };
 
 const mimic1Info: MimicInfo = {
-  defaultColor: "#ECECEC",
-  adaptation: {
-    none: 0,
-    gentle: 16,
-    aggressive: 40,
+  none: {
+    referenceColor: "#ECECEC",
+    saturation: 0,
+  },
+  gentle: {
+    referenceColor: "#ECECEC",
+    saturation: 16,
+  },
+  moderate: {
+    referenceColor: "#EBEBEB",
+    saturation: 40,
+  },
+  aggressive: {
+    referenceColor: "#E1E1E1",
+    saturation: 50,
   },
 };
 
 const mimic2Info: MimicInfo = {
-  defaultColor: "#F2F2F2",
-  adaptation: {
-    none: 0,
-    gentle: 24,
-    aggressive: 54,
+  none: {
+    referenceColor: "#F2F2F2",
+    saturation: 0,
+  },
+  gentle: {
+    referenceColor: "#F2F2F2",
+    saturation: 24,
+  },
+  moderate: {
+    referenceColor: "#F1F1F1",
+    saturation: 54,
+  },
+  aggressive: {
+    referenceColor: "#E7E7E7",
+    saturation: 64,
   },
 };
 
 const mimic3Info: MimicInfo = {
-  defaultColor: "#F8F8F8",
-  adaptation: {
-    none: 0,
-    gentle: 36,
-    aggressive: 85,
+  none: {
+    referenceColor: "#F8F8F8",
+    saturation: 0,
+  },
+  gentle: {
+    referenceColor: "#F8F8F8",
+    saturation: 36,
+  },
+  moderate: {
+    referenceColor: "#F7F7F7",
+    saturation: 85,
+  },
+  aggressive: {
+    referenceColor: "#EBEBEB",
+    saturation: 95,
   },
 };
 
 const mimic4Info: MimicInfo = {
-  defaultColor: "#FBFBFB",
-  adaptation: {
-    none: 0,
-    gentle: 60,
-    aggressive: 100,
+  none: {
+    referenceColor: "#FBFBFB",
+    saturation: 0,
+  },
+  gentle: {
+    referenceColor: "#FBFBFB",
+    saturation: 60,
+  },
+  moderate: {
+    referenceColor: "#FAFAFA",
+    saturation: 100,
+  },
+  aggressive: {
+    referenceColor: "#EFEFEF",
+    saturation: 100,
   },
 };
 
 const mimic5Info: MimicInfo = {
-  defaultColor: "#CACACA",
-  adaptation: {
-    none: 0,
-    gentle: 8,
-    aggressive: 16,
+  none: {
+    referenceColor: "#CACACA",
+    saturation: 0,
+  },
+  gentle: {
+    referenceColor: "#CACACA",
+    saturation: 8,
+  },
+  moderate: {
+    referenceColor: "#C9C9C9",
+    saturation: 16,
+  },
+  aggressive: {
+    referenceColor: "#C1C1C1",
+    saturation: 26,
   },
 };
 

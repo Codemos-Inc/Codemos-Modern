@@ -3,7 +3,7 @@ import { TRANSPARENT } from "../../../../../color/constants";
 
 export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles;
-  return {
+  const editorRules = {
     "editor.background": colors.bg.solid.canvas,
     "editor.findMatchBackground": colors.basic.def.mint.qua,
     "editor.findMatchBorder": colors.stroke.control.default,
@@ -138,4 +138,10 @@ export const getRules = (themeContext: ThemeContext): object => {
     "searchEditor.findMatchBorder": colors.stroke.control.default,
     "searchEditor.textInputBorder": colors.stroke.control.default,
   };
+  const design = themeContext.variantConfig.design;
+  if (design === "minimal") {
+    editorRules["editorGutter.background"] = colors.bg.solid.canvas;
+    editorRules["editorOverviewRuler.background"] = colors.bg.solid.canvas;
+  }
+  return editorRules;
 };

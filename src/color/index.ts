@@ -60,11 +60,11 @@ export const getMimicHex7 = (
   getsDarker: boolean,
 ): string => {
   if (adaptiveMode === "none") {
-    return mimicInfo.defaultColor;
+    return mimicInfo.none.referenceColor;
   }
   const hex6 = getHex6FromHex7(accentColorHex7);
-  const saturation = mimicInfo.adaptation[adaptiveMode];
-  const referenceHex6 = getHex6FromHex7(mimicInfo.defaultColor);
+  const saturation = mimicInfo[adaptiveMode].saturation;
+  const referenceHex6 = getHex6FromHex7(mimicInfo[adaptiveMode].referenceColor);
   return getHex7FromHex6(
     getBalancedHex6(hex6, saturation, referenceHex6, getsDarker),
   );
