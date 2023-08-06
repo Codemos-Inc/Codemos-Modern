@@ -1,16 +1,26 @@
-import { QuickPickItem, QuickPickItemKind, window, workspace } from "vscode";
+import {
+  ColorThemeKind,
+  QuickPickItem,
+  QuickPickItemKind,
+  Uri,
+  window,
+  workspace,
+} from "vscode";
 import { AdaptiveMode, Design, Variant } from "../@types";
 import { verifiedOwners } from "../auxiliary";
-import { validateHex6 } from "../color";
+import { getMimicHex7, validateHex6 } from "../color";
 import {
   getAllAuxiliaryThemeRegistryIndexes as getAuxiliaryThemeRegistryIndexes,
   prepareAuxiliaryTheme,
   prepareAuxiliaryThemeRegistries,
 } from "../data";
 import { getAuxiliaryThemeId } from "../data/helpers";
+import { mimic3Info as darkMimic } from "../modern/variants/dark/modern";
+import { mimic1Info as lightMimic } from "../modern/variants/light/modern";
 import { authenticate } from "./authentication";
 import { NOTIFICATION_SIGNATURE } from "./constants";
 import { toggleFirstLetterCase } from "./helpers";
+import { generateAdaptiveModeIcons } from "./icons";
 import { showProgressNotification } from "./notifications";
 import { setIsConfiguredFromCommand } from "./sharedState";
 import { getConfig, updateConfig } from "./utils";
@@ -21,9 +31,7 @@ export const configureCommand = async () => {
   if (!variantLabel) {
     return;
   }
-  const variant = toggleFirstLetterCase(
-    variantLabel.replace(/\$\(.*\) /g, ""),
-  ) as Variant;
+  const variant = toggleFirstLetterCase(variantLabel) as Variant;
   //
   const auxiliaryUiThemeExtension = await getAuxiliaryThemeExtension(
     variant,
@@ -60,16 +68,14 @@ export const configureCommand = async () => {
   }
   //
   const adaptiveModeLabel = !auxiliaryUiTheme
-    ? await getAdaptiveModeLabel(variant)
+    ? await getAdaptiveModeLabel(variant, accentColor!)
     : null;
   if (!adaptiveModeLabel && !auxiliaryUiTheme) {
     return;
   }
   let adaptiveMode = null;
   if (adaptiveModeLabel) {
-    adaptiveMode = toggleFirstLetterCase(
-      adaptiveModeLabel.replace(/\$\(.*\) /g, ""),
-    ) as AdaptiveMode;
+    adaptiveMode = toggleFirstLetterCase(adaptiveModeLabel) as AdaptiveMode;
   }
   //
   const auxiliaryCodeThemeExtension = await getAuxiliaryThemeExtension(
@@ -122,17 +128,47 @@ export const authenticateCommand = async () => {
 };
 
 const getVariantLabel = async () => {
+  let darkModeIconUri: Uri;
+  let lightModeIconUri: Uri;
+  switch (window.activeColorTheme.kind) {
+    case ColorThemeKind.Dark || ColorThemeKind.HighContrast:
+      darkModeIconUri = Uri.file(
+        `${__dirname}/../../res/icons/dark/dark_mode.svg`,
+      );
+      lightModeIconUri = Uri.file(
+        `${__dirname}/../../res/icons/dark/light_mode.svg`,
+      );
+      break;
+    case ColorThemeKind.Light || ColorThemeKind.HighContrastLight:
+      darkModeIconUri = Uri.file(
+        `${__dirname}/../../res/icons/light/dark_mode.svg`,
+      );
+      lightModeIconUri = Uri.file(
+        `${__dirname}/../../res/icons/light/light_mode.svg`,
+      );
+      break;
+    default:
+      darkModeIconUri = Uri.file(
+        `${__dirname}/../../res/icons/dark/dark_mode.svg`,
+      );
+      lightModeIconUri = Uri.file(
+        `${__dirname}/../../res/icons/dark/light_mode.svg`,
+      );
+      break;
+  }
   const variant = await window.showQuickPick(
     [
       {
-        label: "$(color-mode) Dark",
+        label: "Dark",
         description: "Variant",
         detail: "Dark-intensive color scheme",
+        iconPath: darkModeIconUri,
       },
       {
-        label: "$(color-mode) Light",
+        label: "Light",
         description: "Variant",
         detail: "Light-intensive color scheme",
+        iconPath: lightModeIconUri,
       },
     ],
     {
@@ -193,40 +229,140 @@ const getAccentColor = async (variant: Variant) => {
   return accentColorHex7;
 };
 
-const getAdaptiveModeLabel = async (variant: Variant) => {
-  const adaptiveMode = await window.showQuickPick(
-    [
-      {
-        label: "$(circle-outline) None",
-        description: "Adaptive mode",
-        detail: "No accent color adaptation",
-      },
-      {
-        label: "$(circle-filled) Gentle",
-        description: "Adaptive mode",
-        detail: "Gentle accent color adaptation",
-      },
-      {
-        label: "$(circle-large-filled) Moderate",
-        description: "Adaptive mode",
-        detail: "Moderate accent color adaptation",
-      },
-      {
-        label: "$(circle-large-filled) Aggressive",
-        description: "Adaptive mode",
-        detail: "Aggressive accent color adaptation",
-      },
-    ],
+const getAdaptiveModeLabel = async (
+  variant: Variant,
+  accentColorHex7: string,
+) => {
+  const quickPick = await window.createQuickPick();
+  quickPick.title = `Codemos Modern (${toggleFirstLetterCase(
+    variant,
+  )}): UI Theme`;
+  quickPick.placeholder = "Select an adaptive mode";
+  quickPick.ignoreFocusOut = true;
+  quickPick.busy = true;
+  quickPick.show();
+  prepareIcons(variant, accentColorHex7);
+  quickPick.items = [
     {
-      title: `Codemos Modern (${toggleFirstLetterCase(variant)}): UI Theme`,
-      placeHolder: "Select an adaptive mode",
-      ignoreFocusOut: true,
+      label: "None",
+      description: "Adaptive mode",
+      detail: "No accent color adaptation",
+      iconPath: Uri.file(
+        `${__dirname}/../../res/icons/${variant}/adaptation_none.svg`,
+      ),
     },
-  );
-  if (!adaptiveMode) {
-    return undefined;
+    {
+      label: "Gentle",
+      description: "Adaptive mode",
+      detail: "Gentle accent color adaptation",
+      iconPath: Uri.file(
+        `${__dirname}/../../res/icons/${variant}/adaptation_gentle.svg`,
+      ),
+    },
+    {
+      label: "Moderate",
+      description: "Adaptive mode",
+      detail: "Moderate accent color adaptation",
+      iconPath: Uri.file(
+        `${__dirname}/../../res/icons/${variant}/adaptation_moderate.svg`,
+      ),
+    },
+    {
+      label: "Aggressive",
+      description: "Adaptive mode",
+      detail: "Aggressive accent color adaptation",
+      iconPath: Uri.file(
+        `${__dirname}/../../res/icons/${variant}/adaptation_aggressive.svg`,
+      ),
+    },
+  ];
+  quickPick.busy = false;
+  return await new Promise<string | undefined>((resolve) => {
+    quickPick.onDidAccept(() => {
+      const selectedAdaptiveMode = quickPick.selectedItems[0];
+      quickPick.dispose();
+      if (selectedAdaptiveMode) {
+        return resolve(selectedAdaptiveMode.label);
+      } else {
+        return resolve(undefined);
+      }
+    });
+  });
+};
+
+const prepareIcons = (variant: Variant, accentColorHex7: string) => {
+  let noneModeColor: string;
+  let gentleModeColor: string;
+  let moderateModeColor: string;
+  let aggressiveModeColor: string;
+  if (variant === "dark") {
+    noneModeColor = getMimicHex7(darkMimic, accentColorHex7, "none", true);
+    gentleModeColor = getMimicHex7(darkMimic, accentColorHex7, "gentle", true);
+    moderateModeColor = getMimicHex7(
+      darkMimic,
+      accentColorHex7,
+      "moderate",
+      true,
+    );
+    aggressiveModeColor = getMimicHex7(
+      darkMimic,
+      accentColorHex7,
+      "aggressive",
+      true,
+    );
+  } else {
+    noneModeColor = getMimicHex7(lightMimic, accentColorHex7, "none", false);
+    gentleModeColor = getMimicHex7(
+      lightMimic,
+      accentColorHex7,
+      "gentle",
+      false,
+    );
+    moderateModeColor = getMimicHex7(
+      lightMimic,
+      accentColorHex7,
+      "moderate",
+      false,
+    );
+    aggressiveModeColor = getMimicHex7(
+      lightMimic,
+      accentColorHex7,
+      "aggressive",
+      false,
+    );
   }
-  return adaptiveMode.label;
+  switch (window.activeColorTheme.kind) {
+    case ColorThemeKind.Dark || ColorThemeKind.HighContrast:
+      generateAdaptiveModeIcons(
+        variant,
+        true,
+        noneModeColor,
+        gentleModeColor,
+        moderateModeColor,
+        aggressiveModeColor,
+      );
+      break;
+    case ColorThemeKind.Light || ColorThemeKind.HighContrastLight:
+      generateAdaptiveModeIcons(
+        variant,
+        false,
+        noneModeColor,
+        gentleModeColor,
+        moderateModeColor,
+        aggressiveModeColor,
+      );
+      break;
+    default:
+      generateAdaptiveModeIcons(
+        variant,
+        true,
+        noneModeColor,
+        gentleModeColor,
+        moderateModeColor,
+        aggressiveModeColor,
+      );
+      break;
+  }
 };
 
 interface AuxiliaryThemeExtensionAsQuickPickItem extends QuickPickItem {

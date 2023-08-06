@@ -83,7 +83,7 @@ const mimic2Info: MimicInfo = {
   },
 };
 
-const mimic3Info: MimicInfo = {
+export const mimic3Info: MimicInfo = {
   none: {
     referenceColor: "#1F1F1F",
     saturation: 0,

@@ -45,7 +45,7 @@ const palette: Palette = {
   },
 };
 
-const mimic1Info: MimicInfo = {
+export const mimic1Info: MimicInfo = {
   none: {
     referenceColor: "#ECECEC",
     saturation: 0,
