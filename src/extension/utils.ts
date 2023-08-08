@@ -14,6 +14,7 @@ import {
   prepareAuxiliaryTheme,
   prepareAuxiliaryThemeRegistries,
 } from "../data";
+import { updateBridge } from "../main";
 import { defaultConfig } from "../modern";
 import { getStyles } from "../modern/variants";
 import { getThemeObject } from "../theme";
@@ -94,7 +95,7 @@ export const getConfig = (): Config => {
   };
 };
 
-export const updateConfig = (
+export const updateConfig = async (
   variant: Variant,
   auxiliaryUiTheme: string | null,
   design: Design,
@@ -103,27 +104,28 @@ export const updateConfig = (
   auxiliaryCodeTheme: string | null,
 ) => {
   const variantSection = workspace.getConfiguration(`codemosModern.${variant}`);
-  variantSection.update(
+  await variantSection.update(
     `auxiliaryUiTheme`,
     auxiliaryUiTheme,
     ConfigurationTarget.Global,
   );
-  variantSection.update(`design`, design, ConfigurationTarget.Global);
-  variantSection.update(
+  await variantSection.update(`design`, design, ConfigurationTarget.Global);
+  await variantSection.update(
     `accentColor`,
     accentColorHex7,
     ConfigurationTarget.Global,
   );
-  variantSection.update(
+  await variantSection.update(
     `adaptiveMode`,
     adaptiveMode,
     ConfigurationTarget.Global,
   );
-  variantSection.update(
+  await variantSection.update(
     `auxiliaryCodeTheme`,
     auxiliaryCodeTheme,
     ConfigurationTarget.Global,
   );
+  updateBridge(variant, UpdateReason.CONFIG_CHANGE);
 };
 
 export const updateModern = async (

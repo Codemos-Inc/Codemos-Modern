@@ -106,7 +106,7 @@ export const configureCommand = async () => {
     !adaptiveMode ? getConfig()[variant].adaptiveMode : adaptiveMode,
     auxiliaryCodeTheme,
   );
-  workspace
+  await workspace
     .getConfiguration("workbench")
     .update("colorTheme", `Codemos Modern (${toggleFirstLetterCase(variant)})`);
 };
@@ -128,6 +128,7 @@ export const authenticateCommand = async () => {
 };
 
 const getVariantLabel = async () => {
+  // 🟡 Hacky workaround for the vscode api not picking the correct icon based on the active ui theme
   let darkModeIconUri: Uri;
   let lightModeIconUri: Uri;
   switch (window.activeColorTheme.kind) {
@@ -528,7 +529,7 @@ const getAuxiliaryTheme = async (
   quickPick.busy = false;
   quickPick.items = auxiliaryThemeAsQuickPickItems;
   return await new Promise<string | undefined>((resolve) => {
-    quickPick.onDidAccept(() => {
+    quickPick.onDidAccept(async () => {
       const selectedAuxiliaryTheme = quickPick.selectedItems[0];
       quickPick.dispose();
       if (selectedAuxiliaryTheme) {
@@ -536,7 +537,7 @@ const getAuxiliaryTheme = async (
           selectedAuxiliaryTheme as AuxiliaryThemeExtensionAsQuickPickItem
         ).auxiliaryThemeId;
         if (selectedAuxiliaryThemeId) {
-          const success = prepareAuxiliaryTheme(
+          const success = await prepareAuxiliaryTheme(
             selectedAuxiliaryThemeId,
             variant,
           );

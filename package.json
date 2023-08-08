@@ -3,7 +3,7 @@
   "displayName": "Codemos Modern",
   "publisher": "Codemos",
   "icon": "res/icon.png",
-  "description": "Innovative, modern theme suite for VS Code",
+  "description": "Innovative, modern theme suite/hub for VS Code",
   "version": "2.0.0",
   "license": "MIT",
   "repository": {
@@ -14,7 +14,7 @@
     "url": "https://github.com/sponsors/EmrecanKaracayir"
   },
   "galleryBanner": {
-    "color": "#181818",
+    "color": "#171717",
     "theme": "dark"
   },
   "extensionKind": [
@@ -85,7 +85,7 @@
             ],
             "default": null,
             "markdownDescription": "Auxiliary theme to be used as the UI theme for `Codemos Modern (Dark)`. Should be in format `<owner>/<repo>/<publisher>/<extension>/<theme>`. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#modularity) for reference.",
-            "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/[a-zA-Z0-9-]+/.+/.+$",
+            "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/.+/.+/.+$",
             "patternErrorMessage": "Please enter a valid auxiliary theme. Example: Codemos-Inc/Auxiliary-Theme-Registry/Microsoft/Defaults/Dark Modern"
           },
           "codemosModern.dark.design": {
@@ -136,7 +136,7 @@
             ],
             "default": null,
             "markdownDescription": "Auxiliary theme to be used as the code theme for `Codemos Modern (Dark)`. Should be in format `<owner>/<repo>/<publisher>/<extension>/<theme>`. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#modularity) for reference.",
-            "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/[a-zA-Z0-9-]+/.+/.+$",
+            "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/.+/.+/.+$",
             "patternErrorMessage": "Please enter a valid auxiliary theme. Example: Codemos-Inc/Auxiliary-Theme-Registry/Microsoft/Defaults/Dark Modern"
           }
         }
@@ -152,7 +152,7 @@
             ],
             "default": null,
             "markdownDescription": "Auxiliary theme to be used as the UI theme for `Codemos Modern (Light)`. Should be in format `<owner>/<repo>/<publisher>/<extension>/<theme>`. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#modularity) for reference.",
-            "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/[a-zA-Z0-9-]+/.+/.+$",
+            "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/.+/.+/.+$",
             "patternErrorMessage": "Please enter a valid auxiliary theme. Example: Codemos-Inc/Auxiliary-Theme-Registry/Microsoft/Defaults/Light Modern"
           },
           "codemosModern.light.design": {
@@ -203,7 +203,7 @@
             ],
             "default": null,
             "markdownDescription": "Auxiliary theme to be used as the code theme for `Codemos Modern (Light)`. Should be in format `<owner>/<repo>/<publisher>/<extension>/<theme>`. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#modularity) for reference.",
-            "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/[a-zA-Z0-9-]+/.+/.+$",
+            "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/.+/.+/.+$",
             "patternErrorMessage": "Please enter a valid auxiliary theme. Example: Codemos-Inc/Auxiliary-Theme-Registry/Microsoft/Defaults/Light Modern"
           }
         }

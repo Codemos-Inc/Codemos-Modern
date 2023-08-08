@@ -13,7 +13,7 @@
 [![downloads](https://img.shields.io/visual-studio-marketplace/d/codemos.codemos-modern?labelColor=373737&color=9B87EA&label=&logo=docusign&logoColor=white&style=for-the-badge)](https://marketplace.visualstudio.com/items?itemName=Codemos.codemos-modern)
 ![sponsors](https://img.shields.io/github/sponsors/EmrecanKaracayir?labelColor=373737&color=ef6363&label=&logo=githubsponsors&logoColor=white&style=for-the-badge)
 
-Innovative, modern theme suite for VS Code
+Innovative, modern theme suite/hub for VS Code
 
 <br/>
 
@@ -36,24 +36,24 @@ Innovative, modern theme suite for VS Code
 
 <h2 id="rdme-about">📖 About</h1>
 
-We at Codemos, are delighted to bring our most beloved theme family to [Visual Studio Code](https://code.visualstudio.com/). Just as VS Code redefined code editing, we're going to redefine how it should look.
+We at Codemos, are delighted to bring **Codemos Modern** to [Visual Studio Code](https://code.visualstudio.com/). Just as VS Code redefined code editing, we're going to redefine how it should look.
 
-Codemos Modern is a member of the Codemos theme family. It is built from the ground up to be the best modern theme for VS Code. It gets its core principles from the Codemos design language and our [Modern theme principles](#modern-theme-principles).
+Modern released as an **innovative, modern theme suite for VS Code** but with the release of **V2**, it became **modular system that is highly customizable**. It also **became an hub** for the both first and third party themes to allow you to mix and match your favorite ones. Bundled themes designed with our [Modern theme principles](#modern-theme-principles) in mind.
 
 <br/>
 
-> _Codemos Modern is designed to be the **only modern theme you would ever need** for your code editors._
+> _Codemos Modern is designed to be the **only extension you would ever need** to configure VS Code's look._
 
 <br/>
 
 ### **Modern theme principles**
 
-We built Codemos Modern with these fundamental principles:
+We built bundled themes with these fundamental principles:
 
 - **Finest Quality:** As all of our themes, our modern theme should be of the highest quality. It should be well thought out and well designed. It should be a pleasure to use.
 - **Unopinionated Design:** Our modern theme should stay neutral and not force a specific design language on the user. User should be able to make it their own.
 - **Minimal:** Our modern theme should use the bare essentials to create a simple and uncluttered UI. It should not be distracting.
-- **Consistent:** Our modern theme should provide a consistent experience across all of the UI. It should be consistent with the other Codemos variants.
+- **Consistent:** Our modern theme should provide a consistent experience across all of the UI. It should be consistent with Modern's other variants and designs.
 - **Accessible:** Our modern theme should be accessible to everyone. It should be easy to read and easy to use.
 
 <br/>
@@ -64,13 +64,13 @@ We built Codemos Modern with these fundamental principles:
 1. Search for `Codemos Modern`
 1. Click **Install**
 1. Open the **Command Palette** with `Ctrl+Shift+P` or `⌘⇧P`
-1. Find **Codemos Modern: Configure** and create your own Codemos Modern
-1. When your theme is ready, click **Apply** to apply it
+1. Find **Codemos Modern: Configure ⚙️** and configure your own Modern
+1. When Modern is ready, click **Apply** to apply it
 1. Enjoy! 🎉
 
 <br/>
 
-> **NOTE:** Learn the basics about Codemos Modern and how to use **Codemos Modern: Configure** by reading the [documentation](#rdme-doc).
+> **NOTE:** Learn the basics about Codemos Modern and how to use **Codemos Modern: Configure ⚙️** by reading the [documentation](#rdme-doc).
 
 <br/>
 
@@ -78,73 +78,110 @@ We built Codemos Modern with these fundamental principles:
 
 In this section, you can find the documentation for the Codemos Modern.
 
-- [Customization](#customization)
+- [Configuration](#configuration)
+- [Modularity](#modularity)
 - [Adaptability](#adaptability)
 - [Color and code intelligibility](#color-and-code-intelligibility)
 
 <br/>
 
-### **Customization**
+### **Configuration**
 
-Codemos Modern provides three customization options through the command **Codemos Modern: Configure**.
-
-<br/>
-
-> **NOTE:** You can activate command **Codemos Modern: Configure** from the **Command Palette**. See [Installation section](#rdme-install) to learn how to do it.
+Codemos Modern provides three configuration options through the command **Codemos Modern: Configure ⚙️**.
 
 <br/>
 
-1. **Variant:** You can select which variant your theme will use. (Dark/Light)
-
-![variant](images/docs-1-1.png)
-
-2. **Accent color:** You can select which accent color your theme will use. (Accent color determines the color of the important ui elements; buttons, badges, links, emphasized text, etc. and effects the adaptability mode.)
-
-![accent-color](images/docs-1-2.png)
-
-> **NOTE:** In the previous versions of the Codemos Modern you were required to provide a contrast safe accent color. This is no longer the case. You can now provide any color you want and Modern will now cleverly handle accent color to keep itself accessible.
+> **NOTE:** You can activate command **Codemos Modern: Configure ⚙️** from the **Command Palette**. See [installation section](#rdme-install) to learn how to do it.
 
 <br/>
 
-3. **Adaptation Mode:** You can select which adaptation mode your theme would use. (Adaptation mode determines how much your accent color influence the rest of the UI. See [Adaptability Section](#adaptability) for more information.)
+1. **Variant:** You can select which variant your Modern will use. (Dark/Light)
 
-![adaptation-mode](images/docs-1-3.png)
+![variant](images/conf-variant.png)
 
-4. **Enjoy 🎉:** Click **Apply Codemos Modern** to apply your Codemos Modern.
+2. **UI Theme:** You can select which UI theme your Modern will use. (Bundled/From Registries)
 
-![apply](images/docs-1-4.png)
+![ui-theme](images/conf-ui-theme-1.png)
+
+- **Bundled:** If you choose a bundled theme, there are additional configurations you can configure. See [modularity section](#modularity) for more information.
+
+  1. **Design:** You can choose which design your Modern will use. (Design determines the overall look of the theme)
+     ![ui-theme-bundled](images/conf-ui-theme-2.png)
+  2. **Accent color:** You can select which accent color your theme will use. (Accent color determines the color of the important ui elements; buttons, badges, links, emphasized text, etc. and effects the adaptability mode)
+     ![accent-color](images/conf-ui-theme-3.png)
+  3. **Adaptation Mode:** You can select which adaptation mode your theme would use. (Adaptation mode determines how much your accent color influence the rest of the UI. See [adaptability section](#adaptability) for more information)
+     ![adaptation-mode](images/conf-ui-theme-4.png)
+
+- **From Registries:** You can also choose an auxiliary theme. Auxiliary themes are the themes that are not bundled with Modern but can be installed from the auxiliary theme registries. Codemos provides a builtin registry that features some of the most popular themes. You can also create your own registries. See [modularity section](#modularity) for more information.
+
+  1. **Auxiliary UI Theme:** You can select which auxiliary theme your Modern will use as the UI theme. (Auxiliary theme will be installed and activated automatically from the indicated registry)
+     ![ui-theme-from-registries](images/conf-ui-theme-2-a.png)
+
+3. **Code Theme:** You can select which code theme your Modern will use. (Code theme determines the colors of your codes)
+   ![code-theme](images/conf-code-theme-1.png)
+
+- **Bundled:** We worked hard to make sure that our bundled code theme provides the best developer experience possible. (See [color and code intelligibility section](#color-and-code-intelligibility) for more information) However, if you want to use an auxiliary code theme, you can select **From Registries** option and choose a code theme from the registries.
+
+- **From Registries:** You can also choose an auxiliary theme. Auxiliary themes are the themes that are not bundled with Modern but can be installed from the auxiliary theme registries. Codemos provides a builtin registry that features some of the most popular themes. You can also create your own registries. See [modularity section](#modularity) for more information.
+
+  1. **Auxiliary Code Theme:** You can select which auxiliary theme your Modern will use as the code theme. (Auxiliary theme will be installed and activated automatically from the indicated registry)
+     ![code-theme-from-registries](images/conf-code-theme-2-a.png)
+
+4. **Enjoy 🎉:** When you are done with your configurations, you can click **Apply** to apply your Modern.
+
+![apply](images/conf-apply.png)
+
+### **Modularity**
+
+After the launch of **Codemos Modern V2** we've decided to make Modern more modular, giving our users more freedom to express themselves. In order to achieve that, we've decided to allow side-loading of third party themes.
+
+#### How it works?
+
+We've designed a system for installing and managing third party themes. This system consists of two elements. **Auxiliary theme registries** and **Auxiliary themes**. Auxiliary theme registries are GitHub repositories that are the databases for third party themes and auxiliary themes are the actual third party themes. More information can be found in [our official registry's docs](https://github.com/Codemos-Inc/Auxiliary-Theme-Registry).
+
+By default, Modern comes with [our official registry](https://github.com/Codemos-Inc/Auxiliary-Theme-Registry), so you can benefit this system without any extra effort. However, you are not forced to use our official registry. You can use community registries or even create your own registries, _possibilities are endless_.
+
+This system allows you to match your favorite themes to **create your own style**. You can also share your styles to the community.
+
+#### How to side-load a theme?
+
+You don't have to do anything special. Just add your favorite registry to your registries list (from the configuration `codemosModern.auxiliaryThemeRegistries` in the settings) and select your favorite theme from the command **Codemos Modern: Configure ⚙️**.
+
+#### A little taste of modularity
+
+![modularity](images/docs-modularity.png)
+
+<div style="text-align: center; font-size: 0.8em; margin-top: -1em;">
+    <strong>UI Theme:</strong> <a href="https://marketplace.visualstudio.com/items?itemName=max-SS.cyberpunk">Cyberpunk</a> | <strong>Code Theme:</strong> <a href="https://marketplace.visualstudio.com/items?itemName=dracula-theme.theme-dracula">Dracula Official</a>
+</div>
+
+<br/>
 
 ### **Adaptability**
 
-Adaptability mode is a unique feature of Codemos Modern. Before explaining it, we first need to explain our motivation to create this feature.
+Adaptability mode is a unique feature of Codemos Modern. Before explaining it, we first need to explain our motivation to create it.
 
-With the launch of [Windows 11](https://www.microsoft.com/en-us/windows/windows-11), Microsoft introduced the [Mica material](https://learn.microsoft.com/en-us/windows/apps/design/style/mica) as a part of Windows 11's design system. Mica and its corresponding Apple counterpart [NSVisualEffectView](https://developer.apple.com/documentation/appkit/nsvisualeffectview) achieves the goal of making apps feel more in line with the operating system. Currently, VS Code doesn't provide these kinds of material.
+With the launch of [Windows 11](https://www.microsoft.com/en-us/windows/windows-11), Microsoft introduced the [Mica material](https://learn.microsoft.com/en-us/windows/apps/design/style/mica) as a part of Windows 11's design system. Mica and its corresponding Apple counterpart [NSVisualEffectView](https://developer.apple.com/documentation/appkit/nsvisualeffectview) achieves the goal of making apps feel more in line with the operating system. Currently, VS Code doesn't provide these kind of materials.
 
 There has been several attempts by the community to bring [glassmorphism](https://uxdesign.cc/glassmorphism-in-user-interfaces-1f39bb1308c9) to VS Code. An example extension which stands out is the [Vibrancy Continued](https://marketplace.visualstudio.com/items?itemName=illixion.vscode-vibrancy-continued) or the original, [Vibrancy](https://marketplace.visualstudio.com/items?itemName=eyhn.vscode-vibrancy). However, these extensions are not perfect. Because of the nature of VS Code, implementing a feature like this needs hacky solutions. These hacky solutions involve modifying/patching the VS Code installation, leaving you with a VS Code installation that is [unsupported](https://code.visualstudio.com/docs/supporting/FAQ#_installation-appears-to-be-corrupt-unsupported). These hacky solutions causes instabilities and UI inconsistences.
 
 We at Codemos, wanted to create a solution that doesn't involve modifying/patching the VS Code installation and doesn't cause any unwanted consequences. We wanted to create a solution that is built into the theme itself. That's why we created the **Adaptability mode**.
 
-<br/>
-
 #### How it works?
 
-When creating your Codemos Modern, you are asked to select an Adaptability mode, see [Customization Section](#customization). Currently, there are three options to choose from; **None**, **Gentle** and **Aggressive**. We are planning to add more options in the future.
+When creating your Codemos Modern, if you chose the bundled theme for your UI theme, you are asked to select an Adaptability mode, see [configuration section](#configuration). Currently, there are four options to choose from; **None**, **Gentle**, **Moderate** and **Aggressive**. When you select an Adaptability mode other than **None**, a clever algorithm will tint the UI colors based on your accent color, making you feel that the UI has transparency effects.
 
-When you select an Adaptability mode other than **None**, a clever algorithm will be used to trick your eyes into thinking that the UI has transparency effects. This is done by using the accent color as the reference when calculating the opaque color of the UI elements. This way, the UI elements will adapt to your accent color and they will look like they are letting the light pass through them.
+#### Adaptability modes
 
-<br/>
+- **None:** When you select this option, UI elements such as background colors will not adapt to your accent color. This is the default option.
 
-### Adaptability modes
+- **Gentle:** When you select this option, UI elements such as background colors will start to adapt to your accent color. If you want just a little taste of glassmorphism, this is the option for you.
 
-- **None:** When you select this option, other UI elements such as background colors will not adapt to your accent color. This is the default option.
+- **Moderate:** When you select this option, UI elements such as background colors will adapt to your accent color. This option is the most balanced option.
 
-- **Gentle:** When you select this option, other UI elements such as background colors will start to adapt to your accent color. This option is the most balanced option.
-
-- **Aggressive:** When you select this option, other UI elements such as background colors will adapt to your accent color as much as possible. This option is the most extreme option.
+- **Aggressive:** When you select this option, UI elements such as background colors will adapt to your accent color as much as possible. This option is the most extreme option.
 
 ![adaptability-modes](images/docs-2-1.png)
-
-> **NOTE:** We are currently monitoring this feature and planning to improve it in the future. If you have any suggestions, please [contribute](#rdme-contrib).
 
 <br/>
 
@@ -233,30 +270,23 @@ In this section you can find how Codemos Modern looks and feels in most used lan
 
 <h2 id="rdme-clog">📋 Change Log</h1>
 
-Changes from the last release shown below. If you want to see the full change log, visit [CHANGELOG.md](https://github.com/Codemos-Inc/Codemos-Modern/blob/main/CHANGELOG.md).
+Changes from the last major release shown below. If you want to see the full change log, visit [CHANGELOG.md](https://github.com/Codemos-Inc/Codemos-Modern/blob/main/CHANGELOG.md).
 
 ### Added
 
-- VS Code v1.80.x support.
-- Theming support for [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) extension.
-- Ability to sync Modern's configurations via VS Code settings.
-- Instant validation for accent color input in the command `Codemos Modern: Configure`.
+- VS Code v1.81.x support.
+- Modularity system. Users can now side-load **third party themes**.
+- Brand new design, **"Minimal"**. Users can now choose between **"Modern"** and **"Minimal"** designs.
+- Command `codemosModern.authenticate` to increase GitHub **api rate limits**.
 
 ### Fixed
 
-- Unable to recover theme configurations after updating Modern.
-- Inline chat double layered input bug via a hack. (Copilot [issue](https://github.com/microsoft/vscode-copilot-release/issues/248))
+- Material Icon Theme icons not correctly themed.
+- Multiple update requests to recompile themes.
 
 ### Changed
 
-- Configuration save location from `globalStorage` to settings. This allows Modern to sync configurations across accounts and profiles.
-- `Codemos Modern: Create Theme` command to `Codemos Modern: Configure`. Although you can configure Modern through settings, it is recommended to use the command for a better experience.
-- Extension icon.
-
-### Removed
-
-- Requirement of providing an accent color with an accessible contrast ratio. Modern will now cleverly handle accent color to keep itself accessible.
-- Obsolete `interactiveEditor.*` color attributes.
+- Command `codemosModern.configure` to be more clear an use the new `QuickPickItem` api for custom icons.
 
 <br/>
 
