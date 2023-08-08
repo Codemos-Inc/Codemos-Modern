@@ -24,12 +24,16 @@ export const getRules = (themeContext: ThemeContext): object => {
     "gitlens.decorations.modifiedForegroundColor": colors.basic.def.blue.pri,
     "gitlens.decorations.renamedForegroundColor": colors.basic.def.yellow.pri,
     "gitlens.decorations.untrackedForegroundColor": colors.basic.alt.green.pri,
+    "gitlens.decorations.workspaceCurrentForegroundColor":
+      colors.basic.def.green.pri,
     "gitlens.decorations.workspaceRepoMissingForegroundColor":
       colors.fill.text.disabled,
     "gitlens.decorations.workspaceRepoOpenForegroundColor":
       colors.basic.def.green.pri,
-    "gitlens.decorations.worktreeView.hasUncommittedChangesForegroundColor":
+    "gitlens.decorations.worktreeHasUncommittedChangesForegroundColor":
       colors.basic.alt.blue.pri,
+    "gitlens.decorations.worktreeMissingForegroundColor":
+      colors.basic.def.red.pri,
     "gitlens.graphChangesColumnAddedColor": colors.basic.def.green.pri,
     "gitlens.graphChangesColumnDeletedColor": colors.basic.def.red.pri,
     "gitlens.graphLane10Color": colors.basic.def.orange.pri,

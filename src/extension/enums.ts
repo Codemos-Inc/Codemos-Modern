@@ -1,7 +1,7 @@
 export enum UpdateReason {
-  CONFIG_CHANGE = "Codemos Modern: Modern is reconfigured",
-  FIRST_INSTALL = "Codemos Modern: Modern is created",
-  UPDATE = "Codemos Modern: Modern is updated",
-  REINSTALL = "Codemos Modern: Modern is ready",
-  PROFILE_CHANGE = "Codemos Modern: Profile is changed",
+  CONFIG_CHANGE = "Modern is reconfigured.",
+  FIRST_INSTALL = "Modern is created.",
+  UPDATE = "Modern is updated to V2! 🎉 Check out what's new at our extension page.",
+  REINSTALL = "Modern is ready!",
+  PROFILE_CHANGE = "Profile is changed.",
 }

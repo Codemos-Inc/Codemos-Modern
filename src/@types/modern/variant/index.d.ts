@@ -1,8 +1,11 @@
-import { AdaptiveMode } from "..";
+import { AdaptiveMode, Design } from "..";
 
 export type VariantConfig = {
+  auxiliaryUiTheme: string | null;
+  design: Design;
   accentColor: string;
   adaptiveMode: AdaptiveMode;
+  auxiliaryCodeTheme: string | null;
 };
 
 export type Palette = {
@@ -44,11 +47,21 @@ export type Palette = {
 };
 
 export type MimicInfo = {
-  defaultColor: string;
-  adaptation: {
-    none: number;
-    gentle: number;
-    aggressive: number;
+  none: {
+    referenceColor: string;
+    saturation: number;
+  };
+  gentle: {
+    referenceColor: string;
+    saturation: number;
+  };
+  moderate: {
+    referenceColor: string;
+    saturation: number;
+  };
+  aggressive: {
+    referenceColor: string;
+    saturation: number;
   };
 };
 

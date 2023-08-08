@@ -18,7 +18,7 @@ export function computeCIEDE2000(lab1: LAB, lab2: LAB): number {
     0.5 *
     (1 -
       Math.sqrt(
-        Math.pow(aC1C2, 7.0) / (Math.pow(aC1C2, 7.0) + Math.pow(25.0, 7.0))
+        Math.pow(aC1C2, 7.0) / (Math.pow(aC1C2, 7.0) + Math.pow(25.0, 7.0)),
       ));
 
   const a1p: number = (1.0 + G) * a1;
@@ -48,7 +48,7 @@ export function computeCIEDE2000(lab1: LAB, lab2: LAB): number {
     0.2 * Math.cos(radians(4 * aHp - 63));
   const dRo: number = 30 * Math.exp(-Math.pow((aHp - 275) / 25, 2));
   const RC: number = Math.sqrt(
-    Math.pow(aCp, 7.0) / (Math.pow(aCp, 7.0) + Math.pow(25.0, 7.0))
+    Math.pow(aCp, 7.0) / (Math.pow(aCp, 7.0) + Math.pow(25.0, 7.0)),
   ); // (17)
   const SL: number =
     1 + (0.015 * Math.pow(aL - 50, 2)) / Math.sqrt(20 + Math.pow(aL - 50, 2.0));
@@ -59,7 +59,7 @@ export function computeCIEDE2000(lab1: LAB, lab2: LAB): number {
     Math.pow(dLp / (SL * kL), 2) +
       Math.pow(dCp / (SC * kC), 2) +
       Math.pow(dHp / (SH * kH), 2) +
-      RT * (dCp / (SC * kC)) * (dHp / (SH * kH))
+      RT * (dCp / (SC * kC)) * (dHp / (SH * kH)),
   );
   return dE;
 }

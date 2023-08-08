@@ -9,12 +9,14 @@ const themePaths = getThemePaths();
 const variants: Variant[] = ["dark", "light"];
 variants.map((variant) => {
   const themeContext: ThemeContext = {
-    variantConfig: defaultConfig[variant],
     variant: variant,
+    variantConfig: defaultConfig[variant],
     styles: getStyles(variant, defaultConfig),
+    auxiliaryUiThemeObject: null,
+    auxiliaryCodeThemeObject: null,
   };
   writeFileSync(
     themePaths[variant],
-    JSON.stringify(getThemeObject(themeContext), null, 2)
+    JSON.stringify(getThemeObject(themeContext), null, 2),
   );
 });

@@ -3,7 +3,7 @@ import { TRANSPARENT } from "../../../../../color/constants";
 
 export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles;
-  return {
+  const editorWidgetRules = {
     "debugExceptionWidget.background": colors.basic.loc.red.pri,
     "debugExceptionWidget.border": colors.stroke.surface.flyout,
     "editorGhostText.background": TRANSPARENT,
@@ -38,4 +38,9 @@ export const getRules = (themeContext: ThemeContext): object => {
     "editorWidget.foreground": colors.fill.text.pri,
     "editorWidget.resizeBorder": colors.fill.accent.pri,
   };
+  const design = themeContext.variantConfig.design;
+  if (design === "minimal") {
+    editorWidgetRules["editorStickyScroll.background"] = colors.bg.solid.canvas;
+  }
+  return editorWidgetRules;
 };

@@ -22,7 +22,7 @@ export const validateHex6 = (value: string): boolean => {
 export const chooseTextOnColor = (
   accentColorHex7: string,
   locHex7: string,
-  hicHex7: string
+  hicHex7: string,
 ): string => {
   const accentColorHex6 = getHex6FromHex7(accentColorHex7);
   const locHex6 = getHex6FromHex7(locHex7);
@@ -35,18 +35,18 @@ export const chooseTextOnColor = (
 export const getContrastSafeAccentColorHex7 = (
   accentColorHex7: string,
   foregroundColorHex7: string,
-  getsDarker: boolean
+  getsDarker: boolean,
 ): string | undefined => {
   const accentColorHex6 = getHex6FromHex7(accentColorHex7);
   const referenceHex6 = getsDarker ? "FFFFFF" : "000000";
   const safeAccentHex6 = getContrastSafeHex6(
     accentColorHex6,
     referenceHex6,
-    getsDarker
+    getsDarker,
   );
   const colorDif = computeCIEDE2000(
     rgbToLab(hex6ToRgb(safeAccentHex6)),
-    rgbToLab(hex6ToRgb(getHex6FromHex7(foregroundColorHex7)))
+    rgbToLab(hex6ToRgb(getHex6FromHex7(foregroundColorHex7))),
   );
   return colorDif > ACCENT_TEXT_MINIMUM_COLOR_DIF
     ? getHex7FromHex6(safeAccentHex6)
@@ -57,63 +57,63 @@ export const getMimicHex7 = (
   mimicInfo: MimicInfo,
   accentColorHex7: string,
   adaptiveMode: AdaptiveMode,
-  getsDarker: boolean
+  getsDarker: boolean,
 ): string => {
   if (adaptiveMode === "none") {
-    return mimicInfo.defaultColor;
+    return mimicInfo.none.referenceColor;
   }
   const hex6 = getHex6FromHex7(accentColorHex7);
-  const saturation = mimicInfo.adaptation[adaptiveMode];
-  const referenceHex6 = getHex6FromHex7(mimicInfo.defaultColor);
+  const saturation = mimicInfo[adaptiveMode].saturation;
+  const referenceHex6 = getHex6FromHex7(mimicInfo[adaptiveMode].referenceColor);
   return getHex7FromHex6(
-    getBalancedHex6(hex6, saturation, referenceHex6, getsDarker)
+    getBalancedHex6(hex6, saturation, referenceHex6, getsDarker),
   );
 };
 
 export const getMixedColorHex7 = (
   color1Hex7: string,
   color1AlphaPercentage: number,
-  color2Hex7: string
+  color2Hex7: string,
 ): string => {
   const color1Rgb = hex6ToRgb(getHex6FromHex7(color1Hex7));
   const color2Rgb = hex6ToRgb(getHex6FromHex7(color2Hex7));
   return rgbToHex7(
-    getMixedColorRgb(color1Rgb, color1AlphaPercentage, color2Rgb)
+    getMixedColorRgb(color1Rgb, color1AlphaPercentage, color2Rgb),
   );
 };
 
 export const getMixedColorHex9 = (
   color1Hex9: string,
-  color2Hex9: string
+  color2Hex9: string,
 ): string => {
   const [color1Hex7, color1AlphaHex] = splitHex9(color1Hex9);
   const color1AlphaPercentage = getAlphaPercentage(color1AlphaHex);
   return getMixedColorHex7(
     color1Hex7,
     color1AlphaPercentage,
-    splitHex9(color2Hex9)[0]
+    splitHex9(color2Hex9)[0],
   );
 };
 
 const getMixedColorRgb = (
   color1Rgb: RGB,
   color1AlphaPercentage: number,
-  color2Rgb: RGB
+  color2Rgb: RGB,
 ): RGB => {
   const mixedR = Math.round(
     (color1Rgb[0] * color1AlphaPercentage +
       color2Rgb[0] * (100 - color1AlphaPercentage)) /
-      100
+      100,
   );
   const mixedG = Math.round(
     (color1Rgb[1] * color1AlphaPercentage +
       color2Rgb[1] * (100 - color1AlphaPercentage)) /
-      100
+      100,
   );
   const mixedB = Math.round(
     (color1Rgb[2] * color1AlphaPercentage +
       color2Rgb[2] * (100 - color1AlphaPercentage)) /
-      100
+      100,
   );
   return [mixedR, mixedG, mixedB];
 };
@@ -131,7 +131,7 @@ const getAlphaPercentage = (alphaHex: string): number => {
 const getContrastSafeHex6 = (
   hex6: string,
   referenceHex6: string,
-  getsDarker: boolean
+  getsDarker: boolean,
 ): string => {
   const hsl = rgbToHsl(hex6ToRgb(hex6));
   let found = false;
@@ -140,7 +140,7 @@ const getContrastSafeHex6 = (
   while (!found) {
     const currentContrastRatio = getContrastRatioHex6(
       currentColor,
-      referenceHex6
+      referenceHex6,
     );
     if (currentContrastRatio > ACCENT_TEXT_MIN_CONTRAST_RATIO) {
       found = true;
@@ -157,7 +157,7 @@ const getContrastSafeHex6 = (
   while (!found) {
     const currentContrastRatio = getContrastRatioHex6(
       currentColor,
-      referenceHex6
+      referenceHex6,
     );
     if (currentContrastRatio < ACCENT_TEXT_MAX_CONTRAST_RATIO) {
       found = true;
@@ -175,7 +175,7 @@ const getBalancedHex6 = (
   hex6: string,
   saturation: number,
   referenceHex6: string,
-  getsDarker: boolean
+  getsDarker: boolean,
 ): string => {
   const hsl: HSL = [
     rgbToHsl(hex6ToRgb(hex6))[0],
@@ -189,7 +189,7 @@ const getBalancedHex6 = (
   while (!found) {
     const currentContrastRatio = getContrastRatioHex6(
       currentColor,
-      referenceHex6
+      referenceHex6,
     );
     if (currentContrastRatio > minimumContrastRatio) {
       found = true;

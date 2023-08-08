@@ -8,6 +8,24 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 Nothing yet.
 
+## [2.0.0] - 2023-09-09 - Modularity & minimalism 📦
+
+### Added
+
+- VS Code v1.81.x support.
+- Modularity system. Users can now side-load **third party themes**.
+- Brand new design, **"Minimal"**. Users can now choose between **"Modern"** and **"Minimal"** designs.
+- Command `codemosModern.authenticate` to increase GitHub **api rate limits**.
+
+### Fixed
+
+- Material Icon Theme icons not correctly themed.
+- Multiple update requests to recompile themes.
+
+### Changed
+
+- Command `codemosModern.configure` to be more clear an use the new `QuickPickItem` api for custom icons.
+
 ## [1.2.2] - 2023-07-09 - Minor fixes 🛠️
 
 ### Fixed
@@ -151,7 +169,9 @@ Nothing yet.
 
 - Initial release
 
-[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.2.1...HEAD
+[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.2.2...v2.0.0
+[1.2.2]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.2.1...v1.2.2
 [1.2.1]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.1.2...v1.2.0
 [1.1.2]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.1.0...v1.1.2

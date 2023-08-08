@@ -3,7 +3,7 @@ import { hex6ToRgb } from "./conversions";
 
 export const getContrastRatioHex6 = (
   hex6: string,
-  referenceHex6: string
+  referenceHex6: string,
 ): number => {
   const fgRGB = hex6ToRgb(hex6);
   const bgRGB: RGB = hex6ToRgb(referenceHex6);

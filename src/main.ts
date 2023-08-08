@@ -4,25 +4,68 @@ import {
   commands,
   workspace,
 } from "vscode";
-import { Config, Variant } from "./@types";
-import { configure } from "./extension/commands";
+import { Variant } from "./@types";
+import { authenticate } from "./extension/authentication";
+import { authenticateCommand, configureCommand } from "./extension/commands";
+import { GLOBAL_STATE_MRV_KEY } from "./extension/constants";
 import { UpdateReason } from "./extension/enums";
 import { getThemePaths } from "./extension/helpers";
+import { getIsConfiguredFromCommand } from "./extension/sharedState";
 import { getStateObject, updateState } from "./extension/state";
 import {
   getConfig,
   isUntouched,
-  updateThemeConfigs,
-  updateThemes,
+  updateModern,
+  updateSettings,
   verifyState,
 } from "./extension/utils";
 
-export const activate = (extensionContext: ExtensionContext) => {
+export const activate = async (extensionContext: ExtensionContext) => {
+  onStart(extensionContext);
+  workspace.onDidChangeConfiguration(
+    async (event: ConfigurationChangeEvent) => {
+      if (
+        event.affectsConfiguration("codemosModern.auxiliaryThemeRegistries")
+      ) {
+        updateBridge("none", UpdateReason.CONFIG_CHANGE);
+      } else if (event.affectsConfiguration("codemosModern.dark")) {
+        if (!getIsConfiguredFromCommand()) {
+          updateBridge("dark", UpdateReason.CONFIG_CHANGE);
+        }
+      } else if (event.affectsConfiguration("codemosModern.light")) {
+        if (!getIsConfiguredFromCommand()) {
+          updateBridge("light", UpdateReason.CONFIG_CHANGE);
+        }
+      } else if (event.affectsConfiguration("workbench.colorTheme")) {
+        updateSettings(getConfig(), getActiveVariant());
+      }
+    },
+  );
+  extensionContext.subscriptions.push(
+    commands.registerCommand("codemosModern.authenticate", authenticateCommand),
+  );
+  extensionContext.subscriptions.push(
+    commands.registerCommand("codemosModern.configure", configureCommand),
+  );
+};
+
+const onStart = async (extensionContext: ExtensionContext) => {
+  await authenticate(false);
+  extensionContext.globalState.setKeysForSync([GLOBAL_STATE_MRV_KEY]);
+  const mostRecentVersion =
+    extensionContext.globalState.get(GLOBAL_STATE_MRV_KEY);
+  if (
+    !mostRecentVersion ||
+    mostRecentVersion !== extensionContext.extension.packageJSON.version
+  ) {
+    extensionContext.globalState.update(
+      GLOBAL_STATE_MRV_KEY,
+      extensionContext.extension.packageJSON.version,
+    );
+  }
   if (!verifyState()) {
     let updateReason: UpdateReason;
     if (isUntouched()) {
-      const mostRecentVersion =
-        extensionContext.globalState.get("mostRecentVersion");
       if (!mostRecentVersion) {
         updateReason = UpdateReason.FIRST_INSTALL;
       } else if (
@@ -35,51 +78,37 @@ export const activate = (extensionContext: ExtensionContext) => {
     } else {
       updateReason = UpdateReason.PROFILE_CHANGE;
     }
-    const config = getConfig();
-    updateStateBridge(config);
-    updateThemesBridge(extensionContext, config, updateReason);
+    await updateBridge("all", updateReason);
   }
-  workspace.onDidChangeConfiguration((event: ConfigurationChangeEvent) => {
-    if (event.affectsConfiguration("codemosModern")) {
-      const config = getConfig();
-      updateStateBridge(config);
-      updateThemesBridge(extensionContext, config, UpdateReason.CONFIG_CHANGE);
-    }
-    if (event.affectsConfiguration("workbench.colorTheme")) {
-      updateThemeConfigs(getConfig(), getActiveColorTheme());
-    }
-  });
-  extensionContext.subscriptions.push(
-    commands.registerCommand("codemosModern.configure", configure)
-  );
 };
 
-const updateStateBridge = (config: Config) => {
-  const stateObject = getStateObject();
-  stateObject.config = config;
-  if (stateObject.isUntouched) {
-    stateObject.isUntouched = false;
-  }
-  updateState(stateObject);
-};
-
-const updateThemesBridge = (
-  extensionContext: ExtensionContext,
-  config: Config,
-  updateReason: UpdateReason
+export const updateBridge = async (
+  updateTarget: "none" | "all" | Variant,
+  updateReason: UpdateReason,
 ) => {
-  extensionContext.globalState.update(
-    "mostRecentVersion",
-    extensionContext.extension.packageJSON.version
-  );
-  updateThemes(config, getThemePaths(), updateReason, getActiveColorTheme());
+  const config = getConfig();
+  if (!verifyState(config)) {
+    await updateModern(
+      updateTarget,
+      updateReason,
+      config,
+      getThemePaths(),
+      getActiveVariant(),
+    );
+    const stateObject = getStateObject();
+    if (stateObject.isUntouched) {
+      stateObject.isUntouched = false;
+    }
+    stateObject.config = config;
+    updateState(stateObject);
+  }
 };
 
-const getActiveColorTheme = (): Variant | undefined => {
-  const activeColorThemeConf = workspace
+const getActiveVariant = (): Variant | undefined => {
+  const activeColorTheme = workspace
     .getConfiguration("workbench")
     .get("colorTheme");
-  switch (activeColorThemeConf) {
+  switch (activeColorTheme) {
     case "Codemos Modern (Dark)":
       return "dark";
     case "Codemos Modern (Light)":

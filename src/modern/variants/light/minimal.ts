@@ -1,11 +1,11 @@
-import { MimicInfo, Palette, Styles, VariantConfig } from "../../@types";
+import { MimicInfo, Palette, Styles, VariantConfig } from "../../../@types";
 import {
   chooseTextOnColor,
   getContrastSafeAccentColorHex7,
   getHexAlpha,
   getMimicHex7,
   getMixedColorHex7,
-} from "../../color";
+} from "../../../color";
 
 const palette: Palette = {
   loc: "#FFFFFF",
@@ -46,47 +46,78 @@ const palette: Palette = {
 };
 
 const mimic1Info: MimicInfo = {
-  defaultColor: "#ECECEC",
-  adaptation: {
-    none: 0,
-    gentle: 16,
-    aggressive: 40,
+  none: {
+    referenceColor: "#ECECEC",
+    saturation: 0,
   },
-};
-
-const mimic2Info: MimicInfo = {
-  defaultColor: "#F2F2F2",
-  adaptation: {
-    none: 0,
-    gentle: 24,
-    aggressive: 54,
+  gentle: {
+    referenceColor: "#ECECEC",
+    saturation: 16,
+  },
+  moderate: {
+    referenceColor: "#EBEBEB",
+    saturation: 40,
+  },
+  aggressive: {
+    referenceColor: "#E1E1E1",
+    saturation: 50,
   },
 };
 
 const mimic3Info: MimicInfo = {
-  defaultColor: "#F8F8F8",
-  adaptation: {
-    none: 0,
-    gentle: 36,
-    aggressive: 85,
+  none: {
+    referenceColor: "#F8F8F8",
+    saturation: 0,
+  },
+  gentle: {
+    referenceColor: "#F8F8F8",
+    saturation: 36,
+  },
+  moderate: {
+    referenceColor: "#F7F7F7",
+    saturation: 85,
+  },
+  aggressive: {
+    referenceColor: "#EBEBEB",
+    saturation: 95,
   },
 };
 
 const mimic4Info: MimicInfo = {
-  defaultColor: "#FBFBFB",
-  adaptation: {
-    none: 0,
-    gentle: 60,
-    aggressive: 100,
+  none: {
+    referenceColor: "#FBFBFB",
+    saturation: 0,
+  },
+  gentle: {
+    referenceColor: "#FBFBFB",
+    saturation: 60,
+  },
+  moderate: {
+    referenceColor: "#FAFAFA",
+    saturation: 100,
+  },
+  aggressive: {
+    referenceColor: "#EFEFEF",
+    saturation: 100,
   },
 };
 
 const mimic5Info: MimicInfo = {
-  defaultColor: "#CACACA",
-  adaptation: {
-    none: 0,
-    gentle: 8,
-    aggressive: 16,
+  none: {
+    referenceColor: "#CACACA",
+    saturation: 0,
+  },
+  gentle: {
+    referenceColor: "#CACACA",
+    saturation: 8,
+  },
+  moderate: {
+    referenceColor: "#C9C9C9",
+    saturation: 16,
+  },
+  aggressive: {
+    referenceColor: "#C1C1C1",
+    saturation: 26,
   },
 };
 
@@ -97,37 +128,31 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
     mimic1Info,
     accentColor,
     variantConfig.adaptiveMode,
-    false
-  );
-  const mimic2Color = getMimicHex7(
-    mimic2Info,
-    accentColor,
-    variantConfig.adaptiveMode,
-    false
+    false,
   );
   const mimic3Color = getMimicHex7(
     mimic3Info,
     accentColor,
     variantConfig.adaptiveMode,
-    false
+    false,
   );
   const mimic4Color = getMimicHex7(
     mimic4Info,
     accentColor,
     variantConfig.adaptiveMode,
-    false
+    false,
   );
   const mimic5Color = getMimicHex7(
     mimic5Info,
     accentColor,
     variantConfig.adaptiveMode,
-    false
+    false,
   );
   const mixedFgColor = getMixedColorHex7(palette.hic, 72, mimic3Color);
   let accentTextColor = getContrastSafeAccentColorHex7(
     accentColor,
     mixedFgColor,
-    true
+    true,
   );
   if (!accentTextColor) {
     accentTextColor = palette.basic.def.blue;
@@ -371,9 +396,9 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
         },
       },
       tab: {
-        activeFocused: `${mimic4Color}${getHexAlpha(100)}`,
+        activeFocused: `${mimic3Color}${getHexAlpha(100)}`,
         activeUnfocused: `${mimic3Color}${getHexAlpha(100)}`,
-        inactiveFocused: `${mimic2Color}${getHexAlpha(100)}`,
+        inactiveFocused: `${mimic1Color}${getHexAlpha(100)}`,
         inactiveUnfocused: `${mimic1Color}${getHexAlpha(100)}`,
       },
       terminal: {
@@ -404,7 +429,7 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
     bg: {
       solid: {
         base: `${mimic1Color}${getHexAlpha(100)}`,
-        surface: `${mimic2Color}${getHexAlpha(100)}`,
+        surface: `${mimic1Color}${getHexAlpha(100)}`,
         canvas: `${mimic3Color}${getHexAlpha(100)}`,
         onCanvas: `${mimic4Color}${getHexAlpha(100)}`,
         flyout: `${mimic4Color}${getHexAlpha(100)}`,

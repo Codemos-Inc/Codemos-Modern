@@ -2,7 +2,7 @@ import { ThemeContext } from "../../../../../@types";
 
 export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles;
-  return {
+  const integratedTerminalRules = {
     "terminal.ansiBlack": colors.fill.terminal.loc,
     "terminal.ansiBlue": colors.basic.def.blue.pri,
     "terminal.ansiBrightBlack": colors.fill.terminal.loq,
@@ -40,4 +40,9 @@ export const getRules = (themeContext: ThemeContext): object => {
     "terminalOverviewRuler.cursorForeground": colors.fill.accent.pri,
     "terminalOverviewRuler.findMatchForeground": colors.basic.def.mint.sec,
   };
+  const design = themeContext.variantConfig.design;
+  if (design === "minimal") {
+    integratedTerminalRules["terminal.background"] = colors.bg.solid.base;
+  }
+  return integratedTerminalRules;
 };

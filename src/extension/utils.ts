@@ -1,22 +1,39 @@
 import { writeFile } from "fs";
-import { ConfigurationTarget, commands, window, workspace } from "vscode";
+import { ConfigurationTarget, workspace } from "vscode";
 import {
   AdaptiveMode,
   Config,
+  Design,
   ThemeContext,
   ThemePaths,
   Variant,
+  VariantConfig,
 } from "../@types";
+import {
+  getAuxiliaryThemeObject,
+  prepareAuxiliaryTheme,
+  prepareAuxiliaryThemeRegistries,
+} from "../data";
+import { updateBridge } from "../main";
 import { defaultConfig } from "../modern";
 import { getStyles } from "../modern/variants";
 import { getThemeObject } from "../theme";
 import { configureSettings } from "../theme/configs";
 import { UpdateReason } from "./enums";
+import {
+  showErrorNotification,
+  showInformationNotification,
+} from "./notifications";
+import {
+  getIsConfiguredFromCommand,
+  setIsConfiguredFromCommand,
+} from "./sharedState";
 import { getStateObject } from "./state";
 
-export const verifyState = (): boolean => {
+export const verifyState = (config?: Config): boolean => {
   return (
-    JSON.stringify(getStateObject().config) === JSON.stringify(getConfig())
+    JSON.stringify(getStateObject().config) ===
+    JSON.stringify(config ? config : getConfig())
   );
 };
 
@@ -27,99 +44,199 @@ export const isUntouched = (): boolean => {
 export const getConfig = (): Config => {
   const extensionSection = workspace.getConfiguration("codemosModern");
   return {
+    auxiliaryThemeRegistries: extensionSection.get<string[]>(
+      "auxiliaryThemeRegistries",
+      defaultConfig.auxiliaryThemeRegistries,
+    ),
     dark: {
+      auxiliaryUiTheme: extensionSection.get<string | null>(
+        "dark.auxiliaryUiTheme",
+        defaultConfig.dark.auxiliaryUiTheme,
+      ),
+      design: extensionSection.get<Design>(
+        "dark.design",
+        defaultConfig.dark.design,
+      ),
       accentColor: extensionSection.get<string>(
         "dark.accentColor",
-        defaultConfig.dark.accentColor
+        defaultConfig.dark.accentColor,
       ),
       adaptiveMode: extensionSection.get<AdaptiveMode>(
         "dark.adaptiveMode",
-        defaultConfig.dark.adaptiveMode
+        defaultConfig.dark.adaptiveMode,
+      ),
+      auxiliaryCodeTheme: extensionSection.get<string | null>(
+        "dark.auxiliaryCodeTheme",
+        defaultConfig.dark.auxiliaryCodeTheme,
       ),
     },
     light: {
+      auxiliaryUiTheme: extensionSection.get<string | null>(
+        "light.auxiliaryUiTheme",
+        defaultConfig.light.auxiliaryUiTheme,
+      ),
+      design: extensionSection.get<Design>(
+        "light.design",
+        defaultConfig.dark.design,
+      ),
       accentColor: extensionSection.get<string>(
         "light.accentColor",
-        defaultConfig.light.accentColor
+        defaultConfig.light.accentColor,
       ),
       adaptiveMode: extensionSection.get<AdaptiveMode>(
         "light.adaptiveMode",
-        defaultConfig.light.adaptiveMode
+        defaultConfig.light.adaptiveMode,
+      ),
+      auxiliaryCodeTheme: extensionSection.get<string | null>(
+        "light.auxiliaryCodeTheme",
+        defaultConfig.light.auxiliaryCodeTheme,
       ),
     },
   };
 };
 
-export const updateConfig = (
+export const updateConfig = async (
   variant: Variant,
+  auxiliaryUiTheme: string | null,
+  design: Design,
   accentColorHex7: string,
-  adaptiveMode: AdaptiveMode
+  adaptiveMode: AdaptiveMode,
+  auxiliaryCodeTheme: string | null,
 ) => {
   const variantSection = workspace.getConfiguration(`codemosModern.${variant}`);
-  variantSection.update(
+  await variantSection.update(
+    `auxiliaryUiTheme`,
+    auxiliaryUiTheme,
+    ConfigurationTarget.Global,
+  );
+  await variantSection.update(`design`, design, ConfigurationTarget.Global);
+  await variantSection.update(
     `accentColor`,
     accentColorHex7,
-    ConfigurationTarget.Global
+    ConfigurationTarget.Global,
   );
-  variantSection.update(
+  await variantSection.update(
     `adaptiveMode`,
     adaptiveMode,
-    ConfigurationTarget.Global
+    ConfigurationTarget.Global,
   );
+  await variantSection.update(
+    `auxiliaryCodeTheme`,
+    auxiliaryCodeTheme,
+    ConfigurationTarget.Global,
+  );
+  updateBridge(variant, UpdateReason.CONFIG_CHANGE);
 };
 
-export const updateThemes = async (
+export const updateModern = async (
+  updateTarget: "none" | "all" | Variant,
+  updateReason: UpdateReason,
   config: Config,
   themePaths: ThemePaths,
-  updateReason: UpdateReason,
-  activeColorTheme: Variant | undefined
+  activeVariant: Variant | undefined,
 ) => {
-  updateThemeConfigs(config, activeColorTheme);
-  const variants: Variant[] = ["dark", "light"];
+  updateSettings(config, activeVariant);
+  let variants: Variant[];
+  switch (updateTarget) {
+    case "none":
+      variants = [];
+      break;
+    case "all":
+      variants = ["dark", "light"];
+      break;
+    default:
+      variants = [updateTarget];
+  }
+  if (!getIsConfiguredFromCommand()) {
+    const success = await prepareAuxiliaryThemeRegistries(
+      config.auxiliaryThemeRegistries,
+    );
+    if (!success) {
+      return;
+    }
+  }
   const promises = variants.map(async (variant: Variant) => {
     const themeContext: ThemeContext = {
-      variantConfig: config[variant],
       variant: variant,
+      variantConfig: config[variant] as VariantConfig,
       styles: getStyles(variant, config),
+      auxiliaryUiThemeObject: null,
+      auxiliaryCodeThemeObject: null,
     };
-    return writeThemeFile(themePaths[variant], getThemeObject(themeContext));
+    if (themeContext.variantConfig.auxiliaryUiTheme) {
+      if (!getIsConfiguredFromCommand()) {
+        const success = await prepareAuxiliaryTheme(
+          themeContext.variantConfig.auxiliaryUiTheme,
+          themeContext.variant,
+        );
+        if (!success) {
+          return false;
+        }
+      }
+      themeContext.auxiliaryUiThemeObject = await getAuxiliaryThemeObject(
+        themeContext.variantConfig.auxiliaryUiTheme,
+      );
+    }
+    if (themeContext.variantConfig.auxiliaryCodeTheme) {
+      if (!getIsConfiguredFromCommand()) {
+        const success = await prepareAuxiliaryTheme(
+          themeContext.variantConfig.auxiliaryCodeTheme,
+          themeContext.variant,
+        );
+        if (!success) {
+          return false;
+        }
+      }
+      themeContext.auxiliaryCodeThemeObject = await getAuxiliaryThemeObject(
+        themeContext.variantConfig.auxiliaryCodeTheme,
+      );
+    }
+    writeThemeFile(themePaths[variant], getThemeObject(themeContext));
+    return true;
   });
-  Promise.all(promises).then(() => {
-    promptToReload(updateReason);
+  Promise.all(promises).then((onFullFilled) => {
+    const allSuccess = onFullFilled.every((result) => {
+      return result === true;
+    });
+    if (allSuccess && updateTarget !== "none") {
+      showInformationNotification(
+        updateReason,
+        ["Apply", "Later"],
+        "workbench.action.reloadWindow",
+      );
+    }
   });
+  if (getIsConfiguredFromCommand()) {
+    setIsConfiguredFromCommand(false);
+  }
 };
 
-export const updateThemeConfigs = (
+export const updateSettings = (
   config: Config,
-  activeColorTheme: Variant | undefined
+  activeVariant: Variant | undefined,
 ) => {
-  const variant = activeColorTheme ? activeColorTheme : "dark";
-  const themeContext: ThemeContext = {
-    variantConfig: config[variant],
-    variant: variant,
-    styles: getStyles(variant, config),
-  };
-  if (!activeColorTheme) {
-    configureSettings(themeContext, true);
+  if (activeVariant) {
+    const themeContext: ThemeContext = {
+      variant: activeVariant,
+      variantConfig: config[activeVariant] as VariantConfig,
+      styles: getStyles(activeVariant, config),
+      auxiliaryUiThemeObject: null,
+      auxiliaryCodeThemeObject: null,
+    };
+    if (!themeContext.variantConfig.auxiliaryUiTheme) {
+      configureSettings(themeContext);
+    } else {
+      configureSettings(null);
+    }
   } else {
-    configureSettings(themeContext, false);
+    configureSettings(null);
   }
 };
 
 const writeThemeFile = (themePath: string, themeObject: object) => {
   return writeFile(themePath, JSON.stringify(themeObject, null, 2), (err) => {
     if (err) {
-      window.showErrorMessage(err.message);
-    }
-  });
-};
-
-const promptToReload = (updateReason: UpdateReason) => {
-  const msg = `${updateReason}`;
-  const actions = ["Apply", "Later"];
-  window.showInformationMessage(msg, ...actions).then((selectedAction) => {
-    if (selectedAction === actions[0]) {
-      commands.executeCommand("workbench.action.reloadWindow");
+      showErrorNotification(err.message, null, null);
     }
   });
 };

@@ -3,7 +3,7 @@ import { TRANSPARENT } from "../../../../../color/constants";
 
 export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles;
-  return {
+  const editorRules = {
     "editor.background": colors.bg.solid.canvas,
     "editor.findMatchBackground": colors.basic.def.mint.qua,
     "editor.findMatchBorder": colors.stroke.control.default,
@@ -76,8 +76,18 @@ export const getRules = (themeContext: ThemeContext): object => {
     "editorGutter.modifiedBackground": colors.basic.def.blue.pri,
     "editorHint.border": TRANSPARENT,
     "editorHint.foreground": colors.basic.def.mint.pri,
-    "editorIndentGuide.activeBackground": colors.basic.neutral.qua,
-    "editorIndentGuide.background": colors.basic.neutral.qui,
+    "editorIndentGuide.activeBackground1": colors.basic.alt.yellow.pri,
+    "editorIndentGuide.activeBackground2": colors.basic.alt.orange.pri,
+    "editorIndentGuide.activeBackground3": colors.basic.alt.red.pri,
+    "editorIndentGuide.activeBackground4": colors.basic.alt.purple.pri,
+    "editorIndentGuide.activeBackground5": colors.basic.alt.blue.pri,
+    "editorIndentGuide.activeBackground6": colors.basic.alt.green.pri,
+    "editorIndentGuide.background1": colors.basic.alt.yellow.ter,
+    "editorIndentGuide.background2": colors.basic.alt.orange.ter,
+    "editorIndentGuide.background3": colors.basic.alt.red.ter,
+    "editorIndentGuide.background4": colors.basic.alt.purple.ter,
+    "editorIndentGuide.background5": colors.basic.alt.blue.ter,
+    "editorIndentGuide.background6": colors.basic.alt.green.ter,
     "editorInfo.background": TRANSPARENT,
     "editorInfo.border": TRANSPARENT,
     "editorInfo.foreground": colors.basic.def.blue.pri,
@@ -128,4 +138,10 @@ export const getRules = (themeContext: ThemeContext): object => {
     "searchEditor.findMatchBorder": colors.stroke.control.default,
     "searchEditor.textInputBorder": colors.stroke.control.default,
   };
+  const design = themeContext.variantConfig.design;
+  if (design === "minimal") {
+    editorRules["editorGutter.background"] = colors.bg.solid.canvas;
+    editorRules["editorOverviewRuler.background"] = colors.bg.solid.canvas;
+  }
+  return editorRules;
 };
