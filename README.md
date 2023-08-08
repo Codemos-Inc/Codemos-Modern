@@ -151,7 +151,7 @@ You don't have to do anything special. Just add your favorite registry to your r
 
 ![modularity](images/docs-modularity.png)
 
-<div style="text-align: center; font-size: 0.8em; margin-top: -1em;">
+<div align="center">
 
 **UI Theme:** [Cyberpunk](https://marketplace.visualstudio.com/items?itemName=max-SS.cyberpunk) | **Code Theme:** [Dracula Official](https://marketplace.visualstudio.com/items?itemName=dracula-theme.theme-dracula)
 
