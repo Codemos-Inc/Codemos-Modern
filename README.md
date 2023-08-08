@@ -152,7 +152,9 @@ You don't have to do anything special. Just add your favorite registry to your r
 ![modularity](images/docs-modularity.png)
 
 <div style="text-align: center; font-size: 0.8em; margin-top: -1em;">
-    <strong>UI Theme:</strong> <a href="https://marketplace.visualstudio.com/items?itemName=max-SS.cyberpunk">Cyberpunk</a> | <strong>Code Theme:</strong> <a href="https://marketplace.visualstudio.com/items?itemName=dracula-theme.theme-dracula">Dracula Official</a>
+
+**UI Theme:** [Cyberpunk](https://marketplace.visualstudio.com/items?itemName=max-SS.cyberpunk) | **Code Theme:** [Dracula Official](https://marketplace.visualstudio.com/items?itemName=dracula-theme.theme-dracula)
+
 </div>
 
 <br/>
