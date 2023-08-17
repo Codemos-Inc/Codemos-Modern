@@ -1,5 +1,6 @@
 import {
   ColorThemeKind,
+  ConfigurationTarget,
   QuickPickItem,
   QuickPickItemKind,
   Uri,
@@ -108,7 +109,11 @@ export const configureCommand = async () => {
   );
   await workspace
     .getConfiguration("workbench")
-    .update("colorTheme", `Codemos Modern (${toggleFirstLetterCase(variant)})`);
+    .update(
+      "colorTheme",
+      `Codemos Modern (${toggleFirstLetterCase(variant)})`,
+      ConfigurationTarget.Global,
+    );
 };
 
 export const authenticateCommand = async () => {
