@@ -7,7 +7,7 @@ import {
   getMixedColorHex7,
 } from "../../../color";
 
-const palette: Palette = {
+export const palette: Palette = {
   loc: "#FFFFFF",
   hic: "#000000",
   basic: {

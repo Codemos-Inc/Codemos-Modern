@@ -18,12 +18,18 @@ import {
   prepareAuxiliaryThemeRegistriesOffline,
 } from "../data";
 import { getAuxiliaryThemeId } from "../data/helpers";
-import { mimic3Info as darkMimic } from "../modern/variants/dark/modern";
-import { mimic1Info as lightMimic } from "../modern/variants/light/modern";
+import {
+  mimic3Info as darkMimic,
+  palette as darkPalette,
+} from "../modern/variants/dark/modern";
+import {
+  mimic1Info as lightMimic,
+  palette as lightPalette,
+} from "../modern/variants/light/modern";
 import { authenticate } from "./authentication";
 import { NOTIFICATION_SIGNATURE } from "./constants";
 import { toggleFirstLetterCase } from "./helpers";
-import { generateAdaptiveModeIcons } from "./icons";
+import { generateAccentColorIcons, generateAdaptiveModeIcons } from "./icons";
 import { showProgressNotification } from "./notifications";
 import { getIsOfflineMode, setIsConfiguredFromCommand } from "./sharedState";
 import { checkInternetConnection, getConfig, updateConfig } from "./utils";
@@ -85,9 +91,21 @@ export const configureCommand = async () => {
       designLabel.replace(/\$\(.*\) /g, ""),
     ) as Design;
   }
-  const accentColor = !auxiliaryUiTheme ? await getAccentColor(variant) : null;
-  if (!accentColor && !auxiliaryUiTheme) {
+  //
+  const accentColorFromPalette = !auxiliaryUiTheme
+    ? await getAccentColorFromPalette(variant)
+    : null;
+  if (!accentColorFromPalette && !auxiliaryUiTheme) {
     return;
+  }
+  let accentColor: string | null | undefined;
+  if (accentColorFromPalette !== "_") {
+    accentColor = accentColorFromPalette;
+  } else {
+    accentColor = !auxiliaryUiTheme ? await getAccentColor(variant) : null;
+    if (!accentColor && !auxiliaryUiTheme) {
+      return;
+    }
   }
   //
   const adaptiveModeLabel = !auxiliaryUiTheme
@@ -223,6 +241,271 @@ const getDesign = async (variant: Variant) => {
   return design.label;
 };
 
+const getAccentColorFromPalette = async (variant: Variant) => {
+  const quickPick = window.createQuickPick();
+  quickPick.title = `Codemos Modern (${toggleFirstLetterCase(
+    variant,
+  )}): UI Theme`;
+  quickPick.placeholder = "Select an accent color";
+  quickPick.ignoreFocusOut = true;
+  quickPick.busy = true;
+  quickPick.show();
+  prepareAccentColorIcons(variant);
+  quickPick.items = [
+    {
+      label: "Custom",
+      kind: QuickPickItemKind.Separator,
+    },
+    {
+      label: "Custom",
+      description: "Accent color",
+      detail: "A color you specify",
+      iconPath: Uri.file(
+        `${__dirname}/../../res/icons/${variant}/accent_custom.svg`,
+      ),
+    },
+    {
+      label: "Palette",
+      kind: QuickPickItemKind.Separator,
+    },
+    {
+      label: "Brown",
+      description: "Accent color",
+      detail: `The color of ${
+        variant === "dark" ? "antique brass" : "mud"
+      } from the Modern's palette`,
+      iconPath: Uri.file(
+        `${__dirname}/../../res/icons/${variant}/accent_brown.svg`,
+      ),
+    },
+    {
+      label: "Red",
+      description: "Accent color",
+      detail: `The color of ${
+        variant === "dark" ? "burnt sienna" : "guardsman red"
+      } from the Modern's palette`,
+      iconPath: Uri.file(
+        `${__dirname}/../../res/icons/${variant}/accent_red.svg`,
+      ),
+    },
+    {
+      label: "Orange",
+      description: "Accent color",
+      detail: `The color of ${
+        variant === "dark" ? "raw sienna" : "chelsea gem"
+      } from the Modern's palette`,
+      iconPath: Uri.file(
+        `${__dirname}/../../res/icons/${variant}/accent_orange.svg`,
+      ),
+    },
+    {
+      label: "Yellow",
+      description: "Accent color",
+      detail: `The color of ${
+        variant === "dark" ? "roti" : "olive"
+      } from the Modern's palette`,
+      iconPath: Uri.file(
+        `${__dirname}/../../res/icons/${variant}/accent_yellow.svg`,
+      ),
+    },
+    {
+      label: "Green",
+      description: "Accent color",
+      detail: `The color of ${
+        variant === "dark" ? "apple" : "camarone"
+      } from the Modern's palette`,
+      iconPath: Uri.file(
+        `${__dirname}/../../res/icons/${variant}/accent_green.svg`,
+      ),
+    },
+    {
+      label: "Mint",
+      description: "Accent color",
+      detail: `The color of ${
+        variant === "dark" ? "keppel" : "blue stone"
+      } from the Modern's palette`,
+      iconPath: Uri.file(
+        `${__dirname}/../../res/icons/${variant}/accent_mint.svg`,
+      ),
+    },
+    {
+      label: "Blue",
+      description: "Accent color",
+      detail: `The color of ${
+        variant === "dark" ? "Shakespeare" : "science blue"
+      } from the Modern's palette`,
+      iconPath: Uri.file(
+        `${__dirname}/../../res/icons/${variant}/accent_blue.svg`,
+      ),
+    },
+    {
+      label: "Purple",
+      description: "Accent color",
+      detail: `The color of ${
+        variant === "dark" ? "Portage" : "electric violet"
+      } from the Modern's palette`,
+      iconPath: Uri.file(
+        `${__dirname}/../../res/icons/${variant}/accent_purple.svg`,
+      ),
+    },
+    {
+      label: "Pink",
+      description: "Accent color",
+      detail: `The color of ${
+        variant === "dark" ? "brilliant rose" : "flirt"
+      } from the Modern's palette`,
+      iconPath: Uri.file(
+        `${__dirname}/../../res/icons/${variant}/accent_pink.svg`,
+      ),
+    },
+  ];
+  quickPick.busy = false;
+  return await new Promise<string | undefined>((resolve) => {
+    quickPick.onDidAccept(() => {
+      const selectedAccentColorLabel = quickPick.selectedItems[0].label;
+      quickPick.dispose();
+      if (selectedAccentColorLabel) {
+        switch (variant) {
+          case "dark":
+            switch (selectedAccentColorLabel) {
+              case "Custom":
+                return resolve("_");
+              case "Brown":
+                return resolve(darkPalette.basic.def.brown);
+              case "Red":
+                return resolve(darkPalette.basic.def.red);
+              case "Orange":
+                return resolve(darkPalette.basic.def.orange);
+              case "Yellow":
+                return resolve(darkPalette.basic.def.yellow);
+              case "Green":
+                return resolve(darkPalette.basic.def.green);
+              case "Mint":
+                return resolve(darkPalette.basic.def.mint);
+              case "Blue":
+                return resolve(darkPalette.basic.def.blue);
+              case "Purple":
+                return resolve(darkPalette.basic.def.purple);
+              case "Pink":
+                return resolve(darkPalette.basic.def.pink);
+              default:
+                return resolve(undefined);
+            }
+          case "light":
+            switch (selectedAccentColorLabel) {
+              case "Custom":
+                return resolve("_");
+              case "Brown":
+                return resolve(lightPalette.basic.def.brown);
+              case "Red":
+                return resolve(lightPalette.basic.def.red);
+              case "Orange":
+                return resolve(lightPalette.basic.def.orange);
+              case "Yellow":
+                return resolve(lightPalette.basic.def.yellow);
+              case "Green":
+                return resolve(lightPalette.basic.def.green);
+              case "Mint":
+                return resolve(lightPalette.basic.def.mint);
+              case "Blue":
+                return resolve(lightPalette.basic.def.blue);
+              case "Purple":
+                return resolve(lightPalette.basic.def.purple);
+              case "Pink":
+                return resolve(lightPalette.basic.def.pink);
+              default:
+                return resolve(undefined);
+            }
+          default:
+            return resolve(undefined);
+        }
+      } else {
+        return resolve(undefined);
+      }
+    });
+  });
+};
+
+const prepareAccentColorIcons = (variant: Variant) => {
+  let brown: string;
+  let red: string;
+  let orange: string;
+  let yellow: string;
+  let green: string;
+  let mint: string;
+  let blue: string;
+  let purple: string;
+  let pink: string;
+  if (variant === "dark") {
+    brown = darkPalette.basic.def.brown;
+    red = darkPalette.basic.def.red;
+    orange = darkPalette.basic.def.orange;
+    yellow = darkPalette.basic.def.yellow;
+    green = darkPalette.basic.def.green;
+    mint = darkPalette.basic.def.mint;
+    blue = darkPalette.basic.def.blue;
+    purple = darkPalette.basic.def.purple;
+    pink = darkPalette.basic.def.pink;
+  } else {
+    brown = lightPalette.basic.def.brown;
+    red = lightPalette.basic.def.red;
+    orange = lightPalette.basic.def.orange;
+    yellow = lightPalette.basic.def.yellow;
+    green = lightPalette.basic.def.green;
+    mint = lightPalette.basic.def.mint;
+    blue = lightPalette.basic.def.blue;
+    purple = lightPalette.basic.def.purple;
+    pink = lightPalette.basic.def.pink;
+  }
+  switch (window.activeColorTheme.kind) {
+    case ColorThemeKind.Dark || ColorThemeKind.HighContrast:
+      generateAccentColorIcons(
+        variant,
+        true,
+        brown,
+        red,
+        orange,
+        yellow,
+        green,
+        mint,
+        blue,
+        purple,
+        pink,
+      );
+      break;
+    case ColorThemeKind.Light || ColorThemeKind.HighContrastLight:
+      generateAccentColorIcons(
+        variant,
+        false,
+        brown,
+        red,
+        orange,
+        yellow,
+        green,
+        mint,
+        blue,
+        purple,
+        pink,
+      );
+      break;
+    default:
+      generateAccentColorIcons(
+        variant,
+        true,
+        brown,
+        red,
+        orange,
+        yellow,
+        green,
+        mint,
+        blue,
+        purple,
+        pink,
+      );
+      break;
+  }
+};
+
 const getAccentColor = async (variant: Variant) => {
   const accentColorHex7 = await window.showInputBox({
     title: `Codemos Modern (${toggleFirstLetterCase(variant)}): UI Theme`,
@@ -247,7 +530,7 @@ const getAdaptiveModeLabel = async (
   variant: Variant,
   accentColorHex7: string,
 ) => {
-  const quickPick = await window.createQuickPick();
+  const quickPick = window.createQuickPick();
   quickPick.title = `Codemos Modern (${toggleFirstLetterCase(
     variant,
   )}): UI Theme`;
@@ -255,7 +538,7 @@ const getAdaptiveModeLabel = async (
   quickPick.ignoreFocusOut = true;
   quickPick.busy = true;
   quickPick.show();
-  prepareIcons(variant, accentColorHex7);
+  prepareAdaptiveModeIcons(variant, accentColorHex7);
   quickPick.items = [
     {
       label: "None",
@@ -304,7 +587,10 @@ const getAdaptiveModeLabel = async (
   });
 };
 
-const prepareIcons = (variant: Variant, accentColorHex7: string) => {
+const prepareAdaptiveModeIcons = (
+  variant: Variant,
+  accentColorHex7: string,
+) => {
   let noneModeColor: string;
   let gentleModeColor: string;
   let moderateModeColor: string;

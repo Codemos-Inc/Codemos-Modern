@@ -1,102 +1,6 @@
-import { existsSync, mkdirSync, writeFileSync } from "fs";
-import { join } from "path";
-import { Variant } from "../@types";
-
-export const generateAccentColorIcons = (
-  variant: Variant,
-  inDarkTheme: boolean,
-  brown: string,
-  red: string,
-  orange: string,
-  yellow: string,
-  green: string,
-  mint: string,
-  blue: string,
-  purple: string,
-  pink: string,
-) => {
-  const variantIconsDir = join(__dirname, "..", "..", "res", "icons", variant);
-  if (!existsSync(variantIconsDir)) {
-    mkdirSync(variantIconsDir, {
-      recursive: true,
-    });
-  }
-  const customIconPath = join(variantIconsDir, "accent_custom.svg");
-  const customSvg = generateCustomSvg(inDarkTheme);
-  writeFileSync(customIconPath, customSvg);
-  const brownIconPath = join(variantIconsDir, "accent_brown.svg");
-  const brownSvg = generateSvg(inDarkTheme, brown);
-  writeFileSync(brownIconPath, brownSvg);
-  const redIconPath = join(variantIconsDir, "accent_red.svg");
-  const redSvg = generateSvg(inDarkTheme, red);
-  writeFileSync(redIconPath, redSvg);
-  const orangeIconPath = join(variantIconsDir, "accent_orange.svg");
-  const orangeSvg = generateSvg(inDarkTheme, orange);
-  writeFileSync(orangeIconPath, orangeSvg);
-  const yellowIconPath = join(variantIconsDir, "accent_yellow.svg");
-  const yellowSvg = generateSvg(inDarkTheme, yellow);
-  writeFileSync(yellowIconPath, yellowSvg);
-  const greenIconPath = join(variantIconsDir, "accent_green.svg");
-  const greenSvg = generateSvg(inDarkTheme, green);
-  writeFileSync(greenIconPath, greenSvg);
-  const mintIconPath = join(variantIconsDir, "accent_mint.svg");
-  const mintSvg = generateSvg(inDarkTheme, mint);
-  writeFileSync(mintIconPath, mintSvg);
-  const blueIconPath = join(variantIconsDir, "accent_blue.svg");
-  const blueSvg = generateSvg(inDarkTheme, blue);
-  writeFileSync(blueIconPath, blueSvg);
-  const purpleIconPath = join(variantIconsDir, "accent_purple.svg");
-  const purpleSvg = generateSvg(inDarkTheme, purple);
-  writeFileSync(purpleIconPath, purpleSvg);
-  const pinkIconPath = join(variantIconsDir, "accent_pink.svg");
-  const pinkSvg = generateSvg(inDarkTheme, pink);
-  writeFileSync(pinkIconPath, pinkSvg);
-};
-
-export const generateAdaptiveModeIcons = (
-  variant: Variant,
-  inDarkTheme: boolean,
-  noneModeColor: string,
-  gentleModeColor: string,
-  moderateModeColor: string,
-  aggressiveModeColor: string,
-) => {
-  const variantIconsDir = join(__dirname, "..", "..", "res", "icons", variant);
-  if (!existsSync(variantIconsDir)) {
-    mkdirSync(variantIconsDir, {
-      recursive: true,
-    });
-  }
-  const noneModeIconPath = join(variantIconsDir, "adaptation_none.svg");
-  const noneModeSvg = generateSvg(inDarkTheme, noneModeColor);
-  writeFileSync(noneModeIconPath, noneModeSvg);
-  const gentleModeIconPath = join(variantIconsDir, "adaptation_gentle.svg");
-  const gentleModeSvg = generateSvg(inDarkTheme, gentleModeColor);
-  writeFileSync(gentleModeIconPath, gentleModeSvg);
-  const moderateModeIconPath = join(variantIconsDir, "adaptation_moderate.svg");
-  const moderateModeSvg = generateSvg(inDarkTheme, moderateModeColor);
-  writeFileSync(moderateModeIconPath, moderateModeSvg);
-  const aggressiveModeIconPath = join(
-    variantIconsDir,
-    "adaptation_aggressive.svg",
-  );
-  const aggressiveModeSvg = generateSvg(inDarkTheme, aggressiveModeColor);
-  writeFileSync(aggressiveModeIconPath, aggressiveModeSvg);
-};
-
-const generateSvg = (inDarkTheme: boolean, color: string) => {
-  return `
-    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="24" cy="24" r="23.5" fill="${color}" stroke="${
-        inDarkTheme ? "white" : "black"
-      }"/>
-    </svg>
-  `;
-};
-
-const generateCustomSvg = (inDarkTheme: boolean) => {
-  return `<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_1_2)">
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_3_2)">
+<path d="M24 47.5C36.9787 47.5 47.5 36.9787 47.5 24C47.5 11.0213 36.9787 0.5 24 0.5C11.0213 0.5 0.5 11.0213 0.5 24C0.5 36.9787 11.0213 47.5 24 47.5Z" stroke="white"/>
 <path d="M23.7949 0.500896C23.9453 0.499583 24.0957 0.499713 24.2461 0.501287L24 24L23.7949 0.500896Z" fill="#FF0000"/>
 <path d="M24.2051 0.500916C24.3555 0.502228 24.5058 0.504984 24.6562 0.509183L24 24L24.2051 0.500916Z" fill="#FF0400"/>
 <path d="M24.6152 0.508057C24.7655 0.511993 24.9158 0.517372 25.066 0.524194L24 24L24.6152 0.508057Z" fill="#FF0900"/>
@@ -215,7 +119,7 @@ const generateCustomSvg = (inDarkTheme: boolean) => {
 <path d="M45.5509 33.3706C45.4909 33.5085 45.4296 33.6459 45.367 33.7826L24 24L45.5509 33.3706Z" fill="#1AFF00"/>
 <path d="M45.3841 33.7453C45.3217 33.8821 45.258 34.0184 45.1931 34.154L24 24L45.3841 33.7453Z" fill="#15FF00"/>
 <path d="M45.2107 34.117C45.146 34.2527 45.08 34.3879 45.0126 34.5223L24 24L45.2107 34.117Z" fill="#11FF00"/>
-<path d="M45.0309 34.4856C44.9638 34.6202 44.8955 34.7542 44.8258 34.8875L24 24L45.0309 34.4856Z" fill="#0DFF00"/>
+<path d="M45.0309 34.4856C44.9638 34.6202 44.8954 34.7542 44.8258 34.8875L24 24L45.0309 34.4856Z" fill="#0DFF00"/>
 <path d="M44.8447 34.8511C44.7753 34.9845 44.7046 35.1172 44.6326 35.2493L24 24L44.8447 34.8511Z" fill="#09FF00"/>
 <path d="M44.6522 35.2132C44.5804 35.3454 44.5074 35.4769 44.4331 35.6076L24 24L44.6522 35.2132Z" fill="#04FF00"/>
 <path d="M44.4534 35.5719C44.3793 35.7028 44.304 35.833 44.2274 35.9625L24 24L44.4534 35.5719Z" fill="#00FF00"/>
@@ -272,7 +176,7 @@ const generateCustomSvg = (inDarkTheme: boolean) => {
 <path d="M27.8786 47.1777C27.7303 47.2025 27.5817 47.2259 27.4329 47.2479L24 24L27.8786 47.1777Z" fill="#00FFD9"/>
 <path d="M27.4735 47.2419C27.3248 47.2641 27.1758 47.2849 27.0267 47.3043L24 24L27.4735 47.2419Z" fill="#00FFDD"/>
 <path d="M27.0674 47.2989C26.9183 47.3186 26.769 47.3368 26.6195 47.3535L24 24L27.0674 47.2989Z" fill="#00FFE1"/>
-<path d="M26.6603 47.3489C26.5109 47.3659 26.3613 47.3815 26.2115 47.3957L24 24L26.6603 47.3489Z" fill="#00FFE6"/>
+<path d="M26.6603 47.3489C26.5109 47.366 26.3613 47.3815 26.2115 47.3957L24 24L26.6603 47.3489Z" fill="#00FFE6"/>
 <path d="M26.2524 47.3918C26.1027 47.4062 25.9528 47.4192 25.8029 47.4307L24 24L26.2524 47.3918Z" fill="#00FFEA"/>
 <path d="M25.8438 47.4275C25.6939 47.4393 25.5438 47.4497 25.3937 47.4586L24 24L25.8438 47.4275Z" fill="#00FFEE"/>
 <path d="M25.4346 47.4562C25.2845 47.4653 25.1343 47.4731 24.9841 47.4794L24 24L25.4346 47.4562Z" fill="#00FFF2"/>
@@ -305,7 +209,7 @@ const generateCustomSvg = (inDarkTheme: boolean) => {
 <path d="M14.6294 45.5509C14.4915 45.4909 14.3541 45.4296 14.2174 45.367L24 24L14.6294 45.5509Z" fill="#0099FF"/>
 <path d="M14.2547 45.3841C14.1179 45.3217 13.9816 45.258 13.846 45.1931L24 24L14.2547 45.3841Z" fill="#0095FF"/>
 <path d="M13.883 45.2107C13.7472 45.146 13.6121 45.08 13.4777 45.0126L24 24L13.883 45.2107Z" fill="#0091FF"/>
-<path d="M13.5143 45.0309C13.3797 44.9638 13.2458 44.8955 13.1125 44.8258L24 24L13.5143 45.0309Z" fill="#008CFF"/>
+<path d="M13.5143 45.0309C13.3797 44.9638 13.2458 44.8954 13.1125 44.8258L24 24L13.5143 45.0309Z" fill="#008CFF"/>
 <path d="M13.1489 44.8447C13.0155 44.7753 12.8828 44.7046 12.7507 44.6326L24 24L13.1489 44.8447Z" fill="#0088FF"/>
 <path d="M12.7868 44.6522C12.6546 44.5804 12.5231 44.5074 12.3924 44.4331L24 24L12.7868 44.6522Z" fill="#0084FF"/>
 <path d="M12.428 44.4534C12.2971 44.3793 12.167 44.304 12.0375 44.2274L24 24L12.428 44.4534Z" fill="#0080FF"/>
@@ -319,9 +223,9 @@ const generateCustomSvg = (inDarkTheme: boolean) => {
 <path d="M9.69408 42.6438C9.57477 42.5522 9.45634 42.4595 9.33881 42.3657L24 24L9.69408 42.6438Z" fill="#005EFF"/>
 <path d="M9.37091 42.3913C9.25321 42.2977 9.13642 42.2029 9.02054 42.1071L24 24L9.37091 42.3913Z" fill="#0059FF"/>
 <path d="M9.05214 42.1332C8.9361 42.0375 8.82097 41.9407 8.70679 41.8429L24 24L9.05214 42.1332Z" fill="#0055FF"/>
-<path d="M8.73797 41.8695C8.62361 41.7719 8.5102 41.6731 8.39774 41.5732L24 24L8.73797 41.8695Z" fill="#0051FF"/>
+<path d="M8.73797 41.8695C8.62361 41.7719 8.5102 41.6731 8.39774 41.5733L24 24L8.73797 41.8695Z" fill="#0051FF"/>
 <path d="M8.42843 41.6005C8.31579 41.5008 8.20412 41.4001 8.09341 41.2983L24 24L8.42843 41.6005Z" fill="#004DFF"/>
-<path d="M8.12363 41.326C8.01275 41.2244 7.90285 41.1217 7.79395 41.018L24 24L8.12363 41.326Z" fill="#0048FF"/>
+<path d="M8.12362 41.326C8.01274 41.2244 7.90285 41.1217 7.79395 41.018L24 24L8.12362 41.326Z" fill="#0048FF"/>
 <path d="M7.82365 41.0463C7.71456 40.9428 7.60647 40.8382 7.49939 40.7326L24 24L7.82365 41.0463Z" fill="#0044FF"/>
 <path d="M7.52864 40.7614C7.42137 40.656 7.31512 40.5495 7.2099 40.4421L24 24L7.52864 40.7614Z" fill="#0040FF"/>
 <path d="M7.23863 40.4714C7.13322 40.3641 7.02884 40.2558 6.92551 40.1465L24 24L7.23863 40.4714Z" fill="#003CFF"/>
@@ -411,7 +315,7 @@ const generateCustomSvg = (inDarkTheme: boolean) => {
 <path d="M5.86682 9.05214C5.96248 8.9361 6.05925 8.82097 6.15712 8.70679L24 24L5.86682 9.05214Z" fill="#FF00D5"/>
 <path d="M6.13046 8.738C6.22813 8.62365 6.3269 8.51023 6.42675 8.39777L24 24L6.13046 8.738Z" fill="#FF00D0"/>
 <path d="M6.39954 8.4284C6.49919 8.31576 6.59992 8.20409 6.70171 8.09338L24 24L6.39954 8.4284Z" fill="#FF00CC"/>
-<path d="M6.67398 8.12363C6.77558 8.01275 6.87825 7.90285 6.98196 7.79395L24 24L6.67398 8.12363Z" fill="#FF00C8"/>
+<path d="M6.67398 8.12362C6.77558 8.01274 6.87825 7.90285 6.98196 7.79395L24 24L6.67398 8.12362Z" fill="#FF00C8"/>
 <path d="M6.9537 7.82365C7.05723 7.71456 7.16179 7.60647 7.26739 7.49939L24 24L6.9537 7.82365Z" fill="#FF00C4"/>
 <path d="M7.23862 7.52864C7.34403 7.42137 7.45046 7.31512 7.55791 7.2099L24 24L7.23862 7.52864Z" fill="#FF00BF"/>
 <path d="M7.52863 7.2386C7.63589 7.13319 7.74417 7.02881 7.85344 6.92548L24 24L7.52863 7.2386Z" fill="#FF00BB"/>
@@ -458,19 +362,10 @@ const generateCustomSvg = (inDarkTheme: boolean) => {
 <path d="M22.5653 0.543848C22.7154 0.534667 22.8656 0.526928 23.0159 0.52063L24 24L22.5653 0.543848Z" fill="#FF000D"/>
 <path d="M22.9749 0.52237C23.1252 0.51581 23.2755 0.510693 23.4258 0.507019L24 24L22.9749 0.52237Z" fill="#FF0009"/>
 <path d="M23.3848 0.50803C23.5352 0.504093 23.6855 0.501599 23.8359 0.500549L24 24L23.3848 0.50803Z" fill="#FF0004"/>
-<path d="M24 47.5C36.9787 47.5 47.5 36.9787 47.5 24C47.5 11.0213 36.9787 0.5 24 0.5C11.0213 0.5 0.5 11.0213 0.5 24C0.5 36.9787 11.0213 47.5 24 47.5Z" fill="url(#paint0_radial_1_2)"/>
-<path d="M24 47.75C37.1168 47.75 47.75 37.1168 47.75 24C47.75 10.8832 37.1168 0.25 24 0.25C10.8832 0.25 0.25 10.8832 0.25 24C0.25 37.1168 10.8832 47.75 24 47.75Z" stroke="${
-    inDarkTheme ? "white" : "black"
-  }" stroke-width=""/>
 </g>
 <defs>
-<radialGradient id="paint0_radial_1_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(24 24) scale(23.5 23.5)">
-<stop stop-color="white"/>
-<stop offset="1" stop-color="white" stop-opacity="0"/>
-</radialGradient>
-<clipPath id="clip0_1_2">
+<clipPath id="clip0_3_2">
 <rect width="48" height="48" fill="white"/>
 </clipPath>
 </defs>
-</svg>`;
-};
+</svg>
