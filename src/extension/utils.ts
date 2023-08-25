@@ -1,4 +1,5 @@
 import { writeFile } from "fs";
+import { get } from "https";
 import { ConfigurationTarget, workspace } from "vscode";
 import {
   AdaptiveMode,
@@ -12,7 +13,9 @@ import {
 import {
   getAuxiliaryThemeObject,
   prepareAuxiliaryTheme,
+  prepareAuxiliaryThemeOffline,
   prepareAuxiliaryThemeRegistries,
+  prepareAuxiliaryThemeRegistriesOffline,
 } from "../data";
 import { updateBridge } from "../main";
 import { defaultConfig } from "../modern";
@@ -20,15 +23,32 @@ import { getStyles } from "../modern/variants";
 import { getThemeObject } from "../theme";
 import { configureSettings } from "../theme/configs";
 import { UpdateReason } from "./enums";
+import { offlineModeActive } from "./messages";
 import {
   showErrorNotification,
   showInformationNotification,
+  showWarningNotification,
 } from "./notifications";
 import {
   getIsConfiguredFromCommand,
+  getIsOfflineMode,
   setIsConfiguredFromCommand,
+  setIsOfflineMode,
 } from "./sharedState";
 import { getStateObject } from "./state";
+
+export const checkInternetConnection = (): Promise<void> => {
+  return new Promise((resolve) => {
+    get("https://www.github.com", () => {
+      setIsOfflineMode(false);
+      resolve();
+    }).on("error", () => {
+      showWarningNotification(offlineModeActive(), null, null);
+      setIsOfflineMode(true);
+      resolve();
+    });
+  });
+};
 
 export const verifyState = (config?: Config): boolean => {
   return (
@@ -147,12 +167,24 @@ export const updateModern = async (
     default:
       variants = [updateTarget];
   }
+  let isOfflineMode = getIsOfflineMode();
   if (!getIsConfiguredFromCommand()) {
-    const success = await prepareAuxiliaryThemeRegistries(
-      config.auxiliaryThemeRegistries,
-    );
-    if (!success) {
-      return;
+    await checkInternetConnection();
+    isOfflineMode = getIsOfflineMode();
+    if (!isOfflineMode) {
+      const success = await prepareAuxiliaryThemeRegistries(
+        config.auxiliaryThemeRegistries,
+      );
+      if (!success) {
+        return;
+      }
+    } else {
+      const success = prepareAuxiliaryThemeRegistriesOffline(
+        config.auxiliaryThemeRegistries,
+      );
+      if (!success) {
+        return;
+      }
     }
   }
   const promises = variants.map(async (variant: Variant) => {
@@ -165,12 +197,24 @@ export const updateModern = async (
     };
     if (themeContext.variantConfig.auxiliaryUiTheme) {
       if (!getIsConfiguredFromCommand()) {
-        const success = await prepareAuxiliaryTheme(
-          themeContext.variantConfig.auxiliaryUiTheme,
-          themeContext.variant,
-        );
-        if (!success) {
-          return false;
+        if (!isOfflineMode) {
+          const success = await prepareAuxiliaryTheme(
+            config.auxiliaryThemeRegistries,
+            themeContext.variantConfig.auxiliaryUiTheme,
+            themeContext.variant,
+          );
+          if (!success) {
+            return false;
+          }
+        } else {
+          const success = prepareAuxiliaryThemeOffline(
+            config.auxiliaryThemeRegistries,
+            themeContext.variantConfig.auxiliaryUiTheme,
+            themeContext.variant,
+          );
+          if (!success) {
+            return false;
+          }
         }
       }
       themeContext.auxiliaryUiThemeObject = await getAuxiliaryThemeObject(
@@ -179,12 +223,24 @@ export const updateModern = async (
     }
     if (themeContext.variantConfig.auxiliaryCodeTheme) {
       if (!getIsConfiguredFromCommand()) {
-        const success = await prepareAuxiliaryTheme(
-          themeContext.variantConfig.auxiliaryCodeTheme,
-          themeContext.variant,
-        );
-        if (!success) {
-          return false;
+        if (!isOfflineMode) {
+          const success = await prepareAuxiliaryTheme(
+            config.auxiliaryThemeRegistries,
+            themeContext.variantConfig.auxiliaryCodeTheme,
+            themeContext.variant,
+          );
+          if (!success) {
+            return false;
+          }
+        } else {
+          const success = prepareAuxiliaryThemeOffline(
+            config.auxiliaryThemeRegistries,
+            themeContext.variantConfig.auxiliaryCodeTheme,
+            themeContext.variant,
+          );
+          if (!success) {
+            return false;
+          }
         }
       }
       themeContext.auxiliaryCodeThemeObject = await getAuxiliaryThemeObject(

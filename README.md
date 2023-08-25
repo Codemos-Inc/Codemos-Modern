@@ -107,7 +107,7 @@ Codemos Modern provides three configuration options through the command **Codemo
 
   1. **Design:** You can choose which design your Modern will use. (Design determines the overall look of the theme)
      ![ui-theme-bundled](images/conf-ui-theme-2.png)
-  2. **Accent color:** You can select which accent color your theme will use. (Accent color determines the color of the important ui elements; buttons, badges, links, emphasized text, etc. and effects the adaptability mode)
+  2. **Accent color:** You can configure which accent color your theme will use. Accent color can be selected from Modern's excellent palette or you can provide a custom one with its hex color code. (Accent color determines the color of the important ui elements; buttons, badges, links, emphasized text, etc. and effects the adaptability mode)
      ![accent-color](images/conf-ui-theme-3.png)
   3. **Adaptation Mode:** You can select which adaptation mode your theme would use. (Adaptation mode determines how much your accent color influence the rest of the UI. See [adaptability section](#adaptability) for more information)
      ![adaptation-mode](images/conf-ui-theme-4.png)

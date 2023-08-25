@@ -1,101 +1,4 @@
-import { existsSync, mkdirSync, writeFileSync } from "fs";
-import { join } from "path";
-import { Variant } from "../@types";
-
-export const generateAccentColorIcons = (
-  variant: Variant,
-  inDarkTheme: boolean,
-  brown: string,
-  red: string,
-  orange: string,
-  yellow: string,
-  green: string,
-  mint: string,
-  blue: string,
-  purple: string,
-  pink: string,
-) => {
-  const variantIconsDir = join(__dirname, "..", "..", "res", "icons", variant);
-  if (!existsSync(variantIconsDir)) {
-    mkdirSync(variantIconsDir, {
-      recursive: true,
-    });
-  }
-  const customIconPath = join(variantIconsDir, "accent_custom.svg");
-  const customSvg = generateCustomSvg(inDarkTheme);
-  writeFileSync(customIconPath, customSvg);
-  const brownIconPath = join(variantIconsDir, "accent_brown.svg");
-  const brownSvg = generateSvg(inDarkTheme, brown);
-  writeFileSync(brownIconPath, brownSvg);
-  const redIconPath = join(variantIconsDir, "accent_red.svg");
-  const redSvg = generateSvg(inDarkTheme, red);
-  writeFileSync(redIconPath, redSvg);
-  const orangeIconPath = join(variantIconsDir, "accent_orange.svg");
-  const orangeSvg = generateSvg(inDarkTheme, orange);
-  writeFileSync(orangeIconPath, orangeSvg);
-  const yellowIconPath = join(variantIconsDir, "accent_yellow.svg");
-  const yellowSvg = generateSvg(inDarkTheme, yellow);
-  writeFileSync(yellowIconPath, yellowSvg);
-  const greenIconPath = join(variantIconsDir, "accent_green.svg");
-  const greenSvg = generateSvg(inDarkTheme, green);
-  writeFileSync(greenIconPath, greenSvg);
-  const mintIconPath = join(variantIconsDir, "accent_mint.svg");
-  const mintSvg = generateSvg(inDarkTheme, mint);
-  writeFileSync(mintIconPath, mintSvg);
-  const blueIconPath = join(variantIconsDir, "accent_blue.svg");
-  const blueSvg = generateSvg(inDarkTheme, blue);
-  writeFileSync(blueIconPath, blueSvg);
-  const purpleIconPath = join(variantIconsDir, "accent_purple.svg");
-  const purpleSvg = generateSvg(inDarkTheme, purple);
-  writeFileSync(purpleIconPath, purpleSvg);
-  const pinkIconPath = join(variantIconsDir, "accent_pink.svg");
-  const pinkSvg = generateSvg(inDarkTheme, pink);
-  writeFileSync(pinkIconPath, pinkSvg);
-};
-
-export const generateAdaptiveModeIcons = (
-  variant: Variant,
-  inDarkTheme: boolean,
-  noneModeColor: string,
-  gentleModeColor: string,
-  moderateModeColor: string,
-  aggressiveModeColor: string,
-) => {
-  const variantIconsDir = join(__dirname, "..", "..", "res", "icons", variant);
-  if (!existsSync(variantIconsDir)) {
-    mkdirSync(variantIconsDir, {
-      recursive: true,
-    });
-  }
-  const noneModeIconPath = join(variantIconsDir, "adaptation_none.svg");
-  const noneModeSvg = generateSvg(inDarkTheme, noneModeColor);
-  writeFileSync(noneModeIconPath, noneModeSvg);
-  const gentleModeIconPath = join(variantIconsDir, "adaptation_gentle.svg");
-  const gentleModeSvg = generateSvg(inDarkTheme, gentleModeColor);
-  writeFileSync(gentleModeIconPath, gentleModeSvg);
-  const moderateModeIconPath = join(variantIconsDir, "adaptation_moderate.svg");
-  const moderateModeSvg = generateSvg(inDarkTheme, moderateModeColor);
-  writeFileSync(moderateModeIconPath, moderateModeSvg);
-  const aggressiveModeIconPath = join(
-    variantIconsDir,
-    "adaptation_aggressive.svg",
-  );
-  const aggressiveModeSvg = generateSvg(inDarkTheme, aggressiveModeColor);
-  writeFileSync(aggressiveModeIconPath, aggressiveModeSvg);
-};
-
-const generateSvg = (inDarkTheme: boolean, color: string) => {
-  return `
-    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="24" cy="24" r="23.5" fill="${color}" stroke="${
-        inDarkTheme ? "white" : "black"
-      }"/>
-    </svg>
-  `;
-};
-
-const generateCustomSvg = (inDarkTheme: boolean) => {
-  return `<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_1_2)">
 <path d="M23.7949 0.500896C23.9453 0.499583 24.0957 0.499713 24.2461 0.501287L24 24L23.7949 0.500896Z" fill="#FF0000"/>
 <path d="M24.2051 0.500916C24.3555 0.502228 24.5058 0.504984 24.6562 0.509183L24 24L24.2051 0.500916Z" fill="#FF0400"/>
@@ -459,9 +362,7 @@ const generateCustomSvg = (inDarkTheme: boolean) => {
 <path d="M22.9749 0.52237C23.1252 0.51581 23.2755 0.510693 23.4258 0.507019L24 24L22.9749 0.52237Z" fill="#FF0009"/>
 <path d="M23.3848 0.50803C23.5352 0.504093 23.6855 0.501599 23.8359 0.500549L24 24L23.3848 0.50803Z" fill="#FF0004"/>
 <path d="M24 47.5C36.9787 47.5 47.5 36.9787 47.5 24C47.5 11.0213 36.9787 0.5 24 0.5C11.0213 0.5 0.5 11.0213 0.5 24C0.5 36.9787 11.0213 47.5 24 47.5Z" fill="url(#paint0_radial_1_2)"/>
-<path d="M24 47.75C37.1168 47.75 47.75 37.1168 47.75 24C47.75 10.8832 37.1168 0.25 24 0.25C10.8832 0.25 0.25 10.8832 0.25 24C0.25 37.1168 10.8832 47.75 24 47.75Z" stroke="${
-    inDarkTheme ? "white" : "black"
-  }" stroke-width=""/>
+<path d="M24 47.75C37.1168 47.75 47.75 37.1168 47.75 24C47.75 10.8832 37.1168 0.25 24 0.25C10.8832 0.25 0.25 10.8832 0.25 24C0.25 37.1168 10.8832 47.75 24 47.75Z" stroke="black" stroke-width=""/>
 </g>
 <defs>
 <radialGradient id="paint0_radial_1_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(24 24) scale(23.5 23.5)">
@@ -472,5 +373,4 @@ const generateCustomSvg = (inDarkTheme: boolean) => {
 <rect width="48" height="48" fill="white"/>
 </clipPath>
 </defs>
-</svg>`;
-};
+</svg>
