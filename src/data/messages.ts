@@ -13,11 +13,15 @@ export const cachingFailed = (message: string): string => {
 };
 
 export const removingFailed = (message: string): string => {
-  return `Remove operation failed with the message "${message}". Verify that the cache directory is not in use by any other process.`;
+  return `Remove operation failed with the message "${message}". Verify that the data directory is not in use by any other process.`;
 };
 
 export const registryIsNotInRegistries = (registryId: string): string => {
   return `Registry "${registryId}" must be added to registries before use. Verify that the registry is amongst registries.`;
+};
+
+export const registryNotAvailableOffline = (registryId: string): string => {
+  return `Registry "${registryId}" is not available in offline mode! Verify that the registry is installed.`;
 };
 
 export const themeNotInRegistry = (
@@ -36,12 +40,20 @@ export const themeVariantMismatch = (
   )}" theme! Verify that Modern's variant matches with the auxiliary theme's.`;
 };
 
+export const themeNotAvailableOffline = (themeUniqueId: string): string => {
+  return `Theme "${themeUniqueId}" is not available in offline mode! Verify that the theme is installed.`;
+};
+
+export const themeNotAvailableOfflineUnexpected = (themeUniqueId: string): string => {
+  return `Theme "${themeUniqueId}" was expected to be available in offline mode but it is not! Please contact with Codemos.`;
+};
+
 export const unexpectedVariantError = (variant: Variant): string => {
-  return `Unexpected variant "${variant}"! Please Contact with Codemos.`;
+  return `Unexpected variant "${variant}"! Please contact with Codemos.`;
 };
 
 export const unexpectedDummyDataError = (): string => {
-  return `Unexpected dummy data! Please Contact with Codemos.`;
+  return `Unexpected dummy data! Please contact with Codemos.`;
 };
 
 // Progress messages

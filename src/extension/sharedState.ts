@@ -1,7 +1,11 @@
-let configuredFromCommand = false;
-
-export const getIsConfiguredFromCommand = () => configuredFromCommand;
-
+let isConfiguredFromCommand = false;
+export const getIsConfiguredFromCommand = () => isConfiguredFromCommand;
 export const setIsConfiguredFromCommand = (value: boolean) => {
-  configuredFromCommand = value;
+  isConfiguredFromCommand = value;
+};
+
+let isOfflineMode = true;
+export const getIsOfflineMode = () => isOfflineMode;
+export const setIsOfflineMode = (value: boolean) => {
+  isOfflineMode = value;
 };

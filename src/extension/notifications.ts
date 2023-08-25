@@ -22,6 +22,27 @@ export const showInformationNotification = (
   }
 };
 
+export const showWarningNotification = (
+  message: string,
+  actions: string[] | null,
+  command: string | null,
+) => {
+  const messageWithSignature = `${NOTIFICATION_SIGNATURE} ${message}`;
+  if (!actions) {
+    window.showWarningMessage(messageWithSignature);
+  } else {
+    window
+      .showWarningMessage(messageWithSignature, ...actions)
+      .then((selectedAction) => {
+        if (selectedAction === actions[0]) {
+          if (command) {
+            commands.executeCommand(command);
+          }
+        }
+      });
+  }
+};
+
 export const showErrorNotification = (
   message: string,
   actions: string[] | null,

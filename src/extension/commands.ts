@@ -13,7 +13,9 @@ import { getMimicHex7, validateHex6 } from "../color";
 import {
   getAllAuxiliaryThemeRegistryIndexes as getAuxiliaryThemeRegistryIndexes,
   prepareAuxiliaryTheme,
+  prepareAuxiliaryThemeOffline,
   prepareAuxiliaryThemeRegistries,
+  prepareAuxiliaryThemeRegistriesOffline,
 } from "../data";
 import { getAuxiliaryThemeId } from "../data/helpers";
 import { mimic3Info as darkMimic } from "../modern/variants/dark/modern";
@@ -23,10 +25,28 @@ import { NOTIFICATION_SIGNATURE } from "./constants";
 import { toggleFirstLetterCase } from "./helpers";
 import { generateAdaptiveModeIcons } from "./icons";
 import { showProgressNotification } from "./notifications";
-import { setIsConfiguredFromCommand } from "./sharedState";
-import { getConfig, updateConfig } from "./utils";
+import { getIsOfflineMode, setIsConfiguredFromCommand } from "./sharedState";
+import { checkInternetConnection, getConfig, updateConfig } from "./utils";
+
+export const authenticateCommand = async () => {
+  showProgressNotification(
+    `${NOTIFICATION_SIGNATURE} Authenticating...`,
+    async () => {
+      const result = await authenticate(true);
+      if (!result.success) {
+        if (result.message) {
+          window.showErrorMessage(result.message);
+        }
+      } else {
+        window.showInformationMessage("Authenticated successfully!");
+      }
+    },
+  );
+};
 
 export const configureCommand = async () => {
+  await checkInternetConnection();
+  const isOfflineMode = getIsOfflineMode();
   //
   const variantLabel = await getVariantLabel();
   if (!variantLabel) {
@@ -37,6 +57,7 @@ export const configureCommand = async () => {
   const auxiliaryUiThemeExtension = await getAuxiliaryThemeExtension(
     variant,
     "ui",
+    isOfflineMode,
   );
   if (!auxiliaryUiThemeExtension) {
     return;
@@ -47,6 +68,7 @@ export const configureCommand = async () => {
       variant,
       auxiliaryUiThemeExtension,
       "ui",
+      isOfflineMode,
     );
     if (!auxiliaryUiThemeCandidate) {
       return;
@@ -82,6 +104,7 @@ export const configureCommand = async () => {
   const auxiliaryCodeThemeExtension = await getAuxiliaryThemeExtension(
     variant,
     "code",
+    isOfflineMode,
   );
   if (!auxiliaryCodeThemeExtension) {
     return;
@@ -92,6 +115,7 @@ export const configureCommand = async () => {
       variant,
       auxiliaryCodeThemeExtension,
       "code",
+      isOfflineMode,
     );
     if (!auxiliaryCodeThemeCandidate) {
       return;
@@ -114,22 +138,6 @@ export const configureCommand = async () => {
       `Codemos Modern (${toggleFirstLetterCase(variant)})`,
       ConfigurationTarget.Global,
     );
-};
-
-export const authenticateCommand = async () => {
-  showProgressNotification(
-    `${NOTIFICATION_SIGNATURE} Authenticating...`,
-    async () => {
-      const result = await authenticate(true);
-      if (!result.success) {
-        if (result.message) {
-          window.showErrorMessage(result.message);
-        }
-      } else {
-        window.showInformationMessage("Authenticated successfully!");
-      }
-    },
-  );
 };
 
 const getVariantLabel = async () => {
@@ -371,7 +379,7 @@ const prepareIcons = (variant: Variant, accentColorHex7: string) => {
   }
 };
 
-interface AuxiliaryThemeExtensionAsQuickPickItem extends QuickPickItem {
+interface AuxiliaryThemeQPI extends QuickPickItem {
   auxiliaryThemeId: string | undefined;
   label: string;
   description?: string;
@@ -383,6 +391,7 @@ interface AuxiliaryThemeExtensionAsQuickPickItem extends QuickPickItem {
 const getAuxiliaryThemeExtension = async (
   variant: Variant,
   kind: "ui" | "code",
+  isOfflineMode: boolean,
 ) => {
   const kindLabel = kind === "ui" ? "UI" : "Code";
   const quickPick = window.createQuickPick();
@@ -394,9 +403,12 @@ const getAuxiliaryThemeExtension = async (
   quickPick.busy = true;
   quickPick.show();
   const auxiliaryThemeRegistries = getConfig().auxiliaryThemeRegistries;
-  const success = await prepareAuxiliaryThemeRegistries(
-    auxiliaryThemeRegistries,
-  );
+  let success: boolean;
+  if (isOfflineMode) {
+    success = prepareAuxiliaryThemeRegistriesOffline(auxiliaryThemeRegistries);
+  } else {
+    success = await prepareAuxiliaryThemeRegistries(auxiliaryThemeRegistries);
+  }
   if (!success) {
     quickPick.dispose();
     return undefined;
@@ -404,26 +416,23 @@ const getAuxiliaryThemeExtension = async (
   const auxiliaryThemeRegistryIndexesWithId = getAuxiliaryThemeRegistryIndexes(
     auxiliaryThemeRegistries,
   );
-  const auxiliaryThemeAsQuickPickItems: AuxiliaryThemeExtensionAsQuickPickItem[] =
-    [];
-  auxiliaryThemeAsQuickPickItems.push({
+  const auxiliaryThemesQPI: AuxiliaryThemeQPI[] = [];
+  auxiliaryThemesQPI.push({
     auxiliaryThemeId: undefined,
     label: "Bundled",
     kind: QuickPickItemKind.Separator,
   });
-  auxiliaryThemeAsQuickPickItems.push({
+  auxiliaryThemesQPI.push({
     auxiliaryThemeId: "_",
     label: "$(library) Codemos Modern",
     description: "Codemos-Inc/Codemos-Modern $(verified-filled)",
     detail: `$(organization) Codemos • $(compass) Bundled • $(law) MIT`,
     alwaysShow: true,
   });
-  auxiliaryThemeAsQuickPickItems.push({
-    auxiliaryThemeId: undefined,
-    label: "From registries",
-    kind: QuickPickItemKind.Separator,
-  });
+  const installedAuxiliaryThemesQPI: AuxiliaryThemeQPI[] = [];
+  const availableAuxiliaryThemesQPI: AuxiliaryThemeQPI[] = [];
   for (const auxiliaryThemeRegistryIndexWithId of auxiliaryThemeRegistryIndexesWithId) {
+    // 🟢 Optimize filtering algorithm
     const filteredAuxiliaryThemes =
       auxiliaryThemeRegistryIndexWithId.auxiliaryThemeRegistryIndex.themes[
         variant
@@ -436,16 +445,33 @@ const getAuxiliaryThemeExtension = async (
           )
         );
       });
+    for (const filteredAuxiliaryTheme of filteredAuxiliaryThemes) {
+      const installedOption =
+        auxiliaryThemeRegistryIndexWithId.auxiliaryThemeRegistryIndex.themes[
+          variant
+        ].find((auxiliaryTheme) => {
+          return (
+            auxiliaryTheme.extension === filteredAuxiliaryTheme.extension &&
+            auxiliaryTheme.installed
+          );
+        });
+      if (installedOption) {
+        const index = filteredAuxiliaryThemes.findIndex((auxiliaryTheme) => {
+          return auxiliaryTheme === filteredAuxiliaryTheme;
+        });
+        filteredAuxiliaryThemes[index] = installedOption;
+      }
+    }
+    const isVerifiedOwner = verifiedOwners.find((verifiedOwner) => {
+      return (
+        verifiedOwner ===
+        auxiliaryThemeRegistryIndexWithId.auxiliaryThemeRegistryId.owner.toLowerCase()
+      );
+    })
+      ? true
+      : false;
     for (const auxiliaryTheme of filteredAuxiliaryThemes) {
-      const isVerifiedOwner = verifiedOwners.find((verifiedOwner) => {
-        return (
-          verifiedOwner ===
-          auxiliaryThemeRegistryIndexWithId.auxiliaryThemeRegistryId.owner.toLowerCase()
-        );
-      })
-        ? true
-        : false;
-      auxiliaryThemeAsQuickPickItems.push({
+      const auxiliaryThemeExtensionQPI: AuxiliaryThemeQPI = {
         auxiliaryThemeId: `${auxiliaryThemeRegistryIndexWithId.auxiliaryThemeRegistryId.owner}/${auxiliaryThemeRegistryIndexWithId.auxiliaryThemeRegistryId.repo}/${auxiliaryTheme.publisher}/${auxiliaryTheme.extension}/${auxiliaryTheme.theme}`,
         label: `$(extensions) ${auxiliaryTheme.extension}`,
         description: `${
@@ -454,19 +480,41 @@ const getAuxiliaryThemeExtension = async (
           isVerifiedOwner ? "$(verified-filled)" : "$(unverified)"
         }`,
         detail: `$(organization) ${auxiliaryTheme.publisher} • $(compass) ${auxiliaryTheme.origin} • $(law) ${auxiliaryTheme.license}`,
-      });
+      };
+      if (auxiliaryTheme.installed) {
+        installedAuxiliaryThemesQPI.push(auxiliaryThemeExtensionQPI);
+      } else {
+        if (!isOfflineMode) {
+          availableAuxiliaryThemesQPI.push(auxiliaryThemeExtensionQPI);
+        }
+      }
     }
   }
+  if (installedAuxiliaryThemesQPI.length > 0) {
+    auxiliaryThemesQPI.push({
+      auxiliaryThemeId: undefined,
+      label: "Installed",
+      kind: QuickPickItemKind.Separator,
+    });
+    auxiliaryThemesQPI.push(...installedAuxiliaryThemesQPI);
+  }
+  if (availableAuxiliaryThemesQPI.length > 0) {
+    auxiliaryThemesQPI.push({
+      auxiliaryThemeId: undefined,
+      label: "Available",
+      kind: QuickPickItemKind.Separator,
+    });
+    auxiliaryThemesQPI.push(...availableAuxiliaryThemesQPI);
+  }
   quickPick.busy = false;
-  quickPick.items = auxiliaryThemeAsQuickPickItems;
+  quickPick.items = auxiliaryThemesQPI;
   return await new Promise<string | undefined>((resolve) => {
     quickPick.onDidAccept(() => {
       const selectedAuxiliaryTheme = quickPick.selectedItems[0];
       quickPick.dispose();
       if (selectedAuxiliaryTheme) {
         return resolve(
-          (selectedAuxiliaryTheme as AuxiliaryThemeExtensionAsQuickPickItem)
-            .auxiliaryThemeId,
+          (selectedAuxiliaryTheme as AuxiliaryThemeQPI).auxiliaryThemeId,
         );
       } else {
         return resolve(undefined);
@@ -479,6 +527,7 @@ const getAuxiliaryTheme = async (
   variant: Variant,
   auxiliaryThemeExtension: string,
   kind: "ui" | "code",
+  isOfflineMode: boolean,
 ) => {
   const kindLabel = kind === "ui" ? "UI" : "Code";
   const quickPick = window.createQuickPick();
@@ -495,8 +544,9 @@ const getAuxiliaryTheme = async (
   const auxiliaryThemeRegistryIndexesWithId = getAuxiliaryThemeRegistryIndexes(
     auxiliaryThemeRegistries,
   );
-  const auxiliaryThemeAsQuickPickItems: AuxiliaryThemeExtensionAsQuickPickItem[] =
-    [];
+  const auxiliaryThemesQPI: AuxiliaryThemeQPI[] = [];
+  const installedAuxiliaryThemesQPI: AuxiliaryThemeQPI[] = [];
+  const availableAuxiliaryThemesQPI: AuxiliaryThemeQPI[] = [];
   const auxiliaryThemeId = getAuxiliaryThemeId(auxiliaryThemeExtension);
   for (const auxiliaryThemeRegistryIndexWithId of auxiliaryThemeRegistryIndexesWithId) {
     const filteredAuxiliaryThemes =
@@ -508,16 +558,16 @@ const getAuxiliaryTheme = async (
           auxiliaryTheme.extension === auxiliaryThemeId.extension
         );
       });
+    const isVerifiedOwner = verifiedOwners.find((verifiedOwner) => {
+      return (
+        verifiedOwner ===
+        auxiliaryThemeRegistryIndexWithId.auxiliaryThemeRegistryId.owner.toLowerCase()
+      );
+    })
+      ? true
+      : false;
     for (const auxiliaryTheme of filteredAuxiliaryThemes) {
-      const isVerifiedOwner = verifiedOwners.find((verifiedOwner) => {
-        return (
-          verifiedOwner ===
-          auxiliaryThemeRegistryIndexWithId.auxiliaryThemeRegistryId.owner.toLowerCase()
-        );
-      })
-        ? true
-        : false;
-      auxiliaryThemeAsQuickPickItems.push({
+      const auxiliaryThemeQPI: AuxiliaryThemeQPI = {
         auxiliaryThemeId: `${auxiliaryThemeRegistryIndexWithId.auxiliaryThemeRegistryId.owner}/${auxiliaryThemeRegistryIndexWithId.auxiliaryThemeRegistryId.repo}/${auxiliaryTheme.publisher}/${auxiliaryTheme.extension}/${auxiliaryTheme.theme}`,
         label: `$(symbol-color) ${auxiliaryTheme.theme}`,
         description: `${
@@ -528,24 +578,57 @@ const getAuxiliaryTheme = async (
         detail: `$(organization) ${auxiliaryTheme.publisher} • $(extensions) ${
           auxiliaryTheme.extension
         } • $(color-mode) ${toggleFirstLetterCase(variant)}`,
-      });
+      };
+      if (auxiliaryTheme.installed) {
+        installedAuxiliaryThemesQPI.push(auxiliaryThemeQPI);
+      } else {
+        if (!isOfflineMode) {
+          availableAuxiliaryThemesQPI.push(auxiliaryThemeQPI);
+        }
+      }
     }
   }
+  if (installedAuxiliaryThemesQPI.length > 0) {
+    auxiliaryThemesQPI.push({
+      auxiliaryThemeId: undefined,
+      label: "Installed",
+      kind: QuickPickItemKind.Separator,
+    });
+    auxiliaryThemesQPI.push(...installedAuxiliaryThemesQPI);
+  }
+  if (availableAuxiliaryThemesQPI.length > 0) {
+    auxiliaryThemesQPI.push({
+      auxiliaryThemeId: undefined,
+      label: "Available",
+      kind: QuickPickItemKind.Separator,
+    });
+    auxiliaryThemesQPI.push(...availableAuxiliaryThemesQPI);
+  }
   quickPick.busy = false;
-  quickPick.items = auxiliaryThemeAsQuickPickItems;
+  quickPick.items = auxiliaryThemesQPI;
   return await new Promise<string | undefined>((resolve) => {
     quickPick.onDidAccept(async () => {
       const selectedAuxiliaryTheme = quickPick.selectedItems[0];
       quickPick.dispose();
       if (selectedAuxiliaryTheme) {
         const selectedAuxiliaryThemeId = (
-          selectedAuxiliaryTheme as AuxiliaryThemeExtensionAsQuickPickItem
+          selectedAuxiliaryTheme as AuxiliaryThemeQPI
         ).auxiliaryThemeId;
         if (selectedAuxiliaryThemeId) {
-          const success = await prepareAuxiliaryTheme(
-            selectedAuxiliaryThemeId,
-            variant,
-          );
+          let success: boolean;
+          if (isOfflineMode) {
+            success = await prepareAuxiliaryThemeOffline(
+              auxiliaryThemeRegistries,
+              selectedAuxiliaryThemeId,
+              variant,
+            );
+          } else {
+            success = await prepareAuxiliaryTheme(
+              auxiliaryThemeRegistries,
+              selectedAuxiliaryThemeId,
+              variant,
+            );
+          }
           if (!success) {
             return resolve(undefined);
           }

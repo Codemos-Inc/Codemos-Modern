@@ -22,6 +22,7 @@ export type AuxiliaryThemeInfo = {
   theme: string;
   origin: "Builtin" | "Marketplace" | "GitHub";
   license: string;
+  installed: boolean;
 };
 
 export type AuxiliaryThemeId = {

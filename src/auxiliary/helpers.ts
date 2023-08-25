@@ -24,12 +24,14 @@ export const isAuxiliaryThemeInfo = (obj: any): obj is AuxiliaryThemeInfo => {
   if (typeof obj !== "object" || obj === null) {
     return false;
   }
+  obj.installed = false;
   if (
     typeof obj.publisher !== "string" ||
     typeof obj.extension !== "string" ||
     typeof obj.theme !== "string" ||
     !["Builtin", "Marketplace", "GitHub"].includes(obj.origin) ||
-    typeof obj.license !== "string"
+    typeof obj.license !== "string" ||
+    typeof obj.installed !== "boolean"
   ) {
     return false;
   }
