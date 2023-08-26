@@ -19,10 +19,6 @@ Nothing yet.
 
 - Visualization of auxiliary themes and extensions in command `codemosModern.configure`, indicating which of them are installed.
 
-### Fixed
-
-- Wrong scoping of theme change resulting all sorts of headaches.
-
 ## [2.0.1] - 2023-08-17 - Scoping hotfix 🛠️
 
 ### Fixed
