@@ -402,11 +402,11 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
         inactiveUnfocused: `${mimic1Color}${getHexAlpha(100)}`,
       },
       terminal: {
-        fg: `#CCCCCC${getHexAlpha(100)}`,
-        hic: `#CCCCCC${getHexAlpha(100)}`,
-        hiq: `#BBBBBB${getHexAlpha(100)}`,
-        loq: `#444444${getHexAlpha(100)}`,
-        loc: `#333333${getHexAlpha(100)}`,
+        fg: `${palette.hic}${getHexAlpha(78)}`,
+        hic: `${palette.hic}${getHexAlpha(78)}`,
+        hiq: `${palette.hic}${getHexAlpha(54)}`,
+        loq: `${palette.hic}${getHexAlpha(36)}`,
+        loc: `${palette.hic}${getHexAlpha(20)}`,
       },
     },
     stroke: {

@@ -8,6 +8,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 Nothing yet.
 
+## [2.1.1] - 2023-08-26 - Minor fixes & changes 🛠️
+
+### Fixed
+
+- `moderate` selection in settings.json prompting an error even though it is a valid value.
+- `codemosModern.configure` command icon visual inconsistencies.
+
+### Changed
+
+- Terminal colors to make them more consistent with their surrounding colors.
+
 ## [2.1.0] - 2023-08-25 - Offline availability and color presets 📡
 
 ### Added
@@ -18,10 +29,6 @@ Nothing yet.
 ### Changed
 
 - Visualization of auxiliary themes and extensions in command `codemosModern.configure`, indicating which of them are installed.
-
-### Fixed
-
-- Wrong scoping of theme change resulting all sorts of headaches.
 
 ## [2.0.1] - 2023-08-17 - Scoping hotfix 🛠️
 
@@ -190,7 +197,8 @@ Nothing yet.
 
 - Initial release
 
-[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.0...HEAD
+[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.1...HEAD
+[2.1.1]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.0...v2.1.1
 [2.1.0]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.0.1...v2.1.0
 [2.0.1]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/Codemos-Inc/codemos-modern/compare/v1.2.2...v2.0.0
