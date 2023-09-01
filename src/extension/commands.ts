@@ -35,7 +35,7 @@ import { getIsOfflineMode, setIsConfiguredFromCommand } from "./sharedState";
 import { checkInternetConnection, getConfig, updateConfig } from "./utils";
 
 export const authenticateCommand = async () => {
-  showProgressNotification(
+  await showProgressNotification(
     `${NOTIFICATION_SIGNATURE} Authenticating...`,
     async () => {
       const result = await authenticate(true);
@@ -141,7 +141,7 @@ export const configureCommand = async () => {
     auxiliaryCodeTheme = auxiliaryCodeThemeCandidate;
   }
   setIsConfiguredFromCommand(true);
-  updateConfig(
+  await updateConfig(
     variant,
     auxiliaryUiTheme,
     !design ? getConfig()[variant].design : design,

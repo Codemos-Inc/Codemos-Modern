@@ -110,7 +110,7 @@ export const prepareAuxiliaryThemeRegistries = async (
   }
   if (obsoleteAuxiliaryThemeRegistryIds.length > 0) {
     let success = true;
-    showProgressNotification(updatingIndexesTitle(), async (progress) => {
+    await showProgressNotification(updatingIndexesTitle(), async (progress) => {
       const increment = 100 / obsoleteAuxiliaryThemeRegistryIds.length;
       for (const auxiliaryThemeRegistryId of obsoleteAuxiliaryThemeRegistryIds) {
         progress.report({
