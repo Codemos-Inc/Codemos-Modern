@@ -54,7 +54,7 @@ jobs:
       - name: Create release
         uses: softprops/action-gh-release@v0.1.15
         env:
-          release_tag: ${{ steps.prepare_tag.outputs.release_version }}
+          release_tag: ${{ steps.prepare_tag.outputs.release_tag }}
           release_name: ${{ steps.prepare_release.outputs.release_name }}
           release_body: ${{ steps.prepare_release.outputs.release_body }}
         with:
