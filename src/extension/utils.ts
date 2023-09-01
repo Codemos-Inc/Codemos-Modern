@@ -145,7 +145,7 @@ export const updateConfig = async (
     auxiliaryCodeTheme,
     ConfigurationTarget.Global,
   );
-  updateBridge(variant, UpdateReason.CONFIG_CHANGE);
+  await updateBridge(variant, UpdateReason.CONFIG_CHANGE);
 };
 
 export const updateModern = async (
@@ -207,7 +207,7 @@ export const updateModern = async (
             return false;
           }
         } else {
-          const success = prepareAuxiliaryThemeOffline(
+          const success = await prepareAuxiliaryThemeOffline(
             config.auxiliaryThemeRegistries,
             themeContext.variantConfig.auxiliaryUiTheme,
             themeContext.variant,
@@ -233,7 +233,7 @@ export const updateModern = async (
             return false;
           }
         } else {
-          const success = prepareAuxiliaryThemeOffline(
+          const success = await prepareAuxiliaryThemeOffline(
             config.auxiliaryThemeRegistries,
             themeContext.variantConfig.auxiliaryCodeTheme,
             themeContext.variant,

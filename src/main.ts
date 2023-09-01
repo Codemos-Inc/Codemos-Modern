@@ -21,23 +21,23 @@ import {
 } from "./extension/utils";
 
 export const activate = async (extensionContext: ExtensionContext) => {
-  onStart(extensionContext);
+  await onStart(extensionContext);
   workspace.onDidChangeConfiguration(
     async (event: ConfigurationChangeEvent) => {
       if (
         event.affectsConfiguration("codemosModern.auxiliaryThemeRegistries")
       ) {
-        updateBridge("none", UpdateReason.CONFIG_CHANGE);
+        await updateBridge("none", UpdateReason.CONFIG_CHANGE);
       } else if (event.affectsConfiguration("codemosModern.dark")) {
         if (!getIsConfiguredFromCommand()) {
-          updateBridge("dark", UpdateReason.CONFIG_CHANGE);
+          await updateBridge("dark", UpdateReason.CONFIG_CHANGE);
         }
       } else if (event.affectsConfiguration("codemosModern.light")) {
         if (!getIsConfiguredFromCommand()) {
-          updateBridge("light", UpdateReason.CONFIG_CHANGE);
+          await updateBridge("light", UpdateReason.CONFIG_CHANGE);
         }
       } else if (event.affectsConfiguration("workbench.colorTheme")) {
-        updateSettings(getConfig(), getActiveVariant());
+        await updateSettings(getConfig(), getActiveVariant());
       }
     },
   );

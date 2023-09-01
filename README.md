@@ -34,7 +34,7 @@ Innovative, modern theme suite/hub for VS Code
 
 <br/>
 
-<h2 id="rdme-about">📖 About</h1>
+<h2 id="rdme-about">📖 About</h2>
 
 We at Codemos, are delighted to bring **Codemos Modern** to [Visual Studio Code](https://code.visualstudio.com/). Just as VS Code redefined code editing, we're going to redefine how it should look.
 
@@ -58,7 +58,7 @@ We built bundled themes with these fundamental principles:
 
 <br/>
 
-<h2 id="rdme-install">📦 Installation</h1>
+<h2 id="rdme-install">📦 Installation</h2>
 
 1. Open the **Extensions** sidebar in VS Code
 1. Search for `Codemos Modern`
@@ -74,7 +74,7 @@ We built bundled themes with these fundamental principles:
 
 <br/>
 
-<h2 id="rdme-doc">📝 Documentation</h1>
+<h2 id="rdme-doc">📝 Documentation</h2>
 
 In this section, you can find the documentation for the Codemos Modern.
 
@@ -212,7 +212,7 @@ These decorations are:
 
 <br/>
 
-<h2 id="rdme-ext">🧩 Extensions</h1>
+<h2 id="rdme-ext">🧩 Extensions</h2>
 
 We've also decided to theme some of the most used extensions to provide more consistent experience across the entire UI. In order an extension to be themed, it must [contribute themeable colors](https://code.visualstudio.com/api/references/contribution-points#contributes.colors). You can find the list of supported extensions that are themed in Codemos Modern below. If your favorite extension is not on the list, visit [Codemos Modern's GitHub repository](https://github.com/Codemos-Inc/Codemos-Modern) and let us know!
 
@@ -226,7 +226,7 @@ We've also decided to theme some of the most used extensions to provide more con
 
 <br/>
 
-<h2 id="rdme-ss">📷 Screenshots</h1>
+<h2 id="rdme-ss">📷 Screenshots</h2>
 
 In this section you can find how Codemos Modern looks and feels in most used languages.
 
@@ -270,7 +270,7 @@ In this section you can find how Codemos Modern looks and feels in most used lan
 
 <br/>
 
-<h2 id="rdme-clog">📋 Change Log</h1>
+<h2 id="rdme-clog">📋 Change Log</h2>
 
 Changes from the last major release shown below. If you want to see the full change log, visit [CHANGELOG.md](https://github.com/Codemos-Inc/Codemos-Modern/blob/main/CHANGELOG.md).
 
@@ -292,12 +292,12 @@ Changes from the last major release shown below. If you want to see the full cha
 
 <br/>
 
-<h2 id="rdme-contrib">🙌🏼 Contribution</h1>
+<h2 id="rdme-contrib">🙌🏼 Contribution</h2>
 
 We are open to any kind of contribution. If you want to contribute to Codemos Modern, please join us on [GitHub](https://github.com/Codemos-Inc/Codemos-Modern).
 
 <br/>
 
-<h2 id="rdme-license">📜 License</h1>
+<h2 id="rdme-license">📜 License</h2>
 
 Codemos Modern is licensed under the [MIT License](https://github.com/Codemos-Inc/Codemos-Modern/blob/main/LICENSE.md).

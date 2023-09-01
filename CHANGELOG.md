@@ -8,6 +8,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 Nothing yet.
 
+## [2.1.2] - 2023-09-01 - Minor fixes 🛠️
+
+### Fixed
+
+- Stability of installing and updating repositories.
+
 ## [2.1.1] - 2023-08-26 - Minor fixes & changes 🛠️
 
 ### Fixed
@@ -197,7 +203,8 @@ Nothing yet.
 
 - Initial release
 
-[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.1...HEAD
+[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.2...HEAD
+[2.1.2]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.1...v2.1.2
 [2.1.1]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.0...v2.1.1
 [2.1.0]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.0.1...v2.1.0
 [2.0.1]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.0.0...v2.0.1
