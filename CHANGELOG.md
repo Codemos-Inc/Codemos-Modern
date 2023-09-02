@@ -8,6 +8,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 Nothing yet.
 
+## [2.1.3] - 2023-09-02 - Minor fixes 🛠️
+
+### Fixed
+
+- Extension filtering algorithm to take publisher into account.
+
 ## [2.1.2] - 2023-09-01 - Minor fixes 🛠️
 
 ### Fixed
@@ -203,7 +209,8 @@ Nothing yet.
 
 - Initial release
 
-[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.2...HEAD
+[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.3...HEAD
+[2.1.3]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.2...v2.1.3
 [2.1.2]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.1...v2.1.2
 [2.1.1]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.0...v2.1.1
 [2.1.0]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.0.1...v2.1.0

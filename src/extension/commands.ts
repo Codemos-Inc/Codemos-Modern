@@ -727,6 +727,7 @@ const getAuxiliaryThemeExtension = async (
           index ===
           self.findIndex(
             (firstAuxiliaryTheme) =>
+              firstAuxiliaryTheme.publisher === auxiliaryTheme.publisher &&
               firstAuxiliaryTheme.extension === auxiliaryTheme.extension,
           )
         );
