@@ -44,7 +44,9 @@ export const authenticateCommand = async () => {
           window.showErrorMessage(result.message);
         }
       } else {
-        window.showInformationMessage("Authenticated successfully!");
+        window.showInformationMessage(
+          `${NOTIFICATION_SIGNATURE} Authenticated successfully!`,
+        );
       }
     },
   );
