@@ -100,13 +100,13 @@
               "Modern's original design",
               "Minimalistic design"
             ],
-            "markdownDescription": "Design to be used in `Codemos Modern (Dark)`. Will be discarded when `codemosModern.dark.auxiliaryUiTheme` is set. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#modularity) for reference."
+            "markdownDescription": "Design to be used in `Codemos Modern (Dark)`. Will be discarded when `codemosModern.dark.auxiliaryUiTheme` is set. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#configuration) for reference."
           },
           "codemosModern.dark.accentColor": {
             "order": 2,
             "type": "string",
             "default": "#CB8569",
-            "markdownDescription": "HEX color code defining the accent color for `Codemos Modern (Dark)`. Will be discarded if `codemosModern.dark.auxiliaryUiTheme` is set.",
+            "markdownDescription": "HEX color code defining the accent color for `Codemos Modern (Dark)`. Will be discarded if `codemosModern.dark.auxiliaryUiTheme` is set. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#configuration) for reference.",
             "pattern": "^#[0-9A-Fa-f]{6}$",
             "patternErrorMessage": "Please enter a valid HEX color code. Example: #CB8569"
           },
@@ -167,13 +167,13 @@
               "Modern's original design",
               "Minimalistic design"
             ],
-            "markdownDescription": "Design to be used in `Codemos Modern (Light)`. Will be discarded when `codemosModern.light.auxiliaryUiTheme` is set. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#modularity) for reference."
+            "markdownDescription": "Design to be used in `Codemos Modern (Light)`. Will be discarded when `codemosModern.light.auxiliaryUiTheme` is set. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#configuration) for reference."
           },
           "codemosModern.light.accentColor": {
             "order": 2,
             "type": "string",
             "default": "#784F3F",
-            "markdownDescription": "HEX color code defining the accent color for `Codemos Modern (Light)`. Will be discarded when `codemosModern.light.auxiliaryUiTheme` is set.",
+            "markdownDescription": "HEX color code defining the accent color for `Codemos Modern (Light)`. Will be discarded when `codemosModern.light.auxiliaryUiTheme` is set. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#configuration) for reference.",
             "pattern": "^#[0-9A-Fa-f]{6}$",
             "patternErrorMessage": "Please enter a valid HEX color code. Example: #784F3F"
           },
