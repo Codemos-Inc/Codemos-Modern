@@ -5,6 +5,7 @@ import {
   getHexAlpha,
   getMimicHex7,
   getMixedColorHex7,
+  getMixedColorHex9,
 } from "../../../color";
 
 const palette: Palette = {
@@ -367,11 +368,11 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
       },
       control: {
         doubleHover: `${palette.hic}${getHexAlpha(12)}`,
-        hover: `${palette.hic}${getHexAlpha(7)}`,
-        rest: `${palette.hic}${getHexAlpha(4)}`,
-        pressed: `${palette.hic}${getHexAlpha(2)}`,
+        hover: `${palette.hic}${getHexAlpha(8)}`,
+        rest: `${palette.hic}${getHexAlpha(5)}`,
+        pressed: `${palette.hic}${getHexAlpha(3)}`,
         prominent: `${mimic5Color}${getHexAlpha(100)}`,
-        subtle: `${palette.hic}${getHexAlpha(2)}`,
+        subtle: `${palette.hic}${getHexAlpha(3)}`,
       },
       accent: {
         pri: `${accentColor}${getHexAlpha(100)}`,
@@ -402,11 +403,26 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
         inactiveUnfocused: `${mimic1Color}${getHexAlpha(100)}`,
       },
       terminal: {
-        fg: `${palette.hic}${getHexAlpha(90)}`,
-        hic: `${palette.hic}${getHexAlpha(90)}`,
-        hiq: `${palette.hic}${getHexAlpha(72)}`,
-        loq: `${palette.hic}${getHexAlpha(50)}`,
-        loc: `${palette.hic}${getHexAlpha(32)}`,
+        fg: `${getMixedColorHex9(
+          `${palette.hic}${getHexAlpha(90)}`,
+          `${mimic1Color}${getHexAlpha(100)}`,
+        )}`,
+        hic: `${getMixedColorHex9(
+          `${palette.hic}${getHexAlpha(90)}`,
+          `${mimic1Color}${getHexAlpha(100)}`,
+        )}`,
+        hiq: `${getMixedColorHex9(
+          `${palette.hic}${getHexAlpha(72)}`,
+          `${mimic1Color}${getHexAlpha(100)}`,
+        )}`,
+        loq: `${getMixedColorHex9(
+          `${palette.hic}${getHexAlpha(50)}`,
+          `${mimic1Color}${getHexAlpha(100)}`,
+        )}`,
+        loc: `${getMixedColorHex9(
+          `${palette.hic}${getHexAlpha(32)}`,
+          `${mimic1Color}${getHexAlpha(100)}`,
+        )}`,
       },
     },
     stroke: {

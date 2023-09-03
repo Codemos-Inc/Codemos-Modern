@@ -52,8 +52,9 @@ export const activate = async (extensionContext: ExtensionContext) => {
 const onStart = async (extensionContext: ExtensionContext) => {
   await authenticate(false);
   extensionContext.globalState.setKeysForSync([GLOBAL_STATE_MRV_KEY]);
-  const mostRecentVersion =
-    extensionContext.globalState.get(GLOBAL_STATE_MRV_KEY);
+  const mostRecentVersion = extensionContext.globalState.get(
+    GLOBAL_STATE_MRV_KEY,
+  ) as string;
   if (
     !mostRecentVersion ||
     mostRecentVersion !== extensionContext.extension.packageJSON.version
@@ -73,7 +74,14 @@ const onStart = async (extensionContext: ExtensionContext) => {
       ) {
         updateReason = UpdateReason.REINSTALL;
       } else {
-        updateReason = UpdateReason.UPDATE;
+        if (
+          mostRecentVersion.charAt(0) !==
+          extensionContext.extension.packageJSON.version.charAt(0)
+        ) {
+          updateReason = UpdateReason.MAJOR_UPDATE;
+        } else {
+          updateReason = UpdateReason.MINOR_UPDATE;
+        }
       }
     } else {
       updateReason = UpdateReason.PROFILE_CHANGE;

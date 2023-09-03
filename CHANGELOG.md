@@ -8,6 +8,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 Nothing yet.
 
+## [2.1.4] - 2023-09-03 - Accessibility improvements 🌟
+
+### Fixed
+
+- Accessibility issues found in lists & trees when using both the mouse and the keyboard for selecting.
+- Terminal colors introduced in the last release.
+
+### Updated
+
+- Some descriptions in Modern's configurations that are found in user's `settings.json` file.
+- `codemosModern.authenticate` command notification message to include Modern's notification signature.
+- Modern's notification message when it is updated. Now it only promotes the new release when updated from another older major version.
+- Modern's notification messages to be more joyful.
+
 ## [2.1.3] - 2023-09-02 - Minor fixes 🛠️
 
 ### Fixed
@@ -209,7 +223,8 @@ Nothing yet.
 
 - Initial release
 
-[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.3...HEAD
+[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.4...HEAD
+[2.1.4]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.3...v2.1.4
 [2.1.3]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.2...v2.1.3
 [2.1.2]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.1...v2.1.2
 [2.1.1]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.0...v2.1.1

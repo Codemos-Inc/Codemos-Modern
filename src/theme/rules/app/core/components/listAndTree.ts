@@ -1,9 +1,10 @@
 import { ThemeContext } from "../../../../../@types";
+import { TRANSPARENT } from "../../../../../color/constants";
 
 export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles;
   return {
-    "list.activeSelectionBackground": colors.fill.control.hover,
+    "list.activeSelectionBackground": colors.fill.control.rest,
     "list.activeSelectionForeground": colors.fill.text.pri,
     "list.activeSelectionIconForeground": colors.fill.text.pri,
     "list.deemphasizedForeground": colors.fill.text.disabled,
@@ -17,11 +18,11 @@ export const getRules = (themeContext: ThemeContext): object => {
     "list.focusHighlightForeground": colors.fill.accentText.pri,
     "list.focusOutline": colors.stroke.control.default,
     "list.highlightForeground": colors.fill.accentText.pri,
-    "list.hoverBackground": colors.fill.control.rest,
+    "list.hoverBackground": colors.fill.control.subtle,
     "list.hoverForeground": colors.fill.text.pri,
-    "list.inactiveFocusBackground": colors.fill.control.rest,
+    "list.inactiveFocusBackground": TRANSPARENT,
     "list.inactiveFocusOutline": colors.stroke.control.alt,
-    "list.inactiveSelectionBackground": colors.fill.control.hover,
+    "list.inactiveSelectionBackground": colors.fill.control.rest,
     "list.inactiveSelectionForeground": colors.fill.text.pri,
     "list.inactiveSelectionIconForeground": colors.fill.text.pri,
     "list.invalidItemForeground": colors.basic.def.red.pri,
