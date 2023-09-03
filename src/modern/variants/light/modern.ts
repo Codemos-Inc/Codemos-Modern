@@ -392,11 +392,11 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
       },
       control: {
         doubleHover: `${palette.hic}${getHexAlpha(12)}`,
-        hover: `${palette.hic}${getHexAlpha(7)}`,
-        rest: `${palette.hic}${getHexAlpha(4)}`,
-        pressed: `${palette.hic}${getHexAlpha(2)}`,
+        hover: `${palette.hic}${getHexAlpha(8)}`,
+        rest: `${palette.hic}${getHexAlpha(5)}`,
+        pressed: `${palette.hic}${getHexAlpha(3)}`,
         prominent: `${mimic5Color}${getHexAlpha(100)}`,
-        subtle: `${palette.hic}${getHexAlpha(2)}`,
+        subtle: `${palette.hic}${getHexAlpha(3)}`,
       },
       accent: {
         pri: `${accentColor}${getHexAlpha(100)}`,
