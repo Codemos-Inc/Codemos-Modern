@@ -5,6 +5,7 @@ import {
   getHexAlpha,
   getMimicHex7,
   getMixedColorHex7,
+  getMixedColorHex9,
 } from "../../../color";
 
 export const palette: Palette = {
@@ -427,11 +428,26 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
         inactiveUnfocused: `${mimic1Color}${getHexAlpha(100)}`,
       },
       terminal: {
-        fg: `${palette.hic}${getHexAlpha(90)}`,
-        hic: `${palette.hic}${getHexAlpha(90)}`,
-        hiq: `${palette.hic}${getHexAlpha(72)}`,
-        loq: `${palette.hic}${getHexAlpha(50)}`,
-        loc: `${palette.hic}${getHexAlpha(32)}`,
+        fg: `${getMixedColorHex9(
+          `${palette.hic}${getHexAlpha(90)}`,
+          `${mimic3Color}${getHexAlpha(100)}`,
+        )}`,
+        hic: `${getMixedColorHex9(
+          `${palette.hic}${getHexAlpha(90)}`,
+          `${mimic3Color}${getHexAlpha(100)}`,
+        )}`,
+        hiq: `${getMixedColorHex9(
+          `${palette.hic}${getHexAlpha(72)}`,
+          `${mimic3Color}${getHexAlpha(100)}`,
+        )}`,
+        loq: `${getMixedColorHex9(
+          `${palette.hic}${getHexAlpha(50)}`,
+          `${mimic3Color}${getHexAlpha(100)}`,
+        )}`,
+        loc: `${getMixedColorHex9(
+          `${palette.hic}${getHexAlpha(32)}`,
+          `${mimic3Color}${getHexAlpha(100)}`,
+        )}`,
       },
     },
     stroke: {
