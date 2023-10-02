@@ -240,7 +240,7 @@
     "*.{ts,json,md}": "prettier --write"
   },
   "dependencies": {
-    "@octokit/rest": "^20.0.1",
+    "@octokit/rest": "^20.0.2",
     "node-fetch": "^2.6.12"
   }
 }
