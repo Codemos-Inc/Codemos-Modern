@@ -879,7 +879,10 @@
     },
     "enumMember": "#83AEA8ff",
     "decorator": "#EF6363ff",
-    "annotation": "#EF6363ff",
+    "annotation": {
+      "foreground": "#EF6363ff",
+      "underline": false
+    },
     "event": "#D19797ff",
     "function": "#D28342ff",
     "method": "#D28342ff",

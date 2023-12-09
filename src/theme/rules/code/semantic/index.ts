@@ -32,7 +32,10 @@ const getDefaultRules = (themeContext: ThemeContext): object => {
     },
     enumMember: colors.basic.alt.mint.pri,
     decorator: colors.basic.def.red.pri,
-    annotation: colors.basic.def.red.pri,
+    annotation: {
+      foreground: colors.basic.def.red.pri,
+      underline: false,
+    },
     event: colors.basic.alt.red.pri,
     function: colors.basic.def.orange.pri,
     method: colors.basic.def.orange.pri,

@@ -4,7 +4,7 @@
   "publisher": "Codemos",
   "icon": "res/icon.png",
   "description": "Innovative, modern theme suite/hub for VS Code",
-  "version": "2.1.6",
+  "version": "2.1.7",
   "license": "MIT",
   "repository": {
     "type": "git",
