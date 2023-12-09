@@ -370,6 +370,10 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
         doubleHover: `${palette.hic}${getHexAlpha(12)}`,
         hover: `${palette.hic}${getHexAlpha(8)}`,
         rest: `${palette.hic}${getHexAlpha(5)}`,
+        restSolid: getMixedColorHex9(
+          `${palette.hic}${getHexAlpha(5)}`,
+          `${mimic1Color}${getHexAlpha(100)}`,
+        ),
         pressed: `${palette.hic}${getHexAlpha(3)}`,
         prominent: `${mimic5Color}${getHexAlpha(100)}`,
         subtle: `${palette.hic}${getHexAlpha(3)}`,

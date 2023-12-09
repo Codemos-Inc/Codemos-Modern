@@ -17,10 +17,10 @@ export const getRules = (themeContext: ThemeContext): object => {
     "diffEditorOverview.removedForeground": colors.basic.def.red.sec,
     "diffEditor.unchangedRegionBackground": colors.fill.control.prominent,
     "diffEditor.unchangedRegionForeground": colors.fill.text.sec,
-    "diffEditor.unchangedRegionShadow": "#FF0000",
+    "diffEditor.unchangedRegionShadow": colors.effect.shadow.default,
     "diffEditor.unchangedCodeBackground": colors.basic.neutral.sep,
     "diffEditor.move.border": colors.stroke.focus.default,
-    "diffEditor.moveActive.border": "#FF0000",
-    "multiDiffEditor.headerBackground": "#FF0000",
+    "diffEditor.moveActive.border": colors.fill.system.fg.yellow,
+    "multiDiffEditor.headerBackground": "#FF0000", // 🔵 Unknown attribute
   };
 };

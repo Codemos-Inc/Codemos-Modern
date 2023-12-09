@@ -3,7 +3,7 @@ import { ThemeContext } from "../../../../../@types";
 export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles;
   return {
-    "input.background": colors.fill.control.rest,
+    "input.background": colors.fill.control.restSolid, // 🟢 Undesired solution!
     "input.border": colors.stroke.control.default,
     "input.foreground": colors.fill.text.pri,
     "input.placeholderForeground": colors.fill.text.sec,

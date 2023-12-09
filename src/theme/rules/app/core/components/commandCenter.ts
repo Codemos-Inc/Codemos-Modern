@@ -11,6 +11,6 @@ export const getRules = (themeContext: ThemeContext): object => {
     "commandCenter.inactiveForeground": colors.fill.text.sec,
     "commandCenter.inactiveBorder": colors.stroke.control.default,
     "commandCenter.activeBorder": colors.stroke.control.default,
-    "commandCenter.debuggingBackground": "#FF0000",
+    "commandCenter.debuggingBackground": colors.fill.system.bg.yellow,
   };
 };

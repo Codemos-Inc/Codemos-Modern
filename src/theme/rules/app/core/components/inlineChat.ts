@@ -1,5 +1,4 @@
 import { ThemeContext } from "../../../../../@types";
-import { getMixedColorHex9 } from "../../../../../color";
 
 export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles;
@@ -11,10 +10,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     "inlineChatInput.border": colors.stroke.control.default,
     "inlineChatInput.focusBorder": colors.stroke.focus.default,
     "inlineChatInput.placeholderForeground": colors.fill.text.disabled,
-    "inlineChatInput.background": getMixedColorHex9(
-      colors.fill.control.rest,
-      colors.bg.solid.flyout,
-    ), // 🟡 Hacky Solution
+    "inlineChatInput.background": colors.fill.control.restSolid, // 🟢 Undesired solution!
     "inlineChatDiff.inserted": colors.basic.def.green.qui,
     "inlineChatDiff.removed": colors.basic.def.red.qui,
     "interactive.activeCodeBorder": "#FF0000", // 🔵 Unknown attribute

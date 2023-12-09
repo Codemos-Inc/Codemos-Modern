@@ -39,8 +39,8 @@ export const getRules = (themeContext: ThemeContext): object => {
     "terminalCommandDecoration.errorBackground": colors.basic.def.red.pri,
     "terminalOverviewRuler.cursorForeground": colors.fill.accent.pri,
     "terminalOverviewRuler.findMatchForeground": colors.basic.def.mint.sec,
-    "terminalStickyScroll.background": "#FF0000",
-    "terminalStickyScrollHover.background": "#FF0000",
+    "terminalStickyScroll.background": colors.bg.solid.surface,
+    "terminalStickyScrollHover.background": colors.fill.control.hover,
   };
   const design = themeContext.variantConfig.design;
   if (design === "minimal") {

@@ -1,5 +1,8 @@
-export const getRules = (): object => {
+import { ThemeContext } from "../../../../../@types";
+
+export const getRules = (themeContext: ThemeContext): object => {
+  const colors = themeContext.styles;
   return {
-    "actionBar.toggledBackground": "#FF0000",
+    "actionBar.toggledBackground": colors.fill.control.rest, // 🔵 Not ideal! should be accentFill but foreground is not contrast safe.
   };
 };

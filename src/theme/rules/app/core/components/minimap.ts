@@ -11,7 +11,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     "minimap.background": colors.bg.solid.surface,
     "minimap.selectionOccurrenceHighlight": colors.basic.neutral.qui,
     "minimap.foregroundOpacity": OPAQUE,
-    "minimap.infoHighlight": "#FF0000",
+    "minimap.infoHighlight": colors.basic.def.blue.qua,
     "minimapSlider.background": colors.fill.control.rest,
     "minimapSlider.hoverBackground": colors.fill.control.hover,
     "minimapSlider.activeBackground": colors.fill.control.pressed,

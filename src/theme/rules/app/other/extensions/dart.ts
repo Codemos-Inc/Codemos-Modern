@@ -3,6 +3,7 @@ import { ThemeContext } from "../../../../../@types";
 export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles;
   return {
-    "simpleFindWidget.sashBorder": colors.fill.accent.pri,
+    "dart.closingLabels": colors.basic.def.green.pri,
+    "dart.flutterUiGuides": colors.stroke.divider.default,
   };
 };

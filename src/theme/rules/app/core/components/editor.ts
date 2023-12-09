@@ -65,8 +65,8 @@ export const getRules = (themeContext: ThemeContext): object => {
     "editor.linkedEditingBackground": colors.basic.def.blue.qua,
     "editorCodeLens.foreground": colors.fill.text.disabled,
     "editorLightBulb.foreground": colors.basic.def.yellow.pri,
-    "editorLightBulbAutoFix.foreground": colors.basic.def.yellow.pri,
-    "editorLightBulbAi.foreground": "#FF0000",
+    "editorLightBulbAutoFix.foreground": colors.basic.def.green.pri,
+    "editorLightBulbAi.foreground": colors.basic.def.purple.pri,
     "editorBracketMatch.background": colors.basic.def.brown.qua,
     "editorBracketMatch.border": colors.stroke.control.default,
     "editorBracketHighlight.foreground1": colors.basic.alt.yellow.pri,
@@ -136,7 +136,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     "editorCommentsWidget.unresolvedBorder": colors.basic.def.blue.pri,
     "editorCommentsWidget.rangeBackground": colors.basic.def.blue.qui,
     "editorCommentsWidget.rangeActiveBackground": colors.basic.def.blue.qua,
-    "editorCommentsWidget.replyInputBackground": "#FF0000",
+    "editorCommentsWidget.replyInputBackground": colors.fill.control.restSolid, // 🟢 Undesired solution!
   };
   const design = themeContext.variantConfig.design;
   if (design === "minimal") {

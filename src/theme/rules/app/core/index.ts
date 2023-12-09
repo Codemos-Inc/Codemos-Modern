@@ -55,7 +55,7 @@ import { getRules as getWindowBorderRules } from "./components/windowBorder";
 export const getRules = (themeContext: ThemeContext): object => {
   return {
     ...getActionRules(themeContext),
-    ...getActionBarRules(),
+    ...getActionBarRules(themeContext),
     ...getActivityBarRules(themeContext),
     ...getBadgeRules(themeContext),
     ...getBannerRules(themeContext),
@@ -93,11 +93,11 @@ export const getRules = (themeContext: ThemeContext): object => {
     ...getProfilesRules(themeContext),
     ...getProgressBarRules(themeContext),
     ...getQuickPickerRules(themeContext),
-    ...getScmRules(),
+    ...getScmRules(themeContext),
     ...getScrollbarControlRules(themeContext),
     ...getSettingsEditorRules(themeContext),
     ...getSideBarRules(themeContext),
-    ...getSimpleFindWidgetRules(),
+    ...getSimpleFindWidgetRules(themeContext),
     ...getSnippetsRules(themeContext),
     ...getStatusBarRules(themeContext),
     ...getSymbolIconsRules(themeContext),
