@@ -132,7 +132,7 @@
     "diffEditor.move.border": "#75757566",
     "diffEditor.moveActive.border": "#ADA77Fff",
     "multiDiffEditor.headerBackground": "#FF0000",
-    "dropdown.background": "#FFFFFF0f",
+    "dropdown.background": "#343434",
     "dropdown.listBackground": "#272727ff",
     "dropdown.border": "#FFFFFF14",
     "dropdown.foreground": "#FFFFFFc7",

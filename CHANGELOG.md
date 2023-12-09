@@ -8,6 +8,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 Nothing yet.
 
+## [2.1.6] - 2023-12-09 - Minor fixes & additions 🛠️
+
+### Fixed
+
+- Ability to show the command `codemosModern.configure` for users that install Codemos Modern for the first time.
+- Dropdown control backgrounds showing double layered. (See issue [issue](https://github.com/microsoft/vscode-copilot-release/issues/248))
+
 ## [2.1.5] - 2023-12-09 - Minor fixes & additions 🛠️
 
 ### Added
@@ -241,7 +248,8 @@ Nothing yet.
 
 - Initial release
 
-[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.5...HEAD
+[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.6...HEAD
+[2.1.6]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.5...v2.1.6
 [2.1.5]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.4...v2.1.5
 [2.1.4]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.3...v2.1.4
 [2.1.3]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.2...v2.1.3

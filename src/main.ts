@@ -19,6 +19,7 @@ import {
   updateSettings,
   verifyState,
 } from "./extension/utils";
+import { showInformationNotification } from "./extension/notifications";
 
 export const activate = async (extensionContext: ExtensionContext) => {
   extensionContext.subscriptions.push(
@@ -69,7 +70,11 @@ const onStart = async (extensionContext: ExtensionContext) => {
     if (isUntouched()) {
       if (!mostRecentVersion) {
         updateReason = UpdateReason.FIRST_INSTALL;
-        commands.executeCommand("codemosModern.configure");
+        showInformationNotification(
+          "Welcome! 👋 Start your Modern journey by configuring it!",
+          ["Start Configuration ⚙️"],
+          "codemosModern.configure",
+        );
       } else if (
         mostRecentVersion === extensionContext.extension.packageJSON.version
       ) {
