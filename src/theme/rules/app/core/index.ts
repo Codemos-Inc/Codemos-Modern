@@ -41,7 +41,6 @@ import { getRules as getScrollbarControlRules } from "./components/scrollbarCont
 import { getRules as getSettingsEditorRules } from "./components/settingsEditor";
 import { getRules as getSideBarRules } from "./components/sideBar";
 import { getRules as getSnippetsRules } from "./components/snippets";
-import { getRules as getSourceControlRules } from "./components/sourceControl";
 import { getRules as getStatusBarRules } from "./components/statusBar";
 import { getRules as getSymbolIconsRules } from "./components/symbolIcons";
 import { getRules as getTestingRules } from "./components/testing";
@@ -94,7 +93,6 @@ export const getRules = (themeContext: ThemeContext): object => {
     ...getSettingsEditorRules(themeContext),
     ...getSideBarRules(themeContext),
     ...getSnippetsRules(themeContext),
-    ...getSourceControlRules(themeContext),
     ...getStatusBarRules(themeContext),
     ...getSymbolIconsRules(themeContext),
     ...getTestingRules(themeContext),

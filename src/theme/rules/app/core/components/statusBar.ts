@@ -13,8 +13,6 @@ export const getRules = (themeContext: ThemeContext): object => {
     "statusBar.noFolderBackground": colors.fill.system.bg.red,
     "statusBar.noFolderBorder": colors.stroke.control.default,
     "statusBar.noFolderForeground": colors.fill.system.fg.red,
-    "statusBar.offlineBackground": colors.fill.system.bg.red,
-    "statusBar.offlineForeground": colors.fill.system.fg.red,
     "statusBarItem.activeBackground": colors.fill.control.pressed,
     "statusBarItem.compactHoverBackground": colors.fill.control.doubleHover,
     "statusBarItem.errorBackground": colors.fill.system.bg.red,
