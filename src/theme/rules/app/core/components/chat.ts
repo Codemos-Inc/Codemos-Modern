@@ -10,7 +10,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     "chat.avatarBackground": getMixedColorHex9(
       colors.fill.control.rest,
       colors.bg.solid.surface,
-    ), // 🟡 Hacky Solution
+    ),
     "chat.avatarForeground": colors.fill.accentText.pri,
   };
 };
