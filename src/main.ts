@@ -65,16 +65,15 @@ const onStart = async (extensionContext: ExtensionContext) => {
       extensionContext.extension.packageJSON.version,
     );
   }
+  if (!mostRecentVersion) {
+    firstInstallExperience();
+  }
   if (!verifyState()) {
     let updateReason: UpdateReason;
     if (isUntouched()) {
       if (!mostRecentVersion) {
         updateReason = UpdateReason.FIRST_INSTALL;
-        showInformationNotification(
-          "Welcome! 👋 Start your Modern journey by configuring it!",
-          ["Start Configuration ⚙️"],
-          "codemosModern.configure",
-        );
+        firstInstallExperience();
       } else if (
         mostRecentVersion === extensionContext.extension.packageJSON.version
       ) {
@@ -130,6 +129,15 @@ const getActiveVariant = (): Variant | undefined => {
     default:
       return undefined;
   }
+};
+
+const firstInstallExperience = () => {
+  commands.executeCommand("codemosModern.configure");
+  showInformationNotification(
+    "Welcome! 👋 Start your Modern journey by configuring it!",
+    ["Start Configuration"],
+    "codemosModern.configure",
+  );
 };
 
 export const deactivate = () => {};
