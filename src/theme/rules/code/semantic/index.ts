@@ -26,6 +26,10 @@ const getDefaultRules = (themeContext: ThemeContext): object => {
     },
     property: { foreground: colors.basic.alt.yellow.pri, underline: true },
     "property.readonly": { underline: false },
+    "property.annotation": {
+      foreground: colors.basic.def.red.pri,
+      underline: false,
+    },
     enumMember: colors.basic.alt.mint.pri,
     decorator: colors.basic.def.red.pri,
     annotation: colors.basic.def.red.pri,
