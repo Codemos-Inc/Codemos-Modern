@@ -134,7 +134,7 @@ const getActiveVariant = (): Variant | undefined => {
 const firstInstallExperience = () => {
   commands.executeCommand("codemosModern.configure");
   showInformationNotification(
-    "Welcome to the innovative theme suite/hub! 👋 Start your journey by configuring Modern. ⚙️",
+    "Welcome to the innovative theme suite/hub! 👋 Start your journey by configuring Modern.",
     null,
     null,
   );
