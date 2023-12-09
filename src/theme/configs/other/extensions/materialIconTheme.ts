@@ -7,7 +7,7 @@ export const configureExtensionSettings = (
 ) => {
   const extensionSection = workspace.getConfiguration("material-icon-theme");
   if (themeContext) {
-    const iconColor = splitHex9(themeContext.styles.fill.accent.pri)[0];
+    const iconColor = splitHex9(themeContext.styles.fill.accentText.pri)[0];
     extensionSection.update(
       `files.color`,
       iconColor,

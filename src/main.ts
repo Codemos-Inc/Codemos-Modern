@@ -21,6 +21,12 @@ import {
 } from "./extension/utils";
 
 export const activate = async (extensionContext: ExtensionContext) => {
+  extensionContext.subscriptions.push(
+    commands.registerCommand("codemosModern.authenticate", authenticateCommand),
+  );
+  extensionContext.subscriptions.push(
+    commands.registerCommand("codemosModern.configure", configureCommand),
+  );
   await onStart(extensionContext);
   workspace.onDidChangeConfiguration(
     async (event: ConfigurationChangeEvent) => {
@@ -40,12 +46,6 @@ export const activate = async (extensionContext: ExtensionContext) => {
         await updateSettings(getConfig(), getActiveVariant());
       }
     },
-  );
-  extensionContext.subscriptions.push(
-    commands.registerCommand("codemosModern.authenticate", authenticateCommand),
-  );
-  extensionContext.subscriptions.push(
-    commands.registerCommand("codemosModern.configure", configureCommand),
   );
 };
 
@@ -69,6 +69,7 @@ const onStart = async (extensionContext: ExtensionContext) => {
     if (isUntouched()) {
       if (!mostRecentVersion) {
         updateReason = UpdateReason.FIRST_INSTALL;
+        commands.executeCommand("codemosModern.configure");
       } else if (
         mostRecentVersion === extensionContext.extension.packageJSON.version
       ) {

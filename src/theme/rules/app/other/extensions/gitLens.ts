@@ -17,6 +17,7 @@ export const getRules = (themeContext: ThemeContext): object => {
       colors.basic.def.orange.pri,
     "gitlens.decorations.branchUnpublishedForegroundColor":
       colors.basic.def.blue.pri,
+
     "gitlens.decorations.branchUpToDateForegroundColor": colors.fill.text.sec,
     "gitlens.decorations.copiedForegroundColor": colors.basic.def.yellow.pri,
     "gitlens.decorations.deletedForegroundColor": colors.basic.alt.red.pri,
@@ -24,6 +25,10 @@ export const getRules = (themeContext: ThemeContext): object => {
     "gitlens.decorations.modifiedForegroundColor": colors.basic.def.blue.pri,
     "gitlens.decorations.renamedForegroundColor": colors.basic.def.yellow.pri,
     "gitlens.decorations.untrackedForegroundColor": colors.basic.alt.green.pri,
+    "gitlens.decorations.statusMergingOrRebasingConflictForegroundColor":
+      colors.basic.def.orange.pri,
+    "gitlens.decorations.statusMergingOrRebasingForegroundColor":
+      colors.basic.alt.yellow.pri,
     "gitlens.decorations.workspaceCurrentForegroundColor":
       colors.basic.def.green.pri,
     "gitlens.decorations.workspaceRepoMissingForegroundColor":

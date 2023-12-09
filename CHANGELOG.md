@@ -8,6 +8,24 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 Nothing yet.
 
+## [2.1.5] - 2023-12-09 - Minor fixes & additions 🛠️
+
+### Added
+
+- VS Code v1.85.x support.
+- Ability to show the command `codemosModern.configure` for users that install Codemos Modern for the first time.
+- Theming support for the [Dart](https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code) extension.
+- Theming support for the [Flutter](https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter) extension.
+
+### Fixed
+
+- Dart syntax highlighting for annotations.
+- Input control backgrounds showing double layered. (See issue [issue](https://github.com/microsoft/vscode-copilot-release/issues/248))
+
+### Removed
+
+- Obsolete color attributes.
+
 ## [2.1.4] - 2023-09-03 - Accessibility improvements 🌟
 
 ### Fixed
@@ -107,7 +125,7 @@ Nothing yet.
 ### Added
 
 - VS Code v1.80.x support.
-- Theming support for [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) extension.
+- Theming support for the [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) extension.
 - Ability to sync Modern's configurations via VS Code settings.
 - Instant validation for accent color input in the command `Codemos Modern: Configure`.
 
@@ -148,9 +166,9 @@ Nothing yet.
 
 - Ability to remember user theme configurations. After the version [1.1.0], user configurations will survive throughout updates.
 - Theming support for the early [Diff Editor V2](https://github.com/microsoft/vscode/issues/184164) module.
-- Theming support for [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) extension.
-- Theming support for [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens) extension.
-- Theming support for [Remote Repositories](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-repositories) extension.
+- Theming support for the [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) extension.
+- Theming support for the [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens) extension.
+- Theming support for the [Remote Repositories](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-repositories) extension.
 
 ### Fixed
 
@@ -223,7 +241,8 @@ Nothing yet.
 
 - Initial release
 
-[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.4...HEAD
+[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.5...HEAD
+[2.1.5]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.4...v2.1.5
 [2.1.4]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.3...v2.1.4
 [2.1.3]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.2...v2.1.3
 [2.1.2]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.1...v2.1.2

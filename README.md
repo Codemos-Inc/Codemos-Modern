@@ -9,7 +9,7 @@
 # **Codemos Modern**
 
 [![release](https://img.shields.io/github/release/Codemos-Inc/Codemos-Modern.svg?labelColor=373737&color=45AA41&label=&logo=github&logoColor=white&style=for-the-badge)](https://github.com/Codemos-Inc/Codemos-Modern/releases/latest)
-[![vscode](https://img.shields.io/badge/-v1.81+-4B9ECD.svg?labelColor=373737&logo=visualstudiocode&logoColor=white&style=for-the-badge)](https://code.visualstudio.com/updates/)
+[![vscode](https://img.shields.io/badge/-v1.85+-4B9ECD.svg?labelColor=373737&logo=visualstudiocode&logoColor=white&style=for-the-badge)](https://code.visualstudio.com/updates/)
 [![downloads](https://img.shields.io/visual-studio-marketplace/d/codemos.codemos-modern?labelColor=373737&color=9B87EA&label=&logo=docusign&logoColor=white&style=for-the-badge)](https://marketplace.visualstudio.com/items?itemName=Codemos.codemos-modern)
 ![sponsors](https://img.shields.io/github/sponsors/EmrecanKaracayir?labelColor=373737&color=ef6363&label=&logo=githubsponsors&logoColor=white&style=for-the-badge)
 

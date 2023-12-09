@@ -277,6 +277,7 @@ export type Styles = {
       doubleHover: string;
       hover: string;
       rest: string;
+      restSolid: string;
       pressed: string;
       prominent: string;
       subtle: string;

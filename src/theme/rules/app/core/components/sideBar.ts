@@ -5,13 +5,13 @@ export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles;
   const sideBarRules = {
     "sideBar.background": colors.bg.solid.surface,
+    "sideBar.foreground": colors.fill.text.sec,
     "sideBar.border": colors.stroke.divider.default,
     "sideBar.dropBackground": colors.effect.smoke.default,
-    "sideBar.foreground": colors.fill.text.sec,
-    "sideBarSectionHeader.background": colors.fill.control.subtle,
-    "sideBarSectionHeader.border": colors.stroke.focus.default,
-    "sideBarSectionHeader.foreground": colors.fill.text.sec,
     "sideBarTitle.foreground": colors.fill.text.pri,
+    "sideBarSectionHeader.background": colors.fill.control.subtle,
+    "sideBarSectionHeader.foreground": colors.fill.text.sec,
+    "sideBarSectionHeader.border": colors.stroke.focus.default,
   };
   const design = themeContext.variantConfig.design;
   if (design === "minimal") {

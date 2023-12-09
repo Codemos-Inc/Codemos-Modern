@@ -1,5 +1,6 @@
 import { ThemeContext } from "../../../../@types";
 import { getRules as getActionRules } from "./components/action";
+import { getRules as getActionBarRules } from "./components/actionBar";
 import { getRules as getActivityBarRules } from "./components/activityBar";
 import { getRules as getBadgeRules } from "./components/badge";
 import { getRules as getBannerRules } from "./components/banner";
@@ -25,7 +26,7 @@ import { getRules as getIntegratedTerminalRules } from "./components/integratedT
 import { getRules as getInteractiveEditorRules } from "./components/inlineChat";
 import { getRules as getKeybindingLabelRules } from "./components/keybindingLabel";
 import { getRules as getKeyboardShortcutTableRules } from "./components/keyboardShortcutTable";
-import { getRules as getListAndTreeRules } from "./components/listAndTree";
+import { getRules as getListsAndTreesRules } from "./components/listsAndTrees";
 import { getRules as getMenuBarRules } from "./components/menuBar";
 import { getRules as getMergeConflictsRules } from "./components/mergeConflicts";
 import { getRules as getMinimapRules } from "./components/minimap";
@@ -37,11 +38,12 @@ import { getRules as getPortsRules } from "./components/ports";
 import { getRules as getProfilesRules } from "./components/profiles";
 import { getRules as getProgressBarRules } from "./components/progressBar";
 import { getRules as getQuickPickerRules } from "./components/quickPicker";
+import { getRules as getScmRules } from "./components/scm";
 import { getRules as getScrollbarControlRules } from "./components/scrollbarControl";
 import { getRules as getSettingsEditorRules } from "./components/settingsEditor";
 import { getRules as getSideBarRules } from "./components/sideBar";
+import { getRules as getSimpleFindWidgetRules } from "./components/simpleFindWidget";
 import { getRules as getSnippetsRules } from "./components/snippets";
-import { getRules as getSourceControlRules } from "./components/sourceControl";
 import { getRules as getStatusBarRules } from "./components/statusBar";
 import { getRules as getSymbolIconsRules } from "./components/symbolIcons";
 import { getRules as getTestingRules } from "./components/testing";
@@ -53,6 +55,7 @@ import { getRules as getWindowBorderRules } from "./components/windowBorder";
 export const getRules = (themeContext: ThemeContext): object => {
   return {
     ...getActionRules(themeContext),
+    ...getActionBarRules(themeContext),
     ...getActivityBarRules(themeContext),
     ...getBadgeRules(themeContext),
     ...getBannerRules(themeContext),
@@ -78,7 +81,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     ...getInteractiveEditorRules(themeContext),
     ...getKeybindingLabelRules(themeContext),
     ...getKeyboardShortcutTableRules(themeContext),
-    ...getListAndTreeRules(themeContext),
+    ...getListsAndTreesRules(themeContext),
     ...getMenuBarRules(themeContext),
     ...getMergeConflictsRules(themeContext),
     ...getMinimapRules(themeContext),
@@ -90,11 +93,12 @@ export const getRules = (themeContext: ThemeContext): object => {
     ...getProfilesRules(themeContext),
     ...getProgressBarRules(themeContext),
     ...getQuickPickerRules(themeContext),
+    ...getScmRules(themeContext),
     ...getScrollbarControlRules(themeContext),
     ...getSettingsEditorRules(themeContext),
     ...getSideBarRules(themeContext),
+    ...getSimpleFindWidgetRules(themeContext),
     ...getSnippetsRules(themeContext),
-    ...getSourceControlRules(themeContext),
     ...getStatusBarRules(themeContext),
     ...getSymbolIconsRules(themeContext),
     ...getTestingRules(themeContext),
