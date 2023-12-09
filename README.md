@@ -218,7 +218,9 @@ We've also decided to theme some of the most used extensions to provide more con
 
 ### Supported Extensions
 
+- [Dart](https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code)
 - [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens)
+- [Flutter](https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter)
 - [GitHub Pull Requests and Issues](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
 - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
 - [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
