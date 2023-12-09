@@ -8,6 +8,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 Nothing yet.
 
+## [2.1.8] - 2023-12-09 - Minor fixes 🛠️
+
+### Fixed
+
+- Ability to show the command `codemosModern.configure` for users that install Codemos Modern for the first time.
+
 ## [2.1.7] - 2023-12-09 - Minor fixes 🛠️
 
 ### Fixed
@@ -254,7 +260,8 @@ Nothing yet.
 
 - Initial release
 
-[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.7...HEAD
+[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.8...HEAD
+[2.1.8]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.7...v2.1.8
 [2.1.7]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.6...v2.1.7
 [2.1.6]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.5...v2.1.6
 [2.1.5]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.4...v2.1.5
