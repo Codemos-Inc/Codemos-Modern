@@ -6,13 +6,13 @@ export const getRules = (themeContext: ThemeContext): object => {
     "notificationCenter.border": colors.stroke.surface.flyout,
     "notificationCenterHeader.background": colors.bg.solid.flyout,
     "notificationCenterHeader.foreground": colors.fill.text.pri,
-    "notificationLink.foreground": colors.fill.accentText.pri,
+    "notificationToast.border": colors.stroke.surface.flyout,
+    "notifications.foreground": colors.fill.text.pri,
     "notifications.background": colors.bg.solid.flyout,
     "notifications.border": colors.stroke.divider.default,
-    "notifications.foreground": colors.fill.text.pri,
+    "notificationLink.foreground": colors.fill.accentText.pri,
     "notificationsErrorIcon.foreground": colors.basic.def.red.pri,
-    "notificationsInfoIcon.foreground": colors.basic.def.blue.pri,
     "notificationsWarningIcon.foreground": colors.basic.def.orange.pri,
-    "notificationToast.border": colors.stroke.surface.flyout,
+    "notificationsInfoIcon.foreground": colors.basic.def.blue.pri,
   };
 };
