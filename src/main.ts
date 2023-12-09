@@ -66,14 +66,14 @@ const onStart = async (extensionContext: ExtensionContext) => {
     );
   }
   if (!mostRecentVersion) {
-    firstInstallExperience();
+    await firstInstallExperience();
   }
   if (!verifyState()) {
     let updateReason: UpdateReason;
     if (isUntouched()) {
       if (!mostRecentVersion) {
         updateReason = UpdateReason.FIRST_INSTALL;
-        firstInstallExperience();
+        await firstInstallExperience();
       } else if (
         mostRecentVersion === extensionContext.extension.packageJSON.version
       ) {
@@ -131,12 +131,12 @@ const getActiveVariant = (): Variant | undefined => {
   }
 };
 
-const firstInstallExperience = () => {
-  commands.executeCommand("codemosModern.configure");
+const firstInstallExperience = async () => {
+  await commands.executeCommand("codemosModern.configure");
   showInformationNotification(
-    "Welcome! 👋 Start your Modern journey by configuring it!",
-    ["Start Configuration"],
-    "codemosModern.configure",
+    "Welcome to Modern, the innovative theme suite/hub! 👋 Start your journey by configuring your own Modern. ⚙️",
+    null,
+    null,
   );
 };
 
