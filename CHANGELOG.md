@@ -51,7 +51,7 @@ Nothing yet.
 ### Fixed
 
 - Dart syntax highlighting for annotations.
-- Input control backgrounds showing double layered. (See issue [issue](https://github.com/microsoft/vscode-copilot-release/issues/248))
+- Input control backgrounds showing double layered. (See [issue](https://github.com/microsoft/vscode-copilot-release/issues/248))
 
 ### Removed
 
