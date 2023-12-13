@@ -10,7 +10,7 @@ Nothing yet.
 
 ## [2.2.0] - 2023-12-10 - Minor fixes 🛠️
 
-### FIXED
+### Fixed
 
 - The first install experience.
 
