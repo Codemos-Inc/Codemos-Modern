@@ -2,9 +2,9 @@
   "name": "codemos-modern",
   "displayName": "Codemos Modern",
   "publisher": "Codemos",
-  "icon": "res/icon.png",
+  "icon": "res/icon.gif",
   "description": "Innovative, modern theme suite/hub for VS Code",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "license": "MIT",
   "repository": {
     "type": "git",
