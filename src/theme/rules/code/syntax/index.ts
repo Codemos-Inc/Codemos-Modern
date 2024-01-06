@@ -117,7 +117,9 @@ const getDefaultRules = (themeContext: ThemeContext): object => {
       ],
       settings: {
         foreground: colors.basic.alt.orange.pri,
-        fontStyle: `${themeContext.textDecorations.italic ? "italic" : ""}`,
+        fontStyle: `${
+          themeContext.textDecorations.underline ? "underline" : ""
+        }`,
       },
     },
     // variable.readonly
