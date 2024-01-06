@@ -148,7 +148,9 @@ const getDefaultRules = (themeContext: ThemeContext): object => {
       ],
       settings: {
         foreground: colors.basic.alt.yellow.pri,
-        fontStyle: `${themeContext.textDecorations.italic ? "italic" : ""}`,
+        fontStyle: `${
+          themeContext.textDecorations.underline ? "underline" : ""
+        }`,
       },
     },
     // property.readonly
@@ -542,7 +544,9 @@ const getExtraRules = (themeContext: ThemeContext): object => {
       scope: ["support.type.vendored.property-name"],
       settings: {
         foreground: colors.basic.alt.blue.pri,
-        fontStyle: `${themeContext.textDecorations.italic ? "italic" : ""}`,
+        fontStyle: `${
+          themeContext.textDecorations.underline ? "underline" : ""
+        }`,
       },
     },
     // pseudo-class

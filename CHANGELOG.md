@@ -8,6 +8,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 Nothing yet.
 
+## [2.3.1] - 2024-01-06 - Minor fixes 🛠️
+
+### Fixed
+
+- Variables falsely italicized instead of underlined.
+
 ## [2.3.0] - 2024-01-06 - Configurable text decorations ⚙️
 
 ### Added
@@ -282,7 +288,8 @@ Nothing yet.
 
 - Initial release
 
-[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.3.0...HEAD
+[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.3.1...HEAD
+[2.3.1]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.3.0...v2.3.1
 [2.3.0]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.2.0...v2.3.0
 [2.2.0]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.9...v2.2.0
 [2.1.9]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.8...v2.1.9
