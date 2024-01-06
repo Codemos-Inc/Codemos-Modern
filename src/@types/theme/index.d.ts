@@ -6,7 +6,18 @@ export type ThemePaths = {
   light: string;
 };
 
+export type Decoration = "strikeThrough" | "bold" | "italic" | "underline";
+
+export type TextDecorations = {
+  strikeThrough: boolean;
+  bold: boolean;
+  italic: boolean;
+  underline: boolean;
+  forComments: Decoration[];
+};
+
 export type ThemeContext = {
+  textDecorations: TextDecorations;
   variant: Variant;
   variantConfig: VariantConfig;
   styles: Styles;

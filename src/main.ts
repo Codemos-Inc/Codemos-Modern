@@ -35,6 +35,8 @@ export const activate = async (extensionContext: ExtensionContext) => {
         event.affectsConfiguration("codemosModern.auxiliaryThemeRegistries")
       ) {
         await updateBridge("none", UpdateReason.CONFIG_CHANGE);
+      } else if (event.affectsConfiguration("codemosModern.textDecorations")) {
+        await updateBridge("all", UpdateReason.CONFIG_CHANGE);
       } else if (event.affectsConfiguration("codemosModern.dark")) {
         if (!getIsConfiguredFromCommand()) {
           await updateBridge("dark", UpdateReason.CONFIG_CHANGE);
@@ -44,7 +46,7 @@ export const activate = async (extensionContext: ExtensionContext) => {
           await updateBridge("light", UpdateReason.CONFIG_CHANGE);
         }
       } else if (event.affectsConfiguration("workbench.colorTheme")) {
-        await updateSettings(getConfig(), getActiveVariant());
+        updateSettings(getConfig(), getActiveVariant());
       }
     },
   );
@@ -66,26 +68,28 @@ const onStart = async (extensionContext: ExtensionContext) => {
     );
   }
   if (!mostRecentVersion) {
-    await firstInstallExperience();
+    firstInstallExperience();
   }
   if (!verifyState()) {
     let updateReason: UpdateReason;
     if (isUntouched()) {
       if (!mostRecentVersion) {
         updateReason = UpdateReason.FIRST_INSTALL;
-        await firstInstallExperience();
+        firstInstallExperience();
       } else if (
         mostRecentVersion === extensionContext.extension.packageJSON.version
       ) {
         updateReason = UpdateReason.REINSTALL;
       } else {
-        if (
-          mostRecentVersion.charAt(0) !==
-          extensionContext.extension.packageJSON.version.charAt(0)
-        ) {
+        const mostRecentVersionParts = mostRecentVersion.split(".");
+        const currentVersionParts =
+          extensionContext.extension.packageJSON.version.split(".");
+        if (mostRecentVersionParts[0] !== currentVersionParts[0]) {
           updateReason = UpdateReason.MAJOR_UPDATE;
-        } else {
+        } else if (mostRecentVersionParts[1] !== currentVersionParts[1]) {
           updateReason = UpdateReason.MINOR_UPDATE;
+        } else {
+          updateReason = UpdateReason.PATCH_UPDATE;
         }
       }
     } else {

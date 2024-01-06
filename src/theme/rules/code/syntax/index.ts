@@ -117,7 +117,7 @@ const getDefaultRules = (themeContext: ThemeContext): object => {
       ],
       settings: {
         foreground: colors.basic.alt.orange.pri,
-        fontStyle: "underline",
+        fontStyle: `${themeContext.textDecorations.italic ? "italic" : ""}`,
       },
     },
     // variable.readonly
@@ -146,7 +146,7 @@ const getDefaultRules = (themeContext: ThemeContext): object => {
       ],
       settings: {
         foreground: colors.basic.alt.yellow.pri,
-        fontStyle: "underline",
+        fontStyle: `${themeContext.textDecorations.italic ? "italic" : ""}`,
       },
     },
     // property.readonly
@@ -262,7 +262,7 @@ const getDefaultRules = (themeContext: ThemeContext): object => {
       scope: ["comment"],
       settings: {
         foreground: colors.basic.def.green.pri,
-        fontStyle: "italic",
+        fontStyle: `${themeContext.textDecorations.forComments.join(" ")}`,
       },
     },
     // string
@@ -540,7 +540,7 @@ const getExtraRules = (themeContext: ThemeContext): object => {
       scope: ["support.type.vendored.property-name"],
       settings: {
         foreground: colors.basic.alt.blue.pri,
-        fontStyle: "underline",
+        fontStyle: `${themeContext.textDecorations.italic ? "italic" : ""}`,
       },
     },
     // pseudo-class

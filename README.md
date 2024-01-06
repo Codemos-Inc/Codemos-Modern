@@ -278,10 +278,11 @@ Changes from the last major release shown below. If you want to see the full cha
 
 ### Added
 
-- VS Code v1.81.x support.
+- VS Code v1.85.x support.
 - Modularity system. Users can now side-load **third party themes**.
 - Brand new design, **"Minimal"**. Users can now choose between **"Modern"** and **"Minimal"** designs.
 - Command `codemosModern.authenticate` to increase GitHub **api rate limits**.
+- Set of configurations to customize the text decorations on symbols. (Only bundled themes are effected)
 
 ### Fixed
 
