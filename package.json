@@ -2,9 +2,9 @@
   "name": "codemos-modern",
   "displayName": "Codemos Modern",
   "publisher": "Codemos",
-  "icon": "res/icon.png",
+  "icon": "res/icon.gif",
   "description": "Innovative, modern theme suite/hub for VS Code",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -71,6 +71,58 @@
             "markdownDescription": "GitHub repositories that are auxiliary theme registries. Should be in format `<owner>/<repo>`. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#modularity) for reference.",
             "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+$",
             "patternErrorMessage": "Please enter repositories in the valid format. Example: Codemos-Inc/Auxiliary-Theme-Registry"
+          }
+        }
+      },
+      {
+        "title": "Text Decorations",
+        "properties": {
+          "codemosModern.textDecorations.strikeThrough": {
+            "order": 0,
+            "type": "boolean",
+            "default": true,
+            "markdownDescription": "Deprecated symbols are displayed with a strike-through decoration. Will be discarded when `codemosModern.*.auxiliaryUiTheme` is set. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#color-and-code-intelligibility) for reference."
+          },
+          "codemosModern.textDecorations.bold": {
+            "order": 1,
+            "type": "boolean",
+            "default": true,
+            "markdownDescription": "Abstract symbols are displayed with a bold decoration. Will be discarded when `codemosModern.*.auxiliaryUiTheme` is set. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#color-and-code-intelligibility) for reference."
+          },
+          "codemosModern.textDecorations.italic": {
+            "order": 2,
+            "type": "boolean",
+            "default": true,
+            "markdownDescription": "Static symbols are displayed with an italic decoration. Will be discarded when `codemosModern.*.auxiliaryUiTheme` is set. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#color-and-code-intelligibility) for reference."
+          },
+          "codemosModern.textDecorations.underline": {
+            "order": 3,
+            "type": "boolean",
+            "default": true,
+            "markdownDescription": "Symbols permitting write access are displayed with an underline decoration. Will be discarded when `codemosModern.*.auxiliaryUiTheme` is set. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#color-and-code-intelligibility) for reference."
+          },
+          "codemosModern.textDecorations.forComments": {
+            "order": 4,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "strikethrough",
+                "bold",
+                "italic",
+                "underline"
+              ],
+              "enumDescriptions": [
+                "Strike-through decoration",
+                "Bold decoration",
+                "Italic decoration",
+                "Underline decoration"
+              ]
+            },
+            "default": [
+              "italic"
+            ],
+            "markdownDescription": "Decorations to display for comments. Will be discarded when `codemosModern.*.auxiliaryUiTheme` is set. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#color-and-code-intelligibility) for reference."
           }
         }
       },
@@ -219,7 +271,7 @@
     "eslint-config-prettier": "^9.0.0",
     "husky": "^8.0.3",
     "lint-staged": "^15.2.0",
-    "prettier": "^3.0.0",
+    "prettier": "^3.1.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4"
   },

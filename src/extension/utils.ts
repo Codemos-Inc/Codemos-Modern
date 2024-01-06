@@ -4,6 +4,7 @@ import { ConfigurationTarget, workspace } from "vscode";
 import {
   AdaptiveMode,
   Config,
+  Decoration,
   Design,
   ThemeContext,
   ThemePaths,
@@ -68,6 +69,28 @@ export const getConfig = (): Config => {
       "auxiliaryThemeRegistries",
       defaultConfig.auxiliaryThemeRegistries,
     ),
+    textDecorations: {
+      strikeThrough: extensionSection.get<boolean>(
+        "textDecorations.strikeThrough",
+        defaultConfig.textDecorations.strikeThrough,
+      ),
+      bold: extensionSection.get<boolean>(
+        "textDecorations.bold",
+        defaultConfig.textDecorations.bold,
+      ),
+      italic: extensionSection.get<boolean>(
+        "textDecorations.italic",
+        defaultConfig.textDecorations.italic,
+      ),
+      underline: extensionSection.get<boolean>(
+        "textDecorations.underline",
+        defaultConfig.textDecorations.underline,
+      ),
+      forComments: extensionSection.get<Decoration[]>(
+        "textDecorations.forComments",
+        defaultConfig.textDecorations.forComments,
+      ),
+    },
     dark: {
       auxiliaryUiTheme: extensionSection.get<string | null>(
         "dark.auxiliaryUiTheme",
@@ -189,6 +212,7 @@ export const updateModern = async (
   }
   const promises = variants.map(async (variant: Variant) => {
     const themeContext: ThemeContext = {
+      textDecorations: config.textDecorations,
       variant: variant,
       variantConfig: config[variant] as VariantConfig,
       styles: getStyles(variant, config),
@@ -273,6 +297,7 @@ export const updateSettings = (
 ) => {
   if (activeVariant) {
     const themeContext: ThemeContext = {
+      textDecorations: config.textDecorations,
       variant: activeVariant,
       variantConfig: config[activeVariant] as VariantConfig,
       styles: getStyles(activeVariant, config),

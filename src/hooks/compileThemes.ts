@@ -9,6 +9,7 @@ const themePaths = getThemePaths();
 const variants: Variant[] = ["dark", "light"];
 variants.map((variant) => {
   const themeContext: ThemeContext = {
+    textDecorations: defaultConfig.textDecorations,
     variant: variant,
     variantConfig: defaultConfig[variant],
     styles: getStyles(variant, defaultConfig),

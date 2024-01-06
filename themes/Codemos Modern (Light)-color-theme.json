@@ -890,7 +890,10 @@
     "label": "#AF5A92ff",
     "comment": {
       "foreground": "#006904ff",
-      "italic": true
+      "strikethrough": false,
+      "bold": false,
+      "italic": true,
+      "underline": false
     },
     "string": "#784F3Fff",
     "keyword": "#AC0074ff",
@@ -1026,7 +1029,7 @@
       ],
       "settings": {
         "foreground": "#8D7252ff",
-        "fontStyle": "underline"
+        "fontStyle": "italic"
       }
     },
     {
@@ -1053,7 +1056,7 @@
       ],
       "settings": {
         "foreground": "#7D7852ff",
-        "fontStyle": "underline"
+        "fontStyle": "italic"
       }
     },
     {
@@ -1445,7 +1448,7 @@
       ],
       "settings": {
         "foreground": "#5B79A2ff",
-        "fontStyle": "underline"
+        "fontStyle": "italic"
       }
     },
     {
