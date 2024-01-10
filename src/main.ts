@@ -48,7 +48,7 @@ export const activate = async (extensionContext: ExtensionContext) => {
           await updateBridge("light", UpdateReason.CONFIG_CHANGE);
         }
       } else if (event.affectsConfiguration("workbench.colorTheme")) {
-        updateSettings(getConfig(), await getActiveVariant());
+        updateSettings(getConfig(), getActiveVariant());
       }
     },
   );
@@ -112,7 +112,7 @@ export const updateBridge = async (
       updateReason,
       config,
       getThemePaths(),
-      await getActiveVariant(),
+      getActiveVariant(),
     );
     const stateObject = getStateObject();
     if (stateObject.isUntouched) {
@@ -123,14 +123,14 @@ export const updateBridge = async (
   }
 };
 
-const getActiveVariant = async (): Promise<Variant | undefined> => {
-  const activeColorTheme = await workspace
+const getActiveVariant = (): Variant | undefined => {
+  const activeColorTheme = workspace
     .getConfiguration("workbench")
-    .get("colorTheme");
+    .get<string>("colorTheme");
   if (!activeColorTheme) {
     return undefined;
   }
-  if (!(activeColorTheme as string).startsWith("Codemos Modern")) {
+  if (!activeColorTheme.startsWith("Codemos Modern")) {
     return undefined;
   }
   const activeThemeKind = window.activeColorTheme.kind;
