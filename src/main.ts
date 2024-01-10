@@ -1,7 +1,9 @@
 import {
+  ColorThemeKind,
   ConfigurationChangeEvent,
   ExtensionContext,
   commands,
+  window,
   workspace,
 } from "vscode";
 import { Variant } from "./@types";
@@ -10,6 +12,7 @@ import { authenticateCommand, configureCommand } from "./extension/commands";
 import { GLOBAL_STATE_MRV_KEY } from "./extension/constants";
 import { UpdateReason } from "./extension/enums";
 import { getThemePaths } from "./extension/helpers";
+import { showInformationNotification } from "./extension/notifications";
 import { getIsConfiguredFromCommand } from "./extension/sharedState";
 import { getStateObject, updateState } from "./extension/state";
 import {
@@ -19,7 +22,6 @@ import {
   updateSettings,
   verifyState,
 } from "./extension/utils";
-import { showInformationNotification } from "./extension/notifications";
 
 export const activate = async (extensionContext: ExtensionContext) => {
   extensionContext.subscriptions.push(
@@ -46,7 +48,7 @@ export const activate = async (extensionContext: ExtensionContext) => {
           await updateBridge("light", UpdateReason.CONFIG_CHANGE);
         }
       } else if (event.affectsConfiguration("workbench.colorTheme")) {
-        updateSettings(getConfig(), getActiveVariant());
+        updateSettings(getConfig(), await getActiveVariant());
       }
     },
   );
@@ -110,7 +112,7 @@ export const updateBridge = async (
       updateReason,
       config,
       getThemePaths(),
-      getActiveVariant(),
+      await getActiveVariant(),
     );
     const stateObject = getStateObject();
     if (stateObject.isUntouched) {
@@ -121,17 +123,24 @@ export const updateBridge = async (
   }
 };
 
-const getActiveVariant = (): Variant | undefined => {
-  const activeColorTheme = workspace
+const getActiveVariant = async (): Promise<Variant | undefined> => {
+  const activeColorTheme = await workspace
     .getConfiguration("workbench")
     .get("colorTheme");
-  switch (activeColorTheme) {
-    case "Codemos Modern (Dark)":
+  if (!activeColorTheme) {
+    return undefined;
+  }
+  if (!(activeColorTheme as string).startsWith("Codemos Modern")) {
+    return undefined;
+  }
+  const activeThemeKind = window.activeColorTheme.kind;
+  switch (activeThemeKind) {
+    case ColorThemeKind.Dark:
+    case ColorThemeKind.HighContrast:
       return "dark";
-    case "Codemos Modern (Light)":
+    case ColorThemeKind.Light:
+    case ColorThemeKind.HighContrastLight:
       return "light";
-    default:
-      return undefined;
   }
 };
 
