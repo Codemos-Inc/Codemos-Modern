@@ -8,12 +8,46 @@
 
 # **Codemos Modern**
 
+<div style="display: inline-block; border-radius: 4px; overflow: hidden; height: 28px; border: 1px solid #75757566; margin-inline: 2px;">
+
 [![release](https://img.shields.io/github/release/Codemos-Inc/Codemos-Modern.svg?labelColor=373737&color=45AA41&label=&logo=github&logoColor=white&style=for-the-badge)](https://github.com/Codemos-Inc/Codemos-Modern/releases/latest)
+
+</div>
+<div style="display: inline-block; border-radius: 4px; overflow: hidden; height: 28px; border: 1px solid #75757566; margin-inline: 2px;">
+
 [![vscode](https://img.shields.io/badge/-v1.85+-4B9ECD.svg?labelColor=373737&logo=visualstudiocode&logoColor=white&style=for-the-badge)](https://code.visualstudio.com/updates/)
+
+</div>
+<div style="display: inline-block; border-radius: 4px; overflow: hidden; height: 28px; border: 1px solid #75757566; margin-inline: 2px;">
+
 [![downloads](https://img.shields.io/visual-studio-marketplace/d/codemos.codemos-modern?labelColor=373737&color=9B87EA&label=&logo=docusign&logoColor=white&style=for-the-badge)](https://marketplace.visualstudio.com/items?itemName=Codemos.codemos-modern)
+
+</div>
+<div style="display: inline-block; border-radius: 4px; overflow: hidden; height: 28px; border: 1px solid #75757566; margin-inline: 2px;">
+
 ![sponsors](https://img.shields.io/github/sponsors/EmrecanKaracayir?labelColor=373737&color=ef6363&label=&logo=githubsponsors&logoColor=white&style=for-the-badge)
 
+</div>
+
+<div style="margin-bottom: 16px;"></div>
+
 Innovative, modern theme suite/hub for VS Code
+
+<div style="display: inline-block; border-radius: 4px; overflow: hidden; height: 24px; border: 1px solid #75757566; margin-inline: 2px;">
+
+<img src="https://img.shields.io/badge/-ENGLISH-3C3B6E.svg?labelColor=373737&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAFiSURBVHgBxVWBUcMwDFS4DpARzAR0hHQCugFhgoYN0gkKE4QR2KDZIGzgbpAygZGvb6r61MQJ9Pg7nX3W+yVLjkP0n3DOle6EPc3EHd0YGWdnB/w5zOMwwHvJsuxDcyzYDKXBjCRC1wI8Uzq80A7ziu0L85b+AqLpluaCN1dsNVuh+CwClDQXEHcQy8X65tfZQyhn6yG2w5oRa2XENyhdKRMaC1K5MypRGqtwG8mlVDD51V3Cn8AoPCs46V98VCo1O38RgrDgjpcJ4p1ygmXEa0Jf3Ply1FPEe2TZxUHcqbkBuThNP0V8qazvsRY+ukbsD5wiWVzxl5HYWnDqOGgWNvPgM/OiR7YVv46fWhKYGrYO862geP8GGvescZSb37XMNbjLu38N1c8JxEbDUQ8JASxO4bOP+QXbE1vLWiuaCjfyoqJXAcs5v8xHjK3mRN2Db72gCUCTcwhsB6hvGB/o1vgGMrcuk8iwphkAAAAASUVORK5CYII=&logoColor=white&style=for-the-badge" height="24">
+
+</div>
+<div style="display: inline-block; border-radius: 4px; overflow: hidden; height: 24px; border: 1px solid #75757566; margin-inline: 2px;">
+
+<img src="https://img.shields.io/badge/-简体中文-EE1C25.svg?labelColor=373737&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAFiSURBVHgBxVWBUcMwDFS4DpARzAR0hHQCugFhgoYN0gkKE4QR2KDZIGzgbpAygZGvb6r61MQJ9Pg7nX3W+yVLjkP0n3DOle6EPc3EHd0YGWdnB/w5zOMwwHvJsuxDcyzYDKXBjCRC1wI8Uzq80A7ziu0L85b+AqLpluaCN1dsNVuh+CwClDQXEHcQy8X65tfZQyhn6yG2w5oRa2XENyhdKRMaC1K5MypRGqtwG8mlVDD51V3Cn8AoPCs46V98VCo1O38RgrDgjpcJ4p1ygmXEa0Jf3Ply1FPEe2TZxUHcqbkBuThNP0V8qazvsRY+ukbsD5wiWVzxl5HYWnDqOGgWNvPgM/OiR7YVv46fWhKYGrYO862geP8GGvescZSb37XMNbjLu38N1c8JxEbDUQ8JASxO4bOP+QXbE1vLWiuaCjfyoqJXAcs5v8xHjK3mRN2Db72gCUCTcwhsB6hvGB/o1vgGMrcuk8iwphkAAAAASUVORK5CYII=&logoColor=white&style=for-the-badge" height="24">
+
+</div>
+<div style="display: inline-block; border-radius: 4px; overflow: hidden; height: 24px; border: 1px solid #75757566; margin-inline: 2px;">
+
+<img src="https://img.shields.io/badge/-TÜRKÇE-E30A17.svg?labelColor=373737&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAFiSURBVHgBxVWBUcMwDFS4DpARzAR0hHQCugFhgoYN0gkKE4QR2KDZIGzgbpAygZGvb6r61MQJ9Pg7nX3W+yVLjkP0n3DOle6EPc3EHd0YGWdnB/w5zOMwwHvJsuxDcyzYDKXBjCRC1wI8Uzq80A7ziu0L85b+AqLpluaCN1dsNVuh+CwClDQXEHcQy8X65tfZQyhn6yG2w5oRa2XENyhdKRMaC1K5MypRGqtwG8mlVDD51V3Cn8AoPCs46V98VCo1O38RgrDgjpcJ4p1ygmXEa0Jf3Ply1FPEe2TZxUHcqbkBuThNP0V8qazvsRY+ukbsD5wiWVzxl5HYWnDqOGgWNvPgM/OiR7YVv46fWhKYGrYO862geP8GGvescZSb37XMNbjLu38N1c8JxEbDUQ8JASxO4bOP+QXbE1vLWiuaCjfyoqJXAcs5v8xHjK3mRN2Db72gCUCTcwhsB6hvGB/o1vgGMrcuk8iwphkAAAAASUVORK5CYII=&logoColor=white&style=for-the-badge" height="24">
+
+</div>
 
 <br/>
 
@@ -225,6 +259,34 @@ We've also decided to theme some of the most used extensions to provide more con
 - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
 - [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
 - [Remote Repositories](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-repositories)
+
+<br/>
+
+<h2 id="rdme-locale">🌐 Localization</h2>
+
+We try to make Codemos Modern the most accessible theming extension for VS Code. That's why we are planning to localize Codemos Modern to as many languages as possible. In this cause we need your help the most. Below, you can find the localization table. In this table you can see the status of the localization for each language. We are looking for volunteers to help us localize Codemos Modern. If you want to help us, join us on [GitHub](https://github.com/Codemos-Inc/Codemos-Modern).
+
+> **NOTE:** Native speakers can help us by reviewing localizations with the status "💬". There are two files to check: `l10n/bundle.l10n.{locale}.json` and `package.nls.{locale}.json`.
+
+### Localization Table
+
+| Display Language    | Locale | Status | Released With | Maintainer | Notes                      |
+| ------------------- | ------ | ------ | ------------- | ---------- | -------------------------- |
+| English             | en     | 🟢     | v1.0.0        | Codemos    | -                          |
+| Simplified Chinese  | zh-cn  | 💬     | v2.4.0        | Codemos    | Review needed              |
+| Traditional Chinese | zh-tw  | 🔴     | -             | -          | Not planned                |
+| German              | fr     | 🔴     | -             | -          | Planned for v2.7.X         |
+| French              | fr     | 🔴     | -             | -          | Planned for v2.7.X         |
+| Italian             | it     | 🔴     | -             | -          | Planned for v2.8.X         |
+| Spanish             | es     | 🟡     | -             | Codemos    | Will be released by v2.5.X |
+| Japanese            | ja     | 🟡     | -             | Codemos    | Will be released by v2.5.X |
+| Korean              | ko     | 🔴     | -             | -          | Planned for v2.7.X         |
+| Russian             | ru     | 🔴     | -             | -          | Planned for v2.6.X         |
+| Portuguese (Brazil) | pt-br  | 🔴     | -             | -          | Planned for v2.6.X         |
+| Turkish             | tr     | 🟢     | v2.4.0        | Codemos    | -                          |
+| Polish              | pl     | 🔴     | -             | -          | Not planned                |
+| Czech               | cs     | 🔴     | -             | -          | Not planned                |
+| Hungarian           | hu     | 🔴     | -             | -          | Not planned                |
 
 <br/>
 
