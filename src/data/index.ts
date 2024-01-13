@@ -18,25 +18,8 @@ import {
   showErrorNotification,
   showProgressNotification,
 } from "../extension/notifications";
+import { l10nT } from "../l10n";
 import { getAuxiliaryThemeId, getAuxiliaryThemeRegistryIds } from "./helpers";
-import {
-  cachingFailed,
-  downloadingIndexProgress,
-  downloadingIndexesTitle,
-  downloadingThemeTitle,
-  invalidRegistry,
-  registryIsNotInRegistries,
-  registryNotAvailableOffline,
-  removingFailed,
-  themeNotAvailableOffline,
-  themeNotAvailableOfflineUnexpected,
-  themeNotInRegistry,
-  themeVariantMismatch,
-  unexpectedDummyDataError,
-  unexpectedVariantError,
-  updatingIndexProgress,
-  updatingIndexesTitle,
-} from "./messages";
 import {
   cacheFile,
   checkCacheForFile,
@@ -84,14 +67,12 @@ export const prepareAuxiliaryThemeRegistries = async (
   if (uncachedAuxiliaryThemeRegistryIds.length > 0) {
     let success = true;
     await showProgressNotification(
-      downloadingIndexesTitle(),
+      l10nT("ext.notification.download.index.title"),
       async (progress) => {
         const increment = 100 / uncachedAuxiliaryThemeRegistryIds.length;
         for (const auxiliaryThemeRegistryId of uncachedAuxiliaryThemeRegistryIds) {
           progress.report({
-            message: downloadingIndexProgress(
-              `${auxiliaryThemeRegistryId.owner}/${auxiliaryThemeRegistryId.repo}`,
-            ),
+            message: `"${auxiliaryThemeRegistryId.owner}/${auxiliaryThemeRegistryId.repo}"`,
             increment: increment === 100 ? undefined : increment,
           });
           const result = await getAuxiliaryThemeRegistryIndex(
@@ -110,34 +91,39 @@ export const prepareAuxiliaryThemeRegistries = async (
   }
   if (obsoleteAuxiliaryThemeRegistryIds.length > 0) {
     let success = true;
-    await showProgressNotification(updatingIndexesTitle(), async (progress) => {
-      const increment = 100 / obsoleteAuxiliaryThemeRegistryIds.length;
-      for (const auxiliaryThemeRegistryId of obsoleteAuxiliaryThemeRegistryIds) {
-        progress.report({
-          message: updatingIndexProgress(
-            `${auxiliaryThemeRegistryId.owner}/${auxiliaryThemeRegistryId.repo}`,
-          ),
-          increment,
-        });
-        await deleteCachedDir(
-          "auxiliary",
-          join(auxiliaryThemeRegistryId.owner, auxiliaryThemeRegistryId.repo),
-        ).catch((error: NodeJS.ErrnoException) => {
-          showErrorNotification(removingFailed(error.message), null, null);
-          success = false;
-        });
-        if (!success) {
-          break;
+    await showProgressNotification(
+      l10nT("ext.notification.update.index.title"),
+      async (progress) => {
+        const increment = 100 / obsoleteAuxiliaryThemeRegistryIds.length;
+        for (const auxiliaryThemeRegistryId of obsoleteAuxiliaryThemeRegistryIds) {
+          progress.report({
+            message: `"${auxiliaryThemeRegistryId.owner}/${auxiliaryThemeRegistryId.repo}"`,
+            increment: increment === 100 ? undefined : increment,
+          });
+          await deleteCachedDir(
+            "auxiliary",
+            join(auxiliaryThemeRegistryId.owner, auxiliaryThemeRegistryId.repo),
+          ).catch((error: NodeJS.ErrnoException) => {
+            showErrorNotification(
+              l10nT("ext.notification.remove.index.error$msg", [error.message]),
+              null,
+              null,
+            );
+            success = false;
+          });
+          if (!success) {
+            break;
+          }
+          const result = await getAuxiliaryThemeRegistryIndex(
+            auxiliaryThemeRegistryId,
+          );
+          if (!result) {
+            success = false;
+            break;
+          }
         }
-        const result = await getAuxiliaryThemeRegistryIndex(
-          auxiliaryThemeRegistryId,
-        );
-        if (!result) {
-          success = false;
-          break;
-        }
-      }
-    });
+      },
+    );
     if (!success) {
       return false;
     }
@@ -161,9 +147,9 @@ export const prepareAuxiliaryThemeRegistriesOffline = (
       )
     ) {
       showErrorNotification(
-        registryNotAvailableOffline(
+        l10nT("ext.notification.error.registryNotAvailableOffline$id", [
           `${auxiliaryThemeRegistryId.owner}/${auxiliaryThemeRegistryId.repo}`,
-        ),
+        ]),
         null,
         null,
       );
@@ -178,9 +164,9 @@ export const prepareAuxiliaryThemeRegistriesOffline = (
       const data = JSON.parse(indexContents);
       if (!isAuxiliaryThemeRegistryIndex(data)) {
         showErrorNotification(
-          invalidRegistry(
+          l10nT("ext.notification.error.invalidRegistry$id", [
             `${auxiliaryThemeRegistryId.owner}/${auxiliaryThemeRegistryId.repo}`,
-          ),
+          ]),
           null,
           null,
         );
@@ -233,9 +219,9 @@ export const prepareAuxiliaryTheme = async (
   );
   if (!isRegistryInRegistries) {
     showErrorNotification(
-      registryIsNotInRegistries(
+      l10nT("ext.notification.error.registryNotInRegistries$id", [
         `${auxiliaryThemeId.owner}/${auxiliaryThemeId.repo}`,
-      ),
+      ]),
       null,
       null,
     );
@@ -280,9 +266,9 @@ export const prepareAuxiliaryThemeOffline = async (
   );
   if (!isRegistryInRegistries) {
     showErrorNotification(
-      registryIsNotInRegistries(
+      l10nT("ext.notification.error.registryNotInRegistries$id", [
         `${auxiliaryThemeId.owner}/${auxiliaryThemeId.repo}`,
-      ),
+      ]),
       null,
       null,
     );
@@ -297,9 +283,9 @@ export const prepareAuxiliaryThemeOffline = async (
   }
   if (!checkResult.data.installed) {
     showErrorNotification(
-      themeNotAvailableOffline(
+      l10nT("ext.notification.error.themeNotAvailableOffline$id", [
         `${auxiliaryThemeId.publisher}/${auxiliaryThemeId.extension}/${auxiliaryThemeId.theme}`,
-      ),
+      ]),
       null,
       null,
     );
@@ -317,9 +303,9 @@ export const prepareAuxiliaryThemeOffline = async (
   );
   if (!isCached) {
     showErrorNotification(
-      themeNotAvailableOfflineUnexpected(
+      l10nT("ext.notification.error.themeNotAvailableOfflineUnexpected$id", [
         `${auxiliaryThemeId.publisher}/${auxiliaryThemeId.extension}/${auxiliaryThemeId.theme}`,
-      ),
+      ]),
       null,
       null,
     );
@@ -352,7 +338,13 @@ const verifyAvailabilityForAuxiliaryThemeRegistries = async (
       auxiliaryThemeRegistryId.repo,
     );
     if (!networkBoundResult.success) {
-      showErrorNotification(networkBoundResult.message, null, null);
+      showErrorNotification(
+        l10nT("ext.notification.error.requestFailed$msg", [
+          networkBoundResult.message,
+        ]),
+        null,
+        null,
+      );
       return false;
     }
   }
@@ -375,7 +367,13 @@ const auxiliaryThemeRegistryHasUpdates = async (
     auxiliaryThemeRegistryId.repo,
   );
   if (!networkBoundResult.success) {
-    showErrorNotification(networkBoundResult.message, null, null);
+    showErrorNotification(
+      l10nT("ext.notification.error.requestFailed$msg", [
+        networkBoundResult.message,
+      ]),
+      null,
+      null,
+    );
     return { success: false, message: networkBoundResult.message, data: null };
   } else {
     const auxiliaryThemeRegistryLatestVersion = networkBoundResult.data;
@@ -402,7 +400,13 @@ const getAuxiliaryThemeRegistryIndex = async (
     auxiliaryThemeRegistryId.repo,
   );
   if (!networkBoundResultTag.success) {
-    showErrorNotification(networkBoundResultTag.message, null, null);
+    showErrorNotification(
+      l10nT("ext.notification.error.requestFailed$msg", [
+        networkBoundResultTag.message,
+      ]),
+      null,
+      null,
+    );
     return false;
   }
   const auxiliaryThemeRegistryLatestVersion = networkBoundResultTag.data;
@@ -413,15 +417,21 @@ const getAuxiliaryThemeRegistryIndex = async (
     auxiliaryThemeRegistryLatestVersion,
   );
   if (!networkBoundResultIndex.success) {
-    showErrorNotification(networkBoundResultIndex.message, null, null);
+    showErrorNotification(
+      l10nT("ext.notification.error.requestFailed$msg", [
+        networkBoundResultIndex.message,
+      ]),
+      null,
+      null,
+    );
     return false;
   }
   const data = JSON.parse(networkBoundResultIndex.data);
   if (!isAuxiliaryThemeRegistryIndex(data)) {
     showErrorNotification(
-      invalidRegistry(
+      l10nT("ext.notification.error.invalidRegistry$id", [
         `${auxiliaryThemeRegistryId.owner}/${auxiliaryThemeRegistryId.repo}`,
-      ),
+      ]),
       null,
       null,
     );
@@ -438,7 +448,11 @@ const getAuxiliaryThemeRegistryIndex = async (
       return true;
     })
     .catch((error: NodeJS.ErrnoException) => {
-      showErrorNotification(cachingFailed(error.message), null, null);
+      showErrorNotification(
+        l10nT("ext.notification.error.cachingFailed$msg", [error.message]),
+        null,
+        null,
+      );
       return false;
     });
 };
@@ -472,20 +486,20 @@ const checkAuxiliaryRegistryIndexForAuxiliaryTheme = (
       if (!auxiliaryThemeDark) {
         if (auxiliaryThemeLight) {
           showErrorNotification(
-            themeVariantMismatch(
+            l10nT("ext.notification.error.themeVariantMismatch$id$variant", [
               `${auxiliaryThemeId.publisher}/${auxiliaryThemeId.extension}/${auxiliaryThemeId.theme}`,
               variant,
-            ),
+            ]),
             null,
             null,
           );
           return { success: false, data: null };
         } else {
           showErrorNotification(
-            themeNotInRegistry(
+            l10nT("ext.notification.error.themeNotInRegistry$rid$tid", [
               `${auxiliaryThemeId.owner}/${auxiliaryThemeId.repo}`,
               `${auxiliaryThemeId.publisher}/${auxiliaryThemeId.extension}/${auxiliaryThemeId.theme}`,
-            ),
+            ]),
             null,
             null,
           );
@@ -498,20 +512,20 @@ const checkAuxiliaryRegistryIndexForAuxiliaryTheme = (
       if (!auxiliaryThemeLight) {
         if (auxiliaryThemeDark) {
           showErrorNotification(
-            themeVariantMismatch(
+            l10nT("ext.notification.error.themeVariantMismatch$id$variant", [
               `${auxiliaryThemeId.publisher}/${auxiliaryThemeId.extension}/${auxiliaryThemeId.theme}`,
               variant,
-            ),
+            ]),
             null,
             null,
           );
           return { success: false, data: null };
         } else {
           showErrorNotification(
-            themeNotInRegistry(
+            l10nT("ext.notification.error.themeNotInRegistry$rid$tid", [
               `${auxiliaryThemeId.owner}/${auxiliaryThemeId.repo}`,
               `${auxiliaryThemeId.publisher}/${auxiliaryThemeId.extension}/${auxiliaryThemeId.theme}`,
-            ),
+            ]),
             null,
             null,
           );
@@ -520,9 +534,10 @@ const checkAuxiliaryRegistryIndexForAuxiliaryTheme = (
       } else {
         return { success: true, data: auxiliaryThemeLight };
       }
-    default:
-      showErrorNotification(unexpectedVariantError(variant), null, null);
-      return { success: false, data: null };
+    default: {
+      const exhaustiveCheck: never = variant;
+      return exhaustiveCheck;
+    }
   }
 };
 
@@ -540,14 +555,16 @@ const getAuxiliaryTheme = async (
   const auxiliaryThemeRegistryVersion = auxiliaryThemeRegistryIndex.version;
   let networkBoundResult: NetworkBoundResult = {
     success: false,
-    message: unexpectedDummyDataError(),
+    message: l10nT("ext.message.error.unexpectedDummyData"),
     data: null,
   };
   await showProgressNotification(
-    downloadingThemeTitle(
-      `${auxiliaryThemeId.publisher}/${auxiliaryThemeId.extension}/${auxiliaryThemeId.theme}`,
-    ),
-    async () => {
+    l10nT("ext.notification.download.theme.title"),
+    async (progress) => {
+      progress.report({
+        message: `"${auxiliaryThemeId.owner}/${auxiliaryThemeId.repo}/${auxiliaryThemeId.publisher}/${auxiliaryThemeId.extension}/${auxiliaryThemeId.theme}"`,
+        increment: undefined,
+      });
       networkBoundResult = await getSingleContentFromRelease(
         auxiliaryThemeId.owner,
         auxiliaryThemeId.repo,
@@ -557,7 +574,13 @@ const getAuxiliaryTheme = async (
     },
   );
   if (!networkBoundResult.success) {
-    showErrorNotification(networkBoundResult.message, null, null);
+    showErrorNotification(
+      l10nT("ext.notification.error.requestFailed$msg", [
+        networkBoundResult.message,
+      ]),
+      null,
+      null,
+    );
     return false;
   }
   const data = JSON.parse(networkBoundResult.data);
@@ -579,7 +602,11 @@ const getAuxiliaryTheme = async (
       );
     })
     .catch((error: NodeJS.ErrnoException) => {
-      showErrorNotification(cachingFailed(error.message), null, null);
+      showErrorNotification(
+        l10nT("ext.notification.error.cachingFailed$msg", [error.message]),
+        null,
+        null,
+      );
       return false;
     });
 };
@@ -610,7 +637,11 @@ const updateAuxiliaryThemeCachedKey = async (
       return true;
     })
     .catch((error: NodeJS.ErrnoException) => {
-      showErrorNotification(cachingFailed(error.message), null, null);
+      showErrorNotification(
+        l10nT("ext.notification.error.cachingFailed$msg", [error.message]),
+        null,
+        null,
+      );
       return false;
     });
 };

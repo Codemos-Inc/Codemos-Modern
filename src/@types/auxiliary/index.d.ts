@@ -20,7 +20,7 @@ export type AuxiliaryThemeInfo = {
   publisher: string;
   extension: string;
   theme: string;
-  origin: "Builtin" | "Marketplace" | "GitHub";
+  origin: "Built-in" | "Marketplace" | "GitHub";
   license: string;
   installed: boolean;
 };

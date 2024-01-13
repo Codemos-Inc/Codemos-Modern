@@ -112,7 +112,7 @@ Codemos Modern provides three configuration options through the command **Codemo
   3. **Adaptation Mode:** You can select which adaptation mode your theme would use. (Adaptation mode determines how much your accent color influence the rest of the UI. See [adaptability section](#adaptability) for more information)
      ![adaptation-mode](images/conf-ui-theme-4.png)
 
-- **From Registries:** You can also choose an auxiliary theme. Auxiliary themes are the themes that are not bundled with Modern but can be installed from the auxiliary theme registries. Codemos provides a builtin registry that features some of the most popular themes. You can also create your own registries. See [modularity section](#modularity) for more information.
+- **From Registries:** You can also choose an auxiliary theme. Auxiliary themes are the themes that are not bundled with Modern but can be installed from the auxiliary theme registries. Codemos provides a built-in registry that features some of the most popular themes. You can also create your own registries. See [modularity section](#modularity) for more information.
 
   1. **Auxiliary UI Theme:** You can select which auxiliary theme your Modern will use as the UI theme. (Auxiliary theme will be installed and activated automatically from the indicated registry)
      ![ui-theme-from-registries](images/conf-ui-theme-2-a.png)
@@ -122,7 +122,7 @@ Codemos Modern provides three configuration options through the command **Codemo
 
 - **Bundled:** We worked hard to make sure that our bundled code theme provides the best developer experience possible. (See [color and code intelligibility section](#color-and-code-intelligibility) for more information) However, if you want to use an auxiliary code theme, you can select **From Registries** option and choose a code theme from the registries.
 
-- **From Registries:** You can also choose an auxiliary theme. Auxiliary themes are the themes that are not bundled with Modern but can be installed from the auxiliary theme registries. Codemos provides a builtin registry that features some of the most popular themes. You can also create your own registries. See [modularity section](#modularity) for more information.
+- **From Registries:** You can also choose an auxiliary theme. Auxiliary themes are the themes that are not bundled with Modern but can be installed from the auxiliary theme registries. Codemos provides a built-in registry that features some of the most popular themes. You can also create your own registries. See [modularity section](#modularity) for more information.
 
   1. **Auxiliary Code Theme:** You can select which auxiliary theme your Modern will use as the code theme. (Auxiliary theme will be installed and activated automatically from the indicated registry)
      ![code-theme-from-registries](images/conf-code-theme-2-a.png)
@@ -204,7 +204,7 @@ These decorations are:
 
 <br/>
 
-> **NOTE:** Codemos Modern uses both **Semantic Highlighting** and **Syntax Highlighting**. Semantic Highlighting is a new version of token coloring with more capabilities and simplified tokenizing but not yet widely adopted by language extensions. See [Semantic Highlighting](https://code.visualstudio.com/api/language-extensions/semantic-highlight-guide) and [Syntax Highlighting](https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide) for more information. We strongly recommend you to use a language extension that supports Semantic Highlighting. We are planning to add support for more languages in the future. Please [contribute](#rdme-contrib) if you want to help us.
+> **NOTE:** Codemos Modern uses both **Semantic Highlighting** and **Syntax Highlighting**. Semantic Highlighting is a new version of token coloring with more capabilities and simplified tokenizing but not yet widely adopted by language extensions. See [Semantic Highlighting](https://code.visualstudio.com/api/language-extensions/semantic-highlight-guide) and [Syntax Highlighting](https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide) for more information. We strongly recommend you to use a language extension that supports Semantic Highlighting. We are planning to add support for more languages in the future. [Contribute](#rdme-contrib) if you want to help us.
 
 <br/>
 
@@ -297,7 +297,7 @@ Changes from the last major release shown below. If you want to see the full cha
 
 <h2 id="rdme-contrib">🙌🏼 Contribution</h2>
 
-We are open to any kind of contribution. If you want to contribute to Codemos Modern, please join us on [GitHub](https://github.com/Codemos-Inc/Codemos-Modern).
+We are open to any kind of contribution. If you want to contribute to Codemos Modern, join us on [GitHub](https://github.com/Codemos-Inc/Codemos-Modern).
 
 <br/>
 

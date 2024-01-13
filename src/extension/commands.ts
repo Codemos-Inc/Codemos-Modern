@@ -18,6 +18,7 @@ import {
   prepareAuxiliaryThemeRegistriesOffline,
 } from "../data";
 import { getAuxiliaryThemeId } from "../data/helpers";
+import { l10nT } from "../l10n";
 import {
   mimic3Info as darkMimic,
   palette as darkPalette,
@@ -27,25 +28,32 @@ import {
   palette as lightPalette,
 } from "../modern/variants/light/modern";
 import { authenticate } from "./authentication";
-import { NOTIFICATION_SIGNATURE } from "./constants";
 import { toggleFirstLetterCase } from "./helpers";
 import { generateAccentColorIcons, generateAdaptiveModeIcons } from "./icons";
-import { showProgressNotification } from "./notifications";
+import {
+  showErrorNotification,
+  showInformationNotification,
+  showProgressNotification,
+} from "./notifications";
 import { getIsOfflineMode, setIsConfiguredFromCommand } from "./sharedState";
 import { checkInternetConnection, getConfig, updateConfig } from "./utils";
 
 export const authenticateCommand = async () => {
   await showProgressNotification(
-    `${NOTIFICATION_SIGNATURE} Authenticating...`,
+    l10nT("ext.command.authenticate.progress"),
     async () => {
       const result = await authenticate(true);
       if (!result.success) {
-        if (result.message) {
-          window.showErrorMessage(result.message);
-        }
+        showErrorNotification(
+          l10nT("ext.command.authenticate.error$msg", [result.message]),
+          null,
+          null,
+        );
       } else {
-        window.showInformationMessage(
-          `${NOTIFICATION_SIGNATURE} Authenticated successfully!`,
+        showInformationNotification(
+          l10nT("ext.command.authenticate.success"),
+          null,
+          null,
         );
       }
     },
@@ -56,15 +64,14 @@ export const configureCommand = async () => {
   await checkInternetConnection();
   const isOfflineMode = getIsOfflineMode();
   //
-  const variantLabel = await getVariantLabel();
-  if (!variantLabel) {
+  const variant = await getVariant();
+  if (!variant) {
     return;
   }
-  const variant = toggleFirstLetterCase(variantLabel) as Variant;
   //
   const auxiliaryUiThemeExtension = await getAuxiliaryThemeExtension(
     variant,
-    "ui",
+    l10nT("ext.helper.kind.ui"),
     isOfflineMode,
   );
   if (!auxiliaryUiThemeExtension) {
@@ -75,7 +82,7 @@ export const configureCommand = async () => {
     const auxiliaryUiThemeCandidate = await getAuxiliaryTheme(
       variant,
       auxiliaryUiThemeExtension,
-      "ui",
+      l10nT("ext.helper.kind.ui"),
       isOfflineMode,
     );
     if (!auxiliaryUiThemeCandidate) {
@@ -83,47 +90,38 @@ export const configureCommand = async () => {
     }
     auxiliaryUiTheme = auxiliaryUiThemeCandidate;
   }
-  const designLabel = !auxiliaryUiTheme ? await getDesign(variant) : null;
-  if (!designLabel && !auxiliaryUiTheme) {
+  //
+  const design = !auxiliaryUiTheme ? await getDesign(variant) : undefined;
+  if (!design && !auxiliaryUiTheme) {
     return;
-  }
-  let design = null;
-  if (designLabel) {
-    design = toggleFirstLetterCase(
-      designLabel.replace(/\$\(.*\) /g, ""),
-    ) as Design;
   }
   //
   const accentColorFromPalette = !auxiliaryUiTheme
     ? await getAccentColorFromPalette(variant)
-    : null;
+    : undefined;
   if (!accentColorFromPalette && !auxiliaryUiTheme) {
     return;
   }
-  let accentColor: string | null | undefined;
+  let accentColor: string | undefined;
   if (accentColorFromPalette !== "_") {
     accentColor = accentColorFromPalette;
   } else {
-    accentColor = !auxiliaryUiTheme ? await getAccentColor(variant) : null;
+    accentColor = !auxiliaryUiTheme ? await getAccentColor(variant) : undefined;
     if (!accentColor && !auxiliaryUiTheme) {
       return;
     }
   }
   //
-  const adaptiveModeLabel = !auxiliaryUiTheme
+  const adaptiveMode = !auxiliaryUiTheme
     ? await getAdaptiveModeLabel(variant, accentColor!)
-    : null;
-  if (!adaptiveModeLabel && !auxiliaryUiTheme) {
+    : undefined;
+  if (!adaptiveMode && !auxiliaryUiTheme) {
     return;
-  }
-  let adaptiveMode = null;
-  if (adaptiveModeLabel) {
-    adaptiveMode = toggleFirstLetterCase(adaptiveModeLabel) as AdaptiveMode;
   }
   //
   const auxiliaryCodeThemeExtension = await getAuxiliaryThemeExtension(
     variant,
-    "code",
+    l10nT("ext.helper.kind.code"),
     isOfflineMode,
   );
   if (!auxiliaryCodeThemeExtension) {
@@ -134,7 +132,7 @@ export const configureCommand = async () => {
     const auxiliaryCodeThemeCandidate = await getAuxiliaryTheme(
       variant,
       auxiliaryCodeThemeExtension,
-      "code",
+      l10nT("ext.helper.kind.code"),
       isOfflineMode,
     );
     if (!auxiliaryCodeThemeCandidate) {
@@ -160,7 +158,15 @@ export const configureCommand = async () => {
     );
 };
 
-const getVariantLabel = async () => {
+interface VariantQPI extends QuickPickItem {
+  _variant: Variant;
+  label: string;
+  description: string;
+  detail: string;
+  iconPath: Uri;
+}
+
+const getVariant = async (): Promise<Variant | undefined> => {
   // 🟡 Hacky workaround for the vscode api not picking the correct icon based on the active ui theme
   let darkModeIconUri: Uri;
   let lightModeIconUri: Uri;
@@ -190,172 +196,231 @@ const getVariantLabel = async () => {
       );
       break;
   }
-  const variant = await window.showQuickPick(
+  const variantPicker = await window.showQuickPick<VariantQPI>(
     [
       {
-        label: "Dark",
-        description: "Variant",
-        detail: "Dark-intensive color scheme",
+        _variant: "dark",
+        label: l10nT("ext.helper.variant.dark"),
+        description: l10nT("ext.helper.variant"),
+        detail: l10nT("ext.helper.variant.dark.detail"),
         iconPath: darkModeIconUri,
       },
       {
-        label: "Light",
-        description: "Variant",
-        detail: "Light-intensive color scheme",
+        _variant: "light",
+        label: l10nT("ext.helper.variant.light"),
+        description: l10nT("ext.helper.variant"),
+        detail: l10nT("ext.helper.variant.light.detail"),
         iconPath: lightModeIconUri,
       },
     ],
     {
-      title: "Codemos Modern: Variant",
-      placeHolder: "Select a variant",
+      title: l10nT("ext.command.configure.variantPicker.title"),
+      placeHolder: l10nT("ext.command.configure.variantPicker.placeHolder"),
       ignoreFocusOut: true,
     },
   );
-  if (!variant) {
+  if (!variantPicker) {
     return undefined;
   }
-  return variant.label;
+  return variantPicker._variant;
 };
 
-const getDesign = async (variant: Variant) => {
-  const design = await window.showQuickPick(
+interface DesignQPI extends QuickPickItem {
+  _design: Design;
+  label: string;
+  description: string;
+  detail: string;
+}
+
+const getDesign = async (variant: Variant): Promise<Design | undefined> => {
+  const designPicker = await window.showQuickPick<DesignQPI>(
     [
       {
-        label: "$(symbol-color) Modern",
-        description: "Design",
-        detail: "Modern's original design",
+        _design: "modern",
+        label: `$(symbol-color) ${l10nT("ext.helper.design.modern")}`,
+        description: l10nT("ext.helper.design"),
+        detail: l10nT("ext.helper.design.modern.detail"),
       },
       {
-        label: "$(symbol-color) Minimal",
-        description: "Design",
-        detail: "Minimalistic design",
+        _design: "minimal",
+        label: `$(symbol-color) ${l10nT("ext.helper.design.minimal")}`,
+        description: l10nT("ext.helper.design"),
+        detail: l10nT("ext.helper.design.minimal.detail"),
       },
     ],
     {
-      title: `Codemos Modern (${toggleFirstLetterCase(variant)}): UI Theme`,
-      placeHolder: "Select a design",
+      title: l10nT("ext.command.configure.*.title$variant$kind", [
+        l10nT(`ext.helper.variant.${variant}`),
+        l10nT(`ext.helper.kind.ui`),
+      ]),
+      placeHolder: l10nT("ext.command.configure.designPicker.placeHolder"),
       ignoreFocusOut: true,
     },
   );
-  if (!design) {
+  if (!designPicker) {
     return undefined;
   }
-  return design.label;
+  return designPicker._design;
 };
 
+interface PaletteQPI extends QuickPickItem {
+  _color:
+    | ""
+    | "custom"
+    | "brown"
+    | "red"
+    | "orange"
+    | "yellow"
+    | "green"
+    | "mint"
+    | "blue"
+    | "purple"
+    | "pink";
+  label: string;
+  description?: string;
+  detail?: string;
+  iconPath?: Uri;
+}
+
 const getAccentColorFromPalette = async (variant: Variant) => {
-  const quickPick = window.createQuickPick();
-  quickPick.title = `Codemos Modern (${toggleFirstLetterCase(
-    variant,
-  )}): UI Theme`;
-  quickPick.placeholder = "Select an accent color";
+  const quickPick = window.createQuickPick<PaletteQPI>();
+  quickPick.title = l10nT("ext.command.configure.*.title$variant$kind", [
+    l10nT(`ext.helper.variant.${variant}`),
+    l10nT(`ext.helper.kind.ui`),
+  ]);
+  quickPick.placeholder = l10nT(
+    "ext.command.configure.accColorPalettePicker.placeHolder",
+  );
   quickPick.ignoreFocusOut = true;
   quickPick.busy = true;
   quickPick.show();
   prepareAccentColorIcons(variant);
   quickPick.items = [
     {
-      label: "Custom",
+      _color: "",
+      label: l10nT("ext.helper.palette.custom"),
       kind: QuickPickItemKind.Separator,
     },
     {
-      label: "Custom",
-      description: "Accent color",
-      detail: "A color you specify",
+      _color: "custom",
+      label: l10nT("ext.helper.palette.custom"),
+      description: l10nT("ext.helper.accentColor"),
+      detail: l10nT(
+        "ext.command.configure.accColorPalettePicker.item.custom.detail",
+      ),
       iconPath: Uri.file(
         `${__dirname}/../../res/icons/${variant}/accent_custom.svg`,
       ),
     },
     {
-      label: "Palette",
+      _color: "",
+      label: l10nT("ext.helper.palette"),
       kind: QuickPickItemKind.Separator,
     },
     {
-      label: "Brown",
-      description: "Accent color",
-      detail: `The color of ${
-        variant === "dark" ? "antique brass" : "mud"
-      } from the Modern's palette`,
+      _color: "brown",
+      label: l10nT("ext.helper.palette.brown"),
+      description: l10nT("ext.helper.accentColor"),
+      detail: l10nT(
+        "ext.command.configure.accColorPalettePicker.item.detail$code",
+        [variant === "dark" ? "APL-BRO" : "APD-BRO"],
+      ),
       iconPath: Uri.file(
         `${__dirname}/../../res/icons/${variant}/accent_brown.svg`,
       ),
     },
     {
-      label: "Red",
-      description: "Accent color",
-      detail: `The color of ${
-        variant === "dark" ? "burnt sienna" : "guardsman red"
-      } from the Modern's palette`,
+      _color: "red",
+      label: l10nT("ext.helper.palette.red"),
+      description: l10nT("ext.helper.accentColor"),
+      detail: l10nT(
+        "ext.command.configure.accColorPalettePicker.item.detail$code",
+        [variant === "dark" ? "LPD-RED" : "DPD-RED"],
+      ),
       iconPath: Uri.file(
         `${__dirname}/../../res/icons/${variant}/accent_red.svg`,
       ),
     },
     {
-      label: "Orange",
-      description: "Accent color",
-      detail: `The color of ${
-        variant === "dark" ? "raw sienna" : "chelsea gem"
-      } from the Modern's palette`,
+      _color: "orange",
+      label: l10nT("ext.helper.palette.orange"),
+      description: l10nT("ext.helper.accentColor"),
+      detail: l10nT(
+        "ext.command.configure.accColorPalettePicker.item.detail$code",
+        [variant === "dark" ? "LPD-ORA" : "DPD-ORA"],
+      ),
       iconPath: Uri.file(
         `${__dirname}/../../res/icons/${variant}/accent_orange.svg`,
       ),
     },
     {
-      label: "Yellow",
-      description: "Accent color",
-      detail: `The color of ${
-        variant === "dark" ? "roti" : "olive"
-      } from the Modern's palette`,
+      _color: "yellow",
+      label: l10nT("ext.helper.palette.yellow"),
+      description: l10nT("ext.helper.accentColor"),
+      detail: l10nT(
+        "ext.command.configure.accColorPalettePicker.item.detail$code",
+        [variant === "dark" ? "LPD-YEL" : "DPD-YEL"],
+      ),
       iconPath: Uri.file(
         `${__dirname}/../../res/icons/${variant}/accent_yellow.svg`,
       ),
     },
     {
-      label: "Green",
-      description: "Accent color",
-      detail: `The color of ${
-        variant === "dark" ? "apple" : "camarone"
-      } from the Modern's palette`,
+      _color: "green",
+      label: l10nT("ext.helper.palette.green"),
+      description: l10nT("ext.helper.accentColor"),
+      detail: l10nT(
+        "ext.command.configure.accColorPalettePicker.item.detail$code",
+        [variant === "dark" ? "LPD-GRE" : "DPD-GRE"],
+      ),
       iconPath: Uri.file(
         `${__dirname}/../../res/icons/${variant}/accent_green.svg`,
       ),
     },
     {
-      label: "Mint",
-      description: "Accent color",
-      detail: `The color of ${
-        variant === "dark" ? "keppel" : "blue stone"
-      } from the Modern's palette`,
+      _color: "mint",
+      label: l10nT("ext.helper.palette.mint"),
+      description: l10nT("ext.helper.accentColor"),
+      detail: l10nT(
+        "ext.command.configure.accColorPalettePicker.item.detail$code",
+        [variant === "dark" ? "LPD-MIN" : "DPD-MIN"],
+      ),
       iconPath: Uri.file(
         `${__dirname}/../../res/icons/${variant}/accent_mint.svg`,
       ),
     },
     {
-      label: "Blue",
-      description: "Accent color",
-      detail: `The color of ${
-        variant === "dark" ? "Shakespeare" : "science blue"
-      } from the Modern's palette`,
+      _color: "blue",
+      label: l10nT("ext.helper.palette.blue"),
+      description: l10nT("ext.helper.accentColor"),
+      detail: l10nT(
+        "ext.command.configure.accColorPalettePicker.item.detail$code",
+        [variant === "dark" ? "LPD-BLU" : "DPD-BLU"],
+      ),
       iconPath: Uri.file(
         `${__dirname}/../../res/icons/${variant}/accent_blue.svg`,
       ),
     },
     {
-      label: "Purple",
-      description: "Accent color",
-      detail: `The color of ${
-        variant === "dark" ? "Portage" : "electric violet"
-      } from the Modern's palette`,
+      _color: "purple",
+      label: l10nT("ext.helper.palette.purple"),
+      description: l10nT("ext.helper.accentColor"),
+      detail: l10nT(
+        "ext.command.configure.accColorPalettePicker.item.detail$code",
+        [variant === "dark" ? "LPD-PUR" : "DPD-PUR"],
+      ),
       iconPath: Uri.file(
         `${__dirname}/../../res/icons/${variant}/accent_purple.svg`,
       ),
     },
     {
-      label: "Pink",
-      description: "Accent color",
-      detail: `The color of ${
-        variant === "dark" ? "brilliant rose" : "flirt"
-      } from the Modern's palette`,
+      _color: "pink",
+      label: l10nT("ext.helper.palette.pink"),
+      description: l10nT("ext.helper.accentColor"),
+      detail: l10nT(
+        "ext.command.configure.accColorPalettePicker.item.detail$code",
+        [variant === "dark" ? "LPD-PIN" : "DPD-PIN"],
+      ),
       iconPath: Uri.file(
         `${__dirname}/../../res/icons/${variant}/accent_pink.svg`,
       ),
@@ -364,56 +429,56 @@ const getAccentColorFromPalette = async (variant: Variant) => {
   quickPick.busy = false;
   return await new Promise<string | undefined>((resolve) => {
     quickPick.onDidAccept(() => {
-      const selectedAccentColorLabel = quickPick.selectedItems[0].label;
+      const selectedAccentColor = quickPick.selectedItems[0]._color;
       quickPick.dispose();
-      if (selectedAccentColorLabel) {
+      if (selectedAccentColor) {
         switch (variant) {
           case "dark":
-            switch (selectedAccentColorLabel) {
-              case "Custom":
+            switch (selectedAccentColor) {
+              case "custom":
                 return resolve("_");
-              case "Brown":
+              case "brown":
                 return resolve(darkPalette.basic.def.brown);
-              case "Red":
+              case "red":
                 return resolve(darkPalette.basic.def.red);
-              case "Orange":
+              case "orange":
                 return resolve(darkPalette.basic.def.orange);
-              case "Yellow":
+              case "yellow":
                 return resolve(darkPalette.basic.def.yellow);
-              case "Green":
+              case "green":
                 return resolve(darkPalette.basic.def.green);
-              case "Mint":
+              case "mint":
                 return resolve(darkPalette.basic.def.mint);
-              case "Blue":
+              case "blue":
                 return resolve(darkPalette.basic.def.blue);
-              case "Purple":
+              case "purple":
                 return resolve(darkPalette.basic.def.purple);
-              case "Pink":
+              case "pink":
                 return resolve(darkPalette.basic.def.pink);
               default:
                 return resolve(undefined);
             }
           case "light":
-            switch (selectedAccentColorLabel) {
-              case "Custom":
+            switch (selectedAccentColor) {
+              case "custom":
                 return resolve("_");
-              case "Brown":
+              case "brown":
                 return resolve(lightPalette.basic.def.brown);
-              case "Red":
+              case "red":
                 return resolve(lightPalette.basic.def.red);
-              case "Orange":
+              case "orange":
                 return resolve(lightPalette.basic.def.orange);
-              case "Yellow":
+              case "yellow":
                 return resolve(lightPalette.basic.def.yellow);
-              case "Green":
+              case "green":
                 return resolve(lightPalette.basic.def.green);
-              case "Mint":
+              case "mint":
                 return resolve(lightPalette.basic.def.mint);
-              case "Blue":
+              case "blue":
                 return resolve(lightPalette.basic.def.blue);
-              case "Purple":
+              case "purple":
                 return resolve(lightPalette.basic.def.purple);
-              case "Pink":
+              case "pink":
                 return resolve(lightPalette.basic.def.pink);
               default:
                 return resolve(undefined);
@@ -510,14 +575,17 @@ const prepareAccentColorIcons = (variant: Variant) => {
 
 const getAccentColor = async (variant: Variant) => {
   const accentColorHex7 = await window.showInputBox({
-    title: `Codemos Modern (${toggleFirstLetterCase(variant)}): UI Theme`,
-    prompt: "Accent color in hex color code format",
+    title: l10nT("ext.command.configure.*.title$variant$kind", [
+      l10nT(`ext.helper.variant.${variant}`),
+      l10nT(`ext.helper.kind.ui`),
+    ]),
+    prompt: l10nT("ext.command.configure.accColorInput.prompt"),
     value: "#XXXXXX",
     valueSelection: [1, 7],
     ignoreFocusOut: true,
     validateInput(value) {
       if (!validateHex6(value)) {
-        return "Invalid hex color code";
+        return l10nT("ext.command.configure.accColorInput.error");
       }
       return undefined;
     },
@@ -528,60 +596,75 @@ const getAccentColor = async (variant: Variant) => {
   return accentColorHex7;
 };
 
+interface AdaptiveQPI extends QuickPickItem {
+  _mode: AdaptiveMode;
+  label: string;
+  description: string;
+  detail: string;
+  iconPath: Uri;
+}
+
 const getAdaptiveModeLabel = async (
   variant: Variant,
   accentColorHex7: string,
-) => {
-  const quickPick = window.createQuickPick();
-  quickPick.title = `Codemos Modern (${toggleFirstLetterCase(
-    variant,
-  )}): UI Theme`;
-  quickPick.placeholder = "Select an adaptive mode";
+): Promise<AdaptiveMode | undefined> => {
+  const quickPick = window.createQuickPick<AdaptiveQPI>();
+  quickPick.title = l10nT("ext.command.configure.*.title$variant$kind", [
+    l10nT(`ext.helper.variant.${variant}`),
+    l10nT(`ext.helper.kind.ui`),
+  ]);
+  quickPick.placeholder = l10nT(
+    "ext.command.configure.adaptiveModePicker.placeHolder",
+  );
   quickPick.ignoreFocusOut = true;
   quickPick.busy = true;
   quickPick.show();
   prepareAdaptiveModeIcons(variant, accentColorHex7);
   quickPick.items = [
     {
-      label: "None",
-      description: "Adaptive mode",
-      detail: "No accent color adaptation",
+      _mode: "none",
+      label: l10nT("ext.helper.adaptiveMode.none"),
+      description: l10nT("ext.helper.adaptiveMode"),
+      detail: l10nT("ext.helper.adaptiveMode.none.detail"),
       iconPath: Uri.file(
         `${__dirname}/../../res/icons/${variant}/adaptation_none.svg`,
       ),
     },
     {
-      label: "Gentle",
-      description: "Adaptive mode",
-      detail: "Gentle accent color adaptation",
+      _mode: "gentle",
+      label: l10nT("ext.helper.adaptiveMode.gentle"),
+      description: l10nT("ext.helper.adaptiveMode"),
+      detail: l10nT("ext.helper.adaptiveMode.gentle.detail"),
       iconPath: Uri.file(
         `${__dirname}/../../res/icons/${variant}/adaptation_gentle.svg`,
       ),
     },
     {
-      label: "Moderate",
-      description: "Adaptive mode",
-      detail: "Moderate accent color adaptation",
+      _mode: "moderate",
+      label: l10nT("ext.helper.adaptiveMode.moderate"),
+      description: l10nT("ext.helper.adaptiveMode"),
+      detail: l10nT("ext.helper.adaptiveMode.moderate.detail"),
       iconPath: Uri.file(
         `${__dirname}/../../res/icons/${variant}/adaptation_moderate.svg`,
       ),
     },
     {
-      label: "Aggressive",
-      description: "Adaptive mode",
-      detail: "Aggressive accent color adaptation",
+      _mode: "aggressive",
+      label: l10nT("ext.helper.adaptiveMode.aggressive"),
+      description: l10nT("ext.helper.adaptiveMode"),
+      detail: l10nT("ext.helper.adaptiveMode.aggressive.detail"),
       iconPath: Uri.file(
         `${__dirname}/../../res/icons/${variant}/adaptation_aggressive.svg`,
       ),
     },
   ];
   quickPick.busy = false;
-  return await new Promise<string | undefined>((resolve) => {
+  return await new Promise<AdaptiveMode | undefined>((resolve) => {
     quickPick.onDidAccept(() => {
       const selectedAdaptiveMode = quickPick.selectedItems[0];
       quickPick.dispose();
       if (selectedAdaptiveMode) {
-        return resolve(selectedAdaptiveMode.label);
+        return resolve(selectedAdaptiveMode._mode);
       } else {
         return resolve(undefined);
       }
@@ -668,7 +751,7 @@ const prepareAdaptiveModeIcons = (
 };
 
 interface AuxiliaryThemeQPI extends QuickPickItem {
-  auxiliaryThemeId: string | undefined;
+  auxiliaryThemeId: string;
   label: string;
   description?: string;
   detail?: string;
@@ -678,15 +761,18 @@ interface AuxiliaryThemeQPI extends QuickPickItem {
 
 const getAuxiliaryThemeExtension = async (
   variant: Variant,
-  kind: "ui" | "code",
+  kind: string,
   isOfflineMode: boolean,
 ) => {
-  const kindLabel = kind === "ui" ? "UI" : "Code";
-  const quickPick = window.createQuickPick();
-  quickPick.title = `Codemos Modern (${toggleFirstLetterCase(
-    variant,
-  )}): ${kindLabel} Theme`;
-  quickPick.placeholder = `Select a ${kindLabel} theme extension`;
+  const quickPick = window.createQuickPick<AuxiliaryThemeQPI>();
+  quickPick.title = l10nT("ext.command.configure.*.title$variant$kind", [
+    l10nT(`ext.helper.variant.${variant}`),
+    kind,
+  ]);
+  quickPick.placeholder = l10nT(
+    "ext.command.configure.auxExtensionPicker.placeHolder$kind",
+    [kind],
+  );
   quickPick.ignoreFocusOut = true;
   quickPick.busy = true;
   quickPick.show();
@@ -704,21 +790,23 @@ const getAuxiliaryThemeExtension = async (
   const auxiliaryThemeRegistryIndexesWithId = getAuxiliaryThemeRegistryIndexes(
     auxiliaryThemeRegistries,
   );
-  const auxiliaryThemesQPI: AuxiliaryThemeQPI[] = [];
-  auxiliaryThemesQPI.push({
-    auxiliaryThemeId: undefined,
-    label: "Bundled",
+  const auxiliaryThemesQPIs: AuxiliaryThemeQPI[] = [];
+  auxiliaryThemesQPIs.push({
+    auxiliaryThemeId: "_",
+    label: l10nT("ext.helper.auxTheme.origin.bundled"),
     kind: QuickPickItemKind.Separator,
   });
-  auxiliaryThemesQPI.push({
+  auxiliaryThemesQPIs.push({
     auxiliaryThemeId: "_",
     label: "$(library) Codemos Modern",
     description: "Codemos-Inc/Codemos-Modern $(verified-filled)",
-    detail: `$(organization) Codemos • $(compass) Bundled • $(law) MIT`,
+    detail: `$(organization) Codemos • $(compass) ${l10nT(
+      "ext.helper.auxTheme.origin.bundled",
+    )} • $(law) MIT`,
     alwaysShow: true,
   });
-  const installedAuxiliaryThemesQPI: AuxiliaryThemeQPI[] = [];
-  const availableAuxiliaryThemesQPI: AuxiliaryThemeQPI[] = [];
+  const installedAuxiliaryThemesQPIs: AuxiliaryThemeQPI[] = [];
+  const availableAuxiliaryThemesQPIs: AuxiliaryThemeQPI[] = [];
   for (const auxiliaryThemeRegistryIndexWithId of auxiliaryThemeRegistryIndexesWithId) {
     // 🟢 Optimize filtering algorithm
     const filteredAuxiliaryThemes =
@@ -768,43 +856,45 @@ const getAuxiliaryThemeExtension = async (
         }/${auxiliaryThemeRegistryIndexWithId.auxiliaryThemeRegistryId.repo} ${
           isVerifiedOwner ? "$(verified-filled)" : "$(unverified)"
         }`,
-        detail: `$(organization) ${auxiliaryTheme.publisher} • $(compass) ${auxiliaryTheme.origin} • $(law) ${auxiliaryTheme.license}`,
+        detail: `$(organization) ${
+          auxiliaryTheme.publisher
+        } • $(compass) ${l10nT(
+          `ext.helper.auxTheme.origin.${auxiliaryTheme.origin.toLowerCase()}`,
+        )} • $(law) ${auxiliaryTheme.license}`,
       };
       if (auxiliaryTheme.installed) {
-        installedAuxiliaryThemesQPI.push(auxiliaryThemeExtensionQPI);
+        installedAuxiliaryThemesQPIs.push(auxiliaryThemeExtensionQPI);
       } else {
         if (!isOfflineMode) {
-          availableAuxiliaryThemesQPI.push(auxiliaryThemeExtensionQPI);
+          availableAuxiliaryThemesQPIs.push(auxiliaryThemeExtensionQPI);
         }
       }
     }
   }
-  if (installedAuxiliaryThemesQPI.length > 0) {
-    auxiliaryThemesQPI.push({
-      auxiliaryThemeId: undefined,
-      label: "Installed",
+  if (installedAuxiliaryThemesQPIs.length > 0) {
+    auxiliaryThemesQPIs.push({
+      auxiliaryThemeId: "",
+      label: l10nT("ext.helper.auxTheme.state.installed"),
       kind: QuickPickItemKind.Separator,
     });
-    auxiliaryThemesQPI.push(...installedAuxiliaryThemesQPI);
+    auxiliaryThemesQPIs.push(...installedAuxiliaryThemesQPIs);
   }
-  if (availableAuxiliaryThemesQPI.length > 0) {
-    auxiliaryThemesQPI.push({
-      auxiliaryThemeId: undefined,
-      label: "Available",
+  if (availableAuxiliaryThemesQPIs.length > 0) {
+    auxiliaryThemesQPIs.push({
+      auxiliaryThemeId: "",
+      label: l10nT("ext.helper.auxTheme.state.available"),
       kind: QuickPickItemKind.Separator,
     });
-    auxiliaryThemesQPI.push(...availableAuxiliaryThemesQPI);
+    auxiliaryThemesQPIs.push(...availableAuxiliaryThemesQPIs);
   }
   quickPick.busy = false;
-  quickPick.items = auxiliaryThemesQPI;
+  quickPick.items = auxiliaryThemesQPIs;
   return await new Promise<string | undefined>((resolve) => {
     quickPick.onDidAccept(() => {
       const selectedAuxiliaryTheme = quickPick.selectedItems[0];
       quickPick.dispose();
       if (selectedAuxiliaryTheme) {
-        return resolve(
-          (selectedAuxiliaryTheme as AuxiliaryThemeQPI).auxiliaryThemeId,
-        );
+        return resolve(selectedAuxiliaryTheme.auxiliaryThemeId);
       } else {
         return resolve(undefined);
       }
@@ -815,17 +905,18 @@ const getAuxiliaryThemeExtension = async (
 const getAuxiliaryTheme = async (
   variant: Variant,
   auxiliaryThemeExtension: string,
-  kind: "ui" | "code",
+  kind: string,
   isOfflineMode: boolean,
 ) => {
-  const kindLabel = kind === "ui" ? "UI" : "Code";
-  const quickPick = window.createQuickPick();
-  quickPick.title = `Codemos Modern (${toggleFirstLetterCase(
-    variant,
-  )}): ${kindLabel} Theme`;
-  quickPick.placeholder = `Select a variant of "${
-    getAuxiliaryThemeId(auxiliaryThemeExtension).extension
-  }" to be used as the ${kindLabel} theme`;
+  const quickPick = window.createQuickPick<AuxiliaryThemeQPI>();
+  quickPick.title = l10nT("ext.command.configure.*.title$variant$kind", [
+    l10nT(`ext.helper.variant.${variant}`),
+    kind,
+  ]);
+  quickPick.placeholder = l10nT(
+    "ext.command.configure.auxThemePicker.placeHolder$extension$kind",
+    [getAuxiliaryThemeId(auxiliaryThemeExtension).extension, kind],
+  );
   quickPick.ignoreFocusOut = true;
   quickPick.busy = true;
   quickPick.show();
@@ -833,9 +924,9 @@ const getAuxiliaryTheme = async (
   const auxiliaryThemeRegistryIndexesWithId = getAuxiliaryThemeRegistryIndexes(
     auxiliaryThemeRegistries,
   );
-  const auxiliaryThemesQPI: AuxiliaryThemeQPI[] = [];
-  const installedAuxiliaryThemesQPI: AuxiliaryThemeQPI[] = [];
-  const availableAuxiliaryThemesQPI: AuxiliaryThemeQPI[] = [];
+  const auxiliaryThemesQPIs: AuxiliaryThemeQPI[] = [];
+  const installedAuxiliaryThemesQPIs: AuxiliaryThemeQPI[] = [];
+  const availableAuxiliaryThemesQPIs: AuxiliaryThemeQPI[] = [];
   const auxiliaryThemeId = getAuxiliaryThemeId(auxiliaryThemeExtension);
   for (const auxiliaryThemeRegistryIndexWithId of auxiliaryThemeRegistryIndexesWithId) {
     const filteredAuxiliaryThemes =
@@ -869,40 +960,39 @@ const getAuxiliaryTheme = async (
         } • $(color-mode) ${toggleFirstLetterCase(variant)}`,
       };
       if (auxiliaryTheme.installed) {
-        installedAuxiliaryThemesQPI.push(auxiliaryThemeQPI);
+        installedAuxiliaryThemesQPIs.push(auxiliaryThemeQPI);
       } else {
         if (!isOfflineMode) {
-          availableAuxiliaryThemesQPI.push(auxiliaryThemeQPI);
+          availableAuxiliaryThemesQPIs.push(auxiliaryThemeQPI);
         }
       }
     }
   }
-  if (installedAuxiliaryThemesQPI.length > 0) {
-    auxiliaryThemesQPI.push({
-      auxiliaryThemeId: undefined,
-      label: "Installed",
+  if (installedAuxiliaryThemesQPIs.length > 0) {
+    auxiliaryThemesQPIs.push({
+      auxiliaryThemeId: "",
+      label: l10nT("ext.helper.auxTheme.state.installed"),
       kind: QuickPickItemKind.Separator,
     });
-    auxiliaryThemesQPI.push(...installedAuxiliaryThemesQPI);
+    auxiliaryThemesQPIs.push(...installedAuxiliaryThemesQPIs);
   }
-  if (availableAuxiliaryThemesQPI.length > 0) {
-    auxiliaryThemesQPI.push({
-      auxiliaryThemeId: undefined,
-      label: "Available",
+  if (availableAuxiliaryThemesQPIs.length > 0) {
+    auxiliaryThemesQPIs.push({
+      auxiliaryThemeId: "",
+      label: l10nT("ext.helper.auxTheme.state.available"),
       kind: QuickPickItemKind.Separator,
     });
-    auxiliaryThemesQPI.push(...availableAuxiliaryThemesQPI);
+    auxiliaryThemesQPIs.push(...availableAuxiliaryThemesQPIs);
   }
   quickPick.busy = false;
-  quickPick.items = auxiliaryThemesQPI;
+  quickPick.items = auxiliaryThemesQPIs;
   return await new Promise<string | undefined>((resolve) => {
     quickPick.onDidAccept(async () => {
       const selectedAuxiliaryTheme = quickPick.selectedItems[0];
       quickPick.dispose();
       if (selectedAuxiliaryTheme) {
-        const selectedAuxiliaryThemeId = (
-          selectedAuxiliaryTheme as AuxiliaryThemeQPI
-        ).auxiliaryThemeId;
+        const selectedAuxiliaryThemeId =
+          selectedAuxiliaryTheme.auxiliaryThemeId;
         if (selectedAuxiliaryThemeId) {
           let success: boolean;
           if (isOfflineMode) {

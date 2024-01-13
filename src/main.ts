@@ -10,11 +10,11 @@ import { Variant } from "./@types";
 import { authenticate } from "./extension/authentication";
 import { authenticateCommand, configureCommand } from "./extension/commands";
 import { GLOBAL_STATE_MRV_KEY } from "./extension/constants";
-import { UpdateReason } from "./extension/enums";
 import { getThemePaths } from "./extension/helpers";
 import { showInformationNotification } from "./extension/notifications";
 import { getIsConfiguredFromCommand } from "./extension/sharedState";
 import { getStateObject, updateState } from "./extension/state";
+import { UpdateReason, updateReasonMessages } from "./extension/updateMessage";
 import {
   getConfig,
   isUntouched,
@@ -71,18 +71,20 @@ const onStart = async (extensionContext: ExtensionContext) => {
   }
   if (!mostRecentVersion) {
     firstInstallExperience();
+    return;
   }
+  // If themes need to be updated
   if (!verifyState()) {
     let updateReason: UpdateReason;
     if (isUntouched()) {
-      if (!mostRecentVersion) {
-        updateReason = UpdateReason.FIRST_INSTALL;
-        firstInstallExperience();
-      } else if (
+      // Reinstall
+      if (
         mostRecentVersion === extensionContext.extension.packageJSON.version
       ) {
         updateReason = UpdateReason.REINSTALL;
-      } else {
+      }
+      // Major, minor, or patch update
+      else {
         const mostRecentVersionParts = mostRecentVersion.split(".");
         const currentVersionParts =
           extensionContext.extension.packageJSON.version.split(".");
@@ -94,7 +96,9 @@ const onStart = async (extensionContext: ExtensionContext) => {
           updateReason = UpdateReason.PATCH_UPDATE;
         }
       }
-    } else {
+    }
+    // Profile change
+    else {
       updateReason = UpdateReason.PROFILE_CHANGE;
     }
     await updateBridge("all", updateReason);
@@ -141,13 +145,15 @@ const getActiveVariant = (): Variant | undefined => {
     case ColorThemeKind.Light:
     case ColorThemeKind.HighContrastLight:
       return "light";
+    default:
+      return undefined;
   }
 };
 
 const firstInstallExperience = () => {
   commands.executeCommand("codemosModern.configure");
   showInformationNotification(
-    "Welcome to the innovative theme suite/hub! 👋 Start your journey by configuring Modern.",
+    updateReasonMessages[UpdateReason.FIRST_INSTALL],
     null,
     null,
   );

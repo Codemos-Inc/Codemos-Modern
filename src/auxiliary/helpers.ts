@@ -29,7 +29,7 @@ export const isAuxiliaryThemeInfo = (obj: any): obj is AuxiliaryThemeInfo => {
     typeof obj.publisher !== "string" ||
     typeof obj.extension !== "string" ||
     typeof obj.theme !== "string" ||
-    !["Builtin", "Marketplace", "GitHub"].includes(obj.origin) ||
+    !["Built-in", "Marketplace", "GitHub"].includes(obj.origin) ||
     typeof obj.license !== "string" ||
     typeof obj.installed !== "boolean"
   ) {

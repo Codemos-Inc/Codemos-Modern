@@ -61,5 +61,6 @@
       "type": "text-and-comment"
     }
   },
-  "todo-tree.highlights.highlightDelay": 0
+  "todo-tree.highlights.highlightDelay": 0,
+  "cmake.configureOnOpen": false
 }
