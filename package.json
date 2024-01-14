@@ -283,7 +283,7 @@
     "compile:stateFile": "ts-node src/hooks/compileStateFile.ts",
     "compile:badges": " ts-node src/hooks/updateBadges.ts",
     "compile": "tsc",
-    "build": "npm run compile && npm run compile:themes && npm run compile:stateFile && npm run compile:badges",
+    "build": "npm run compile && npm run compile:themes && npm run compile:stateFile",
     "lint": "eslint src --ext ts && tsc --noEmit",
     "format": "prettier --write .",
     "clean": "rm -rf out && rm -rf data/.state.json && rm -rf data/cache/*",
