@@ -3,12 +3,12 @@
   "displayName": "Codemos Modern",
   "publisher": "Codemos",
   "icon": "res/icon.gif",
-  "description": "Innovative, modern theme suite/hub for VS Code",
-  "version": "2.3.1",
+  "description": "%ext.desc%",
+  "version": "2.4.0",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Codemos-Inc/codemos-modern"
+    "url": "https://github.com/Codemos-Inc/Codemos-Modern"
   },
   "sponsor": {
     "url": "https://github.com/sponsors/EmrecanKaracayir"
@@ -35,15 +35,16 @@
     "*"
   ],
   "main": "./out/main.js",
+  "l10n": "./l10n",
   "contributes": {
     "commands": [
       {
         "command": "codemosModern.configure",
-        "title": "Codemos Modern: Configure ⚙️"
+        "title": "%ext.command.configure%"
       },
       {
         "command": "codemosModern.authenticate",
-        "title": "Codemos Modern: Authenticate 🔗"
+        "title": "%ext.command.authenticate%"
       }
     ],
     "themes": [
@@ -68,38 +69,38 @@
               "Codemos-Inc/Auxiliary-Theme-Registry"
             ],
             "minItems": 1,
-            "markdownDescription": "GitHub repositories that are auxiliary theme registries. Should be in format `<owner>/<repo>`. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#modularity) for reference.",
+            "markdownDescription": "%ext.conf.auxiliaryThemeRegistries.desc%",
             "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+$",
-            "patternErrorMessage": "Please enter repositories in the valid format. Example: Codemos-Inc/Auxiliary-Theme-Registry"
+            "patternErrorMessage": "%ext.conf.auxiliaryThemeRegistries.err%"
           }
         }
       },
       {
-        "title": "Text Decorations",
+        "title": "%ext.conf.textDecorations.title%",
         "properties": {
-          "codemosModern.textDecorations.strikeThrough": {
+          "codemosModern.textDecorations.strikethrough": {
             "order": 0,
             "type": "boolean",
             "default": true,
-            "markdownDescription": "Deprecated symbols are displayed with a strike-through decoration. Will be discarded when `codemosModern.*.auxiliaryUiTheme` is set. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#color-and-code-intelligibility) for reference."
+            "markdownDescription": "%ext.conf.textDecorations.strikethrough.desc%"
           },
           "codemosModern.textDecorations.bold": {
             "order": 1,
             "type": "boolean",
             "default": true,
-            "markdownDescription": "Abstract symbols are displayed with a bold decoration. Will be discarded when `codemosModern.*.auxiliaryUiTheme` is set. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#color-and-code-intelligibility) for reference."
+            "markdownDescription": "%ext.conf.textDecorations.bold.desc%"
           },
           "codemosModern.textDecorations.italic": {
             "order": 2,
             "type": "boolean",
             "default": true,
-            "markdownDescription": "Static symbols are displayed with an italic decoration. Will be discarded when `codemosModern.*.auxiliaryUiTheme` is set. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#color-and-code-intelligibility) for reference."
+            "markdownDescription": "%ext.conf.textDecorations.italic.desc%"
           },
           "codemosModern.textDecorations.underline": {
             "order": 3,
             "type": "boolean",
             "default": true,
-            "markdownDescription": "Symbols permitting write access are displayed with an underline decoration. Will be discarded when `codemosModern.*.auxiliaryUiTheme` is set. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#color-and-code-intelligibility) for reference."
+            "markdownDescription": "%ext.conf.textDecorations.underline.desc%"
           },
           "codemosModern.textDecorations.forComments": {
             "order": 4,
@@ -113,21 +114,21 @@
                 "underline"
               ],
               "enumDescriptions": [
-                "Strike-through decoration",
-                "Bold decoration",
-                "Italic decoration",
-                "Underline decoration"
+                "%ext.conf.textDecorations.forComments.enum.strikethrough.desc%",
+                "%ext.conf.textDecorations.forComments.enum.bold.desc%",
+                "%ext.conf.textDecorations.forComments.enum.italic.desc%",
+                "%ext.conf.textDecorations.forComments.enum.underline.desc%"
               ]
             },
             "default": [
               "italic"
             ],
-            "markdownDescription": "Decorations to display for comments. Will be discarded when `codemosModern.*.auxiliaryUiTheme` is set. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#color-and-code-intelligibility) for reference."
+            "markdownDescription": "%ext.conf.textDecorations.forComments.desc%"
           }
         }
       },
       {
-        "title": "Dark Variant",
+        "title": "%ext.conf.dark.title%",
         "properties": {
           "codemosModern.dark.auxiliaryUiTheme": {
             "order": 0,
@@ -136,9 +137,9 @@
               "null"
             ],
             "default": null,
-            "markdownDescription": "Auxiliary theme to be used as the UI theme for `Codemos Modern (Dark)`. Should be in format `<owner>/<repo>/<publisher>/<extension>/<theme>`. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#modularity) for reference.",
+            "markdownDescription": "%ext.conf.dark.auxiliaryUiTheme.desc%",
             "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/.+/.+/.+$",
-            "patternErrorMessage": "Please enter a valid auxiliary theme. Example: Codemos-Inc/Auxiliary-Theme-Registry/Microsoft/Defaults/Dark Modern"
+            "patternErrorMessage": "%ext.conf.dark.auxiliaryUiTheme.err%"
           },
           "codemosModern.dark.design": {
             "order": 1,
@@ -149,18 +150,18 @@
               "minimal"
             ],
             "enumDescriptions": [
-              "Modern's original design",
-              "Minimalistic design"
+              "%ext.conf.dark.design.enum.modern.desc%",
+              "%ext.conf.dark.design.enum.minimal.desc%"
             ],
-            "markdownDescription": "Design to be used in `Codemos Modern (Dark)`. Will be discarded when `codemosModern.dark.auxiliaryUiTheme` is set. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#configuration) for reference."
+            "markdownDescription": "%ext.conf.dark.design.desc%"
           },
           "codemosModern.dark.accentColor": {
             "order": 2,
             "type": "string",
             "default": "#CB8569",
-            "markdownDescription": "HEX color code defining the accent color for `Codemos Modern (Dark)`. Will be discarded if `codemosModern.dark.auxiliaryUiTheme` is set. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#configuration) for reference.",
+            "markdownDescription": "%ext.conf.dark.accentColor.desc%",
             "pattern": "^#[0-9A-Fa-f]{6}$",
-            "patternErrorMessage": "Please enter a valid HEX color code. Example: #CB8569"
+            "patternErrorMessage": "%ext.conf.dark.accentColor.err%"
           },
           "codemosModern.dark.adaptiveMode": {
             "order": 3,
@@ -173,12 +174,12 @@
               "aggressive"
             ],
             "enumDescriptions": [
-              "No accent color adaptation",
-              "Gentle accent color adaptation",
-              "Moderate accent color adaptation",
-              "Aggressive accent color adaptation"
+              "%ext.conf.dark.adaptiveMode.enum.none.desc%",
+              "%ext.conf.dark.adaptiveMode.enum.gentle.desc%",
+              "%ext.conf.dark.adaptiveMode.enum.moderate.desc%",
+              "%ext.conf.dark.adaptiveMode.enum.aggressive.desc%"
             ],
-            "markdownDescription": "Adaptive mode to be used in `Codemos Modern (Dark)`. Will be discarded when `codemosModern.dark.auxiliaryUiTheme` is set. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#adaptability) for reference."
+            "markdownDescription": "%ext.conf.dark.adaptiveMode.desc%"
           },
           "codemosModern.dark.auxiliaryCodeTheme": {
             "order": 4,
@@ -187,14 +188,14 @@
               "null"
             ],
             "default": null,
-            "markdownDescription": "Auxiliary theme to be used as the code theme for `Codemos Modern (Dark)`. Should be in format `<owner>/<repo>/<publisher>/<extension>/<theme>`. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#modularity) for reference.",
+            "markdownDescription": "%ext.conf.dark.auxiliaryCodeTheme.desc%",
             "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/.+/.+/.+$",
-            "patternErrorMessage": "Please enter a valid auxiliary theme. Example: Codemos-Inc/Auxiliary-Theme-Registry/Microsoft/Defaults/Dark Modern"
+            "patternErrorMessage": "%ext.conf.dark.auxiliaryCodeTheme.err%"
           }
         }
       },
       {
-        "title": "Light Variant",
+        "title": "%ext.conf.light.title%",
         "properties": {
           "codemosModern.light.auxiliaryUiTheme": {
             "order": 0,
@@ -203,9 +204,9 @@
               "null"
             ],
             "default": null,
-            "markdownDescription": "Auxiliary theme to be used as the UI theme for `Codemos Modern (Light)`. Should be in format `<owner>/<repo>/<publisher>/<extension>/<theme>`. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#modularity) for reference.",
+            "markdownDescription": "%ext.conf.light.auxiliaryUiTheme.desc%",
             "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/.+/.+/.+$",
-            "patternErrorMessage": "Please enter a valid auxiliary theme. Example: Codemos-Inc/Auxiliary-Theme-Registry/Microsoft/Defaults/Light Modern"
+            "patternErrorMessage": "%ext.conf.light.auxiliaryUiTheme.err%"
           },
           "codemosModern.light.design": {
             "order": 1,
@@ -216,18 +217,18 @@
               "minimal"
             ],
             "enumDescriptions": [
-              "Modern's original design",
-              "Minimalistic design"
+              "%ext.conf.light.design.enum.modern.desc%",
+              "%ext.conf.light.design.enum.minimal.desc%"
             ],
-            "markdownDescription": "Design to be used in `Codemos Modern (Light)`. Will be discarded when `codemosModern.light.auxiliaryUiTheme` is set. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#configuration) for reference."
+            "markdownDescription": "%ext.conf.light.design.desc%"
           },
           "codemosModern.light.accentColor": {
             "order": 2,
             "type": "string",
             "default": "#784F3F",
-            "markdownDescription": "HEX color code defining the accent color for `Codemos Modern (Light)`. Will be discarded when `codemosModern.light.auxiliaryUiTheme` is set. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#configuration) for reference.",
+            "markdownDescription": "%ext.conf.light.accentColor.desc%",
             "pattern": "^#[0-9A-Fa-f]{6}$",
-            "patternErrorMessage": "Please enter a valid HEX color code. Example: #784F3F"
+            "patternErrorMessage": "%ext.conf.light.accentColor.err%"
           },
           "codemosModern.light.adaptiveMode": {
             "order": 3,
@@ -240,12 +241,12 @@
               "aggressive"
             ],
             "enumDescriptions": [
-              "No accent color adaptation",
-              "Gentle accent color adaptation",
-              "Moderate accent color adaptation",
-              "Aggressive accent color adaptation"
+              "%ext.conf.light.adaptiveMode.enum.none.desc%",
+              "%ext.conf.light.adaptiveMode.enum.gentle.desc%",
+              "%ext.conf.light.adaptiveMode.enum.moderate.desc%",
+              "%ext.conf.light.adaptiveMode.enum.aggressive.desc%"
             ],
-            "markdownDescription": "Adaptive mode to be used in `Codemos Modern (Light)`. Will be discarded when `codemosModern.light.auxiliaryUiTheme` is set. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#adaptability) for reference."
+            "markdownDescription": "%ext.conf.light.adaptiveMode.desc%"
           },
           "codemosModern.light.auxiliaryCodeTheme": {
             "order": 4,
@@ -254,19 +255,20 @@
               "null"
             ],
             "default": null,
-            "markdownDescription": "Auxiliary theme to be used as the code theme for `Codemos Modern (Light)`. Should be in format `<owner>/<repo>/<publisher>/<extension>/<theme>`. See [the docs](https://github.com/Codemos-Inc/Codemos-Modern#modularity) for reference.",
+            "markdownDescription": "%ext.conf.light.auxiliaryCodeTheme.desc%",
             "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/.+/.+/.+$",
-            "patternErrorMessage": "Please enter a valid auxiliary theme. Example: Codemos-Inc/Auxiliary-Theme-Registry/Microsoft/Defaults/Light Modern"
+            "patternErrorMessage": "%ext.conf.light.auxiliaryCodeTheme.err%"
           }
         }
       }
     ]
   },
   "devDependencies": {
-    "@types/node": "^20.3.3",
+    "@types/jsdom": "^21.1.6",
+    "@types/node": "^20.10.7",
     "@types/vscode": "^1.79.0",
-    "@typescript-eslint/eslint-plugin": "^6.0.0",
-    "@typescript-eslint/parser": "^6.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.18.1",
+    "@typescript-eslint/parser": "^6.18.0",
     "eslint": "^8.39.0",
     "eslint-config-prettier": "^9.0.0",
     "husky": "^8.0.3",
@@ -277,10 +279,11 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "compile:theme": "ts-node src/hooks/compileThemes.ts",
+    "compile:themes": "ts-node src/hooks/compileThemes.ts",
     "compile:stateFile": "ts-node src/hooks/compileStateFile.ts",
+    "compile:badges": " ts-node src/hooks/updateBadges.ts",
     "compile": "tsc",
-    "build": "npm run compile && npm run compile:theme && npm run compile:stateFile",
+    "build": "npm run compile && npm run compile:themes && npm run compile:stateFile && npm run compile:badges",
     "lint": "eslint src --ext ts && tsc --noEmit",
     "format": "prettier --write .",
     "clean": "rm -rf out && rm -rf data/.state.json && rm -rf data/cache/*",
@@ -293,6 +296,8 @@
   },
   "dependencies": {
     "@octokit/rest": "^20.0.1",
+    "axios": "^1.6.5",
+    "jsdom": "^23.2.0",
     "node-fetch": "^2.6.12"
   }
 }

@@ -8,6 +8,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 Nothing yet.
 
+## [2.4.0] - 2024-01-13 - Now localized 🇹🇷, 🇬🇧, 🇨🇳
+
+### Added
+
+- Localizations for Turkish 🇹🇷, English 🇬🇧, Chinese (Simplified) 🇨🇳.
+
+### Fixed
+
+- Registry data fetched from default branch instead of latest release.
+
 ## [2.3.1] - 2024-01-06 - Minor fixes 🛠️
 
 ### Fixed
@@ -288,7 +298,8 @@ Nothing yet.
 
 - Initial release
 
-[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.3.1...HEAD
+[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.4.0...HEAD
+[2.4.0]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.3.1...v2.4.0
 [2.3.1]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.3.0...v2.3.1
 [2.3.0]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.2.0...v2.3.0
 [2.2.0]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.1.9...v2.2.0

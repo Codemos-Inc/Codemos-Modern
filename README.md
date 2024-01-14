@@ -8,14 +8,19 @@
 
 # **Codemos Modern**
 
-[![release](https://img.shields.io/github/release/Codemos-Inc/Codemos-Modern.svg?labelColor=373737&color=45AA41&label=&logo=github&logoColor=white&style=for-the-badge)](https://github.com/Codemos-Inc/Codemos-Modern/releases/latest)
-[![vscode](https://img.shields.io/badge/-v1.85+-4B9ECD.svg?labelColor=373737&logo=visualstudiocode&logoColor=white&style=for-the-badge)](https://code.visualstudio.com/updates/)
-[![downloads](https://img.shields.io/visual-studio-marketplace/d/codemos.codemos-modern?labelColor=373737&color=9B87EA&label=&logo=docusign&logoColor=white&style=for-the-badge)](https://marketplace.visualstudio.com/items?itemName=Codemos.codemos-modern)
-![sponsors](https://img.shields.io/github/sponsors/EmrecanKaracayir?labelColor=373737&color=ef6363&label=&logo=githubsponsors&logoColor=white&style=for-the-badge)
+<a href="https://github.com/Codemos-Inc/Codemos-Modern/releases/latest"><img src="images/badge-release.svg" height="30" alt="Latest release"></a>&nbsp;
+<a href="https://code.visualstudio.com/updates/"><img src="images/badge-vscode.svg" height="30" alt="Supported VS Code release"></a>&nbsp;
+<a href="https://marketplace.visualstudio.com/items?itemName=Codemos.codemos-modern"><img src="images/badge-downloads.svg" height="30" alt="Download count"></a>&nbsp;
+<a href="https://github.com/sponsors/EmrecanKaracayir"><img src="images/badge-sponsors.svg" height="30" alt="Sponsor count"></a>&nbsp;
+<a href="https://marketplace.visualstudio.com/items?itemName=Codemos.codemos-modern&ssr=false#review-details"><img src="images/badge-rating.svg" height="30" alt="Rating"></a>
+
+<div style="margin-bottom: 16px;"></div>
 
 Innovative, modern theme suite/hub for VS Code
 
-<br/>
+<img src="images/badge-loc-en.svg" height="26" alt="English (US)">&nbsp;
+<img src="images/badge-loc-zh-cn.svg" height="26" alt="Simplified Chinese">&nbsp;
+<img src="images/badge-loc-tr.svg" height="26" alt="Turkish">
 
 ![overview](images/header-1.png)
 
@@ -112,7 +117,7 @@ Codemos Modern provides three configuration options through the command **Codemo
   3. **Adaptation Mode:** You can select which adaptation mode your theme would use. (Adaptation mode determines how much your accent color influence the rest of the UI. See [adaptability section](#adaptability) for more information)
      ![adaptation-mode](images/conf-ui-theme-4.png)
 
-- **From Registries:** You can also choose an auxiliary theme. Auxiliary themes are the themes that are not bundled with Modern but can be installed from the auxiliary theme registries. Codemos provides a builtin registry that features some of the most popular themes. You can also create your own registries. See [modularity section](#modularity) for more information.
+- **From Registries:** You can also choose an auxiliary theme. Auxiliary themes are the themes that are not bundled with Modern but can be installed from the auxiliary theme registries. Codemos provides a built-in registry that features some of the most popular themes. You can also create your own registries. See [modularity section](#modularity) for more information.
 
   1. **Auxiliary UI Theme:** You can select which auxiliary theme your Modern will use as the UI theme. (Auxiliary theme will be installed and activated automatically from the indicated registry)
      ![ui-theme-from-registries](images/conf-ui-theme-2-a.png)
@@ -122,7 +127,7 @@ Codemos Modern provides three configuration options through the command **Codemo
 
 - **Bundled:** We worked hard to make sure that our bundled code theme provides the best developer experience possible. (See [color and code intelligibility section](#color-and-code-intelligibility) for more information) However, if you want to use an auxiliary code theme, you can select **From Registries** option and choose a code theme from the registries.
 
-- **From Registries:** You can also choose an auxiliary theme. Auxiliary themes are the themes that are not bundled with Modern but can be installed from the auxiliary theme registries. Codemos provides a builtin registry that features some of the most popular themes. You can also create your own registries. See [modularity section](#modularity) for more information.
+- **From Registries:** You can also choose an auxiliary theme. Auxiliary themes are the themes that are not bundled with Modern but can be installed from the auxiliary theme registries. Codemos provides a built-in registry that features some of the most popular themes. You can also create your own registries. See [modularity section](#modularity) for more information.
 
   1. **Auxiliary Code Theme:** You can select which auxiliary theme your Modern will use as the code theme. (Auxiliary theme will be installed and activated automatically from the indicated registry)
      ![code-theme-from-registries](images/conf-code-theme-2-a.png)
@@ -204,7 +209,7 @@ These decorations are:
 
 <br/>
 
-> **NOTE:** Codemos Modern uses both **Semantic Highlighting** and **Syntax Highlighting**. Semantic Highlighting is a new version of token coloring with more capabilities and simplified tokenizing but not yet widely adopted by language extensions. See [Semantic Highlighting](https://code.visualstudio.com/api/language-extensions/semantic-highlight-guide) and [Syntax Highlighting](https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide) for more information. We strongly recommend you to use a language extension that supports Semantic Highlighting. We are planning to add support for more languages in the future. Please [contribute](#rdme-contrib) if you want to help us.
+> **NOTE:** Codemos Modern uses both **Semantic Highlighting** and **Syntax Highlighting**. Semantic Highlighting is a new version of token coloring with more capabilities and simplified tokenizing but not yet widely adopted by language extensions. See [Semantic Highlighting](https://code.visualstudio.com/api/language-extensions/semantic-highlight-guide) and [Syntax Highlighting](https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide) for more information. We strongly recommend you to use a language extension that supports Semantic Highlighting. We are planning to add support for more languages in the future. [Contribute](#rdme-contrib) if you want to help us.
 
 <br/>
 
@@ -225,6 +230,34 @@ We've also decided to theme some of the most used extensions to provide more con
 - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
 - [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
 - [Remote Repositories](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-repositories)
+
+<br/>
+
+<h2 id="rdme-locale">🌐 Localization</h2>
+
+We try to make Codemos Modern the most accessible theming extension for VS Code. That's why we are planning to localize Codemos Modern to as many languages as possible. In this cause we need your help the most. Below, you can find the localization table. In this table you can see the status of the localization for each language. We are looking for volunteers to help us localize Codemos Modern. If you want to help us, join us on [GitHub](https://github.com/Codemos-Inc/Codemos-Modern).
+
+> **NOTE:** Native speakers can help us by reviewing localizations with the status "💬". There are two files to check: `l10n/bundle.l10n.{locale}.json` and `package.nls.{locale}.json`.
+
+### Localization Table
+
+| Display Language    | Locale | Status | Released With | Maintainer | Notes                      |
+| ------------------- | ------ | ------ | ------------- | ---------- | -------------------------- |
+| English             | en     | 🟢     | v1.0.0        | Codemos    | -                          |
+| Simplified Chinese  | zh-cn  | 💬     | v2.4.0        | Codemos    | Review needed              |
+| Traditional Chinese | zh-tw  | 🔴     | -             | -          | Not planned                |
+| German              | fr     | 🔴     | -             | -          | Planned for v2.7.X         |
+| French              | fr     | 🔴     | -             | -          | Planned for v2.7.X         |
+| Italian             | it     | 🔴     | -             | -          | Planned for v2.8.X         |
+| Spanish             | es     | 🟡     | -             | Codemos    | Will be released by v2.5.X |
+| Japanese            | ja     | 🟡     | -             | Codemos    | Will be released by v2.5.X |
+| Korean              | ko     | 🔴     | -             | -          | Planned for v2.7.X         |
+| Russian             | ru     | 🔴     | -             | -          | Planned for v2.6.X         |
+| Portuguese (Brazil) | pt-br  | 🔴     | -             | -          | Planned for v2.6.X         |
+| Turkish             | tr     | 🟢     | v2.4.0        | Codemos    | -                          |
+| Polish              | pl     | 🔴     | -             | -          | Not planned                |
+| Czech               | cs     | 🔴     | -             | -          | Not planned                |
+| Hungarian           | hu     | 🔴     | -             | -          | Not planned                |
 
 <br/>
 
@@ -297,7 +330,7 @@ Changes from the last major release shown below. If you want to see the full cha
 
 <h2 id="rdme-contrib">🙌🏼 Contribution</h2>
 
-We are open to any kind of contribution. If you want to contribute to Codemos Modern, please join us on [GitHub](https://github.com/Codemos-Inc/Codemos-Modern).
+We are open to any kind of contribution. If you want to contribute to Codemos Modern, join us on [GitHub](https://github.com/Codemos-Inc/Codemos-Modern).
 
 <br/>
 

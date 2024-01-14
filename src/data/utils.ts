@@ -97,7 +97,7 @@ export const deleteCachedDir = async (
     directory,
   );
   return new Promise((resolve, reject) => {
-    fs.rmdir(path, { recursive: true }, (error) => {
+    fs.rm(path, { recursive: true }, (error) => {
       if (error) {
         reject(error);
       } else {

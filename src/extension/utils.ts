@@ -18,13 +18,12 @@ import {
   prepareAuxiliaryThemeRegistries,
   prepareAuxiliaryThemeRegistriesOffline,
 } from "../data";
+import { l10nT } from "../l10n";
 import { updateBridge } from "../main";
 import { defaultConfig } from "../modern";
 import { getStyles } from "../modern/variants";
 import { getThemeObject } from "../theme";
 import { configureSettings } from "../theme/configs";
-import { UpdateReason } from "./enums";
-import { offlineModeActive } from "./messages";
 import {
   showErrorNotification,
   showInformationNotification,
@@ -37,6 +36,7 @@ import {
   setIsOfflineMode,
 } from "./sharedState";
 import { getStateObject } from "./state";
+import { UpdateReason, updateReasonMessages } from "./updateMessage";
 
 export const checkInternetConnection = (): Promise<void> => {
   return new Promise((resolve) => {
@@ -44,7 +44,11 @@ export const checkInternetConnection = (): Promise<void> => {
       setIsOfflineMode(false);
       resolve();
     }).on("error", () => {
-      showWarningNotification(offlineModeActive(), null, null);
+      showWarningNotification(
+        l10nT("ext.notification.network.offline"),
+        null,
+        null,
+      );
       setIsOfflineMode(true);
       resolve();
     });
@@ -280,7 +284,7 @@ export const updateModern = async (
     });
     if (allSuccess && updateTarget !== "none") {
       showInformationNotification(
-        updateReason,
+        updateReasonMessages[updateReason],
         ["Apply", "Later"],
         "workbench.action.reloadWindow",
       );
@@ -315,9 +319,13 @@ export const updateSettings = (
 };
 
 const writeThemeFile = (themePath: string, themeObject: object) => {
-  return writeFile(themePath, JSON.stringify(themeObject, null, 2), (err) => {
-    if (err) {
-      showErrorNotification(err.message, null, null);
+  return writeFile(themePath, JSON.stringify(themeObject, null, 2), (error) => {
+    if (error) {
+      showErrorNotification(
+        l10nT("ext.notification.error.writingFailed$msg", [error.message]),
+        null,
+        null,
+      );
     }
   });
 };

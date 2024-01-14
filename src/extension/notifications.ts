@@ -76,7 +76,7 @@ export const showProgressNotification = async (
   await window.withProgress(
     {
       location: ProgressLocation.Notification,
-      title,
+      title: `${NOTIFICATION_SIGNATURE} ${title}`,
       cancellable: false,
     },
     task,

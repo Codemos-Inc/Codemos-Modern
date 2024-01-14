@@ -1,17 +1,8 @@
 import { RequestError } from "@octokit/request-error";
 import { Octokit } from "@octokit/rest";
 import { NetworkBoundResult } from "../@types";
-import {
-  apiRateLimitExceeded,
-  contentNotFileMessage,
-  contentNotFoundMessage,
-  latestVersionIndexedMessage,
-  latestVersionTagObtainedMessage,
-  networkErrorMessage,
-  releaseNotFoundMessage,
-  repoNotFoundMessage,
-  repositoryObtainedMessage,
-} from "./messages";
+import { l10nT } from "../l10n";
+import { RESPONSE_OK } from "./constants";
 
 let octokit = new Octokit({
   request: {
@@ -32,7 +23,7 @@ export const checkIfRepoExists = async (
     .then((response) => {
       return {
         success: true,
-        message: repositoryObtainedMessage(`${owner}/${repo}`),
+        message: RESPONSE_OK,
         data: response.data,
       };
     })
@@ -40,13 +31,17 @@ export const checkIfRepoExists = async (
       let message: string;
       switch (error.status) {
         case 403:
-          message = apiRateLimitExceeded();
+          message = l10nT("ext.message.error.apiRateLimitExceeded");
           break;
         case 404:
-          message = repoNotFoundMessage(`${owner}/${repo}`);
+          message = l10nT("ext.message.error.repoNotFound$id", [
+            `${owner}/${repo}`,
+          ]);
           break;
         default:
-          message = networkErrorMessage(error.status);
+          message = l10nT("ext.message.error.networkError$status", [
+            error.status,
+          ]);
           break;
       }
       return { success: false, message: message, data: null };
@@ -62,10 +57,7 @@ export const getLatestVersionTag = async (
     .then((response) => {
       return {
         success: true,
-        message: latestVersionTagObtainedMessage(
-          `${owner}/${repo}`,
-          response.data.tag_name,
-        ),
+        message: RESPONSE_OK,
         data: response.data.tag_name,
       };
     })
@@ -73,13 +65,17 @@ export const getLatestVersionTag = async (
       let message: string;
       switch (error.status) {
         case 403:
-          message = apiRateLimitExceeded();
+          message = l10nT("ext.message.error.apiRateLimitExceeded");
           break;
         case 404:
-          message = releaseNotFoundMessage(`${owner}/${repo}`);
+          message = l10nT("ext.message.error.releaseNotFound$id", [
+            `${owner}/${repo}`,
+          ]);
           break;
         default:
-          message = networkErrorMessage(error.status);
+          message = l10nT("ext.message.error.networkError$status", [
+            error.status,
+          ]);
           break;
       }
       return { success: false, message: message, data: null };
@@ -94,19 +90,17 @@ export const getSingleContentFromRelease = async (
 ): Promise<NetworkBoundResult> => {
   return await octokit.repos
     .getContent({
-      query: {
-        ref,
-      },
       owner,
       repo,
       path,
+      ref,
     })
     .then((response) => {
       if (!Array.isArray(response.data)) {
         if (response.data.type === "file") {
           return {
             success: true,
-            message: latestVersionIndexedMessage(`${owner}/${repo}`, ref),
+            message: RESPONSE_OK,
             data: Buffer.from(
               response.data.content,
               response.data.encoding as BufferEncoding,
@@ -115,14 +109,16 @@ export const getSingleContentFromRelease = async (
         } else {
           return {
             success: false,
-            message: contentNotFileMessage(response.data.path),
+            message: l10nT("ext.notification.error.contentNotFile$path", [
+              response.data.path,
+            ]),
             data: null,
           };
         }
       } else {
         return {
           success: false,
-          message: contentNotFileMessage(path),
+          message: l10nT("ext.notification.error.contentNotFile$path", [path]),
           data: null,
         };
       }
@@ -131,13 +127,18 @@ export const getSingleContentFromRelease = async (
       let message: string;
       switch (error.status) {
         case 403:
-          message = apiRateLimitExceeded();
+          message = l10nT("ext.message.error.apiRateLimitExceeded");
           break;
         case 404:
-          message = contentNotFoundMessage(`${owner}/${repo}`, path);
+          message = l10nT("ext.notification.error.contentNotFound$path$id", [
+            path,
+            `${owner}/${repo}`,
+          ]);
           break;
         default:
-          message = networkErrorMessage(error.status);
+          message = l10nT("ext.message.error.networkError$status", [
+            error.status,
+          ]);
           break;
       }
       return { success: false, message: message, data: null };

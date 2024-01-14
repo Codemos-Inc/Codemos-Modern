@@ -1,17 +1,20 @@
 import {
+  ColorThemeKind,
   ConfigurationChangeEvent,
   ExtensionContext,
   commands,
+  window,
   workspace,
 } from "vscode";
 import { Variant } from "./@types";
 import { authenticate } from "./extension/authentication";
 import { authenticateCommand, configureCommand } from "./extension/commands";
 import { GLOBAL_STATE_MRV_KEY } from "./extension/constants";
-import { UpdateReason } from "./extension/enums";
 import { getThemePaths } from "./extension/helpers";
+import { showInformationNotification } from "./extension/notifications";
 import { getIsConfiguredFromCommand } from "./extension/sharedState";
 import { getStateObject, updateState } from "./extension/state";
+import { UpdateReason, updateReasonMessages } from "./extension/updateMessage";
 import {
   getConfig,
   isUntouched,
@@ -19,7 +22,6 @@ import {
   updateSettings,
   verifyState,
 } from "./extension/utils";
-import { showInformationNotification } from "./extension/notifications";
 
 export const activate = async (extensionContext: ExtensionContext) => {
   extensionContext.subscriptions.push(
@@ -69,18 +71,20 @@ const onStart = async (extensionContext: ExtensionContext) => {
   }
   if (!mostRecentVersion) {
     firstInstallExperience();
+    return;
   }
+  // If themes need to be updated
   if (!verifyState()) {
     let updateReason: UpdateReason;
     if (isUntouched()) {
-      if (!mostRecentVersion) {
-        updateReason = UpdateReason.FIRST_INSTALL;
-        firstInstallExperience();
-      } else if (
+      // Reinstall
+      if (
         mostRecentVersion === extensionContext.extension.packageJSON.version
       ) {
         updateReason = UpdateReason.REINSTALL;
-      } else {
+      }
+      // Major, minor, or patch update
+      else {
         const mostRecentVersionParts = mostRecentVersion.split(".");
         const currentVersionParts =
           extensionContext.extension.packageJSON.version.split(".");
@@ -92,7 +96,9 @@ const onStart = async (extensionContext: ExtensionContext) => {
           updateReason = UpdateReason.PATCH_UPDATE;
         }
       }
-    } else {
+    }
+    // Profile change
+    else {
       updateReason = UpdateReason.PROFILE_CHANGE;
     }
     await updateBridge("all", updateReason);
@@ -124,11 +130,20 @@ export const updateBridge = async (
 const getActiveVariant = (): Variant | undefined => {
   const activeColorTheme = workspace
     .getConfiguration("workbench")
-    .get("colorTheme");
-  switch (activeColorTheme) {
-    case "Codemos Modern (Dark)":
+    .get<string>("colorTheme");
+  if (!activeColorTheme) {
+    return undefined;
+  }
+  if (!activeColorTheme.startsWith("Codemos Modern")) {
+    return undefined;
+  }
+  const activeThemeKind = window.activeColorTheme.kind;
+  switch (activeThemeKind) {
+    case ColorThemeKind.Dark:
+    case ColorThemeKind.HighContrast:
       return "dark";
-    case "Codemos Modern (Light)":
+    case ColorThemeKind.Light:
+    case ColorThemeKind.HighContrastLight:
       return "light";
     default:
       return undefined;
@@ -138,7 +153,7 @@ const getActiveVariant = (): Variant | undefined => {
 const firstInstallExperience = () => {
   commands.executeCommand("codemosModern.configure");
   showInformationNotification(
-    "Welcome to the innovative theme suite/hub! 👋 Start your journey by configuring Modern.",
+    updateReasonMessages[UpdateReason.FIRST_INSTALL],
     null,
     null,
   );
