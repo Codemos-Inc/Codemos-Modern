@@ -8,21 +8,11 @@
 
 # **Codemos Modern**
 
-<a href="https://github.com/Codemos-Inc/Codemos-Modern/releases/latest">
-  <img src="images/badge-release.svg" height="30" alt="Latest release">
-</a>&nbsp;
-<a href="https://code.visualstudio.com/updates/">
-  <img src="images/badge-vscode.svg" height="30" alt="Supported VS Code release">
-</a>&nbsp;
-<a href="https://marketplace.visualstudio.com/items?itemName=Codemos.codemos-modern">
-  <img src="images/badge-downloads.svg" height="30" alt="Download count">
-</a>&nbsp;
-<a href="https://github.com/sponsors/EmrecanKaracayir">
-  <img src="images/badge-sponsors.svg" height="30" alt="Sponsor count">
-</a>&nbsp;
-<a href="https://marketplace.visualstudio.com/items?itemName=Codemos.codemos-modern&ssr=false#review-details">
-  <img src="images/badge-rating.svg" height="30" alt="Rating">
-</a>
+<a href="https://github.com/Codemos-Inc/Codemos-Modern/releases/latest"><img src="images/badge-release.svg" height="30" alt="Latest release"></a>&nbsp;
+<a href="https://code.visualstudio.com/updates/"><img src="images/badge-vscode.svg" height="30" alt="Supported VS Code release"></a>&nbsp;
+<a href="https://marketplace.visualstudio.com/items?itemName=Codemos.codemos-modern"><img src="images/badge-downloads.svg" height="30" alt="Download count"></a>&nbsp;
+<a href="https://github.com/sponsors/EmrecanKaracayir"><img src="images/badge-sponsors.svg" height="30" alt="Sponsor count"></a>&nbsp;
+<a href="https://marketplace.visualstudio.com/items?itemName=Codemos.codemos-modern&ssr=false#review-details"><img src="images/badge-rating.svg" height="30" alt="Rating"></a>
 
 <div style="margin-bottom: 16px;"></div>
 
