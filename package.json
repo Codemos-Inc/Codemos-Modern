@@ -296,6 +296,7 @@
   },
   "dependencies": {
     "@octokit/rest": "^20.0.1",
+    "@resvg/resvg-js": "^2.6.0",
     "axios": "^1.6.5",
     "jsdom": "^23.2.0",
     "node-fetch": "^2.6.12"
