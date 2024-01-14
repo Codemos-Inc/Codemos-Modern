@@ -19,10 +19,11 @@ jobs:
         run: npm ci
       - name: Update badges
         run: npm run compile:badges
-      - name: Commit and push changes
+      - name: Commit & push changes
         run: |
+          npm set-script prepare ""
           git config --local user.email "<>"
           git config --local user.name "GitHub Actions"
-          git add .
+          git add images
           git commit -m "Daily badge updates"
           git push
