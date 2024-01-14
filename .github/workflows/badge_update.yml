@@ -12,6 +12,12 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
+      - name: Install Google Fonts
+        run: |
+          wget -O Noto_Sans_SC.zip https://fonts.google.com/download?family=Noto%20Sans%20SC
+          unzip -d noto_sans_sc/ Fira_Sans.zip
+          mv noto_sans_sc /usr/share/fonts/
+          fc-cache -fv
       - name: Checkout release
         uses: actions/checkout@v3.5.3
       - name: Setup Node.js
