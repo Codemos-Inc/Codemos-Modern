@@ -33,6 +33,7 @@ Innovative, modern theme suite/hub for VS Code
 - [📝 Documentation](#rdme-doc)
 - [🧩 Extensions](#rdme-ext)
 - [📷 Screenshots](#rdme-ss)
+- [🌐 Localization](#rdme-locale)
 - [📋 Change Log](#rdme-clog)
 - [🙌🏼 Contribution](#rdme-contrib)
 - [📜 License](#rdme-license)
