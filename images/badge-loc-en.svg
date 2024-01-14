@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="116.75" height="30">
+  <defs>
+    <clipPath id="c-path">
+      <rect width="114.75" height="28" rx="4" ry="4" />
+    </clipPath>
+  </defs>
+  <rect width="100%" height="100%" rx="5" ry="5" fill="#75757566" />
+  <svg clip-path="url(#c-path)" x="1" y="1" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="114.75" height="28" role="img" aria-label="ENGLISH">
+    <title>ENGLISH</title>
+    <g shape-rendering="crispEdges">
+      <rect width="32" height="28" fill="#373737" />
+      <rect x="32" width="82.75" height="28" fill="#3C3B6E" />
+    </g>
+    <g text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision"
+      font-size="100">
+      <svg x="9" y="7" width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M11.8371 22.7195L16.7783 9.68778H19.0588L24 22.7195H21.7195L20.552 19.4072H15.2851L14.1176 22.7195H11.8371ZM3.25792 19.4615L1.73756 17.9412L7.22172 12.457C6.58824 11.8235 6.01357 11.0995 5.49774 10.2851C4.9819 9.47059 4.50679 8.54751 4.0724 7.51584H6.35294C6.71493 8.22172 7.07692 8.8371 7.43891 9.36199C7.80091 9.88688 8.23529 10.4118 8.74208 10.9367C9.33937 10.3394 9.95928 9.50226 10.6018 8.42534C11.2443 7.34842 11.7285 6.32127 12.0543 5.34389H0V3.17195H7.60181V1H9.77376V3.17195H17.3756V5.34389H14.2262C13.8462 6.64706 13.276 7.98642 12.5158 9.36199C11.7557 10.7376 11.0045 11.7873 10.2624 12.5113L12.8688 15.1719L12.0543 17.3982L8.74208 14.0045L3.25792 19.4615ZM15.9638 17.5068H19.8733L17.9186 11.9683L15.9638 17.5068Z"
+          fill="white" />
+      </svg>
+      <text transform="scale(.1)" x="733.75" y="175" textLength="587.5" fill="white" font-weight="bold">ENGLISH</text>
+    </g>
+  </svg>
+</svg>

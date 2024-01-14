@@ -264,6 +264,7 @@
     ]
   },
   "devDependencies": {
+    "@types/jsdom": "^21.1.6",
     "@types/node": "^20.10.7",
     "@types/vscode": "^1.79.0",
     "@typescript-eslint/eslint-plugin": "^6.18.1",
@@ -278,10 +279,11 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "compile:theme": "ts-node src/hooks/compileThemes.ts",
+    "compile:themes": "ts-node src/hooks/compileThemes.ts",
     "compile:stateFile": "ts-node src/hooks/compileStateFile.ts",
+    "compile:badges": " ts-node src/hooks/updateBadges.ts",
     "compile": "tsc",
-    "build": "npm run compile && npm run compile:theme && npm run compile:stateFile",
+    "build": "npm run compile && npm run compile:themes && npm run compile:stateFile && npm run compile:badges",
     "lint": "eslint src --ext ts && tsc --noEmit",
     "format": "prettier --write .",
     "clean": "rm -rf out && rm -rf data/.state.json && rm -rf data/cache/*",
@@ -294,6 +296,8 @@
   },
   "dependencies": {
     "@octokit/rest": "^20.0.1",
+    "axios": "^1.6.5",
+    "jsdom": "^23.2.0",
     "node-fetch": "^2.6.12"
   }
 }

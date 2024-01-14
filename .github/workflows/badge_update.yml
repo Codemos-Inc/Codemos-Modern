@@ -1,0 +1,27 @@
+name: Badge Updates
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout release
+        uses: actions/checkout@v3.5.3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3.7.0
+        with:
+          node-version-file: ".nvmrc"
+      - name: Install dependencies
+        run: npm ci
+      - name: Update badges
+        run: npm run compile:badges
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "<>"
+          git config --local user.name "GitHub Actions"
+          git add .
+          git commit -m "Daily badge updates"
+          git push

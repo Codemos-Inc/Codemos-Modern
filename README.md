@@ -8,48 +8,29 @@
 
 # **Codemos Modern**
 
-<div style="display: inline-block; border-radius: 4px; overflow: hidden; height: 28px; border: 1px solid #75757566; margin-inline: 2px;">
-
-[![release](https://img.shields.io/github/release/Codemos-Inc/Codemos-Modern.svg?labelColor=373737&color=45AA41&label=&logo=github&logoColor=white&style=for-the-badge)](https://github.com/Codemos-Inc/Codemos-Modern/releases/latest)
-
-</div>
-<div style="display: inline-block; border-radius: 4px; overflow: hidden; height: 28px; border: 1px solid #75757566; margin-inline: 2px;">
-
-[![vscode](https://img.shields.io/badge/-v1.85+-4B9ECD.svg?labelColor=373737&logo=visualstudiocode&logoColor=white&style=for-the-badge)](https://code.visualstudio.com/updates/)
-
-</div>
-<div style="display: inline-block; border-radius: 4px; overflow: hidden; height: 28px; border: 1px solid #75757566; margin-inline: 2px;">
-
-[![downloads](https://img.shields.io/visual-studio-marketplace/d/codemos.codemos-modern?labelColor=373737&color=9B87EA&label=&logo=docusign&logoColor=white&style=for-the-badge)](https://marketplace.visualstudio.com/items?itemName=Codemos.codemos-modern)
-
-</div>
-<div style="display: inline-block; border-radius: 4px; overflow: hidden; height: 28px; border: 1px solid #75757566; margin-inline: 2px;">
-
-![sponsors](https://img.shields.io/github/sponsors/EmrecanKaracayir?labelColor=373737&color=ef6363&label=&logo=githubsponsors&logoColor=white&style=for-the-badge)
-
-</div>
+<a href="https://github.com/Codemos-Inc/Codemos-Modern/releases/latest">
+  <img src="images/badge-release.svg" height="30" alt="Latest release">
+</a>&nbsp;
+<a href="https://code.visualstudio.com/updates/">
+  <img src="images/badge-vscode.svg" height="30" alt="Supported VS Code release">
+</a>&nbsp;
+<a href="https://marketplace.visualstudio.com/items?itemName=Codemos.codemos-modern">
+  <img src="images/badge-downloads.svg" height="30" alt="Download count">
+</a>&nbsp;
+<a href="https://github.com/sponsors/EmrecanKaracayir">
+  <img src="images/badge-sponsors.svg" height="30" alt="Sponsor count">
+</a>&nbsp;
+<a href="https://marketplace.visualstudio.com/items?itemName=Codemos.codemos-modern&ssr=false#review-details">
+  <img src="images/badge-rating.svg" height="30" alt="Rating">
+</a>
 
 <div style="margin-bottom: 16px;"></div>
 
 Innovative, modern theme suite/hub for VS Code
 
-<div style="display: inline-block; border-radius: 4px; overflow: hidden; height: 24px; border: 1px solid #75757566; margin-inline: 2px;">
-
-<img src="https://img.shields.io/badge/-ENGLISH-3C3B6E.svg?labelColor=373737&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAFiSURBVHgBxVWBUcMwDFS4DpARzAR0hHQCugFhgoYN0gkKE4QR2KDZIGzgbpAygZGvb6r61MQJ9Pg7nX3W+yVLjkP0n3DOle6EPc3EHd0YGWdnB/w5zOMwwHvJsuxDcyzYDKXBjCRC1wI8Uzq80A7ziu0L85b+AqLpluaCN1dsNVuh+CwClDQXEHcQy8X65tfZQyhn6yG2w5oRa2XENyhdKRMaC1K5MypRGqtwG8mlVDD51V3Cn8AoPCs46V98VCo1O38RgrDgjpcJ4p1ygmXEa0Jf3Ply1FPEe2TZxUHcqbkBuThNP0V8qazvsRY+ukbsD5wiWVzxl5HYWnDqOGgWNvPgM/OiR7YVv46fWhKYGrYO862geP8GGvescZSb37XMNbjLu38N1c8JxEbDUQ8JASxO4bOP+QXbE1vLWiuaCjfyoqJXAcs5v8xHjK3mRN2Db72gCUCTcwhsB6hvGB/o1vgGMrcuk8iwphkAAAAASUVORK5CYII=&logoColor=white&style=for-the-badge" height="24">
-
-</div>
-<div style="display: inline-block; border-radius: 4px; overflow: hidden; height: 24px; border: 1px solid #75757566; margin-inline: 2px;">
-
-<img src="https://img.shields.io/badge/-简体中文-EE1C25.svg?labelColor=373737&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAFiSURBVHgBxVWBUcMwDFS4DpARzAR0hHQCugFhgoYN0gkKE4QR2KDZIGzgbpAygZGvb6r61MQJ9Pg7nX3W+yVLjkP0n3DOle6EPc3EHd0YGWdnB/w5zOMwwHvJsuxDcyzYDKXBjCRC1wI8Uzq80A7ziu0L85b+AqLpluaCN1dsNVuh+CwClDQXEHcQy8X65tfZQyhn6yG2w5oRa2XENyhdKRMaC1K5MypRGqtwG8mlVDD51V3Cn8AoPCs46V98VCo1O38RgrDgjpcJ4p1ygmXEa0Jf3Ply1FPEe2TZxUHcqbkBuThNP0V8qazvsRY+ukbsD5wiWVzxl5HYWnDqOGgWNvPgM/OiR7YVv46fWhKYGrYO862geP8GGvescZSb37XMNbjLu38N1c8JxEbDUQ8JASxO4bOP+QXbE1vLWiuaCjfyoqJXAcs5v8xHjK3mRN2Db72gCUCTcwhsB6hvGB/o1vgGMrcuk8iwphkAAAAASUVORK5CYII=&logoColor=white&style=for-the-badge" height="24">
-
-</div>
-<div style="display: inline-block; border-radius: 4px; overflow: hidden; height: 24px; border: 1px solid #75757566; margin-inline: 2px;">
-
-<img src="https://img.shields.io/badge/-TÜRKÇE-E30A17.svg?labelColor=373737&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAFiSURBVHgBxVWBUcMwDFS4DpARzAR0hHQCugFhgoYN0gkKE4QR2KDZIGzgbpAygZGvb6r61MQJ9Pg7nX3W+yVLjkP0n3DOle6EPc3EHd0YGWdnB/w5zOMwwHvJsuxDcyzYDKXBjCRC1wI8Uzq80A7ziu0L85b+AqLpluaCN1dsNVuh+CwClDQXEHcQy8X65tfZQyhn6yG2w5oRa2XENyhdKRMaC1K5MypRGqtwG8mlVDD51V3Cn8AoPCs46V98VCo1O38RgrDgjpcJ4p1ygmXEa0Jf3Ply1FPEe2TZxUHcqbkBuThNP0V8qazvsRY+ukbsD5wiWVzxl5HYWnDqOGgWNvPgM/OiR7YVv46fWhKYGrYO862geP8GGvescZSb37XMNbjLu38N1c8JxEbDUQ8JASxO4bOP+QXbE1vLWiuaCjfyoqJXAcs5v8xHjK3mRN2Db72gCUCTcwhsB6hvGB/o1vgGMrcuk8iwphkAAAAASUVORK5CYII=&logoColor=white&style=for-the-badge" height="24">
-
-</div>
-
-<br/>
+<img src="images/badge-loc-en.svg" height="26" alt="English (US)">&nbsp;
+<img src="images/badge-loc-zh-cn.svg" height="26" alt="Simplified Chinese">&nbsp;
+<img src="images/badge-loc-tr.svg" height="26" alt="Turkish">
 
 ![overview](images/header-1.png)
 
