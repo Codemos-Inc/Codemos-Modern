@@ -4,7 +4,7 @@
   "publisher": "Codemos",
   "icon": "res/icon.gif",
   "description": "%ext.desc%",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -139,7 +139,7 @@
             "default": null,
             "markdownDescription": "%ext.conf.dark.auxiliaryUiTheme.desc%",
             "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/.+/.+/.+$",
-            "patternErrorMessage": "%ext.conf.dark.auxiliaryUiTheme.err%"
+            "patternErrorMessage": "%ext.conf.dark.auxiliary*Theme.err%"
           },
           "codemosModern.dark.design": {
             "order": 1,
@@ -150,8 +150,8 @@
               "minimal"
             ],
             "enumDescriptions": [
-              "%ext.conf.dark.design.enum.modern.desc%",
-              "%ext.conf.dark.design.enum.minimal.desc%"
+              "%ext.conf.*.design.enum.modern.desc%",
+              "%ext.conf.*.design.enum.minimal.desc%"
             ],
             "markdownDescription": "%ext.conf.dark.design.desc%"
           },
@@ -174,10 +174,10 @@
               "aggressive"
             ],
             "enumDescriptions": [
-              "%ext.conf.dark.adaptiveMode.enum.none.desc%",
-              "%ext.conf.dark.adaptiveMode.enum.gentle.desc%",
-              "%ext.conf.dark.adaptiveMode.enum.moderate.desc%",
-              "%ext.conf.dark.adaptiveMode.enum.aggressive.desc%"
+              "%ext.conf.*.adaptiveMode.enum.none.desc%",
+              "%ext.conf.*.adaptiveMode.enum.gentle.desc%",
+              "%ext.conf.*.adaptiveMode.enum.moderate.desc%",
+              "%ext.conf.*.adaptiveMode.enum.aggressive.desc%"
             ],
             "markdownDescription": "%ext.conf.dark.adaptiveMode.desc%"
           },
@@ -190,7 +190,7 @@
             "default": null,
             "markdownDescription": "%ext.conf.dark.auxiliaryCodeTheme.desc%",
             "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/.+/.+/.+$",
-            "patternErrorMessage": "%ext.conf.dark.auxiliaryCodeTheme.err%"
+            "patternErrorMessage": "%ext.conf.dark.auxiliary*Theme.err%"
           }
         }
       },
@@ -206,7 +206,7 @@
             "default": null,
             "markdownDescription": "%ext.conf.light.auxiliaryUiTheme.desc%",
             "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/.+/.+/.+$",
-            "patternErrorMessage": "%ext.conf.light.auxiliaryUiTheme.err%"
+            "patternErrorMessage": "%ext.conf.light.auxiliary*Theme.err%"
           },
           "codemosModern.light.design": {
             "order": 1,
@@ -217,8 +217,8 @@
               "minimal"
             ],
             "enumDescriptions": [
-              "%ext.conf.light.design.enum.modern.desc%",
-              "%ext.conf.light.design.enum.minimal.desc%"
+              "%ext.conf.*.design.enum.modern.desc%",
+              "%ext.conf.*.design.enum.minimal.desc%"
             ],
             "markdownDescription": "%ext.conf.light.design.desc%"
           },
@@ -241,10 +241,10 @@
               "aggressive"
             ],
             "enumDescriptions": [
-              "%ext.conf.light.adaptiveMode.enum.none.desc%",
-              "%ext.conf.light.adaptiveMode.enum.gentle.desc%",
-              "%ext.conf.light.adaptiveMode.enum.moderate.desc%",
-              "%ext.conf.light.adaptiveMode.enum.aggressive.desc%"
+              "%ext.conf.*.adaptiveMode.enum.none.desc%",
+              "%ext.conf.*.adaptiveMode.enum.gentle.desc%",
+              "%ext.conf.*.adaptiveMode.enum.moderate.desc%",
+              "%ext.conf.*.adaptiveMode.enum.aggressive.desc%"
             ],
             "markdownDescription": "%ext.conf.light.adaptiveMode.desc%"
           },
@@ -257,7 +257,7 @@
             "default": null,
             "markdownDescription": "%ext.conf.light.auxiliaryCodeTheme.desc%",
             "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/.+/.+/.+$",
-            "patternErrorMessage": "%ext.conf.light.auxiliaryCodeTheme.err%"
+            "patternErrorMessage": "%ext.conf.light.auxiliary*Theme.err%"
           }
         }
       }

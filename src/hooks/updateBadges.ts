@@ -32,7 +32,7 @@ fetchModifySvg(
   false,
 );
 fetchModifySvg(
-  "https://img.shields.io/visual-studio-marketplace/r/codemos.codemos-modern?style=for-the-badge&label=&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTguMjIgMTguNzlMMTIgMTYuNTFMMTUuNzggMTguODJMMTQuNzkgMTQuNUwxOC4xMiAxMS42MkwxMy43NCAxMS4yM0wxMiA3LjE1TDEwLjI2IDExLjJMNS44OCAxMS41OUw5LjIxIDE0LjVMOC4yMiAxOC43OVpNNC41OSAyMy44TDYuNTQgMTUuMzdMMCA5LjdMOC42NCA4Ljk1TDEyIDFMMTUuMzYgOC45NUwyNCA5LjdMMTcuNDYgMTUuMzdMMTkuNDEgMjMuOEwxMiAxOS4zM0w0LjU5IDIzLjhaIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjc4MDM5MiIvPgo8L3N2Zz4K&logoColor=%23FFFFFFC7&labelColor=373737&color=BFAF40",
+  "https://img.shields.io/visual-studio-marketplace/r/codemos.codemos-modern?style=for-the-badge&label=&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzIyXzI4KSI+CjxwYXRoIGQ9Ik0xMiA4LjI4VjE1LjM2TDE0Ljg4IDE3LjU4TDEzLjggMTMuOTJMMTYuNSAxMkgxMy4xNEwxMiA4LjI4Wk00LjU5IDI0TDcuMzggMTQuODhMMCA5LjZIOS4xMkwxMiAwTDE0Ljg4IDkuNkgyNEwxNi42MiAxNC44OEwxOS40MSAyNEwxMiAxOC4zNkw0LjU5IDI0WiIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC43ODAzOTIiLz4KPC9nPgo8ZGVmcz4KPGNsaXBQYXRoIGlkPSJjbGlwMF8yMl8yOCI+CjxyZWN0IHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0id2hpdGUiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K&logoColor=%23FFFFFFC7&labelColor=373737&color=BFAF40",
   path.join(IMAGES_PATH, "badge-rating.svg"),
   true,
   true,
@@ -52,7 +52,7 @@ fetchModifySvg(
   false,
   false,
   "#FFFF00",
-  true,
+  { notoSansSC: true },
 );
 fetchModifySvg(
   "https://img.shields.io/badge/-TÜRKÇE-e30a17.svg?labelColor=373737&label=&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTExLjgzNzEgMjIuNzE5NUwxNi43NzgzIDkuNjg3NzhIMTkuMDU4OEwyNCAyMi43MTk1SDIxLjcxOTVMMjAuNTUyIDE5LjQwNzJIMTUuMjg1MUwxNC4xMTc2IDIyLjcxOTVIMTEuODM3MVpNMy4yNTc5MiAxOS40NjE1TDEuNzM3NTYgMTcuOTQxMkw3LjIyMTcyIDEyLjQ1N0M2LjU4ODI0IDExLjgyMzUgNi4wMTM1NyAxMS4wOTk1IDUuNDk3NzQgMTAuMjg1MUM0Ljk4MTkgOS40NzA1OSA0LjUwNjc5IDguNTQ3NTEgNC4wNzI0IDcuNTE1ODRINi4zNTI5NEM2LjcxNDkzIDguMjIxNzIgNy4wNzY5MiA4LjgzNzEgNy40Mzg5MSA5LjM2MTk5QzcuODAwOTEgOS44ODY4OCA4LjIzNTI5IDEwLjQxMTggOC43NDIwOCAxMC45MzY3QzkuMzM5MzcgMTAuMzM5NCA5Ljk1OTI4IDkuNTAyMjYgMTAuNjAxOCA4LjQyNTM0QzExLjI0NDMgNy4zNDg0MiAxMS43Mjg1IDYuMzIxMjcgMTIuMDU0MyA1LjM0Mzg5SDBWMy4xNzE5NUg3LjYwMTgxVjFIOS43NzM3NlYzLjE3MTk1SDE3LjM3NTZWNS4zNDM4OUgxNC4yMjYyQzEzLjg0NjIgNi42NDcwNiAxMy4yNzYgNy45ODY0MiAxMi41MTU4IDkuMzYxOTlDMTEuNzU1NyAxMC43Mzc2IDExLjAwNDUgMTEuNzg3MyAxMC4yNjI0IDEyLjUxMTNMMTIuODY4OCAxNS4xNzE5TDEyLjA1NDMgMTcuMzk4Mkw4Ljc0MjA4IDE0LjAwNDVMMy4yNTc5MiAxOS40NjE1Wk0xNS45NjM4IDE3LjUwNjhIMTkuODczM0wxNy45MTg2IDExLjk2ODNMMTUuOTYzOCAxNy41MDY4WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==&logoColor=%23FFFFFFC7&style=for-the-badge",
@@ -60,6 +60,23 @@ fetchModifySvg(
   false,
   false,
   "#FFFFFF",
+);
+
+fetchModifySvg(
+  "https://img.shields.io/badge/-ESPAÑOL-FABD00.svg?labelColor=373737&label=&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTExLjgzNzEgMjIuNzE5NUwxNi43NzgzIDkuNjg3NzhIMTkuMDU4OEwyNCAyMi43MTk1SDIxLjcxOTVMMjAuNTUyIDE5LjQwNzJIMTUuMjg1MUwxNC4xMTc2IDIyLjcxOTVIMTEuODM3MVpNMy4yNTc5MiAxOS40NjE1TDEuNzM3NTYgMTcuOTQxMkw3LjIyMTcyIDEyLjQ1N0M2LjU4ODI0IDExLjgyMzUgNi4wMTM1NyAxMS4wOTk1IDUuNDk3NzQgMTAuMjg1MUM0Ljk4MTkgOS40NzA1OSA0LjUwNjc5IDguNTQ3NTEgNC4wNzI0IDcuNTE1ODRINi4zNTI5NEM2LjcxNDkzIDguMjIxNzIgNy4wNzY5MiA4LjgzNzEgNy40Mzg5MSA5LjM2MTk5QzcuODAwOTEgOS44ODY4OCA4LjIzNTI5IDEwLjQxMTggOC43NDIwOCAxMC45MzY3QzkuMzM5MzcgMTAuMzM5NCA5Ljk1OTI4IDkuNTAyMjYgMTAuNjAxOCA4LjQyNTM0QzExLjI0NDMgNy4zNDg0MiAxMS43Mjg1IDYuMzIxMjcgMTIuMDU0MyA1LjM0Mzg5SDBWMy4xNzE5NUg3LjYwMTgxVjFIOS43NzM3NlYzLjE3MTk1SDE3LjM3NTZWNS4zNDM4OUgxNC4yMjYyQzEzLjg0NjIgNi42NDcwNiAxMy4yNzYgNy45ODY0MiAxMi41MTU4IDkuMzYxOTlDMTEuNzU1NyAxMC43Mzc2IDExLjAwNDUgMTEuNzg3MyAxMC4yNjI0IDEyLjUxMTNMMTIuODY4OCAxNS4xNzE5TDEyLjA1NDMgMTcuMzk4Mkw4Ljc0MjA4IDE0LjAwNDVMMy4yNTc5MiAxOS40NjE1Wk0xNS45NjM4IDE3LjUwNjhIMTkuODczM0wxNy45MTg2IDExLjk2ODNMMTUuOTYzOCAxNy41MDY4WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==&logoColor=%23FFFFFFC7&style=for-the-badge",
+  path.join(IMAGES_PATH, "badge-loc-es.svg"),
+  true,
+  false,
+  "#AD1519",
+);
+
+fetchModifySvg(
+  "https://img.shields.io/badge/-日本語-FFFFFF.svg?labelColor=373737&label=&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTExLjgzNzEgMjIuNzE5NUwxNi43NzgzIDkuNjg3NzhIMTkuMDU4OEwyNCAyMi43MTk1SDIxLjcxOTVMMjAuNTUyIDE5LjQwNzJIMTUuMjg1MUwxNC4xMTc2IDIyLjcxOTVIMTEuODM3MVpNMy4yNTc5MiAxOS40NjE1TDEuNzM3NTYgMTcuOTQxMkw3LjIyMTcyIDEyLjQ1N0M2LjU4ODI0IDExLjgyMzUgNi4wMTM1NyAxMS4wOTk1IDUuNDk3NzQgMTAuMjg1MUM0Ljk4MTkgOS40NzA1OSA0LjUwNjc5IDguNTQ3NTEgNC4wNzI0IDcuNTE1ODRINi4zNTI5NEM2LjcxNDkzIDguMjIxNzIgNy4wNzY5MiA4LjgzNzEgNy40Mzg5MSA5LjM2MTk5QzcuODAwOTEgOS44ODY4OCA4LjIzNTI5IDEwLjQxMTggOC43NDIwOCAxMC45MzY3QzkuMzM5MzcgMTAuMzM5NCA5Ljk1OTI4IDkuNTAyMjYgMTAuNjAxOCA4LjQyNTM0QzExLjI0NDMgNy4zNDg0MiAxMS43Mjg1IDYuMzIxMjcgMTIuMDU0MyA1LjM0Mzg5SDBWMy4xNzE5NUg3LjYwMTgxVjFIOS43NzM3NlYzLjE3MTk1SDE3LjM3NTZWNS4zNDM4OUgxNC4yMjYyQzEzLjg0NjIgNi42NDcwNiAxMy4yNzYgNy45ODY0MiAxMi41MTU4IDkuMzYxOTlDMTEuNzU1NyAxMC43Mzc2IDExLjAwNDUgMTEuNzg3MyAxMC4yNjI0IDEyLjUxMTNMMTIuODY4OCAxNS4xNzE5TDEyLjA1NDMgMTcuMzk4Mkw4Ljc0MjA4IDE0LjAwNDVMMy4yNTc5MiAxOS40NjE1Wk0xNS45NjM4IDE3LjUwNjhIMTkuODczM0wxNy45MTg2IDExLjk2ODNMMTUuOTYzOCAxNy41MDY4WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==&logoColor=%23FFFFFFC7&style=for-the-badge",
+  path.join(IMAGES_PATH, "badge-loc-ja.svg"),
+  true,
+  false,
+  "#BC002D",
+  { notoSansJP: true },
 );
 
 const SVG_NS = "http://www.w3.org/2000/svg";
@@ -72,7 +89,10 @@ function fetchModifySvg(
   darkText: boolean,
   isRatingBadge: boolean,
   hexText?: string,
-  needsNotoSansSC?: boolean,
+  customFont?: {
+    notoSansSC?: boolean;
+    notoSansJP?: boolean;
+  },
 ): void {
   axios
     .get(url)
@@ -100,10 +120,16 @@ function fetchModifySvg(
         }
 
         // Noto Sans SC
-        if (needsNotoSansSC) {
+        if (customFont?.notoSansSC) {
           doc
             .querySelector("[font-family]")!
             .setAttribute("font-family", "Noto Sans SC");
+        }
+        // Noto Sans JP
+        if (customFont?.notoSansJP) {
+          doc
+            .querySelector("[font-family]")!
+            .setAttribute("font-family", "Noto Sans JP");
         }
 
         // If the badge is the rating badge, strip how many people rated

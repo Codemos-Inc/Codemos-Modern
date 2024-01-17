@@ -11,12 +11,15 @@
     "İstek",
     "İtalik",
     "keppel",
+    "minimalista",
     "modda",
+    "reconfigurado",
     "roti",
     "sürümünüzle",
     "xlink",
     "yerelleştirmeler"
   ],
   "ignoreWords": [],
-  "import": []
+  "import": [],
+  "enableFiletypes": ["json"]
 }
