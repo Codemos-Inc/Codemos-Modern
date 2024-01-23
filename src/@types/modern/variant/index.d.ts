@@ -256,6 +256,7 @@ export type Styles = {
       qui: string;
       sen: string;
       sep: string;
+      oct: string;
     };
   };
   fill: {

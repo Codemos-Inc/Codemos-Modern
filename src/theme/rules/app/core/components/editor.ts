@@ -89,7 +89,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     "editorBracketPairGuide.background4": colors.basic.alt.purple.ter,
     "editorBracketPairGuide.background5": colors.basic.alt.blue.ter,
     "editorBracketPairGuide.background6": colors.basic.alt.green.ter,
-    "editor.foldBackground": colors.basic.neutral.sep,
+    "editor.foldBackground": colors.basic.neutral.oct,
     "editorOverviewRuler.background": colors.bg.solid.base,
     "editorOverviewRuler.border": TRANSPARENT,
     "editorOverviewRuler.findMatchForeground": colors.basic.def.mint.sec,

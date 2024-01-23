@@ -349,6 +349,7 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
         qui: `${palette.hic}${getHexAlpha(20)}`,
         sen: `${palette.hic}${getHexAlpha(8)}`,
         sep: `${palette.hic}${getHexAlpha(6)}`,
+        oct: `${palette.hic}${getHexAlpha(3)}`,
       },
     },
     fill: {
