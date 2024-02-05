@@ -90,7 +90,7 @@ const generateSvg = (inDarkTheme: boolean, color: string) => {
       <g clip-path="url(#clip0_6_2)">
         <path d="M46.5 24C46.5 36.4264 36.4264 46.5 24 46.5C11.5736 46.5 1.5 36.4264 1.5 24C1.5 11.5736 11.5736 1.5 24 1.5C36.4264 1.5 46.5 11.5736 46.5 24Z" fill="${color}" stroke="${
           inDarkTheme ? "white" : "black"
-        }" stroke-width="3" stroke-opacity="0.5"/>
+        }" stroke-width="3" stroke-opacity="0.32"/>
       </g>
       <defs>
         <clipPath id="clip0_6_2">
@@ -469,7 +469,7 @@ const generateCustomSvg = (inDarkTheme: boolean) => {
       <path d="M24 45C35.598 45 45 35.598 45 24C45 12.402 35.598 3 24 3C12.402 3 3 12.402 3 24C3 35.598 12.402 45 24 45Z" fill="url(#paint0_radial_1_2)"/>
       <path d="M46.5 24C46.5 36.4264 36.4264 46.5 24 46.5C11.5736 46.5 1.5 36.4264 1.5 24C1.5 11.5736 11.5736 1.5 24 1.5C36.4264 1.5 46.5 11.5736 46.5 24Z" stroke="${
         inDarkTheme ? "white" : "black"
-      }" stroke-width="3" stroke-opacity="0.5"/>
+      }" stroke-width="3" stroke-opacity="0.32"/>
     </g>
     <defs>
       <radialGradient id="paint0_radial_1_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(24 24) scale(21 21)">
