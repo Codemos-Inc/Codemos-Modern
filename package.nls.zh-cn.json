@@ -10,7 +10,7 @@
   "ext.conf.auxiliaryThemeRegistries.desc": "作为辅助主题注册表的GitHub仓库。应该按照`<所有者>/<仓库>`的格式。参考[文档](https://github.com/Codemos-Inc/Codemos-Modern#modularity)。",
   "ext.conf.auxiliaryThemeRegistries.err": "输入有效格式的仓库。例如：Codemos-Inc/Auxiliary-Theme-Registry",
   "ext.conf.dark.accentColor.desc": "定义`Codemos Modern (Dark)`的重点颜色的HEX颜色代码。当设置`codemosModern.dark.auxiliaryUiTheme`时将被丢弃。参考[文档](https://github.com/Codemos-Inc/Codemos-Modern#configuration)。",
-  "ext.conf.dark.accentColor.err": "输入有效的 HEX 颜色代码。例如：#CB8569",
+  "ext.conf.dark.accentColor.err": "输入有效的HEX颜色代码。例如：#CB8569",
   "ext.conf.dark.adaptiveMode.desc": "`Codemos Modern (Dark)`中要使用的适应模式。当设置`codemosModern.dark.auxiliaryUiTheme`时将被丢弃。参考[文档](https://github.com/Codemos-Inc/Codemos-Modern#adaptability)。",
   "ext.conf.dark.auxiliary*Theme.err": "输入有效的辅助主题。例如：Codemos-Inc/Auxiliary-Theme-Registry/Microsoft/Defaults/Dark Modern",
   "ext.conf.dark.auxiliaryCodeTheme.desc": "辅助主题，用作`Codemos Modern (Dark)`的代码主题。应该按照`<所有者>/<仓库>/<发布者>/<扩展>/<主题>`的格式。参考[文档](https://github.com/Codemos-Inc/Codemos-Modern#modularity)。",
