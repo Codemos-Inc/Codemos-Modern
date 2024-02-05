@@ -440,8 +440,7 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
         default: `${palette.hic}${getHexAlpha(8)}`,
       },
       surface: {
-        layer: `#757575${getHexAlpha(40)}`,
-        flyout: `${palette.loc}${getHexAlpha(20)}`,
+        flyout: `#757575${getHexAlpha(32)}`,
       },
       focus: {
         default: `#757575${getHexAlpha(40)}`,

@@ -26,6 +26,8 @@ export const getRules = (themeContext: ThemeContext): object => {
     "editorGhostText.background": TRANSPARENT,
     "editorGhostText.foreground": colors.fill.text.ghost,
     "editorStickyScroll.background": colors.bg.solid.surface,
+    "editorStickyScroll.border": colors.stroke.divider.default,
+    "editorStickyScroll.shadow": colors.effect.shadow.default,
     "editorStickyScrollHover.background": colors.fill.control.rest,
     "debugExceptionWidget.background": colors.basic.loc.red.pri,
     "debugExceptionWidget.border": colors.stroke.surface.flyout,

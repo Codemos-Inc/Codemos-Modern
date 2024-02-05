@@ -31,6 +31,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     "listFilterWidget.outline": colors.stroke.surface.flyout,
     "listFilterWidget.noMatchesOutline": colors.basic.def.red.pri,
     "listFilterWidget.shadow": colors.effect.shadow.default,
+    "list.dropBetweenBackground": "#ff0000", // 🔵 Unknown attribute
     "tree.indentGuidesStroke": colors.basic.neutral.qua,
     "tree.inactiveIndentGuidesStroke": colors.basic.neutral.qui,
     "tree.tableColumnsBorder": colors.stroke.divider.default,

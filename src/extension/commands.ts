@@ -808,7 +808,7 @@ const getAuxiliaryThemeExtension = async (
   const installedAuxiliaryThemesQPIs: AuxiliaryThemeQPI[] = [];
   const availableAuxiliaryThemesQPIs: AuxiliaryThemeQPI[] = [];
   for (const auxiliaryThemeRegistryIndexWithId of auxiliaryThemeRegistryIndexesWithId) {
-    // 🟢 Optimize filtering algorithm
+    // 🟠 Optimize filtering algorithm
     const filteredAuxiliaryThemes =
       auxiliaryThemeRegistryIndexWithId.auxiliaryThemeRegistryIndex.themes[
         variant

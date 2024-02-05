@@ -35,6 +35,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     "editor.hoverHighlightBackground": colors.basic.neutral.sep,
     "editor.lineHighlightBackground": TRANSPARENT,
     "editor.lineHighlightBorder": colors.stroke.control.default,
+    "editorWatermark.foreground": colors.fill.text.sec,
     "editorUnicodeHighlight.border": colors.basic.def.yellow.pri,
     "editorUnicodeHighlight.background": TRANSPARENT,
     "editorLink.activeForeground": colors.fill.accentText.pri,
@@ -108,6 +109,8 @@ export const getRules = (themeContext: ThemeContext): object => {
     "editorOverviewRuler.warningForeground": colors.basic.def.orange.pri,
     "editorOverviewRuler.infoForeground": colors.basic.def.blue.pri,
     "editorOverviewRuler.bracketMatchForeground": colors.basic.def.brown.sec,
+    "editorOverviewRuler.inlineChatInserted": "#ff0000", // 🔵 Unknown attribute
+    "editorOverviewRuler.inlineChatRemoved": "#ff0000", // 🔵 Unknown attribute
     "editorError.foreground": colors.basic.def.red.pri,
     "editorError.border": TRANSPARENT,
     "editorError.background": TRANSPARENT,

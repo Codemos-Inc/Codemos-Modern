@@ -329,7 +329,6 @@ export type Styles = {
       default: string;
     };
     surface: {
-      layer: string;
       flyout: string;
     };
     focus: {
