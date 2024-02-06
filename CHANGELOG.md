@@ -8,11 +8,23 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 Nothing yet.
 
+## [2.5.0] - 2024-01-13 - New localizations 🇯🇵, 🇪🇸
+
+### Added
+
+- Support for VS Code v1.86.x.
+- Localizations for Japanese 🇯🇵 and Spanish 🇪🇸.
+
+### Changed
+
+- Flyout stroke color from low contrast to high contrast.
+- QuickPick icon strokes to be less intense.
+
 ## [2.4.0] - 2024-01-13 - Now localized 🇹🇷, 🇬🇧, 🇨🇳
 
 ### Added
 
-- Localizations for Turkish 🇹🇷, English 🇬🇧, Chinese (Simplified) 🇨🇳.
+- Localizations for Turkish 🇹🇷, English 🇬🇧 and Chinese (Simplified) 🇨🇳.
 
 ### Fixed
 

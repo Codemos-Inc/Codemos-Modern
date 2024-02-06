@@ -14,13 +14,13 @@ fetchModifySvg(
   false,
 );
 fetchModifySvg(
-  "https://img.shields.io/badge/-v1.85+-4B9ECD.svg?labelColor=373737&label=&logo=visualstudiocode&logoColor=%23FFFFFFC7&style=for-the-badge",
+  "https://img.shields.io/badge/-v1.86+-4B9ECD.svg?labelColor=373737&label=&logo=visualstudiocode&logoColor=%23FFFFFFC7&style=for-the-badge",
   path.join(IMAGES_PATH, "badge-vscode.svg"),
   true,
   false,
 );
 fetchModifySvg(
-  "https://img.shields.io/visual-studio-marketplace/d/codemos.codemos-modern?labelColor=373737&color=9B87EA&label=&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzE4XzE2KSI+CjxwYXRoIGQ9Ik0xMiAxOEw0LjUgMTAuNUw2LjYgOC4zMjVMMTAuNSAxMi4yMjVWMEgxMy41VjEyLjIyNUwxNy40IDguMzI1TDE5LjUgMTAuNUwxMiAxOFpNMyAyNEMyLjE3NSAyNCAxLjQ2ODc1IDIzLjcwNjMgMC44ODEyNSAyMy4xMTg4QzAuMjkzNzUgMjIuNTMxMiAwIDIxLjgyNSAwIDIxVjE2LjVIM1YyMUgyMVYxNi41SDI0VjIxQzI0IDIxLjgyNSAyMy43MDYzIDIyLjUzMTIgMjMuMTE4OCAyMy4xMTg4QzIyLjUzMTIgMjMuNzA2MyAyMS44MjUgMjQgMjEgMjRIM1oiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuNzgwMzkyIi8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfMThfMTYiPgo8cmVjdCB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9IndoaXRlIi8+CjwvY2xpcFBhdGg+CjwvZGVmcz4KPC9zdmc+Cg==&logoColor=%23FFFFFFC7&style=for-the-badge",
+  "https://img.shields.io/visual-studio-marketplace/i/codemos.codemos-modern?labelColor=373737&color=9B87EA&label=&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzE4XzE2KSI+CjxwYXRoIGQ9Ik0xMiAxOEw0LjUgMTAuNUw2LjYgOC4zMjVMMTAuNSAxMi4yMjVWMEgxMy41VjEyLjIyNUwxNy40IDguMzI1TDE5LjUgMTAuNUwxMiAxOFpNMyAyNEMyLjE3NSAyNCAxLjQ2ODc1IDIzLjcwNjMgMC44ODEyNSAyMy4xMTg4QzAuMjkzNzUgMjIuNTMxMiAwIDIxLjgyNSAwIDIxVjE2LjVIM1YyMUgyMVYxNi41SDI0VjIxQzI0IDIxLjgyNSAyMy43MDYzIDIyLjUzMTIgMjMuMTE4OCAyMy4xMTg4QzIyLjUzMTIgMjMuNzA2MyAyMS44MjUgMjQgMjEgMjRIM1oiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuNzgwMzkyIi8+CjwvZz4KPGRlZnM+CjxjbGlwUGF0aCBpZD0iY2xpcDBfMThfMTYiPgo8cmVjdCB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9IndoaXRlIi8+CjwvY2xpcFBhdGg+CjwvZGVmcz4KPC9zdmc+Cg==&logoColor=%23FFFFFFC7&style=for-the-badge",
   path.join(IMAGES_PATH, "badge-downloads.svg"),
   true,
   false,

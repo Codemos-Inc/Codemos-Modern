@@ -248,9 +248,9 @@ We try to make Codemos Modern the most accessible theming extension for VS Code.
 | ------------------- | ------ | ------ | ------------- | ---------- | -------------------------- |
 | English             | en     | 🟢     | v1.0.0        | Codemos    | -                          |
 | Turkish             | tr     | 🟢     | v2.4.0        | Codemos    | -                          |
-| Simplified Chinese  | zh-cn  | 💬     | v2.4.0        | Codemos    | Review needed              |
+| Simplified Chinese  | zh-cn  | 🟢     | v2.4.0        | Codemos    | -                          |
 | Japanese            | ja     | 💬     | v2.5.0        | Codemos    | Review needed              |
-| Spanish             | es     | 💬     | v2.5.0        | Codemos    | Review needed              |
+| Spanish             | es     | 🟢     | v2.5.0        | Codemos    | -                          |
 | Russian             | ru     | 🟡     | -             | Codemos    | Will be released by v2.6.X |
 | Portuguese (Brazil) | pt-br  | 🟡     | -             | Codemos    | Will be released by v2.6.X |
 | French              | fr     | 🔴     | -             | -          | Planned for v2.7.X         |
@@ -315,7 +315,7 @@ Changes from the last major release shown below. If you want to see the full cha
 
 ### Added
 
-- VS Code v1.85.x support.
+- VS Code v1.86.x support.
 - Modularity system. Users can now side-load **third party themes**.
 - Brand new design, **"Minimal"**. Users can now choose between **"Modern"** and **"Minimal"** designs.
 - Command `codemosModern.authenticate` to increase GitHub **api rate limits**.
