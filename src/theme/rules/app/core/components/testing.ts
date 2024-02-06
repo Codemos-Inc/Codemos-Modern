@@ -16,5 +16,16 @@ export const getRules = (themeContext: ThemeContext): object => {
     "testing.message.error.lineBackground": colors.basic.def.red.qua,
     "testing.message.info.decorationForeground": colors.basic.def.blue.pri,
     "testing.message.info.lineBackground": colors.basic.def.blue.qua,
+    "testing.coveredBackground": "#ff0000", // 🔵 Unknown attribute
+    "testing.coveredBorder": "#ff0000", // 🔵 Unknown attribute
+    "testing.coveredGutterBackground": "#ff0000", // 🔵 Unknown attribute
+    "testing.uncoveredBranchBackground": "#ff0000", // 🔵 Unknown attribute
+    "testing.uncoveredBackground": "#ff0000", // 🔵 Unknown attribute
+    "testing.uncoveredBorder": "#ff0000", // 🔵 Unknown attribute
+    "testing.uncoveredGutterBackground": "#ff0000", // 🔵 Unknown attribute
+    "testing.messagePeekBorder": "#ff0000", // 🔵 Unknown attribute
+    "testing.messagePeekHeaderBackground": "#ff0000", // 🔵 Unknown attribute
+    "testing.coverCountBadgeBackground": colors.fill.accent.pri,
+    "testing.coverCountBadgeForeground": colors.fill.textOnColor.pri,
   };
 };

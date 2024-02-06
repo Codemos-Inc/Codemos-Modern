@@ -18,7 +18,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     "tab.activeBackground": colors.fill.tab.activeFocused,
     "tab.activeForeground": colors.fill.text.pri,
     "tab.unfocusedActiveForeground": colors.fill.text.sec,
-    "tab.border": colors.stroke.control.default,
+    "tab.border": colors.stroke.divider.default,
     "tab.activeBorder": TRANSPARENT,
     "tab.unfocusedActiveBorder": TRANSPARENT,
     "tab.activeBorderTop": TRANSPARENT,

@@ -4,7 +4,7 @@
   "publisher": "Codemos",
   "icon": "res/icon.gif",
   "description": "%ext.desc%",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -29,7 +29,7 @@
     }
   },
   "engines": {
-    "vscode": "^1.85.0"
+    "vscode": "^1.86.0"
   },
   "activationEvents": [
     "*"
@@ -139,7 +139,7 @@
             "default": null,
             "markdownDescription": "%ext.conf.dark.auxiliaryUiTheme.desc%",
             "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/.+/.+/.+$",
-            "patternErrorMessage": "%ext.conf.dark.auxiliaryUiTheme.err%"
+            "patternErrorMessage": "%ext.conf.dark.auxiliary*Theme.err%"
           },
           "codemosModern.dark.design": {
             "order": 1,
@@ -150,8 +150,8 @@
               "minimal"
             ],
             "enumDescriptions": [
-              "%ext.conf.dark.design.enum.modern.desc%",
-              "%ext.conf.dark.design.enum.minimal.desc%"
+              "%ext.conf.*.design.enum.modern.desc%",
+              "%ext.conf.*.design.enum.minimal.desc%"
             ],
             "markdownDescription": "%ext.conf.dark.design.desc%"
           },
@@ -174,10 +174,10 @@
               "aggressive"
             ],
             "enumDescriptions": [
-              "%ext.conf.dark.adaptiveMode.enum.none.desc%",
-              "%ext.conf.dark.adaptiveMode.enum.gentle.desc%",
-              "%ext.conf.dark.adaptiveMode.enum.moderate.desc%",
-              "%ext.conf.dark.adaptiveMode.enum.aggressive.desc%"
+              "%ext.conf.*.adaptiveMode.enum.none.desc%",
+              "%ext.conf.*.adaptiveMode.enum.gentle.desc%",
+              "%ext.conf.*.adaptiveMode.enum.moderate.desc%",
+              "%ext.conf.*.adaptiveMode.enum.aggressive.desc%"
             ],
             "markdownDescription": "%ext.conf.dark.adaptiveMode.desc%"
           },
@@ -190,7 +190,7 @@
             "default": null,
             "markdownDescription": "%ext.conf.dark.auxiliaryCodeTheme.desc%",
             "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/.+/.+/.+$",
-            "patternErrorMessage": "%ext.conf.dark.auxiliaryCodeTheme.err%"
+            "patternErrorMessage": "%ext.conf.dark.auxiliary*Theme.err%"
           }
         }
       },
@@ -206,7 +206,7 @@
             "default": null,
             "markdownDescription": "%ext.conf.light.auxiliaryUiTheme.desc%",
             "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/.+/.+/.+$",
-            "patternErrorMessage": "%ext.conf.light.auxiliaryUiTheme.err%"
+            "patternErrorMessage": "%ext.conf.light.auxiliary*Theme.err%"
           },
           "codemosModern.light.design": {
             "order": 1,
@@ -217,8 +217,8 @@
               "minimal"
             ],
             "enumDescriptions": [
-              "%ext.conf.light.design.enum.modern.desc%",
-              "%ext.conf.light.design.enum.minimal.desc%"
+              "%ext.conf.*.design.enum.modern.desc%",
+              "%ext.conf.*.design.enum.minimal.desc%"
             ],
             "markdownDescription": "%ext.conf.light.design.desc%"
           },
@@ -241,10 +241,10 @@
               "aggressive"
             ],
             "enumDescriptions": [
-              "%ext.conf.light.adaptiveMode.enum.none.desc%",
-              "%ext.conf.light.adaptiveMode.enum.gentle.desc%",
-              "%ext.conf.light.adaptiveMode.enum.moderate.desc%",
-              "%ext.conf.light.adaptiveMode.enum.aggressive.desc%"
+              "%ext.conf.*.adaptiveMode.enum.none.desc%",
+              "%ext.conf.*.adaptiveMode.enum.gentle.desc%",
+              "%ext.conf.*.adaptiveMode.enum.moderate.desc%",
+              "%ext.conf.*.adaptiveMode.enum.aggressive.desc%"
             ],
             "markdownDescription": "%ext.conf.light.adaptiveMode.desc%"
           },
@@ -257,7 +257,7 @@
             "default": null,
             "markdownDescription": "%ext.conf.light.auxiliaryCodeTheme.desc%",
             "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/.+/.+/.+$",
-            "patternErrorMessage": "%ext.conf.light.auxiliaryCodeTheme.err%"
+            "patternErrorMessage": "%ext.conf.light.auxiliary*Theme.err%"
           }
         }
       }
@@ -271,7 +271,7 @@
     "@typescript-eslint/parser": "^6.18.0",
     "eslint": "^8.39.0",
     "eslint-config-prettier": "^9.0.0",
-    "husky": "^8.0.3",
+    "husky": "^9.0.10",
     "lint-staged": "^15.2.0",
     "prettier": "^3.1.1",
     "ts-node": "^10.9.1",
@@ -283,7 +283,7 @@
     "compile:stateFile": "ts-node src/hooks/compileStateFile.ts",
     "compile:badges": " ts-node src/hooks/updateBadges.ts",
     "compile": "tsc",
-    "build": "npm run compile && npm run compile:themes && npm run compile:stateFile && npm run compile:badges",
+    "build": "npm run compile && npm run compile:themes && npm run compile:stateFile",
     "lint": "eslint src --ext ts && tsc --noEmit",
     "format": "prettier --write .",
     "clean": "rm -rf out && rm -rf data/.state.json && rm -rf data/cache/*",
@@ -298,7 +298,7 @@
     "@octokit/rest": "^20.0.1",
     "@resvg/resvg-js": "^2.6.0",
     "axios": "^1.6.5",
-    "jsdom": "^23.2.0",
+    "jsdom": "^24.0.0",
     "node-fetch": "^2.6.12"
   }
 }

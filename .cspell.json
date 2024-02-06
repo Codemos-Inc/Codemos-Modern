@@ -5,18 +5,28 @@
   "dictionaries": [],
   "words": [
     "adaptif",
+    "ansi",
     "camarone",
     "CIEDE",
     "codemos",
+    "glassmorphism",
     "İstek",
     "İtalik",
     "keppel",
+    "minimalista",
     "modda",
+    "rdme",
+    "reconfigurado",
     "roti",
     "sürümünüzle",
+    "themeable",
+    "theming",
+    "Unopinionated",
+    "unpulled",
     "xlink",
     "yerelleştirmeler"
   ],
   "ignoreWords": [],
-  "import": []
+  "import": [],
+  "enableFiletypes": ["json"]
 }

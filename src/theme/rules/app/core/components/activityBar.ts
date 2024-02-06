@@ -14,11 +14,17 @@ export const getRules = (themeContext: ThemeContext): object => {
     "activityBar.activeBorder": colors.fill.accent.pri,
     "activityBar.activeBackground": colors.fill.control.rest,
     "activityBar.activeFocusBorder": colors.basic.neutral.pri,
+    "activityBarTop.activeBorder": colors.fill.accent.pri,
+    "activityBarTop.inactiveForeground": colors.fill.text.sec,
+    "activityBarTop.dropBorder": colors.fill.accent.pri,
+    "activityBarTop.foreground": colors.fill.text.pri,
   };
   const design = themeContext.variantConfig.design;
   if (design === "minimal") {
     activityBarRules["activityBar.activeBorder"] = TRANSPARENT;
     activityBarRules["activityBar.foreground"] = colors.fill.accent.pri;
+    activityBarRules["activityBarTop.activeBorder"] = TRANSPARENT;
+    activityBarRules["activityBarTop.foreground"] = colors.fill.accent.pri;
   }
   return activityBarRules;
 };

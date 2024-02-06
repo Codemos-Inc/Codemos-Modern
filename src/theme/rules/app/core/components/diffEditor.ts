@@ -15,12 +15,14 @@ export const getRules = (themeContext: ThemeContext): object => {
     "diffEditorGutter.removedLineBackground": TRANSPARENT,
     "diffEditorOverview.insertedForeground": colors.basic.def.green.sec,
     "diffEditorOverview.removedForeground": colors.basic.def.red.sec,
-    "diffEditor.unchangedRegionBackground": colors.fill.control.prominent,
+    "diffEditor.unchangedRegionBackground": colors.bg.solid.onCanvas,
     "diffEditor.unchangedRegionForeground": colors.fill.text.sec,
     "diffEditor.unchangedRegionShadow": colors.effect.shadow.default,
     "diffEditor.unchangedCodeBackground": colors.basic.neutral.sep,
     "diffEditor.move.border": colors.stroke.focus.default,
     "diffEditor.moveActive.border": colors.fill.system.fg.yellow,
     "multiDiffEditor.headerBackground": "#FF0000", // 🔵 Unknown attribute
+    "multiDiffEditor.background": colors.bg.solid.base,
+    "multiDiffEditor.border": colors.stroke.focus.default,
   };
 };

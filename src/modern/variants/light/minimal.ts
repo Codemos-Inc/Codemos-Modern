@@ -347,8 +347,9 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
         ter: `${palette.hic}${getHexAlpha(50)}`,
         qua: `${palette.hic}${getHexAlpha(20)}`,
         qui: `${palette.hic}${getHexAlpha(12)}`,
-        sen: `${palette.hic}${getHexAlpha(7)}`,
-        sep: `${palette.hic}${getHexAlpha(4)}`,
+        sen: `${palette.hic}${getHexAlpha(8)}`,
+        sep: `${palette.hic}${getHexAlpha(5)}`,
+        oct: `${palette.hic}${getHexAlpha(3)}`,
       },
     },
     fill: {
@@ -439,8 +440,7 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
         default: `${palette.hic}${getHexAlpha(10)}`,
       },
       surface: {
-        layer: `#858585${getHexAlpha(40)}`,
-        flyout: `${palette.hic}${getHexAlpha(10)}`,
+        flyout: `#858585${getHexAlpha(32)}`,
       },
       focus: {
         default: `#858585${getHexAlpha(40)}`,

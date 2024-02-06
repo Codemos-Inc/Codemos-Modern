@@ -16,6 +16,8 @@ export const getRules = (themeContext: ThemeContext): object => {
     "panelSectionHeader.background": colors.fill.control.subtle,
     "panelSectionHeader.foreground": colors.fill.text.sec,
     "panelSectionHeader.border": colors.stroke.focus.default,
+    "outputView.background": colors.bg.solid.canvas,
+    "outputViewStickyScroll.background": colors.bg.solid.surface,
   };
   const design = themeContext.variantConfig.design;
   if (design === "minimal") {
@@ -23,6 +25,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     panelRules["panelTitle.activeForeground"] = colors.fill.accent.pri;
     panelRules["panelSectionHeader.background"] = TRANSPARENT;
     panelRules["panelSectionHeader.border"] = colors.stroke.control.default;
+    panelRules["outputView.background"] = colors.bg.solid.base;
   }
   return panelRules;
 };
