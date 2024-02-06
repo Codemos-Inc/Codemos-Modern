@@ -310,7 +310,8 @@ Nothing yet.
 
 - Initial release
 
-[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.4.0...HEAD
+[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.5.0...HEAD
+[2.5.0]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.4.0...v2.5.0
 [2.4.0]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.3.1...v2.4.0
 [2.3.1]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.3.0...v2.3.1
 [2.3.0]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.2.0...v2.3.0
