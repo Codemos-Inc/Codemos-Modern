@@ -39,5 +39,5 @@ jobs:
           git config --local user.email "actions@codemos.dev"
           git config --local user.name "GitHub Actions"
           git add images
-          git commit -n -m "Daily badge updates"
+          git diff --quiet && git diff --staged --quiet || git commit -n -m "Daily badge updates"
           git push
