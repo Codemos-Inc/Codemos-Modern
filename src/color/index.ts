@@ -177,15 +177,13 @@ const getBalancedHex6 = (
   referenceHex6: string,
   getsDarker: boolean,
 ): string => {
-  const hsl: HSL = [
-    rgbToHsl(hex6ToRgb(hex6))[0],
-    saturation,
-    getsDarker ? 100 : 0,
-  ];
+  const hsl: HSL = rgbToHsl(hex6ToRgb(hex6));
+  hsl[1] = hsl[1] === 0 ? 0 : saturation; // We want to preserve the original saturation if it's 0
+  hsl[2] = getsDarker ? 100 : 0; // We want to start from the darkest or lightest color
   let found = false;
   let minimumContrastRatio: number = Number.MAX_SAFE_INTEGER;
   let currentColor: string = hslToHex6(hsl);
-  let prevColor: string = hslToHex6(hsl);
+  let prevColor: string = currentColor;
   while (!found) {
     const currentContrastRatio = getContrastRatioHex6(
       currentColor,

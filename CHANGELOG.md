@@ -8,6 +8,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 Nothing yet.
 
+## [2.5.1] - 2024-02-07 - A minor fix 🛠️
+
+### Fixed
+
+- Accent colors with 0 saturation resulting with red adaptation.
+
 ## [2.5.0] - 2024-02-06 - New localizations 🇯🇵, 🇪🇸
 
 ### Added
@@ -310,7 +316,8 @@ Nothing yet.
 
 - Initial release
 
-[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.5.0...HEAD
+[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.5.1...HEAD
+[2.5.1]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.5.0...v2.5.1
 [2.5.0]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.4.0...v2.5.0
 [2.4.0]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.3.1...v2.4.0
 [2.3.1]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.3.0...v2.3.1
