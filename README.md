@@ -22,6 +22,8 @@ Innovative, modern theme suite/hub for VS Code
 <img src="images/badge-loc-zh-cn.png" height="28" alt="Simplified Chinese">&nbsp;
 <img src="images/badge-loc-ja.png" height="28" alt="Japanese">&nbsp;
 <img src="images/badge-loc-es.png" height="28" alt="Spanish">&nbsp;
+<img src="images/badge-loc-ru.png" height="28" alt="Russian">&nbsp;
+<img src="images/badge-loc-pt-br.png" height="28" alt="Portuguese (Brazil)">&nbsp;
 <img src="images/badge-loc-tr.png" height="28" alt="Turkish">
 
 ![overview](images/header-1.png)
@@ -251,11 +253,11 @@ We try to make Codemos Modern the most accessible theming extension for VS Code.
 | Simplified Chinese  | zh-cn  | 🟢     | v2.4.0        | Codemos    | -                          |
 | Japanese            | ja     | 💬     | v2.5.0        | Codemos    | Review needed              |
 | Spanish             | es     | 🟢     | v2.5.0        | Codemos    | -                          |
-| Russian             | ru     | 🟡     | -             | Codemos    | Will be released by v2.6.X |
-| Portuguese (Brazil) | pt-br  | 🟡     | -             | Codemos    | Will be released by v2.6.X |
-| French              | fr     | 🔴     | -             | -          | Planned for v2.7.X         |
-| Korean              | ko     | 🔴     | -             | -          | Planned for v2.7.X         |
-| German              | de     | 🔴     | -             | -          | Planned for v2.7.X         |
+| Russian             | ru     | 💬     | v2.6.0        | Codemos    | Review needed              |
+| Portuguese (Brazil) | pt-br  | 🟢     | v2.6.0        | Codemos    | -                          |
+| French              | fr     | 🟡     | -             | Codemos    | Will be released by v2.7.X |
+| Korean              | ko     | 🟡     | -             | Codemos    | Will be released by v2.7.X |
+| German              | de     | 🟡     | -             | Codemos    | Will be released by v2.7.X |
 | Traditional Chinese | zh-tw  | 🔴     | -             | -          | Planned for v2.8.X         |
 | Italian             | it     | 🔴     | -             | -          | Planned for v2.8.X         |
 | Polish              | pl     | 🔴     | -             | -          | Not planned                |
