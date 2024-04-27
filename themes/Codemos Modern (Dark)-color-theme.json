@@ -869,6 +869,7 @@
     "remoteHub.decorations.possibleConflictForegroundColor": "#C59E7Fff",
     "remoteHub.decorations.submoduleForegroundColor": "#46A598ff",
     "remoteHub.decorations.workspaceRepositoriesView.hasUncommittedChangesForegroundColor": "#87ABC0ff"
+    
   },
   "semanticHighlighting": true,
   "semanticTokenColors": {
