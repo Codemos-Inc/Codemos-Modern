@@ -12,20 +12,24 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
+
       - name: Checkout release
         uses: actions/checkout@v3.5.3
         with:
           ref: release
+
       - name: Setup Node.js
         uses: actions/setup-node@v3.7.0
         with:
           node-version-file: ".nvmrc"
+
       - name: Build artifacts
         run: |
           npm ci
           npm run build
           npm install -g @vscode/vsce
           vsce package --allow-star-activation
+
       - name: Prepare tag
         id: prepare_tag
         run: |
@@ -33,6 +37,7 @@ jobs:
           release_tag="v$release_version"
           echo "release_version=$release_version" >> "$GITHUB_OUTPUT"
           echo "release_tag=$release_tag" >> "$GITHUB_OUTPUT"
+
       - name: Prepare release
         id: prepare_release
         env:
@@ -51,6 +56,7 @@ jobs:
           echo 'release_body<<$EOF' >> $GITHUB_OUTPUT
           echo "$(cat release_body.md)" >> $GITHUB_OUTPUT
           echo '$EOF' >> $GITHUB_OUTPUT
+
       - name: Create release
         uses: softprops/action-gh-release@v0.1.15
         env:
@@ -63,21 +69,26 @@ jobs:
           body: ${{ env.release_body }}
           files: |
             ./*.vsix
+
   deploy:
     runs-on: ubuntu-latest
     steps:
+
       - name: Checkout release
         uses: actions/checkout@v3.5.3
         with:
           ref: release
+
       - name: Setup Node.js
         uses: actions/setup-node@v3.7.0
         with:
           node-version-file: ".nvmrc"
+
       - name: Install dependencies & build
         run: |
           npm ci
           npm run build
+          
       - name: Publish to Open VSX Registry
         uses: HaaLeo/publish-vscode-extension@v1
         with:
