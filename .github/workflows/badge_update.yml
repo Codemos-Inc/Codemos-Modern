@@ -12,17 +12,9 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - name: Install Noto Sans SC
+      - name: Install Fonts
         run: |
-          wget -O Noto_Sans_SC.zip https://fonts.google.com/download?family=Noto%20Sans%20SC
-          unzip -d noto_sans_sc/ Noto_Sans_SC.zip
-          mv noto_sans_sc /usr/share/fonts/
-          fc-cache -f
-      - name: Install Noto Sans JP
-        run: |
-          wget -O Noto_Sans_JP.zip https://fonts.google.com/download?family=Noto%20Sans%20JP
-          unzip -d noto_sans_jp/ Noto_Sans_JP.zip
-          mv noto_sans_jp /usr/share/fonts/
+          mv fonts/* /usr/share/fonts/
           fc-cache -f
       - name: Checkout release
         uses: actions/checkout@v3.5.3
