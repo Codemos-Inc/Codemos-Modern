@@ -144,7 +144,7 @@
           "codemosModern.dark.design": {
             "order": 1,
             "type": "string",
-            "default": "modern",
+            "default": "minimal",
             "enum": [
               "modern",
               "minimal"
@@ -211,7 +211,7 @@
           "codemosModern.light.design": {
             "order": 1,
             "type": "string",
-            "default": "modern",
+            "default": "minimal",
             "enum": [
               "modern",
               "minimal"

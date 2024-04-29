@@ -11,14 +11,14 @@ export const defaultConfig: Config = {
   },
   dark: {
     auxiliaryUiTheme: null,
-    design: "modern",
+    design: "minimal",
     accentColor: "#CB8569",
     adaptiveMode: "none",
     auxiliaryCodeTheme: null,
   },
   light: {
     auxiliaryUiTheme: null,
-    design: "modern",
+    design: "minimal",
     accentColor: "#784F3F",
     adaptiveMode: "none",
     auxiliaryCodeTheme: null,
