@@ -21,7 +21,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     "diffEditor.unchangedCodeBackground": colors.basic.neutral.sep,
     "diffEditor.move.border": colors.stroke.focus.default,
     "diffEditor.moveActive.border": colors.fill.system.fg.yellow,
-    "multiDiffEditor.headerBackground": "#FF0000", // 🔵 Unknown attribute
+    "multiDiffEditor.headerBackground": colors.bg.solid.onCanvas,
     "multiDiffEditor.background": colors.bg.solid.base,
     "multiDiffEditor.border": colors.stroke.focus.default,
   };

@@ -10,6 +10,12 @@ export const getRules = (themeContext: ThemeContext): object => {
     "testing.iconQueued": colors.basic.def.yellow.pri,
     "testing.iconUnset": colors.basic.neutral.ter,
     "testing.iconSkipped": colors.basic.neutral.ter,
+    "testing.iconErrored.retired": "#ff0000", // 🔵 Unknown attribute
+    "testing.iconFailed.retired": "#ff0000", // 🔵 Unknown attribute
+    "testing.iconPassed.retired": "#ff0000", // 🔵 Unknown attribute
+    "testing.iconQueued.retired": "#ff0000", // 🔵 Unknown attribute
+    "testing.iconSkipped.retired": "#ff0000", // 🔵 Unknown attribute
+    "testing.iconUnset.retired": "#ff0000", // 🔵 Unknown attribute
     "testing.peekBorder": colors.basic.alt.red.pri,
     "testing.peekHeaderBackground": colors.basic.loc.red.pri,
     "testing.message.error.decorationForeground": colors.basic.def.red.pri,
