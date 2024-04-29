@@ -12,6 +12,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     "sideBarSectionHeader.background": colors.fill.control.subtle,
     "sideBarSectionHeader.foreground": colors.fill.text.sec,
     "sideBarSectionHeader.border": colors.stroke.focus.default,
+    "sideBarActivityBarTop.border": colors.stroke.divider.default,
   };
   const design = themeContext.variantConfig.design;
   if (design === "minimal") {

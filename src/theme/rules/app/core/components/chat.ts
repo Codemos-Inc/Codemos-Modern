@@ -5,6 +5,7 @@ export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles;
   return {
     "chat.requestBorder": colors.stroke.divider.default,
+    "chat.requestBackground": colors.fill.control.subtle,
     "chat.slashCommandBackground": colors.fill.control.rest,
     "chat.slashCommandForeground": colors.fill.accentText.pri,
     "chat.avatarBackground": getMixedColorHex9(

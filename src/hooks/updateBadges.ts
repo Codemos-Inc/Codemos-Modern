@@ -14,7 +14,7 @@ fetchModifySvg(
   false,
 );
 fetchModifySvg(
-  "https://img.shields.io/badge/-v1.86+-4B9ECD.svg?labelColor=373737&label=&logo=visualstudiocode&logoColor=%23FFFFFFC7&style=for-the-badge",
+  "https://img.shields.io/badge/-v1.87+-4B9ECD.svg?labelColor=373737&label=&logo=visualstudiocode&logoColor=%23FFFFFFC7&style=for-the-badge",
   path.join(IMAGES_PATH, "badge-vscode.svg"),
   true,
   false,

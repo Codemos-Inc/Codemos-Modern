@@ -14,10 +14,12 @@ export const getRules = (themeContext: ThemeContext): object => {
     "activityBar.activeBorder": colors.fill.accent.pri,
     "activityBar.activeBackground": colors.fill.control.rest,
     "activityBar.activeFocusBorder": colors.basic.neutral.pri,
+    "activityBarTop.foreground": colors.fill.text.pri,
     "activityBarTop.activeBorder": colors.fill.accent.pri,
     "activityBarTop.inactiveForeground": colors.fill.text.sec,
     "activityBarTop.dropBorder": colors.fill.accent.pri,
-    "activityBarTop.foreground": colors.fill.text.pri,
+    "activityBarTop.background": colors.bg.solid.base,
+    "activityBarTop.activeBackground": colors.fill.control.rest,
   };
   const design = themeContext.variantConfig.design;
   if (design === "minimal") {
