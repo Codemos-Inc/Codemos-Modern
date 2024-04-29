@@ -14,10 +14,12 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
+
       - name: Setup Node.js
         uses: actions/setup-node@v3.6.0
         with:
           node-version-file: ".nvmrc"
+
       - name: Get the latest version
         id: get_latest_version
         run: |
@@ -25,17 +27,20 @@ jobs:
           latest_version=$(echo $latest_tag | sed "s/v//")
           echo "latest_version=$latest_version" >> "$GITHUB_OUTPUT"
           echo "Latest version: $latest_version"
+
       - name: Get the proposed version
         id: get_proposed_version
         run: |
           proposed_version=$(node -p "require('./package-lock.json').version")
           echo "proposed_version=$proposed_version" >> "$GITHUB_OUTPUT"
           echo "Proposed version: $proposed_version"
+
       - name: Check version
         env:
           latest_version: ${{ steps.get_latest_version.outputs.latest_version }}
           proposed_version: ${{ steps.get_proposed_version.outputs.proposed_version }}
         run: npx semver -r ">$latest_version" "$proposed_version" > /dev/null && echo "Proposed version is valid" || (echo "Proposed version is invalid" && exit 1)
+
       - name: Check change log
         env:
           proposed_version: ${{ steps.get_proposed_version.outputs.proposed_version }}
