@@ -1,6 +1,7 @@
 .github/**
 .husky/**
 .vscode/**
+fonts/**
 images/**
 out/**/*.map.js
 out/hooks/**

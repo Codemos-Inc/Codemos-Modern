@@ -113,8 +113,8 @@ export const getRules = (themeContext: ThemeContext): object => {
     "editorOverviewRuler.warningForeground": colors.basic.def.orange.pri,
     "editorOverviewRuler.infoForeground": colors.basic.def.blue.pri,
     "editorOverviewRuler.bracketMatchForeground": colors.basic.def.brown.sec,
-    "editorOverviewRuler.inlineChatInserted": "#ff0000", // 🔵 Unknown attribute
-    "editorOverviewRuler.inlineChatRemoved": "#ff0000", // 🔵 Unknown attribute
+    "editorOverviewRuler.inlineChatInserted": colors.basic.def.green.sec,
+    "editorOverviewRuler.inlineChatRemoved": colors.basic.def.red.sec,
     "editorError.foreground": colors.basic.def.red.pri,
     "editorError.border": TRANSPARENT,
     "editorError.background": TRANSPARENT,
