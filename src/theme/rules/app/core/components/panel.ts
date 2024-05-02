@@ -4,7 +4,7 @@ import { TRANSPARENT } from "../../../../../color/constants";
 export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles;
   const panelRules = {
-    "panel.background": colors.bg.solid.surface,
+    "panel.background": colors.bg.solid.base,
     "panel.border": colors.stroke.divider.default,
     "panel.dropBorder": colors.fill.accent.pri,
     "panelTitle.activeBorder": colors.fill.accent.pri,
@@ -16,8 +16,11 @@ export const getRules = (themeContext: ThemeContext): object => {
     "panelSectionHeader.background": colors.fill.control.subtle,
     "panelSectionHeader.foreground": colors.fill.text.sec,
     "panelSectionHeader.border": colors.stroke.focus.default,
-    "outputView.background": colors.bg.solid.canvas,
-    "outputViewStickyScroll.background": colors.bg.solid.surface,
+    "panelStickyScroll.background": colors.bg.solid.base,
+    "panelStickyScroll.border": colors.stroke.divider.default,
+    "panelStickyScroll.shadow": colors.effect.shadow.default,
+    "outputView.background": colors.bg.solid.surface,
+    "outputViewStickyScroll.background": colors.bg.solid.base,
   };
   const design = themeContext.variantConfig.design;
   if (design === "minimal") {

@@ -25,7 +25,7 @@ jobs:
 
       - name: Install Fonts
         run: |
-          mv fonts/* /usr/share/fonts/
+          cp -R fonts/* /usr/share/fonts/
           fc-cache -f
 
       - name: Update badges

@@ -13,7 +13,5 @@ export const getRules = (themeContext: ThemeContext): object => {
     "inlineChatInput.background": colors.fill.control.restSolid, // 🟢 Undesired solution!
     "inlineChatDiff.inserted": colors.basic.def.green.qui,
     "inlineChatDiff.removed": colors.basic.def.red.qui,
-    "interactive.activeCodeBorder": "#FF0000", // 🔵 Unknown attribute
-    "interactive.inactiveCodeBorder": "#FF0000", // 🔵 Unknown attribute
   };
 };

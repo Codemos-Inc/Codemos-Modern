@@ -33,6 +33,7 @@ import { getRules as getMinimapRules } from "./components/minimap";
 import { getRules as getNotebookRules } from "./components/notebook";
 import { getRules as getNotificationRules } from "./components/notification";
 import { getRules as getPanelRules } from "./components/panel";
+import { getRules as getPanelChatRules } from "./components/panelChat";
 import { getRules as getPeekViewRules } from "./components/peekView";
 import { getRules as getPortsRules } from "./components/ports";
 import { getRules as getProfilesRules } from "./components/profiles";
@@ -88,6 +89,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     ...getNotebookRules(themeContext),
     ...getNotificationRules(themeContext),
     ...getPanelRules(themeContext),
+    ...getPanelChatRules(themeContext),
     ...getPeekViewRules(themeContext),
     ...getPortsRules(themeContext),
     ...getProfilesRules(themeContext),

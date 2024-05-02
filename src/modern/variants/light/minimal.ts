@@ -355,14 +355,14 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
     fill: {
       text: {
         active: `${palette.hic}${getHexAlpha(100)}`,
-        pri: `${palette.hic}${getHexAlpha(90)}`,
+        pri: `${palette.hic}${getHexAlpha(88)}`,
         sec: `${palette.hic}${getHexAlpha(72)}`,
         disabled: `${palette.hic}${getHexAlpha(50)}`,
         ghost: `${palette.hic}${getHexAlpha(32)}`,
       },
       accentText: {
         pri: `${accentTextColor}${getHexAlpha(100)}`,
-        sec: `${accentTextColor}${getHexAlpha(90)}`,
+        sec: `${accentTextColor}${getHexAlpha(88)}`,
       },
       textOnColor: {
         pri: `${textOnColor}${getHexAlpha(100)}`,
@@ -381,7 +381,8 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
       },
       accent: {
         pri: `${accentColor}${getHexAlpha(100)}`,
-        sec: `${accentColor}${getHexAlpha(90)}`,
+        sec: `${accentColor}${getHexAlpha(88)}`,
+        ter: `${accentColor}${getHexAlpha(50)}`,
       },
       system: {
         fg: {
@@ -428,6 +429,10 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
           `${palette.hic}${getHexAlpha(32)}`,
           `${mimic1Color}${getHexAlpha(100)}`,
         )}`,
+        stickyScrollHover: getMixedColorHex9(
+          `${palette.hic}${getHexAlpha(8)}`,
+          `${mimic1Color}${getHexAlpha(100)}`,
+        ),
       },
     },
     stroke: {

@@ -14,7 +14,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     "editorMultiCursor.primary.background": colors.fill.textOnColor.pri,
     "editorMultiCursor.primary.foreground": colors.fill.accent.pri,
     "editorMultiCursor.secondary.background": colors.fill.textOnColor.pri,
-    "editorMultiCursor.secondary.foreground": colors.basic.def.blue.pri,
+    "editorMultiCursor.secondary.foreground": colors.fill.accent.ter,
     "editor.selectionBackground": colors.basic.neutral.sen,
     "editor.selectionForeground": colors.fill.text.pri,
     "editor.inactiveSelectionBackground": colors.basic.neutral.sep,

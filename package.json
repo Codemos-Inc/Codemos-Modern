@@ -4,7 +4,7 @@
   "publisher": "Codemos",
   "icon": "res/icon.gif",
   "description": "%ext.desc%",
-  "version": "2.5.3",
+  "version": "2.5.4",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -29,7 +29,7 @@
     }
   },
   "engines": {
-    "vscode": "^1.88.0"
+    "vscode": "^1.89.0"
   },
   "activationEvents": [
     "*"
@@ -144,7 +144,7 @@
           "codemosModern.dark.design": {
             "order": 1,
             "type": "string",
-            "default": "modern",
+            "default": "minimal",
             "enum": [
               "modern",
               "minimal"
@@ -211,7 +211,7 @@
           "codemosModern.light.design": {
             "order": 1,
             "type": "string",
-            "default": "modern",
+            "default": "minimal",
             "enum": [
               "modern",
               "minimal"

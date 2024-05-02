@@ -8,6 +8,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 Nothing yet.
 
+## [2.5.4] - 2024-02-05 - v1.89.x Support 🟢
+
+### Added
+
+- Support for VS Code v1.89.x.
+
 ## [2.5.3] - 2024-30-04 - v1.88.x Support 🟢
 
 ### Added

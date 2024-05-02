@@ -27,7 +27,7 @@ export function l10nT(
   }
   let value: string =
     cache[key] ??
-    `🌐 Translation missing for key: "${key}". Report to Codemos.`;
+    `🌐 Translation missing for key: "${key}"! Report to Codemos.`;
   if (args) {
     args.forEach((arg, index) => {
       value = value.replace(new RegExp(`\\{${index}\\}`, "g"), String(arg));

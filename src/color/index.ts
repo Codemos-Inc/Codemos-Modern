@@ -119,7 +119,9 @@ const getMixedColorRgb = (
 };
 
 export const getHexAlpha = (percentage: number): string => {
-  const hex = Math.round((percentage / 100) * 255).toString(16);
+  const hex = Math.round((percentage / 100) * 255)
+    .toString(16)
+    .toUpperCase();
   return hex.length === 1 ? `0${hex}` : hex;
 };
 
