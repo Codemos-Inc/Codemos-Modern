@@ -13,6 +13,7 @@ Nothing yet.
 ### Added
 
 - Support for VS Code v1.89.x.
+- Missing color attributes.
 
 ## [2.5.3] - 2024-30-04 - v1.88.x Support 🟢
 
@@ -339,7 +340,8 @@ Nothing yet.
 
 - Initial release
 
-[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.5.3...HEAD
+[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.5.4...HEAD
+[2.5.4]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.5.3...v2.5.4
 [2.5.3]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.5.2...v2.5.3
 [2.5.2]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.5.1...v2.5.2
 [2.5.1]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.5.0...v2.5.1
