@@ -387,7 +387,7 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
       },
       accentText: {
         pri: `${accentTextColor}${getHexAlpha(100)}`,
-        sec: `${accentTextColor}${getHexAlpha(90)}`,
+        sec: `${accentTextColor}${getHexAlpha(86)}`,
       },
       textOnColor: {
         pri: `${textOnColor}${getHexAlpha(100)}`,
@@ -406,7 +406,8 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
       },
       accent: {
         pri: `${accentColor}${getHexAlpha(100)}`,
-        sec: `${accentColor}${getHexAlpha(90)}`,
+        sec: `${accentColor}${getHexAlpha(86)}`,
+        ter: `${accentColor}${getHexAlpha(54)}`,
       },
       system: {
         fg: {
@@ -453,6 +454,10 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
           `${palette.hic}${getHexAlpha(20)}`,
           `${mimic3Color}${getHexAlpha(100)}`,
         )}`,
+        stickyScrollHover: getMixedColorHex9(
+          `${palette.hic}${getHexAlpha(8)}`,
+          `${mimic1Color}${getHexAlpha(100)}`,
+        ),
       },
     },
     stroke: {

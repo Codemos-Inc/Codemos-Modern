@@ -3,7 +3,7 @@ import { ThemeContext } from "../../../../../@types";
 export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles;
   const integratedTerminalRules = {
-    "terminal.background": colors.bg.solid.canvas,
+    "terminal.background": colors.bg.solid.surface,
     "terminal.border": colors.stroke.divider.default,
     "terminal.foreground": colors.fill.terminal.fg,
     "terminal.ansiBlack": colors.fill.terminal.loc,
@@ -39,8 +39,9 @@ export const getRules = (themeContext: ThemeContext): object => {
     "terminalCommandDecoration.errorBackground": colors.basic.def.red.pri,
     "terminalOverviewRuler.cursorForeground": colors.fill.accent.pri,
     "terminalOverviewRuler.findMatchForeground": colors.basic.def.mint.sec,
-    "terminalStickyScroll.background": colors.bg.solid.surface,
-    "terminalStickyScrollHover.background": colors.fill.control.hover,
+    "terminalStickyScroll.background": colors.bg.solid.base,
+    "terminalStickyScrollHover.background":
+      colors.fill.terminal.stickyScrollHover, // 🟢 Undesired solution
   };
   const design = themeContext.variantConfig.design;
   if (design === "minimal") {

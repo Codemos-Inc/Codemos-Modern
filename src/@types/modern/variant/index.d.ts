@@ -286,6 +286,7 @@ export type Styles = {
     accent: {
       pri: string;
       sec: string;
+      ter: string;
     };
     system: {
       fg: {
@@ -317,6 +318,7 @@ export type Styles = {
       hiq: string;
       loq: string;
       loc: string;
+      stickyScrollHover: string;
     };
   };
   stroke: {

@@ -104,6 +104,6 @@ export const hslToHex6 = (hsl: HSL): string => {
 };
 
 const componentToHex = (c: number): string => {
-  const hex = c.toString(16);
+  const hex = c.toString(16).toUpperCase();
   return hex.length === 1 ? "0" + hex : hex;
 };

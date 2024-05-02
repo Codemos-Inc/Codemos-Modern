@@ -13,6 +13,10 @@ export const getRules = (themeContext: ThemeContext): object => {
     "sideBarSectionHeader.foreground": colors.fill.text.sec,
     "sideBarSectionHeader.border": colors.stroke.focus.default,
     "sideBarActivityBarTop.border": colors.stroke.divider.default,
+    "sideBarTitle.background": colors.bg.solid.base,
+    "sideBarStickyScroll.background": colors.bg.solid.base,
+    "sideBarStickyScroll.border": colors.stroke.divider.default,
+    "sideBarStickyScroll.shadow": colors.effect.shadow.default,
   };
   const design = themeContext.variantConfig.design;
   if (design === "minimal") {
