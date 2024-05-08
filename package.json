@@ -4,7 +4,7 @@
   "publisher": "Codemos",
   "icon": "res/icon.gif",
   "description": "%ext.desc%",
-  "version": "2.6.0",
+  "version": "2.6.1",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -144,7 +144,7 @@
           "codemosModern.dark.design": {
             "order": 1,
             "type": "string",
-            "default": "minimal",
+            "default": "modern",
             "enum": [
               "modern",
               "minimal"
@@ -211,7 +211,7 @@
           "codemosModern.light.design": {
             "order": 1,
             "type": "string",
-            "default": "minimal",
+            "default": "modern",
             "enum": [
               "modern",
               "minimal"

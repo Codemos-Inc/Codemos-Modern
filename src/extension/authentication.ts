@@ -20,7 +20,9 @@ export const authenticate = async (
       data: null,
     };
   }
-  const octokit = new Octokit();
+  const octokit = new Octokit({
+    auth: session.accessToken,
+  });
   return await octokit.rateLimit
     .get()
     .then(() => {
