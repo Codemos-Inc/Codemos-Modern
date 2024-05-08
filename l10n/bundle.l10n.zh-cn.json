@@ -80,7 +80,7 @@
   "ext.notification.update.firstInstall": "欢迎来到创新的主题套件/中心！👋 通过配置 Modern，开始您的旅程。",
   "ext.notification.update.index.title": "正在更新注册表索引… ⏳",
   "ext.notification.update.majorUpdate": "Modern已更新至V2！🎉 请查看我们的扩展页面上的新内容。",
-  "ext.notification.update.minorUpdate": "Modern已更新！🎉 新的本地化：土耳其 🇹🇷，英语 🇺🇸，中文 🇨🇳",
+  "ext.notification.update.minorUpdate": "Modern已更新！🎉 新增本地化语言：俄语 🇷🇺，巴西葡萄牙语 🇧🇷",
   "ext.notification.update.patchUpdate": "Modern已打补丁！🎉",
   "ext.notification.update.profileChange": "配置文件已更改！👥",
   "ext.notification.update.reinstall": "Modern准备好了！🎉"
