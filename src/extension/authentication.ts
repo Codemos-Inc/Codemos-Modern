@@ -16,16 +16,11 @@ export const authenticate = async (
   if (!session) {
     return {
       success: false,
-      message: l10nT("ext.message.error.authSessionNotFound"),
+      message: l10nT("message.error.authSessionNotFound"),
       data: null,
     };
   }
-  const octokit = new Octokit({
-    auth: session.accessToken,
-    request: {
-      fetch: require("node-fetch"),
-    },
-  });
+  const octokit = new Octokit();
   return await octokit.rateLimit
     .get()
     .then(() => {
@@ -36,12 +31,10 @@ export const authenticate = async (
       let message: string;
       switch (error.status) {
         case 401:
-          message = l10nT("ext.message.error.apiUnauthorized");
+          message = l10nT("message.error.apiUnauthorized");
           break;
         default:
-          message = l10nT("ext.message.error.networkError$status", [
-            error.status,
-          ]);
+          message = l10nT("message.error.networkError$status", [error.status]);
           break;
       }
       return { success: false, message: message, data: null };

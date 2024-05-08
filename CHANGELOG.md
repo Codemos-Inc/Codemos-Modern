@@ -8,13 +8,24 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 Nothing yet.
 
-## [2.5.4] - 2024-02-05 - v1.89.x Support 🟢
+## [2.6.0] - 2024-05-08 - New localizations 🇷🇺, 🇵🇹 🇧🇷
+
+### Added
+
+- Localizations for Russian 🇷🇺, Portuguese (Brazil) 🇵🇹 🇧🇷.
+
+### Fixed
+
+- Registry lookup performance.
+
+## [2.5.4] - 2024-05-02 - v1.89.x Support 🟢
 
 ### Added
 
 - Support for VS Code v1.89.x.
+- Missing color attributes.
 
-## [2.5.3] - 2024-30-04 - v1.88.x Support 🟢
+## [2.5.3] - 2024-04-30 - v1.88.x Support 🟢
 
 ### Added
 
@@ -24,7 +35,7 @@ Nothing yet.
 
 - Unnecessary package contents.
 
-## [2.5.2] - 2024-30-04 - Vs Code v1.87.x Support 🟢
+## [2.5.2] - 2024-04-30 - Vs Code v1.87.x Support 🟢
 
 ### Added
 
@@ -339,7 +350,9 @@ Nothing yet.
 
 - Initial release
 
-[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.5.3...HEAD
+[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.6.0...HEAD
+[2.6.0]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.5.4...v2.6.0
+[2.5.4]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.5.3...v2.5.4
 [2.5.3]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.5.2...v2.5.3
 [2.5.2]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.5.1...v2.5.2
 [2.5.1]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.5.0...v2.5.1
