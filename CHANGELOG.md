@@ -8,6 +8,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 Nothing yet.
 
+## [2.6.1] - 2024-05-08 - Authentication Hotfix 🛠️
+
+### Fixed
+
+- GitHub authentication failing.
+
 ## [2.6.0] - 2024-05-08 - New localizations 🇷🇺, 🇵🇹 🇧🇷
 
 ### Added
@@ -350,7 +356,8 @@ Nothing yet.
 
 - Initial release
 
-[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.6.0...HEAD
+[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.6.1...HEAD
+[2.6.1]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.6.0...v2.6.1
 [2.6.0]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.5.4...v2.6.0
 [2.5.4]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.5.3...v2.5.4
 [2.5.3]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.5.2...v2.5.3
