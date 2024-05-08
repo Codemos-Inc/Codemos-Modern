@@ -40,18 +40,18 @@ import { checkInternetConnection, getConfig, updateConfig } from "./utils";
 
 export const authenticateCommand = async () => {
   await showProgressNotification(
-    l10nT("ext.command.authenticate.progress"),
+    l10nT("command.authenticate.progress"),
     async () => {
       const result = await authenticate(true);
       if (!result.success) {
         showErrorNotification(
-          l10nT("ext.command.authenticate.error$msg", [result.message]),
+          l10nT("command.authenticate.error$msg", [result.message]),
           null,
           null,
         );
       } else {
         showInformationNotification(
-          l10nT("ext.command.authenticate.success"),
+          l10nT("command.authenticate.success"),
           null,
           null,
         );
@@ -71,7 +71,7 @@ export const configureCommand = async () => {
   //
   const auxiliaryUiThemeExtension = await getAuxiliaryThemeExtension(
     variant,
-    l10nT("ext.helper.kind.ui"),
+    l10nT("helper.kind.ui"),
     isOfflineMode,
   );
   if (!auxiliaryUiThemeExtension) {
@@ -82,7 +82,7 @@ export const configureCommand = async () => {
     const auxiliaryUiThemeCandidate = await getAuxiliaryTheme(
       variant,
       auxiliaryUiThemeExtension,
-      l10nT("ext.helper.kind.ui"),
+      l10nT("helper.kind.ui"),
       isOfflineMode,
     );
     if (!auxiliaryUiThemeCandidate) {
@@ -121,7 +121,7 @@ export const configureCommand = async () => {
   //
   const auxiliaryCodeThemeExtension = await getAuxiliaryThemeExtension(
     variant,
-    l10nT("ext.helper.kind.code"),
+    l10nT("helper.kind.code"),
     isOfflineMode,
   );
   if (!auxiliaryCodeThemeExtension) {
@@ -132,7 +132,7 @@ export const configureCommand = async () => {
     const auxiliaryCodeThemeCandidate = await getAuxiliaryTheme(
       variant,
       auxiliaryCodeThemeExtension,
-      l10nT("ext.helper.kind.code"),
+      l10nT("helper.kind.code"),
       isOfflineMode,
     );
     if (!auxiliaryCodeThemeCandidate) {
@@ -200,22 +200,22 @@ const getVariant = async (): Promise<Variant | undefined> => {
     [
       {
         _variant: "dark",
-        label: l10nT("ext.helper.variant.dark"),
-        description: l10nT("ext.helper.variant"),
-        detail: l10nT("ext.helper.variant.dark.detail"),
+        label: l10nT("helper.variant.dark"),
+        description: l10nT("helper.variant"),
+        detail: l10nT("helper.variant.dark.detail"),
         iconPath: darkModeIconUri,
       },
       {
         _variant: "light",
-        label: l10nT("ext.helper.variant.light"),
-        description: l10nT("ext.helper.variant"),
-        detail: l10nT("ext.helper.variant.light.detail"),
+        label: l10nT("helper.variant.light"),
+        description: l10nT("helper.variant"),
+        detail: l10nT("helper.variant.light.detail"),
         iconPath: lightModeIconUri,
       },
     ],
     {
-      title: l10nT("ext.command.configure.variantPicker.title"),
-      placeHolder: l10nT("ext.command.configure.variantPicker.placeHolder"),
+      title: l10nT("command.configure.variantPicker.title"),
+      placeHolder: l10nT("command.configure.variantPicker.placeHolder"),
       ignoreFocusOut: true,
     },
   );
@@ -237,23 +237,23 @@ const getDesign = async (variant: Variant): Promise<Design | undefined> => {
     [
       {
         _design: "modern",
-        label: `$(symbol-color) ${l10nT("ext.helper.design.modern")}`,
-        description: l10nT("ext.helper.design"),
-        detail: l10nT("ext.helper.design.modern.detail"),
+        label: `$(symbol-color) ${l10nT("helper.design.modern")}`,
+        description: l10nT("helper.design"),
+        detail: l10nT("helper.design.modern.detail"),
       },
       {
         _design: "minimal",
-        label: `$(symbol-color) ${l10nT("ext.helper.design.minimal")}`,
-        description: l10nT("ext.helper.design"),
-        detail: l10nT("ext.helper.design.minimal.detail"),
+        label: `$(symbol-color) ${l10nT("helper.design.minimal")}`,
+        description: l10nT("helper.design"),
+        detail: l10nT("helper.design.minimal.detail"),
       },
     ],
     {
-      title: l10nT("ext.command.configure.*.title$variant$kind", [
-        l10nT(`ext.helper.variant.${variant}`),
-        l10nT(`ext.helper.kind.ui`),
+      title: l10nT("command.configure.*.title$variant$kind", [
+        l10nT(`helper.variant.${variant}`),
+        l10nT(`helper.kind.ui`),
       ]),
-      placeHolder: l10nT("ext.command.configure.designPicker.placeHolder"),
+      placeHolder: l10nT("command.configure.designPicker.placeHolder"),
       ignoreFocusOut: true,
     },
   );
@@ -284,12 +284,12 @@ interface PaletteQPI extends QuickPickItem {
 
 const getAccentColorFromPalette = async (variant: Variant) => {
   const quickPick = window.createQuickPick<PaletteQPI>();
-  quickPick.title = l10nT("ext.command.configure.*.title$variant$kind", [
-    l10nT(`ext.helper.variant.${variant}`),
-    l10nT(`ext.helper.kind.ui`),
+  quickPick.title = l10nT("command.configure.*.title$variant$kind", [
+    l10nT(`helper.variant.${variant}`),
+    l10nT(`helper.kind.ui`),
   ]);
   quickPick.placeholder = l10nT(
-    "ext.command.configure.accColorPalettePicker.placeHolder",
+    "command.configure.accColorPalettePicker.placeHolder",
   );
   quickPick.ignoreFocusOut = true;
   quickPick.busy = true;
@@ -298,15 +298,15 @@ const getAccentColorFromPalette = async (variant: Variant) => {
   quickPick.items = [
     {
       _color: "",
-      label: l10nT("ext.helper.palette.custom"),
+      label: l10nT("helper.palette.custom"),
       kind: QuickPickItemKind.Separator,
     },
     {
       _color: "custom",
-      label: l10nT("ext.helper.palette.custom"),
-      description: l10nT("ext.helper.accentColor"),
+      label: l10nT("helper.palette.custom"),
+      description: l10nT("helper.accentColor"),
       detail: l10nT(
-        "ext.command.configure.accColorPalettePicker.item.custom.detail",
+        "command.configure.accColorPalettePicker.item.custom.detail",
       ),
       iconPath: Uri.file(
         `${__dirname}/../../res/icons/${variant}/accent_custom.svg`,
@@ -314,15 +314,15 @@ const getAccentColorFromPalette = async (variant: Variant) => {
     },
     {
       _color: "",
-      label: l10nT("ext.helper.palette"),
+      label: l10nT("helper.palette"),
       kind: QuickPickItemKind.Separator,
     },
     {
       _color: "brown",
-      label: l10nT("ext.helper.palette.brown"),
-      description: l10nT("ext.helper.accentColor"),
+      label: l10nT("helper.palette.brown"),
+      description: l10nT("helper.accentColor"),
       detail: l10nT(
-        "ext.command.configure.accColorPalettePicker.item.detail$code",
+        "command.configure.accColorPalettePicker.item.detail$code",
         [variant === "dark" ? "APL-BRO" : "APD-BRO"],
       ),
       iconPath: Uri.file(
@@ -331,10 +331,10 @@ const getAccentColorFromPalette = async (variant: Variant) => {
     },
     {
       _color: "red",
-      label: l10nT("ext.helper.palette.red"),
-      description: l10nT("ext.helper.accentColor"),
+      label: l10nT("helper.palette.red"),
+      description: l10nT("helper.accentColor"),
       detail: l10nT(
-        "ext.command.configure.accColorPalettePicker.item.detail$code",
+        "command.configure.accColorPalettePicker.item.detail$code",
         [variant === "dark" ? "LPD-RED" : "DPD-RED"],
       ),
       iconPath: Uri.file(
@@ -343,10 +343,10 @@ const getAccentColorFromPalette = async (variant: Variant) => {
     },
     {
       _color: "orange",
-      label: l10nT("ext.helper.palette.orange"),
-      description: l10nT("ext.helper.accentColor"),
+      label: l10nT("helper.palette.orange"),
+      description: l10nT("helper.accentColor"),
       detail: l10nT(
-        "ext.command.configure.accColorPalettePicker.item.detail$code",
+        "command.configure.accColorPalettePicker.item.detail$code",
         [variant === "dark" ? "LPD-ORA" : "DPD-ORA"],
       ),
       iconPath: Uri.file(
@@ -355,10 +355,10 @@ const getAccentColorFromPalette = async (variant: Variant) => {
     },
     {
       _color: "yellow",
-      label: l10nT("ext.helper.palette.yellow"),
-      description: l10nT("ext.helper.accentColor"),
+      label: l10nT("helper.palette.yellow"),
+      description: l10nT("helper.accentColor"),
       detail: l10nT(
-        "ext.command.configure.accColorPalettePicker.item.detail$code",
+        "command.configure.accColorPalettePicker.item.detail$code",
         [variant === "dark" ? "LPD-YEL" : "DPD-YEL"],
       ),
       iconPath: Uri.file(
@@ -367,10 +367,10 @@ const getAccentColorFromPalette = async (variant: Variant) => {
     },
     {
       _color: "green",
-      label: l10nT("ext.helper.palette.green"),
-      description: l10nT("ext.helper.accentColor"),
+      label: l10nT("helper.palette.green"),
+      description: l10nT("helper.accentColor"),
       detail: l10nT(
-        "ext.command.configure.accColorPalettePicker.item.detail$code",
+        "command.configure.accColorPalettePicker.item.detail$code",
         [variant === "dark" ? "LPD-GRE" : "DPD-GRE"],
       ),
       iconPath: Uri.file(
@@ -379,10 +379,10 @@ const getAccentColorFromPalette = async (variant: Variant) => {
     },
     {
       _color: "mint",
-      label: l10nT("ext.helper.palette.mint"),
-      description: l10nT("ext.helper.accentColor"),
+      label: l10nT("helper.palette.mint"),
+      description: l10nT("helper.accentColor"),
       detail: l10nT(
-        "ext.command.configure.accColorPalettePicker.item.detail$code",
+        "command.configure.accColorPalettePicker.item.detail$code",
         [variant === "dark" ? "LPD-MIN" : "DPD-MIN"],
       ),
       iconPath: Uri.file(
@@ -391,10 +391,10 @@ const getAccentColorFromPalette = async (variant: Variant) => {
     },
     {
       _color: "blue",
-      label: l10nT("ext.helper.palette.blue"),
-      description: l10nT("ext.helper.accentColor"),
+      label: l10nT("helper.palette.blue"),
+      description: l10nT("helper.accentColor"),
       detail: l10nT(
-        "ext.command.configure.accColorPalettePicker.item.detail$code",
+        "command.configure.accColorPalettePicker.item.detail$code",
         [variant === "dark" ? "LPD-BLU" : "DPD-BLU"],
       ),
       iconPath: Uri.file(
@@ -403,10 +403,10 @@ const getAccentColorFromPalette = async (variant: Variant) => {
     },
     {
       _color: "purple",
-      label: l10nT("ext.helper.palette.purple"),
-      description: l10nT("ext.helper.accentColor"),
+      label: l10nT("helper.palette.purple"),
+      description: l10nT("helper.accentColor"),
       detail: l10nT(
-        "ext.command.configure.accColorPalettePicker.item.detail$code",
+        "command.configure.accColorPalettePicker.item.detail$code",
         [variant === "dark" ? "LPD-PUR" : "DPD-PUR"],
       ),
       iconPath: Uri.file(
@@ -415,10 +415,10 @@ const getAccentColorFromPalette = async (variant: Variant) => {
     },
     {
       _color: "pink",
-      label: l10nT("ext.helper.palette.pink"),
-      description: l10nT("ext.helper.accentColor"),
+      label: l10nT("helper.palette.pink"),
+      description: l10nT("helper.accentColor"),
       detail: l10nT(
-        "ext.command.configure.accColorPalettePicker.item.detail$code",
+        "command.configure.accColorPalettePicker.item.detail$code",
         [variant === "dark" ? "LPD-PIN" : "DPD-PIN"],
       ),
       iconPath: Uri.file(
@@ -575,17 +575,17 @@ const prepareAccentColorIcons = (variant: Variant) => {
 
 const getAccentColor = async (variant: Variant) => {
   const accentColorHex7 = await window.showInputBox({
-    title: l10nT("ext.command.configure.*.title$variant$kind", [
-      l10nT(`ext.helper.variant.${variant}`),
-      l10nT(`ext.helper.kind.ui`),
+    title: l10nT("command.configure.*.title$variant$kind", [
+      l10nT(`helper.variant.${variant}`),
+      l10nT(`helper.kind.ui`),
     ]),
-    prompt: l10nT("ext.command.configure.accColorInput.prompt"),
+    prompt: l10nT("command.configure.accColorInput.prompt"),
     value: "#XXXXXX",
     valueSelection: [1, 7],
     ignoreFocusOut: true,
     validateInput(value) {
       if (!validateHex6(value)) {
-        return l10nT("ext.command.configure.accColorInput.error");
+        return l10nT("command.configure.accColorInput.error");
       }
       return undefined;
     },
@@ -609,12 +609,12 @@ const getAdaptiveModeLabel = async (
   accentColorHex7: string,
 ): Promise<AdaptiveMode | undefined> => {
   const quickPick = window.createQuickPick<AdaptiveQPI>();
-  quickPick.title = l10nT("ext.command.configure.*.title$variant$kind", [
-    l10nT(`ext.helper.variant.${variant}`),
-    l10nT(`ext.helper.kind.ui`),
+  quickPick.title = l10nT("command.configure.*.title$variant$kind", [
+    l10nT(`helper.variant.${variant}`),
+    l10nT(`helper.kind.ui`),
   ]);
   quickPick.placeholder = l10nT(
-    "ext.command.configure.adaptiveModePicker.placeHolder",
+    "command.configure.adaptiveModePicker.placeHolder",
   );
   quickPick.ignoreFocusOut = true;
   quickPick.busy = true;
@@ -623,36 +623,36 @@ const getAdaptiveModeLabel = async (
   quickPick.items = [
     {
       _mode: "none",
-      label: l10nT("ext.helper.adaptiveMode.none"),
-      description: l10nT("ext.helper.adaptiveMode"),
-      detail: l10nT("ext.helper.adaptiveMode.none.detail"),
+      label: l10nT("helper.adaptiveMode.none"),
+      description: l10nT("helper.adaptiveMode"),
+      detail: l10nT("helper.adaptiveMode.none.detail"),
       iconPath: Uri.file(
         `${__dirname}/../../res/icons/${variant}/adaptation_none.svg`,
       ),
     },
     {
       _mode: "gentle",
-      label: l10nT("ext.helper.adaptiveMode.gentle"),
-      description: l10nT("ext.helper.adaptiveMode"),
-      detail: l10nT("ext.helper.adaptiveMode.gentle.detail"),
+      label: l10nT("helper.adaptiveMode.gentle"),
+      description: l10nT("helper.adaptiveMode"),
+      detail: l10nT("helper.adaptiveMode.gentle.detail"),
       iconPath: Uri.file(
         `${__dirname}/../../res/icons/${variant}/adaptation_gentle.svg`,
       ),
     },
     {
       _mode: "moderate",
-      label: l10nT("ext.helper.adaptiveMode.moderate"),
-      description: l10nT("ext.helper.adaptiveMode"),
-      detail: l10nT("ext.helper.adaptiveMode.moderate.detail"),
+      label: l10nT("helper.adaptiveMode.moderate"),
+      description: l10nT("helper.adaptiveMode"),
+      detail: l10nT("helper.adaptiveMode.moderate.detail"),
       iconPath: Uri.file(
         `${__dirname}/../../res/icons/${variant}/adaptation_moderate.svg`,
       ),
     },
     {
       _mode: "aggressive",
-      label: l10nT("ext.helper.adaptiveMode.aggressive"),
-      description: l10nT("ext.helper.adaptiveMode"),
-      detail: l10nT("ext.helper.adaptiveMode.aggressive.detail"),
+      label: l10nT("helper.adaptiveMode.aggressive"),
+      description: l10nT("helper.adaptiveMode"),
+      detail: l10nT("helper.adaptiveMode.aggressive.detail"),
       iconPath: Uri.file(
         `${__dirname}/../../res/icons/${variant}/adaptation_aggressive.svg`,
       ),
@@ -765,12 +765,12 @@ const getAuxiliaryThemeExtension = async (
   isOfflineMode: boolean,
 ) => {
   const quickPick = window.createQuickPick<AuxiliaryThemeQPI>();
-  quickPick.title = l10nT("ext.command.configure.*.title$variant$kind", [
-    l10nT(`ext.helper.variant.${variant}`),
+  quickPick.title = l10nT("command.configure.*.title$variant$kind", [
+    l10nT(`helper.variant.${variant}`),
     kind,
   ]);
   quickPick.placeholder = l10nT(
-    "ext.command.configure.auxExtensionPicker.placeHolder$kind",
+    "command.configure.auxExtensionPicker.placeHolder$kind",
     [kind],
   );
   quickPick.ignoreFocusOut = true;
@@ -793,7 +793,7 @@ const getAuxiliaryThemeExtension = async (
   const auxiliaryThemesQPIs: AuxiliaryThemeQPI[] = [];
   auxiliaryThemesQPIs.push({
     auxiliaryThemeId: "_",
-    label: l10nT("ext.helper.auxTheme.origin.bundled"),
+    label: l10nT("helper.auxTheme.origin.bundled"),
     kind: QuickPickItemKind.Separator,
   });
   auxiliaryThemesQPIs.push({
@@ -801,14 +801,13 @@ const getAuxiliaryThemeExtension = async (
     label: "$(library) Codemos Modern",
     description: "Codemos-Inc/Codemos-Modern $(verified-filled)",
     detail: `$(organization) Codemos • $(compass) ${l10nT(
-      "ext.helper.auxTheme.origin.bundled",
+      "helper.auxTheme.origin.bundled",
     )} • $(law) MIT`,
     alwaysShow: true,
   });
   const installedAuxiliaryThemesQPIs: AuxiliaryThemeQPI[] = [];
   const availableAuxiliaryThemesQPIs: AuxiliaryThemeQPI[] = [];
   for (const auxiliaryThemeRegistryIndexWithId of auxiliaryThemeRegistryIndexesWithId) {
-    // 🟠 Optimize filtering algorithm
     const filteredAuxiliaryThemes =
       auxiliaryThemeRegistryIndexWithId.auxiliaryThemeRegistryIndex.themes[
         variant
@@ -859,7 +858,7 @@ const getAuxiliaryThemeExtension = async (
         detail: `$(organization) ${
           auxiliaryTheme.publisher
         } • $(compass) ${l10nT(
-          `ext.helper.auxTheme.origin.${auxiliaryTheme.origin.toLowerCase()}`,
+          `helper.auxTheme.origin.${auxiliaryTheme.origin.toLowerCase()}`,
         )} • $(law) ${auxiliaryTheme.license}`,
       };
       if (auxiliaryTheme.installed) {
@@ -874,7 +873,7 @@ const getAuxiliaryThemeExtension = async (
   if (installedAuxiliaryThemesQPIs.length > 0) {
     auxiliaryThemesQPIs.push({
       auxiliaryThemeId: "",
-      label: l10nT("ext.helper.auxTheme.state.installed"),
+      label: l10nT("helper.auxTheme.state.installed"),
       kind: QuickPickItemKind.Separator,
     });
     auxiliaryThemesQPIs.push(...installedAuxiliaryThemesQPIs);
@@ -882,7 +881,7 @@ const getAuxiliaryThemeExtension = async (
   if (availableAuxiliaryThemesQPIs.length > 0) {
     auxiliaryThemesQPIs.push({
       auxiliaryThemeId: "",
-      label: l10nT("ext.helper.auxTheme.state.available"),
+      label: l10nT("helper.auxTheme.state.available"),
       kind: QuickPickItemKind.Separator,
     });
     auxiliaryThemesQPIs.push(...availableAuxiliaryThemesQPIs);
@@ -909,12 +908,12 @@ const getAuxiliaryTheme = async (
   isOfflineMode: boolean,
 ) => {
   const quickPick = window.createQuickPick<AuxiliaryThemeQPI>();
-  quickPick.title = l10nT("ext.command.configure.*.title$variant$kind", [
-    l10nT(`ext.helper.variant.${variant}`),
+  quickPick.title = l10nT("command.configure.*.title$variant$kind", [
+    l10nT(`helper.variant.${variant}`),
     kind,
   ]);
   quickPick.placeholder = l10nT(
-    "ext.command.configure.auxThemePicker.placeHolder$extension$kind",
+    "command.configure.auxThemePicker.placeHolder$extension$kind",
     [getAuxiliaryThemeId(auxiliaryThemeExtension).extension, kind],
   );
   quickPick.ignoreFocusOut = true;
@@ -971,7 +970,7 @@ const getAuxiliaryTheme = async (
   if (installedAuxiliaryThemesQPIs.length > 0) {
     auxiliaryThemesQPIs.push({
       auxiliaryThemeId: "",
-      label: l10nT("ext.helper.auxTheme.state.installed"),
+      label: l10nT("helper.auxTheme.state.installed"),
       kind: QuickPickItemKind.Separator,
     });
     auxiliaryThemesQPIs.push(...installedAuxiliaryThemesQPIs);
@@ -979,7 +978,7 @@ const getAuxiliaryTheme = async (
   if (availableAuxiliaryThemesQPIs.length > 0) {
     auxiliaryThemesQPIs.push({
       auxiliaryThemeId: "",
-      label: l10nT("ext.helper.auxTheme.state.available"),
+      label: l10nT("helper.auxTheme.state.available"),
       kind: QuickPickItemKind.Separator,
     });
     auxiliaryThemesQPIs.push(...availableAuxiliaryThemesQPIs);

@@ -4,7 +4,7 @@
   "publisher": "Codemos",
   "icon": "res/icon.gif",
   "description": "%ext.desc%",
-  "version": "2.5.4",
+  "version": "2.6.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -40,11 +40,11 @@
     "commands": [
       {
         "command": "codemosModern.configure",
-        "title": "%ext.command.configure%"
+        "title": "%command.configure%"
       },
       {
         "command": "codemosModern.authenticate",
-        "title": "%ext.command.authenticate%"
+        "title": "%command.authenticate%"
       }
     ],
     "themes": [
@@ -69,38 +69,38 @@
               "Codemos-Inc/Auxiliary-Theme-Registry"
             ],
             "minItems": 1,
-            "markdownDescription": "%ext.conf.auxiliaryThemeRegistries.desc%",
+            "markdownDescription": "%conf.auxiliaryThemeRegistries.desc%",
             "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+$",
-            "patternErrorMessage": "%ext.conf.auxiliaryThemeRegistries.err%"
+            "patternErrorMessage": "%conf.auxiliaryThemeRegistries.err%"
           }
         }
       },
       {
-        "title": "%ext.conf.textDecorations.title%",
+        "title": "%conf.textDec.title%",
         "properties": {
           "codemosModern.textDecorations.strikethrough": {
             "order": 0,
             "type": "boolean",
             "default": true,
-            "markdownDescription": "%ext.conf.textDecorations.strikethrough.desc%"
+            "markdownDescription": "%conf.textDec.strikethrough.desc%"
           },
           "codemosModern.textDecorations.bold": {
             "order": 1,
             "type": "boolean",
             "default": true,
-            "markdownDescription": "%ext.conf.textDecorations.bold.desc%"
+            "markdownDescription": "%conf.textDec.bold.desc%"
           },
           "codemosModern.textDecorations.italic": {
             "order": 2,
             "type": "boolean",
             "default": true,
-            "markdownDescription": "%ext.conf.textDecorations.italic.desc%"
+            "markdownDescription": "%conf.textDec.italic.desc%"
           },
           "codemosModern.textDecorations.underline": {
             "order": 3,
             "type": "boolean",
             "default": true,
-            "markdownDescription": "%ext.conf.textDecorations.underline.desc%"
+            "markdownDescription": "%conf.textDec.underline.desc%"
           },
           "codemosModern.textDecorations.forComments": {
             "order": 4,
@@ -114,21 +114,21 @@
                 "underline"
               ],
               "enumDescriptions": [
-                "%ext.conf.textDecorations.forComments.enum.strikethrough.desc%",
-                "%ext.conf.textDecorations.forComments.enum.bold.desc%",
-                "%ext.conf.textDecorations.forComments.enum.italic.desc%",
-                "%ext.conf.textDecorations.forComments.enum.underline.desc%"
+                "%conf.textDec.forComments.enum.sThrough.desc%",
+                "%conf.textDec.forComments.enum.bold.desc%",
+                "%conf.textDec.forComments.enum.italic.desc%",
+                "%conf.textDec.forComments.enum.underline.desc%"
               ]
             },
             "default": [
               "italic"
             ],
-            "markdownDescription": "%ext.conf.textDecorations.forComments.desc%"
+            "markdownDescription": "%conf.textDec.forComments.desc%"
           }
         }
       },
       {
-        "title": "%ext.conf.dark.title%",
+        "title": "%conf.dark.title%",
         "properties": {
           "codemosModern.dark.auxiliaryUiTheme": {
             "order": 0,
@@ -137,9 +137,9 @@
               "null"
             ],
             "default": null,
-            "markdownDescription": "%ext.conf.dark.auxiliaryUiTheme.desc%",
+            "markdownDescription": "%conf.dark.auxiliaryUiTheme.desc%",
             "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/.+/.+/.+$",
-            "patternErrorMessage": "%ext.conf.dark.auxiliary*Theme.err%"
+            "patternErrorMessage": "%conf.dark.auxiliary*Theme.err%"
           },
           "codemosModern.dark.design": {
             "order": 1,
@@ -150,18 +150,18 @@
               "minimal"
             ],
             "enumDescriptions": [
-              "%ext.conf.*.design.enum.modern.desc%",
-              "%ext.conf.*.design.enum.minimal.desc%"
+              "%conf.*.design.enum.modern.desc%",
+              "%conf.*.design.enum.minimal.desc%"
             ],
-            "markdownDescription": "%ext.conf.dark.design.desc%"
+            "markdownDescription": "%conf.dark.design.desc%"
           },
           "codemosModern.dark.accentColor": {
             "order": 2,
             "type": "string",
             "default": "#CB8569",
-            "markdownDescription": "%ext.conf.dark.accentColor.desc%",
+            "markdownDescription": "%conf.dark.accentColor.desc%",
             "pattern": "^#[0-9A-Fa-f]{6}$",
-            "patternErrorMessage": "%ext.conf.dark.accentColor.err%"
+            "patternErrorMessage": "%conf.dark.accentColor.err%"
           },
           "codemosModern.dark.adaptiveMode": {
             "order": 3,
@@ -174,12 +174,12 @@
               "aggressive"
             ],
             "enumDescriptions": [
-              "%ext.conf.*.adaptiveMode.enum.none.desc%",
-              "%ext.conf.*.adaptiveMode.enum.gentle.desc%",
-              "%ext.conf.*.adaptiveMode.enum.moderate.desc%",
-              "%ext.conf.*.adaptiveMode.enum.aggressive.desc%"
+              "%conf.*.adaptiveMode.enum.none.desc%",
+              "%conf.*.adaptiveMode.enum.gentle.desc%",
+              "%conf.*.adaptiveMode.enum.moderate.desc%",
+              "%conf.*.adaptiveMode.enum.aggressive.desc%"
             ],
-            "markdownDescription": "%ext.conf.dark.adaptiveMode.desc%"
+            "markdownDescription": "%conf.dark.adaptiveMode.desc%"
           },
           "codemosModern.dark.auxiliaryCodeTheme": {
             "order": 4,
@@ -188,14 +188,14 @@
               "null"
             ],
             "default": null,
-            "markdownDescription": "%ext.conf.dark.auxiliaryCodeTheme.desc%",
+            "markdownDescription": "%conf.dark.auxiliaryCodeTheme.desc%",
             "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/.+/.+/.+$",
-            "patternErrorMessage": "%ext.conf.dark.auxiliary*Theme.err%"
+            "patternErrorMessage": "%conf.dark.auxiliary*Theme.err%"
           }
         }
       },
       {
-        "title": "%ext.conf.light.title%",
+        "title": "%conf.light.title%",
         "properties": {
           "codemosModern.light.auxiliaryUiTheme": {
             "order": 0,
@@ -204,9 +204,9 @@
               "null"
             ],
             "default": null,
-            "markdownDescription": "%ext.conf.light.auxiliaryUiTheme.desc%",
+            "markdownDescription": "%conf.light.auxiliaryUiTheme.desc%",
             "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/.+/.+/.+$",
-            "patternErrorMessage": "%ext.conf.light.auxiliary*Theme.err%"
+            "patternErrorMessage": "%conf.light.auxiliary*Theme.err%"
           },
           "codemosModern.light.design": {
             "order": 1,
@@ -217,18 +217,18 @@
               "minimal"
             ],
             "enumDescriptions": [
-              "%ext.conf.*.design.enum.modern.desc%",
-              "%ext.conf.*.design.enum.minimal.desc%"
+              "%conf.*.design.enum.modern.desc%",
+              "%conf.*.design.enum.minimal.desc%"
             ],
-            "markdownDescription": "%ext.conf.light.design.desc%"
+            "markdownDescription": "%conf.light.design.desc%"
           },
           "codemosModern.light.accentColor": {
             "order": 2,
             "type": "string",
             "default": "#784F3F",
-            "markdownDescription": "%ext.conf.light.accentColor.desc%",
+            "markdownDescription": "%conf.light.accentColor.desc%",
             "pattern": "^#[0-9A-Fa-f]{6}$",
-            "patternErrorMessage": "%ext.conf.light.accentColor.err%"
+            "patternErrorMessage": "%conf.light.accentColor.err%"
           },
           "codemosModern.light.adaptiveMode": {
             "order": 3,
@@ -241,12 +241,12 @@
               "aggressive"
             ],
             "enumDescriptions": [
-              "%ext.conf.*.adaptiveMode.enum.none.desc%",
-              "%ext.conf.*.adaptiveMode.enum.gentle.desc%",
-              "%ext.conf.*.adaptiveMode.enum.moderate.desc%",
-              "%ext.conf.*.adaptiveMode.enum.aggressive.desc%"
+              "%conf.*.adaptiveMode.enum.none.desc%",
+              "%conf.*.adaptiveMode.enum.gentle.desc%",
+              "%conf.*.adaptiveMode.enum.moderate.desc%",
+              "%conf.*.adaptiveMode.enum.aggressive.desc%"
             ],
-            "markdownDescription": "%ext.conf.light.adaptiveMode.desc%"
+            "markdownDescription": "%conf.light.adaptiveMode.desc%"
           },
           "codemosModern.light.auxiliaryCodeTheme": {
             "order": 4,
@@ -255,9 +255,9 @@
               "null"
             ],
             "default": null,
-            "markdownDescription": "%ext.conf.light.auxiliaryCodeTheme.desc%",
+            "markdownDescription": "%conf.light.auxiliaryCodeTheme.desc%",
             "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/.+/.+/.+$",
-            "patternErrorMessage": "%ext.conf.light.auxiliary*Theme.err%"
+            "patternErrorMessage": "%conf.light.auxiliary*Theme.err%"
           }
         }
       }
@@ -298,7 +298,6 @@
     "@octokit/rest": "^20.0.1",
     "@resvg/resvg-js": "^2.6.0",
     "axios": "^1.6.5",
-    "jsdom": "^24.0.0",
-    "node-fetch": "^2.6.12"
+    "jsdom": "^24.0.0"
   }
 }

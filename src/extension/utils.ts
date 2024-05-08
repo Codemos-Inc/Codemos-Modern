@@ -45,7 +45,7 @@ export const checkInternetConnection = (): Promise<void> => {
       resolve();
     }).on("error", () => {
       showWarningNotification(
-        l10nT("ext.notification.network.offline"),
+        l10nT("notification.network.offline"),
         null,
         null,
       );
@@ -322,7 +322,7 @@ const writeThemeFile = (themePath: string, themeObject: object) => {
   return writeFile(themePath, JSON.stringify(themeObject, null, 2), (error) => {
     if (error) {
       showErrorNotification(
-        l10nT("ext.notification.error.writingFailed$msg", [error.message]),
+        l10nT("notification.error.writingFailed$msg", [error.message]),
         null,
         null,
       );

@@ -15,11 +15,11 @@ export type UpdateReasonMessages = {
 };
 
 export const updateReasonMessages: UpdateReasonMessages = {
-  [UpdateReason.CONFIG_CHANGE]: l10nT("ext.notification.update.configChange"),
-  [UpdateReason.FIRST_INSTALL]: l10nT("ext.notification.update.firstInstall"),
-  [UpdateReason.MAJOR_UPDATE]: l10nT("ext.notification.update.majorUpdate"),
-  [UpdateReason.MINOR_UPDATE]: l10nT("ext.notification.update.minorUpdate"),
-  [UpdateReason.PATCH_UPDATE]: l10nT("ext.notification.update.patchUpdate"),
-  [UpdateReason.REINSTALL]: l10nT("ext.notification.update.reinstall"),
-  [UpdateReason.PROFILE_CHANGE]: l10nT("ext.notification.update.profileChange"),
+  [UpdateReason.CONFIG_CHANGE]: l10nT("notification.update.configChange"),
+  [UpdateReason.FIRST_INSTALL]: l10nT("notification.update.firstInstall"),
+  [UpdateReason.MAJOR_UPDATE]: l10nT("notification.update.majorUpdate"),
+  [UpdateReason.MINOR_UPDATE]: l10nT("notification.update.minorUpdate"),
+  [UpdateReason.PATCH_UPDATE]: l10nT("notification.update.patchUpdate"),
+  [UpdateReason.REINSTALL]: l10nT("notification.update.reinstall"),
+  [UpdateReason.PROFILE_CHANGE]: l10nT("notification.update.profileChange"),
 };

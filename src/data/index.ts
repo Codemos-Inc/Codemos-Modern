@@ -67,7 +67,7 @@ export const prepareAuxiliaryThemeRegistries = async (
   if (uncachedAuxiliaryThemeRegistryIds.length > 0) {
     let success = true;
     await showProgressNotification(
-      l10nT("ext.notification.download.index.title"),
+      l10nT("notification.download.index.title"),
       async (progress) => {
         const increment = 100 / uncachedAuxiliaryThemeRegistryIds.length;
         for (const auxiliaryThemeRegistryId of uncachedAuxiliaryThemeRegistryIds) {
@@ -92,7 +92,7 @@ export const prepareAuxiliaryThemeRegistries = async (
   if (obsoleteAuxiliaryThemeRegistryIds.length > 0) {
     let success = true;
     await showProgressNotification(
-      l10nT("ext.notification.update.index.title"),
+      l10nT("notification.update.index.title"),
       async (progress) => {
         const increment = 100 / obsoleteAuxiliaryThemeRegistryIds.length;
         for (const auxiliaryThemeRegistryId of obsoleteAuxiliaryThemeRegistryIds) {
@@ -105,7 +105,7 @@ export const prepareAuxiliaryThemeRegistries = async (
             join(auxiliaryThemeRegistryId.owner, auxiliaryThemeRegistryId.repo),
           ).catch((error: NodeJS.ErrnoException) => {
             showErrorNotification(
-              l10nT("ext.notification.remove.index.error$msg", [error.message]),
+              l10nT("notification.remove.index.error$msg", [error.message]),
               null,
               null,
             );
@@ -147,7 +147,7 @@ export const prepareAuxiliaryThemeRegistriesOffline = (
       )
     ) {
       showErrorNotification(
-        l10nT("ext.notification.error.registryNotAvailableOffline$id", [
+        l10nT("notification.error.registryNotAvailableOffline$id", [
           `${auxiliaryThemeRegistryId.owner}/${auxiliaryThemeRegistryId.repo}`,
         ]),
         null,
@@ -164,7 +164,7 @@ export const prepareAuxiliaryThemeRegistriesOffline = (
       const data = JSON.parse(indexContents);
       if (!isAuxiliaryThemeRegistryIndex(data)) {
         showErrorNotification(
-          l10nT("ext.notification.error.invalidRegistry$id", [
+          l10nT("notification.error.invalidRegistry$id", [
             `${auxiliaryThemeRegistryId.owner}/${auxiliaryThemeRegistryId.repo}`,
           ]),
           null,
@@ -219,7 +219,7 @@ export const prepareAuxiliaryTheme = async (
   );
   if (!isRegistryInRegistries) {
     showErrorNotification(
-      l10nT("ext.notification.error.registryNotInRegistries$id", [
+      l10nT("notification.error.registryNotInRegistries$id", [
         `${auxiliaryThemeId.owner}/${auxiliaryThemeId.repo}`,
       ]),
       null,
@@ -266,7 +266,7 @@ export const prepareAuxiliaryThemeOffline = async (
   );
   if (!isRegistryInRegistries) {
     showErrorNotification(
-      l10nT("ext.notification.error.registryNotInRegistries$id", [
+      l10nT("notification.error.registryNotInRegistries$id", [
         `${auxiliaryThemeId.owner}/${auxiliaryThemeId.repo}`,
       ]),
       null,
@@ -283,7 +283,7 @@ export const prepareAuxiliaryThemeOffline = async (
   }
   if (!checkResult.data.installed) {
     showErrorNotification(
-      l10nT("ext.notification.error.themeNotAvailableOffline$id", [
+      l10nT("notification.error.themeNotAvailableOffline$id", [
         `${auxiliaryThemeId.publisher}/${auxiliaryThemeId.extension}/${auxiliaryThemeId.theme}`,
       ]),
       null,
@@ -303,7 +303,7 @@ export const prepareAuxiliaryThemeOffline = async (
   );
   if (!isCached) {
     showErrorNotification(
-      l10nT("ext.notification.error.themeNotAvailableOfflineUnexpected$id", [
+      l10nT("notification.error.themeNotAvailableOfflineUnexpected$id", [
         `${auxiliaryThemeId.publisher}/${auxiliaryThemeId.extension}/${auxiliaryThemeId.theme}`,
       ]),
       null,
@@ -339,7 +339,7 @@ const verifyAvailabilityForAuxiliaryThemeRegistries = async (
     );
     if (!networkBoundResult.success) {
       showErrorNotification(
-        l10nT("ext.notification.error.requestFailed$msg", [
+        l10nT("notification.error.requestFailed$msg", [
           networkBoundResult.message,
         ]),
         null,
@@ -368,7 +368,7 @@ const auxiliaryThemeRegistryHasUpdates = async (
   );
   if (!networkBoundResult.success) {
     showErrorNotification(
-      l10nT("ext.notification.error.requestFailed$msg", [
+      l10nT("notification.error.requestFailed$msg", [
         networkBoundResult.message,
       ]),
       null,
@@ -401,7 +401,7 @@ const getAuxiliaryThemeRegistryIndex = async (
   );
   if (!networkBoundResultTag.success) {
     showErrorNotification(
-      l10nT("ext.notification.error.requestFailed$msg", [
+      l10nT("notification.error.requestFailed$msg", [
         networkBoundResultTag.message,
       ]),
       null,
@@ -418,7 +418,7 @@ const getAuxiliaryThemeRegistryIndex = async (
   );
   if (!networkBoundResultIndex.success) {
     showErrorNotification(
-      l10nT("ext.notification.error.requestFailed$msg", [
+      l10nT("notification.error.requestFailed$msg", [
         networkBoundResultIndex.message,
       ]),
       null,
@@ -429,7 +429,7 @@ const getAuxiliaryThemeRegistryIndex = async (
   const data = JSON.parse(networkBoundResultIndex.data);
   if (!isAuxiliaryThemeRegistryIndex(data)) {
     showErrorNotification(
-      l10nT("ext.notification.error.invalidRegistry$id", [
+      l10nT("notification.error.invalidRegistry$id", [
         `${auxiliaryThemeRegistryId.owner}/${auxiliaryThemeRegistryId.repo}`,
       ]),
       null,
@@ -449,7 +449,7 @@ const getAuxiliaryThemeRegistryIndex = async (
     })
     .catch((error: NodeJS.ErrnoException) => {
       showErrorNotification(
-        l10nT("ext.notification.error.cachingFailed$msg", [error.message]),
+        l10nT("notification.error.cachingFailed$msg", [error.message]),
         null,
         null,
       );
@@ -486,7 +486,7 @@ const checkAuxiliaryRegistryIndexForAuxiliaryTheme = (
       if (!auxiliaryThemeDark) {
         if (auxiliaryThemeLight) {
           showErrorNotification(
-            l10nT("ext.notification.error.themeVariantMismatch$id$variant", [
+            l10nT("notification.error.themeVariantMismatch$id$variant", [
               `${auxiliaryThemeId.publisher}/${auxiliaryThemeId.extension}/${auxiliaryThemeId.theme}`,
               variant,
             ]),
@@ -496,7 +496,7 @@ const checkAuxiliaryRegistryIndexForAuxiliaryTheme = (
           return { success: false, data: null };
         } else {
           showErrorNotification(
-            l10nT("ext.notification.error.themeNotInRegistry$rid$tid", [
+            l10nT("notification.error.themeNotInRegistry$rid$tid", [
               `${auxiliaryThemeId.owner}/${auxiliaryThemeId.repo}`,
               `${auxiliaryThemeId.publisher}/${auxiliaryThemeId.extension}/${auxiliaryThemeId.theme}`,
             ]),
@@ -512,7 +512,7 @@ const checkAuxiliaryRegistryIndexForAuxiliaryTheme = (
       if (!auxiliaryThemeLight) {
         if (auxiliaryThemeDark) {
           showErrorNotification(
-            l10nT("ext.notification.error.themeVariantMismatch$id$variant", [
+            l10nT("notification.error.themeVariantMismatch$id$variant", [
               `${auxiliaryThemeId.publisher}/${auxiliaryThemeId.extension}/${auxiliaryThemeId.theme}`,
               variant,
             ]),
@@ -522,7 +522,7 @@ const checkAuxiliaryRegistryIndexForAuxiliaryTheme = (
           return { success: false, data: null };
         } else {
           showErrorNotification(
-            l10nT("ext.notification.error.themeNotInRegistry$rid$tid", [
+            l10nT("notification.error.themeNotInRegistry$rid$tid", [
               `${auxiliaryThemeId.owner}/${auxiliaryThemeId.repo}`,
               `${auxiliaryThemeId.publisher}/${auxiliaryThemeId.extension}/${auxiliaryThemeId.theme}`,
             ]),
@@ -555,11 +555,11 @@ const getAuxiliaryTheme = async (
   const auxiliaryThemeRegistryVersion = auxiliaryThemeRegistryIndex.version;
   let networkBoundResult: NetworkBoundResult = {
     success: false,
-    message: l10nT("ext.message.error.unexpectedDummyData"),
+    message: l10nT("message.error.unexpectedDummyData"),
     data: null,
   };
   await showProgressNotification(
-    l10nT("ext.notification.download.theme.title"),
+    l10nT("notification.download.theme.title"),
     async (progress) => {
       progress.report({
         message: `"${auxiliaryThemeId.owner}/${auxiliaryThemeId.repo}/${auxiliaryThemeId.publisher}/${auxiliaryThemeId.extension}/${auxiliaryThemeId.theme}"`,
@@ -575,7 +575,7 @@ const getAuxiliaryTheme = async (
   );
   if (!networkBoundResult.success) {
     showErrorNotification(
-      l10nT("ext.notification.error.requestFailed$msg", [
+      l10nT("notification.error.requestFailed$msg", [
         networkBoundResult.message,
       ]),
       null,
@@ -603,7 +603,7 @@ const getAuxiliaryTheme = async (
     })
     .catch((error: NodeJS.ErrnoException) => {
       showErrorNotification(
-        l10nT("ext.notification.error.cachingFailed$msg", [error.message]),
+        l10nT("notification.error.cachingFailed$msg", [error.message]),
         null,
         null,
       );
@@ -638,7 +638,7 @@ const updateAuxiliaryThemeCachedKey = async (
     })
     .catch((error: NodeJS.ErrnoException) => {
       showErrorNotification(
-        l10nT("ext.notification.error.cachingFailed$msg", [error.message]),
+        l10nT("notification.error.cachingFailed$msg", [error.message]),
         null,
         null,
       );
