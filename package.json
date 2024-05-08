@@ -281,7 +281,7 @@
     "prepare": "husky",
     "compile:themes": "ts-node src/hooks/compileThemes.ts",
     "compile:stateFile": "ts-node src/hooks/compileStateFile.ts",
-    "compile:badges": " ts-node src/hooks/updateBadges.ts",
+    "compile:badges": " ts-node src/hooks/compileBadges.ts",
     "compile": "tsc",
     "build": "npm run compile && npm run compile:themes && npm run compile:stateFile",
     "lint": "eslint src --ext ts && tsc --noEmit",
