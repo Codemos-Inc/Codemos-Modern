@@ -23,6 +23,14 @@
   "categories": [
     "Themes"
   ],
+  "keywords": [
+    "color-theme",
+    "theme",
+    "dark",
+    "light",
+    "modern",
+    "minimal"
+  ],
   "capabilities": {
     "untrustedWorkspaces": {
       "supported": true
