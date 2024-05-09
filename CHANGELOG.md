@@ -41,7 +41,7 @@ Nothing yet.
 
 - Unnecessary package contents.
 
-## [2.5.2] - 2024-04-30 - Vs Code v1.87.x Support 🟢
+## [2.5.2] - 2024-04-30 - v1.87.x Support 🟢
 
 ### Added
 
