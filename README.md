@@ -24,6 +24,7 @@ Innovative, modern theme suite/hub for VS Code
 <img src="images/badge-loc-es.png" height="28" alt="Spanish">&nbsp;
 <img src="images/badge-loc-ru.png" height="28" alt="Russian">&nbsp;
 <img src="images/badge-loc-pt-br.png" height="28" alt="Portuguese (Brazil)">&nbsp;
+<img src="images/badge-loc-de.png" height="28" alt="German">&nbsp;
 <img src="images/badge-loc-tr.png" height="28" alt="Turkish">
 
 ![overview](images/header-1.png)
@@ -257,10 +258,10 @@ We try to make Codemos Modern the most accessible theming extension for VS Code.
 | Portuguese (Brazil) | pt-br  | 🟢     | v2.6.0        | Codemos    | -                          |
 | French              | fr     | 🟡     | -             | Codemos    | Will be released by v2.7.X |
 | Korean              | ko     | 🟡     | -             | Codemos    | Will be released by v2.7.X |
-| German              | de     | 🟡     | -             | Codemos    | Will be released by v2.7.X |
-| Traditional Chinese | zh-tw  | 🔴     | -             | -          | Planned for v2.8.X         |
-| Italian             | it     | 🔴     | -             | -          | Planned for v2.8.X         |
-| Polish              | pl     | 🔴     | -             | -          | Not planned                |
+| German              | de     | 💬     | v2.7.0        | Codemos    | Review needed              |
+| Traditional Chinese | zh-tw  | 🔴     | -             | -          | Will be released by v2.8.X |
+| Italian             | it     | 🔴     | -             | -          | Will be released by v2.8.X |
+| Polish              | pl     | 🔴     | -             | -          | Planned for v2.9.0         |
 | Hungarian           | hu     | 🔴     | -             | -          | Not planned                |
 | Czech               | cs     | 🔴     | -             | -          | Not planned                |
 | Bulgarian           | bg     | 🔴     | -             | -          | Not planned                |
