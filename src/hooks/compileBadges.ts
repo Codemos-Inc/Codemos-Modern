@@ -14,7 +14,7 @@ fetchModifySvg(
   false,
 );
 fetchModifySvg(
-  "https://img.shields.io/badge/-v1.89+-4B9ECD.svg?labelColor=373737&label=&logo=visualstudiocode&logoColor=%23FFFFFFC7&style=for-the-badge",
+  "https://img.shields.io/badge/-v1.89+-4B9ECD.svg?labelColor=373737&label=&logo=data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTIzLjE1IDIuNTg3TDE4LjIxLjIxYTEuNDk0IDEuNDk0IDAgMDAtMS43MDUuMjlsLTkuNDYgOC42My00LjEyLTMuMTI4YS45OTkuOTk5IDAgMDAtMS4yNzYuMDU3TC4zMjcgNy4yNjFBMSAxIDAgMDAuMzI2IDguNzRMMy44OTkgMTIgLjMyNiAxNS4yNmExIDEgMCAwMC4wMDEgMS40NzlMMS42NSAxNy45NGEuOTk5Ljk5OSAwIDAwMS4yNzYuMDU3bDQuMTItMy4xMjggOS40NiA4LjYzYTEuNDkyIDEuNDkyIDAgMDAxLjcwNC4yOWw0Ljk0Mi0yLjM3N0ExLjUgMS41IDAgMDAyNCAyMC4wNlYzLjkzOWExLjUgMS41IDAgMDAtLjg1LTEuMzUyem0tNS4xNDYgMTQuODYxTDEwLjgyNiAxMmw3LjE3OC01LjQ0OHYxMC44OTZ6IiBmaWxsPSIjZDNkM2QzIi8+PC9zdmc+Cg==&logoColor=%23FFFFFFC7&style=for-the-badge",
   path.join(IMAGES_PATH, "badge-vscode.svg"),
   true,
   false,

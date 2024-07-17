@@ -271,6 +271,16 @@
       }
     ]
   },
+  "lint-staged": {
+    "*.ts": "eslint --fix",
+    "*.{ts,json,md}": "prettier --write"
+  },
+  "dependencies": {
+    "@octokit/rest": "^21.0.1",
+    "@resvg/resvg-js": "^2.6.0",
+    "axios": "^1.6.5",
+    "jsdom": "^24.0.0"
+  },
   "devDependencies": {
     "@types/jsdom": "^21.1.6",
     "@types/node": "^20.10.7",
@@ -297,15 +307,5 @@
     "clean": "rm -rf out && rm -rf data/.state.json && rm -rf data/cache/*",
     "prebuild": "npm run clean && npm run format && npm run lint",
     "debug": "DEBUG=1 npm run build"
-  },
-  "lint-staged": {
-    "*.ts": "eslint --fix",
-    "*.{ts,json,md}": "prettier --write"
-  },
-  "dependencies": {
-    "@octokit/rest": "^20.0.1",
-    "@resvg/resvg-js": "^2.6.0",
-    "axios": "^1.6.5",
-    "jsdom": "^24.0.0"
   }
 }

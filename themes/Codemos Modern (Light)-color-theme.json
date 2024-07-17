@@ -475,7 +475,7 @@
     "listFilterWidget.outline": "#75757552",
     "listFilterWidget.noMatchesOutline": "#B70004FF",
     "listFilterWidget.shadow": "#00000024",
-    "list.dropBetweenBackground": "#ff0000",
+    "list.dropBetweenBackground": "#784F3FFF",
     "tree.indentGuidesStroke": "#00000033",
     "tree.inactiveIndentGuidesStroke": "#0000001F",
     "tree.tableColumnsBorder": "#0000001A",
