@@ -1,4 +1,4 @@
-import { ThemeContext } from "../../../@types/index";
+import { ThemeContext } from "../../../@types";
 import { configureExtensionSettings as configureMaterialIconThemeSettings } from "./extensions/materialIconTheme";
 
 export const configureExtensionSettings = (

@@ -1,4 +1,4 @@
-import { ThemeContext } from "../../../../../@types/index";
+import { ThemeContext } from "../../../../../@types";
 import { OPAQUE } from "../../../../../color/constants";
 
 export const getRules = (themeContext: ThemeContext): object => {

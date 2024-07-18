@@ -1,8 +1,8 @@
 import * as fs from "fs";
 import { JSDOM } from "jsdom";
 import { join } from "path";
-import { renderAsync } from "../../node_modules/@resvg/resvg-js/index";
-import axios from "../../node_modules/axios/index";
+import { renderAsync } from "@resvg/resvg-js";
+import axios from "axios";
 
 const IMAGES_PATH = join(__dirname, "..", "..", "images");
 

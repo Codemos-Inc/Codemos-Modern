@@ -4,8 +4,8 @@ export const setIsConfiguredFromCommand = (value: boolean) => {
   isConfiguredFromCommand = value;
 };
 
-let isOfflineMode = true;
-export const getIsOfflineMode = () => isOfflineMode;
-export const setIsOfflineMode = (value: boolean) => {
-  isOfflineMode = value;
+let isOnlineAvailable = false;
+export const getOnlineAvailability = () => isOnlineAvailable;
+export const setOnlineAvailability = (value: boolean) => {
+  isOnlineAvailable = value;
 };

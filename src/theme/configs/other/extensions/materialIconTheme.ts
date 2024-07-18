@@ -1,5 +1,5 @@
 import { ConfigurationTarget, workspace } from "vscode";
-import { ThemeContext } from "../../../../@types/index";
+import { ThemeContext } from "../../../../@types";
 import { splitHex9 } from "../../../../color/utils";
 
 export const configureExtensionSettings = (

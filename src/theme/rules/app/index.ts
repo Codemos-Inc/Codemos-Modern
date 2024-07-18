@@ -1,6 +1,6 @@
-import { ThemeContext } from "../../../@types/index";
-import { getRules as getCoreRules } from "./core/index";
-import { getRules as getOtherRules } from "./other/index";
+import { ThemeContext } from "../../../@types";
+import { getRules as getCoreRules } from "./core";
+import { getRules as getOtherRules } from "./other";
 
 export const getRules = (themeContext: ThemeContext): object => {
   if (themeContext.auxiliaryUiThemeObject) {

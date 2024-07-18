@@ -1,5 +1,5 @@
-import { ThemeContext } from "../../../../../@types/index";
-import { getMixedColorHex9 } from "../../../../../color/index";
+import { ThemeContext } from "../../../../../@types";
+import { getMixedColorHex9 } from "../../../../../color";
 
 export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles;

@@ -1,9 +1,4 @@
-import {
-  MimicInfo,
-  Palette,
-  Styles,
-  VariantConfig,
-} from "../../../@types/index";
+import { MimicInfo, Palette, Styles, VariantConfig } from "../../../@types";
 import {
   chooseTextOnColor,
   getContrastSafeAccentColorHex7,
@@ -11,7 +6,7 @@ import {
   getMimicHex7,
   getMixedColorHex7,
   getMixedColorHex9,
-} from "../../../color/index";
+} from "../../../color";
 
 export const palette: Palette = {
   loc: "#FFFFFF",

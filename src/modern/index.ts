@@ -1,4 +1,4 @@
-import { Config } from "../@types/index";
+import { Config } from "../@types";
 
 export const defaultConfig: Config = {
   auxiliaryThemeRegistries: ["Codemos-Inc/Auxiliary-Theme-Registry"],

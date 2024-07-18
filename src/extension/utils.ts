@@ -1,5 +1,5 @@
+import { GetResponseTypeFromEndpointMethod } from "@octokit/types";
 import { writeFile } from "fs";
-import { get } from "https";
 import { ConfigurationTarget, workspace } from "vscode";
 import {
   AdaptiveMode,
@@ -10,20 +10,21 @@ import {
   ThemePaths,
   Variant,
   VariantConfig,
-} from "../@types/index";
+} from "../@types";
+import { getOctokit } from "../api";
 import {
   getAuxiliaryThemeObject,
   prepareAuxiliaryTheme,
   prepareAuxiliaryThemeOffline,
   prepareAuxiliaryThemeRegistries,
   prepareAuxiliaryThemeRegistriesOffline,
-} from "../data/index";
-import { l10nT } from "../l10n/index";
+} from "../data";
+import { l10nT } from "../l10n";
 import { updateBridge } from "../main";
-import { defaultConfig } from "../modern/index";
-import { getStyles } from "../modern/variants/index";
-import { getThemeObject } from "../theme/index";
-import { configureSettings } from "../theme/configs/index";
+import { defaultConfig } from "../modern";
+import { getStyles } from "../modern/variants";
+import { getThemeObject } from "../theme";
+import { configureSettings } from "../theme/configs";
 import {
   showErrorNotification,
   showInformationNotification,
@@ -31,28 +32,43 @@ import {
 } from "./notifications";
 import {
   getIsConfiguredFromCommand,
-  getIsOfflineMode,
+  getOnlineAvailability,
   setIsConfiguredFromCommand,
-  setIsOfflineMode,
+  setOnlineAvailability,
 } from "./sharedState";
 import { getStateObject } from "./state";
 import { UpdateReason, updateReasonMessages } from "./updateMessage";
 
-export const checkInternetConnection = (): Promise<void> => {
-  return new Promise((resolve) => {
-    get("https://www.github.com", () => {
-      setIsOfflineMode(false);
-      resolve();
-    }).on("error", () => {
-      showWarningNotification(
-        l10nT("notification.network.offline"),
-        null,
-        null,
-      );
-      setIsOfflineMode(true);
-      resolve();
-    });
-  });
+export const checkAvailability = async (): Promise<void> => {
+  const octokit = getOctokit();
+  type GetRateLimitType = GetResponseTypeFromEndpointMethod<
+    typeof octokit.rateLimit.get
+  >;
+  if (octokit) {
+    await octokit.rateLimit
+      .get()
+      .then((response: GetRateLimitType) => {
+        if (response.data.rate.remaining > 0) {
+          setOnlineAvailability(true);
+        } else {
+          setOnlineAvailability(false);
+          showWarningNotification(
+            l10nT("message.error.apiRateLimitExceeded"),
+            null,
+            null,
+          );
+        }
+        return;
+      })
+      .catch(() => {
+        setOnlineAvailability(false);
+        showWarningNotification(
+          l10nT("notification.network.offline"),
+          null,
+          null,
+        );
+      });
+  }
 };
 
 export const verifyState = (config?: Config): boolean => {
@@ -194,11 +210,11 @@ export const updateModern = async (
     default:
       variants = [updateTarget];
   }
-  let isOfflineMode = getIsOfflineMode();
+  let isOnlineAvailable = getOnlineAvailability();
   if (!getIsConfiguredFromCommand()) {
-    await checkInternetConnection();
-    isOfflineMode = getIsOfflineMode();
-    if (!isOfflineMode) {
+    await checkAvailability();
+    isOnlineAvailable = getOnlineAvailability();
+    if (isOnlineAvailable) {
       const success = await prepareAuxiliaryThemeRegistries(
         config.auxiliaryThemeRegistries,
       );
@@ -225,7 +241,7 @@ export const updateModern = async (
     };
     if (themeContext.variantConfig.auxiliaryUiTheme) {
       if (!getIsConfiguredFromCommand()) {
-        if (!isOfflineMode) {
+        if (isOnlineAvailable) {
           const success = await prepareAuxiliaryTheme(
             config.auxiliaryThemeRegistries,
             themeContext.variantConfig.auxiliaryUiTheme,
@@ -251,7 +267,7 @@ export const updateModern = async (
     }
     if (themeContext.variantConfig.auxiliaryCodeTheme) {
       if (!getIsConfiguredFromCommand()) {
-        if (!isOfflineMode) {
+        if (isOnlineAvailable) {
           const success = await prepareAuxiliaryTheme(
             config.auxiliaryThemeRegistries,
             themeContext.variantConfig.auxiliaryCodeTheme,

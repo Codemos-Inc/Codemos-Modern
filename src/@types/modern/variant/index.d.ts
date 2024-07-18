@@ -1,4 +1,4 @@
-import { AdaptiveMode, Design } from "../index";
+import { AdaptiveMode, Design } from "..";
 
 export type VariantConfig = {
   auxiliaryUiTheme: string | null;

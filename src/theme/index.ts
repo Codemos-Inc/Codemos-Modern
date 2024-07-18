@@ -1,6 +1,6 @@
-import { ThemeContext } from "../@types/index";
+import { ThemeContext } from "../@types";
 import { toggleFirstLetterCase } from "../extension/helpers";
-import { getRules } from "./rules/index";
+import { getRules } from "./rules";
 
 export const getThemeObject = (themeContext: ThemeContext): object => {
   return {

@@ -1,10 +1,10 @@
-import { RequestError } from "../../node_modules/@octokit/request-error/dist-types/index";
 import { Octokit } from "@octokit/rest";
 import { authentication } from "vscode";
-import { NetworkBoundResult } from "../@types/index";
-import { setOctokit } from "../api/index";
+import { RequestError } from "@octokit/request-error";
+import { NetworkBoundResult } from "../@types";
+import { setOctokit } from "../api";
 import { RESPONSE_OK } from "../api/constants";
-import { l10nT } from "../l10n/index";
+import { l10nT } from "../l10n";
 import { GITHUB_AUTH_PROVIDER_ID } from "./constants";
 
 export const authenticate = async (
@@ -12,6 +12,7 @@ export const authenticate = async (
 ): Promise<NetworkBoundResult> => {
   const session = await authentication.getSession(GITHUB_AUTH_PROVIDER_ID, [], {
     createIfNone,
+    silent: !createIfNone,
   });
   if (!session) {
     return {

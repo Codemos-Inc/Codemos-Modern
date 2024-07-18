@@ -1,4 +1,4 @@
-import { RGB } from "../@types/index";
+import { RGB } from "../@types";
 import { hex6ToRgb } from "./conversions";
 
 export const getContrastRatioHex6 = (

@@ -1,5 +1,5 @@
-import { Variant } from "../modern/index";
-import { Styles, VariantConfig } from "../modern/variant/index";
+import { Variant } from "../modern";
+import { Styles, VariantConfig } from "../modern/variant";
 
 export type ThemePaths = {
   dark: string;

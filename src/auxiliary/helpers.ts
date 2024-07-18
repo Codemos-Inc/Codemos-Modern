@@ -1,7 +1,4 @@
-import {
-  AuxiliaryThemeInfo,
-  AuxiliaryThemeRegistryIndex,
-} from "../@types/index";
+import { AuxiliaryThemeInfo, AuxiliaryThemeRegistryIndex } from "../@types";
 
 export const isAuxiliaryThemeRegistryIndex = (
   obj: any,

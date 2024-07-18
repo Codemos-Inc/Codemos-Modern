@@ -1,11 +1,15 @@
 import { RequestError } from "@octokit/request-error";
 import { Octokit } from "@octokit/rest";
-import { GetResponseTypeFromEndpointMethod } from "../../node_modules/@octokit/types/dist-types/index";
-import { NetworkBoundResult } from "../@types/index";
-import { l10nT } from "../l10n/index";
+import { GetResponseTypeFromEndpointMethod } from "@octokit/types";
+import { NetworkBoundResult } from "../@types";
+import { l10nT } from "../l10n";
 import { RESPONSE_OK } from "./constants";
 
 let octokit = new Octokit();
+
+export const getOctokit = (): Octokit => {
+  return octokit;
+};
 
 export const setOctokit = (newOctokit: Octokit) => {
   octokit = newOctokit;
