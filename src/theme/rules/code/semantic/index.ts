@@ -45,7 +45,7 @@ const getDefaultRules = (themeContext: ThemeContext): object => {
     event: colors.basic.alt.red.pri,
     function: colors.basic.def.orange.pri,
     method: colors.basic.def.orange.pri,
-    macro: colors.basic.alt.pink.pri,
+    macro: colors.basic.def.purple.pri,
     label: colors.basic.alt.pink.pri,
     comment: {
       foreground: colors.basic.def.green.pri,
@@ -59,7 +59,7 @@ const getDefaultRules = (themeContext: ThemeContext): object => {
     keyword: colors.basic.def.pink.pri,
     modifier: colors.basic.def.blue.pri,
     number: colors.basic.alt.green.pri,
-    regexp: colors.basic.def.purple.pri,
+    regexp: colors.basic.alt.purple.pri,
     operator: colors.fill.text.sec,
     "*.builtin": colors.basic.def.blue.pri,
     "*.static": { italic: themeContext.textDecorations.italic },
@@ -75,7 +75,7 @@ const getExtraRules = (themeContext: ThemeContext): object => {
   return {
     customLiteral: colors.basic.alt.blue.pri,
     magicFunction: colors.basic.def.purple.pri,
-    newOperator: colors.basic.def.blue.pri,
+    newOperator: colors.basic.def.red.pri,
     numberLiteral: colors.basic.alt.green.pri,
     plainKeyword: colors.basic.def.blue.pri,
     selfParameter: colors.basic.def.yellow.pri,

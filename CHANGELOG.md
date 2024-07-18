@@ -8,7 +8,28 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 Nothing yet.
 
-## [2.6.1] - 2024-05-08 - Authentication Hotfix 🛠️
+## [2.7.0] - 2024-07-19 - New localizations 🇫🇷, 🇰🇷, 🇩🇪
+
+### Added
+
+- Support for VS Code v1.91.x.
+- Localization for French 🇫🇷, Korean 🇰🇷, and German 🇩🇪.
+- Bundler (ESbuild) to reduce package size and improve startup performance.
+
+### Changed
+
+- How Modern makes requests for the GitHub sessions, now it will not repeat requests further if first one denied. Thanks to [@zliebersbach#177](https://github.com/Codemos-Inc/Codemos-Modern/issues/177).
+
+### Updated
+
+- Modern's behavior when the API rate limit gets exceeded, now it gracefully falls back to offline mode instead of refusing to work.
+- Some inconsistent color attributes.
+
+### Fixed
+
+- Modern being unable to detect theme changes thus failing to update user settings due to new `window.autoDetectColorScheme` setting.
+
+## [2.6.1] - 2024-05-08 - Authentication hotfix 🛠️
 
 ### Fixed
 
@@ -356,7 +377,8 @@ Nothing yet.
 
 - Initial release
 
-[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.6.1...HEAD
+[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.7.0...HEAD
+[2.7.0]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.6.1...v2.7.0
 [2.6.1]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.6.0...v2.6.1
 [2.6.0]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.5.4...v2.6.0
 [2.5.4]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.5.3...v2.5.4

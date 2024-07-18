@@ -3,10 +3,10 @@ import { ThemeContext } from "../../../../../@types";
 export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles;
   return {
+    "inlineChat.foreground": colors.fill.text.pri,
     "inlineChat.background": colors.bg.solid.flyout,
     "inlineChat.border": colors.stroke.surface.flyout,
     "inlineChat.shadow": colors.effect.shadow.default,
-    "inlineChat.regionHighlight": colors.basic.neutral.sep,
     "inlineChatInput.border": colors.stroke.control.default,
     "inlineChatInput.focusBorder": colors.stroke.focus.default,
     "inlineChatInput.placeholderForeground": colors.fill.text.disabled,

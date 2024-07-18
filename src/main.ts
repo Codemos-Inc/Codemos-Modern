@@ -1,12 +1,10 @@
 import {
-  ColorThemeKind,
   ConfigurationChangeEvent,
   ExtensionContext,
   commands,
-  window,
   workspace,
 } from "vscode";
-import { Variant } from "./@types";
+import type { Variant } from "./@types";
 import { authenticate } from "./extension/authentication";
 import { authenticateCommand, configureCommand } from "./extension/commands";
 import { GLOBAL_STATE_MRV_KEY } from "./extension/constants";
@@ -16,6 +14,7 @@ import { getIsConfiguredFromCommand } from "./extension/sharedState";
 import { getStateObject, updateState } from "./extension/state";
 import { UpdateReason, updateReasonMessages } from "./extension/updateMessage";
 import {
+  getActiveVariant,
   getConfig,
   isUntouched,
   updateModern,
@@ -47,11 +46,37 @@ export const activate = async (extensionContext: ExtensionContext) => {
         if (!getIsConfiguredFromCommand()) {
           await updateBridge("light", UpdateReason.CONFIG_CHANGE);
         }
-      } else if (event.affectsConfiguration("workbench.colorTheme")) {
+      } else if (
+        event.affectsConfiguration("workbench.colorTheme") ||
+        event.affectsConfiguration("workbench.preferredDarkColorTheme") ||
+        event.affectsConfiguration("workbench.preferredLightColorTheme")
+      ) {
         updateSettings(getConfig(), getActiveVariant());
       }
     },
   );
+};
+
+export const updateBridge = async (
+  updateTarget: "none" | "all" | Variant,
+  updateReason: UpdateReason,
+) => {
+  const config = getConfig();
+  if (!verifyState(config)) {
+    await updateModern(
+      updateTarget,
+      updateReason,
+      config,
+      getThemePaths(),
+      getActiveVariant(),
+    );
+    const stateObject = getStateObject();
+    if (stateObject.isUntouched) {
+      stateObject.isUntouched = false;
+    }
+    stateObject.config = config;
+    updateState(stateObject);
+  }
 };
 
 const onStart = async (extensionContext: ExtensionContext) => {
@@ -102,51 +127,6 @@ const onStart = async (extensionContext: ExtensionContext) => {
       updateReason = UpdateReason.PROFILE_CHANGE;
     }
     await updateBridge("all", updateReason);
-  }
-};
-
-export const updateBridge = async (
-  updateTarget: "none" | "all" | Variant,
-  updateReason: UpdateReason,
-) => {
-  const config = getConfig();
-  if (!verifyState(config)) {
-    await updateModern(
-      updateTarget,
-      updateReason,
-      config,
-      getThemePaths(),
-      getActiveVariant(),
-    );
-    const stateObject = getStateObject();
-    if (stateObject.isUntouched) {
-      stateObject.isUntouched = false;
-    }
-    stateObject.config = config;
-    updateState(stateObject);
-  }
-};
-
-const getActiveVariant = (): Variant | undefined => {
-  const activeColorTheme = workspace
-    .getConfiguration("workbench")
-    .get<string>("colorTheme");
-  if (!activeColorTheme) {
-    return undefined;
-  }
-  if (!activeColorTheme.startsWith("Codemos Modern")) {
-    return undefined;
-  }
-  const activeThemeKind = window.activeColorTheme.kind;
-  switch (activeThemeKind) {
-    case ColorThemeKind.Dark:
-    case ColorThemeKind.HighContrast:
-      return "dark";
-    case ColorThemeKind.Light:
-    case ColorThemeKind.HighContrastLight:
-      return "light";
-    default:
-      return undefined;
   }
 };
 

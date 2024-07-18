@@ -15,10 +15,11 @@ export const getRules = (themeContext: ThemeContext): object => {
     "debugView.stateLabelBackground": colors.fill.control.subtle,
     "debugView.valueChangedHighlight": colors.basic.alt.blue.pri,
     "debugTokenExpression.name": colors.fill.accentText.pri,
-    "debugTokenExpression.value": colors.basic.def.mint.pri,
+    "debugTokenExpression.value": colors.fill.text.pri,
     "debugTokenExpression.string": colors.basic.def.brown.pri,
     "debugTokenExpression.boolean": colors.basic.def.blue.pri,
     "debugTokenExpression.number": colors.basic.alt.green.pri,
     "debugTokenExpression.error": colors.basic.def.red.pri,
+    "debugTokenExpression.type": colors.basic.def.mint.pri,
   };
 };

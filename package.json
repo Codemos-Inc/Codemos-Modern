@@ -4,7 +4,7 @@
   "publisher": "Codemos",
   "icon": "res/icon.gif",
   "description": "%ext.desc%",
-  "version": "2.6.1",
+  "version": "2.7.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -37,7 +37,7 @@
     }
   },
   "engines": {
-    "vscode": "^1.89.0"
+    "vscode": "^1.91.0"
   },
   "activationEvents": [
     "*"

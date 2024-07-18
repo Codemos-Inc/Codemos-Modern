@@ -1,8 +1,8 @@
+import { renderAsync } from "@resvg/resvg-js";
+import axios from "axios";
 import * as fs from "fs";
 import { JSDOM } from "jsdom";
 import { join } from "path";
-import { renderAsync } from "@resvg/resvg-js";
-import axios from "axios";
 
 const IMAGES_PATH = join(__dirname, "..", "..", "images");
 
@@ -14,7 +14,7 @@ fetchModifySvg(
   false,
 );
 fetchModifySvg(
-  "https://img.shields.io/badge/-v1.89+-4B9ECD.svg?labelColor=373737&label=&logo=data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTIzLjE1IDIuNTg3TDE4LjIxLjIxYTEuNDk0IDEuNDk0IDAgMDAtMS43MDUuMjlsLTkuNDYgOC42My00LjEyLTMuMTI4YS45OTkuOTk5IDAgMDAtMS4yNzYuMDU3TC4zMjcgNy4yNjFBMSAxIDAgMDAuMzI2IDguNzRMMy44OTkgMTIgLjMyNiAxNS4yNmExIDEgMCAwMC4wMDEgMS40NzlMMS42NSAxNy45NGEuOTk5Ljk5OSAwIDAwMS4yNzYuMDU3bDQuMTItMy4xMjggOS40NiA4LjYzYTEuNDkyIDEuNDkyIDAgMDAxLjcwNC4yOWw0Ljk0Mi0yLjM3N0ExLjUgMS41IDAgMDAyNCAyMC4wNlYzLjkzOWExLjUgMS41IDAgMDAtLjg1LTEuMzUyem0tNS4xNDYgMTQuODYxTDEwLjgyNiAxMmw3LjE3OC01LjQ0OHYxMC44OTZ6IiBmaWxsPSIjZDNkM2QzIi8+PC9zdmc+Cg==&logoColor=%23FFFFFFC7&style=for-the-badge",
+  "https://img.shields.io/badge/-v1.91+-4B9ECD.svg?labelColor=373737&label=&logo=data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTIzLjE1IDIuNTg3TDE4LjIxLjIxYTEuNDk0IDEuNDk0IDAgMDAtMS43MDUuMjlsLTkuNDYgOC42My00LjEyLTMuMTI4YS45OTkuOTk5IDAgMDAtMS4yNzYuMDU3TC4zMjcgNy4yNjFBMSAxIDAgMDAuMzI2IDguNzRMMy44OTkgMTIgLjMyNiAxNS4yNmExIDEgMCAwMC4wMDEgMS40NzlMMS42NSAxNy45NGEuOTk5Ljk5OSAwIDAwMS4yNzYuMDU3bDQuMTItMy4xMjggOS40NiA4LjYzYTEuNDkyIDEuNDkyIDAgMDAxLjcwNC4yOWw0Ljk0Mi0yLjM3N0ExLjUgMS41IDAgMDAyNCAyMC4wNlYzLjkzOWExLjUgMS41IDAgMDAtLjg1LTEuMzUyem0tNS4xNDYgMTQuODYxTDEwLjgyNiAxMmw3LjE3OC01LjQ0OHYxMC44OTZ6IiBmaWxsPSIjZDNkM2QzIi8+PC9zdmc+Cg==&logoColor=%23FFFFFFC7&style=for-the-badge",
   join(IMAGES_PATH, "badge-vscode.svg"),
   true,
   false,
@@ -97,6 +97,23 @@ fetchModifySvg(
 );
 
 fetchModifySvg(
+  "https://img.shields.io/badge/-FRANÇAIS-002654.svg?labelColor=373737&label=&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTExLjgzNzEgMjIuNzE5NUwxNi43NzgzIDkuNjg3NzhIMTkuMDU4OEwyNCAyMi43MTk1SDIxLjcxOTVMMjAuNTUyIDE5LjQwNzJIMTUuMjg1MUwxNC4xMTc2IDIyLjcxOTVIMTEuODM3MVpNMy4yNTc5MiAxOS40NjE1TDEuNzM3NTYgMTcuOTQxMkw3LjIyMTcyIDEyLjQ1N0M2LjU4ODI0IDExLjgyMzUgNi4wMTM1NyAxMS4wOTk1IDUuNDk3NzQgMTAuMjg1MUM0Ljk4MTkgOS40NzA1OSA0LjUwNjc5IDguNTQ3NTEgNC4wNzI0IDcuNTE1ODRINi4zNTI5NEM2LjcxNDkzIDguMjIxNzIgNy4wNzY5MiA4LjgzNzEgNy40Mzg5MSA5LjM2MTk5QzcuODAwOTEgOS44ODY4OCA4LjIzNTI5IDEwLjQxMTggOC43NDIwOCAxMC45MzY3QzkuMzM5MzcgMTAuMzM5NCA5Ljk1OTI4IDkuNTAyMjYgMTAuNjAxOCA4LjQyNTM0QzExLjI0NDMgNy4zNDg0MiAxMS43Mjg1IDYuMzIxMjcgMTIuMDU0MyA1LjM0Mzg5SDBWMy4xNzE5NUg3LjYwMTgxVjFIOS43NzM3NlYzLjE3MTk1SDE3LjM3NTZWNS4zNDM4OUgxNC4yMjYyQzEzLjg0NjIgNi42NDcwNiAxMy4yNzYgNy45ODY0MiAxMi41MTU4IDkuMzYxOTlDMTEuNzU1NyAxMC43Mzc2IDExLjAwNDUgMTEuNzg3MyAxMC4yNjI0IDEyLjUxMTNMMTIuODY4OCAxNS4xNzE5TDEyLjA1NDMgMTcuMzk4Mkw4Ljc0MjA4IDE0LjAwNDVMMy4yNTc5MiAxOS40NjE1Wk0xNS45NjM4IDE3LjUwNjhIMTkuODczM0wxNy45MTg2IDExLjk2ODNMMTUuOTYzOCAxNy41MDY4WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==&logoColor=%23FFFFFFC7&style=for-the-badge",
+  join(IMAGES_PATH, "badge-loc-fr.svg"),
+  false,
+  false,
+  "#FFFFFF",
+);
+
+fetchModifySvg(
+  "https://img.shields.io/badge/-한국어-CD2E3A.svg?labelColor=373737&label=&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTExLjgzNzEgMjIuNzE5NUwxNi43NzgzIDkuNjg3NzhIMTkuMDU4OEwyNCAyMi43MTk1SDIxLjcxOTVMMjAuNTUyIDE5LjQwNzJIMTUuMjg1MUwxNC4xMTc2IDIyLjcxOTVIMTEuODM3MVpNMy4yNTc5MiAxOS40NjE1TDEuNzM3NTYgMTcuOTQxMkw3LjIyMTcyIDEyLjQ1N0M2LjU4ODI0IDExLjgyMzUgNi4wMTM1NyAxMS4wOTk1IDUuNDk3NzQgMTAuMjg1MUM0Ljk4MTkgOS40NzA1OSA0LjUwNjc5IDguNTQ3NTEgNC4wNzI0IDcuNTE1ODRINi4zNTI5NEM2LjcxNDkzIDguMjIxNzIgNy4wNzY5MiA4LjgzNzEgNy40Mzg5MSA5LjM2MTk5QzcuODAwOTEgOS44ODY4OCA4LjIzNTI5IDEwLjQxMTggOC43NDIwOCAxMC45MzY3QzkuMzM5MzcgMTAuMzM5NCA5Ljk1OTI4IDkuNTAyMjYgMTAuNjAxOCA4LjQyNTM0QzExLjI0NDMgNy4zNDg0MiAxMS43Mjg1IDYuMzIxMjcgMTIuMDU0MyA1LjM0Mzg5SDBWMy4xNzE5NUg3LjYwMTgxVjFIOS43NzM3NlYzLjE3MTk1SDE3LjM3NTZWNS4zNDM4OUgxNC4yMjYyQzEzLjg0NjIgNi42NDcwNiAxMy4yNzYgNy45ODY0MiAxMi41MTU4IDkuMzYxOTlDMTEuNzU1NyAxMC43Mzc2IDExLjAwNDUgMTEuNzg3MyAxMC4yNjI0IDEyLjUxMTNMMTIuODY4OCAxNS4xNzE5TDEyLjA1NDMgMTcuMzk4Mkw4Ljc0MjA4IDE0LjAwNDVMMy4yNTc5MiAxOS40NjE1Wk0xNS45NjM4IDE3LjUwNjhIMTkuODczM0wxNy45MTg2IDExLjk2ODNMMTUuOTYzOCAxNy41MDY4WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==&logoColor=%23FFFFFFC7&style=for-the-badge",
+  join(IMAGES_PATH, "badge-loc-ko.svg"),
+  false,
+  false,
+  "#FFFFFF",
+  { notoSansKR: true },
+);
+
+fetchModifySvg(
   "https://img.shields.io/badge/-DEUTSCH-FFCE00.svg?labelColor=373737&label=&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTExLjgzNzEgMjIuNzE5NUwxNi43NzgzIDkuNjg3NzhIMTkuMDU4OEwyNCAyMi43MTk1SDIxLjcxOTVMMjAuNTUyIDE5LjQwNzJIMTUuMjg1MUwxNC4xMTc2IDIyLjcxOTVIMTEuODM3MVpNMy4yNTc5MiAxOS40NjE1TDEuNzM3NTYgMTcuOTQxMkw3LjIyMTcyIDEyLjQ1N0M2LjU4ODI0IDExLjgyMzUgNi4wMTM1NyAxMS4wOTk1IDUuNDk3NzQgMTAuMjg1MUM0Ljk4MTkgOS40NzA1OSA0LjUwNjc5IDguNTQ3NTEgNC4wNzI0IDcuNTE1ODRINi4zNTI5NEM2LjcxNDkzIDguMjIxNzIgNy4wNzY5MiA4LjgzNzEgNy40Mzg5MSA5LjM2MTk5QzcuODAwOTEgOS44ODY4OCA4LjIzNTI5IDEwLjQxMTggOC43NDIwOCAxMC45MzY3QzkuMzM5MzcgMTAuMzM5NCA5Ljk1OTI4IDkuNTAyMjYgMTAuNjAxOCA4LjQyNTM0QzExLjI0NDMgNy4zNDg0MiAxMS43Mjg1IDYuMzIxMjcgMTIuMDU0MyA1LjM0Mzg5SDBWMy4xNzE5NUg3LjYwMTgxVjFIOS43NzM3NlYzLjE3MTk1SDE3LjM3NTZWNS4zNDM4OUgxNC4yMjYyQzEzLjg0NjIgNi42NDcwNiAxMy4yNzYgNy45ODY0MiAxMi41MTU4IDkuMzYxOTlDMTEuNzU1NyAxMC43Mzc2IDExLjAwNDUgMTEuNzg3MyAxMC4yNjI0IDEyLjUxMTNMMTIuODY4OCAxNS4xNzE5TDEyLjA1NDMgMTcuMzk4Mkw4Ljc0MjA4IDE0LjAwNDVMMy4yNTc5MiAxOS40NjE1Wk0xNS45NjM4IDE3LjUwNjhIMTkuODczM0wxNy45MTg2IDExLjk2ODNMMTUuOTYzOCAxNy41MDY4WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==&logoColor=%23FFFFFFC7&style=for-the-badge",
   join(IMAGES_PATH, "badge-loc-de.svg"),
   true,
@@ -117,6 +134,7 @@ function fetchModifySvg(
   customFont?: {
     notoSansSC?: boolean;
     notoSansJP?: boolean;
+    notoSansKR?: boolean;
   },
 ): void {
   axios
@@ -155,6 +173,12 @@ function fetchModifySvg(
           doc
             .querySelector("[font-family]")!
             .setAttribute("font-family", "Noto Sans JP");
+        }
+        // Noto Sans KR
+        if (customFont?.notoSansKR) {
+          doc
+            .querySelector("[font-family]")!
+            .setAttribute("font-family", "Noto Sans KR");
         }
 
         // If the badge is the rating badge, strip how many people rated

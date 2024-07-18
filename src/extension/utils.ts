@@ -1,6 +1,6 @@
 import { GetResponseTypeFromEndpointMethod } from "@octokit/types";
 import { writeFile } from "fs";
-import { ConfigurationTarget, workspace } from "vscode";
+import { ColorThemeKind, ConfigurationTarget, window, workspace } from "vscode";
 import {
   AdaptiveMode,
   Config,
@@ -80,6 +80,78 @@ export const verifyState = (config?: Config): boolean => {
 
 export const isUntouched = (): boolean => {
   return getStateObject().isUntouched;
+};
+
+export const getActiveVariant = (): Variant | undefined => {
+  // Get if autoDetectColorScheme is enabled
+  const autoDetectColorScheme = workspace
+    .getConfiguration("window")
+    .get<boolean>("autoDetectColorScheme");
+  // Error out if autoDetectColorScheme is undefined
+  if (autoDetectColorScheme === undefined) {
+    throw new Error("autoDetectColorScheme is undefined");
+  }
+  // Get the active color theme kind
+  const activeThemeKind = window.activeColorTheme.kind;
+  // If autoDetectColorScheme is enabled
+  if (autoDetectColorScheme) {
+    switch (activeThemeKind) {
+      case ColorThemeKind.Dark:
+      case ColorThemeKind.HighContrast: {
+        // Get preferredDarkColorTheme
+        const preferredDarkColorTheme = workspace
+          .getConfiguration("workbench")
+          .get<string>("preferredDarkColorTheme");
+        // Error out if preferredDarkColorTheme is undefined
+        if (!preferredDarkColorTheme) {
+          throw new Error("preferredDarkColorTheme is undefined");
+        }
+        // Check if theme is Modern
+        return preferredDarkColorTheme.startsWith("Codemos Modern")
+          ? "dark"
+          : undefined;
+      }
+      case ColorThemeKind.Light:
+      case ColorThemeKind.HighContrastLight: {
+        // Get preferredLightColorTheme
+        const preferredLightColorTheme = workspace
+          .getConfiguration("workbench")
+          .get<string>("preferredLightColorTheme");
+        // Error out if preferredLightColorTheme is undefined
+        if (!preferredLightColorTheme) {
+          throw new Error("preferredLightColorTheme is undefined");
+        }
+        // Check if theme is Modern
+        return preferredLightColorTheme.startsWith("Codemos Modern")
+          ? "light"
+          : undefined;
+      }
+      default:
+        return undefined;
+    }
+  } else {
+    const activeColorTheme = workspace
+      .getConfiguration("workbench")
+      .get<string>("colorTheme");
+    if (!activeColorTheme) {
+      return undefined;
+    }
+    switch (activeThemeKind) {
+      case ColorThemeKind.Dark:
+      case ColorThemeKind.HighContrast:
+        // Check if theme is Modern
+        return activeColorTheme.startsWith("Codemos Modern")
+          ? "dark"
+          : undefined;
+      case ColorThemeKind.Light:
+      case ColorThemeKind.HighContrastLight:
+        return activeColorTheme.startsWith("Codemos Modern")
+          ? "light"
+          : undefined;
+      default:
+        return undefined;
+    }
+  }
 };
 
 export const getConfig = (): Config => {

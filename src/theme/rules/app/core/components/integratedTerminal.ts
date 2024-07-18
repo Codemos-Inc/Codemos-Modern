@@ -40,8 +40,10 @@ export const getRules = (themeContext: ThemeContext): object => {
     "terminalOverviewRuler.cursorForeground": colors.fill.accent.pri,
     "terminalOverviewRuler.findMatchForeground": colors.basic.def.mint.sec,
     "terminalStickyScroll.background": colors.bg.solid.base,
+    "terminalStickyScroll.border": colors.stroke.divider.default,
     "terminalStickyScrollHover.background":
       colors.fill.terminal.stickyScrollHover, // 🟢 Undesired solution
+    "terminal.initialHintForeground": colors.fill.text.ghost,
   };
   const design = themeContext.variantConfig.design;
   if (design === "minimal") {
