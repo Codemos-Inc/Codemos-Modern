@@ -1,4 +1,4 @@
-import { RGB } from "../@types";
+import { RGB } from "../@types/index";
 import { hex6ToRgb } from "./conversions";
 
 export const getContrastRatioHex6 = (
@@ -20,9 +20,12 @@ const getContrast = (foregroundRgb: RGB, backgroundRgb: RGB): number => {
 };
 
 const getLuminance = (rgb: RGB): number => {
-  const [r, g, b] = rgb.map((v) => {
+  const [r, g, b] = rgb.map((v): number => {
     v /= 255;
     return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
   });
+  if (r === undefined || g === undefined || b === undefined) {
+    throw new Error("Invalid color values");
+  }
   return r * 0.2126 + g * 0.7152 + b * 0.0722;
 };

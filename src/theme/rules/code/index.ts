@@ -1,6 +1,6 @@
-import { ThemeContext } from "../../../@types";
-import { getRules as getSemanticRules } from "./semantic";
-import { getRules as getSyntaxRules } from "./syntax";
+import { ThemeContext } from "../../../@types/index";
+import { getRules as getSemanticRules } from "./semantic/index";
+import { getRules as getSyntaxRules } from "./syntax/index";
 
 export const getRules = (themeContext: ThemeContext): object => {
   if (themeContext.auxiliaryCodeThemeObject) {

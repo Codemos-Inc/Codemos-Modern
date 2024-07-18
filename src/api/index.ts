@@ -1,7 +1,8 @@
 import { RequestError } from "@octokit/request-error";
 import { Octokit } from "@octokit/rest";
-import { NetworkBoundResult } from "../@types";
-import { l10nT } from "../l10n";
+import { GetResponseTypeFromEndpointMethod } from "../../node_modules/@octokit/types/dist-types/index";
+import { NetworkBoundResult } from "../@types/index";
+import { l10nT } from "../l10n/index";
 import { RESPONSE_OK } from "./constants";
 
 let octokit = new Octokit();
@@ -46,9 +47,12 @@ export const getLatestVersionTag = async (
   owner: string,
   repo: string,
 ): Promise<NetworkBoundResult> => {
+  type GetLatestReleaseType = GetResponseTypeFromEndpointMethod<
+    typeof octokit.repos.getLatestRelease
+  >;
   return await octokit.repos
     .getLatestRelease({ owner, repo })
-    .then((response) => {
+    .then((response: GetLatestReleaseType) => {
       return {
         success: true,
         message: RESPONSE_OK,
@@ -80,6 +84,9 @@ export const getSingleContentFromRelease = async (
   path: string,
   ref: string,
 ): Promise<NetworkBoundResult> => {
+  type GetContentType = GetResponseTypeFromEndpointMethod<
+    typeof octokit.repos.getContent
+  >;
   return await octokit.repos
     .getContent({
       owner,
@@ -87,7 +94,7 @@ export const getSingleContentFromRelease = async (
       path,
       ref,
     })
-    .then((response) => {
+    .then((response: GetContentType) => {
       if (!Array.isArray(response.data)) {
         if (response.data.type === "file") {
           return {

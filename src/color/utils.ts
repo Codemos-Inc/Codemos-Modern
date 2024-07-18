@@ -1,4 +1,4 @@
-import { HEXA } from "../@types";
+import { HEXA } from "../@types/index";
 
 export const getHex6FromHex7 = (hex7: string): string => {
   return hex7.substring(1);

@@ -1,4 +1,4 @@
-import { AdaptiveMode, HSL, MimicInfo, RGB } from "../@types";
+import { AdaptiveMode, HSL, MimicInfo, RGB } from "../@types/index";
 import { computeCIEDE2000 } from "./cie";
 import {
   ACCENT_TEXT_MAX_CONTRAST_RATIO,

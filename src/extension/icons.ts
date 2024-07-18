@@ -1,6 +1,6 @@
 import { existsSync, mkdirSync, writeFileSync } from "fs";
 import { join } from "path";
-import { Variant } from "../@types";
+import { Variant } from "../@types/index";
 
 export const generateAccentColorIcons = (
   variant: Variant,

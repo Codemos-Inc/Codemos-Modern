@@ -10,20 +10,20 @@ import {
   ThemePaths,
   Variant,
   VariantConfig,
-} from "../@types";
+} from "../@types/index";
 import {
   getAuxiliaryThemeObject,
   prepareAuxiliaryTheme,
   prepareAuxiliaryThemeOffline,
   prepareAuxiliaryThemeRegistries,
   prepareAuxiliaryThemeRegistriesOffline,
-} from "../data";
-import { l10nT } from "../l10n";
+} from "../data/index";
+import { l10nT } from "../l10n/index";
 import { updateBridge } from "../main";
-import { defaultConfig } from "../modern";
-import { getStyles } from "../modern/variants";
-import { getThemeObject } from "../theme";
-import { configureSettings } from "../theme/configs";
+import { defaultConfig } from "../modern/index";
+import { getStyles } from "../modern/variants/index";
+import { getThemeObject } from "../theme/index";
+import { configureSettings } from "../theme/configs/index";
 import {
   showErrorNotification,
   showInformationNotification,

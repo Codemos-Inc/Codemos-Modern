@@ -1,4 +1,4 @@
-import { ThemeContext } from "../../../../@types";
+import { ThemeContext } from "../../../../@types/index";
 import { getRules as getDartRules } from "./extensions/dart";
 import { getRules as getErrorLensRules } from "./extensions/errorLens";
 import { getRules as getGitLensRules } from "./extensions/gitLens";

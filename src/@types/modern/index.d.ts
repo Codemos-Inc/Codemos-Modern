@@ -1,4 +1,4 @@
-import { Decoration } from "../theme";
+import { Decoration } from "../theme/index";
 
 export type Variant = "dark" | "light";
 

@@ -1,4 +1,4 @@
-import { ThemeContext } from "../../../../../@types";
+import { ThemeContext } from "../../../../../@types/index";
 import { TRANSPARENT } from "../../../../../color/constants";
 
 export const getRules = (themeContext: ThemeContext): object => {
@@ -63,9 +63,9 @@ export const getRules = (themeContext: ThemeContext): object => {
     "editorInlayHint.background": colors.basic.neutral.sen,
     "editorInlayHint.foreground": colors.fill.text.sec,
     "editorInlayHint.typeForeground": colors.basic.def.mint.pri,
-    "editorInlayHint.typeBackground": colors.basic.loc.mint.pri,
+    "editorInlayHint.typeBackground": colors.fill.system.bg.mint,
     "editorInlayHint.parameterForeground": colors.basic.alt.orange.pri,
-    "editorInlayHint.parameterBackground": colors.basic.loc.orange.pri,
+    "editorInlayHint.parameterBackground": colors.fill.system.bg.orange,
     "editorRuler.foreground": colors.stroke.divider.default,
     "editor.linkedEditingBackground": colors.basic.def.blue.qua,
     "editorCodeLens.foreground": colors.fill.text.disabled,

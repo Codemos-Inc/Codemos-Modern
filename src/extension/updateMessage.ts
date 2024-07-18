@@ -1,4 +1,4 @@
-import { l10nT } from "../l10n";
+import { l10nT } from "../l10n/index";
 
 export enum UpdateReason {
   CONFIG_CHANGE,

@@ -1,10 +1,10 @@
-import { RequestError } from "@octokit/request-error";
+import { RequestError } from "../../node_modules/@octokit/request-error/dist-types/index";
 import { Octokit } from "@octokit/rest";
 import { authentication } from "vscode";
-import { NetworkBoundResult } from "../@types";
-import { setOctokit } from "../api";
+import { NetworkBoundResult } from "../@types/index";
+import { setOctokit } from "../api/index";
 import { RESPONSE_OK } from "../api/constants";
-import { l10nT } from "../l10n";
+import { l10nT } from "../l10n/index";
 import { GITHUB_AUTH_PROVIDER_ID } from "./constants";
 
 export const authenticate = async (

@@ -1,4 +1,4 @@
-import { HSL, LAB, RGB } from "../@types";
+import { HSL, LAB, RGB } from "../@types/index";
 
 export const hex6ToRgb = (hex6: string): RGB => {
   const value = parseInt(hex6, 16);

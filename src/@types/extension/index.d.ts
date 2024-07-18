@@ -1,4 +1,4 @@
-import { Config } from "../modern";
+import { Config } from "../modern/index";
 
 export type StateObject = {
   isUntouched: boolean;

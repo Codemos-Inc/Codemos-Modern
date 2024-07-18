@@ -6,7 +6,7 @@ import {
   window,
   workspace,
 } from "vscode";
-import { Variant } from "./@types";
+import { Variant } from "./@types/index";
 import { authenticate } from "./extension/authentication";
 import { authenticateCommand, configureCommand } from "./extension/commands";
 import { GLOBAL_STATE_MRV_KEY } from "./extension/constants";

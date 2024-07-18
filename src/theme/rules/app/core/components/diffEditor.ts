@@ -1,5 +1,6 @@
-import { ThemeContext } from "../../../../../@types";
+import { ThemeContext } from "../../../../../@types/index";
 import { TRANSPARENT } from "../../../../../color/constants";
+
 export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles;
   return {

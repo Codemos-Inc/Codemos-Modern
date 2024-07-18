@@ -1,4 +1,4 @@
-import { LAB } from "../@types";
+import { LAB } from "../@types/index";
 
 export function computeCIEDE2000(lab1: LAB, lab2: LAB): number {
   const [L1, a1, b1] = lab1;

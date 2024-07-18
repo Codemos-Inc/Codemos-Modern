@@ -1,4 +1,4 @@
-import { ThemeContext } from "../../../../@types";
+import { ThemeContext } from "../../../../@types/index";
 import { getRules as getActionRules } from "./components/action";
 import { getRules as getActionBarRules } from "./components/actionBar";
 import { getRules as getActivityBarRules } from "./components/activityBar";

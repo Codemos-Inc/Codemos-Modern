@@ -1,7 +1,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
 import { join } from "path";
-import { StateObject } from "../@types";
-import { defaultConfig } from "../modern";
+import { StateObject } from "../@types/index";
+import { defaultConfig } from "../modern/index";
 
 export const defaultStateObject: StateObject = {
   isUntouched: true,

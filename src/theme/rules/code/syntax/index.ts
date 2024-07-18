@@ -1,4 +1,4 @@
-import { ThemeContext } from "../../../../@types";
+import { ThemeContext } from "../../../../@types/index";
 
 export const getRules = (themeContext: ThemeContext): object => {
   return [

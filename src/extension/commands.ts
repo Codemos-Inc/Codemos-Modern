@@ -7,18 +7,18 @@ import {
   window,
   workspace,
 } from "vscode";
-import { AdaptiveMode, Design, Variant } from "../@types";
-import { verifiedOwners } from "../auxiliary";
-import { getMimicHex7, validateHex6 } from "../color";
+import { AdaptiveMode, Design, Variant } from "../@types/index";
+import { verifiedOwners } from "../auxiliary/index";
+import { getMimicHex7, validateHex6 } from "../color/index";
+import { getAuxiliaryThemeId } from "../data/helpers";
 import {
   getAllAuxiliaryThemeRegistryIndexes as getAuxiliaryThemeRegistryIndexes,
   prepareAuxiliaryTheme,
   prepareAuxiliaryThemeOffline,
   prepareAuxiliaryThemeRegistries,
   prepareAuxiliaryThemeRegistriesOffline,
-} from "../data";
-import { getAuxiliaryThemeId } from "../data/helpers";
-import { l10nT } from "../l10n";
+} from "../data/index";
+import { l10nT } from "../l10n/index";
 import {
   mimic3Info as darkMimic,
   palette as darkPalette,
@@ -429,6 +429,10 @@ const getAccentColorFromPalette = async (variant: Variant) => {
   quickPick.busy = false;
   return await new Promise<string | undefined>((resolve) => {
     quickPick.onDidAccept(() => {
+      if (!quickPick.selectedItems[0]) {
+        quickPick.dispose();
+        return resolve(undefined);
+      }
       const selectedAccentColor = quickPick.selectedItems[0]._color;
       quickPick.dispose();
       if (selectedAccentColor) {
