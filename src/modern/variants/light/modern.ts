@@ -56,7 +56,7 @@ export const mimic1Info: MimicInfo = {
     saturation: 18,
   },
   moderate: {
-    referenceColor: "#EEEEEE",
+    referenceColor: "#ECECEC",
     saturation: 44,
   },
   aggressive: {
