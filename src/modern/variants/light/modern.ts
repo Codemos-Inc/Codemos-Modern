@@ -48,20 +48,20 @@ export const palette: Palette = {
 
 export const mimic1Info: MimicInfo = {
   none: {
-    referenceColor: "#ECECEC",
+    referenceColor: "#EDEDED",
     saturation: 0,
   },
   gentle: {
-    referenceColor: "#ECECEC",
-    saturation: 16,
+    referenceColor: "#EDEDED",
+    saturation: 18,
   },
   moderate: {
-    referenceColor: "#EBEBEB",
-    saturation: 40,
+    referenceColor: "#EEEEEE",
+    saturation: 44,
   },
   aggressive: {
-    referenceColor: "#E1E1E1",
-    saturation: 50,
+    referenceColor: "#E2E2E2",
+    saturation: 56,
   },
 };
 
@@ -398,7 +398,7 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
         rest: `${palette.hic}${getHexAlpha(5)}`,
         restSolid: getMixedColorHex9(
           `${palette.hic}${getHexAlpha(5)}`,
-          `${mimic1Color}${getHexAlpha(100)}`,
+          `${mimic2Color}${getHexAlpha(100)}`,
         ),
         pressed: `${palette.hic}${getHexAlpha(3)}`,
         prominent: `${mimic5Color}${getHexAlpha(100)}`,
@@ -490,7 +490,7 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
         default: `${palette.hic}${getHexAlpha(20)}`,
       },
       shadow: {
-        default: `${palette.hic}${getHexAlpha(14)}`,
+        default: `${palette.hic}${getHexAlpha(12)}`,
       },
     },
   };
