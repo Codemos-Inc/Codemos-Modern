@@ -8,6 +8,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 Nothing yet.
 
+## [2.7.1] - 2024-07-19 - Light theme improvements 💡
+
+### Changed
+
+- Minimal design color scheme to be lighter.
+- Light variant input box background color to be lighter.
+- Editor inlay hint colors.
+- Command center debugging background color.
+- Light variant shadows to be more subtle.
+- Preformat text colors from pink to red.
+
 ## [2.7.0] - 2024-07-19 - New localizations 🇫🇷, 🇰🇷, 🇩🇪
 
 ### Added
@@ -378,7 +389,8 @@ Nothing yet.
 
 - Initial release
 
-[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.7.0...HEAD
+[unreleased]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.7.1...HEAD
+[2.7.1]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.7.0...v2.7.1
 [2.7.0]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.6.1...v2.7.0
 [2.6.1]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.6.0...v2.6.1
 [2.6.0]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.5.4...v2.6.0
