@@ -21,9 +21,9 @@ import { getRules as getEditorGroupsAndTabsRules } from "./components/editorGrou
 import { getRules as getEditorWidgetRules } from "./components/editorWidget";
 import { getRules as getExtensionsRules } from "./components/extensions";
 import { getRules as getGitRules } from "./components/git";
+import { getRules as getInteractiveEditorRules } from "./components/inlineChat";
 import { getRules as getInputControlRules } from "./components/inputControl";
 import { getRules as getIntegratedTerminalRules } from "./components/integratedTerminal";
-import { getRules as getInteractiveEditorRules } from "./components/inlineChat";
 import { getRules as getKeybindingLabelRules } from "./components/keybindingLabel";
 import { getRules as getKeyboardShortcutTableRules } from "./components/keyboardShortcutTable";
 import { getRules as getListsAndTreesRules } from "./components/listsAndTrees";

@@ -1,6 +1,6 @@
+import { GetResponseTypeFromEndpointMethod } from "@octokit/types";
 import { writeFile } from "fs";
-import { get } from "https";
-import { ConfigurationTarget, workspace } from "vscode";
+import { ColorThemeKind, ConfigurationTarget, window, workspace } from "vscode";
 import {
   AdaptiveMode,
   Config,
@@ -11,6 +11,7 @@ import {
   Variant,
   VariantConfig,
 } from "../@types";
+import { getOctokit } from "../api";
 import {
   getAuxiliaryThemeObject,
   prepareAuxiliaryTheme,
@@ -31,28 +32,43 @@ import {
 } from "./notifications";
 import {
   getIsConfiguredFromCommand,
-  getIsOfflineMode,
+  getOnlineAvailability,
   setIsConfiguredFromCommand,
-  setIsOfflineMode,
+  setOnlineAvailability,
 } from "./sharedState";
 import { getStateObject } from "./state";
 import { UpdateReason, updateReasonMessages } from "./updateMessage";
 
-export const checkInternetConnection = (): Promise<void> => {
-  return new Promise((resolve) => {
-    get("https://www.github.com", () => {
-      setIsOfflineMode(false);
-      resolve();
-    }).on("error", () => {
-      showWarningNotification(
-        l10nT("notification.network.offline"),
-        null,
-        null,
-      );
-      setIsOfflineMode(true);
-      resolve();
-    });
-  });
+export const checkAvailability = async (): Promise<void> => {
+  const octokit = getOctokit();
+  type GetRateLimitType = GetResponseTypeFromEndpointMethod<
+    typeof octokit.rateLimit.get
+  >;
+  if (octokit) {
+    await octokit.rateLimit
+      .get()
+      .then((response: GetRateLimitType) => {
+        if (response.data.rate.remaining > 0) {
+          setOnlineAvailability(true);
+        } else {
+          setOnlineAvailability(false);
+          showWarningNotification(
+            l10nT("message.error.apiRateLimitExceeded"),
+            null,
+            null,
+          );
+        }
+        return;
+      })
+      .catch(() => {
+        setOnlineAvailability(false);
+        showWarningNotification(
+          l10nT("notification.network.offline"),
+          null,
+          null,
+        );
+      });
+  }
 };
 
 export const verifyState = (config?: Config): boolean => {
@@ -64,6 +80,78 @@ export const verifyState = (config?: Config): boolean => {
 
 export const isUntouched = (): boolean => {
   return getStateObject().isUntouched;
+};
+
+export const getActiveVariant = (): Variant | undefined => {
+  // Get if autoDetectColorScheme is enabled
+  const autoDetectColorScheme = workspace
+    .getConfiguration("window")
+    .get<boolean>("autoDetectColorScheme");
+  // Error out if autoDetectColorScheme is undefined
+  if (autoDetectColorScheme === undefined) {
+    throw new Error("autoDetectColorScheme is undefined");
+  }
+  // Get the active color theme kind
+  const activeThemeKind = window.activeColorTheme.kind;
+  // If autoDetectColorScheme is enabled
+  if (autoDetectColorScheme) {
+    switch (activeThemeKind) {
+      case ColorThemeKind.Dark:
+      case ColorThemeKind.HighContrast: {
+        // Get preferredDarkColorTheme
+        const preferredDarkColorTheme = workspace
+          .getConfiguration("workbench")
+          .get<string>("preferredDarkColorTheme");
+        // Error out if preferredDarkColorTheme is undefined
+        if (!preferredDarkColorTheme) {
+          throw new Error("preferredDarkColorTheme is undefined");
+        }
+        // Check if theme is Modern
+        return preferredDarkColorTheme.startsWith("Codemos Modern")
+          ? "dark"
+          : undefined;
+      }
+      case ColorThemeKind.Light:
+      case ColorThemeKind.HighContrastLight: {
+        // Get preferredLightColorTheme
+        const preferredLightColorTheme = workspace
+          .getConfiguration("workbench")
+          .get<string>("preferredLightColorTheme");
+        // Error out if preferredLightColorTheme is undefined
+        if (!preferredLightColorTheme) {
+          throw new Error("preferredLightColorTheme is undefined");
+        }
+        // Check if theme is Modern
+        return preferredLightColorTheme.startsWith("Codemos Modern")
+          ? "light"
+          : undefined;
+      }
+      default:
+        return undefined;
+    }
+  } else {
+    const activeColorTheme = workspace
+      .getConfiguration("workbench")
+      .get<string>("colorTheme");
+    if (!activeColorTheme) {
+      return undefined;
+    }
+    switch (activeThemeKind) {
+      case ColorThemeKind.Dark:
+      case ColorThemeKind.HighContrast:
+        // Check if theme is Modern
+        return activeColorTheme.startsWith("Codemos Modern")
+          ? "dark"
+          : undefined;
+      case ColorThemeKind.Light:
+      case ColorThemeKind.HighContrastLight:
+        return activeColorTheme.startsWith("Codemos Modern")
+          ? "light"
+          : undefined;
+      default:
+        return undefined;
+    }
+  }
 };
 
 export const getConfig = (): Config => {
@@ -194,11 +282,11 @@ export const updateModern = async (
     default:
       variants = [updateTarget];
   }
-  let isOfflineMode = getIsOfflineMode();
+  let isOnlineAvailable = getOnlineAvailability();
   if (!getIsConfiguredFromCommand()) {
-    await checkInternetConnection();
-    isOfflineMode = getIsOfflineMode();
-    if (!isOfflineMode) {
+    await checkAvailability();
+    isOnlineAvailable = getOnlineAvailability();
+    if (isOnlineAvailable) {
       const success = await prepareAuxiliaryThemeRegistries(
         config.auxiliaryThemeRegistries,
       );
@@ -225,7 +313,7 @@ export const updateModern = async (
     };
     if (themeContext.variantConfig.auxiliaryUiTheme) {
       if (!getIsConfiguredFromCommand()) {
-        if (!isOfflineMode) {
+        if (isOnlineAvailable) {
           const success = await prepareAuxiliaryTheme(
             config.auxiliaryThemeRegistries,
             themeContext.variantConfig.auxiliaryUiTheme,
@@ -251,7 +339,7 @@ export const updateModern = async (
     }
     if (themeContext.variantConfig.auxiliaryCodeTheme) {
       if (!getIsConfiguredFromCommand()) {
-        if (!isOfflineMode) {
+        if (isOnlineAvailable) {
           const success = await prepareAuxiliaryTheme(
             config.auxiliaryThemeRegistries,
             themeContext.variantConfig.auxiliaryCodeTheme,

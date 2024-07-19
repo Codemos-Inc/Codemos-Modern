@@ -17,7 +17,6 @@ export const getRules = (themeContext: ThemeContext): object => {
       colors.basic.def.orange.pri,
     "gitlens.decorations.branchUnpublishedForegroundColor":
       colors.basic.def.blue.pri,
-
     "gitlens.decorations.branchUpToDateForegroundColor": colors.fill.text.sec,
     "gitlens.decorations.copiedForegroundColor": colors.basic.def.yellow.pri,
     "gitlens.decorations.deletedForegroundColor": colors.basic.alt.red.pri,
@@ -53,18 +52,20 @@ export const getRules = (themeContext: ThemeContext): object => {
     "gitlens.graphLane9Color": colors.basic.def.red.pri,
     "gitlens.graphMinimapMarkerHeadColor": colors.basic.def.green.pri,
     "gitlens.graphMinimapMarkerHighlightsColor": colors.basic.def.mint.pri,
-    "gitlens.graphMinimapMarkerLocalBranchesColor": colors.basic.def.purple.pri,
+    "gitlens.graphMinimapMarkerLocalBranchesColor": colors.basic.def.blue.pri,
     "gitlens.graphMinimapMarkerRemoteBranchesColor": colors.basic.alt.mint.pri,
     "gitlens.graphMinimapMarkerStashesColor": colors.basic.def.pink.pri,
     "gitlens.graphMinimapMarkerTagsColor": colors.basic.def.yellow.pri,
     "gitlens.graphMinimapMarkerUpstreamColor": colors.basic.alt.green.pri,
+    "gitlens.graphMinimapMarkerPullRequestsColor": colors.basic.def.purple.pri,
     "gitlens.graphScrollMarkerHeadColor": colors.basic.def.green.sec,
     "gitlens.graphScrollMarkerHighlightsColor": colors.basic.def.mint.sec,
-    "gitlens.graphScrollMarkerLocalBranchesColor": colors.basic.def.purple.sec,
+    "gitlens.graphScrollMarkerLocalBranchesColor": colors.basic.def.blue.sec,
     "gitlens.graphScrollMarkerRemoteBranchesColor": colors.basic.alt.mint.sec,
     "gitlens.graphScrollMarkerStashesColor": colors.basic.def.pink.sec,
     "gitlens.graphScrollMarkerTagsColor": colors.basic.def.yellow.sec,
     "gitlens.graphScrollMarkerUpstreamColor": colors.basic.alt.green.sec,
+    "gitlens.graphScrollMarkerPullRequestsColor": colors.basic.alt.purple.sec,
     "gitlens.gutterBackgroundColor": colors.bg.solid.surface,
     "gitlens.gutterForegroundColor": colors.fill.text.sec,
     "gitlens.gutterUncommittedForegroundColor": colors.basic.alt.blue.pri,
@@ -78,5 +79,12 @@ export const getRules = (themeContext: ThemeContext): object => {
     "gitlens.unpublishedChangesIconColor": colors.basic.alt.green.pri,
     "gitlens.unpublishedCommitIconColor": colors.basic.def.green.pri,
     "gitlens.unpulledChangesIconColor": colors.basic.def.orange.pri,
+    "gitlens.launchpadIndicatorAttentionColor": colors.basic.def.orange.pri,
+    "gitlens.launchpadIndicatorAttentionHoverColor":
+      colors.basic.def.orange.sec,
+    "gitlens.launchpadIndicatorBlockedColor": colors.basic.def.red.pri,
+    "gitlens.launchpadIndicatorBlockedHoverColor": colors.basic.def.red.sec,
+    "gitlens.launchpadIndicatorMergeableColor": colors.basic.def.green.pri,
+    "gitlens.launchpadIndicatorMergeableHoverColor": colors.basic.def.green.sec,
   };
 };

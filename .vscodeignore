@@ -3,8 +3,8 @@
 .vscode/**
 fonts/**
 images/**
-out/**/*.map.js
-out/hooks/**
+node_modules/**
+out/int/**
 src/**
 **/.cspell.json
 **/.editorconfig
@@ -14,4 +14,5 @@ src/**
 **/.nvmrc
 **/.prettierignore
 **/.prettierrc.json
+**/esbuild.js
 **/tsconfig.json

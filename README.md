@@ -24,6 +24,9 @@ Innovative, modern theme suite/hub for VS Code
 <img src="images/badge-loc-es.png" height="28" alt="Spanish">&nbsp;
 <img src="images/badge-loc-ru.png" height="28" alt="Russian">&nbsp;
 <img src="images/badge-loc-pt-br.png" height="28" alt="Portuguese (Brazil)">&nbsp;
+<img src="images/badge-loc-fr.png" height="28" alt="French">&nbsp;
+<img src="images/badge-loc-ko.png" height="28" alt="Korean">&nbsp;
+<img src="images/badge-loc-de.png" height="28" alt="German">&nbsp;
 <img src="images/badge-loc-tr.png" height="28" alt="Turkish">
 
 ![overview](images/header-1.png)
@@ -250,17 +253,17 @@ We try to make Codemos Modern the most accessible theming extension for VS Code.
 | ------------------- | ------ | ------ | ------------- | ---------- | -------------------------- |
 | English             | en     | 🟢     | v1.0.0        | Codemos    | -                          |
 | Turkish             | tr     | 🟢     | v2.4.0        | Codemos    | -                          |
-| Simplified Chinese  | zh-cn  | 🟢     | v2.4.0        | Codemos    | -                          |
+| Simplified Chinese  | zh-cn  | 💬     | v2.4.0        | Codemos    | Review needed              |
 | Japanese            | ja     | 💬     | v2.5.0        | Codemos    | Review needed              |
 | Spanish             | es     | 🟢     | v2.5.0        | Codemos    | -                          |
 | Russian             | ru     | 💬     | v2.6.0        | Codemos    | Review needed              |
 | Portuguese (Brazil) | pt-br  | 🟢     | v2.6.0        | Codemos    | -                          |
-| French              | fr     | 🟡     | -             | Codemos    | Will be released by v2.7.X |
-| Korean              | ko     | 🟡     | -             | Codemos    | Will be released by v2.7.X |
-| German              | de     | 🟡     | -             | Codemos    | Will be released by v2.7.X |
-| Traditional Chinese | zh-tw  | 🔴     | -             | -          | Planned for v2.8.X         |
-| Italian             | it     | 🔴     | -             | -          | Planned for v2.8.X         |
-| Polish              | pl     | 🔴     | -             | -          | Not planned                |
+| French              | fr     | 🟢     | v2.7.0        | Codemos    | -                          |
+| Korean              | ko     | 💬     | v2.7.0        | Codemos    | Review needed              |
+| German              | de     | 🟢     | v2.7.0        | Codemos    | -                          |
+| Traditional Chinese | zh-tw  | 🟡     | -             | -          | Will be released by v2.8.X |
+| Italian             | it     | 🟡     | -             | -          | Will be released by v2.8.X |
+| Polish              | pl     | 🔴     | -             | -          | Planned for v2.9.0         |
 | Hungarian           | hu     | 🔴     | -             | -          | Not planned                |
 | Czech               | cs     | 🔴     | -             | -          | Not planned                |
 | Bulgarian           | bg     | 🔴     | -             | -          | Not planned                |
@@ -317,7 +320,7 @@ Changes from the last major release shown below. If you want to see the full cha
 
 ### Added
 
-- VS Code v1.89.x support.
+- VS Code v1.91.x support.
 - Modularity system. Users can now side-load **third party themes**.
 - Brand new design, **"Minimal"**. Users can now choose between **"Modern"** and **"Minimal"** designs.
 - Command `codemosModern.authenticate` to increase GitHub **api rate limits**.

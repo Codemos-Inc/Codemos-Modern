@@ -35,8 +35,11 @@ import {
   showInformationNotification,
   showProgressNotification,
 } from "./notifications";
-import { getIsOfflineMode, setIsConfiguredFromCommand } from "./sharedState";
-import { checkInternetConnection, getConfig, updateConfig } from "./utils";
+import {
+  getOnlineAvailability,
+  setIsConfiguredFromCommand,
+} from "./sharedState";
+import { checkAvailability, getConfig, updateConfig } from "./utils";
 
 export const authenticateCommand = async () => {
   await showProgressNotification(
@@ -61,8 +64,8 @@ export const authenticateCommand = async () => {
 };
 
 export const configureCommand = async () => {
-  await checkInternetConnection();
-  const isOfflineMode = getIsOfflineMode();
+  await checkAvailability();
+  const isOnlineAvailable = getOnlineAvailability();
   //
   const variant = await getVariant();
   if (!variant) {
@@ -72,7 +75,7 @@ export const configureCommand = async () => {
   const auxiliaryUiThemeExtension = await getAuxiliaryThemeExtension(
     variant,
     l10nT("helper.kind.ui"),
-    isOfflineMode,
+    isOnlineAvailable,
   );
   if (!auxiliaryUiThemeExtension) {
     return;
@@ -83,7 +86,7 @@ export const configureCommand = async () => {
       variant,
       auxiliaryUiThemeExtension,
       l10nT("helper.kind.ui"),
-      isOfflineMode,
+      isOnlineAvailable,
     );
     if (!auxiliaryUiThemeCandidate) {
       return;
@@ -122,7 +125,7 @@ export const configureCommand = async () => {
   const auxiliaryCodeThemeExtension = await getAuxiliaryThemeExtension(
     variant,
     l10nT("helper.kind.code"),
-    isOfflineMode,
+    isOnlineAvailable,
   );
   if (!auxiliaryCodeThemeExtension) {
     return;
@@ -133,7 +136,7 @@ export const configureCommand = async () => {
       variant,
       auxiliaryCodeThemeExtension,
       l10nT("helper.kind.code"),
-      isOfflineMode,
+      isOnlineAvailable,
     );
     if (!auxiliaryCodeThemeCandidate) {
       return;
@@ -429,6 +432,10 @@ const getAccentColorFromPalette = async (variant: Variant) => {
   quickPick.busy = false;
   return await new Promise<string | undefined>((resolve) => {
     quickPick.onDidAccept(() => {
+      if (!quickPick.selectedItems[0]) {
+        quickPick.dispose();
+        return resolve(undefined);
+      }
       const selectedAccentColor = quickPick.selectedItems[0]._color;
       quickPick.dispose();
       if (selectedAccentColor) {
@@ -762,7 +769,7 @@ interface AuxiliaryThemeQPI extends QuickPickItem {
 const getAuxiliaryThemeExtension = async (
   variant: Variant,
   kind: string,
-  isOfflineMode: boolean,
+  isOnlineAvailable: boolean,
 ) => {
   const quickPick = window.createQuickPick<AuxiliaryThemeQPI>();
   quickPick.title = l10nT("command.configure.*.title$variant$kind", [
@@ -778,10 +785,10 @@ const getAuxiliaryThemeExtension = async (
   quickPick.show();
   const auxiliaryThemeRegistries = getConfig().auxiliaryThemeRegistries;
   let success: boolean;
-  if (isOfflineMode) {
-    success = prepareAuxiliaryThemeRegistriesOffline(auxiliaryThemeRegistries);
-  } else {
+  if (isOnlineAvailable) {
     success = await prepareAuxiliaryThemeRegistries(auxiliaryThemeRegistries);
+  } else {
+    success = prepareAuxiliaryThemeRegistriesOffline(auxiliaryThemeRegistries);
   }
   if (!success) {
     quickPick.dispose();
@@ -864,7 +871,7 @@ const getAuxiliaryThemeExtension = async (
       if (auxiliaryTheme.installed) {
         installedAuxiliaryThemesQPIs.push(auxiliaryThemeExtensionQPI);
       } else {
-        if (!isOfflineMode) {
+        if (isOnlineAvailable) {
           availableAuxiliaryThemesQPIs.push(auxiliaryThemeExtensionQPI);
         }
       }
@@ -905,7 +912,7 @@ const getAuxiliaryTheme = async (
   variant: Variant,
   auxiliaryThemeExtension: string,
   kind: string,
-  isOfflineMode: boolean,
+  isOnlineAvailable: boolean,
 ) => {
   const quickPick = window.createQuickPick<AuxiliaryThemeQPI>();
   quickPick.title = l10nT("command.configure.*.title$variant$kind", [
@@ -961,7 +968,7 @@ const getAuxiliaryTheme = async (
       if (auxiliaryTheme.installed) {
         installedAuxiliaryThemesQPIs.push(auxiliaryThemeQPI);
       } else {
-        if (!isOfflineMode) {
+        if (isOnlineAvailable) {
           availableAuxiliaryThemesQPIs.push(auxiliaryThemeQPI);
         }
       }
@@ -994,14 +1001,14 @@ const getAuxiliaryTheme = async (
           selectedAuxiliaryTheme.auxiliaryThemeId;
         if (selectedAuxiliaryThemeId) {
           let success: boolean;
-          if (isOfflineMode) {
-            success = await prepareAuxiliaryThemeOffline(
+          if (isOnlineAvailable) {
+            success = await prepareAuxiliaryTheme(
               auxiliaryThemeRegistries,
               selectedAuxiliaryThemeId,
               variant,
             );
           } else {
-            success = await prepareAuxiliaryTheme(
+            success = await prepareAuxiliaryThemeOffline(
               auxiliaryThemeRegistries,
               selectedAuxiliaryThemeId,
               variant,

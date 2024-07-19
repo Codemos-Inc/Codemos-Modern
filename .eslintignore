@@ -1,2 +1,3 @@
 out
 **/*.d.ts
+esbuild.js

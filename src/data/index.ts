@@ -7,18 +7,18 @@ import {
   NetworkBoundResult,
   OfflineResult,
   Variant,
-} from "../@types";
+} from "../@types/index";
 import {
   checkIfRepoExists,
   getLatestVersionTag,
   getSingleContentFromRelease,
-} from "../api";
+} from "../api/index";
 import { isAuxiliaryThemeRegistryIndex } from "../auxiliary/helpers";
 import {
   showErrorNotification,
   showProgressNotification,
 } from "../extension/notifications";
-import { l10nT } from "../l10n";
+import { l10nT } from "../l10n/index";
 import { getAuxiliaryThemeId, getAuxiliaryThemeRegistryIds } from "./helpers";
 import {
   cacheFile,
