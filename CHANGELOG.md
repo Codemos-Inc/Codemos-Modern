@@ -14,6 +14,7 @@ Nothing yet.
 
 - Support for VS Code v1.91.x.
 - Localization for French 🇫🇷, Korean 🇰🇷, and German 🇩🇪.
+- Theming support for the [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer) extension.
 - Bundler (ESbuild) to reduce package size and improve startup performance.
 
 ### Changed
