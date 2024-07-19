@@ -13,12 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout release
-        uses: actions/checkout@v3.5.3
+        uses: actions/checkout@v4.1.7
         with:
           ref: release
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3.7.0
+        uses: actions/setup-node@v4.0.3
         with:
           node-version-file: ".nvmrc"
 
@@ -57,7 +57,7 @@ jobs:
           echo '$EOF' >> $GITHUB_OUTPUT
 
       - name: Create release
-        uses: softprops/action-gh-release@v0.1.15
+        uses: softprops/action-gh-release@v2.0.8
         env:
           release_tag: ${{ steps.prepare_tag.outputs.release_tag }}
           release_name: ${{ steps.prepare_release.outputs.release_name }}
@@ -73,12 +73,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout release
-        uses: actions/checkout@v3.5.3
+        uses: actions/checkout@v4.1.7
         with:
           ref: release
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3.7.0
+        uses: actions/setup-node@v4.0.3
         with:
           node-version-file: ".nvmrc"
 
@@ -93,7 +93,7 @@ jobs:
           pat: ${{ secrets.OPEN_VSX_TOKEN }}
 
       - name: Publish to Visual Studio Marketplace
-        uses: HaaLeo/publish-vscode-extension@v1
+        uses: HaaLeo/publish-vscode-extension@v1.6.2
         with:
           pat: ${{ secrets.VS_MARKETPLACE_TOKEN }}
           registryUrl: https://marketplace.visualstudio.com
