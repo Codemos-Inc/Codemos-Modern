@@ -8,11 +8,11 @@ out/int/**
 src/**
 **/.cspell.json
 **/.editorconfig
-**/.eslintignore
 **/.eslintrc.json
 **/.gitignore
 **/.nvmrc
 **/.prettierignore
 **/.prettierrc.json
 **/esbuild.js
+**/eslint.config.mjs
 **/tsconfig.json

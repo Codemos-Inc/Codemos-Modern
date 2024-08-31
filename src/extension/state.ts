@@ -17,6 +17,7 @@ export const getStateObject = (): StateObject => {
     const stateObject = JSON.parse(stateString);
     return stateObject as StateObject;
   } catch (error) {
+    console.log(error);
     // 🔴 Write to output
     console.warn(
       "Codemos Modern: Unexpected error ocurred while trying to read state file, recreating it with default values.",
