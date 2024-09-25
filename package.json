@@ -155,11 +155,13 @@
             "default": "modern",
             "enum": [
               "modern",
-              "minimal"
+              "minimal",
+              "flat"
             ],
             "enumDescriptions": [
               "%conf.*.design.enum.modern.desc%",
-              "%conf.*.design.enum.minimal.desc%"
+              "%conf.*.design.enum.minimal.desc%",
+              "%conf.*.design.enum.flat.desc%"
             ],
             "markdownDescription": "%conf.dark.design.desc%"
           },
@@ -315,6 +317,6 @@
     "build": "npm run beforeBuild && npm run compile-all && npm run package:prod",
     "winBuild": "npm run winBeforeBuild && npm run compile-all && npm run package:prod",
     "debug": "DEBUG=1 && npm run beforeBuild && npm run compile-all && npm run package:dev",
-    "winDebug": "DEBUG=1 && npm run winBeforeBuild && npm run compile-all && npm run package:dev"
+    "winDebug": "set \"DEBUG=1\" && npm run winBeforeBuild && npm run compile-all && npm run package:dev"
   }
 }

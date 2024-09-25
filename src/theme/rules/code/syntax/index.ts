@@ -1,10 +1,7 @@
 import { ThemeContext } from "../../../../@types";
 
 export const getRules = (themeContext: ThemeContext): object => {
-  return [
-    ...(<[]>getDefaultRules(themeContext)),
-    ...(<[]>getExtraRules(themeContext)),
-  ];
+  return [...(<[]>getDefaultRules(themeContext)), ...(<[]>getExtraRules(themeContext))];
 };
 
 const getDefaultRules = (themeContext: ThemeContext): object => {
@@ -52,10 +49,7 @@ const getDefaultRules = (themeContext: ThemeContext): object => {
     },
     // interface
     {
-      scope: [
-        "entity.name.type.interface",
-        "meta.definition.class.implemented.interfaces",
-      ],
+      scope: ["entity.name.type.interface", "meta.definition.class.implemented.interfaces"],
       settings: {
         foreground: colors.basic.def.mint.pri,
         fontStyle: "",
@@ -79,12 +73,7 @@ const getDefaultRules = (themeContext: ThemeContext): object => {
     },
     // type
     {
-      scope: [
-        "entity.name.type",
-        "entity.name.tag",
-        "keyword.operator.less",
-        "support.type",
-      ],
+      scope: ["entity.name.type", "entity.name.tag", "keyword.operator.less", "support.type"],
       settings: {
         foreground: colors.basic.def.mint.pri,
         fontStyle: "",
@@ -117,9 +106,7 @@ const getDefaultRules = (themeContext: ThemeContext): object => {
       ],
       settings: {
         foreground: colors.basic.alt.orange.pri,
-        fontStyle: `${
-          themeContext.textDecorations.underline ? "underline" : ""
-        }`,
+        fontStyle: `${themeContext.textDecorations.underline ? "underline" : ""}`,
       },
     },
     // variable.readonly
@@ -148,9 +135,7 @@ const getDefaultRules = (themeContext: ThemeContext): object => {
       ],
       settings: {
         foreground: colors.basic.alt.yellow.pri,
-        fontStyle: `${
-          themeContext.textDecorations.underline ? "underline" : ""
-        }`,
+        fontStyle: `${themeContext.textDecorations.underline ? "underline" : ""}`,
       },
     },
     // property.readonly
@@ -182,11 +167,7 @@ const getDefaultRules = (themeContext: ThemeContext): object => {
     },
     // decorator
     {
-      scope: [
-        "meta.decorator",
-        "meta.function.decorator",
-        "entity.name.function.decorator",
-      ],
+      scope: ["meta.decorator", "meta.function.decorator", "entity.name.function.decorator"],
       settings: {
         foreground: colors.basic.def.red.pri,
         fontStyle: "",
@@ -487,11 +468,7 @@ const getExtraRules = (themeContext: ThemeContext): object => {
     },
     // constant
     {
-      scope: [
-        "variable.other.constant",
-        "constant.other.caps",
-        "constant.other.php",
-      ],
+      scope: ["variable.other.constant", "constant.other.caps", "constant.other.php"],
       settings: {
         foreground: colors.basic.alt.mint.pri,
         fontStyle: "",
@@ -529,11 +506,7 @@ const getExtraRules = (themeContext: ThemeContext): object => {
     },
     // property-name, attribute-name
     {
-      scope: [
-        "support.type.property-name",
-        "entity.other.attribute-name",
-        "meta.property-value",
-      ],
+      scope: ["support.type.property-name", "entity.other.attribute-name", "meta.property-value"],
       settings: {
         foreground: colors.basic.alt.blue.pri,
         fontStyle: "",
@@ -544,9 +517,7 @@ const getExtraRules = (themeContext: ThemeContext): object => {
       scope: ["support.type.vendored.property-name"],
       settings: {
         foreground: colors.basic.alt.blue.pri,
-        fontStyle: `${
-          themeContext.textDecorations.underline ? "underline" : ""
-        }`,
+        fontStyle: `${themeContext.textDecorations.underline ? "underline" : ""}`,
       },
     },
     // pseudo-class
@@ -655,21 +626,14 @@ const getExtraRules = (themeContext: ThemeContext): object => {
       },
     },
     {
-      scope: [
-        "string.other.link",
-        "punctuation.definition.list.begin.markdown",
-      ],
+      scope: ["string.other.link", "punctuation.definition.list.begin.markdown"],
       settings: {
         foreground: colors.fill.accentText.pri,
         fontStyle: "",
       },
     },
     {
-      scope: [
-        "markup.fenced_code.block",
-        "markup.inline.raw",
-        "markup.raw.block",
-      ],
+      scope: ["markup.fenced_code.block", "markup.inline.raw", "markup.raw.block"],
       settings: {
         foreground: colors.basic.def.pink.pri,
         fontStyle: "",

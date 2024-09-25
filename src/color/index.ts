@@ -5,13 +5,7 @@ import {
   ACCENT_TEXT_MINIMUM_COLOR_DIF,
   ACCENT_TEXT_MIN_CONTRAST_RATIO,
 } from "./constants";
-import {
-  hex6ToRgb,
-  hslToHex6,
-  rgbToHex7,
-  rgbToHsl,
-  rgbToLab,
-} from "./conversions";
+import { hex6ToRgb, hslToHex6, rgbToHex7, rgbToHsl, rgbToLab } from "./conversions";
 import { getHex6FromHex7, getHex7FromHex6, splitHex9 } from "./utils";
 import { getContrastRatioHex6 } from "./wcag";
 
@@ -39,18 +33,12 @@ export const getContrastSafeAccentColorHex7 = (
 ): string | undefined => {
   const accentColorHex6 = getHex6FromHex7(accentColorHex7);
   const referenceHex6 = getsDarker ? "FFFFFF" : "000000";
-  const safeAccentHex6 = getContrastSafeHex6(
-    accentColorHex6,
-    referenceHex6,
-    getsDarker,
-  );
+  const safeAccentHex6 = getContrastSafeHex6(accentColorHex6, referenceHex6, getsDarker);
   const colorDif = computeCIEDE2000(
     rgbToLab(hex6ToRgb(safeAccentHex6)),
     rgbToLab(hex6ToRgb(getHex6FromHex7(foregroundColorHex7))),
   );
-  return colorDif > ACCENT_TEXT_MINIMUM_COLOR_DIF
-    ? getHex7FromHex6(safeAccentHex6)
-    : undefined;
+  return colorDif > ACCENT_TEXT_MINIMUM_COLOR_DIF ? getHex7FromHex6(safeAccentHex6) : undefined;
 };
 
 export const getMimicHex7 = (
@@ -65,9 +53,7 @@ export const getMimicHex7 = (
   const hex6 = getHex6FromHex7(accentColorHex7);
   const saturation = mimicInfo[adaptiveMode].saturation;
   const referenceHex6 = getHex6FromHex7(mimicInfo[adaptiveMode].referenceColor);
-  return getHex7FromHex6(
-    getBalancedHex6(hex6, saturation, referenceHex6, getsDarker),
-  );
+  return getHex7FromHex6(getBalancedHex6(hex6, saturation, referenceHex6, getsDarker));
 };
 
 export const getMixedColorHex7 = (
@@ -77,43 +63,24 @@ export const getMixedColorHex7 = (
 ): string => {
   const color1Rgb = hex6ToRgb(getHex6FromHex7(color1Hex7));
   const color2Rgb = hex6ToRgb(getHex6FromHex7(color2Hex7));
-  return rgbToHex7(
-    getMixedColorRgb(color1Rgb, color1AlphaPercentage, color2Rgb),
-  );
+  return rgbToHex7(getMixedColorRgb(color1Rgb, color1AlphaPercentage, color2Rgb));
 };
 
-export const getMixedColorHex9 = (
-  color1Hex9: string,
-  color2Hex9: string,
-): string => {
+export const getMixedColorHex9 = (color1Hex9: string, color2Hex9: string): string => {
   const [color1Hex7, color1AlphaHex] = splitHex9(color1Hex9);
   const color1AlphaPercentage = getAlphaPercentage(color1AlphaHex);
-  return getMixedColorHex7(
-    color1Hex7,
-    color1AlphaPercentage,
-    splitHex9(color2Hex9)[0],
-  );
+  return getMixedColorHex7(color1Hex7, color1AlphaPercentage, splitHex9(color2Hex9)[0]);
 };
 
-const getMixedColorRgb = (
-  color1Rgb: RGB,
-  color1AlphaPercentage: number,
-  color2Rgb: RGB,
-): RGB => {
+const getMixedColorRgb = (color1Rgb: RGB, color1AlphaPercentage: number, color2Rgb: RGB): RGB => {
   const mixedR = Math.round(
-    (color1Rgb[0] * color1AlphaPercentage +
-      color2Rgb[0] * (100 - color1AlphaPercentage)) /
-      100,
+    (color1Rgb[0] * color1AlphaPercentage + color2Rgb[0] * (100 - color1AlphaPercentage)) / 100,
   );
   const mixedG = Math.round(
-    (color1Rgb[1] * color1AlphaPercentage +
-      color2Rgb[1] * (100 - color1AlphaPercentage)) /
-      100,
+    (color1Rgb[1] * color1AlphaPercentage + color2Rgb[1] * (100 - color1AlphaPercentage)) / 100,
   );
   const mixedB = Math.round(
-    (color1Rgb[2] * color1AlphaPercentage +
-      color2Rgb[2] * (100 - color1AlphaPercentage)) /
-      100,
+    (color1Rgb[2] * color1AlphaPercentage + color2Rgb[2] * (100 - color1AlphaPercentage)) / 100,
   );
   return [mixedR, mixedG, mixedB];
 };
@@ -130,20 +97,13 @@ const getAlphaPercentage = (alphaHex: string): number => {
   return Math.round(alphaDecimal * 100);
 };
 
-const getContrastSafeHex6 = (
-  hex6: string,
-  referenceHex6: string,
-  getsDarker: boolean,
-): string => {
+const getContrastSafeHex6 = (hex6: string, referenceHex6: string, getsDarker: boolean): string => {
   const hsl = rgbToHsl(hex6ToRgb(hex6));
   let found = false;
   let currentColor: string = hslToHex6(hsl);
   let prevColor: string = hslToHex6(hsl);
   while (!found) {
-    const currentContrastRatio = getContrastRatioHex6(
-      currentColor,
-      referenceHex6,
-    );
+    const currentContrastRatio = getContrastRatioHex6(currentColor, referenceHex6);
     if (currentContrastRatio > ACCENT_TEXT_MIN_CONTRAST_RATIO) {
       found = true;
       if (currentContrastRatio > ACCENT_TEXT_MAX_CONTRAST_RATIO) {
@@ -157,10 +117,7 @@ const getContrastSafeHex6 = (
   }
   getsDarker = !getsDarker;
   while (!found) {
-    const currentContrastRatio = getContrastRatioHex6(
-      currentColor,
-      referenceHex6,
-    );
+    const currentContrastRatio = getContrastRatioHex6(currentColor, referenceHex6);
     if (currentContrastRatio < ACCENT_TEXT_MAX_CONTRAST_RATIO) {
       found = true;
       break;
@@ -187,10 +144,7 @@ const getBalancedHex6 = (
   let currentColor: string = hslToHex6(hsl);
   let prevColor: string = currentColor;
   while (!found) {
-    const currentContrastRatio = getContrastRatioHex6(
-      currentColor,
-      referenceHex6,
-    );
+    const currentContrastRatio = getContrastRatioHex6(currentColor, referenceHex6);
     if (currentContrastRatio > minimumContrastRatio) {
       found = true;
       break;

@@ -3,7 +3,7 @@ import { TRANSPARENT } from "../../../../../color/constants";
 
 export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles;
-  const scrollbarControlRules = {
+  const rules = {
     "scrollbar.shadow": colors.effect.shadow.default,
     "scrollbarSlider.activeBackground": colors.fill.control.pressed,
     "scrollbarSlider.background": colors.fill.control.rest,
@@ -11,7 +11,9 @@ export const getRules = (themeContext: ThemeContext): object => {
   };
   const design = themeContext.variantConfig.design;
   if (design === "minimal") {
-    scrollbarControlRules["scrollbar.shadow"] = TRANSPARENT;
+    rules["scrollbar.shadow"] = TRANSPARENT;
+  } else if (design === "flat") {
+    rules["scrollbar.shadow"] = TRANSPARENT;
   }
-  return scrollbarControlRules;
+  return rules;
 };

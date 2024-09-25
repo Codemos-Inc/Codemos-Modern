@@ -26,7 +26,6 @@ export const getRules = (themeContext: ThemeContext): object => {
     "notebookStatusErrorIcon.foreground": colors.basic.def.red.pri,
     "notebookStatusRunningIcon.foreground": colors.basic.def.yellow.pri,
     "notebookStatusSuccessIcon.foreground": colors.basic.def.green.pri,
-    "notebookEditorOverviewRuler.runningCellForeground":
-      colors.basic.def.yellow.pri,
+    "notebookEditorOverviewRuler.runningCellForeground": colors.basic.def.yellow.pri,
   };
 };

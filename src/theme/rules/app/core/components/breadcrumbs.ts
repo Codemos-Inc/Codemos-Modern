@@ -2,7 +2,7 @@ import { ThemeContext } from "../../../../../@types";
 
 export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles;
-  const breadcrumbsRules = {
+  const rules = {
     "breadcrumb.foreground": colors.fill.text.sec,
     "breadcrumb.background": colors.bg.solid.base,
     "breadcrumb.focusForeground": colors.fill.text.pri,
@@ -11,7 +11,9 @@ export const getRules = (themeContext: ThemeContext): object => {
   };
   const design = themeContext.variantConfig.design;
   if (design === "minimal") {
-    breadcrumbsRules["breadcrumb.background"] = colors.bg.solid.canvas;
+    rules["breadcrumb.background"] = colors.bg.solid.canvas;
+  } else if (design === "flat") {
+    rules["breadcrumb.background"] = colors.bg.solid.canvas;
   }
-  return breadcrumbsRules;
+  return rules;
 };

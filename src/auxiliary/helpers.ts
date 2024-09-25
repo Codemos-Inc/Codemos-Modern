@@ -1,8 +1,6 @@
 import { AuxiliaryThemeInfo, AuxiliaryThemeRegistryIndex } from "../@types";
 
-export const isAuxiliaryThemeRegistryIndex = (
-  obj: any,
-): obj is AuxiliaryThemeRegistryIndex => {
+export const isAuxiliaryThemeRegistryIndex = (obj: any): obj is AuxiliaryThemeRegistryIndex => {
   if (typeof obj !== "object" || obj === null) {
     return false;
   }

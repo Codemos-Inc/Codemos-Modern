@@ -49,8 +49,7 @@ const getDefaultRules = (themeContext: ThemeContext): object => {
     label: colors.basic.alt.pink.pri,
     comment: {
       foreground: colors.basic.def.green.pri,
-      strikethrough:
-        themeContext.textDecorations.forComments.includes("strikeThrough"),
+      strikethrough: themeContext.textDecorations.forComments.includes("strikeThrough"),
       bold: themeContext.textDecorations.forComments.includes("bold"),
       italic: themeContext.textDecorations.forComments.includes("italic"),
       underline: themeContext.textDecorations.forComments.includes("underline"),

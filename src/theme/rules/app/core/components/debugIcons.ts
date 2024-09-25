@@ -6,8 +6,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     "debugIcon.breakpointForeground": colors.basic.def.red.pri,
     "debugIcon.breakpointDisabledForeground": colors.basic.neutral.qua,
     "debugIcon.breakpointUnverifiedForeground": colors.basic.def.orange.pri,
-    "debugIcon.breakpointCurrentStackframeForeground":
-      colors.basic.def.yellow.pri,
+    "debugIcon.breakpointCurrentStackframeForeground": colors.basic.def.yellow.pri,
     "debugIcon.breakpointStackframeForeground": colors.basic.def.yellow.ter,
     "debugIcon.startForeground": colors.basic.def.green.pri,
     "debugIcon.pauseForeground": colors.basic.def.yellow.pri,

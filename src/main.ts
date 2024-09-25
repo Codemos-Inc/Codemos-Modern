@@ -1,9 +1,4 @@
-import {
-  ConfigurationChangeEvent,
-  ExtensionContext,
-  commands,
-  workspace,
-} from "vscode";
+import { ConfigurationChangeEvent, ExtensionContext, commands, workspace } from "vscode";
 import type { Variant } from "./@types";
 import { authenticate } from "./extension/authentication";
 import { authenticateCommand, configureCommand } from "./extension/commands";
@@ -30,31 +25,27 @@ export const activate = async (extensionContext: ExtensionContext) => {
     commands.registerCommand("codemosModern.configure", configureCommand),
   );
   await onStart(extensionContext);
-  workspace.onDidChangeConfiguration(
-    async (event: ConfigurationChangeEvent) => {
-      if (
-        event.affectsConfiguration("codemosModern.auxiliaryThemeRegistries")
-      ) {
-        await updateBridge("none", UpdateReason.CONFIG_CHANGE);
-      } else if (event.affectsConfiguration("codemosModern.textDecorations")) {
-        await updateBridge("all", UpdateReason.CONFIG_CHANGE);
-      } else if (event.affectsConfiguration("codemosModern.dark")) {
-        if (!getIsConfiguredFromCommand()) {
-          await updateBridge("dark", UpdateReason.CONFIG_CHANGE);
-        }
-      } else if (event.affectsConfiguration("codemosModern.light")) {
-        if (!getIsConfiguredFromCommand()) {
-          await updateBridge("light", UpdateReason.CONFIG_CHANGE);
-        }
-      } else if (
-        event.affectsConfiguration("workbench.colorTheme") ||
-        event.affectsConfiguration("workbench.preferredDarkColorTheme") ||
-        event.affectsConfiguration("workbench.preferredLightColorTheme")
-      ) {
-        updateSettings(getConfig(), getActiveVariant());
+  workspace.onDidChangeConfiguration(async (event: ConfigurationChangeEvent) => {
+    if (event.affectsConfiguration("codemosModern.auxiliaryThemeRegistries")) {
+      await updateBridge("none", UpdateReason.CONFIG_CHANGE);
+    } else if (event.affectsConfiguration("codemosModern.textDecorations")) {
+      await updateBridge("all", UpdateReason.CONFIG_CHANGE);
+    } else if (event.affectsConfiguration("codemosModern.dark")) {
+      if (!getIsConfiguredFromCommand()) {
+        await updateBridge("dark", UpdateReason.CONFIG_CHANGE);
       }
-    },
-  );
+    } else if (event.affectsConfiguration("codemosModern.light")) {
+      if (!getIsConfiguredFromCommand()) {
+        await updateBridge("light", UpdateReason.CONFIG_CHANGE);
+      }
+    } else if (
+      event.affectsConfiguration("workbench.colorTheme") ||
+      event.affectsConfiguration("workbench.preferredDarkColorTheme") ||
+      event.affectsConfiguration("workbench.preferredLightColorTheme")
+    ) {
+      updateSettings(getConfig(), getActiveVariant());
+    }
+  });
 };
 
 export const updateBridge = async (
@@ -63,13 +54,7 @@ export const updateBridge = async (
 ) => {
   const config = getConfig();
   if (!verifyState(config)) {
-    await updateModern(
-      updateTarget,
-      updateReason,
-      config,
-      getThemePaths(),
-      getActiveVariant(),
-    );
+    await updateModern(updateTarget, updateReason, config, getThemePaths(), getActiveVariant());
     const stateObject = getStateObject();
     if (stateObject.isUntouched) {
       stateObject.isUntouched = false;
@@ -82,13 +67,8 @@ export const updateBridge = async (
 const onStart = async (extensionContext: ExtensionContext) => {
   await authenticate(false);
   extensionContext.globalState.setKeysForSync([GLOBAL_STATE_MRV_KEY]);
-  const mostRecentVersion = extensionContext.globalState.get(
-    GLOBAL_STATE_MRV_KEY,
-  ) as string;
-  if (
-    !mostRecentVersion ||
-    mostRecentVersion !== extensionContext.extension.packageJSON.version
-  ) {
+  const mostRecentVersion = extensionContext.globalState.get(GLOBAL_STATE_MRV_KEY) as string;
+  if (!mostRecentVersion || mostRecentVersion !== extensionContext.extension.packageJSON.version) {
     extensionContext.globalState.update(
       GLOBAL_STATE_MRV_KEY,
       extensionContext.extension.packageJSON.version,
@@ -103,16 +83,13 @@ const onStart = async (extensionContext: ExtensionContext) => {
     let updateReason: UpdateReason;
     if (isUntouched()) {
       // Reinstall
-      if (
-        mostRecentVersion === extensionContext.extension.packageJSON.version
-      ) {
+      if (mostRecentVersion === extensionContext.extension.packageJSON.version) {
         updateReason = UpdateReason.REINSTALL;
       }
       // Major, minor, or patch update
       else {
         const mostRecentVersionParts = mostRecentVersion.split(".");
-        const currentVersionParts =
-          extensionContext.extension.packageJSON.version.split(".");
+        const currentVersionParts = extensionContext.extension.packageJSON.version.split(".");
         if (mostRecentVersionParts[0] !== currentVersionParts[0]) {
           updateReason = UpdateReason.MAJOR_UPDATE;
         } else if (mostRecentVersionParts[1] !== currentVersionParts[1]) {
@@ -132,11 +109,7 @@ const onStart = async (extensionContext: ExtensionContext) => {
 
 const firstInstallExperience = () => {
   commands.executeCommand("codemosModern.configure");
-  showInformationNotification(
-    updateReasonMessages[UpdateReason.FIRST_INSTALL],
-    null,
-    null,
-  );
+  showInformationNotification(updateReasonMessages[UpdateReason.FIRST_INSTALL], null, null);
 };
 
 export const deactivate = () => {};

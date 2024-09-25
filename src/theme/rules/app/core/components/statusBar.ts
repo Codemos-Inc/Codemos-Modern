@@ -3,7 +3,7 @@ import { getMixedColorHex9 } from "../../../../../color";
 
 export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles;
-  const statusBarRules = {
+  const rules = {
     "statusBar.background": colors.bg.solid.base,
     "statusBar.foreground": colors.fill.text.pri,
     "statusBar.border": colors.stroke.divider.default,
@@ -57,8 +57,11 @@ export const getRules = (themeContext: ThemeContext): object => {
   };
   const design = themeContext.variantConfig.design;
   if (design === "minimal") {
-    statusBarRules["statusBar.noFolderBackground"] = colors.bg.solid.base;
-    statusBarRules["statusBar.noFolderForeground"] = colors.fill.text.pri;
+    rules["statusBar.noFolderBackground"] = colors.bg.solid.base;
+    rules["statusBar.noFolderForeground"] = colors.fill.text.pri;
+  } else if (design === "flat") {
+    rules["statusBar.noFolderBackground"] = colors.bg.solid.base;
+    rules["statusBar.noFolderForeground"] = colors.fill.text.pri;
   }
-  return statusBarRules;
+  return rules;
 };

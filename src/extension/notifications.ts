@@ -10,15 +10,13 @@ export const showInformationNotification = (
   if (!actions) {
     window.showInformationMessage(messageWithSignature);
   } else {
-    window
-      .showInformationMessage(messageWithSignature, ...actions)
-      .then((selectedAction) => {
-        if (selectedAction === actions[0]) {
-          if (command) {
-            commands.executeCommand(command);
-          }
+    window.showInformationMessage(messageWithSignature, ...actions).then((selectedAction) => {
+      if (selectedAction === actions[0]) {
+        if (command) {
+          commands.executeCommand(command);
         }
-      });
+      }
+    });
   }
 };
 
@@ -31,15 +29,13 @@ export const showWarningNotification = (
   if (!actions) {
     window.showWarningMessage(messageWithSignature);
   } else {
-    window
-      .showWarningMessage(messageWithSignature, ...actions)
-      .then((selectedAction) => {
-        if (selectedAction === actions[0]) {
-          if (command) {
-            commands.executeCommand(command);
-          }
+    window.showWarningMessage(messageWithSignature, ...actions).then((selectedAction) => {
+      if (selectedAction === actions[0]) {
+        if (command) {
+          commands.executeCommand(command);
         }
-      });
+      }
+    });
   }
 };
 
@@ -52,15 +48,13 @@ export const showErrorNotification = (
   if (!actions) {
     window.showErrorMessage(messageWithSignature);
   } else {
-    window
-      .showInformationMessage(messageWithSignature, ...actions)
-      .then((selectedAction) => {
-        if (selectedAction === actions[0]) {
-          if (command) {
-            commands.executeCommand(command);
-          }
+    window.showInformationMessage(messageWithSignature, ...actions).then((selectedAction) => {
+      if (selectedAction === actions[0]) {
+        if (command) {
+          commands.executeCommand(command);
         }
-      });
+      }
+    });
   }
 };
 

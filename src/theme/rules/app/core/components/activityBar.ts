@@ -3,7 +3,7 @@ import { TRANSPARENT } from "../../../../../color/constants";
 
 export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles;
-  const activityBarRules = {
+  const rules = {
     "activityBar.background": colors.bg.solid.base,
     "activityBar.dropBorder": colors.fill.accent.pri,
     "activityBar.foreground": colors.fill.text.pri,
@@ -23,10 +23,17 @@ export const getRules = (themeContext: ThemeContext): object => {
   };
   const design = themeContext.variantConfig.design;
   if (design === "minimal") {
-    activityBarRules["activityBar.activeBorder"] = TRANSPARENT;
-    activityBarRules["activityBar.foreground"] = colors.fill.accent.pri;
-    activityBarRules["activityBarTop.activeBorder"] = TRANSPARENT;
-    activityBarRules["activityBarTop.foreground"] = colors.fill.accent.pri;
+    rules["activityBar.activeBorder"] = TRANSPARENT;
+    rules["activityBar.foreground"] = colors.fill.accent.pri;
+    rules["activityBarTop.activeBorder"] = TRANSPARENT;
+    rules["activityBarTop.foreground"] = colors.fill.accent.pri;
+  } else if (design === "flat") {
+    rules["activityBar.activeBorder"] = TRANSPARENT;
+    rules["activityBar.foreground"] = colors.fill.accent.pri;
+    rules["activityBar.activeBackground"] = TRANSPARENT;
+    rules["activityBarTop.activeBorder"] = TRANSPARENT;
+    rules["activityBarTop.foreground"] = colors.fill.accent.pri;
+    rules["activityBarTop.activeBackground"] = TRANSPARENT;
   }
-  return activityBarRules;
+  return rules;
 };

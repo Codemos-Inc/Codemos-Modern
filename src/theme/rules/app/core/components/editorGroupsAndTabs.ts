@@ -3,7 +3,7 @@ import { TRANSPARENT } from "../../../../../color/constants";
 
 export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles;
-  const editorGroupsAndTabsRules = {
+  const rules = {
     "editorGroup.border": colors.stroke.divider.default,
     "editorGroup.dropBackground": colors.effect.smoke.default,
     "editorGroupHeader.noTabsBackground": colors.bg.solid.base,
@@ -49,10 +49,13 @@ export const getRules = (themeContext: ThemeContext): object => {
   };
   const design = themeContext.variantConfig.design;
   if (design === "minimal") {
-    editorGroupsAndTabsRules["editorGroupHeader.border"] = TRANSPARENT;
-    editorGroupsAndTabsRules["tab.activeBorder"] = colors.bg.solid.canvas;
-    editorGroupsAndTabsRules["tab.unfocusedActiveBorder"] =
-      colors.bg.solid.canvas;
+    rules["editorGroupHeader.border"] = TRANSPARENT;
+    rules["tab.activeBorder"] = colors.bg.solid.canvas;
+    rules["tab.unfocusedActiveBorder"] = colors.bg.solid.canvas;
+  } else if (design === "flat") {
+    rules["editorGroupHeader.border"] = TRANSPARENT;
+    rules["tab.activeBorder"] = colors.bg.solid.canvas;
+    rules["tab.unfocusedActiveBorder"] = colors.bg.solid.canvas;
   }
-  return editorGroupsAndTabsRules;
+  return rules;
 };

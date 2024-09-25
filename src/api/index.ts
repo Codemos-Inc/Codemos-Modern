@@ -35,9 +35,7 @@ export const checkIfRepoExists = async (
           message = l10nT("message.error.apiRateLimitExceeded");
           break;
         case 404:
-          message = l10nT("message.error.repoNotFound$id", [
-            `${owner}/${repo}`,
-          ]);
+          message = l10nT("message.error.repoNotFound$id", [`${owner}/${repo}`]);
           break;
         default:
           message = l10nT("message.error.networkError$status", [error.status]);
@@ -70,9 +68,7 @@ export const getLatestVersionTag = async (
           message = l10nT("message.error.apiRateLimitExceeded");
           break;
         case 404:
-          message = l10nT("message.error.releaseNotFound$id", [
-            `${owner}/${repo}`,
-          ]);
+          message = l10nT("message.error.releaseNotFound$id", [`${owner}/${repo}`]);
           break;
         default:
           message = l10nT("message.error.networkError$status", [error.status]);
@@ -88,9 +84,7 @@ export const getSingleContentFromRelease = async (
   path: string,
   ref: string,
 ): Promise<NetworkBoundResult> => {
-  type GetContentType = GetResponseTypeFromEndpointMethod<
-    typeof octokit.repos.getContent
-  >;
+  type GetContentType = GetResponseTypeFromEndpointMethod<typeof octokit.repos.getContent>;
   return await octokit.repos
     .getContent({
       owner,
@@ -112,9 +106,7 @@ export const getSingleContentFromRelease = async (
         } else {
           return {
             success: false,
-            message: l10nT("notification.error.contentNotFile$path", [
-              response.data.path,
-            ]),
+            message: l10nT("notification.error.contentNotFile$path", [response.data.path]),
             data: null,
           };
         }
@@ -133,10 +125,7 @@ export const getSingleContentFromRelease = async (
           message = l10nT("message.error.apiRateLimitExceeded");
           break;
         case 404:
-          message = l10nT("notification.error.contentNotFound$path$id", [
-            path,
-            `${owner}/${repo}`,
-          ]);
+          message = l10nT("notification.error.contentNotFound$path$id", [path, `${owner}/${repo}`]);
           break;
         default:
           message = l10nT("message.error.networkError$status", [error.status]);

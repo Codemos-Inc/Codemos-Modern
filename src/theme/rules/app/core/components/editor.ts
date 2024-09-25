@@ -3,7 +3,7 @@ import { TRANSPARENT } from "../../../../../color/constants";
 
 export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles;
-  const editorRules = {
+  const rules = {
     "editor.background": colors.bg.solid.canvas,
     "editor.foreground": colors.fill.text.sec,
     "editorLineNumber.foreground": colors.fill.text.disabled,
@@ -83,8 +83,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     "editorBracketHighlight.foreground4": colors.basic.alt.purple.pri,
     "editorBracketHighlight.foreground5": colors.basic.alt.blue.pri,
     "editorBracketHighlight.foreground6": colors.basic.alt.green.pri,
-    "editorBracketHighlight.unexpectedBracket.foreground":
-      colors.basic.def.red.pri,
+    "editorBracketHighlight.unexpectedBracket.foreground": colors.basic.def.red.pri,
     "editorBracketPairGuide.activeBackground1": colors.basic.alt.yellow.pri,
     "editorBracketPairGuide.activeBackground2": colors.basic.alt.orange.pri,
     "editorBracketPairGuide.activeBackground3": colors.basic.alt.red.pri,
@@ -103,13 +102,10 @@ export const getRules = (themeContext: ThemeContext): object => {
     "editorOverviewRuler.border": TRANSPARENT,
     "editorOverviewRuler.findMatchForeground": colors.basic.def.mint.sec,
     "editorOverviewRuler.rangeHighlightForeground": colors.basic.neutral.sep,
-    "editorOverviewRuler.selectionHighlightForeground":
-      colors.basic.neutral.sen,
+    "editorOverviewRuler.selectionHighlightForeground": colors.basic.neutral.sen,
     "editorOverviewRuler.wordHighlightForeground": colors.basic.def.pink.sec,
-    "editorOverviewRuler.wordHighlightStrongForeground":
-      colors.basic.def.purple.sec,
-    "editorOverviewRuler.wordHighlightTextForeground":
-      colors.basic.def.pink.sec,
+    "editorOverviewRuler.wordHighlightStrongForeground": colors.basic.def.purple.sec,
+    "editorOverviewRuler.wordHighlightTextForeground": colors.basic.def.pink.sec,
     "editorOverviewRuler.modifiedForeground": colors.basic.def.blue.sec,
     "editorOverviewRuler.addedForeground": colors.basic.def.green.sec,
     "editorOverviewRuler.deletedForeground": colors.basic.def.red.sec,
@@ -151,8 +147,12 @@ export const getRules = (themeContext: ThemeContext): object => {
   };
   const design = themeContext.variantConfig.design;
   if (design === "minimal") {
-    editorRules["editorGutter.background"] = colors.bg.solid.canvas;
-    editorRules["editorOverviewRuler.background"] = colors.bg.solid.canvas;
+    rules["editorGutter.background"] = colors.bg.solid.canvas;
+    rules["editorOverviewRuler.background"] = colors.bg.solid.canvas;
+  } else if (design === "flat") {
+    rules["editorGutter.background"] = colors.bg.solid.canvas;
+    rules["editorOverviewRuler.background"] = colors.bg.solid.canvas;
+    rules["editor.lineHighlightBorder"] = TRANSPARENT;
   }
-  return editorRules;
+  return rules;
 };

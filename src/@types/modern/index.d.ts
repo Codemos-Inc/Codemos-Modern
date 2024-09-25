@@ -2,7 +2,7 @@ import { Decoration } from "../theme";
 
 export type Variant = "dark" | "light";
 
-export type Design = "modern" | "minimal";
+export type Design = "modern" | "minimal" | "flat";
 
 export type AdaptiveMode = "none" | "gentle" | "moderate" | "aggressive";
 

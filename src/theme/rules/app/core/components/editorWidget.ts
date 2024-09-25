@@ -3,7 +3,7 @@ import { TRANSPARENT } from "../../../../../color/constants";
 
 export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles;
-  const editorWidgetRules = {
+  const rules = {
     "editorWidget.foreground": colors.fill.text.pri,
     "editorWidget.background": colors.bg.solid.flyout,
     "editorWidget.border": colors.stroke.surface.flyout,
@@ -36,13 +36,14 @@ export const getRules = (themeContext: ThemeContext): object => {
     "editorMarkerNavigationWarning.background": colors.basic.def.orange.pri,
     "editorMarkerNavigationInfo.background": colors.basic.def.blue.pri,
     "editorMarkerNavigationError.headerBackground": colors.basic.loc.red.pri,
-    "editorMarkerNavigationWarning.headerBackground":
-      colors.basic.loc.orange.pri,
+    "editorMarkerNavigationWarning.headerBackground": colors.basic.loc.orange.pri,
     "editorMarkerNavigationInfo.headerBackground": colors.basic.loc.blue.pri,
   };
   const design = themeContext.variantConfig.design;
   if (design === "minimal") {
-    editorWidgetRules["editorStickyScroll.background"] = colors.bg.solid.canvas;
+    rules["editorStickyScroll.background"] = colors.bg.solid.canvas;
+  } else if (design === "flat") {
+    rules["editorStickyScroll.background"] = colors.bg.solid.canvas;
   }
-  return editorWidgetRules;
+  return rules;
 };

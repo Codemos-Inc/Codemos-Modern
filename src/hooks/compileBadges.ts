@@ -164,21 +164,15 @@ function fetchModifySvg(
 
         // Noto Sans SC
         if (customFont?.notoSansSC) {
-          doc
-            .querySelector("[font-family]")!
-            .setAttribute("font-family", "Noto Sans SC");
+          doc.querySelector("[font-family]")!.setAttribute("font-family", "Noto Sans SC");
         }
         // Noto Sans JP
         if (customFont?.notoSansJP) {
-          doc
-            .querySelector("[font-family]")!
-            .setAttribute("font-family", "Noto Sans JP");
+          doc.querySelector("[font-family]")!.setAttribute("font-family", "Noto Sans JP");
         }
         // Noto Sans KR
         if (customFont?.notoSansKR) {
-          doc
-            .querySelector("[font-family]")!
-            .setAttribute("font-family", "Noto Sans KR");
+          doc.querySelector("[font-family]")!.setAttribute("font-family", "Noto Sans KR");
         }
 
         // If the badge is the rating badge, strip how many people rated
@@ -196,25 +190,15 @@ function fetchModifySvg(
         }
 
         // Calculate the new width and height
-        const originalWidth = parseFloat(
-          originalSvg.getAttribute("width") as string,
-        );
-        const originalHeight = parseFloat(
-          originalSvg.getAttribute("height") as string,
-        );
+        const originalWidth = parseFloat(originalSvg.getAttribute("width") as string);
+        const originalHeight = parseFloat(originalSvg.getAttribute("height") as string);
         const newWidth = originalWidth + 2;
         const newHeight = originalHeight + 2;
 
         // Create the new root svg and set its attributes
         const newRootSvg = doc.createElement("svg");
-        newRootSvg.setAttribute(
-          "xmlns",
-          originalSvg.getAttribute("xmlns") as string,
-        );
-        newRootSvg.setAttribute(
-          "xmlns:xlink",
-          originalSvg.getAttribute("xmlns:xlink") as string,
-        );
+        newRootSvg.setAttribute("xmlns", originalSvg.getAttribute("xmlns") as string);
+        newRootSvg.setAttribute("xmlns:xlink", originalSvg.getAttribute("xmlns:xlink") as string);
         newRootSvg.setAttribute("width", `${newWidth}`);
         newRootSvg.setAttribute("height", `${newHeight}`);
 
@@ -267,9 +251,7 @@ function fetchModifySvg(
         originalSvg.setAttribute("x", "1");
         originalSvg.setAttribute("y", "1");
 
-        const modifiedSvg = new dom.window.XMLSerializer().serializeToString(
-          doc.documentElement,
-        );
+        const modifiedSvg = new dom.window.XMLSerializer().serializeToString(doc.documentElement);
 
         fs.writeFile(path, modifiedSvg, "utf8", async function (error) {
           if (error) {
@@ -277,17 +259,14 @@ function fetchModifySvg(
             process.exit(1);
           } else {
             const pathArray = path.split("/");
-            const modifiedSvgCompat =
-              new dom.window.XMLSerializer().serializeToString(
-                doc.documentElement,
-              );
+            const modifiedSvgCompat = new dom.window.XMLSerializer().serializeToString(
+              doc.documentElement,
+            );
             renderAsync(modifiedSvgCompat, {
               fitTo: { mode: "zoom", value: ZOOM },
             }).then((r) => {
               fs.writeFileSync(path.replace(".svg", ".png"), r.asPng());
-              console.log(
-                `SVG to PNG is done for: ${pathArray[pathArray.length - 1]}`,
-              );
+              console.log(`SVG to PNG is done for: ${pathArray[pathArray.length - 1]}`);
             });
           }
         });

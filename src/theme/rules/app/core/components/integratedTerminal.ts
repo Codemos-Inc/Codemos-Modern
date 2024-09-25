@@ -2,7 +2,7 @@ import { ThemeContext } from "../../../../../@types";
 
 export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles;
-  const integratedTerminalRules = {
+  const rules = {
     "terminal.background": colors.bg.solid.surface,
     "terminal.border": colors.stroke.divider.default,
     "terminal.foreground": colors.fill.terminal.fg,
@@ -41,13 +41,14 @@ export const getRules = (themeContext: ThemeContext): object => {
     "terminalOverviewRuler.findMatchForeground": colors.basic.def.mint.sec,
     "terminalStickyScroll.background": colors.bg.solid.base,
     "terminalStickyScroll.border": colors.stroke.divider.default,
-    "terminalStickyScrollHover.background":
-      colors.fill.terminal.stickyScrollHover, // 🟢 Undesired solution
+    "terminalStickyScrollHover.background": colors.fill.terminal.stickyScrollHover, // 🟢 Undesired solution
     "terminal.initialHintForeground": colors.fill.text.ghost,
   };
   const design = themeContext.variantConfig.design;
   if (design === "minimal") {
-    integratedTerminalRules["terminal.background"] = colors.bg.solid.base;
+    rules["terminal.background"] = colors.bg.solid.base;
+  } else if (design === "flat") {
+    rules["terminal.background"] = colors.bg.solid.base;
   }
-  return integratedTerminalRules;
+  return rules;
 };

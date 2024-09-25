@@ -3,7 +3,7 @@ import { TRANSPARENT } from "../../../../../color/constants";
 
 export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles;
-  const panelRules = {
+  const rules = {
     "panel.background": colors.bg.solid.base,
     "panel.border": colors.stroke.divider.default,
     "panel.dropBorder": colors.fill.accent.pri,
@@ -24,11 +24,17 @@ export const getRules = (themeContext: ThemeContext): object => {
   };
   const design = themeContext.variantConfig.design;
   if (design === "minimal") {
-    panelRules["panelTitle.activeBorder"] = TRANSPARENT;
-    panelRules["panelTitle.activeForeground"] = colors.fill.accent.pri;
-    panelRules["panelSectionHeader.background"] = TRANSPARENT;
-    panelRules["panelSectionHeader.border"] = colors.stroke.control.default;
-    panelRules["outputView.background"] = colors.bg.solid.base;
+    rules["panelTitle.activeBorder"] = TRANSPARENT;
+    rules["panelTitle.activeForeground"] = colors.fill.accent.pri;
+    rules["panelSectionHeader.background"] = TRANSPARENT;
+    rules["panelSectionHeader.border"] = colors.stroke.control.default;
+    rules["outputView.background"] = colors.bg.solid.base;
+  } else if (design === "flat") {
+    rules["panelTitle.activeBorder"] = TRANSPARENT;
+    rules["panelTitle.activeForeground"] = colors.fill.accent.pri;
+    rules["panelSectionHeader.background"] = TRANSPARENT;
+    rules["panelSectionHeader.border"] = colors.stroke.control.default;
+    rules["outputView.background"] = colors.bg.solid.base;
   }
-  return panelRules;
+  return rules;
 };

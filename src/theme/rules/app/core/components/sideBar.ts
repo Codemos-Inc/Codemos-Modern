@@ -3,7 +3,7 @@ import { TRANSPARENT } from "../../../../../color/constants";
 
 export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles;
-  const sideBarRules = {
+  const rules = {
     "sideBar.background": colors.bg.solid.surface,
     "sideBar.foreground": colors.fill.text.sec,
     "sideBar.border": colors.stroke.divider.default,
@@ -20,8 +20,11 @@ export const getRules = (themeContext: ThemeContext): object => {
   };
   const design = themeContext.variantConfig.design;
   if (design === "minimal") {
-    sideBarRules["sideBarSectionHeader.background"] = TRANSPARENT;
-    sideBarRules["sideBarSectionHeader.border"] = colors.stroke.control.default;
+    rules["sideBarSectionHeader.background"] = TRANSPARENT;
+    rules["sideBarSectionHeader.border"] = colors.stroke.control.default;
+  } else if (design === "flat") {
+    rules["sideBarSectionHeader.background"] = TRANSPARENT;
+    rules["sideBarSectionHeader.border"] = colors.stroke.control.default;
   }
-  return sideBarRules;
+  return rules;
 };

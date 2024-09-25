@@ -14,18 +14,15 @@ export const getRules = (themeContext: ThemeContext): object => {
     "editorOverviewRuler.incomingContentForeground": colors.basic.def.blue.ter,
     "editorOverviewRuler.commonContentForeground": colors.basic.neutral.qua,
     "editorOverviewRuler.commentForeground": colors.fill.text.ghost,
-    "editorOverviewRuler.commentUnresolvedForeground":
-      colors.basic.def.blue.sec,
+    "editorOverviewRuler.commentUnresolvedForeground": colors.basic.def.blue.sec,
     "mergeEditor.change.background": colors.basic.neutral.sep,
     "mergeEditor.change.word.background": colors.basic.neutral.sen,
     "mergeEditor.conflict.unhandledUnfocused.border": colors.basic.def.red.ter,
     "mergeEditor.conflict.unhandledFocused.border": colors.basic.def.red.pri,
     "mergeEditor.conflict.handledUnfocused.border": colors.basic.def.green.ter,
     "mergeEditor.conflict.handledFocused.border": colors.basic.def.green.pri,
-    "mergeEditor.conflict.handled.minimapOverViewRuler":
-      colors.basic.def.green.ter,
-    "mergeEditor.conflict.unhandled.minimapOverViewRuler":
-      colors.basic.def.red.ter,
+    "mergeEditor.conflict.handled.minimapOverViewRuler": colors.basic.def.green.ter,
+    "mergeEditor.conflict.unhandled.minimapOverViewRuler": colors.basic.def.red.ter,
     "mergeEditor.conflictingLines.background": colors.basic.def.orange.qui,
     "mergeEditor.changeBase.background": colors.basic.neutral.sep,
     "mergeEditor.changeBase.word.background": colors.basic.neutral.sen,

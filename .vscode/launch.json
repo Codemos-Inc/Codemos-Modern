@@ -8,6 +8,14 @@
       "args": ["--extensionDevelopmentPath=${workspaceFolder}"],
       "outFiles": ["${workspaceFolder}/out/bin/*.js"],
       "preLaunchTask": "npm: debug"
+    },
+    {
+      "name": "Debug Extension (Win)",
+      "type": "extensionHost",
+      "request": "launch",
+      "args": ["--extensionDevelopmentPath=${workspaceFolder}"],
+      "outFiles": ["${workspaceFolder}/out/bin/*.js"],
+      "preLaunchTask": "npm: winDebug"
     }
   ]
 }

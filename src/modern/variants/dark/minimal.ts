@@ -125,36 +125,12 @@ const mimic5Info: MimicInfo = {
 export const getStyles = (variantConfig: VariantConfig): Styles => {
   const accentColor = variantConfig.accentColor;
   const textOnColor = chooseTextOnColor(accentColor, palette.loc, palette.hic);
-  const mimic1Color = getMimicHex7(
-    mimic1Info,
-    accentColor,
-    variantConfig.adaptiveMode,
-    true,
-  );
-  const mimic3Color = getMimicHex7(
-    mimic3Info,
-    accentColor,
-    variantConfig.adaptiveMode,
-    true,
-  );
-  const mimic4Color = getMimicHex7(
-    mimic4Info,
-    accentColor,
-    variantConfig.adaptiveMode,
-    true,
-  );
-  const mimic5Color = getMimicHex7(
-    mimic5Info,
-    accentColor,
-    variantConfig.adaptiveMode,
-    true,
-  );
+  const mimic1Color = getMimicHex7(mimic1Info, accentColor, variantConfig.adaptiveMode, true);
+  const mimic3Color = getMimicHex7(mimic3Info, accentColor, variantConfig.adaptiveMode, true);
+  const mimic4Color = getMimicHex7(mimic4Info, accentColor, variantConfig.adaptiveMode, true);
+  const mimic5Color = getMimicHex7(mimic5Info, accentColor, variantConfig.adaptiveMode, true);
   const mixedFgColor = getMixedColorHex7(palette.hic, 54, mimic3Color);
-  let accentTextColor = getContrastSafeAccentColorHex7(
-    accentColor,
-    mixedFgColor,
-    false,
-  );
+  let accentTextColor = getContrastSafeAccentColorHex7(accentColor, mixedFgColor, false);
   if (!accentTextColor) {
     accentTextColor = palette.basic.def.blue;
   }

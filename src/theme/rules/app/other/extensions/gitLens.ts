@@ -7,16 +7,11 @@ export const getRules = (themeContext: ThemeContext): object => {
     "gitlens.closedAutolinkedIssueIconColor": colors.basic.def.purple.pri,
     "gitlens.closedPullRequestIconColor": colors.basic.def.red.pri,
     "gitlens.decorations.addedForegroundColor": colors.basic.def.green.pri,
-    "gitlens.decorations.branchAheadForegroundColor":
-      colors.basic.def.green.pri,
-    "gitlens.decorations.branchBehindForegroundColor":
-      colors.basic.def.orange.pri,
-    "gitlens.decorations.branchDivergedForegroundColor":
-      colors.basic.def.yellow.pri,
-    "gitlens.decorations.branchMissingUpstreamForegroundColor":
-      colors.basic.def.orange.pri,
-    "gitlens.decorations.branchUnpublishedForegroundColor":
-      colors.basic.def.blue.pri,
+    "gitlens.decorations.branchAheadForegroundColor": colors.basic.def.green.pri,
+    "gitlens.decorations.branchBehindForegroundColor": colors.basic.def.orange.pri,
+    "gitlens.decorations.branchDivergedForegroundColor": colors.basic.def.yellow.pri,
+    "gitlens.decorations.branchMissingUpstreamForegroundColor": colors.basic.def.orange.pri,
+    "gitlens.decorations.branchUnpublishedForegroundColor": colors.basic.def.blue.pri,
     "gitlens.decorations.branchUpToDateForegroundColor": colors.fill.text.sec,
     "gitlens.decorations.copiedForegroundColor": colors.basic.def.yellow.pri,
     "gitlens.decorations.deletedForegroundColor": colors.basic.alt.red.pri,
@@ -26,18 +21,12 @@ export const getRules = (themeContext: ThemeContext): object => {
     "gitlens.decorations.untrackedForegroundColor": colors.basic.alt.green.pri,
     "gitlens.decorations.statusMergingOrRebasingConflictForegroundColor":
       colors.basic.def.orange.pri,
-    "gitlens.decorations.statusMergingOrRebasingForegroundColor":
-      colors.basic.alt.yellow.pri,
-    "gitlens.decorations.workspaceCurrentForegroundColor":
-      colors.basic.def.green.pri,
-    "gitlens.decorations.workspaceRepoMissingForegroundColor":
-      colors.fill.text.disabled,
-    "gitlens.decorations.workspaceRepoOpenForegroundColor":
-      colors.basic.def.green.pri,
-    "gitlens.decorations.worktreeHasUncommittedChangesForegroundColor":
-      colors.basic.alt.blue.pri,
-    "gitlens.decorations.worktreeMissingForegroundColor":
-      colors.basic.def.red.pri,
+    "gitlens.decorations.statusMergingOrRebasingForegroundColor": colors.basic.alt.yellow.pri,
+    "gitlens.decorations.workspaceCurrentForegroundColor": colors.basic.def.green.pri,
+    "gitlens.decorations.workspaceRepoMissingForegroundColor": colors.fill.text.disabled,
+    "gitlens.decorations.workspaceRepoOpenForegroundColor": colors.basic.def.green.pri,
+    "gitlens.decorations.worktreeHasUncommittedChangesForegroundColor": colors.basic.alt.blue.pri,
+    "gitlens.decorations.worktreeMissingForegroundColor": colors.basic.def.red.pri,
     "gitlens.graphChangesColumnAddedColor": colors.basic.def.green.pri,
     "gitlens.graphChangesColumnDeletedColor": colors.basic.def.red.pri,
     "gitlens.graphLane10Color": colors.basic.def.orange.pri,
@@ -80,8 +69,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     "gitlens.unpublishedCommitIconColor": colors.basic.def.green.pri,
     "gitlens.unpulledChangesIconColor": colors.basic.def.orange.pri,
     "gitlens.launchpadIndicatorAttentionColor": colors.basic.def.orange.pri,
-    "gitlens.launchpadIndicatorAttentionHoverColor":
-      colors.basic.def.orange.sec,
+    "gitlens.launchpadIndicatorAttentionHoverColor": colors.basic.def.orange.sec,
     "gitlens.launchpadIndicatorBlockedColor": colors.basic.def.red.pri,
     "gitlens.launchpadIndicatorBlockedHoverColor": colors.basic.def.red.sec,
     "gitlens.launchpadIndicatorMergeableColor": colors.basic.def.green.pri,
