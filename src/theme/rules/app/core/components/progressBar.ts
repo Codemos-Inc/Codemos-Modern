@@ -1,8 +1,8 @@
 import { ThemeContext } from "../../../../../@types";
 
 export const getRules = (themeContext: ThemeContext): object => {
-  const colors = themeContext.styles;
+  const styles = themeContext.styles;
   return {
-    "progressBar.background": colors.fill.accent.pri,
+    "progressBar.background": styles.fill.accent.pri,
   };
 };

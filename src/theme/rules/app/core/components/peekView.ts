@@ -1,22 +1,22 @@
 import { ThemeContext } from "../../../../../@types";
 
 export const getRules = (themeContext: ThemeContext): object => {
-  const colors = themeContext.styles;
+  const styles = themeContext.styles;
   return {
-    "peekView.border": colors.basic.def.mint.pri,
-    "peekViewEditor.background": colors.bg.solid.surface,
-    "peekViewEditorGutter.background": colors.bg.solid.canvas,
-    "peekViewEditor.matchHighlightBackground": colors.basic.def.mint.qua,
-    "peekViewEditor.matchHighlightBorder": colors.stroke.control.default,
-    "peekViewResult.background": colors.bg.solid.canvas,
-    "peekViewResult.fileForeground": colors.fill.text.sec,
-    "peekViewResult.lineForeground": colors.fill.text.sec,
-    "peekViewResult.matchHighlightBackground": colors.basic.def.mint.qua,
-    "peekViewResult.selectionBackground": colors.fill.control.hover,
-    "peekViewResult.selectionForeground": colors.fill.text.pri,
-    "peekViewTitle.background": colors.basic.loc.mint.pri,
-    "peekViewTitleDescription.foreground": colors.fill.text.sec,
-    "peekViewTitleLabel.foreground": colors.basic.alt.mint.pri,
-    "peekViewEditorStickyScroll.background": colors.bg.solid.onCanvas,
+    "peekView.border": styles.basic.def.mint.pri,
+    "peekViewEditor.background": styles.bg.solid.surface,
+    "peekViewEditor.matchHighlightBackground": styles.basic.def.mint.qua,
+    "peekViewEditor.matchHighlightBorder": styles.stroke.control.default,
+    "peekViewEditorGutter.background": styles.bg.solid.canvas,
+    "peekViewEditorStickyScroll.background": styles.bg.solid.onCanvas,
+    "peekViewResult.background": styles.bg.solid.canvas,
+    "peekViewResult.fileForeground": styles.fill.text.sec,
+    "peekViewResult.lineForeground": styles.fill.text.sec,
+    "peekViewResult.matchHighlightBackground": styles.basic.def.mint.qua,
+    "peekViewResult.selectionBackground": styles.fill.control.hover,
+    "peekViewResult.selectionForeground": styles.fill.text.pri,
+    "peekViewTitle.background": styles.basic.loc.mint.pri,
+    "peekViewTitleDescription.foreground": styles.fill.text.sec,
+    "peekViewTitleLabel.foreground": styles.basic.alt.mint.pri,
   };
 };

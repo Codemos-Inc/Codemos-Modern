@@ -1,8 +1,8 @@
 import { ThemeContext } from "../../../../../@types";
 
 export const getRules = (themeContext: ThemeContext): object => {
-  const colors = themeContext.styles;
+  const styles = themeContext.styles;
   return {
-    "simpleFindWidget.sashBorder": colors.fill.accent.pri,
+    "simpleFindWidget.sashBorder": styles.fill.accent.pri,
   };
 };

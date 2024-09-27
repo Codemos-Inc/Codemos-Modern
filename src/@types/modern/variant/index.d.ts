@@ -259,6 +259,26 @@ export type Styles = {
       oct: string;
     };
   };
+  code: {
+    s00: string;
+    s01: string;
+    s02: string;
+    s03: string;
+    s04: string;
+    s05: string;
+    s06: string;
+    s07: string;
+    s08: string;
+    s09: string;
+    s10: string;
+    s11: string;
+    s12: string;
+    s13: string;
+    s14: string;
+    s15: string;
+    s16: string;
+    sxx: string;
+  };
   fill: {
     text: {
       active: string;

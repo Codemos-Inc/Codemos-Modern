@@ -1,10 +1,10 @@
 import { ThemeContext } from "../../../../../@types";
 
 export const getRules = (themeContext: ThemeContext): object => {
-  const colors = themeContext.styles;
+  const styles = themeContext.styles;
   return {
-    "banner.background": colors.fill.accent.pri,
-    "banner.foreground": colors.fill.textOnColor.pri,
-    "banner.iconForeground": colors.fill.textOnColor.pri,
+    "banner.background": styles.fill.accent.pri,
+    "banner.foreground": styles.fill.textOnColor.pri,
+    "banner.iconForeground": styles.fill.textOnColor.pri,
   };
 };

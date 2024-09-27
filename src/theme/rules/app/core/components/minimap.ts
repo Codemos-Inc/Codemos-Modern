@@ -2,28 +2,28 @@ import { ThemeContext } from "../../../../../@types";
 import { OPAQUE } from "../../../../../color/constants";
 
 export const getRules = (themeContext: ThemeContext): object => {
-  const colors = themeContext.styles;
+  const styles = themeContext.styles;
   const rules = {
-    "minimap.findMatchHighlight": colors.basic.def.mint.qua,
-    "minimap.selectionHighlight": colors.basic.neutral.qua,
-    "minimap.errorHighlight": colors.basic.def.red.qua,
-    "minimap.warningHighlight": colors.basic.def.orange.qua,
-    "minimap.background": colors.bg.solid.surface,
-    "minimap.selectionOccurrenceHighlight": colors.basic.neutral.qui,
+    "minimap.background": styles.bg.solid.surface,
+    "minimap.errorHighlight": styles.basic.def.red.qua,
+    "minimap.findMatchHighlight": styles.basic.def.mint.qua,
     "minimap.foregroundOpacity": OPAQUE,
-    "minimap.infoHighlight": colors.basic.def.blue.qua,
-    "minimapSlider.background": colors.fill.control.rest,
-    "minimapSlider.hoverBackground": colors.fill.control.hover,
-    "minimapSlider.activeBackground": colors.fill.control.pressed,
-    "minimapGutter.addedBackground": colors.basic.def.green.pri,
-    "minimapGutter.modifiedBackground": colors.basic.def.blue.pri,
-    "minimapGutter.deletedBackground": colors.basic.def.red.pri,
+    "minimap.infoHighlight": styles.basic.def.blue.qua,
+    "minimap.selectionHighlight": styles.basic.neutral.qua,
+    "minimap.selectionOccurrenceHighlight": styles.basic.neutral.qui,
+    "minimap.warningHighlight": styles.basic.def.orange.qua,
+    "minimapGutter.addedBackground": styles.basic.def.green.pri,
+    "minimapGutter.deletedBackground": styles.basic.def.red.pri,
+    "minimapGutter.modifiedBackground": styles.basic.def.blue.pri,
+    "minimapSlider.activeBackground": styles.fill.control.pressed,
+    "minimapSlider.background": styles.fill.control.rest,
+    "minimapSlider.hoverBackground": styles.fill.control.hover,
   };
   const design = themeContext.variantConfig.design;
   if (design === "minimal") {
-    rules["minimap.background"] = colors.bg.solid.canvas;
+    rules["minimap.background"] = styles.bg.solid.canvas;
   } else if (design === "flat") {
-    rules["minimap.background"] = colors.bg.solid.canvas;
+    rules["minimap.background"] = styles.bg.solid.canvas;
   }
   return rules;
 };

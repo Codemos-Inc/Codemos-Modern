@@ -1,17 +1,17 @@
 import { ThemeContext } from "../../../../../@types";
 
 export const getRules = (themeContext: ThemeContext): object => {
-  const colors = themeContext.styles;
+  const styles = themeContext.styles;
   return {
-    "inlineChat.foreground": colors.fill.text.pri,
-    "inlineChat.background": colors.bg.solid.flyout,
-    "inlineChat.border": colors.stroke.surface.flyout,
-    "inlineChat.shadow": colors.effect.shadow.default,
-    "inlineChatInput.border": colors.stroke.control.default,
-    "inlineChatInput.focusBorder": colors.stroke.focus.default,
-    "inlineChatInput.placeholderForeground": colors.fill.text.disabled,
-    "inlineChatInput.background": colors.fill.control.restSolid, // 🟢 Undesired solution!
-    "inlineChatDiff.inserted": colors.basic.def.green.qui,
-    "inlineChatDiff.removed": colors.basic.def.red.qui,
+    "inlineChat.background": styles.bg.solid.flyout,
+    "inlineChat.border": styles.stroke.surface.flyout,
+    "inlineChat.foreground": styles.fill.text.pri,
+    "inlineChat.shadow": styles.effect.shadow.default,
+    "inlineChatDiff.inserted": styles.basic.def.green.qui,
+    "inlineChatDiff.removed": styles.basic.def.red.qui,
+    "inlineChatInput.background": styles.fill.control.restSolid, // 🟢 Undesired solution!
+    "inlineChatInput.border": styles.stroke.control.default,
+    "inlineChatInput.focusBorder": styles.stroke.focus.default,
+    "inlineChatInput.placeholderForeground": styles.fill.text.disabled,
   };
 };

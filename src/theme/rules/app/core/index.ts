@@ -45,6 +45,7 @@ import { getRules as getSettingsEditorRules } from "./components/settingsEditor"
 import { getRules as getSideBarRules } from "./components/sideBar";
 import { getRules as getSimpleFindWidgetRules } from "./components/simpleFindWidget";
 import { getRules as getSnippetsRules } from "./components/snippets";
+import { getRules as getSourceControlGraphRules } from "./components/sourceControlGraph";
 import { getRules as getStatusBarRules } from "./components/statusBar";
 import { getRules as getSymbolIconsRules } from "./components/symbolIcons";
 import { getRules as getTestingRules } from "./components/testing";
@@ -101,6 +102,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     ...getSideBarRules(themeContext),
     ...getSimpleFindWidgetRules(themeContext),
     ...getSnippetsRules(themeContext),
+    ...getSourceControlGraphRules(themeContext),
     ...getStatusBarRules(themeContext),
     ...getSymbolIconsRules(themeContext),
     ...getTestingRules(themeContext),

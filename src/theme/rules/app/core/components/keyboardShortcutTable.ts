@@ -1,9 +1,9 @@
 import { ThemeContext } from "../../../../../@types";
 
 export const getRules = (themeContext: ThemeContext): object => {
-  const colors = themeContext.styles;
+  const styles = themeContext.styles;
   return {
-    "keybindingTable.headerBackground": colors.bg.solid.onCanvas,
-    "keybindingTable.rowsBackground": colors.bg.solid.onCanvas,
+    "keybindingTable.headerBackground": styles.bg.solid.onCanvas,
+    "keybindingTable.rowsBackground": styles.bg.solid.onCanvas,
   };
 };

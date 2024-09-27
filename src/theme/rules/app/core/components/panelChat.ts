@@ -1,9 +1,9 @@
 import { ThemeContext } from "../../../../../@types";
 
 export const getRules = (themeContext: ThemeContext): object => {
-  const colors = themeContext.styles;
+  const styles = themeContext.styles;
   return {
-    "interactive.activeCodeBorder": colors.fill.accent.pri,
-    "interactive.inactiveCodeBorder": colors.fill.accent.ter,
+    "interactive.activeCodeBorder": styles.fill.accent.pri,
+    "interactive.inactiveCodeBorder": styles.fill.accent.ter,
   };
 };

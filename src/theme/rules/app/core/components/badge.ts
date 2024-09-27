@@ -1,9 +1,9 @@
 import { ThemeContext } from "../../../../../@types";
 
 export const getRules = (themeContext: ThemeContext): object => {
-  const colors = themeContext.styles;
+  const styles = themeContext.styles;
   return {
-    "badge.background": colors.fill.accent.pri,
-    "badge.foreground": colors.fill.textOnColor.pri,
+    "badge.background": styles.fill.accent.pri,
+    "badge.foreground": styles.fill.textOnColor.pri,
   };
 };

@@ -1,16 +1,16 @@
 import { ThemeContext } from "../../../../../@types";
 
 export const getRules = (themeContext: ThemeContext): object => {
-  const colors = themeContext.styles;
+  const styles = themeContext.styles;
   return {
-    "commandCenter.foreground": colors.fill.text.pri,
-    "commandCenter.activeForeground": colors.fill.text.pri,
-    "commandCenter.background": colors.fill.control.rest,
-    "commandCenter.activeBackground": colors.fill.control.hover,
-    "commandCenter.border": colors.stroke.control.default,
-    "commandCenter.inactiveForeground": colors.fill.text.sec,
-    "commandCenter.inactiveBorder": colors.stroke.control.default,
-    "commandCenter.activeBorder": colors.stroke.control.default,
-    "commandCenter.debuggingBackground": colors.basic.def.yellow.qui,
+    "commandCenter.activeBackground": styles.fill.control.hover,
+    "commandCenter.activeBorder": styles.stroke.control.default,
+    "commandCenter.activeForeground": styles.fill.text.pri,
+    "commandCenter.background": styles.fill.control.rest,
+    "commandCenter.border": styles.stroke.control.default,
+    "commandCenter.debuggingBackground": styles.basic.def.yellow.qui,
+    "commandCenter.foreground": styles.fill.text.pri,
+    "commandCenter.inactiveBorder": styles.stroke.control.default,
+    "commandCenter.inactiveForeground": styles.fill.text.sec,
   };
 };

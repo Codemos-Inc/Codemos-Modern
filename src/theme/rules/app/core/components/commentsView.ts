@@ -1,9 +1,9 @@
 import { ThemeContext } from "../../../../../@types";
 
 export const getRules = (themeContext: ThemeContext): object => {
-  const colors = themeContext.styles;
+  const styles = themeContext.styles;
   return {
-    "commentsView.resolvedIcon": colors.fill.text.sec,
-    "commentsView.unresolvedIcon": colors.basic.def.blue.pri,
+    "commentsView.resolvedIcon": styles.fill.text.sec,
+    "commentsView.unresolvedIcon": styles.basic.def.blue.pri,
   };
 };

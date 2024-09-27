@@ -1,15 +1,15 @@
 import { ThemeContext } from "../../../../../@types";
 
 export const getRules = (themeContext: ThemeContext): object => {
-  const colors = themeContext.styles;
+  const styles = themeContext.styles;
   return {
-    "issues.closed": colors.basic.def.purple.pri,
-    "issues.newIssueDecoration": colors.fill.text.ghost,
-    "issues.open": colors.basic.def.green.pri,
-    "pullRequests.closed": colors.basic.def.red.pri,
-    "pullRequests.draft": colors.basic.neutral.qua,
-    "pullRequests.merged": colors.basic.def.purple.pri,
-    "pullRequests.notification": colors.basic.def.blue.pri,
-    "pullRequests.open": colors.basic.def.green.pri,
+    "issues.closed": styles.basic.def.purple.pri,
+    "issues.newIssueDecoration": styles.fill.text.ghost,
+    "issues.open": styles.basic.def.green.pri,
+    "pullRequests.closed": styles.basic.def.red.pri,
+    "pullRequests.draft": styles.basic.neutral.qua,
+    "pullRequests.merged": styles.basic.def.purple.pri,
+    "pullRequests.notification": styles.basic.def.blue.pri,
+    "pullRequests.open": styles.basic.def.green.pri,
   };
 };

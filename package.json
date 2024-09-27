@@ -4,7 +4,7 @@
   "publisher": "Codemos",
   "icon": "res/icon.gif",
   "description": "%ext.desc%",
-  "version": "2.7.2",
+  "version": "2.8.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -37,7 +37,7 @@
     }
   },
   "engines": {
-    "vscode": "^1.91.0"
+    "vscode": "^1.93.0"
   },
   "activationEvents": [
     "*"
@@ -289,7 +289,7 @@
     "@types/vscode": "^1.79.0",
     "@typescript-eslint/eslint-plugin": "^8.3.0",
     "@typescript-eslint/parser": "^8.3.0",
-    "esbuild": "^0.23.0",
+    "esbuild": "^0.24.0",
     "eslint": "^9.9.1",
     "eslint-config-prettier": "^9.0.0",
     "husky": "^9.0.10",

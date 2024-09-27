@@ -1,15 +1,15 @@
 import { ThemeContext } from "../../../../../@types";
 
 export const getRules = (themeContext: ThemeContext): object => {
-  const colors = themeContext.styles;
+  const styles = themeContext.styles;
   return {
-    "charts.foreground": colors.fill.textOnColor.pri,
-    "charts.lines": colors.stroke.divider.default,
-    "charts.red": colors.basic.def.red.pri,
-    "charts.blue": colors.basic.def.blue.pri,
-    "charts.yellow": colors.basic.def.yellow.pri,
-    "charts.orange": colors.basic.def.orange.pri,
-    "charts.green": colors.basic.def.green.pri,
-    "charts.purple": colors.basic.def.purple.pri,
+    "charts.blue": styles.basic.def.blue.pri,
+    "charts.foreground": styles.fill.textOnColor.pri,
+    "charts.green": styles.basic.def.green.pri,
+    "charts.lines": styles.stroke.divider.default,
+    "charts.orange": styles.basic.def.orange.pri,
+    "charts.purple": styles.basic.def.purple.pri,
+    "charts.red": styles.basic.def.red.pri,
+    "charts.yellow": styles.basic.def.yellow.pri,
   };
 };

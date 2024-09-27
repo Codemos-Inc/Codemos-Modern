@@ -2,48 +2,48 @@ import { ThemeContext } from "../../../../../@types";
 import { TRANSPARENT } from "../../../../../color/constants";
 
 export const getRules = (themeContext: ThemeContext): object => {
-  const colors = themeContext.styles;
+  const styles = themeContext.styles;
   const rules = {
-    "editorWidget.foreground": colors.fill.text.pri,
-    "editorWidget.background": colors.bg.solid.flyout,
-    "editorWidget.border": colors.stroke.surface.flyout,
-    "editorWidget.resizeBorder": colors.fill.accent.pri,
-    "editorSuggestWidget.background": colors.bg.solid.flyout,
-    "editorSuggestWidget.border": colors.stroke.surface.flyout,
-    "editorSuggestWidget.foreground": colors.fill.text.sec,
-    "editorSuggestWidget.focusHighlightForeground": colors.fill.accentText.pri,
-    "editorSuggestWidget.highlightForeground": colors.fill.accentText.pri,
-    "editorSuggestWidget.selectedBackground": colors.fill.control.rest,
-    "editorSuggestWidget.selectedForeground": colors.fill.text.pri,
-    "editorSuggestWidget.selectedIconForeground": colors.fill.text.pri,
-    "editorSuggestWidgetStatus.foreground": colors.fill.accent.pri,
-    "editorHoverWidget.foreground": colors.fill.text.pri,
-    "editorHoverWidget.background": colors.bg.solid.flyout,
-    "editorHoverWidget.border": colors.stroke.surface.flyout,
-    "editorHoverWidget.highlightForeground": colors.fill.text.active,
-    "editorHoverWidget.statusBarBackground": colors.fill.control.subtle,
-    "editorGhostText.border": TRANSPARENT,
+    "debugExceptionWidget.background": styles.basic.loc.red.pri,
+    "debugExceptionWidget.border": styles.stroke.surface.flyout,
     "editorGhostText.background": TRANSPARENT,
-    "editorGhostText.foreground": colors.fill.text.ghost,
-    "editorStickyScroll.background": colors.bg.solid.surface,
-    "editorStickyScroll.border": colors.stroke.divider.default,
-    "editorStickyScroll.shadow": colors.effect.shadow.default,
-    "editorStickyScrollHover.background": colors.fill.control.rest,
-    "debugExceptionWidget.background": colors.basic.loc.red.pri,
-    "debugExceptionWidget.border": colors.stroke.surface.flyout,
-    "editorMarkerNavigation.background": colors.bg.solid.flyout,
-    "editorMarkerNavigationError.background": colors.basic.def.red.pri,
-    "editorMarkerNavigationWarning.background": colors.basic.def.orange.pri,
-    "editorMarkerNavigationInfo.background": colors.basic.def.blue.pri,
-    "editorMarkerNavigationError.headerBackground": colors.basic.loc.red.pri,
-    "editorMarkerNavigationWarning.headerBackground": colors.basic.loc.orange.pri,
-    "editorMarkerNavigationInfo.headerBackground": colors.basic.loc.blue.pri,
+    "editorGhostText.border": TRANSPARENT,
+    "editorGhostText.foreground": styles.fill.text.ghost,
+    "editorHoverWidget.background": styles.bg.solid.flyout,
+    "editorHoverWidget.border": styles.stroke.surface.flyout,
+    "editorHoverWidget.foreground": styles.fill.text.pri,
+    "editorHoverWidget.highlightForeground": styles.fill.text.active,
+    "editorHoverWidget.statusBarBackground": styles.fill.control.subtle,
+    "editorMarkerNavigation.background": styles.bg.solid.flyout,
+    "editorMarkerNavigationError.background": styles.basic.def.red.pri,
+    "editorMarkerNavigationError.headerBackground": styles.basic.loc.red.pri,
+    "editorMarkerNavigationInfo.background": styles.basic.def.blue.pri,
+    "editorMarkerNavigationInfo.headerBackground": styles.basic.loc.blue.pri,
+    "editorMarkerNavigationWarning.background": styles.basic.def.orange.pri,
+    "editorMarkerNavigationWarning.headerBackground": styles.basic.loc.orange.pri,
+    "editorStickyScroll.background": styles.bg.solid.surface,
+    "editorStickyScroll.border": styles.stroke.divider.default,
+    "editorStickyScroll.shadow": styles.effect.shadow.default,
+    "editorStickyScrollHover.background": styles.fill.control.rest,
+    "editorSuggestWidget.background": styles.bg.solid.flyout,
+    "editorSuggestWidget.border": styles.stroke.surface.flyout,
+    "editorSuggestWidget.focusHighlightForeground": styles.fill.accentText.pri,
+    "editorSuggestWidget.foreground": styles.fill.text.sec,
+    "editorSuggestWidget.highlightForeground": styles.fill.accentText.pri,
+    "editorSuggestWidget.selectedBackground": styles.fill.control.rest,
+    "editorSuggestWidget.selectedForeground": styles.fill.text.pri,
+    "editorSuggestWidget.selectedIconForeground": styles.fill.text.pri,
+    "editorSuggestWidgetStatus.foreground": styles.fill.accent.pri,
+    "editorWidget.background": styles.bg.solid.flyout,
+    "editorWidget.border": styles.stroke.surface.flyout,
+    "editorWidget.foreground": styles.fill.text.pri,
+    "editorWidget.resizeBorder": styles.fill.accent.pri,
   };
   const design = themeContext.variantConfig.design;
   if (design === "minimal") {
-    rules["editorStickyScroll.background"] = colors.bg.solid.canvas;
+    rules["editorStickyScroll.background"] = styles.bg.solid.canvas;
   } else if (design === "flat") {
-    rules["editorStickyScroll.background"] = colors.bg.solid.canvas;
+    rules["editorStickyScroll.background"] = styles.bg.solid.canvas;
   }
   return rules;
 };

@@ -1,11 +1,11 @@
 import { ThemeContext } from "../../../../../@types";
 
 export const getRules = (themeContext: ThemeContext): object => {
-  const colors = themeContext.styles;
+  const styles = themeContext.styles;
   return {
-    "keybindingLabel.background": colors.fill.control.rest,
-    "keybindingLabel.foreground": colors.fill.text.pri,
-    "keybindingLabel.border": colors.stroke.control.default,
-    "keybindingLabel.bottomBorder": colors.stroke.control.elevation,
+    "keybindingLabel.background": styles.fill.control.rest,
+    "keybindingLabel.border": styles.stroke.control.default,
+    "keybindingLabel.bottomBorder": styles.stroke.control.elevation,
+    "keybindingLabel.foreground": styles.fill.text.pri,
   };
 };
