@@ -16,7 +16,6 @@ export const getRules = (themeContext: ThemeContext): object => {
         "entity.other.function",
         "punctuation.definition.function",
         "punctuation.function",
-        "storage.type.function",
         "support.function",
       ],
       settings: {
@@ -32,7 +31,6 @@ export const getRules = (themeContext: ThemeContext): object => {
         "entity.other.function.static",
         "punctuation.definition.function.static",
         "punctuation.function.static",
-        "storage.type.function.static",
         "support.function.static",
       ],
       settings: {
@@ -50,7 +48,6 @@ export const getRules = (themeContext: ThemeContext): object => {
         "entity.other.method",
         "punctuation.definition.method",
         "punctuation.method",
-        "storage.type.method",
         "support.method",
       ],
       settings: {
@@ -66,7 +63,6 @@ export const getRules = (themeContext: ThemeContext): object => {
         "entity.other.method.static",
         "punctuation.definition.method.static",
         "punctuation.method.static",
-        "storage.type.method.static",
         "support.method.static",
       ],
       settings: {

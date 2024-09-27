@@ -5,7 +5,20 @@ export const getRules = (themeContext: ThemeContext): object => {
   return [
     // Operators
     {
-      scope: ["keyword.operator", "punctuation.separator", "support.operator"],
+      scope: [
+        "entity.name.operator",
+        "keyword.operator",
+        "punctuation.separator",
+        "support.operator",
+      ],
+      settings: {
+        foreground: color,
+        fontStyle: "",
+      },
+    },
+    // Tags
+    {
+      scope: ["punctuation.definition.tag"],
       settings: {
         foreground: color,
         fontStyle: "",

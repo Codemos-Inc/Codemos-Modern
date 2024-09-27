@@ -66,7 +66,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     },
     // Escape sequences
     {
-      scope: ["constants.character.escape"],
+      scope: ["constant.character.escape"],
       settings: {
         foreground: color,
         fontStyle: "",

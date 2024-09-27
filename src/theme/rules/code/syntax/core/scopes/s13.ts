@@ -30,6 +30,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: [
         "entity.name.variable.global",
+        "support.variable.automatic",
         "variable.language.special.global",
         "variable.other.global",
       ],
@@ -40,10 +41,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     },
     // User-defined constants
     {
-      scope: [
-        "constant.other.caps",
-        "variable.other.constant",
-      ],
+      scope: ["constant.other.caps", "variable.other.constant"],
       settings: {
         foreground: color,
         fontStyle: "",

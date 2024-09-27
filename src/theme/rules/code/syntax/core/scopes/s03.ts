@@ -10,7 +10,6 @@ export const getRules = (themeContext: ThemeContext): object => {
         "entity.name.interface",
         "entity.name.type.interface",
         "entity.other.attribute-name.interface",
-        "storage.type.interface",
         "support.interface",
       ],
       settings: {
@@ -24,7 +23,6 @@ export const getRules = (themeContext: ThemeContext): object => {
         "entity.name.class",
         "entity.name.type.class",
         "entity.other.attribute-name.class",
-        "storage.type.class",
         "support.class",
       ],
       settings: {
@@ -46,7 +44,6 @@ export const getRules = (themeContext: ThemeContext): object => {
         "entity.name.struct",
         "entity.name.type.struct",
         "entity.other.attribute-name.struct",
-        "storage.type.struct",
         "support.struct",
       ],
       settings: {
@@ -68,7 +65,6 @@ export const getRules = (themeContext: ThemeContext): object => {
         "entity.name.enum",
         "entity.name.type.enum",
         "entity.other.attribute-name.enum",
-        "storage.type.enum",
         "support.enum",
       ],
       settings: {
@@ -86,12 +82,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     },
     // Types
     {
-      scope: [
-        "entity.name.type",
-        "entity.other.attribute-name.type",
-        "storage.type",
-        "support.type",
-      ],
+      scope: ["entity.name.type", "entity.other.attribute-name.type", "support.type"],
       settings: {
         foreground: color,
         fontStyle: "",
