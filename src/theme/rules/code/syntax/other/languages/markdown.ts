@@ -96,6 +96,14 @@ export const getRules = (themeContext: ThemeContext): object => {
         fontStyle: "",
       },
     },
+    // Table borders
+    {
+      scope: ["punctuation.definition.table"],
+      settings: {
+        foreground: styles.fill.accentText.pri,
+        fontStyle: "",
+      },
+    },
     // Code & Raw
     {
       scope: ["markup.fenced_code.block", "markup.inline.raw", "markup.raw.block"],

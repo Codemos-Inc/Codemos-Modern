@@ -2,14 +2,21 @@ import { ThemeContext } from "../../../../../../@types";
 
 export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles.code;
-  const decorations = themeContext.textDecorations;
   return [
     // Vendor property
     {
       scope: ["support.type.vendored.property-name"],
       settings: {
+        foreground: colors.s09,
+        fontStyle: "",
+      },
+    },
+    // Importants
+    {
+      scope: ["keyword.other.important"],
+      settings: {
         foreground: colors.s01,
-        fontStyle: `${decorations.underline ? "underline" : ""}`,
+        fontStyle: "",
       },
     },
     // Element
@@ -24,7 +31,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["entity.other.attribute-name.pseudo-element"],
       settings: {
-        foreground: colors.s09,
+        foreground: colors.s15,
         fontStyle: "",
       },
     },
@@ -49,6 +56,26 @@ export const getRules = (themeContext: ThemeContext): object => {
       scope: ["entity.other.keyframe-offset"],
       settings: {
         foreground: colors.s16,
+        fontStyle: "",
+      },
+    },
+    // Keyword punctuation
+    {
+      scope: [
+        "source.css punctuation.definition.keyword",
+        "source.less punctuation.definition.keyword",
+        "source.scss punctuation.definition.keyword",
+      ],
+      settings: {
+        foreground: colors.s08,
+        fontStyle: "",
+      },
+    },
+    // Less tag references
+    {
+      scope: ["punctuation.definition.entity"],
+      settings: {
+        foreground: colors.s05,
         fontStyle: "",
       },
     },

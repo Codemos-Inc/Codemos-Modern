@@ -24,13 +24,15 @@ export const getRules = (themeContext: ThemeContext): object => {
         fontStyle: "",
       },
     },
-    // Regular expressions | Character classes
+    // Regular expressions | Groups
     {
       scope: [
-        "constant.character.character-class.regexp",
-        "constant.character.set.regexp",
-        "constant.other.character-class.regexp",
-        "constant.other.character-class.set.regexp",
+        "punctuation.character.set.begin.regexp",
+        "punctuation.character.set.end.regexp",
+        "punctuation.definition.character-class.regexp",
+        "punctuation.definition.group.assertion.regexp",
+        "punctuation.definition.group.regexp",
+        "support.other.parenthesis.regexp",
       ],
       settings: {
         foreground: color,

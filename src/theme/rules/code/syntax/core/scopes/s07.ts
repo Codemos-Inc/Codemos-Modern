@@ -10,6 +10,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "entity.name.macro",
         "entity.name.type.macro",
         "entity.other.attribute-name.macro",
+        "meta.macro",
         "meta.preprocessor.macro",
         "storage.type.macro",
         "support.macro",
@@ -23,6 +24,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: [
         "constant.regexp",
+        "keyword.operator.regexp",
         "string.regexp",
         "support.constant.regexp",
         "support.string.regexp",

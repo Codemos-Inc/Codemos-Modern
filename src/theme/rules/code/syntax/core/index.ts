@@ -38,7 +38,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     ...(<[]>getS14Rules(themeContext)),
     ...(<[]>getS15Rules(themeContext)),
     ...(<[]>getS16Rules(themeContext)),
-    ...(<[]>getSnoRules()),
+    ...(<[]>getSnoRules(themeContext)),
     ...(<[]>getSxxRules(themeContext)),
   ];
 };

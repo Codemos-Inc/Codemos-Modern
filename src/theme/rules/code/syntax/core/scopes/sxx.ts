@@ -8,7 +8,9 @@ export const getRules = (themeContext: ThemeContext): object => {
       scope: [
         "entity.name.operator",
         "keyword.operator",
+        "punctuation.brackets",
         "punctuation.separator",
+        "storage.type.function.arrow",
         "support.operator",
       ],
       settings: {

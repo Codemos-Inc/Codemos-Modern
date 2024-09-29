@@ -7,8 +7,10 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: [
         "constant.language",
-        "keyword.operator.comparison",
-        "keyword.operator.logical",
+        "keyword.control.delete",
+        "keyword.control.new",
+        "keyword.operator.delete",
+        "keyword.operator.new",
         "keyword",
         "punctuation.definition.keyword",
         "storage",

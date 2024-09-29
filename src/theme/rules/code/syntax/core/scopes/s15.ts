@@ -3,16 +3,22 @@ import { ThemeContext } from "../../../../../../@types";
 export const getRules = (themeContext: ThemeContext): object => {
   const color = themeContext.styles.code.s15;
   return [
-    // Regular expressions | Groups
+    // Regular expressions | Character classes
     {
       scope: [
-        "punctuation.character.set.begin.regexp",
-        "punctuation.character.set.end.regexp",
-        "punctuation.definition.character-class.regexp",
-        "punctuation.definition.group.assertion.regexp",
-        "punctuation.definition.group.regexp",
-        "support.other.parenthesis.regexp",
+        "constant.character.character-class.regexp",
+        "constant.character.set.regexp",
+        "constant.other.character-class.regexp",
+        "constant.other.character-class.set.regexp",
       ],
+      settings: {
+        foreground: color,
+        fontStyle: "",
+      },
+    },
+    // Special characters
+    {
+      scope: ["constant.character", "constant.other.unicode-range"],
       settings: {
         foreground: color,
         fontStyle: "",

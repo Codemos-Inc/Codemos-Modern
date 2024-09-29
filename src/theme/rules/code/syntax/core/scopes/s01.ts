@@ -2,7 +2,6 @@ import { ThemeContext } from "../../../../../../@types";
 
 export const getRules = (themeContext: ThemeContext): object => {
   const color = themeContext.styles.code.s01;
-  const decorations = themeContext.textDecorations;
   return [
     // Annotations
     {
@@ -11,13 +10,18 @@ export const getRules = (themeContext: ThemeContext): object => {
         "entity.name.annotation",
         "entity.name.function.annotation",
         "entity.other.annotation",
+        "meta.annotation entity.name.function",
+        "meta.annotation punctuation.brackets",
         "meta.annotation.identifier",
         "meta.annotation",
         "meta.function.annotation",
         "punctuation.annotation",
+        "punctuation.definition.annotation-arguments",
         "punctuation.definition.annotation",
+        "punctuation.section.annotation",
         "storage.type.annotation",
         "support.annotation",
+        "support.other.annotation",
       ],
       settings: {
         foreground: color,
@@ -31,13 +35,17 @@ export const getRules = (themeContext: ThemeContext): object => {
         "entity.name.attribute",
         "entity.name.function.attribute",
         "entity.other.attribute",
+        "meta.attribute entity.name.function",
+        "meta.attribute punctuation.brackets",
         "meta.attribute.identifier",
         "meta.attribute",
         "meta.function.attribute",
         "punctuation.attribute",
         "punctuation.definition.attribute",
+        "punctuation.section.attribute",
         "storage.type.attribute",
         "support.attribute",
+        "support.other.attribute",
       ],
       settings: {
         foreground: color,
@@ -51,13 +59,17 @@ export const getRules = (themeContext: ThemeContext): object => {
         "entity.name.decorator",
         "entity.name.function.decorator",
         "entity.other.decorator",
+        "meta.decorator entity.name.function",
+        "meta.decorator punctuation.brackets",
         "meta.decorator.identifier",
         "meta.decorator",
         "meta.function.decorator",
         "punctuation.decorator",
         "punctuation.definition.decorator",
+        "punctuation.section.decorator",
         "storage.type.decorator",
         "support.decorator",
+        "support.other.decorator",
       ],
       settings: {
         foreground: color,
@@ -70,22 +82,6 @@ export const getRules = (themeContext: ThemeContext): object => {
       settings: {
         foreground: color,
         fontStyle: "",
-      },
-    },
-    // Invalid
-    {
-      scope: ["invalid", "support.invalid"],
-      settings: {
-        foreground: color,
-        fontStyle: "",
-      },
-    },
-    // Deprecated
-    {
-      scope: ["invalid.deprecated", "support.invalid.deprecated"],
-      settings: {
-        foreground: color,
-        fontStyle: decorations.strikeThrough ? "strikethrough" : "",
       },
     },
   ];

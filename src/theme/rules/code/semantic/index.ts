@@ -55,7 +55,8 @@ const getDefaultRules = (themeContext: ThemeContext): object => {
       underline: themeContext.textDecorations.forComments.includes("underline"),
     },
     string: styles.basic.def.brown.pri,
-    keyword: styles.basic.def.pink.pri,
+    keyword: styles.basic.def.blue.pri,
+    "keyword.control": styles.basic.def.pink.pri,
     modifier: styles.basic.def.blue.pri,
     number: styles.basic.alt.green.pri,
     regexp: styles.basic.alt.purple.pri,
@@ -79,5 +80,6 @@ const getExtraRules = (themeContext: ThemeContext): object => {
     plainKeyword: styles.basic.def.blue.pri,
     selfParameter: styles.basic.def.yellow.pri,
     stringLiteral: styles.basic.def.brown.pri,
+    controlKeyword: styles.basic.def.pink.pri,
   };
 };

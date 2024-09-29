@@ -1,4 +1,8 @@
-export const getRules = (): object => {
+import type { ThemeContext } from "../../../../../../@types";
+
+export const getRules = (themeContext: ThemeContext): object => {
+  const styles = themeContext.styles;
+  const decorations = themeContext.textDecorations;
   return [
     // Emphasis
     {
@@ -19,6 +23,22 @@ export const getRules = (): object => {
       scope: ["deleted"],
       settings: {
         fontStyle: "strikethrough",
+      },
+    },
+    // Invalid
+    {
+      scope: ["invalid", "support.invalid"],
+      settings: {
+        foreground: styles.basic.def.red.pri,
+        fontStyle: "",
+      },
+    },
+    // Deprecated
+    {
+      scope: ["invalid.deprecated", "support.invalid.deprecated"],
+      settings: {
+        foreground: styles.basic.def.red.pri,
+        fontStyle: decorations.strikeThrough ? "strikethrough" : "",
       },
     },
   ];

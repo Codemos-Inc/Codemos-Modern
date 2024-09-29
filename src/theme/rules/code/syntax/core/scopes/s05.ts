@@ -10,7 +10,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "entity.name.scope-resolution",
         "entity.name.type.namespace",
         "entity.other.attribute-name.namespace",
-        "storage.type.namespace",
+        "storage.modifier.namespace",
         "support.namespace",
       ],
       settings: {
@@ -24,7 +24,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "entity.name.module",
         "entity.name.type.module",
         "entity.other.attribute-name.module",
-        "storage.type.module",
+        "storage.modifier.module",
         "support.module",
       ],
       settings: {
@@ -38,7 +38,8 @@ export const getRules = (themeContext: ThemeContext): object => {
         "entity.name.package",
         "entity.name.type.package",
         "entity.other.attribute-name.package",
-        "storage.type.package",
+        "storage.modifier.import",
+        "storage.modifier.package",
         "support.package",
       ],
       settings: {

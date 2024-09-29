@@ -6,7 +6,7 @@ export const defaultConfig: Config = {
     strikeThrough: true,
     bold: true,
     italic: true,
-    underline: true,
+    underline: false,
     forComments: ["italic"],
   },
   dark: {

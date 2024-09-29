@@ -107,7 +107,7 @@
           "codemosModern.textDecorations.underline": {
             "order": 3,
             "type": "boolean",
-            "default": true,
+            "default": false,
             "markdownDescription": "%conf.textDec.underline.desc%"
           },
           "codemosModern.textDecorations.forComments": {

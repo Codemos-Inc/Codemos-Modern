@@ -6,21 +6,14 @@ export const getRules = (themeContext: ThemeContext): object => {
     // String templates
     {
       scope: [
+        "meta.interpolation",
         "meta.template.expression",
+        "punctuation.definition.interpolation",
         "punctuation.definition.template-expression.begin",
         "punctuation.definition.template-expression.end",
         "punctuation.section.embedded",
         "string.interpolated",
-        "string.template",
       ],
-      settings: {
-        foreground: color,
-        fontStyle: "",
-      },
-    },
-    // Special characters
-    {
-      scope: ["constant.character", "constant.other.unicode-range"],
       settings: {
         foreground: color,
         fontStyle: "",

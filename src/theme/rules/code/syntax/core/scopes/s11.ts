@@ -14,8 +14,10 @@ export const getRules = (themeContext: ThemeContext): object => {
         "meta.object-literal.key",
         "meta.object.member",
         "meta.struct variable",
+        "support.variable.property",
         "variable.other.member",
         "variable.other.property",
+        "variable.other.object.property",
       ],
       settings: {
         foreground: color,
@@ -32,6 +34,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "meta.object-literal.key.constant",
         "meta.object.member.constant",
         "meta.struct variable.other.constant",
+        "support.variable.property.constant",
         "variable.other.constant.member",
         "variable.other.constant.property",
       ],
