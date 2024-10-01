@@ -1,24 +1,24 @@
 import { ThemeContext } from "../../../../../@types";
 
 export const getRules = (themeContext: ThemeContext): object => {
-  const colors = themeContext.styles;
+  const styles = themeContext.styles;
   return {
-    "input.background": colors.fill.control.restSolid, // 🟢 Undesired solution!
-    "input.border": colors.stroke.control.default,
-    "input.foreground": colors.fill.text.pri,
-    "input.placeholderForeground": colors.fill.text.sec,
-    "inputOption.activeBackground": colors.fill.accent.pri,
-    "inputOption.activeBorder": colors.stroke.control.default,
-    "inputOption.activeForeground": colors.fill.textOnColor.pri,
-    "inputOption.hoverBackground": colors.fill.control.rest,
-    "inputValidation.errorBackground": colors.fill.system.bg.red,
-    "inputValidation.errorForeground": colors.fill.system.fg.red,
-    "inputValidation.errorBorder": colors.basic.def.red.qua,
-    "inputValidation.infoBackground": colors.fill.system.bg.blue,
-    "inputValidation.infoForeground": colors.fill.system.fg.blue,
-    "inputValidation.infoBorder": colors.basic.def.blue.qua,
-    "inputValidation.warningBackground": colors.fill.system.bg.orange,
-    "inputValidation.warningForeground": colors.fill.system.fg.orange,
-    "inputValidation.warningBorder": colors.basic.def.orange.qua,
+    "input.background": styles.fill.control.restSolid, // 🟢 Undesired solution!
+    "input.border": styles.stroke.control.default,
+    "input.foreground": styles.fill.text.pri,
+    "input.placeholderForeground": styles.fill.text.sec,
+    "inputOption.activeBackground": styles.fill.accent.pri,
+    "inputOption.activeBorder": styles.stroke.control.default,
+    "inputOption.activeForeground": styles.fill.textOnColor.pri,
+    "inputOption.hoverBackground": styles.fill.control.rest,
+    "inputValidation.errorBackground": styles.fill.system.bg.red,
+    "inputValidation.errorBorder": styles.basic.def.red.qua,
+    "inputValidation.errorForeground": styles.fill.system.fg.red,
+    "inputValidation.infoBackground": styles.fill.system.bg.blue,
+    "inputValidation.infoBorder": styles.basic.def.blue.qua,
+    "inputValidation.infoForeground": styles.fill.system.fg.blue,
+    "inputValidation.warningBackground": styles.fill.system.bg.orange,
+    "inputValidation.warningBorder": styles.basic.def.orange.qua,
+    "inputValidation.warningForeground": styles.fill.system.fg.orange,
   };
 };

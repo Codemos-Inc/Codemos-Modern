@@ -15,11 +15,7 @@ export function computeCIEDE2000(lab1: LAB, lab2: LAB): number {
   const aC1C2: number = (C1 + C2) / 2.0;
 
   const G: number =
-    0.5 *
-    (1 -
-      Math.sqrt(
-        Math.pow(aC1C2, 7.0) / (Math.pow(aC1C2, 7.0) + Math.pow(25.0, 7.0)),
-      ));
+    0.5 * (1 - Math.sqrt(Math.pow(aC1C2, 7.0) / (Math.pow(aC1C2, 7.0) + Math.pow(25.0, 7.0))));
 
   const a1p: number = (1.0 + G) * a1;
   const a2p: number = (1.0 + G) * a2;
@@ -47,11 +43,8 @@ export function computeCIEDE2000(lab1: LAB, lab2: LAB): number {
     0.32 * Math.cos(radians(3 * aHp + 6)) -
     0.2 * Math.cos(radians(4 * aHp - 63));
   const dRo: number = 30 * Math.exp(-Math.pow((aHp - 275) / 25, 2));
-  const RC: number = Math.sqrt(
-    Math.pow(aCp, 7.0) / (Math.pow(aCp, 7.0) + Math.pow(25.0, 7.0)),
-  ); // (17)
-  const SL: number =
-    1 + (0.015 * Math.pow(aL - 50, 2)) / Math.sqrt(20 + Math.pow(aL - 50, 2.0));
+  const RC: number = Math.sqrt(Math.pow(aCp, 7.0) / (Math.pow(aCp, 7.0) + Math.pow(25.0, 7.0))); // (17)
+  const SL: number = 1 + (0.015 * Math.pow(aL - 50, 2)) / Math.sqrt(20 + Math.pow(aL - 50, 2.0));
   const SC: number = 1 + 0.045 * aCp;
   const SH: number = 1 + 0.015 * aCp * T;
   const RT: number = -2 * RC * Math.sin(radians(2 * dRo));

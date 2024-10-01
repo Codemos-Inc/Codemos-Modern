@@ -5,6 +5,7 @@
   "conf.*.adaptiveMode.enum.gentle.desc": "Adaptação suave da cor de destaque",
   "conf.*.adaptiveMode.enum.moderate.desc": "Adaptação moderada da cor de destaque",
   "conf.*.adaptiveMode.enum.none.desc": "Sem adaptação da cor de destaque",
+  "conf.*.design.enum.flat.desc": "Design plano",
   "conf.*.design.enum.minimal.desc": "Design minimalista",
   "conf.*.design.enum.modern.desc": "Design original do Modern",
   "conf.auxiliaryThemeRegistries.desc": "Repositórios no GitHub que são registros auxiliares de temas. Deve estar no formato `<dono>/<repositório>`. Consulte [a documentação](https://github.com/Codemos-Inc/Codemos-Modern#modularity) para referência.",

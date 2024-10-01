@@ -1,10 +1,10 @@
 import { ThemeContext } from "../../../../../@types";
 
 export const getRules = (themeContext: ThemeContext): object => {
-  const colors = themeContext.styles;
+  const styles = themeContext.styles;
   return {
-    "profileBadge.background": colors.fill.control.prominent,
-    "profileBadge.foreground": colors.fill.text.sec,
-    "profiles.sashBorder": colors.stroke.focus.default,
+    "profileBadge.background": styles.fill.control.prominent,
+    "profileBadge.foreground": styles.fill.text.sec,
+    "profiles.sashBorder": styles.stroke.focus.default,
   };
 };

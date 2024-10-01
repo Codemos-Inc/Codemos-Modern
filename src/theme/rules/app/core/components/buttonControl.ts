@@ -1,20 +1,27 @@
 import { ThemeContext } from "../../../../../@types";
 
 export const getRules = (themeContext: ThemeContext): object => {
-  const colors = themeContext.styles;
+  const styles = themeContext.styles;
   return {
-    "button.background": colors.fill.accent.pri,
-    "button.foreground": colors.fill.textOnColor.pri,
-    "button.border": colors.stroke.control.default,
-    "button.separator": colors.fill.textOnColor.pri,
-    "button.hoverBackground": colors.fill.accent.sec,
-    "button.secondaryForeground": colors.fill.text.pri,
-    "button.secondaryBackground": colors.fill.control.rest,
-    "button.secondaryHoverBackground": colors.fill.control.hover,
-    "checkbox.background": colors.fill.control.rest,
-    "checkbox.foreground": colors.fill.text.pri,
-    "checkbox.border": colors.stroke.control.default,
-    "checkbox.selectBackground": colors.fill.control.rest,
-    "checkbox.selectBorder": colors.stroke.control.default,
+    "button.background": styles.fill.accent.pri,
+    "button.border": styles.stroke.control.default,
+    "button.foreground": styles.fill.textOnColor.pri,
+    "button.hoverBackground": styles.fill.accent.sec,
+    "button.secondaryBackground": styles.fill.control.rest,
+    "button.secondaryForeground": styles.fill.text.pri,
+    "button.secondaryHoverBackground": styles.fill.control.hover,
+    "button.separator": styles.fill.textOnColor.pri,
+    "checkbox.background": styles.fill.control.rest,
+    "checkbox.border": styles.stroke.control.default,
+    "checkbox.foreground": styles.fill.text.active,
+    "checkbox.selectBackground": styles.fill.control.rest,
+    "checkbox.selectBorder": styles.stroke.control.default,
+    "radio.activeBackground": styles.fill.accent.pri,
+    "radio.activeBorder": styles.stroke.control.default,
+    "radio.activeForeground": styles.fill.textOnColor.pri,
+    "radio.inactiveBackground": styles.fill.control.rest,
+    "radio.inactiveBorder": styles.stroke.control.default,
+    "radio.inactiveForeground": styles.fill.text.pri,
+    "radio.inactiveHoverBackground": styles.fill.control.hover,
   };
 };

@@ -31,6 +31,8 @@
   "helper.auxTheme.state.available": "Verfügbar",
   "helper.auxTheme.state.installed": "Installiert",
   "helper.design": "Design",
+  "helper.design.flat": "Flach",
+  "helper.design.flat.detail": "Flaches Design",
   "helper.design.minimal": "Minimal",
   "helper.design.minimal.detail": "Minimalistisches Design",
   "helper.design.modern": "Modern",
@@ -80,7 +82,7 @@
   "notification.update.firstInstall": "Willkommen bei der innovativen Thema-Suite/Hub! 👋 Starten Sie Ihre Reise durch die Konfiguration von Modern.",
   "notification.update.index.title": "Aktualisierung von Registerindizes… ⏳",
   "notification.update.majorUpdate": "Modern ist auf V2 aktualisiert! 🎉 Sehen Sie nach, was neu ist auf unserer Erweiterungsseite.",
-  "notification.update.minorUpdate": "Modern ist aktualisiert! 🎉 Neue Lokalisierungen: Französisch 🇫🇷, Koreanisch 🇰🇷, Deutsch 🇩🇪",
+  "notification.update.minorUpdate": "Modern ist aktualisiert! 🎉 Einführung des flachen Designs.",
   "notification.update.patchUpdate": "Modern ist gepatcht! 🎉",
   "notification.update.profileChange": "Profil ist geändert! 👥",
   "notification.update.reinstall": "Modern ist bereit! 🎉"

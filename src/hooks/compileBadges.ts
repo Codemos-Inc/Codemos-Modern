@@ -6,6 +6,8 @@ import { join } from "path";
 
 const IMAGES_PATH = join(__dirname, "..", "..", "images");
 
+const VSCODE_VERSION = "1.93";
+
 // Dynamics
 fetchModifySvg(
   "https://img.shields.io/github/release/Codemos-Inc/Codemos-Modern.svg?labelColor=373737&color=45AA41&label=&logo=github&logoColor=%23FFFFFFC7&style=for-the-badge",
@@ -14,7 +16,7 @@ fetchModifySvg(
   false,
 );
 fetchModifySvg(
-  "https://img.shields.io/badge/-v1.91+-4B9ECD.svg?labelColor=373737&label=&logo=data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTIzLjE1IDIuNTg3TDE4LjIxLjIxYTEuNDk0IDEuNDk0IDAgMDAtMS43MDUuMjlsLTkuNDYgOC42My00LjEyLTMuMTI4YS45OTkuOTk5IDAgMDAtMS4yNzYuMDU3TC4zMjcgNy4yNjFBMSAxIDAgMDAuMzI2IDguNzRMMy44OTkgMTIgLjMyNiAxNS4yNmExIDEgMCAwMC4wMDEgMS40NzlMMS42NSAxNy45NGEuOTk5Ljk5OSAwIDAwMS4yNzYuMDU3bDQuMTItMy4xMjggOS40NiA4LjYzYTEuNDkyIDEuNDkyIDAgMDAxLjcwNC4yOWw0Ljk0Mi0yLjM3N0ExLjUgMS41IDAgMDAyNCAyMC4wNlYzLjkzOWExLjUgMS41IDAgMDAtLjg1LTEuMzUyem0tNS4xNDYgMTQuODYxTDEwLjgyNiAxMmw3LjE3OC01LjQ0OHYxMC44OTZ6IiBmaWxsPSIjZDNkM2QzIi8+PC9zdmc+Cg==&logoColor=%23FFFFFFC7&style=for-the-badge",
+  `https://img.shields.io/badge/-v${VSCODE_VERSION}+-4B9ECD.svg?labelColor=373737&label=&logo=data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTIzLjE1IDIuNTg3TDE4LjIxLjIxYTEuNDk0IDEuNDk0IDAgMDAtMS43MDUuMjlsLTkuNDYgOC42My00LjEyLTMuMTI4YS45OTkuOTk5IDAgMDAtMS4yNzYuMDU3TC4zMjcgNy4yNjFBMSAxIDAgMDAuMzI2IDguNzRMMy44OTkgMTIgLjMyNiAxNS4yNmExIDEgMCAwMC4wMDEgMS40NzlMMS42NSAxNy45NGEuOTk5Ljk5OSAwIDAwMS4yNzYuMDU3bDQuMTItMy4xMjggOS40NiA4LjYzYTEuNDkyIDEuNDkyIDAgMDAxLjcwNC4yOWw0Ljk0Mi0yLjM3N0ExLjUgMS41IDAgMDAyNCAyMC4wNlYzLjkzOWExLjUgMS41IDAgMDAtLjg1LTEuMzUyem0tNS4xNDYgMTQuODYxTDEwLjgyNiAxMmw3LjE3OC01LjQ0OHYxMC44OTZ6IiBmaWxsPSIjZDNkM2QzIi8+PC9zdmc+Cg==&logoColor=%23FFFFFFC7&style=for-the-badge`,
   join(IMAGES_PATH, "badge-vscode.svg"),
   true,
   false,
@@ -46,6 +48,7 @@ fetchModifySvg(
   false,
   "#FFFFFF",
 );
+
 fetchModifySvg(
   "https://img.shields.io/badge/-简体中文-EE1C25.svg?labelColor=373737&label=&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTExLjgzNzEgMjIuNzE5NUwxNi43NzgzIDkuNjg3NzhIMTkuMDU4OEwyNCAyMi43MTk1SDIxLjcxOTVMMjAuNTUyIDE5LjQwNzJIMTUuMjg1MUwxNC4xMTc2IDIyLjcxOTVIMTEuODM3MVpNMy4yNTc5MiAxOS40NjE1TDEuNzM3NTYgMTcuOTQxMkw3LjIyMTcyIDEyLjQ1N0M2LjU4ODI0IDExLjgyMzUgNi4wMTM1NyAxMS4wOTk1IDUuNDk3NzQgMTAuMjg1MUM0Ljk4MTkgOS40NzA1OSA0LjUwNjc5IDguNTQ3NTEgNC4wNzI0IDcuNTE1ODRINi4zNTI5NEM2LjcxNDkzIDguMjIxNzIgNy4wNzY5MiA4LjgzNzEgNy40Mzg5MSA5LjM2MTk5QzcuODAwOTEgOS44ODY4OCA4LjIzNTI5IDEwLjQxMTggOC43NDIwOCAxMC45MzY3QzkuMzM5MzcgMTAuMzM5NCA5Ljk1OTI4IDkuNTAyMjYgMTAuNjAxOCA4LjQyNTM0QzExLjI0NDMgNy4zNDg0MiAxMS43Mjg1IDYuMzIxMjcgMTIuMDU0MyA1LjM0Mzg5SDBWMy4xNzE5NUg3LjYwMTgxVjFIOS43NzM3NlYzLjE3MTk1SDE3LjM3NTZWNS4zNDM4OUgxNC4yMjYyQzEzLjg0NjIgNi42NDcwNiAxMy4yNzYgNy45ODY0MiAxMi41MTU4IDkuMzYxOTlDMTEuNzU1NyAxMC43Mzc2IDExLjAwNDUgMTEuNzg3MyAxMC4yNjI0IDEyLjUxMTNMMTIuODY4OCAxNS4xNzE5TDEyLjA1NDMgMTcuMzk4Mkw4Ljc0MjA4IDE0LjAwNDVMMy4yNTc5MiAxOS40NjE1Wk0xNS45NjM4IDE3LjUwNjhIMTkuODczM0wxNy45MTg2IDExLjk2ODNMMTUuOTYzOCAxNy41MDY4WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==&logoColor=%23FFFFFFC7&style=for-the-badge",
   join(IMAGES_PATH, "badge-loc-zh-cn.svg"),
@@ -89,14 +92,6 @@ fetchModifySvg(
 );
 
 fetchModifySvg(
-  "https://img.shields.io/badge/-TÜRKÇE-e30a17.svg?labelColor=373737&label=&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTExLjgzNzEgMjIuNzE5NUwxNi43NzgzIDkuNjg3NzhIMTkuMDU4OEwyNCAyMi43MTk1SDIxLjcxOTVMMjAuNTUyIDE5LjQwNzJIMTUuMjg1MUwxNC4xMTc2IDIyLjcxOTVIMTEuODM3MVpNMy4yNTc5MiAxOS40NjE1TDEuNzM3NTYgMTcuOTQxMkw3LjIyMTcyIDEyLjQ1N0M2LjU4ODI0IDExLjgyMzUgNi4wMTM1NyAxMS4wOTk1IDUuNDk3NzQgMTAuMjg1MUM0Ljk4MTkgOS40NzA1OSA0LjUwNjc5IDguNTQ3NTEgNC4wNzI0IDcuNTE1ODRINi4zNTI5NEM2LjcxNDkzIDguMjIxNzIgNy4wNzY5MiA4LjgzNzEgNy40Mzg5MSA5LjM2MTk5QzcuODAwOTEgOS44ODY4OCA4LjIzNTI5IDEwLjQxMTggOC43NDIwOCAxMC45MzY3QzkuMzM5MzcgMTAuMzM5NCA5Ljk1OTI4IDkuNTAyMjYgMTAuNjAxOCA4LjQyNTM0QzExLjI0NDMgNy4zNDg0MiAxMS43Mjg1IDYuMzIxMjcgMTIuMDU0MyA1LjM0Mzg5SDBWMy4xNzE5NUg3LjYwMTgxVjFIOS43NzM3NlYzLjE3MTk1SDE3LjM3NTZWNS4zNDM4OUgxNC4yMjYyQzEzLjg0NjIgNi42NDcwNiAxMy4yNzYgNy45ODY0MiAxMi41MTU4IDkuMzYxOTlDMTEuNzU1NyAxMC43Mzc2IDExLjAwNDUgMTEuNzg3MyAxMC4yNjI0IDEyLjUxMTNMMTIuODY4OCAxNS4xNzE5TDEyLjA1NDMgMTcuMzk4Mkw4Ljc0MjA4IDE0LjAwNDVMMy4yNTc5MiAxOS40NjE1Wk0xNS45NjM4IDE3LjUwNjhIMTkuODczM0wxNy45MTg2IDExLjk2ODNMMTUuOTYzOCAxNy41MDY4WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==&logoColor=%23FFFFFFC7&style=for-the-badge",
-  join(IMAGES_PATH, "badge-loc-tr.svg"),
-  false,
-  false,
-  "#FFFFFF",
-);
-
-fetchModifySvg(
   "https://img.shields.io/badge/-FRANÇAIS-002654.svg?labelColor=373737&label=&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTExLjgzNzEgMjIuNzE5NUwxNi43NzgzIDkuNjg3NzhIMTkuMDU4OEwyNCAyMi43MTk1SDIxLjcxOTVMMjAuNTUyIDE5LjQwNzJIMTUuMjg1MUwxNC4xMTc2IDIyLjcxOTVIMTEuODM3MVpNMy4yNTc5MiAxOS40NjE1TDEuNzM3NTYgMTcuOTQxMkw3LjIyMTcyIDEyLjQ1N0M2LjU4ODI0IDExLjgyMzUgNi4wMTM1NyAxMS4wOTk1IDUuNDk3NzQgMTAuMjg1MUM0Ljk4MTkgOS40NzA1OSA0LjUwNjc5IDguNTQ3NTEgNC4wNzI0IDcuNTE1ODRINi4zNTI5NEM2LjcxNDkzIDguMjIxNzIgNy4wNzY5MiA4LjgzNzEgNy40Mzg5MSA5LjM2MTk5QzcuODAwOTEgOS44ODY4OCA4LjIzNTI5IDEwLjQxMTggOC43NDIwOCAxMC45MzY3QzkuMzM5MzcgMTAuMzM5NCA5Ljk1OTI4IDkuNTAyMjYgMTAuNjAxOCA4LjQyNTM0QzExLjI0NDMgNy4zNDg0MiAxMS43Mjg1IDYuMzIxMjcgMTIuMDU0MyA1LjM0Mzg5SDBWMy4xNzE5NUg3LjYwMTgxVjFIOS43NzM3NlYzLjE3MTk1SDE3LjM3NTZWNS4zNDM4OUgxNC4yMjYyQzEzLjg0NjIgNi42NDcwNiAxMy4yNzYgNy45ODY0MiAxMi41MTU4IDkuMzYxOTlDMTEuNzU1NyAxMC43Mzc2IDExLjAwNDUgMTEuNzg3MyAxMC4yNjI0IDEyLjUxMTNMMTIuODY4OCAxNS4xNzE5TDEyLjA1NDMgMTcuMzk4Mkw4Ljc0MjA4IDE0LjAwNDVMMy4yNTc5MiAxOS40NjE1Wk0xNS45NjM4IDE3LjUwNjhIMTkuODczM0wxNy45MTg2IDExLjk2ODNMMTUuOTYzOCAxNy41MDY4WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==&logoColor=%23FFFFFFC7&style=for-the-badge",
   join(IMAGES_PATH, "badge-loc-fr.svg"),
   false,
@@ -119,6 +114,31 @@ fetchModifySvg(
   true,
   false,
   "#000000",
+);
+
+fetchModifySvg(
+  "https://img.shields.io/badge/-繁體-EE1C25.svg?labelColor=373737&label=&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTExLjgzNzEgMjIuNzE5NUwxNi43NzgzIDkuNjg3NzhIMTkuMDU4OEwyNCAyMi43MTk1SDIxLjcxOTVMMjAuNTUyIDE5LjQwNzJIMTUuMjg1MUwxNC4xMTc2IDIyLjcxOTVIMTEuODM3MVpNMy4yNTc5MiAxOS40NjE1TDEuNzM3NTYgMTcuOTQxMkw3LjIyMTcyIDEyLjQ1N0M2LjU4ODI0IDExLjgyMzUgNi4wMTM1NyAxMS4wOTk1IDUuNDk3NzQgMTAuMjg1MUM0Ljk4MTkgOS40NzA1OSA0LjUwNjc5IDguNTQ3NTEgNC4wNzI0IDcuNTE1ODRINi4zNTI5NEM2LjcxNDkzIDguMjIxNzIgNy4wNzY5MiA4LjgzNzEgNy40Mzg5MSA5LjM2MTk5QzcuODAwOTEgOS44ODY4OCA4LjIzNTI5IDEwLjQxMTggOC43NDIwOCAxMC45MzY3QzkuMzM5MzcgMTAuMzM5NCA5Ljk1OTI4IDkuNTAyMjYgMTAuNjAxOCA4LjQyNTM0QzExLjI0NDMgNy4zNDg0MiAxMS43Mjg1IDYuMzIxMjcgMTIuMDU0MyA1LjM0Mzg5SDBWMy4xNzE5NUg3LjYwMTgxVjFIOS43NzM3NlYzLjE3MTk1SDE3LjM3NTZWNS4zNDM4OUgxNC4yMjYyQzEzLjg0NjIgNi42NDcwNiAxMy4yNzYgNy45ODY0MiAxMi41MTU4IDkuMzYxOTlDMTEuNzU1NyAxMC43Mzc2IDExLjAwNDUgMTEuNzg3MyAxMC4yNjI0IDEyLjUxMTNMMTIuODY4OCAxNS4xNzE5TDEyLjA1NDMgMTcuMzk4Mkw4Ljc0MjA4IDE0LjAwNDVMMy4yNTc5MiAxOS40NjE1Wk0xNS45NjM4IDE3LjUwNjhIMTkuODczM0wxNy45MTg2IDExLjk2ODNMMTUuOTYzOCAxNy41MDY4WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==&logoColor=%23FFFFFFC7&style=for-the-badge",
+  join(IMAGES_PATH, "badge-loc-zh-tw.svg"),
+  false,
+  false,
+  "#FFFF00",
+  { notoSansSC: true },
+);
+
+fetchModifySvg(
+  "https://img.shields.io/badge/-ITALIANO-009245.svg?labelColor=373737&label=&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTExLjgzNzEgMjIuNzE5NUwxNi43NzgzIDkuNjg3NzhIMTkuMDU4OEwyNCAyMi43MTk1SDIxLjcxOTVMMjAuNTUyIDE5LjQwNzJIMTUuMjg1MUwxNC4xMTc2IDIyLjcxOTVIMTEuODM3MVpNMy4yNTc5MiAxOS40NjE1TDEuNzM3NTYgMTcuOTQxMkw3LjIyMTcyIDEyLjQ1N0M2LjU4ODI0IDExLjgyMzUgNi4wMTM1NyAxMS4wOTk1IDUuNDk3NzQgMTAuMjg1MUM0Ljk4MTkgOS40NzA1OSA0LjUwNjc5IDguNTQ3NTEgNC4wNzI0IDcuNTE1ODRINi4zNTI5NEM2LjcxNDkzIDguMjIxNzIgNy4wNzY5MiA4LjgzNzEgNy40Mzg5MSA5LjM2MTk5QzcuODAwOTEgOS44ODY4OCA4LjIzNTI5IDEwLjQxMTggOC43NDIwOCAxMC45MzY3QzkuMzM5MzcgMTAuMzM5NCA5Ljk1OTI4IDkuNTAyMjYgMTAuNjAxOCA4LjQyNTM0QzExLjI0NDMgNy4zNDg0MiAxMS43Mjg1IDYuMzIxMjcgMTIuMDU0MyA1LjM0Mzg5SDBWMy4xNzE5NUg3LjYwMTgxVjFIOS43NzM3NlYzLjE3MTk1SDE3LjM3NTZWNS4zNDM4OUgxNC4yMjYyQzEzLjg0NjIgNi42NDcwNiAxMy4yNzYgNy45ODY0MiAxMi41MTU4IDkuMzYxOTlDMTEuNzU1NyAxMC43Mzc2IDExLjAwNDUgMTEuNzg3MyAxMC4yNjI0IDEyLjUxMTNMMTIuODY4OCAxNS4xNzE5TDEyLjA1NDMgMTcuMzk4Mkw4Ljc0MjA4IDE0LjAwNDVMMy4yNTc5MiAxOS40NjE1Wk0xNS45NjM4IDE3LjUwNjhIMTkuODczM0wxNy45MTg2IDExLjk2ODNMMTUuOTYzOCAxNy41MDY4WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==&logoColor=%23FFFFFFC7&style=for-the-badge",
+  join(IMAGES_PATH, "badge-loc-it.svg"),
+  false,
+  false,
+  "#FFFFFF",
+);
+
+fetchModifySvg(
+  "https://img.shields.io/badge/-TÜRKÇE-e30a17.svg?labelColor=373737&label=&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTExLjgzNzEgMjIuNzE5NUwxNi43NzgzIDkuNjg3NzhIMTkuMDU4OEwyNCAyMi43MTk1SDIxLjcxOTVMMjAuNTUyIDE5LjQwNzJIMTUuMjg1MUwxNC4xMTc2IDIyLjcxOTVIMTEuODM3MVpNMy4yNTc5MiAxOS40NjE1TDEuNzM3NTYgMTcuOTQxMkw3LjIyMTcyIDEyLjQ1N0M2LjU4ODI0IDExLjgyMzUgNi4wMTM1NyAxMS4wOTk1IDUuNDk3NzQgMTAuMjg1MUM0Ljk4MTkgOS40NzA1OSA0LjUwNjc5IDguNTQ3NTEgNC4wNzI0IDcuNTE1ODRINi4zNTI5NEM2LjcxNDkzIDguMjIxNzIgNy4wNzY5MiA4LjgzNzEgNy40Mzg5MSA5LjM2MTk5QzcuODAwOTEgOS44ODY4OCA4LjIzNTI5IDEwLjQxMTggOC43NDIwOCAxMC45MzY3QzkuMzM5MzcgMTAuMzM5NCA5Ljk1OTI4IDkuNTAyMjYgMTAuNjAxOCA4LjQyNTM0QzExLjI0NDMgNy4zNDg0MiAxMS43Mjg1IDYuMzIxMjcgMTIuMDU0MyA1LjM0Mzg5SDBWMy4xNzE5NUg3LjYwMTgxVjFIOS43NzM3NlYzLjE3MTk1SDE3LjM3NTZWNS4zNDM4OUgxNC4yMjYyQzEzLjg0NjIgNi42NDcwNiAxMy4yNzYgNy45ODY0MiAxMi41MTU4IDkuMzYxOTlDMTEuNzU1NyAxMC43Mzc2IDExLjAwNDUgMTEuNzg3MyAxMC4yNjI0IDEyLjUxMTNMMTIuODY4OCAxNS4xNzE5TDEyLjA1NDMgMTcuMzk4Mkw4Ljc0MjA4IDE0LjAwNDVMMy4yNTc5MiAxOS40NjE1Wk0xNS45NjM4IDE3LjUwNjhIMTkuODczM0wxNy45MTg2IDExLjk2ODNMMTUuOTYzOCAxNy41MDY4WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==&logoColor=%23FFFFFFC7&style=for-the-badge",
+  join(IMAGES_PATH, "badge-loc-tr.svg"),
+  false,
+  false,
+  "#FFFFFF",
 );
 
 const SVG_NS = "http://www.w3.org/2000/svg";
@@ -164,21 +184,15 @@ function fetchModifySvg(
 
         // Noto Sans SC
         if (customFont?.notoSansSC) {
-          doc
-            .querySelector("[font-family]")!
-            .setAttribute("font-family", "Noto Sans SC");
+          doc.querySelector("[font-family]")!.setAttribute("font-family", "Noto Sans SC");
         }
         // Noto Sans JP
         if (customFont?.notoSansJP) {
-          doc
-            .querySelector("[font-family]")!
-            .setAttribute("font-family", "Noto Sans JP");
+          doc.querySelector("[font-family]")!.setAttribute("font-family", "Noto Sans JP");
         }
         // Noto Sans KR
         if (customFont?.notoSansKR) {
-          doc
-            .querySelector("[font-family]")!
-            .setAttribute("font-family", "Noto Sans KR");
+          doc.querySelector("[font-family]")!.setAttribute("font-family", "Noto Sans KR");
         }
 
         // If the badge is the rating badge, strip how many people rated
@@ -196,25 +210,15 @@ function fetchModifySvg(
         }
 
         // Calculate the new width and height
-        const originalWidth = parseFloat(
-          originalSvg.getAttribute("width") as string,
-        );
-        const originalHeight = parseFloat(
-          originalSvg.getAttribute("height") as string,
-        );
+        const originalWidth = parseFloat(originalSvg.getAttribute("width") as string);
+        const originalHeight = parseFloat(originalSvg.getAttribute("height") as string);
         const newWidth = originalWidth + 2;
         const newHeight = originalHeight + 2;
 
         // Create the new root svg and set its attributes
         const newRootSvg = doc.createElement("svg");
-        newRootSvg.setAttribute(
-          "xmlns",
-          originalSvg.getAttribute("xmlns") as string,
-        );
-        newRootSvg.setAttribute(
-          "xmlns:xlink",
-          originalSvg.getAttribute("xmlns:xlink") as string,
-        );
+        newRootSvg.setAttribute("xmlns", originalSvg.getAttribute("xmlns") as string);
+        newRootSvg.setAttribute("xmlns:xlink", originalSvg.getAttribute("xmlns:xlink") as string);
         newRootSvg.setAttribute("width", `${newWidth}`);
         newRootSvg.setAttribute("height", `${newHeight}`);
 
@@ -267,9 +271,7 @@ function fetchModifySvg(
         originalSvg.setAttribute("x", "1");
         originalSvg.setAttribute("y", "1");
 
-        const modifiedSvg = new dom.window.XMLSerializer().serializeToString(
-          doc.documentElement,
-        );
+        const modifiedSvg = new dom.window.XMLSerializer().serializeToString(doc.documentElement);
 
         fs.writeFile(path, modifiedSvg, "utf8", async function (error) {
           if (error) {
@@ -277,17 +279,14 @@ function fetchModifySvg(
             process.exit(1);
           } else {
             const pathArray = path.split("/");
-            const modifiedSvgCompat =
-              new dom.window.XMLSerializer().serializeToString(
-                doc.documentElement,
-              );
+            const modifiedSvgCompat = new dom.window.XMLSerializer().serializeToString(
+              doc.documentElement,
+            );
             renderAsync(modifiedSvgCompat, {
               fitTo: { mode: "zoom", value: ZOOM },
             }).then((r) => {
               fs.writeFileSync(path.replace(".svg", ".png"), r.asPng());
-              console.log(
-                `SVG to PNG is done for: ${pathArray[pathArray.length - 1]}`,
-              );
+              console.log(`SVG to PNG is done for: ${pathArray[pathArray.length - 1]}`);
             });
           }
         });

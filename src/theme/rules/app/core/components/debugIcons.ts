@@ -1,28 +1,27 @@
 import { ThemeContext } from "../../../../../@types";
 
 export const getRules = (themeContext: ThemeContext): object => {
-  const colors = themeContext.styles;
+  const styles = themeContext.styles;
   return {
-    "debugIcon.breakpointForeground": colors.basic.def.red.pri,
-    "debugIcon.breakpointDisabledForeground": colors.basic.neutral.qua,
-    "debugIcon.breakpointUnverifiedForeground": colors.basic.def.orange.pri,
-    "debugIcon.breakpointCurrentStackframeForeground":
-      colors.basic.def.yellow.pri,
-    "debugIcon.breakpointStackframeForeground": colors.basic.def.yellow.ter,
-    "debugIcon.startForeground": colors.basic.def.green.pri,
-    "debugIcon.pauseForeground": colors.basic.def.yellow.pri,
-    "debugIcon.stopForeground": colors.basic.def.red.pri,
-    "debugIcon.disconnectForeground": colors.basic.def.red.pri,
-    "debugIcon.restartForeground": colors.basic.def.green.pri,
-    "debugIcon.stepOverForeground": colors.basic.def.blue.pri,
-    "debugIcon.stepIntoForeground": colors.basic.def.blue.pri,
-    "debugIcon.stepOutForeground": colors.basic.def.blue.pri,
-    "debugIcon.continueForeground": colors.basic.def.green.pri,
-    "debugIcon.stepBackForeground": colors.basic.def.blue.pri,
-    "debugConsole.infoForeground": colors.basic.def.blue.pri,
-    "debugConsole.warningForeground": colors.basic.def.orange.pri,
-    "debugConsole.errorForeground": colors.basic.def.red.pri,
-    "debugConsole.sourceForeground": colors.fill.text.pri,
-    "debugConsoleInputIcon.foreground": colors.fill.accent.pri,
+    "debugConsole.errorForeground": styles.basic.def.red.pri,
+    "debugConsole.infoForeground": styles.basic.def.blue.pri,
+    "debugConsole.sourceForeground": styles.fill.text.pri,
+    "debugConsole.warningForeground": styles.basic.def.orange.pri,
+    "debugConsoleInputIcon.foreground": styles.fill.accent.pri,
+    "debugIcon.breakpointCurrentStackframeForeground": styles.basic.def.yellow.pri,
+    "debugIcon.breakpointDisabledForeground": styles.basic.neutral.qua,
+    "debugIcon.breakpointForeground": styles.basic.def.red.pri,
+    "debugIcon.breakpointStackframeForeground": styles.basic.def.yellow.ter,
+    "debugIcon.breakpointUnverifiedForeground": styles.basic.def.orange.pri,
+    "debugIcon.continueForeground": styles.basic.def.green.pri,
+    "debugIcon.disconnectForeground": styles.basic.def.red.pri,
+    "debugIcon.pauseForeground": styles.basic.def.yellow.pri,
+    "debugIcon.restartForeground": styles.basic.def.green.pri,
+    "debugIcon.startForeground": styles.basic.def.green.pri,
+    "debugIcon.stepBackForeground": styles.basic.def.blue.pri,
+    "debugIcon.stepIntoForeground": styles.basic.def.blue.pri,
+    "debugIcon.stepOutForeground": styles.basic.def.blue.pri,
+    "debugIcon.stepOverForeground": styles.basic.def.blue.pri,
+    "debugIcon.stopForeground": styles.basic.def.red.pri,
   };
 };

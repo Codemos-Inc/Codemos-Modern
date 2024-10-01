@@ -5,6 +5,7 @@
   "conf.*.adaptiveMode.enum.gentle.desc": "温和的重点颜色适应",
   "conf.*.adaptiveMode.enum.moderate.desc": "适度的重点颜色适应",
   "conf.*.adaptiveMode.enum.none.desc": "无重点颜色适应",
+  "conf.*.design.enum.flat.desc": "扁平设计",
   "conf.*.design.enum.minimal.desc": "极简设计",
   "conf.*.design.enum.modern.desc": "Modern的原始设计",
   "conf.auxiliaryThemeRegistries.desc": "作为辅助主题注册表的GitHub仓库。应该按照`<所有者>/<仓库>`的格式。参考[文档](https://github.com/Codemos-Inc/Codemos-Modern#modularity)。",

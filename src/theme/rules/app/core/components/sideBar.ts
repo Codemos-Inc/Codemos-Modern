@@ -2,26 +2,29 @@ import { ThemeContext } from "../../../../../@types";
 import { TRANSPARENT } from "../../../../../color/constants";
 
 export const getRules = (themeContext: ThemeContext): object => {
-  const colors = themeContext.styles;
-  const sideBarRules = {
-    "sideBar.background": colors.bg.solid.surface,
-    "sideBar.foreground": colors.fill.text.sec,
-    "sideBar.border": colors.stroke.divider.default,
-    "sideBar.dropBackground": colors.effect.smoke.default,
-    "sideBarTitle.foreground": colors.fill.text.pri,
-    "sideBarSectionHeader.background": colors.fill.control.subtle,
-    "sideBarSectionHeader.foreground": colors.fill.text.sec,
-    "sideBarSectionHeader.border": colors.stroke.focus.default,
-    "sideBarActivityBarTop.border": colors.stroke.divider.default,
-    "sideBarTitle.background": colors.bg.solid.base,
-    "sideBarStickyScroll.background": colors.bg.solid.base,
-    "sideBarStickyScroll.border": colors.stroke.divider.default,
-    "sideBarStickyScroll.shadow": colors.effect.shadow.default,
+  const styles = themeContext.styles;
+  const rules = {
+    "sideBar.background": styles.bg.solid.surface,
+    "sideBar.border": styles.stroke.divider.default,
+    "sideBar.dropBackground": styles.effect.smoke.default,
+    "sideBar.foreground": styles.fill.text.sec,
+    "sideBarActivityBarTop.border": styles.stroke.divider.default,
+    "sideBarSectionHeader.background": styles.fill.control.subtle,
+    "sideBarSectionHeader.border": styles.stroke.focus.default,
+    "sideBarSectionHeader.foreground": styles.fill.text.sec,
+    "sideBarStickyScroll.background": styles.bg.solid.base,
+    "sideBarStickyScroll.border": styles.stroke.divider.default,
+    "sideBarStickyScroll.shadow": styles.effect.shadow.default,
+    "sideBarTitle.background": styles.bg.solid.base,
+    "sideBarTitle.foreground": styles.fill.text.pri,
   };
   const design = themeContext.variantConfig.design;
   if (design === "minimal") {
-    sideBarRules["sideBarSectionHeader.background"] = TRANSPARENT;
-    sideBarRules["sideBarSectionHeader.border"] = colors.stroke.control.default;
+    rules["sideBarSectionHeader.background"] = TRANSPARENT;
+    rules["sideBarSectionHeader.border"] = styles.stroke.control.default;
+  } else if (design === "flat") {
+    rules["sideBarSectionHeader.background"] = TRANSPARENT;
+    rules["sideBarSectionHeader.border"] = styles.stroke.control.default;
   }
-  return sideBarRules;
+  return rules;
 };

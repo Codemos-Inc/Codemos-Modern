@@ -5,6 +5,7 @@
   "conf.*.adaptiveMode.enum.gentle.desc": "Hafif vurgu rengi adaptasyonu",
   "conf.*.adaptiveMode.enum.moderate.desc": "Orta seviye vurgu rengi adaptasyonu",
   "conf.*.adaptiveMode.enum.none.desc": "Vurgu rengi adaptasyonu yok",
+  "conf.*.design.enum.flat.desc": "Düz tasarım",
   "conf.*.design.enum.minimal.desc": "Minimalist tasarım",
   "conf.*.design.enum.modern.desc": "Modern'in orijinal tasarımı",
   "conf.auxiliaryThemeRegistries.desc": "Yardımcı tema kayıtları olan GitHub depoları. `<sahip>/<depo>` formatında olmalıdır. Referans için [dokümantasyona](https://github.com/Codemos-Inc/Codemos-Modern#modularity) bakın.",

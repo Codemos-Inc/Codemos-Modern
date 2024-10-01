@@ -19,14 +19,8 @@ import {
 } from "../data";
 import { getAuxiliaryThemeId } from "../data/helpers";
 import { l10nT } from "../l10n";
-import {
-  mimic3Info as darkMimic,
-  palette as darkPalette,
-} from "../modern/variants/dark/modern";
-import {
-  mimic1Info as lightMimic,
-  palette as lightPalette,
-} from "../modern/variants/light/modern";
+import { mimic3Info as darkMimic, palette as darkPalette } from "../modern/variants/dark/modern";
+import { mimic1Info as lightMimic, palette as lightPalette } from "../modern/variants/light/modern";
 import { authenticate } from "./authentication";
 import { toggleFirstLetterCase } from "./helpers";
 import { generateAccentColorIcons, generateAdaptiveModeIcons } from "./icons";
@@ -35,32 +29,18 @@ import {
   showInformationNotification,
   showProgressNotification,
 } from "./notifications";
-import {
-  getOnlineAvailability,
-  setIsConfiguredFromCommand,
-} from "./sharedState";
+import { getOnlineAvailability, setIsConfiguredFromCommand } from "./sharedState";
 import { checkAvailability, getConfig, updateConfig } from "./utils";
 
 export const authenticateCommand = async () => {
-  await showProgressNotification(
-    l10nT("command.authenticate.progress"),
-    async () => {
-      const result = await authenticate(true);
-      if (!result.success) {
-        showErrorNotification(
-          l10nT("command.authenticate.error$msg", [result.message]),
-          null,
-          null,
-        );
-      } else {
-        showInformationNotification(
-          l10nT("command.authenticate.success"),
-          null,
-          null,
-        );
-      }
-    },
-  );
+  await showProgressNotification(l10nT("command.authenticate.progress"), async () => {
+    const result = await authenticate(true);
+    if (!result.success) {
+      showErrorNotification(l10nT("command.authenticate.error$msg", [result.message]), null, null);
+    } else {
+      showInformationNotification(l10nT("command.authenticate.success"), null, null);
+    }
+  });
 };
 
 export const configureCommand = async () => {
@@ -175,28 +155,16 @@ const getVariant = async (): Promise<Variant | undefined> => {
   let lightModeIconUri: Uri;
   switch (window.activeColorTheme.kind) {
     case ColorThemeKind.Dark || ColorThemeKind.HighContrast:
-      darkModeIconUri = Uri.file(
-        `${__dirname}/../../res/icons/dark/dark_mode.svg`,
-      );
-      lightModeIconUri = Uri.file(
-        `${__dirname}/../../res/icons/dark/light_mode.svg`,
-      );
+      darkModeIconUri = Uri.file(`${__dirname}/../../res/icons/dark/dark_mode.svg`);
+      lightModeIconUri = Uri.file(`${__dirname}/../../res/icons/dark/light_mode.svg`);
       break;
     case ColorThemeKind.Light || ColorThemeKind.HighContrastLight:
-      darkModeIconUri = Uri.file(
-        `${__dirname}/../../res/icons/light/dark_mode.svg`,
-      );
-      lightModeIconUri = Uri.file(
-        `${__dirname}/../../res/icons/light/light_mode.svg`,
-      );
+      darkModeIconUri = Uri.file(`${__dirname}/../../res/icons/light/dark_mode.svg`);
+      lightModeIconUri = Uri.file(`${__dirname}/../../res/icons/light/light_mode.svg`);
       break;
     default:
-      darkModeIconUri = Uri.file(
-        `${__dirname}/../../res/icons/dark/dark_mode.svg`,
-      );
-      lightModeIconUri = Uri.file(
-        `${__dirname}/../../res/icons/dark/light_mode.svg`,
-      );
+      darkModeIconUri = Uri.file(`${__dirname}/../../res/icons/dark/dark_mode.svg`);
+      lightModeIconUri = Uri.file(`${__dirname}/../../res/icons/dark/light_mode.svg`);
       break;
   }
   const variantPicker = await window.showQuickPick<VariantQPI>(
@@ -250,6 +218,12 @@ const getDesign = async (variant: Variant): Promise<Design | undefined> => {
         description: l10nT("helper.design"),
         detail: l10nT("helper.design.minimal.detail"),
       },
+      {
+        _design: "flat",
+        label: `$(symbol-color) ${l10nT("helper.design.flat")}`,
+        description: l10nT("helper.design"),
+        detail: l10nT("helper.design.flat.detail"),
+      },
     ],
     {
       title: l10nT("command.configure.*.title$variant$kind", [
@@ -291,9 +265,7 @@ const getAccentColorFromPalette = async (variant: Variant) => {
     l10nT(`helper.variant.${variant}`),
     l10nT(`helper.kind.ui`),
   ]);
-  quickPick.placeholder = l10nT(
-    "command.configure.accColorPalettePicker.placeHolder",
-  );
+  quickPick.placeholder = l10nT("command.configure.accColorPalettePicker.placeHolder");
   quickPick.ignoreFocusOut = true;
   quickPick.busy = true;
   quickPick.show();
@@ -308,12 +280,8 @@ const getAccentColorFromPalette = async (variant: Variant) => {
       _color: "custom",
       label: l10nT("helper.palette.custom"),
       description: l10nT("helper.accentColor"),
-      detail: l10nT(
-        "command.configure.accColorPalettePicker.item.custom.detail",
-      ),
-      iconPath: Uri.file(
-        `${__dirname}/../../res/icons/${variant}/accent_custom.svg`,
-      ),
+      detail: l10nT("command.configure.accColorPalettePicker.item.custom.detail"),
+      iconPath: Uri.file(`${__dirname}/../../res/icons/${variant}/accent_custom.svg`),
     },
     {
       _color: "",
@@ -324,109 +292,82 @@ const getAccentColorFromPalette = async (variant: Variant) => {
       _color: "brown",
       label: l10nT("helper.palette.brown"),
       description: l10nT("helper.accentColor"),
-      detail: l10nT(
-        "command.configure.accColorPalettePicker.item.detail$code",
-        [variant === "dark" ? "APL-BRO" : "APD-BRO"],
-      ),
-      iconPath: Uri.file(
-        `${__dirname}/../../res/icons/${variant}/accent_brown.svg`,
-      ),
+      detail: l10nT("command.configure.accColorPalettePicker.item.detail$code", [
+        variant === "dark" ? "APL-BRO" : "APD-BRO",
+      ]),
+      iconPath: Uri.file(`${__dirname}/../../res/icons/${variant}/accent_brown.svg`),
     },
     {
       _color: "red",
       label: l10nT("helper.palette.red"),
       description: l10nT("helper.accentColor"),
-      detail: l10nT(
-        "command.configure.accColorPalettePicker.item.detail$code",
-        [variant === "dark" ? "LPD-RED" : "DPD-RED"],
-      ),
-      iconPath: Uri.file(
-        `${__dirname}/../../res/icons/${variant}/accent_red.svg`,
-      ),
+      detail: l10nT("command.configure.accColorPalettePicker.item.detail$code", [
+        variant === "dark" ? "LPD-RED" : "DPD-RED",
+      ]),
+      iconPath: Uri.file(`${__dirname}/../../res/icons/${variant}/accent_red.svg`),
     },
     {
       _color: "orange",
       label: l10nT("helper.palette.orange"),
       description: l10nT("helper.accentColor"),
-      detail: l10nT(
-        "command.configure.accColorPalettePicker.item.detail$code",
-        [variant === "dark" ? "LPD-ORA" : "DPD-ORA"],
-      ),
-      iconPath: Uri.file(
-        `${__dirname}/../../res/icons/${variant}/accent_orange.svg`,
-      ),
+      detail: l10nT("command.configure.accColorPalettePicker.item.detail$code", [
+        variant === "dark" ? "LPD-ORA" : "DPD-ORA",
+      ]),
+      iconPath: Uri.file(`${__dirname}/../../res/icons/${variant}/accent_orange.svg`),
     },
     {
       _color: "yellow",
       label: l10nT("helper.palette.yellow"),
       description: l10nT("helper.accentColor"),
-      detail: l10nT(
-        "command.configure.accColorPalettePicker.item.detail$code",
-        [variant === "dark" ? "LPD-YEL" : "DPD-YEL"],
-      ),
-      iconPath: Uri.file(
-        `${__dirname}/../../res/icons/${variant}/accent_yellow.svg`,
-      ),
+      detail: l10nT("command.configure.accColorPalettePicker.item.detail$code", [
+        variant === "dark" ? "LPD-YEL" : "DPD-YEL",
+      ]),
+      iconPath: Uri.file(`${__dirname}/../../res/icons/${variant}/accent_yellow.svg`),
     },
     {
       _color: "green",
       label: l10nT("helper.palette.green"),
       description: l10nT("helper.accentColor"),
-      detail: l10nT(
-        "command.configure.accColorPalettePicker.item.detail$code",
-        [variant === "dark" ? "LPD-GRE" : "DPD-GRE"],
-      ),
-      iconPath: Uri.file(
-        `${__dirname}/../../res/icons/${variant}/accent_green.svg`,
-      ),
+      detail: l10nT("command.configure.accColorPalettePicker.item.detail$code", [
+        variant === "dark" ? "LPD-GRE" : "DPD-GRE",
+      ]),
+      iconPath: Uri.file(`${__dirname}/../../res/icons/${variant}/accent_green.svg`),
     },
     {
       _color: "mint",
       label: l10nT("helper.palette.mint"),
       description: l10nT("helper.accentColor"),
-      detail: l10nT(
-        "command.configure.accColorPalettePicker.item.detail$code",
-        [variant === "dark" ? "LPD-MIN" : "DPD-MIN"],
-      ),
-      iconPath: Uri.file(
-        `${__dirname}/../../res/icons/${variant}/accent_mint.svg`,
-      ),
+      detail: l10nT("command.configure.accColorPalettePicker.item.detail$code", [
+        variant === "dark" ? "LPD-MIN" : "DPD-MIN",
+      ]),
+      iconPath: Uri.file(`${__dirname}/../../res/icons/${variant}/accent_mint.svg`),
     },
     {
       _color: "blue",
       label: l10nT("helper.palette.blue"),
       description: l10nT("helper.accentColor"),
-      detail: l10nT(
-        "command.configure.accColorPalettePicker.item.detail$code",
-        [variant === "dark" ? "LPD-BLU" : "DPD-BLU"],
-      ),
-      iconPath: Uri.file(
-        `${__dirname}/../../res/icons/${variant}/accent_blue.svg`,
-      ),
+      detail: l10nT("command.configure.accColorPalettePicker.item.detail$code", [
+        variant === "dark" ? "LPD-BLU" : "DPD-BLU",
+      ]),
+      iconPath: Uri.file(`${__dirname}/../../res/icons/${variant}/accent_blue.svg`),
     },
     {
       _color: "purple",
       label: l10nT("helper.palette.purple"),
       description: l10nT("helper.accentColor"),
-      detail: l10nT(
-        "command.configure.accColorPalettePicker.item.detail$code",
-        [variant === "dark" ? "LPD-PUR" : "DPD-PUR"],
-      ),
-      iconPath: Uri.file(
-        `${__dirname}/../../res/icons/${variant}/accent_purple.svg`,
-      ),
+      detail: l10nT("command.configure.accColorPalettePicker.item.detail$code", [
+        variant === "dark" ? "LPD-PUR" : "DPD-PUR",
+      ]),
+      iconPath: Uri.file(`${__dirname}/../../res/icons/${variant}/accent_purple.svg`),
     },
     {
       _color: "pink",
       label: l10nT("helper.palette.pink"),
       description: l10nT("helper.accentColor"),
-      detail: l10nT(
-        "command.configure.accColorPalettePicker.item.detail$code",
-        [variant === "dark" ? "LPD-PIN" : "DPD-PIN"],
-      ),
-      iconPath: Uri.file(
-        `${__dirname}/../../res/icons/${variant}/accent_pink.svg`,
-      ),
+      detail: l10nT("command.configure.accColorPalettePicker.item.detail$code", [
+        variant === "dark" ? "LPD-PIN" : "DPD-PIN",
+      ]),
+      iconPath: Uri.file(`${__dirname}/../../res/icons/${variant}/accent_pink.svg`),
     },
   ];
   quickPick.busy = false;
@@ -620,9 +561,7 @@ const getAdaptiveModeLabel = async (
     l10nT(`helper.variant.${variant}`),
     l10nT(`helper.kind.ui`),
   ]);
-  quickPick.placeholder = l10nT(
-    "command.configure.adaptiveModePicker.placeHolder",
-  );
+  quickPick.placeholder = l10nT("command.configure.adaptiveModePicker.placeHolder");
   quickPick.ignoreFocusOut = true;
   quickPick.busy = true;
   quickPick.show();
@@ -633,36 +572,28 @@ const getAdaptiveModeLabel = async (
       label: l10nT("helper.adaptiveMode.none"),
       description: l10nT("helper.adaptiveMode"),
       detail: l10nT("helper.adaptiveMode.none.detail"),
-      iconPath: Uri.file(
-        `${__dirname}/../../res/icons/${variant}/adaptation_none.svg`,
-      ),
+      iconPath: Uri.file(`${__dirname}/../../res/icons/${variant}/adaptation_none.svg`),
     },
     {
       _mode: "gentle",
       label: l10nT("helper.adaptiveMode.gentle"),
       description: l10nT("helper.adaptiveMode"),
       detail: l10nT("helper.adaptiveMode.gentle.detail"),
-      iconPath: Uri.file(
-        `${__dirname}/../../res/icons/${variant}/adaptation_gentle.svg`,
-      ),
+      iconPath: Uri.file(`${__dirname}/../../res/icons/${variant}/adaptation_gentle.svg`),
     },
     {
       _mode: "moderate",
       label: l10nT("helper.adaptiveMode.moderate"),
       description: l10nT("helper.adaptiveMode"),
       detail: l10nT("helper.adaptiveMode.moderate.detail"),
-      iconPath: Uri.file(
-        `${__dirname}/../../res/icons/${variant}/adaptation_moderate.svg`,
-      ),
+      iconPath: Uri.file(`${__dirname}/../../res/icons/${variant}/adaptation_moderate.svg`),
     },
     {
       _mode: "aggressive",
       label: l10nT("helper.adaptiveMode.aggressive"),
       description: l10nT("helper.adaptiveMode"),
       detail: l10nT("helper.adaptiveMode.aggressive.detail"),
-      iconPath: Uri.file(
-        `${__dirname}/../../res/icons/${variant}/adaptation_aggressive.svg`,
-      ),
+      iconPath: Uri.file(`${__dirname}/../../res/icons/${variant}/adaptation_aggressive.svg`),
     },
   ];
   quickPick.busy = false;
@@ -679,10 +610,7 @@ const getAdaptiveModeLabel = async (
   });
 };
 
-const prepareAdaptiveModeIcons = (
-  variant: Variant,
-  accentColorHex7: string,
-) => {
+const prepareAdaptiveModeIcons = (variant: Variant, accentColorHex7: string) => {
   let noneModeColor: string;
   let gentleModeColor: string;
   let moderateModeColor: string;
@@ -690,38 +618,13 @@ const prepareAdaptiveModeIcons = (
   if (variant === "dark") {
     noneModeColor = getMimicHex7(darkMimic, accentColorHex7, "none", true);
     gentleModeColor = getMimicHex7(darkMimic, accentColorHex7, "gentle", true);
-    moderateModeColor = getMimicHex7(
-      darkMimic,
-      accentColorHex7,
-      "moderate",
-      true,
-    );
-    aggressiveModeColor = getMimicHex7(
-      darkMimic,
-      accentColorHex7,
-      "aggressive",
-      true,
-    );
+    moderateModeColor = getMimicHex7(darkMimic, accentColorHex7, "moderate", true);
+    aggressiveModeColor = getMimicHex7(darkMimic, accentColorHex7, "aggressive", true);
   } else {
     noneModeColor = getMimicHex7(lightMimic, accentColorHex7, "none", false);
-    gentleModeColor = getMimicHex7(
-      lightMimic,
-      accentColorHex7,
-      "gentle",
-      false,
-    );
-    moderateModeColor = getMimicHex7(
-      lightMimic,
-      accentColorHex7,
-      "moderate",
-      false,
-    );
-    aggressiveModeColor = getMimicHex7(
-      lightMimic,
-      accentColorHex7,
-      "aggressive",
-      false,
-    );
+    gentleModeColor = getMimicHex7(lightMimic, accentColorHex7, "gentle", false);
+    moderateModeColor = getMimicHex7(lightMimic, accentColorHex7, "moderate", false);
+    aggressiveModeColor = getMimicHex7(lightMimic, accentColorHex7, "aggressive", false);
   }
   switch (window.activeColorTheme.kind) {
     case ColorThemeKind.Dark || ColorThemeKind.HighContrast:
@@ -776,10 +679,7 @@ const getAuxiliaryThemeExtension = async (
     l10nT(`helper.variant.${variant}`),
     kind,
   ]);
-  quickPick.placeholder = l10nT(
-    "command.configure.auxExtensionPicker.placeHolder$kind",
-    [kind],
-  );
+  quickPick.placeholder = l10nT("command.configure.auxExtensionPicker.placeHolder$kind", [kind]);
   quickPick.ignoreFocusOut = true;
   quickPick.busy = true;
   quickPick.show();
@@ -794,9 +694,8 @@ const getAuxiliaryThemeExtension = async (
     quickPick.dispose();
     return undefined;
   }
-  const auxiliaryThemeRegistryIndexesWithId = getAuxiliaryThemeRegistryIndexes(
-    auxiliaryThemeRegistries,
-  );
+  const auxiliaryThemeRegistryIndexesWithId =
+    getAuxiliaryThemeRegistryIndexes(auxiliaryThemeRegistries);
   const auxiliaryThemesQPIs: AuxiliaryThemeQPI[] = [];
   auxiliaryThemesQPIs.push({
     auxiliaryThemeId: "_",
@@ -816,28 +715,26 @@ const getAuxiliaryThemeExtension = async (
   const availableAuxiliaryThemesQPIs: AuxiliaryThemeQPI[] = [];
   for (const auxiliaryThemeRegistryIndexWithId of auxiliaryThemeRegistryIndexesWithId) {
     const filteredAuxiliaryThemes =
-      auxiliaryThemeRegistryIndexWithId.auxiliaryThemeRegistryIndex.themes[
+      auxiliaryThemeRegistryIndexWithId.auxiliaryThemeRegistryIndex.themes[variant].filter(
+        (auxiliaryTheme, index, self) => {
+          return (
+            index ===
+            self.findIndex(
+              (firstAuxiliaryTheme) =>
+                firstAuxiliaryTheme.publisher === auxiliaryTheme.publisher &&
+                firstAuxiliaryTheme.extension === auxiliaryTheme.extension,
+            )
+          );
+        },
+      );
+    for (const filteredAuxiliaryTheme of filteredAuxiliaryThemes) {
+      const installedOption = auxiliaryThemeRegistryIndexWithId.auxiliaryThemeRegistryIndex.themes[
         variant
-      ].filter((auxiliaryTheme, index, self) => {
+      ].find((auxiliaryTheme) => {
         return (
-          index ===
-          self.findIndex(
-            (firstAuxiliaryTheme) =>
-              firstAuxiliaryTheme.publisher === auxiliaryTheme.publisher &&
-              firstAuxiliaryTheme.extension === auxiliaryTheme.extension,
-          )
+          auxiliaryTheme.extension === filteredAuxiliaryTheme.extension && auxiliaryTheme.installed
         );
       });
-    for (const filteredAuxiliaryTheme of filteredAuxiliaryThemes) {
-      const installedOption =
-        auxiliaryThemeRegistryIndexWithId.auxiliaryThemeRegistryIndex.themes[
-          variant
-        ].find((auxiliaryTheme) => {
-          return (
-            auxiliaryTheme.extension === filteredAuxiliaryTheme.extension &&
-            auxiliaryTheme.installed
-          );
-        });
       if (installedOption) {
         const index = filteredAuxiliaryThemes.findIndex((auxiliaryTheme) => {
           return auxiliaryTheme === filteredAuxiliaryTheme;
@@ -862,9 +759,7 @@ const getAuxiliaryThemeExtension = async (
         }/${auxiliaryThemeRegistryIndexWithId.auxiliaryThemeRegistryId.repo} ${
           isVerifiedOwner ? "$(verified-filled)" : "$(unverified)"
         }`,
-        detail: `$(organization) ${
-          auxiliaryTheme.publisher
-        } • $(compass) ${l10nT(
+        detail: `$(organization) ${auxiliaryTheme.publisher} • $(compass) ${l10nT(
           `helper.auxTheme.origin.${auxiliaryTheme.origin.toLowerCase()}`,
         )} • $(law) ${auxiliaryTheme.license}`,
       };
@@ -919,31 +814,30 @@ const getAuxiliaryTheme = async (
     l10nT(`helper.variant.${variant}`),
     kind,
   ]);
-  quickPick.placeholder = l10nT(
-    "command.configure.auxThemePicker.placeHolder$extension$kind",
-    [getAuxiliaryThemeId(auxiliaryThemeExtension).extension, kind],
-  );
+  quickPick.placeholder = l10nT("command.configure.auxThemePicker.placeHolder$extension$kind", [
+    getAuxiliaryThemeId(auxiliaryThemeExtension).extension,
+    kind,
+  ]);
   quickPick.ignoreFocusOut = true;
   quickPick.busy = true;
   quickPick.show();
   const auxiliaryThemeRegistries = getConfig().auxiliaryThemeRegistries;
-  const auxiliaryThemeRegistryIndexesWithId = getAuxiliaryThemeRegistryIndexes(
-    auxiliaryThemeRegistries,
-  );
+  const auxiliaryThemeRegistryIndexesWithId =
+    getAuxiliaryThemeRegistryIndexes(auxiliaryThemeRegistries);
   const auxiliaryThemesQPIs: AuxiliaryThemeQPI[] = [];
   const installedAuxiliaryThemesQPIs: AuxiliaryThemeQPI[] = [];
   const availableAuxiliaryThemesQPIs: AuxiliaryThemeQPI[] = [];
   const auxiliaryThemeId = getAuxiliaryThemeId(auxiliaryThemeExtension);
   for (const auxiliaryThemeRegistryIndexWithId of auxiliaryThemeRegistryIndexesWithId) {
     const filteredAuxiliaryThemes =
-      auxiliaryThemeRegistryIndexWithId.auxiliaryThemeRegistryIndex.themes[
-        variant
-      ].filter((auxiliaryTheme) => {
-        return (
-          auxiliaryTheme.publisher === auxiliaryThemeId.publisher &&
-          auxiliaryTheme.extension === auxiliaryThemeId.extension
-        );
-      });
+      auxiliaryThemeRegistryIndexWithId.auxiliaryThemeRegistryIndex.themes[variant].filter(
+        (auxiliaryTheme) => {
+          return (
+            auxiliaryTheme.publisher === auxiliaryThemeId.publisher &&
+            auxiliaryTheme.extension === auxiliaryThemeId.extension
+          );
+        },
+      );
     const isVerifiedOwner = verifiedOwners.find((verifiedOwner) => {
       return (
         verifiedOwner ===
@@ -997,8 +891,7 @@ const getAuxiliaryTheme = async (
       const selectedAuxiliaryTheme = quickPick.selectedItems[0];
       quickPick.dispose();
       if (selectedAuxiliaryTheme) {
-        const selectedAuxiliaryThemeId =
-          selectedAuxiliaryTheme.auxiliaryThemeId;
+        const selectedAuxiliaryThemeId = selectedAuxiliaryTheme.auxiliaryThemeId;
         if (selectedAuxiliaryThemeId) {
           let success: boolean;
           if (isOnlineAvailable) {

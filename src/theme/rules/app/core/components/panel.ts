@@ -2,33 +2,39 @@ import { ThemeContext } from "../../../../../@types";
 import { TRANSPARENT } from "../../../../../color/constants";
 
 export const getRules = (themeContext: ThemeContext): object => {
-  const colors = themeContext.styles;
-  const panelRules = {
-    "panel.background": colors.bg.solid.base,
-    "panel.border": colors.stroke.divider.default,
-    "panel.dropBorder": colors.fill.accent.pri,
-    "panelTitle.activeBorder": colors.fill.accent.pri,
-    "panelTitle.activeForeground": colors.fill.text.pri,
-    "panelTitle.inactiveForeground": colors.fill.text.sec,
-    "panelInput.border": colors.stroke.control.default,
-    "panelSection.border": colors.stroke.focus.default,
-    "panelSection.dropBackground": colors.effect.smoke.default,
-    "panelSectionHeader.background": colors.fill.control.subtle,
-    "panelSectionHeader.foreground": colors.fill.text.sec,
-    "panelSectionHeader.border": colors.stroke.focus.default,
-    "panelStickyScroll.background": colors.bg.solid.base,
-    "panelStickyScroll.border": colors.stroke.divider.default,
-    "panelStickyScroll.shadow": colors.effect.shadow.default,
-    "outputView.background": colors.bg.solid.surface,
-    "outputViewStickyScroll.background": colors.bg.solid.base,
+  const styles = themeContext.styles;
+  const rules = {
+    "outputView.background": styles.bg.solid.surface,
+    "outputViewStickyScroll.background": styles.bg.solid.base,
+    "panel.background": styles.bg.solid.base,
+    "panel.border": styles.stroke.divider.default,
+    "panel.dropBorder": styles.fill.accent.pri,
+    "panelInput.border": styles.stroke.control.default,
+    "panelSection.border": styles.stroke.focus.default,
+    "panelSection.dropBackground": styles.effect.smoke.default,
+    "panelSectionHeader.background": styles.fill.control.subtle,
+    "panelSectionHeader.border": styles.stroke.focus.default,
+    "panelSectionHeader.foreground": styles.fill.text.sec,
+    "panelStickyScroll.background": styles.bg.solid.base,
+    "panelStickyScroll.border": styles.stroke.divider.default,
+    "panelStickyScroll.shadow": styles.effect.shadow.default,
+    "panelTitle.activeBorder": styles.fill.accent.pri,
+    "panelTitle.activeForeground": styles.fill.text.pri,
+    "panelTitle.inactiveForeground": styles.fill.text.sec,
   };
   const design = themeContext.variantConfig.design;
   if (design === "minimal") {
-    panelRules["panelTitle.activeBorder"] = TRANSPARENT;
-    panelRules["panelTitle.activeForeground"] = colors.fill.accent.pri;
-    panelRules["panelSectionHeader.background"] = TRANSPARENT;
-    panelRules["panelSectionHeader.border"] = colors.stroke.control.default;
-    panelRules["outputView.background"] = colors.bg.solid.base;
+    rules["outputView.background"] = styles.bg.solid.base;
+    rules["panelSectionHeader.background"] = TRANSPARENT;
+    rules["panelSectionHeader.border"] = styles.stroke.control.default;
+    rules["panelTitle.activeBorder"] = TRANSPARENT;
+    rules["panelTitle.activeForeground"] = styles.fill.accent.pri;
+  } else if (design === "flat") {
+    rules["outputView.background"] = styles.bg.solid.base;
+    rules["panelSectionHeader.background"] = TRANSPARENT;
+    rules["panelSectionHeader.border"] = styles.stroke.control.default;
+    rules["panelTitle.activeBorder"] = TRANSPARENT;
+    rules["panelTitle.activeForeground"] = styles.fill.accent.pri;
   }
-  return panelRules;
+  return rules;
 };

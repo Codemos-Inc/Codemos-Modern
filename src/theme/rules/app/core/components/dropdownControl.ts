@@ -1,11 +1,11 @@
 import { ThemeContext } from "../../../../../@types";
 
 export const getRules = (themeContext: ThemeContext): object => {
-  const colors = themeContext.styles;
+  const styles = themeContext.styles;
   return {
-    "dropdown.background": colors.fill.control.restSolid, // 🟢 Undesired solution!
-    "dropdown.listBackground": colors.bg.solid.flyout,
-    "dropdown.border": colors.stroke.control.default,
-    "dropdown.foreground": colors.fill.text.pri,
+    "dropdown.background": styles.fill.control.restSolid, // 🟢 Undesired solution!
+    "dropdown.border": styles.stroke.control.default,
+    "dropdown.foreground": styles.fill.text.pri,
+    "dropdown.listBackground": styles.bg.solid.flyout,
   };
 };

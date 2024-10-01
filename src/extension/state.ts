@@ -10,13 +10,11 @@ export const defaultStateObject: StateObject = {
 
 export const getStateObject = (): StateObject => {
   try {
-    const stateString = readFileSync(
-      join(__dirname, "..", "..", "data", ".state.json"),
-      "utf-8",
-    );
+    const stateString = readFileSync(join(__dirname, "..", "..", "data", ".state.json"), "utf-8");
     const stateObject = JSON.parse(stateString);
     return stateObject as StateObject;
   } catch (error) {
+    console.log(error);
     // 🔴 Write to output
     console.warn(
       "Codemos Modern: Unexpected error ocurred while trying to read state file, recreating it with default values.",

@@ -1,8 +1,8 @@
 import { ThemeContext } from "../../../../../@types";
 
 export const getRules = (themeContext: ThemeContext): object => {
-  const colors = themeContext.styles;
+  const styles = themeContext.styles;
   return {
-    "ports.iconRunningProcessForeground": colors.basic.def.green.pri,
+    "ports.iconRunningProcessForeground": styles.basic.def.green.pri,
   };
 };

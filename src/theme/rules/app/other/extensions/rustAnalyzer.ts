@@ -1,8 +1,8 @@
 import { ThemeContext } from "../../../../../@types";
 
 export const getRules = (themeContext: ThemeContext): object => {
-  const colors = themeContext.styles;
+  const styles = themeContext.styles;
   return {
-    "rust_analyzer.syntaxTreeBorder": colors.fill.system.fg.yellow,
+    "rust_analyzer.syntaxTreeBorder": styles.fill.system.fg.yellow,
   };
 };

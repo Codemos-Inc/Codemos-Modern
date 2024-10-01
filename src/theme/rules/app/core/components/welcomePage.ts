@@ -1,15 +1,15 @@
 import { ThemeContext } from "../../../../../@types";
 
 export const getRules = (themeContext: ThemeContext): object => {
-  const colors = themeContext.styles;
+  const styles = themeContext.styles;
   return {
-    "welcomePage.background": colors.bg.solid.canvas,
-    "welcomePage.progress.background": colors.fill.control.rest,
-    "welcomePage.progress.foreground": colors.fill.accent.pri,
-    "welcomePage.tileBackground": colors.fill.control.rest,
-    "welcomePage.tileHoverBackground": colors.fill.control.hover,
-    "welcomePage.tileBorder": colors.stroke.control.default,
-    "walkThrough.embeddedEditorBackground": colors.bg.solid.base,
-    "walkthrough.stepTitle.foreground": colors.fill.text.pri,
+    "walkThrough.embeddedEditorBackground": styles.bg.solid.base,
+    "walkthrough.stepTitle.foreground": styles.fill.text.pri,
+    "welcomePage.background": styles.bg.solid.canvas,
+    "welcomePage.progress.background": styles.fill.control.rest,
+    "welcomePage.progress.foreground": styles.fill.accent.pri,
+    "welcomePage.tileBackground": styles.fill.control.rest,
+    "welcomePage.tileBorder": styles.stroke.control.default,
+    "welcomePage.tileHoverBackground": styles.fill.control.hover,
   };
 };

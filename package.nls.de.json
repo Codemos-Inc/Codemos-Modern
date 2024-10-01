@@ -4,6 +4,7 @@
   "conf.*.adaptiveMode.enum.aggressive.desc": "Aggressive Anpassung der Akzentfarbe",
   "conf.*.adaptiveMode.enum.gentle.desc": "Sanfte Anpassung der Akzentfarbe",
   "conf.*.adaptiveMode.enum.moderate.desc": "Moderate Anpassung der Akzentfarbe",
+  "conf.*.design.enum.flat.desc": "Flaches Design",
   "conf.*.adaptiveMode.enum.none.desc": "Keine Anpassung der Akzentfarbe",
   "conf.*.design.enum.minimal.desc": "Minimalistisches Design",
   "conf.*.design.enum.modern.desc": "Originales Design von Modern",

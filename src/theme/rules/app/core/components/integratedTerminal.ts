@@ -1,53 +1,57 @@
 import { ThemeContext } from "../../../../../@types";
+import { TRANSPARENT } from "../../../../../color/constants";
 
 export const getRules = (themeContext: ThemeContext): object => {
-  const colors = themeContext.styles;
-  const integratedTerminalRules = {
-    "terminal.background": colors.bg.solid.surface,
-    "terminal.border": colors.stroke.divider.default,
-    "terminal.foreground": colors.fill.terminal.fg,
-    "terminal.ansiBlack": colors.fill.terminal.loc,
-    "terminal.ansiBlue": colors.basic.def.blue.pri,
-    "terminal.ansiBrightBlack": colors.fill.terminal.loq,
-    "terminal.ansiBrightBlue": colors.basic.alt.blue.pri,
-    "terminal.ansiBrightCyan": colors.basic.alt.mint.pri,
-    "terminal.ansiBrightGreen": colors.basic.alt.green.pri,
-    "terminal.ansiBrightMagenta": colors.basic.alt.pink.pri,
-    "terminal.ansiBrightRed": colors.basic.alt.red.pri,
-    "terminal.ansiBrightWhite": colors.fill.terminal.hic,
-    "terminal.ansiBrightYellow": colors.basic.alt.yellow.pri,
-    "terminal.ansiCyan": colors.basic.def.mint.pri,
-    "terminal.ansiGreen": colors.basic.def.green.pri,
-    "terminal.ansiMagenta": colors.basic.def.pink.pri,
-    "terminal.ansiRed": colors.basic.def.red.pri,
-    "terminal.ansiWhite": colors.fill.terminal.hiq,
-    "terminal.ansiYellow": colors.basic.def.yellow.pri,
-    "terminal.selectionBackground": colors.basic.neutral.sen,
-    "terminal.selectionForeground": colors.fill.text.pri,
-    "terminal.inactiveSelectionBackground": colors.basic.neutral.sep,
-    "terminal.findMatchBackground": colors.basic.def.mint.qua,
-    "terminal.findMatchBorder": colors.stroke.control.default,
-    "terminal.findMatchHighlightBackground": colors.basic.def.mint.qui,
-    "terminal.findMatchHighlightBorder": colors.stroke.control.default,
-    "terminal.hoverHighlightBackground": colors.basic.neutral.sep,
-    "terminalCursor.background": colors.fill.textOnColor.pri,
-    "terminalCursor.foreground": colors.fill.accent.pri,
-    "terminal.dropBackground": colors.effect.smoke.default,
-    "terminal.tab.activeBorder": colors.fill.accent.pri,
-    "terminalCommandDecoration.defaultBackground": colors.basic.def.blue.pri,
-    "terminalCommandDecoration.successBackground": colors.basic.def.green.pri,
-    "terminalCommandDecoration.errorBackground": colors.basic.def.red.pri,
-    "terminalOverviewRuler.cursorForeground": colors.fill.accent.pri,
-    "terminalOverviewRuler.findMatchForeground": colors.basic.def.mint.sec,
-    "terminalStickyScroll.background": colors.bg.solid.base,
-    "terminalStickyScroll.border": colors.stroke.divider.default,
-    "terminalStickyScrollHover.background":
-      colors.fill.terminal.stickyScrollHover, // 🟢 Undesired solution
-    "terminal.initialHintForeground": colors.fill.text.ghost,
+  const styles = themeContext.styles;
+  const rules = {
+    "terminal.ansiBlack": styles.fill.terminal.loc,
+    "terminal.ansiBlue": styles.basic.def.blue.pri,
+    "terminal.ansiBrightBlack": styles.fill.terminal.loq,
+    "terminal.ansiBrightBlue": styles.basic.alt.blue.pri,
+    "terminal.ansiBrightCyan": styles.basic.alt.mint.pri,
+    "terminal.ansiBrightGreen": styles.basic.alt.green.pri,
+    "terminal.ansiBrightMagenta": styles.basic.alt.pink.pri,
+    "terminal.ansiBrightRed": styles.basic.alt.red.pri,
+    "terminal.ansiBrightWhite": styles.fill.terminal.hic,
+    "terminal.ansiBrightYellow": styles.basic.alt.yellow.pri,
+    "terminal.ansiCyan": styles.basic.def.mint.pri,
+    "terminal.ansiGreen": styles.basic.def.green.pri,
+    "terminal.ansiMagenta": styles.basic.def.pink.pri,
+    "terminal.ansiRed": styles.basic.def.red.pri,
+    "terminal.ansiWhite": styles.fill.terminal.hiq,
+    "terminal.ansiYellow": styles.basic.def.yellow.pri,
+    "terminal.background": styles.bg.solid.surface,
+    "terminal.border": styles.stroke.divider.default,
+    "terminal.dropBackground": styles.effect.smoke.default,
+    "terminal.findMatchBackground": styles.basic.def.mint.qua,
+    "terminal.findMatchBorder": styles.stroke.control.default,
+    "terminal.findMatchHighlightBackground": styles.basic.def.mint.qui,
+    "terminal.findMatchHighlightBorder": styles.stroke.control.default,
+    "terminal.foreground": styles.fill.terminal.fg,
+    "terminal.hoverHighlightBackground": styles.basic.neutral.sep,
+    "terminal.inactiveSelectionBackground": styles.basic.neutral.sep,
+    "terminal.initialHintForeground": styles.fill.text.ghost,
+    "terminal.selectionBackground": styles.basic.neutral.sen,
+    "terminal.selectionForeground": styles.fill.text.pri,
+    "terminal.tab.activeBorder": styles.fill.accent.pri,
+    "terminalCommandDecoration.defaultBackground": styles.basic.def.blue.pri,
+    "terminalCommandDecoration.errorBackground": styles.basic.def.red.pri,
+    "terminalCommandDecoration.successBackground": styles.basic.def.green.pri,
+    "terminalCommandGuide.foreground": styles.fill.control.hover,
+    "terminalCursor.background": styles.fill.textOnColor.pri,
+    "terminalCursor.foreground": styles.fill.accent.pri,
+    "terminalOverviewRuler.border": TRANSPARENT,
+    "terminalOverviewRuler.cursorForeground": styles.fill.accent.pri,
+    "terminalOverviewRuler.findMatchForeground": styles.basic.def.mint.sec,
+    "terminalStickyScroll.background": styles.bg.solid.base,
+    "terminalStickyScroll.border": styles.stroke.divider.default,
+    "terminalStickyScrollHover.background": styles.fill.terminal.stickyScrollHover, // 🟢 Undesired solution
   };
   const design = themeContext.variantConfig.design;
   if (design === "minimal") {
-    integratedTerminalRules["terminal.background"] = colors.bg.solid.base;
+    rules["terminal.background"] = styles.bg.solid.base;
+  } else if (design === "flat") {
+    rules["terminal.background"] = styles.bg.solid.base;
   }
-  return integratedTerminalRules;
+  return rules;
 };

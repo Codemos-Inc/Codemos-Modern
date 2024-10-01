@@ -76,10 +76,7 @@ export const generateAdaptiveModeIcons = (
   const moderateModeIconPath = join(variantIconsDir, "adaptation_moderate.svg");
   const moderateModeSvg = generateSvg(inDarkTheme, moderateModeColor);
   writeFileSync(moderateModeIconPath, moderateModeSvg);
-  const aggressiveModeIconPath = join(
-    variantIconsDir,
-    "adaptation_aggressive.svg",
-  );
+  const aggressiveModeIconPath = join(variantIconsDir, "adaptation_aggressive.svg");
   const aggressiveModeSvg = generateSvg(inDarkTheme, aggressiveModeColor);
   writeFileSync(aggressiveModeIconPath, aggressiveModeSvg);
 };

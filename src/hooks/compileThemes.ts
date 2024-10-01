@@ -16,8 +16,5 @@ variants.map((variant) => {
     auxiliaryUiThemeObject: null,
     auxiliaryCodeThemeObject: null,
   };
-  writeFileSync(
-    themePaths[variant],
-    JSON.stringify(getThemeObject(themeContext), null, 2),
-  );
+  writeFileSync(themePaths[variant], JSON.stringify(getThemeObject(themeContext), null, 2));
 });

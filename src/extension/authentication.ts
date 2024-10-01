@@ -7,9 +7,7 @@ import { RESPONSE_OK } from "../api/constants";
 import { l10nT } from "../l10n";
 import { GITHUB_AUTH_PROVIDER_ID } from "./constants";
 
-export const authenticate = async (
-  createIfNone: boolean,
-): Promise<NetworkBoundResult> => {
+export const authenticate = async (createIfNone: boolean): Promise<NetworkBoundResult> => {
   const session = await authentication.getSession(GITHUB_AUTH_PROVIDER_ID, [], {
     createIfNone,
     silent: !createIfNone,

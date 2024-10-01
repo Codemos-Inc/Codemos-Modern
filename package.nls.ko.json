@@ -5,6 +5,7 @@
   "conf.*.adaptiveMode.enum.gentle.desc": "부드러운 강조 색상 적응",
   "conf.*.adaptiveMode.enum.moderate.desc": "보통의 강조 색상 적응",
   "conf.*.adaptiveMode.enum.none.desc": "강조 색상 적응 없음",
+  "conf.*.design.enum.flat.desc": "플랫 디자인",
   "conf.*.design.enum.minimal.desc": "미니멀리스트 디자인",
   "conf.*.design.enum.modern.desc": "Modern의 원래 디자인",
   "conf.auxiliaryThemeRegistries.desc": "보조 테마 레지스트리인 GitHub 저장소. 형식은 `<소유자>/<저장소>` 이어야 합니다. 참조는 [문서](https://github.com/Codemos-Inc/Codemos-Modern#modularity)를 참조하세요.",

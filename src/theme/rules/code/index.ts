@@ -4,26 +4,18 @@ import { getRules as getSyntaxRules } from "./syntax";
 
 export const getRules = (themeContext: ThemeContext): object => {
   if (themeContext.auxiliaryCodeThemeObject) {
-    const hasSemanticHighlightingProperty =
-      themeContext.auxiliaryCodeThemeObject.semanticHighlighting !== undefined
-        ? true
-        : false;
+    const hasSemanticHighlighting =
+      themeContext.auxiliaryCodeThemeObject.semanticHighlighting !== undefined ? true : false;
     const hasSemanticTokenColorsProperty =
-      themeContext.auxiliaryCodeThemeObject.semanticTokenColors !== undefined
-        ? true
-        : false;
+      themeContext.auxiliaryCodeThemeObject.semanticTokenColors !== undefined ? true : false;
     const hasTokenColorsProperty =
-      themeContext.auxiliaryCodeThemeObject.tokenColors !== undefined
-        ? true
-        : false;
+      themeContext.auxiliaryCodeThemeObject.tokenColors !== undefined ? true : false;
     return {
-      ...(hasSemanticHighlightingProperty && {
-        semanticHighlighting:
-          themeContext.auxiliaryCodeThemeObject.semanticHighlighting,
+      ...(hasSemanticHighlighting && {
+        semanticHighlighting: themeContext.auxiliaryCodeThemeObject.semanticHighlighting,
       }),
       ...(hasSemanticTokenColorsProperty && {
-        semanticTokenColors:
-          themeContext.auxiliaryCodeThemeObject.semanticTokenColors,
+        semanticTokenColors: themeContext.auxiliaryCodeThemeObject.semanticTokenColors,
       }),
       ...(hasTokenColorsProperty && {
         tokenColors: themeContext.auxiliaryCodeThemeObject.tokenColors,

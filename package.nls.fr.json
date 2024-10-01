@@ -5,6 +5,7 @@
   "conf.*.adaptiveMode.enum.gentle.desc": "Ajustement doux de la couleur d'accentuation",
   "conf.*.adaptiveMode.enum.moderate.desc": "Ajustement modéré de la couleur d'accentuation",
   "conf.*.adaptiveMode.enum.none.desc": "Aucun ajustement de la couleur d'accentuation",
+  "conf.*.design.enum.flat.desc": "Design plat",
   "conf.*.design.enum.minimal.desc": "Design minimaliste",
   "conf.*.design.enum.modern.desc": "Design original de Modern",
   "conf.auxiliaryThemeRegistries.desc": "Dépôts GitHub servant de collections de thèmes supplémentaires. Doivent être au format `<propriétaire>/<répertoire>`. Voir [la documentation](https://github.com/Codemos-Inc/Codemos-Modern#modularity) pour référence.",

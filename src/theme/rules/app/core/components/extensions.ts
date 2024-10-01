@@ -1,20 +1,20 @@
 import { ThemeContext } from "../../../../../@types";
 
 export const getRules = (themeContext: ThemeContext): object => {
-  const colors = themeContext.styles;
+  const styles = themeContext.styles;
   return {
-    "extensionButton.prominentForeground": colors.fill.textOnColor.pri,
-    "extensionButton.prominentBackground": colors.fill.accent.pri,
-    "extensionButton.prominentHoverBackground": colors.fill.accent.sec,
-    "extensionButton.background": colors.fill.accent.pri,
-    "extensionButton.foreground": colors.fill.textOnColor.pri,
-    "extensionButton.hoverBackground": colors.fill.accent.sec,
-    "extensionButton.separator": colors.fill.textOnColor.pri,
-    "extensionBadge.remoteBackground": colors.basic.def.mint.pri,
-    "extensionBadge.remoteForeground": colors.fill.textOnColor.pri,
-    "extensionIcon.starForeground": colors.basic.def.yellow.pri,
-    "extensionIcon.verifiedForeground": colors.basic.def.blue.pri,
-    "extensionIcon.preReleaseForeground": colors.basic.def.purple.pri,
-    "extensionIcon.sponsorForeground": colors.basic.def.red.pri,
+    "extensionBadge.remoteBackground": styles.basic.def.mint.pri,
+    "extensionBadge.remoteForeground": styles.fill.textOnColor.pri,
+    "extensionButton.background": styles.fill.accent.pri,
+    "extensionButton.foreground": styles.fill.textOnColor.pri,
+    "extensionButton.hoverBackground": styles.fill.accent.sec,
+    "extensionButton.prominentBackground": styles.fill.accent.pri,
+    "extensionButton.prominentForeground": styles.fill.textOnColor.pri,
+    "extensionButton.prominentHoverBackground": styles.fill.accent.sec,
+    "extensionButton.separator": styles.fill.textOnColor.pri,
+    "extensionIcon.preReleaseForeground": styles.basic.def.purple.pri,
+    "extensionIcon.sponsorForeground": styles.basic.def.red.pri,
+    "extensionIcon.starForeground": styles.basic.def.yellow.pri,
+    "extensionIcon.verifiedForeground": styles.basic.def.blue.pri,
   };
 };

@@ -4,7 +4,7 @@
   "publisher": "Codemos",
   "icon": "res/icon.gif",
   "description": "%ext.desc%",
-  "version": "2.7.2",
+  "version": "2.8.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -37,7 +37,7 @@
     }
   },
   "engines": {
-    "vscode": "^1.91.0"
+    "vscode": "^1.93.0"
   },
   "activationEvents": [
     "*"
@@ -107,7 +107,7 @@
           "codemosModern.textDecorations.underline": {
             "order": 3,
             "type": "boolean",
-            "default": true,
+            "default": false,
             "markdownDescription": "%conf.textDec.underline.desc%"
           },
           "codemosModern.textDecorations.forComments": {
@@ -155,11 +155,13 @@
             "default": "modern",
             "enum": [
               "modern",
-              "minimal"
+              "minimal",
+              "flat"
             ],
             "enumDescriptions": [
               "%conf.*.design.enum.modern.desc%",
-              "%conf.*.design.enum.minimal.desc%"
+              "%conf.*.design.enum.minimal.desc%",
+              "%conf.*.design.enum.flat.desc%"
             ],
             "markdownDescription": "%conf.dark.design.desc%"
           },
@@ -222,11 +224,13 @@
             "default": "modern",
             "enum": [
               "modern",
-              "minimal"
+              "minimal",
+              "flat"
             ],
             "enumDescriptions": [
               "%conf.*.design.enum.modern.desc%",
-              "%conf.*.design.enum.minimal.desc%"
+              "%conf.*.design.enum.minimal.desc%",
+              "%conf.*.design.enum.flat.desc%"
             ],
             "markdownDescription": "%conf.light.design.desc%"
           },
@@ -279,29 +283,32 @@
     "@octokit/rest": "^21.0.1",
     "@resvg/resvg-js": "^2.6.0",
     "axios": "^1.6.5",
-    "jsdom": "^24.0.0"
+    "jsdom": "^25.0.0"
   },
   "devDependencies": {
     "@types/jsdom": "^21.1.6",
-    "@types/node": "^20.10.7",
+    "@types/node": "^22.5.1",
     "@types/vscode": "^1.79.0",
-    "@typescript-eslint/eslint-plugin": "^7.7.1",
-    "@typescript-eslint/parser": "^7.7.1",
-    "esbuild": "^0.23.0",
-    "eslint": "^8.57.0",
+    "@typescript-eslint/eslint-plugin": "^8.3.0",
+    "@typescript-eslint/parser": "^8.3.0",
+    "esbuild": "^0.24.0",
+    "eslint": "^9.9.1",
     "eslint-config-prettier": "^9.0.0",
     "husky": "^9.0.10",
     "lint-staged": "^15.2.0",
     "prettier": "^3.1.1",
     "tsx": "^4.16.2",
-    "typescript": "^5.0.4"
+    "typescript": "^5.0.4",
+    "typescript-eslint": "^8.3.0"
   },
   "scripts": {
     "prepare": "husky",
     "clean": "rm -rf out && rm -rf data/.state.json && rm -rf data/cache/*",
+    "winClean": "if exist out (rmdir /s /q out 2>nul) && if exist data\\.state.json (del /q data\\.state.json 2>nul) && if exist data\\cache (rmdir /s /q data\\cache 2>nul)",
     "format": "prettier --write .",
-    "lint": "eslint src --ext ts && tsc --noEmit",
-    "prebuild": "npm run clean && npm run format && npm run lint",
+    "lint": "eslint src && tsc --noEmit",
+    "beforeBuild": "npm run clean && npm run format && npm run lint",
+    "winBeforeBuild": "npm run winClean && npm run format && npm run lint",
     "compile:badges": " tsx src/hooks/compileBadges.ts",
     "compile:stateFile": "tsx src/hooks/compileStateFile.ts",
     "compile:themes": "tsx src/hooks/compileThemes.ts",
@@ -309,7 +316,9 @@
     "compile-all": "npm run compile && npm run compile:stateFile && npm run compile:themes",
     "package:dev": "node esbuild.js --dev",
     "package:prod": "node esbuild.js --prod",
-    "build": "npm run compile-all && npm run package:prod",
-    "debug": "DEBUG=1 npm run compile-all && npm run package:dev"
+    "build": "npm run beforeBuild && npm run compile-all && npm run package:prod",
+    "winBuild": "npm run winBeforeBuild && npm run compile-all && npm run package:prod",
+    "debug": "DEBUG=1 && npm run beforeBuild && npm run compile-all && npm run package:dev",
+    "winDebug": "set \"DEBUG=1\" && npm run winBeforeBuild && npm run compile-all && npm run package:dev"
   }
 }

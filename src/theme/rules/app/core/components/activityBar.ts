@@ -2,31 +2,38 @@ import { ThemeContext } from "../../../../../@types";
 import { TRANSPARENT } from "../../../../../color/constants";
 
 export const getRules = (themeContext: ThemeContext): object => {
-  const colors = themeContext.styles;
-  const activityBarRules = {
-    "activityBar.background": colors.bg.solid.base,
-    "activityBar.dropBorder": colors.fill.accent.pri,
-    "activityBar.foreground": colors.fill.text.pri,
-    "activityBar.inactiveForeground": colors.fill.text.sec,
-    "activityBar.border": colors.stroke.divider.default,
-    "activityBarBadge.background": colors.fill.accent.pri,
-    "activityBarBadge.foreground": colors.fill.textOnColor.pri,
-    "activityBar.activeBorder": colors.fill.accent.pri,
-    "activityBar.activeBackground": colors.fill.control.rest,
-    "activityBar.activeFocusBorder": colors.basic.neutral.pri,
-    "activityBarTop.foreground": colors.fill.text.pri,
-    "activityBarTop.activeBorder": colors.fill.accent.pri,
-    "activityBarTop.inactiveForeground": colors.fill.text.sec,
-    "activityBarTop.dropBorder": colors.fill.accent.pri,
-    "activityBarTop.background": colors.bg.solid.base,
-    "activityBarTop.activeBackground": colors.fill.control.rest,
+  const styles = themeContext.styles;
+  const rules = {
+    "activityBar.activeBackground": styles.fill.control.rest,
+    "activityBar.activeBorder": styles.fill.accent.pri,
+    "activityBar.activeFocusBorder": styles.basic.neutral.pri,
+    "activityBar.background": styles.bg.solid.base,
+    "activityBar.border": styles.stroke.divider.default,
+    "activityBar.dropBorder": styles.fill.accent.pri,
+    "activityBar.foreground": styles.fill.text.pri,
+    "activityBar.inactiveForeground": styles.fill.text.sec,
+    "activityBarBadge.background": styles.fill.accent.pri,
+    "activityBarBadge.foreground": styles.fill.textOnColor.pri,
+    "activityBarTop.activeBackground": styles.fill.control.rest,
+    "activityBarTop.activeBorder": styles.fill.accent.pri,
+    "activityBarTop.background": styles.bg.solid.base,
+    "activityBarTop.dropBorder": styles.fill.accent.pri,
+    "activityBarTop.foreground": styles.fill.text.pri,
+    "activityBarTop.inactiveForeground": styles.fill.text.sec,
   };
   const design = themeContext.variantConfig.design;
   if (design === "minimal") {
-    activityBarRules["activityBar.activeBorder"] = TRANSPARENT;
-    activityBarRules["activityBar.foreground"] = colors.fill.accent.pri;
-    activityBarRules["activityBarTop.activeBorder"] = TRANSPARENT;
-    activityBarRules["activityBarTop.foreground"] = colors.fill.accent.pri;
+    rules["activityBar.activeBorder"] = TRANSPARENT;
+    rules["activityBar.foreground"] = styles.fill.accent.pri;
+    rules["activityBarTop.activeBorder"] = TRANSPARENT;
+    rules["activityBarTop.foreground"] = styles.fill.accent.pri;
+  } else if (design === "flat") {
+    rules["activityBar.activeBackground"] = TRANSPARENT;
+    rules["activityBar.activeBorder"] = TRANSPARENT;
+    rules["activityBar.foreground"] = styles.fill.accent.pri;
+    rules["activityBarTop.activeBackground"] = TRANSPARENT;
+    rules["activityBarTop.activeBorder"] = TRANSPARENT;
+    rules["activityBarTop.foreground"] = styles.fill.accent.pri;
   }
-  return activityBarRules;
+  return rules;
 };

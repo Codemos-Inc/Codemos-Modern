@@ -144,46 +144,37 @@ const mimic5Info: MimicInfo = {
 export const getStyles = (variantConfig: VariantConfig): Styles => {
   const accentColor = variantConfig.accentColor;
   const textOnColor = chooseTextOnColor(accentColor, palette.loc, palette.hic);
-  const mimic1Color = getMimicHex7(
-    mimic1Info,
-    accentColor,
-    variantConfig.adaptiveMode,
-    false,
-  );
-  const mimic2Color = getMimicHex7(
-    mimic2Info,
-    accentColor,
-    variantConfig.adaptiveMode,
-    false,
-  );
-  const mimic3Color = getMimicHex7(
-    mimic3Info,
-    accentColor,
-    variantConfig.adaptiveMode,
-    false,
-  );
-  const mimic4Color = getMimicHex7(
-    mimic4Info,
-    accentColor,
-    variantConfig.adaptiveMode,
-    false,
-  );
-  const mimic5Color = getMimicHex7(
-    mimic5Info,
-    accentColor,
-    variantConfig.adaptiveMode,
-    false,
-  );
+  const mimic1Color = getMimicHex7(mimic1Info, accentColor, variantConfig.adaptiveMode, false);
+  const mimic2Color = getMimicHex7(mimic2Info, accentColor, variantConfig.adaptiveMode, false);
+  const mimic3Color = getMimicHex7(mimic3Info, accentColor, variantConfig.adaptiveMode, false);
+  const mimic4Color = getMimicHex7(mimic4Info, accentColor, variantConfig.adaptiveMode, false);
+  const mimic5Color = getMimicHex7(mimic5Info, accentColor, variantConfig.adaptiveMode, false);
   const mixedFgColor = getMixedColorHex7(palette.hic, 72, mimic3Color);
-  let accentTextColor = getContrastSafeAccentColorHex7(
-    accentColor,
-    mixedFgColor,
-    true,
-  );
+  let accentTextColor = getContrastSafeAccentColorHex7(accentColor, mixedFgColor, true);
   if (!accentTextColor) {
     accentTextColor = palette.basic.def.blue;
   }
   return {
+    code: {
+      s00: `${palette.basic.def.brown}${getHexAlpha(100)}`,
+      s01: `${palette.basic.def.red}${getHexAlpha(100)}`,
+      s02: `${palette.basic.def.orange}${getHexAlpha(100)}`,
+      s03: `${palette.basic.def.yellow}${getHexAlpha(100)}`,
+      s04: `${palette.basic.def.green}${getHexAlpha(100)}`,
+      s05: `${palette.basic.def.mint}${getHexAlpha(100)}`,
+      s06: `${palette.basic.def.blue}${getHexAlpha(100)}`,
+      s07: `${palette.basic.def.purple}${getHexAlpha(100)}`,
+      s08: `${palette.basic.def.pink}${getHexAlpha(100)}`,
+      s09: `${palette.basic.alt.red}${getHexAlpha(100)}`,
+      s10: `${palette.basic.alt.orange}${getHexAlpha(100)}`,
+      s11: `${palette.basic.alt.yellow}${getHexAlpha(100)}`,
+      s12: `${palette.basic.alt.green}${getHexAlpha(100)}`,
+      s13: `${palette.basic.alt.mint}${getHexAlpha(100)}`,
+      s14: `${palette.basic.alt.blue}${getHexAlpha(100)}`,
+      s15: `${palette.basic.alt.purple}${getHexAlpha(100)}`,
+      s16: `${palette.basic.alt.pink}${getHexAlpha(100)}`,
+      sxx: `${palette.hic}${getHexAlpha(72)}`,
+    },
     basic: {
       def: {
         brown: {
@@ -473,7 +464,7 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
         flyout: `#757575${getHexAlpha(32)}`,
       },
       focus: {
-        default: `#757575${getHexAlpha(40)}`,
+        default: `#757575${getHexAlpha(32)}`,
       },
     },
     bg: {
