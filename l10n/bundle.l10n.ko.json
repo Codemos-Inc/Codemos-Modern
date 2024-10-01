@@ -31,6 +31,8 @@
   "helper.auxTheme.state.available": "사용 가능",
   "helper.auxTheme.state.installed": "설치됨",
   "helper.design": "디자인",
+  "helper.design.flat": "평면",
+  "helper.design.flat.detail": "평면 디자인",
   "helper.design.minimal": "미니멀",
   "helper.design.minimal.detail": "미니멀리스트 디자인",
   "helper.design.modern": "모던",
@@ -80,7 +82,7 @@
   "notification.update.firstInstall": "혁신적인 테마 모음/허브에 오신 것을 환영합니다! 👋 Modern을 구성하여 여정을 시작하세요.",
   "notification.update.index.title": "레지스트리 인덱스 업데이트 중… ⏳",
   "notification.update.majorUpdate": "Modern이 V2로 업데이트되었습니다! 🎉 확장 페이지에서 새로운 기능을 확인하세요.",
-  "notification.update.minorUpdate": "Modern이 업데이트되었습니다! 🎉 새로운 현지화: 프랑스어 🇫🇷, 한국어 🇰🇷, 독일어 🇩🇪",
+  "notification.update.minorUpdate": "Modern이 업데이트되었습니다! 🎉 평면 디자인을 소개합니다.",
   "notification.update.patchUpdate": "Modern이 패치되었습니다! 🎉",
   "notification.update.profileChange": "프로필이 변경되었습니다! 👥",
   "notification.update.reinstall": "Modern이 준비되었습니다! 🎉"

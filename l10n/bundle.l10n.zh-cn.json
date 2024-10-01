@@ -31,6 +31,8 @@
   "helper.auxTheme.state.available": "可用",
   "helper.auxTheme.state.installed": "已安装",
   "helper.design": "设计",
+  "helper.design.flat": "扁平",
+  "helper.design.flat.detail": "扁平设计",
   "helper.design.minimal": "极简",
   "helper.design.minimal.detail": "极简设计",
   "helper.design.modern": "现代的",
@@ -80,7 +82,7 @@
   "notification.update.firstInstall": "欢迎来到创新的主题套件/中心！👋 通过配置 Modern，开始您的旅程。",
   "notification.update.index.title": "正在更新注册表索引… ⏳",
   "notification.update.majorUpdate": "Modern已更新至V2！🎉 请查看我们的扩展页面上的新内容。",
-  "notification.update.minorUpdate": "Modern已更新！🎉 新增本地化语言：法语 🇫🇷，韩语 🇰🇷，德语 🇩🇪",
+  "notification.update.minorUpdate": "Modern已更新！🎉 我们介绍了扁平设计。",
   "notification.update.patchUpdate": "Modern已打补丁！🎉",
   "notification.update.profileChange": "配置文件已更改！👥",
   "notification.update.reinstall": "Modern准备好了！🎉"

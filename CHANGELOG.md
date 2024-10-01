@@ -4,6 +4,23 @@ All notable changes to the "codemos-modern" extension will be documented in this
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.8.0] - 2024-10-01 - Introducing Flat design 🎨
+
+### Added
+
+- Support for VS Code v1.93.x.
+- New design, **"Flat"**. Users can now choose between **"Modern"**, **"Minimal"** and **"Flat"** designs.
+- New localizations for Italian 🇮🇹 and Traditional Chinese 🇨🇳.
+
+### Updated
+
+- Underlining syntax/semantic highlighting to be more robust and future-proof.
+  - It is now very easy to add or update new languages' syntax/semantic highlighting.
+
+### Changed
+
+- Some syntax/semantic highlighting colors to be more straightforward.
+
 ## [2.7.2] - 2024-07-19 - Light variant hotfix 🛠️
 
 ### Fixed
@@ -391,6 +408,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - Initial release
 
+[2.8.0]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.7.2...v2.8.0
 [2.7.2]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.7.1...v2.7.2
 [2.7.1]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.7.0...v2.7.1
 [2.7.0]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.6.1...v2.7.0

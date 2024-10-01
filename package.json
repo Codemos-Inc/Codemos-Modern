@@ -224,11 +224,13 @@
             "default": "modern",
             "enum": [
               "modern",
-              "minimal"
+              "minimal",
+              "flat"
             ],
             "enumDescriptions": [
               "%conf.*.design.enum.modern.desc%",
-              "%conf.*.design.enum.minimal.desc%"
+              "%conf.*.design.enum.minimal.desc%",
+              "%conf.*.design.enum.flat.desc%"
             ],
             "markdownDescription": "%conf.light.design.desc%"
           },

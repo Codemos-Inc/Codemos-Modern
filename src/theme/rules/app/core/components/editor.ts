@@ -135,7 +135,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     "editorUnicodeHighlight.background": TRANSPARENT,
     "editorUnicodeHighlight.border": styles.basic.def.yellow.pri,
     "editorUnnecessaryCode.border": TRANSPARENT,
-    "editorUnnecessaryCode.opacity": styles.fill.text.sec,
+    "editorUnnecessaryCode.opacity": styles.fill.text.disabled,
     "editorWarning.background": TRANSPARENT,
     "editorWarning.border": TRANSPARENT,
     "editorWarning.foreground": styles.basic.def.orange.pri,

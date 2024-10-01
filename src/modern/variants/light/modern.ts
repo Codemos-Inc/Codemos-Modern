@@ -464,7 +464,7 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
         flyout: `#757575${getHexAlpha(32)}`,
       },
       focus: {
-        default: `#757575${getHexAlpha(40)}`,
+        default: `#757575${getHexAlpha(32)}`,
       },
     },
     bg: {

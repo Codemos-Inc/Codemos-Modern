@@ -18,16 +18,18 @@
 
 Innovative, modern theme suite/hub for VS Code
 
-<img src="images/badge-loc-en.png" height="28" alt="English (US)">&nbsp;
-<img src="images/badge-loc-zh-cn.png" height="28" alt="Simplified Chinese">&nbsp;
-<img src="images/badge-loc-ja.png" height="28" alt="Japanese">&nbsp;
-<img src="images/badge-loc-es.png" height="28" alt="Spanish">&nbsp;
-<img src="images/badge-loc-ru.png" height="28" alt="Russian">&nbsp;
-<img src="images/badge-loc-pt-br.png" height="28" alt="Portuguese (Brazil)">&nbsp;
-<img src="images/badge-loc-fr.png" height="28" alt="French">&nbsp;
-<img src="images/badge-loc-ko.png" height="28" alt="Korean">&nbsp;
-<img src="images/badge-loc-de.png" height="28" alt="German">&nbsp;
-<img src="images/badge-loc-tr.png" height="28" alt="Turkish">
+<img src="images/badge-loc-en.png" height="24" alt="English (US)">&nbsp;
+<img src="images/badge-loc-zh-cn.png" height="24" alt="Simplified Chinese">&nbsp;
+<img src="images/badge-loc-ja.png" height="24" alt="Japanese">&nbsp;
+<img src="images/badge-loc-es.png" height="24" alt="Spanish">&nbsp;
+<img src="images/badge-loc-ru.png" height="24" alt="Russian">&nbsp;
+<img src="images/badge-loc-pt-br.png" height="24" alt="Portuguese (Brazil)">&nbsp;
+<img src="images/badge-loc-fr.png" height="24" alt="French">&nbsp;
+<img src="images/badge-loc-ko.png" height="24" alt="Korean">&nbsp;
+<img src="images/badge-loc-de.png" height="24" alt="German">&nbsp;
+<img src="images/badge-loc-zh-tw.png" height="24" alt="Traditional Chinese">&nbsp;
+<img src="images/badge-loc-it.png" height="24" alt="Italian">&nbsp;
+<img src="images/badge-loc-tr.png" height="24" alt="Turkish">
 
 ![overview](images/header-1.png)
 
@@ -262,9 +264,9 @@ We try to make Codemos Modern the most accessible theming extension for VS Code.
 | French              | fr     | 🟢     | v2.7.0        | Codemos    | -                          |
 | Korean              | ko     | 💬     | v2.7.0        | Codemos    | Review needed              |
 | German              | de     | 🟢     | v2.7.0        | Codemos    | -                          |
-| Traditional Chinese | zh-tw  | 🟡     | -             | -          | Will be released by v2.8.X |
-| Italian             | it     | 🟡     | -             | -          | Will be released by v2.8.X |
-| Polish              | pl     | 🔴     | -             | -          | Planned for v2.9.0         |
+| Traditional Chinese | zh-tw  | 🟢     | v2.8.0        | Codemos    | -                          |
+| Italian             | it     | 🟢     | v2.8.0        | Codemos    | -                          |
+| Polish              | pl     | 🟡     | v2.9.0        | -          | Will be released by v2.9.0 |
 | Hungarian           | hu     | 🔴     | -             | -          | Not planned                |
 | Czech               | cs     | 🔴     | -             | -          | Not planned                |
 | Bulgarian           | bg     | 🔴     | -             | -          | Not planned                |
@@ -321,9 +323,9 @@ Changes from the last major release shown below. If you want to see the full cha
 
 ### Added
 
-- VS Code v1.91.x support.
+- VS Code v1.93.x support.
 - Modularity system. Users can now side-load **third party themes**.
-- Brand new design, **"Minimal"**. Users can now choose between **"Modern"** and **"Minimal"** designs.
+- Brand new design, **"Flat"**. Users can now choose between **"Modern"**, **"Minimal"** and **"Flat"** designs.
 - Command `codemosModern.authenticate` to increase GitHub **api rate limits**.
 - Set of configurations to customize the text decorations on symbols. (Only bundled themes are effected)
 
@@ -334,7 +336,7 @@ Changes from the last major release shown below. If you want to see the full cha
 
 ### Changed
 
-- Command `codemosModern.configure` to be more clear an use the new `QuickPickItem` api for custom icons.
+- Underlying syntax and semantic highlighting system to be more robust and open to future changes.
 
 <br/>
 

@@ -218,6 +218,12 @@ const getDesign = async (variant: Variant): Promise<Design | undefined> => {
         description: l10nT("helper.design"),
         detail: l10nT("helper.design.minimal.detail"),
       },
+      {
+        _design: "flat",
+        label: `$(symbol-color) ${l10nT("helper.design.flat")}`,
+        description: l10nT("helper.design"),
+        detail: l10nT("helper.design.flat.detail"),
+      },
     ],
     {
       title: l10nT("command.configure.*.title$variant$kind", [

@@ -31,6 +31,8 @@
   "helper.auxTheme.state.available": "Kullanılabilir",
   "helper.auxTheme.state.installed": "Yüklü",
   "helper.design": "Tasarım",
+  "helper.design.flat": "Düz",
+  "helper.design.flat.detail": "Düz tasarım",
   "helper.design.minimal": "Minimal",
   "helper.design.minimal.detail": "Minimalist tasarım",
   "helper.design.modern": "Modern",
@@ -80,7 +82,7 @@
   "notification.update.firstInstall": "Yenilikçi tema setine/merkezine hoş geldiniz! 👋 Modern'i yapılandırarak yolculuğunuza başlayın.",
   "notification.update.index.title": "Kayıt dizinleri güncelleniyor… ⏳",
   "notification.update.majorUpdate": "Modern V2'ye güncellendi! 🎉 Yeniliklere uzantı sayfamızdan göz atın.",
-  "notification.update.minorUpdate": "Modern güncellendi! 🎉 Yeni yerelleştirmeler: Fransızca 🇫🇷, Korece 🇰🇷, Almanca 🇩🇪",
+  "notification.update.minorUpdate": "Modern güncellendi! 🎉 Düz tasarımı tanıtıyoruz.",
   "notification.update.patchUpdate": "Modern yamalandı! 🎉",
   "notification.update.profileChange": "Profil değişti! 👥",
   "notification.update.reinstall": "Modern hazır! 🎉"

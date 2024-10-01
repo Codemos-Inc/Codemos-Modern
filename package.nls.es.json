@@ -5,6 +5,7 @@
   "conf.*.adaptiveMode.enum.gentle.desc": "Adaptación suave del color de acento",
   "conf.*.adaptiveMode.enum.moderate.desc": "Adaptación moderada del color de acento",
   "conf.*.adaptiveMode.enum.none.desc": "Sin adaptación del color de acento",
+  "conf.*.design.enum.flat.desc": "Diseño plano",
   "conf.*.design.enum.minimal.desc": "Diseño minimalista",
   "conf.*.design.enum.modern.desc": "Diseño original de Modern",
   "conf.auxiliaryThemeRegistries.desc": "Repositorios de GitHub que son registros auxiliares de temas. Debería estar en formato `<propietario>/<repositorio>`. Consulta [la documentación](https://github.com/Codemos-Inc/Codemos-Modern#modularity) para referencia.",

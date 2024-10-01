@@ -5,6 +5,7 @@
   "conf.*.adaptiveMode.enum.gentle.desc": "Нежная адаптация цвета акцента",
   "conf.*.adaptiveMode.enum.moderate.desc": "Умеренная адаптация цвета акцента",
   "conf.*.adaptiveMode.enum.none.desc": "Без адаптации цвета акцента",
+  "conf.*.design.enum.flat.desc": "Плоский дизайн",
   "conf.*.design.enum.minimal.desc": "Минималистичный дизайн",
   "conf.*.design.enum.modern.desc": "Оригинальный дизайн Modern",
   "conf.auxiliaryThemeRegistries.desc": "Репозитории GitHub, которые являются вспомогательными реестрами тем. Должны быть в формате `<владелец>/<репозиторий>`. См. [документацию](https://github.com/Codemos-Inc/Codemos-Modern#modularity) для справки.",

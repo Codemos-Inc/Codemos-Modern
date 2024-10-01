@@ -86,20 +86,20 @@ const mimic3Info: MimicInfo = {
 
 const mimic4Info: MimicInfo = {
   none: {
-    referenceColor: "#171717",
+    referenceColor: "#1f1f1f",
     saturation: 0,
   },
   gentle: {
-    referenceColor: "#171717",
-    saturation: 6,
+    referenceColor: "#1f1f1f",
+    saturation: 7,
   },
   moderate: {
-    referenceColor: "#181818",
-    saturation: 13,
+    referenceColor: "#202020",
+    saturation: 17,
   },
   aggressive: {
-    referenceColor: "#202020",
-    saturation: 24,
+    referenceColor: "#272727",
+    saturation: 30,
   },
 };
 
@@ -369,7 +369,7 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
         rest: `${palette.hic}${getHexAlpha(6)}`,
         restSolid: getMixedColorHex9(
           `${palette.hic}${getHexAlpha(6)}`,
-          `${mimic4Color}${getHexAlpha(100)}`,
+          `${mimic1Color}${getHexAlpha(100)}`,
         ),
         pressed: `${palette.hic}${getHexAlpha(3)}`,
         prominent: `${mimic5Color}${getHexAlpha(100)}`,
@@ -438,13 +438,13 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
         elevation: `${palette.hic}${getHexAlpha(8)}`,
       },
       divider: {
-        default: `${palette.hic}${getHexAlpha(0)}`,
+        default: `${palette.hic}${getHexAlpha(8)}`,
       },
       surface: {
         flyout: `#757575${getHexAlpha(32)}`,
       },
       focus: {
-        default: `#757575${getHexAlpha(40)}`,
+        default: `#757575${getHexAlpha(24)}`,
       },
     },
     bg: {

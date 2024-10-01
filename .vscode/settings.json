@@ -62,5 +62,7 @@
     }
   },
   "todo-tree.highlights.highlightDelay": 0,
-  "cmake.configureOnOpen": false
+  "cmake.configureOnOpen": false,
+  "lldb.library": "/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB",
+  "lldb.launch.expressions": "native"
 }

@@ -24,6 +24,13 @@ export const getRules = (themeContext: ThemeContext): object => {
         foreground: colors.s02,
       },
     },
+    // Function paranthesis
+    {
+      scope: ["source.python punctuation.definition.arguments"],
+      settings: {
+        foreground: colors.sxx,
+      },
+    },
     // String literal prefix
     {
       scope: ["source.python storage.type.string"],
@@ -50,6 +57,23 @@ export const getRules = (themeContext: ThemeContext): object => {
       scope: ["source.python storage.type.format"],
       settings: {
         foreground: colors.s02,
+      },
+    },
+    // Type hints
+    {
+      scope: ["source.python meta.typehint.comment"],
+      settings: {
+        foreground: colors.s07,
+      },
+    },
+    // Type hint directives
+    {
+      scope: [
+        "source.python comment.typehint.directive",
+        "source.python comment.typehint.punctuation",
+      ],
+      settings: {
+        foreground: colors.s15,
       },
     },
   ];

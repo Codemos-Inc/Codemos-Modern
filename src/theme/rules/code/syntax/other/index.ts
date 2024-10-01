@@ -14,12 +14,13 @@ import { getRules as getFsharpRules } from "./languages/fsharp";
 import { getRules as getGoRules } from "./languages/go";
 import { getRules as getGroovyRules } from "./languages/groovy";
 import { getRules as getHlslRules } from "./languages/hlsl";
+import { getRules as getHtmlRules } from "./languages/html";
 import { getRules as getIniRules } from "./languages/ini";
 import { getRules as getJavaRules } from "./languages/java";
 import { getRules as getKotlinRules } from "./languages/kotlin";
 import { getRules as getLatexRules } from "./languages/latex";
 import { getRules as getLuaRules } from "./languages/lua";
-import { getRules as getMarkdownRules } from "./languages/markdown";
+import { getRules as getMarkdownRules } from "./languages/markup";
 import { getRules as getMatlabRules } from "./languages/matlab";
 import { getRules as getPerlRules } from "./languages/perl";
 import { getRules as getPhpRules } from "./languages/php";
@@ -53,6 +54,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     ...(<[]>getGoRules(themeContext)),
     ...(<[]>getGroovyRules(themeContext)),
     ...(<[]>getHlslRules(themeContext)),
+    ...(<[]>getHtmlRules(themeContext)),
     ...(<[]>getIniRules(themeContext)),
     ...(<[]>getJavaRules(themeContext)),
     ...(<[]>getKotlinRules(themeContext)),

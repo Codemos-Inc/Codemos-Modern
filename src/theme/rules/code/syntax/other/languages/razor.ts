@@ -5,7 +5,10 @@ export const getRules = (themeContext: ThemeContext): object => {
   return [
     // Section names
     {
-      scope: ["variable.other.razor.directive.sectionName"],
+      scope: [
+        "variable.other.cshtml.directive.sectionName",
+        "variable.other.razor.directive.sectionName",
+      ],
       settings: {
         foreground: colors.s16,
         fontStyle: "",

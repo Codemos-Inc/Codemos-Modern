@@ -45,7 +45,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     },
     // Attribute arguments
     {
-      scope: ["meta.attribute entity.name.type", "meta.attribute keyword.operator.namespace"],
+      scope: ["meta.attribute keyword.operator.namespace"],
       settings: {
         foreground: colors.s09,
         fontStyle: "",
