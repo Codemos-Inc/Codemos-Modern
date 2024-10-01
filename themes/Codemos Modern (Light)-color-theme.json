@@ -2367,6 +2367,33 @@
     },
     {
       "scope": [
+        "source.editorconfig keyword.other.definition"
+      ],
+      "settings": {
+        "foreground": "#006560FF",
+        "fontStyle": ""
+      }
+    },
+    {
+      "scope": [
+        "source.editorconfig meta.section.header"
+      ],
+      "settings": {
+        "foreground": "#B70004FF",
+        "fontStyle": ""
+      }
+    },
+    {
+      "scope": [
+        "source.editorconfig meta.section.header keyword.operator"
+      ],
+      "settings": {
+        "foreground": "#C35354FF",
+        "fontStyle": ""
+      }
+    },
+    {
+      "scope": [
         "source.fish support.function"
       ],
       "settings": {
