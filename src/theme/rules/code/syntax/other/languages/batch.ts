@@ -5,7 +5,7 @@ export const getRules = (themeContext: ThemeContext): object => {
   return [
     // Commands
     {
-      scope: ["source.batchfile keyword.command"],
+      scope: ["meta.embedded.block.batchfile keyword.command", "source.batchfile keyword.command"],
       settings: {
         foreground: colors.s03,
         fontStyle: "",
@@ -14,6 +14,8 @@ export const getRules = (themeContext: ThemeContext): object => {
     // Logical/Comparison operators
     {
       scope: [
+        "meta.embedded.block.batchfile keyword.operator.comparison",
+        "meta.embedded.block.batchfile keyword.operator.logical",
         "source.batchfile keyword.operator.comparison",
         "source.batchfile keyword.operator.logical",
       ],
@@ -24,7 +26,10 @@ export const getRules = (themeContext: ThemeContext): object => {
     },
     // Remarks
     {
-      scope: ["source.batchfile keyword.command.rem"],
+      scope: [
+        "meta.embedded.block.batchfile keyword.command.rem",
+        "source.batchfile keyword.command.rem",
+      ],
       settings: {
         foreground: colors.s07,
         fontStyle: "",
@@ -32,7 +37,10 @@ export const getRules = (themeContext: ThemeContext): object => {
     },
     // Other operators
     {
-      scope: ["source.batchfile keyword.operator.at"],
+      scope: [
+        "meta.embedded.block.batchfile keyword.operator.at",
+        "source.batchfile keyword.operator.at",
+      ],
       settings: {
         foreground: colors.s16,
         fontStyle: "",

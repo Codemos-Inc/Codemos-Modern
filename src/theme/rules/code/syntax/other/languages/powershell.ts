@@ -5,7 +5,10 @@ export const getRules = (themeContext: ThemeContext): object => {
   return [
     // Attributes
     {
-      scope: ["source.powershell support.function.attribute"],
+      scope: [
+        "meta.embedded.block.powershell support.function.attribute",
+        "source.powershell support.function.attribute",
+      ],
       settings: {
         foreground: colors.s01,
         fontStyle: "",
@@ -13,7 +16,10 @@ export const getRules = (themeContext: ThemeContext): object => {
     },
     // Commands
     {
-      scope: ["source.powershell support.function"],
+      scope: [
+        "meta.embedded.block.powershell support.function",
+        "source.powershell support.function",
+      ],
       settings: {
         foreground: colors.s03,
         fontStyle: "",
@@ -22,6 +28,9 @@ export const getRules = (themeContext: ThemeContext): object => {
     // Operators
     {
       scope: [
+        "meta.embedded.block.powershell keyword.operator.comparison",
+        "meta.embedded.block.powershell keyword.operator.documentation",
+        "meta.embedded.block.powershell keyword.operator.logical",
         "source.powershell keyword.operator.comparison",
         "source.powershell keyword.operator.documentation",
         "source.powershell keyword.operator.logical",

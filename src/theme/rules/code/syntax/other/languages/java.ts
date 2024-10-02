@@ -5,28 +5,36 @@ export const getRules = (themeContext: ThemeContext): object => {
   return [
     // Annotation modifiers
     {
-      scope: ["source.java meta.declaration.annotation storage.modifier"],
+      scope: [
+        "meta.embedded.block.java meta.declaration.annotation storage.modifier",
+        "source.java meta.declaration.annotation storage.modifier",
+      ],
       settings: {
         foreground: colors.s09,
       },
     },
     // Types
     {
-      scope: ["source.java storage.type"],
+      scope: ["meta.embedded.block.java storage.type", "source.java storage.type"],
       settings: {
         foreground: colors.s03,
       },
     },
     // Storage keywords
     {
-      scope: ["source.java storage.type.local"],
+      scope: ["meta.embedded.block.java storage.type.local", "source.java storage.type.local"],
       settings: {
         foreground: colors.s06,
       },
     },
     // Operators
     {
-      scope: ["source.java keyword.control.ternary", "source.java variable.language.wildcard"],
+      scope: [
+        "meta.embedded.block.java keyword.control.ternary",
+        "meta.embedded.block.java variable.language.wildcard",
+        "source.java keyword.control.ternary",
+        "source.java variable.language.wildcard",
+      ],
       settings: {
         foreground: colors.sxx,
       },

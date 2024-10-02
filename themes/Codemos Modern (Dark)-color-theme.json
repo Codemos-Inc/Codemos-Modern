@@ -2033,6 +2033,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.batchfile keyword.command",
         "source.batchfile keyword.command"
       ],
       "settings": {
@@ -2042,6 +2043,8 @@
     },
     {
       "scope": [
+        "meta.embedded.block.batchfile keyword.operator.comparison",
+        "meta.embedded.block.batchfile keyword.operator.logical",
         "source.batchfile keyword.operator.comparison",
         "source.batchfile keyword.operator.logical"
       ],
@@ -2052,6 +2055,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.batchfile keyword.command.rem",
         "source.batchfile keyword.command.rem"
       ],
       "settings": {
@@ -2061,6 +2065,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.batchfile keyword.operator.at",
         "source.batchfile keyword.operator.at"
       ],
       "settings": {
@@ -2070,6 +2075,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.bibtex support.function.key",
         "text.bibtex support.function.key"
       ],
       "settings": {
@@ -2079,6 +2085,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.bibtex entity.name.type.entry-key",
         "text.bibtex entity.name.type.entry-key"
       ],
       "settings": {
@@ -2088,6 +2095,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.bibtex support.variable",
         "text.bibtex support.variable"
       ],
       "settings": {
@@ -2097,6 +2105,9 @@
     },
     {
       "scope": [
+        "meta.embedded.block.bibtex meta.key-assignment",
+        "meta.embedded.block.bibtex meta.preamble.braces",
+        "meta.embedded.block.bibtex meta.string-constant",
         "text.bibtex meta.key-assignment",
         "text.bibtex meta.preamble.braces",
         "text.bibtex meta.string-constant"
@@ -2108,6 +2119,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.c storage.modifier.array.bracket",
         "source.c storage.modifier.array.bracket"
       ],
       "settings": {
@@ -2117,15 +2129,8 @@
     },
     {
       "scope": [
-        "keyword.operator.sizeof"
-      ],
-      "settings": {
-        "foreground": "#4B9ECDFF",
-        "fontStyle": ""
-      }
-    },
-    {
-      "scope": [
+        "meta.embedded.block.c keyword.operator.delete",
+        "meta.embedded.block.c keyword.operator.new",
         "source.c keyword.operator.delete",
         "source.c keyword.operator.new"
       ],
@@ -2136,6 +2141,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.clojure entity.global",
         "source.clojure entity.global"
       ],
       "settings": {
@@ -2145,6 +2151,8 @@
     },
     {
       "scope": [
+        "meta.embedded.block.clojure constant.keyword",
+        "meta.embedded.block.clojure keyword.control",
         "source.clojure constant.keyword",
         "source.clojure keyword.control"
       ],
@@ -2155,6 +2163,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.clojure storage.control",
         "source.clojure storage.control"
       ],
       "settings": {
@@ -2164,6 +2173,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.clojure meta.symbol",
         "source.clojure meta.symbol"
       ],
       "settings": {
@@ -2210,6 +2220,8 @@
     },
     {
       "scope": [
+        "meta.embedded.block.cpp keyword.operator.delete",
+        "meta.embedded.block.cpp keyword.operator.new",
         "source.cpp keyword.operator.delete",
         "source.cpp keyword.operator.new"
       ],
@@ -2248,6 +2260,8 @@
         "keyword.operator.xor_eq",
         "keyword.operator.xor",
         "keyword.other.static_assert",
+        "meta.embedded.block.cpp keyword.operator.functionlike",
+        "meta.embedded.block.cpp keyword.operator.wordlike",
         "source.cpp keyword.operator.functionlike",
         "source.cpp keyword.operator.wordlike"
       ],
@@ -2329,6 +2343,9 @@
     },
     {
       "scope": [
+        "meta.embedded.block.css punctuation.definition.keyword",
+        "meta.embedded.block.less punctuation.definition.keyword",
+        "meta.embedded.block.scss punctuation.definition.keyword",
         "source.css punctuation.definition.keyword",
         "source.less punctuation.definition.keyword",
         "source.scss punctuation.definition.keyword"
@@ -2349,6 +2366,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.dart string.interpolated",
         "source.dart string.interpolated"
       ],
       "settings": {
@@ -2358,6 +2376,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.dart string.interpolated meta.embedded.expression",
         "source.dart string.interpolated meta.embedded.expression"
       ],
       "settings": {
@@ -2394,6 +2413,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.fish support.function",
         "source.fish support.function"
       ],
       "settings": {
@@ -2402,6 +2422,8 @@
     },
     {
       "scope": [
+        "meta.embedded.block.fish source.option",
+        "meta.embedded.block.fish string.other.option",
         "source.fish source.option",
         "source.fish string.other.option"
       ],
@@ -2411,6 +2433,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.fish variable.language",
         "source.fish variable.language"
       ],
       "settings": {
@@ -2419,6 +2442,9 @@
     },
     {
       "scope": [
+        "meta.embedded.block.fish keyword.operator.comparison",
+        "meta.embedded.block.fish keyword.operator.logical",
+        "meta.embedded.block.fish keyword.operator.redirect",
         "source.fish keyword.operator.comparison",
         "source.fish keyword.operator.logical",
         "source.fish keyword.operator.redirect"
@@ -2429,6 +2455,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.fsharp keyword.symbol",
         "source.fsharp keyword.symbol"
       ],
       "settings": {
@@ -2438,6 +2465,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.fsharp entity.name.section",
         "source.fsharp entity.name.section"
       ],
       "settings": {
@@ -2447,6 +2475,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.fsharp keyword.format.specifier",
         "source.fsharp keyword.format.specifier"
       ],
       "settings": {
@@ -2456,6 +2485,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.fsharp support.function.attribute",
         "source.fsharp support.function.attribute"
       ],
       "settings": {
@@ -2465,6 +2495,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.fsharp support.function.attribute keyword.symbol",
         "source.fsharp support.function.attribute keyword.symbol"
       ],
       "settings": {
@@ -2483,6 +2514,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.groovy storage.type",
         "source.groovy storage.type"
       ],
       "settings": {
@@ -2492,6 +2524,8 @@
     },
     {
       "scope": [
+        "meta.embedded.block.groovy keyword.operator.in",
+        "meta.embedded.block.groovy storage.type.def",
         "source.groovy keyword.operator.in",
         "source.groovy storage.type.def"
       ],
@@ -2502,6 +2536,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.groovy constant.enum.name",
         "source.groovy constant.enum.name"
       ],
       "settings": {
@@ -2511,6 +2546,9 @@
     },
     {
       "scope": [
+        "meta.embedded.block.groovy constant.other.key",
+        "meta.embedded.block.groovy constant.variable",
+        "meta.embedded.block.groovy meta.definition.variable.name",
         "source.groovy constant.other.key",
         "source.groovy constant.variable",
         "source.groovy meta.definition.variable.name"
@@ -2522,6 +2560,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.groovy variable.other.interpolated",
         "source.groovy variable.other.interpolated"
       ],
       "settings": {
@@ -2531,6 +2570,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.groovy meta.method-call",
         "source.groovy meta.method-call"
       ],
       "settings": {
@@ -2540,6 +2580,8 @@
     },
     {
       "scope": [
+        "meta.embedded.block.groovy punctuation.definition.method-parameters.begin",
+        "meta.embedded.block.groovy punctuation.definition.method-parameters.end",
         "source.groovy punctuation.definition.method-parameters.begin",
         "source.groovy punctuation.definition.method-parameters.end"
       ],
@@ -2550,6 +2592,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.groovy meta.declaration.annotation constant.other.key",
         "source.groovy meta.declaration.annotation constant.other.key"
       ],
       "settings": {
@@ -2577,6 +2620,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.ini keyword.other.definition",
         "source.ini keyword.other.definition"
       ],
       "settings": {
@@ -2586,6 +2630,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.ini entity.name.section.group-title",
         "source.ini entity.name.section.group-title"
       ],
       "settings": {
@@ -2595,6 +2640,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.ini punctuation.definition.entity",
         "source.ini punctuation.definition.entity"
       ],
       "settings": {
@@ -2604,6 +2650,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.java meta.declaration.annotation storage.modifier",
         "source.java meta.declaration.annotation storage.modifier"
       ],
       "settings": {
@@ -2612,6 +2659,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.java storage.type",
         "source.java storage.type"
       ],
       "settings": {
@@ -2620,6 +2668,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.java storage.type.local",
         "source.java storage.type.local"
       ],
       "settings": {
@@ -2628,6 +2677,8 @@
     },
     {
       "scope": [
+        "meta.embedded.block.java keyword.control.ternary",
+        "meta.embedded.block.java variable.language.wildcard",
         "source.java keyword.control.ternary",
         "source.java variable.language.wildcard"
       ],
@@ -2637,8 +2688,10 @@
     },
     {
       "scope": [
-        "source.kotlin entity.string.template.element",
-        "source.kotlin entity.string.template.element punctuation.definition.keyword"
+        "meta.embedded.block.kotlin entity.string.template.element punctuation.definition.keyword",
+        "meta.embedded.block.kotlin entity.string.template.element",
+        "source.kotlin entity.string.template.element punctuation.definition.keyword",
+        "source.kotlin entity.string.template.element"
       ],
       "settings": {
         "foreground": "#87ABC0FF",
@@ -2647,6 +2700,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.kotlin keyword.operator",
         "source.kotlin keyword.operator"
       ],
       "settings": {
@@ -2656,6 +2710,12 @@
     },
     {
       "scope": [
+        "meta.embedded.block.kotlin keyword.operator.arithmetic",
+        "meta.embedded.block.kotlin keyword.operator.assignment",
+        "meta.embedded.block.kotlin keyword.operator.comparison",
+        "meta.embedded.block.kotlin keyword.operator.declaration",
+        "meta.embedded.block.kotlin keyword.operator.elvis",
+        "meta.embedded.block.kotlin keyword.operator.logical",
         "source.kotlin keyword.operator.arithmetic",
         "source.kotlin keyword.operator.assignment",
         "source.kotlin keyword.operator.comparison",
@@ -2670,6 +2730,8 @@
     },
     {
       "scope": [
+        "meta.embedded.block.latex keyword.control.preamble punctuation.definition.function",
+        "meta.embedded.block.latex punctuation.definition.keyword",
         "text.tex keyword.control.preamble punctuation.definition.function",
         "text.tex punctuation.definition.keyword"
       ],
@@ -2680,6 +2742,8 @@
     },
     {
       "scope": [
+        "meta.embedded.block.latex keyword.other.item punctuation.definition.keyword",
+        "meta.embedded.block.latex storage.type.function punctuation.definition.function",
         "text.tex keyword.other.item punctuation.definition.keyword",
         "text.tex storage.type.function punctuation.definition.function"
       ],
@@ -2690,6 +2754,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.lua entity.other.attribute",
         "source.lua entity.other.attribute"
       ],
       "settings": {
@@ -2856,19 +2921,25 @@
       }
     },
     {
-      "scope": "markup.inserted",
+      "scope": [
+        "markup.inserted"
+      ],
       "settings": {
         "foreground": "#45AA41FF"
       }
     },
     {
-      "scope": "markup.deleted",
+      "scope": [
+        "markup.deleted"
+      ],
       "settings": {
         "foreground": "#EF6363FF"
       }
     },
     {
-      "scope": "markup.changed",
+      "scope": [
+        "markup.changed"
+      ],
       "settings": {
         "foreground": "#4B9ECDFF"
       }
@@ -2884,6 +2955,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.perl constant.other.key",
         "source.perl constant.other.key"
       ],
       "settings": {
@@ -2893,6 +2965,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.php constant.other",
         "source.php constant.other"
       ],
       "settings": {
@@ -2902,6 +2975,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.php string punctuation.definition.variable",
         "source.php string punctuation.definition.variable"
       ],
       "settings": {
@@ -2911,6 +2985,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.php string variable punctuation.definition.variable",
         "source.php string variable punctuation.definition.variable"
       ],
       "settings": {
@@ -2920,6 +2995,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.php string variable.language punctuation.definition.variable",
         "source.php string variable.language punctuation.definition.variable"
       ],
       "settings": {
@@ -2929,6 +3005,8 @@
     },
     {
       "scope": [
+        "meta.embedded.block.php keyword.operator.heredoc",
+        "meta.embedded.block.php keyword.operator.nowdoc",
         "source.php keyword.operator.heredoc",
         "source.php keyword.operator.nowdoc"
       ],
@@ -2939,6 +3017,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.php keyword.operator.logical",
         "source.php keyword.operator.logical"
       ],
       "settings": {
@@ -2948,6 +3027,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.php keyword.operator.arithmetic",
         "source.php punctuation.section.array"
       ],
       "settings": {
@@ -2966,6 +3046,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.powershell support.function.attribute",
         "source.powershell support.function.attribute"
       ],
       "settings": {
@@ -2975,6 +3056,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.powershell support.function",
         "source.powershell support.function"
       ],
       "settings": {
@@ -2984,6 +3066,9 @@
     },
     {
       "scope": [
+        "meta.embedded.block.powershell keyword.operator.comparison",
+        "meta.embedded.block.powershell keyword.operator.documentation",
+        "meta.embedded.block.powershell keyword.operator.logical",
         "source.powershell keyword.operator.comparison",
         "source.powershell keyword.operator.documentation",
         "source.powershell keyword.operator.logical"
@@ -3004,6 +3089,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.python meta.attribute",
         "source.python meta.attribute"
       ],
       "settings": {
@@ -3012,6 +3098,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.python meta.function-call",
         "source.python meta.function-call"
       ],
       "settings": {
@@ -3020,6 +3107,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.python punctuation.definition.arguments",
         "source.python punctuation.definition.arguments"
       ],
       "settings": {
@@ -3028,6 +3116,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.python storage.type.string",
         "source.python storage.type.string"
       ],
       "settings": {
@@ -3036,6 +3125,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.python keyword.operator.logical",
         "source.python keyword.operator.logical"
       ],
       "settings": {
@@ -3044,6 +3134,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.python meta.fstring",
         "source.python meta.fstring"
       ],
       "settings": {
@@ -3052,6 +3143,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.python storage.type.format",
         "source.python storage.type.format"
       ],
       "settings": {
@@ -3060,6 +3152,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.python meta.typehint.comment",
         "source.python meta.typehint.comment"
       ],
       "settings": {
@@ -3068,6 +3161,8 @@
     },
     {
       "scope": [
+        "meta.embedded.block.python comment.typehint.directive",
+        "meta.embedded.block.python comment.typehint.punctuation",
         "source.python comment.typehint.directive",
         "source.python comment.typehint.punctuation"
       ],
@@ -3087,6 +3182,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.ruby constant.other.symbol",
         "source.ruby constant.other.symbol"
       ],
       "settings": {
@@ -3096,6 +3192,8 @@
     },
     {
       "scope": [
+        "meta.embedded.block.ruby variable.other.constant.instance",
+        "meta.embedded.block.ruby variable.other.readwrite.instance",
         "source.ruby variable.other.constant.instance",
         "source.ruby variable.other.readwrite.instance"
       ],
@@ -3115,6 +3213,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.rust entity.name.function.macro.rules",
         "source.rust entity.name.function.macro.rules"
       ],
       "settings": {
@@ -3125,6 +3224,7 @@
     {
       "scope": [
         "keyword.operator.macro",
+        "meta.embedded.block.rust variable.other.metavariable.name",
         "source.rust variable.other.metavariable.name"
       ],
       "settings": {
@@ -3134,6 +3234,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.rust variable.other.metavariable.specifier",
         "source.rust variable.other.metavariable.specifier"
       ],
       "settings": {
@@ -3173,6 +3274,7 @@
     {
       "scope": [
         "entity.name.command",
+        "meta.embedded.block.shellscript support.function",
         "source.shell support.function"
       ],
       "settings": {
@@ -3181,6 +3283,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.shellscript constant.other.option",
         "source.shell constant.other.option"
       ],
       "settings": {
@@ -3189,6 +3292,9 @@
     },
     {
       "scope": [
+        "meta.embedded.block.shellscript keyword.operator.comparison",
+        "meta.embedded.block.shellscript keyword.operator.logical",
+        "meta.embedded.block.shellscript keyword.operator.redirect",
         "source.shell keyword.operator.comparison",
         "source.shell keyword.operator.logical",
         "source.shell keyword.operator.redirect"
@@ -3199,6 +3305,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.shellscript keyword.operator.pipe",
         "source.shell keyword.operator.pipe"
       ],
       "settings": {
@@ -3207,6 +3314,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.shellscript keyword.operator.herestring",
         "source.shell keyword.operator.herestring"
       ],
       "settings": {
@@ -3215,6 +3323,10 @@
     },
     {
       "scope": [
+        "meta.embedded.block.shellscript keyword.operator.pattern.case",
+        "meta.embedded.block.shellscript meta.case.entry constant.character.escape",
+        "meta.embedded.block.shellscript meta.case.entry constant.character",
+        "meta.embedded.block.shellscript meta.case.entry string.regexp",
         "source.shell keyword.operator.pattern.case",
         "source.shell meta.case.entry constant.character.escape",
         "source.shell meta.case.entry constant.character",
@@ -3226,8 +3338,10 @@
     },
     {
       "scope": [
-        "source.shell punctuation.definition.variable",
-        "source.shell punctuation.definition.subshell"
+        "meta.embedded.block.shellscript punctuation.definition.subshell",
+        "meta.embedded.block.shellscript punctuation.definition.variable",
+        "source.shell punctuation.definition.subshell",
+        "source.shell punctuation.definition.variable"
       ],
       "settings": {
         "foreground": "#87ABC0FF"
@@ -3235,6 +3349,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.shellscript variable.language",
         "source.shell variable.language"
       ],
       "settings": {
@@ -3243,6 +3358,34 @@
     },
     {
       "scope": [
+        "meta.embedded.block.shellscript punctuation.separator.statement.and",
+        "source.shell punctuation.separator.statement.and"
+      ],
+      "settings": {
+        "foreground": "#80B27FFF"
+      }
+    },
+    {
+      "scope": [
+        "meta.embedded.block.shellscript punctuation.section.array",
+        "source.shell punctuation.section.array"
+      ],
+      "settings": {
+        "foreground": "#FFFFFF8A"
+      }
+    },
+    {
+      "scope": [
+        "meta.embedded.block.shellscript punctuation.terminator",
+        "source.shell punctuation.terminator"
+      ],
+      "settings": {
+        "foreground": "#D19797FF"
+      }
+    },
+    {
+      "scope": [
+        "meta.embedded.block.sql storage.type",
         "source.sql storage.type"
       ],
       "settings": {
@@ -3252,6 +3395,8 @@
     },
     {
       "scope": [
+        "meta.embedded.block.sql keyword.other.create",
+        "meta.embedded.block.sql keyword.other.DML",
         "source.sql keyword.other.create",
         "source.sql keyword.other.DML"
       ],
@@ -3262,6 +3407,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.sql keyword.operator.star",
         "source.sql keyword.operator.star"
       ],
       "settings": {
@@ -3271,6 +3417,10 @@
     },
     {
       "scope": [
+        "meta.embedded.block.sql keyword.other.alias",
+        "meta.embedded.block.sql keyword.other.data-integrity",
+        "meta.embedded.block.sql keyword.other.DDL",
+        "meta.embedded.block.sql keyword.other.order",
         "source.sql keyword.other.alias",
         "source.sql keyword.other.data-integrity",
         "source.sql keyword.other.DDL",
@@ -3302,6 +3452,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.toml support.type.property-name",
         "source.toml support.type.property-name"
       ],
       "settings": {
@@ -3311,6 +3462,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.toml punctuation.definition.table.inline",
         "source.toml punctuation.definition.table.inline"
       ],
       "settings": {
@@ -3320,6 +3472,8 @@
     },
     {
       "scope": [
+        "meta.embedded.block.toml punctuation.definition.array.table",
+        "meta.embedded.block.toml punctuation.definition.table",
         "source.toml punctuation.definition.array.table",
         "source.toml punctuation.definition.table"
       ],
@@ -3330,6 +3484,10 @@
     },
     {
       "scope": [
+        "meta.embedded.block.toml meta.table punctuation.separator.dot",
+        "meta.embedded.block.toml meta.array punctuation.separator.dot",
+        "meta.embedded.block.toml support.type.property-name.array",
+        "meta.embedded.block.toml support.type.property-name.table",
         "source.toml meta.table punctuation.separator.dot",
         "source.toml meta.array punctuation.separator.dot",
         "source.toml support.type.property-name.array",
@@ -3342,6 +3500,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.toml constant.other.time.date",
         "source.toml constant.other.time.date"
       ],
       "settings": {
@@ -3351,6 +3510,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.toml constant.other.time.time",
         "source.toml constant.other.time.time"
       ],
       "settings": {
@@ -3360,6 +3520,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.toml constant.other.time.datetime",
         "source.toml constant.other.time.datetime"
       ],
       "settings": {
@@ -3369,6 +3530,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.toml constant.other.time.datetime.offset",
         "source.toml constant.other.time.datetime.offset"
       ],
       "settings": {
@@ -3405,6 +3567,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.yaml constant.other.timestamp",
         "source.yaml constant.other.timestamp"
       ],
       "settings": {
@@ -3414,6 +3577,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.yaml keyword.control.flow.block-scalar",
         "source.yaml keyword.control.flow.block-scalar"
       ],
       "settings": {
@@ -3423,6 +3587,8 @@
     },
     {
       "scope": [
+        "meta.embedded.block.yaml punctuation.definition.anchor",
+        "meta.embedded.block.yaml entity.name.type.anchor",
         "source.yaml punctuation.definition.anchor",
         "source.yaml entity.name.type.anchor"
       ],
@@ -3433,6 +3599,8 @@
     },
     {
       "scope": [
+        "meta.embedded.block.yaml punctuation.definition.alias",
+        "meta.embedded.block.yaml entity.name.type.alias",
         "source.yaml punctuation.definition.alias",
         "source.yaml entity.name.type.alias"
       ],
@@ -3443,6 +3611,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.yaml storage.modifier.chomping-indicator",
         "source.yaml storage.modifier.chomping-indicator"
       ],
       "settings": {
@@ -3452,6 +3621,7 @@
     },
     {
       "scope": [
+        "meta.embedded.block.yaml entity.other.document",
         "source.yaml entity.other.document"
       ],
       "settings": {

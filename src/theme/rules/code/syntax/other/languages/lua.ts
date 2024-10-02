@@ -5,7 +5,10 @@ export const getRules = (themeContext: ThemeContext): object => {
   return [
     // Attributes (Properties)
     {
-      scope: ["source.lua entity.other.attribute"],
+      scope: [
+        "meta.embedded.block.lua entity.other.attribute",
+        "source.lua entity.other.attribute",
+      ],
       settings: {
         foreground: colors.s11,
         fontStyle: "",

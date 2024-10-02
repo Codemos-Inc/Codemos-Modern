@@ -13,7 +13,10 @@ export const getRules = (themeContext: ThemeContext): object => {
     },
     // Macro rules
     {
-      scope: ["source.rust entity.name.function.macro.rules"],
+      scope: [
+        "meta.embedded.block.rust entity.name.function.macro.rules",
+        "source.rust entity.name.function.macro.rules",
+      ],
       settings: {
         foreground: colors.s16,
         fontStyle: "",
@@ -21,7 +24,11 @@ export const getRules = (themeContext: ThemeContext): object => {
     },
     // Macro metavariables
     {
-      scope: ["keyword.operator.macro", "source.rust variable.other.metavariable.name"],
+      scope: [
+        "keyword.operator.macro",
+        "meta.embedded.block.rust variable.other.metavariable.name",
+        "source.rust variable.other.metavariable.name",
+      ],
       settings: {
         foreground: colors.s15,
         fontStyle: "",
@@ -29,7 +36,10 @@ export const getRules = (themeContext: ThemeContext): object => {
     },
     // Macro metavariable specifiers
     {
-      scope: ["source.rust variable.other.metavariable.specifier"],
+      scope: [
+        "meta.embedded.block.rust variable.other.metavariable.specifier",
+        "source.rust variable.other.metavariable.specifier",
+      ],
       settings: {
         foreground: colors.s06,
         fontStyle: "",

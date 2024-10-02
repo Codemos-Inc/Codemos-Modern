@@ -5,21 +5,26 @@ export const getRules = (themeContext: ThemeContext): object => {
   return [
     // Commands
     {
-      scope: ["source.fish support.function"],
+      scope: ["meta.embedded.block.fish support.function", "source.fish support.function"],
       settings: {
         foreground: colors.s03,
       },
     },
     // Options
     {
-      scope: ["source.fish source.option", "source.fish string.other.option"],
+      scope: [
+        "meta.embedded.block.fish source.option",
+        "meta.embedded.block.fish string.other.option",
+        "source.fish source.option",
+        "source.fish string.other.option",
+      ],
       settings: {
         foreground: colors.s11,
       },
     },
     // Language variables
     {
-      scope: ["source.fish variable.language"],
+      scope: ["meta.embedded.block.fish variable.language", "source.fish variable.language"],
       settings: {
         foreground: colors.s13,
       },
@@ -27,6 +32,9 @@ export const getRules = (themeContext: ThemeContext): object => {
     // Operators
     {
       scope: [
+        "meta.embedded.block.fish keyword.operator.comparison",
+        "meta.embedded.block.fish keyword.operator.logical",
+        "meta.embedded.block.fish keyword.operator.redirect",
         "source.fish keyword.operator.comparison",
         "source.fish keyword.operator.logical",
         "source.fish keyword.operator.redirect",

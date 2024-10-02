@@ -6,8 +6,10 @@ export const getRules = (themeContext: ThemeContext): object => {
     // Interpolated strings
     {
       scope: [
-        "source.kotlin entity.string.template.element",
+        "meta.embedded.block.kotlin entity.string.template.element punctuation.definition.keyword",
+        "meta.embedded.block.kotlin entity.string.template.element",
         "source.kotlin entity.string.template.element punctuation.definition.keyword",
+        "source.kotlin entity.string.template.element",
       ],
       settings: {
         foreground: colors.s14,
@@ -16,7 +18,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     },
     // Wordlike keywords
     {
-      scope: ["source.kotlin keyword.operator"],
+      scope: ["meta.embedded.block.kotlin keyword.operator", "source.kotlin keyword.operator"],
       settings: {
         foreground: colors.s06,
         fontStyle: "",
@@ -25,6 +27,12 @@ export const getRules = (themeContext: ThemeContext): object => {
     // Other keywords
     {
       scope: [
+        "meta.embedded.block.kotlin keyword.operator.arithmetic",
+        "meta.embedded.block.kotlin keyword.operator.assignment",
+        "meta.embedded.block.kotlin keyword.operator.comparison",
+        "meta.embedded.block.kotlin keyword.operator.declaration",
+        "meta.embedded.block.kotlin keyword.operator.elvis",
+        "meta.embedded.block.kotlin keyword.operator.logical",
         "source.kotlin keyword.operator.arithmetic",
         "source.kotlin keyword.operator.assignment",
         "source.kotlin keyword.operator.comparison",

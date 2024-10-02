@@ -5,7 +5,7 @@ export const getRules = (themeContext: ThemeContext): object => {
   return [
     // Constants
     {
-      scope: ["source.php constant.other"],
+      scope: ["meta.embedded.block.php constant.other", "source.php constant.other"],
       settings: {
         foreground: colors.s10,
         fontStyle: "",
@@ -13,7 +13,10 @@ export const getRules = (themeContext: ThemeContext): object => {
     },
     // Interpolated strings
     {
-      scope: ["source.php string punctuation.definition.variable"],
+      scope: [
+        "meta.embedded.block.php string punctuation.definition.variable",
+        "source.php string punctuation.definition.variable",
+      ],
       settings: {
         foreground: colors.s14,
         fontStyle: "",
@@ -21,7 +24,10 @@ export const getRules = (themeContext: ThemeContext): object => {
     },
     // Interpolated variables
     {
-      scope: ["source.php string variable punctuation.definition.variable"],
+      scope: [
+        "meta.embedded.block.php string variable punctuation.definition.variable",
+        "source.php string variable punctuation.definition.variable",
+      ],
       settings: {
         foreground: colors.s10,
         fontStyle: "",
@@ -29,7 +35,10 @@ export const getRules = (themeContext: ThemeContext): object => {
     },
     // Interpolated language variables
     {
-      scope: ["source.php string variable.language punctuation.definition.variable"],
+      scope: [
+        "meta.embedded.block.php string variable.language punctuation.definition.variable",
+        "source.php string variable.language punctuation.definition.variable",
+      ],
       settings: {
         foreground: colors.s03,
         fontStyle: "",
@@ -37,7 +46,12 @@ export const getRules = (themeContext: ThemeContext): object => {
     },
     // Heredoc/Nowdoc operator
     {
-      scope: ["source.php keyword.operator.heredoc", "source.php keyword.operator.nowdoc"],
+      scope: [
+        "meta.embedded.block.php keyword.operator.heredoc",
+        "meta.embedded.block.php keyword.operator.nowdoc",
+        "source.php keyword.operator.heredoc",
+        "source.php keyword.operator.nowdoc",
+      ],
       settings: {
         foreground: colors.s09,
         fontStyle: "",
@@ -45,7 +59,10 @@ export const getRules = (themeContext: ThemeContext): object => {
     },
     // Logical operators
     {
-      scope: ["source.php keyword.operator.logical"],
+      scope: [
+        "meta.embedded.block.php keyword.operator.logical",
+        "source.php keyword.operator.logical",
+      ],
       settings: {
         foreground: colors.s06,
         fontStyle: "",
@@ -53,7 +70,10 @@ export const getRules = (themeContext: ThemeContext): object => {
     },
     // Other operators
     {
-      scope: ["source.php punctuation.section.array"],
+      scope: [
+        "meta.embedded.block.php keyword.operator.arithmetic",
+        "source.php punctuation.section.array",
+      ],
       settings: {
         foreground: colors.sxx,
         fontStyle: "",

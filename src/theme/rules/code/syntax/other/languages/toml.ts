@@ -5,7 +5,10 @@ export const getRules = (themeContext: ThemeContext): object => {
   return [
     // Properties
     {
-      scope: ["source.toml support.type.property-name"],
+      scope: [
+        "meta.embedded.block.toml support.type.property-name",
+        "source.toml support.type.property-name",
+      ],
       settings: {
         foreground: colors.s05,
         fontStyle: "",
@@ -13,7 +16,10 @@ export const getRules = (themeContext: ThemeContext): object => {
     },
     // Inline tables
     {
-      scope: ["source.toml punctuation.definition.table.inline"],
+      scope: [
+        "meta.embedded.block.toml punctuation.definition.table.inline",
+        "source.toml punctuation.definition.table.inline",
+      ],
       settings: {
         foreground: colors.sxx,
         fontStyle: "",
@@ -22,6 +28,8 @@ export const getRules = (themeContext: ThemeContext): object => {
     // Arrays
     {
       scope: [
+        "meta.embedded.block.toml punctuation.definition.array.table",
+        "meta.embedded.block.toml punctuation.definition.table",
         "source.toml punctuation.definition.array.table",
         "source.toml punctuation.definition.table",
       ],
@@ -33,6 +41,10 @@ export const getRules = (themeContext: ThemeContext): object => {
     // Array items
     {
       scope: [
+        "meta.embedded.block.toml meta.table punctuation.separator.dot",
+        "meta.embedded.block.toml meta.array punctuation.separator.dot",
+        "meta.embedded.block.toml support.type.property-name.array",
+        "meta.embedded.block.toml support.type.property-name.table",
         "source.toml meta.table punctuation.separator.dot",
         "source.toml meta.array punctuation.separator.dot",
         "source.toml support.type.property-name.array",
@@ -45,7 +57,10 @@ export const getRules = (themeContext: ThemeContext): object => {
     },
     // Date
     {
-      scope: ["source.toml constant.other.time.date"],
+      scope: [
+        "meta.embedded.block.toml constant.other.time.date",
+        "source.toml constant.other.time.date",
+      ],
       settings: {
         foreground: colors.s10,
         fontStyle: "",
@@ -53,23 +68,32 @@ export const getRules = (themeContext: ThemeContext): object => {
     },
     // Time
     {
-      scope: ["source.toml constant.other.time.time"],
+      scope: [
+        "meta.embedded.block.toml constant.other.time.time",
+        "source.toml constant.other.time.time",
+      ],
       settings: {
         foreground: colors.s11,
         fontStyle: "",
       },
     },
-    // Datetime
+    // Date-time
     {
-      scope: ["source.toml constant.other.time.datetime"],
+      scope: [
+        "meta.embedded.block.toml constant.other.time.datetime",
+        "source.toml constant.other.time.datetime",
+      ],
       settings: {
         foreground: colors.s15,
         fontStyle: "",
       },
     },
-    // Datetime (offset)
+    // Date-time (offset)
     {
-      scope: ["source.toml constant.other.time.datetime.offset"],
+      scope: [
+        "meta.embedded.block.toml constant.other.time.datetime.offset",
+        "source.toml constant.other.time.datetime.offset",
+      ],
       settings: {
         foreground: colors.s16,
         fontStyle: "",
