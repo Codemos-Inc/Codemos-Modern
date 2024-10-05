@@ -5,7 +5,10 @@ export const getRules = (themeContext: ThemeContext): object => {
   return [
     // Entry properties
     {
-      scope: ["text.bibtex support.function.key"],
+      scope: [
+        "meta.embedded.block.bibtex support.function.key",
+        "text.bibtex support.function.key",
+      ],
       settings: {
         foreground: colors.s14,
         fontStyle: "",
@@ -13,7 +16,10 @@ export const getRules = (themeContext: ThemeContext): object => {
     },
     // Entry names
     {
-      scope: ["text.bibtex entity.name.type.entry-key"],
+      scope: [
+        "meta.embedded.block.bibtex entity.name.type.entry-key",
+        "text.bibtex entity.name.type.entry-key",
+      ],
       settings: {
         foreground: colors.s10,
         fontStyle: "",
@@ -21,15 +27,18 @@ export const getRules = (themeContext: ThemeContext): object => {
     },
     // Square brackets
     {
-      scope: ["text.bibtex support.variable"],
+      scope: ["meta.embedded.block.bibtex support.variable", "text.bibtex support.variable"],
       settings: {
         foreground: colors.s13,
         fontStyle: "",
       },
     },
-    // Sstrings
+    // Strings
     {
       scope: [
+        "meta.embedded.block.bibtex meta.key-assignment",
+        "meta.embedded.block.bibtex meta.preamble.braces",
+        "meta.embedded.block.bibtex meta.string-constant",
         "text.bibtex meta.key-assignment",
         "text.bibtex meta.preamble.braces",
         "text.bibtex meta.string-constant",

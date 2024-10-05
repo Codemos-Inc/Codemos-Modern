@@ -11,7 +11,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         fontStyle: "",
       },
     },
-    // Importants
+    // Important keywords
     {
       scope: ["keyword.other.important"],
       settings: {
@@ -62,6 +62,9 @@ export const getRules = (themeContext: ThemeContext): object => {
     // Keyword punctuation
     {
       scope: [
+        "meta.embedded.block.css punctuation.definition.keyword",
+        "meta.embedded.block.less punctuation.definition.keyword",
+        "meta.embedded.block.scss punctuation.definition.keyword",
         "source.css punctuation.definition.keyword",
         "source.less punctuation.definition.keyword",
         "source.scss punctuation.definition.keyword",

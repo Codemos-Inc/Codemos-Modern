@@ -5,7 +5,7 @@ export const getRules = (themeContext: ThemeContext): object => {
   return [
     // Operators
     {
-      scope: ["source.fsharp keyword.symbol"],
+      scope: ["meta.embedded.block.fsharp keyword.symbol", "source.fsharp keyword.symbol"],
       settings: {
         foreground: colors.sxx,
         fontStyle: "",
@@ -13,7 +13,10 @@ export const getRules = (themeContext: ThemeContext): object => {
     },
     // Sections
     {
-      scope: ["source.fsharp entity.name.section"],
+      scope: [
+        "meta.embedded.block.fsharp entity.name.section",
+        "source.fsharp entity.name.section",
+      ],
       settings: {
         foreground: colors.s05,
         fontStyle: "",
@@ -21,7 +24,10 @@ export const getRules = (themeContext: ThemeContext): object => {
     },
     // Interpolated strings
     {
-      scope: ["source.fsharp keyword.format.specifier"],
+      scope: [
+        "meta.embedded.block.fsharp keyword.format.specifier",
+        "source.fsharp keyword.format.specifier",
+      ],
       settings: {
         foreground: colors.s14,
         fontStyle: "",
@@ -29,7 +35,10 @@ export const getRules = (themeContext: ThemeContext): object => {
     },
     // Attributes
     {
-      scope: ["source.fsharp support.function.attribute"],
+      scope: [
+        "meta.embedded.block.fsharp support.function.attribute",
+        "source.fsharp support.function.attribute",
+      ],
       settings: {
         foreground: colors.s01,
         fontStyle: "",
@@ -37,7 +46,10 @@ export const getRules = (themeContext: ThemeContext): object => {
     },
     // Attribute arguments
     {
-      scope: ["source.fsharp support.function.attribute keyword.symbol"],
+      scope: [
+        "meta.embedded.block.fsharp support.function.attribute keyword.symbol",
+        "source.fsharp support.function.attribute keyword.symbol",
+      ],
       settings: {
         foreground: colors.s09,
         fontStyle: "",

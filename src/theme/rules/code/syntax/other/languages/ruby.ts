@@ -5,7 +5,10 @@ export const getRules = (themeContext: ThemeContext): object => {
   return [
     // Hash keys
     {
-      scope: ["source.ruby constant.other.symbol"],
+      scope: [
+        "meta.embedded.block.ruby constant.other.symbol",
+        "source.ruby constant.other.symbol",
+      ],
       settings: {
         foreground: colors.s11,
         fontStyle: "",
@@ -14,6 +17,8 @@ export const getRules = (themeContext: ThemeContext): object => {
     // Properties
     {
       scope: [
+        "meta.embedded.block.ruby variable.other.constant.instance",
+        "meta.embedded.block.ruby variable.other.readwrite.instance",
         "source.ruby variable.other.constant.instance",
         "source.ruby variable.other.readwrite.instance",
       ],

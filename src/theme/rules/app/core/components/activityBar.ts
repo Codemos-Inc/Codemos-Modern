@@ -20,6 +20,10 @@ export const getRules = (themeContext: ThemeContext): object => {
     "activityBarTop.dropBorder": styles.fill.accent.pri,
     "activityBarTop.foreground": styles.fill.text.pri,
     "activityBarTop.inactiveForeground": styles.fill.text.sec,
+    "activityErrorBadge.background": styles.basic.def.red.pri,
+    "activityErrorBadge.foreground": styles.fill.textOnColor.pri,
+    "activityWarningBadge.background": styles.basic.def.orange.pri,
+    "activityWarningBadge.foreground": styles.fill.textOnColor.pri,
   };
   const design = themeContext.variantConfig.design;
   if (design === "minimal") {

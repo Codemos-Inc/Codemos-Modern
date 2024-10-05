@@ -5,7 +5,7 @@ export const getRules = (themeContext: ThemeContext): object => {
   return [
     // Global variables
     {
-      scope: ["source.clojure entity.global"],
+      scope: ["meta.embedded.block.clojure entity.global", "source.clojure entity.global"],
       settings: {
         foreground: colors.s13,
         fontStyle: "",
@@ -13,7 +13,12 @@ export const getRules = (themeContext: ThemeContext): object => {
     },
     // Keywords
     {
-      scope: ["source.clojure constant.keyword", "source.clojure keyword.control"],
+      scope: [
+        "meta.embedded.block.clojure constant.keyword",
+        "meta.embedded.block.clojure keyword.control",
+        "source.clojure constant.keyword",
+        "source.clojure keyword.control",
+      ],
       settings: {
         foreground: colors.s06,
         fontStyle: "",
@@ -21,7 +26,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     },
     // Keywords
     {
-      scope: ["source.clojure storage.control"],
+      scope: ["meta.embedded.block.clojure storage.control", "source.clojure storage.control"],
       settings: {
         foreground: colors.s06,
         fontStyle: "",
@@ -29,7 +34,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     },
     // Symbols
     {
-      scope: ["source.clojure meta.symbol"],
+      scope: ["meta.embedded.block.clojure meta.symbol", "source.clojure meta.symbol"],
       settings: {
         foreground: colors.s10,
         fontStyle: "",

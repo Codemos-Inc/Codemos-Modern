@@ -5,7 +5,10 @@ export const getRules = (themeContext: ThemeContext): object => {
   return [
     // Attributes
     {
-      scope: ["source.ini keyword.other.definition"],
+      scope: [
+        "meta.embedded.block.ini keyword.other.definition",
+        "source.ini keyword.other.definition",
+      ],
       settings: {
         foreground: colors.s05,
         fontStyle: "",
@@ -13,7 +16,10 @@ export const getRules = (themeContext: ThemeContext): object => {
     },
     // Section titles
     {
-      scope: ["source.ini entity.name.section.group-title"],
+      scope: [
+        "meta.embedded.block.ini entity.name.section.group-title",
+        "source.ini entity.name.section.group-title",
+      ],
       settings: {
         foreground: colors.s09,
         fontStyle: "",
@@ -21,7 +27,10 @@ export const getRules = (themeContext: ThemeContext): object => {
     },
     // Section punctuations
     {
-      scope: ["source.ini punctuation.definition.entity"],
+      scope: [
+        "meta.embedded.block.ini punctuation.definition.entity",
+        "source.ini punctuation.definition.entity",
+      ],
       settings: {
         foreground: colors.s01,
         fontStyle: "",

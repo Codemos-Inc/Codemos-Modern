@@ -21,7 +21,12 @@ export const getRules = (themeContext: ThemeContext): object => {
     },
     // New/Delete operators
     {
-      scope: ["source.cpp keyword.operator.delete", "source.cpp keyword.operator.new"],
+      scope: [
+        "meta.embedded.block.cpp keyword.operator.delete",
+        "meta.embedded.block.cpp keyword.operator.new",
+        "source.cpp keyword.operator.delete",
+        "source.cpp keyword.operator.new",
+      ],
       settings: {
         foreground: colors.s01,
         fontStyle: "",
@@ -57,6 +62,8 @@ export const getRules = (themeContext: ThemeContext): object => {
         "keyword.operator.xor_eq",
         "keyword.operator.xor",
         "keyword.other.static_assert",
+        "meta.embedded.block.cpp keyword.operator.functionlike",
+        "meta.embedded.block.cpp keyword.operator.wordlike",
         "source.cpp keyword.operator.functionlike",
         "source.cpp keyword.operator.wordlike",
       ],

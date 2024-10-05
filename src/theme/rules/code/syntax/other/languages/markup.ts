@@ -138,21 +138,21 @@ export const getRules = (themeContext: ThemeContext): object => {
     },
     // Inserted
     {
-      scope: "markup.inserted",
+      scope: ["markup.inserted"],
       settings: {
         foreground: styles.basic.def.green.pri,
       },
     },
     // Deleted
     {
-      scope: "markup.deleted",
+      scope: ["markup.deleted"],
       settings: {
         foreground: styles.basic.def.red.pri,
       },
     },
     // Changed
     {
-      scope: "markup.changed",
+      scope: ["markup.changed"],
       settings: {
         foreground: styles.basic.def.blue.pri,
       },

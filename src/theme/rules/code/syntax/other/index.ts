@@ -9,6 +9,7 @@ import { getRules as getCppRules } from "./languages/cpp";
 import { getRules as getCsharpRules } from "./languages/csharp";
 import { getRules as getCssRules } from "./languages/css";
 import { getRules as getDartRules } from "./languages/dart";
+import { getRules as getEditorconfigRules } from "./languages/editorconfig";
 import { getRules as getFishRules } from "./languages/fish";
 import { getRules as getFsharpRules } from "./languages/fsharp";
 import { getRules as getGoRules } from "./languages/go";
@@ -49,6 +50,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     ...(<[]>getCsharpRules(themeContext)),
     ...(<[]>getCssRules(themeContext)),
     ...(<[]>getDartRules(themeContext)),
+    ...(<[]>getEditorconfigRules(themeContext)),
     ...(<[]>getFishRules(themeContext)),
     ...(<[]>getFsharpRules(themeContext)),
     ...(<[]>getGoRules(themeContext)),
