@@ -323,7 +323,7 @@ Changes from the last major release shown below. If you want to see the full cha
 
 ### Added
 
-- VS Code v1.93.x support.
+- VS Code v1.94.x support.
 - Modularity system. Users can now side-load **third party themes**.
 - Brand new design, **"Flat"**. Users can now choose between **"Modern"**, **"Minimal"** and **"Flat"** designs.
 - Command `codemosModern.authenticate` to increase GitHub **api rate limits**.
