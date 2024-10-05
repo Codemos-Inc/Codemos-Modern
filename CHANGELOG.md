@@ -4,6 +4,14 @@ All notable changes to the "codemos-modern" extension will be documented in this
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.8.1] - 2024-10-05 - VS Code v1.94.x support 🟢
+
+### Added
+
+- Support for VS Code v1.94.x.
+- Support for editorconfig syntax highlighting.
+- Support for embedded languages' syntax highlighting.
+
 ## [2.8.0] - 2024-10-01 - Introducing Flat design 🎨
 
 ### Added
@@ -408,6 +416,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - Initial release
 
+[2.8.1]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.8.0...v2.8.1
 [2.8.0]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.7.2...v2.8.0
 [2.7.2]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.7.1...v2.7.2
 [2.7.1]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.7.0...v2.7.1
