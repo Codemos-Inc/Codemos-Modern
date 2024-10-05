@@ -39,7 +39,6 @@ import { getRules as getPortsRules } from "./components/ports";
 import { getRules as getProfilesRules } from "./components/profiles";
 import { getRules as getProgressBarRules } from "./components/progressBar";
 import { getRules as getQuickPickerRules } from "./components/quickPicker";
-import { getRules as getScmRules } from "./components/scm";
 import { getRules as getScrollbarControlRules } from "./components/scrollbarControl";
 import { getRules as getSettingsEditorRules } from "./components/settingsEditor";
 import { getRules as getSideBarRules } from "./components/sideBar";
@@ -96,7 +95,6 @@ export const getRules = (themeContext: ThemeContext): object => {
     ...getProfilesRules(themeContext),
     ...getProgressBarRules(themeContext),
     ...getQuickPickerRules(themeContext),
-    ...getScmRules(themeContext),
     ...getScrollbarControlRules(themeContext),
     ...getSettingsEditorRules(themeContext),
     ...getSideBarRules(themeContext),

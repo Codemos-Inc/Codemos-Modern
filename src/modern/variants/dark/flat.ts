@@ -105,20 +105,20 @@ const mimic4Info: MimicInfo = {
 
 const mimic5Info: MimicInfo = {
   none: {
-    referenceColor: "#1f1f1f",
+    referenceColor: "#373737",
     saturation: 0,
   },
   gentle: {
-    referenceColor: "#1f1f1f",
-    saturation: 7,
+    referenceColor: "#373737",
+    saturation: 3,
   },
   moderate: {
-    referenceColor: "#202020",
-    saturation: 17,
+    referenceColor: "#383838",
+    saturation: 6,
   },
   aggressive: {
-    referenceColor: "#272727",
-    saturation: 30,
+    referenceColor: "#3d3d3d",
+    saturation: 12,
   },
 };
 
