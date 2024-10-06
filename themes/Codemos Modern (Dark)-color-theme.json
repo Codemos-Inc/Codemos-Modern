@@ -992,6 +992,7 @@
       "bold": true
     },
     "operator": "#FFFFFF8A",
+    "enum:cmake": "#ADA77FFF",
     "referenceType": "#BFAF40FF",
     "cliProperty": "#ADA77FFF",
     "genericType": "#BFAF40FF",
@@ -2183,6 +2184,31 @@
       "settings": {
         "foreground": "#C59E7FFF",
         "fontStyle": ""
+      }
+    },
+    {
+      "scope": [
+        "source.cmake command-identifier"
+      ],
+      "settings": {
+        "foreground": "#9B87EAFF",
+        "fontStyle": ""
+      }
+    },
+    {
+      "scope": [
+        "source.cmake expression.group"
+      ],
+      "settings": {
+        "foreground": "#D19797FF"
+      }
+    },
+    {
+      "scope": [
+        "source.cmake"
+      ],
+      "settings": {
+        "foreground": "#EF6363FF"
       }
     },
     {
