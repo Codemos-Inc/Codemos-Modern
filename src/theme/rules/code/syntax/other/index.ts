@@ -4,6 +4,7 @@ import { getRules as getBatchRules } from "./languages/batch";
 import { getRules as getBibtextRules } from "./languages/bibtex";
 import { getRules as getCRules } from "./languages/c";
 import { getRules as getClojureRules } from "./languages/clojure";
+import { getRules as getCmakeRules } from "./languages/cmake";
 import { getRules as getCoffeescriptRules } from "./languages/coffeescript";
 import { getRules as getCppRules } from "./languages/cpp";
 import { getRules as getCsharpRules } from "./languages/csharp";
@@ -45,6 +46,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     ...(<[]>getBibtextRules(themeContext)),
     ...(<[]>getCRules(themeContext)),
     ...(<[]>getClojureRules(themeContext)),
+    ...(<[]>getCmakeRules(themeContext)),
     ...(<[]>getCoffeescriptRules(themeContext)),
     ...(<[]>getCppRules(themeContext)),
     ...(<[]>getCsharpRules(themeContext)),
