@@ -430,7 +430,7 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
           `${mimic3Color}${getHexAlpha(100)}`,
         )}`,
         hic: `${getMixedColorHex9(
-          `${palette.hic}${getHexAlpha(78)}`,
+          `${palette.hic}${getHexAlpha(100)}`,
           `${mimic3Color}${getHexAlpha(100)}`,
         )}`,
         hiq: `${getMixedColorHex9(

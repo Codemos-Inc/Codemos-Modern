@@ -37,9 +37,9 @@ export const palette: Palette = {
       red: "#E0D1D1",
       orange: "#E1D2C1",
       yellow: "#D9D6B7",
-      green: "#B7DEBA",
-      mint: "#BBDBD9",
-      blue: "#CED5DF",
+      green: "#C1DCC3",
+      mint: "#BEDAD8",
+      blue: "#CDD5E0",
       purple: "#D9D2DF",
       pink: "#E0D0DA",
     },
@@ -430,7 +430,7 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
           `${mimic3Color}${getHexAlpha(100)}`,
         )}`,
         hic: `${getMixedColorHex9(
-          `${palette.hic}${getHexAlpha(90)}`,
+          `${palette.hic}${getHexAlpha(100)}`,
           `${mimic3Color}${getHexAlpha(100)}`,
         )}`,
         hiq: `${getMixedColorHex9(

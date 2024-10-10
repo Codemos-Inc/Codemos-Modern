@@ -425,7 +425,7 @@
     "terminal.ansiBrightGreen": "#528256FF",
     "terminal.ansiBrightMagenta": "#AF5A92FF",
     "terminal.ansiBrightRed": "#C35354FF",
-    "terminal.ansiBrightWhite": "#191919",
+    "terminal.ansiBrightWhite": "#000000",
     "terminal.ansiBrightYellow": "#7D7852FF",
     "terminal.ansiCyan": "#006560FF",
     "terminal.ansiGreen": "#006904FF",
@@ -2193,6 +2193,14 @@
       "settings": {
         "foreground": "#7700EEFF",
         "fontStyle": ""
+      }
+    },
+    {
+      "scope": [
+        "source.cmake punctuation.section.parens"
+      ],
+      "settings": {
+        "foreground": "#000000B8"
       }
     },
     {
