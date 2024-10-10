@@ -37,7 +37,7 @@ const palette: Palette = {
       red: "#E0D1D1",
       orange: "#E1D2C1",
       yellow: "#D9D6B7",
-      green: "#B7DEBA",
+      green: "#BCDCBF",
       mint: "#BBDBD9",
       blue: "#CED5DF",
       purple: "#D9D2DF",
