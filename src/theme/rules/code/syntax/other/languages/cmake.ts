@@ -13,7 +13,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     },
     // Parentheses
     {
-      scope: ["source.cmake punctuation.section.parens"],
+      scope: ["source.cmake punctuation.parenthesis", "source.cmake punctuation.section.parens"],
       settings: {
         foreground: colors.sxx,
       },
