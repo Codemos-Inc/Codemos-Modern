@@ -4,6 +4,17 @@ All notable changes to the "codemos-modern" extension will be documented in this
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.8.3] - 2024-10-10 - Minor fixes 🛠️
+
+### Changed
+
+- Light variant colors to be more consistent.
+
+### Fixed
+
+- Terminal colors to emphasize foreground and bright white colors.
+- CMake parentheses colors incorrectly highlighted.
+
 ## [2.8.2] - 2024-10-06 - Added CMake support 🟢
 
 ### Added
@@ -422,6 +433,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - Initial release
 
+[2.8.3]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.8.2...v2.8.3
 [2.8.2]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.8.1...v2.8.2
 [2.8.1]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.8.0...v2.8.1
 [2.8.0]: https://github.com/Codemos-Inc/codemos-modern/compare/v2.7.2...v2.8.0
