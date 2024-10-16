@@ -1,13 +1,13 @@
+import { RequestError } from "@octokit/request-error";
 import { Octokit } from "@octokit/rest";
 import { authentication } from "vscode";
-import { RequestError } from "@octokit/request-error";
-import { NetworkBoundResult } from "../@types";
+import { OnlineResult } from "../@types";
 import { setOctokit } from "../api";
 import { RESPONSE_OK } from "../api/constants";
 import { l10nT } from "../l10n";
 import { GITHUB_AUTH_PROVIDER_ID } from "./constants";
 
-export const authenticate = async (createIfNone: boolean): Promise<NetworkBoundResult> => {
+export const authenticate = async (createIfNone: boolean): Promise<OnlineResult> => {
   const session = await authentication.getSession(GITHUB_AUTH_PROVIDER_ID, [], {
     createIfNone,
     silent: !createIfNone,
@@ -15,7 +15,7 @@ export const authenticate = async (createIfNone: boolean): Promise<NetworkBoundR
   if (!session) {
     return {
       success: false,
-      message: l10nT("message.error.authSessionNotFound"),
+      message: l10nT("notification.msg.authSessionNotFound"),
       data: null,
     };
   }
@@ -32,10 +32,10 @@ export const authenticate = async (createIfNone: boolean): Promise<NetworkBoundR
       let message: string;
       switch (error.status) {
         case 401:
-          message = l10nT("message.error.apiUnauthorized");
+          message = l10nT("notification.msg.apiUnauthorized");
           break;
         default:
-          message = l10nT("message.error.networkError$status", [error.status]);
+          message = l10nT("notification.msg.networkError$status", [error.status]);
           break;
       }
       return { success: false, message: message, data: null };

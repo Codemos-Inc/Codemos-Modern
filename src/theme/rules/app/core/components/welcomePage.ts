@@ -5,7 +5,7 @@ export const getRules = (themeContext: ThemeContext): object => {
   return {
     "walkThrough.embeddedEditorBackground": styles.bg.solid.base,
     "walkthrough.stepTitle.foreground": styles.fill.text.pri,
-    "welcomePage.background": styles.bg.solid.canvas,
+    "welcomePage.background": styles.bg.solid.layer,
     "welcomePage.progress.background": styles.fill.control.rest,
     "welcomePage.progress.foreground": styles.fill.accent.pri,
     "welcomePage.tileBackground": styles.fill.control.rest,

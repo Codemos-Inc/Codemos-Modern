@@ -1,6 +1,6 @@
-import { AuxiliaryThemeInfo, AuxiliaryThemeRegistryIndex } from "../@types";
+import { AuxThemeInfo, AuxThemeRegIndex } from "../@types";
 
-export const isAuxiliaryThemeRegistryIndex = (obj: any): obj is AuxiliaryThemeRegistryIndex => {
+export const isAuxThemeRegIndex = (obj: any): obj is AuxThemeRegIndex => {
   if (typeof obj !== "object" || obj === null) {
     return false;
   }
@@ -11,14 +11,14 @@ export const isAuxiliaryThemeRegistryIndex = (obj: any): obj is AuxiliaryThemeRe
     return false;
   }
   for (const theme of obj.themes.dark.concat(obj.themes.light)) {
-    if (!isAuxiliaryThemeInfo(theme)) {
+    if (!isAuxThemeInfo(theme)) {
       return false;
     }
   }
   return true;
 };
 
-export const isAuxiliaryThemeInfo = (obj: any): obj is AuxiliaryThemeInfo => {
+export const isAuxThemeInfo = (obj: any): obj is AuxThemeInfo => {
   if (typeof obj !== "object" || obj === null) {
     return false;
   }

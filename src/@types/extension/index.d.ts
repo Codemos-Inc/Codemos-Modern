@@ -1,6 +1,6 @@
 import { Config } from "../modern";
 
-export type StateObject = {
+export type StateObj = {
   isUntouched: boolean;
   config: Config;
 };

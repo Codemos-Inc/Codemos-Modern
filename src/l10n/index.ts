@@ -20,6 +20,10 @@ export function l10nT(key: string, args?: Array<string | number | boolean>): str
     }
   }
   let value: string = cache[key] ?? `🌐 Translation missing for key: "${key}"! Report to Codemos.`;
+  if (value.startsWith("@{") && value.endsWith("}")) {
+    value = value.slice(2, -1);
+    value = cache[value] ?? `🌐 Translation missing for key: "${value}"! Report to Codemos.`;
+  }
   if (args) {
     args.forEach((arg, index) => {
       value = value.replace(new RegExp(`\\{${index}\\}`, "g"), String(arg));

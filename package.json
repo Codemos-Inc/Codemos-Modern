@@ -4,7 +4,7 @@
   "publisher": "Codemos",
   "icon": "res/icon.gif",
   "description": "%ext.desc%",
-  "version": "2.8.3",
+  "version": "2.9.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -155,11 +155,13 @@
             "default": "modern",
             "enum": [
               "modern",
+              "natural",
               "minimal",
               "flat"
             ],
             "enumDescriptions": [
               "%conf.*.design.enum.modern.desc%",
+              "%conf.*.design.enum.natural.desc%",
               "%conf.*.design.enum.minimal.desc%",
               "%conf.*.design.enum.flat.desc%"
             ],
@@ -171,28 +173,26 @@
             "default": "#CB8569",
             "markdownDescription": "%conf.dark.accentColor.desc%",
             "pattern": "^#[0-9A-Fa-f]{6}$",
-            "patternErrorMessage": "%conf.dark.accentColor.err%"
+            "patternErrorMessage": "%conf.dark.*Color.err%"
           },
-          "codemosModern.dark.adaptiveMode": {
+          "codemosModern.dark.adaptationColor": {
             "order": 3,
             "type": "string",
-            "default": "none",
-            "enum": [
-              "none",
-              "gentle",
-              "moderate",
-              "aggressive"
-            ],
-            "enumDescriptions": [
-              "%conf.*.adaptiveMode.enum.none.desc%",
-              "%conf.*.adaptiveMode.enum.gentle.desc%",
-              "%conf.*.adaptiveMode.enum.moderate.desc%",
-              "%conf.*.adaptiveMode.enum.aggressive.desc%"
-            ],
-            "markdownDescription": "%conf.dark.adaptiveMode.desc%"
+            "default": "#CB8569",
+            "markdownDescription": "%conf.dark.adaptationColor.desc%",
+            "pattern": "^#[0-9A-Fa-f]{6}$",
+            "patternErrorMessage": "%conf.dark.*Color.err%"
+          },
+          "codemosModern.dark.adaptationIntensity": {
+            "order": 4,
+            "type": "integer",
+            "default": 0,
+            "minimum": 0,
+            "maximum": 100,
+            "markdownDescription": "%conf.dark.adaptationIntensity.desc%"
           },
           "codemosModern.dark.auxiliaryCodeTheme": {
-            "order": 4,
+            "order": 5,
             "type": [
               "string",
               "null"
@@ -224,11 +224,13 @@
             "default": "modern",
             "enum": [
               "modern",
+              "natural",
               "minimal",
               "flat"
             ],
             "enumDescriptions": [
               "%conf.*.design.enum.modern.desc%",
+              "%conf.*.design.enum.natural.desc%",
               "%conf.*.design.enum.minimal.desc%",
               "%conf.*.design.enum.flat.desc%"
             ],
@@ -240,28 +242,26 @@
             "default": "#784F3F",
             "markdownDescription": "%conf.light.accentColor.desc%",
             "pattern": "^#[0-9A-Fa-f]{6}$",
-            "patternErrorMessage": "%conf.light.accentColor.err%"
+            "patternErrorMessage": "%conf.light.*Color.err%"
           },
-          "codemosModern.light.adaptiveMode": {
+          "codemosModern.light.adaptationColor": {
             "order": 3,
             "type": "string",
-            "default": "none",
-            "enum": [
-              "none",
-              "gentle",
-              "moderate",
-              "aggressive"
-            ],
-            "enumDescriptions": [
-              "%conf.*.adaptiveMode.enum.none.desc%",
-              "%conf.*.adaptiveMode.enum.gentle.desc%",
-              "%conf.*.adaptiveMode.enum.moderate.desc%",
-              "%conf.*.adaptiveMode.enum.aggressive.desc%"
-            ],
-            "markdownDescription": "%conf.light.adaptiveMode.desc%"
+            "default": "#784F3F",
+            "markdownDescription": "%conf.light.adaptationColor.desc%",
+            "pattern": "^#[0-9A-Fa-f]{6}$",
+            "patternErrorMessage": "%conf.light.*Color.err%"
+          },
+          "codemosModern.light.adaptationIntensity": {
+            "order": 4,
+            "type": "integer",
+            "default": 0,
+            "minimum": 0,
+            "maximum": 100,
+            "markdownDescription": "%conf.light.adaptationIntensity.desc%"
           },
           "codemosModern.light.auxiliaryCodeTheme": {
-            "order": 4,
+            "order": 5,
             "type": [
               "string",
               "null"

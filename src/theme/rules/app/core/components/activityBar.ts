@@ -26,7 +26,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     "activityWarningBadge.foreground": styles.fill.textOnColor.pri,
   };
   const design = themeContext.variantConfig.design;
-  if (design === "minimal") {
+  if (design === "natural" || design === "minimal") {
     rules["activityBar.activeBorder"] = TRANSPARENT;
     rules["activityBar.foreground"] = styles.fill.accent.pri;
     rules["activityBarTop.activeBorder"] = TRANSPARENT;

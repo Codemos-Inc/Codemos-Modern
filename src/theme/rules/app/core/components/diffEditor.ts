@@ -15,7 +15,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     "diffEditor.removedTextBackground": styles.basic.def.red.qua,
     "diffEditor.removedTextBorder": TRANSPARENT,
     "diffEditor.unchangedCodeBackground": styles.basic.neutral.sep,
-    "diffEditor.unchangedRegionBackground": styles.bg.solid.onCanvas,
+    "diffEditor.unchangedRegionBackground": styles.bg.solid.flyout,
     "diffEditor.unchangedRegionForeground": styles.fill.text.sec,
     "diffEditor.unchangedRegionShadow": styles.effect.shadow.default,
     "diffEditorGutter.insertedLineBackground": TRANSPARENT,
@@ -24,6 +24,6 @@ export const getRules = (themeContext: ThemeContext): object => {
     "diffEditorOverview.removedForeground": styles.basic.def.red.sec,
     "multiDiffEditor.background": styles.bg.solid.base,
     "multiDiffEditor.border": styles.stroke.focus.default,
-    "multiDiffEditor.headerBackground": styles.bg.solid.onCanvas,
+    "multiDiffEditor.headerBackground": styles.bg.solid.flyout,
   };
 };

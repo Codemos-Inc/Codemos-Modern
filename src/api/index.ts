@@ -1,7 +1,7 @@
 import { RequestError } from "@octokit/request-error";
 import { Octokit } from "@octokit/rest";
 import { GetResponseTypeFromEndpointMethod } from "@octokit/types";
-import { NetworkBoundResult } from "../@types";
+import { OnlineResult } from "../@types";
 import { l10nT } from "../l10n";
 import { RESPONSE_OK } from "./constants";
 
@@ -15,13 +15,10 @@ export const setOctokit = (newOctokit: Octokit) => {
   octokit = newOctokit;
 };
 
-export const checkIfRepoExists = async (
-  owner: string,
-  repo: string,
-): Promise<NetworkBoundResult> => {
+export const checkRepo = async (owner: string, repo: string): Promise<OnlineResult> => {
   return await octokit
     .request("HEAD /repos/{owner}/{repo}", { owner, repo })
-    .then((): NetworkBoundResult => {
+    .then((): OnlineResult => {
       return {
         success: true,
         message: RESPONSE_OK,
@@ -32,23 +29,20 @@ export const checkIfRepoExists = async (
       let message: string;
       switch (error.status) {
         case 403:
-          message = l10nT("message.error.apiRateLimitExceeded");
+          message = l10nT("notification.msg.apiRateLimit");
           break;
         case 404:
-          message = l10nT("message.error.repoNotFound$id", [`${owner}/${repo}`]);
+          message = l10nT("notification.msg.repoNotFound$id", [`${owner}/${repo}`]);
           break;
         default:
-          message = l10nT("message.error.networkError$status", [error.status]);
+          message = l10nT("notification.msg.networkError$status", [error.status]);
           break;
       }
       return { success: false, message: message, data: null };
     });
 };
 
-export const getLatestVersionTag = async (
-  owner: string,
-  repo: string,
-): Promise<NetworkBoundResult> => {
+export const getLatestVerTag = async (owner: string, repo: string): Promise<OnlineResult> => {
   type GetLatestReleaseType = GetResponseTypeFromEndpointMethod<
     typeof octokit.repos.getLatestRelease
   >;
@@ -65,25 +59,25 @@ export const getLatestVersionTag = async (
       let message: string;
       switch (error.status) {
         case 403:
-          message = l10nT("message.error.apiRateLimitExceeded");
+          message = l10nT("notification.msg.apiRateLimit");
           break;
         case 404:
-          message = l10nT("message.error.releaseNotFound$id", [`${owner}/${repo}`]);
+          message = l10nT("notification.msg.releaseNotFound$id", [`${owner}/${repo}`]);
           break;
         default:
-          message = l10nT("message.error.networkError$status", [error.status]);
+          message = l10nT("notification.msg.networkError$status", [error.status]);
           break;
       }
       return { success: false, message: message, data: null };
     });
 };
 
-export const getSingleContentFromRelease = async (
+export const getContentFromRelease = async (
   owner: string,
   repo: string,
   path: string,
   ref: string,
-): Promise<NetworkBoundResult> => {
+): Promise<OnlineResult> => {
   type GetContentType = GetResponseTypeFromEndpointMethod<typeof octokit.repos.getContent>;
   return await octokit.repos
     .getContent({
@@ -106,14 +100,14 @@ export const getSingleContentFromRelease = async (
         } else {
           return {
             success: false,
-            message: l10nT("notification.error.contentNotFile$path", [response.data.path]),
+            message: l10nT("notification.msg.contentNotFile$path", [response.data.path]),
             data: null,
           };
         }
       } else {
         return {
           success: false,
-          message: l10nT("notification.error.contentNotFile$path", [path]),
+          message: l10nT("notification.msg.contentNotFile$path", [path]),
           data: null,
         };
       }
@@ -122,13 +116,13 @@ export const getSingleContentFromRelease = async (
       let message: string;
       switch (error.status) {
         case 403:
-          message = l10nT("message.error.apiRateLimitExceeded");
+          message = l10nT("notification.msg.apiRateLimit");
           break;
         case 404:
-          message = l10nT("notification.error.contentNotFound$path$id", [path, `${owner}/${repo}`]);
+          message = l10nT("notification.msg.contentNotFound$path$id", [path, `${owner}/${repo}`]);
           break;
         default:
-          message = l10nT("message.error.networkError$status", [error.status]);
+          message = l10nT("notification.msg.networkError$status", [error.status]);
           break;
       }
       return { success: false, message: message, data: null };

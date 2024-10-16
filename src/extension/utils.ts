@@ -2,7 +2,6 @@ import { GetResponseTypeFromEndpointMethod } from "@octokit/types";
 import { writeFile } from "fs";
 import { ColorThemeKind, ConfigurationTarget, window, workspace } from "vscode";
 import {
-  AdaptiveMode,
   Config,
   Decoration,
   Design,
@@ -13,33 +12,33 @@ import {
 } from "../@types";
 import { getOctokit } from "../api";
 import {
-  getAuxiliaryThemeObject,
-  prepareAuxiliaryTheme,
-  prepareAuxiliaryThemeOffline,
-  prepareAuxiliaryThemeRegistries,
-  prepareAuxiliaryThemeRegistriesOffline,
+  getAuxThemeObj,
+  prepAuxTheme,
+  prepAuxThemeOffline,
+  prepAuxThemeRegs,
+  prepAuxThemeRegsOffline,
 } from "../data";
 import { l10nT } from "../l10n";
 import { updateBridge } from "../main";
 import { defaultConfig } from "../modern";
 import { getStyles } from "../modern/variants";
-import { getThemeObject } from "../theme";
+import { getThemeObj } from "../theme";
 import { configureSettings } from "../theme/configs";
 import {
   showErrorNotification,
-  showInformationNotification,
+  showInfoNotification,
   showWarningNotification,
 } from "./notifications";
 import {
-  getIsConfiguredFromCommand,
-  getOnlineAvailability,
-  setIsConfiguredFromCommand,
-  setOnlineAvailability,
+  getIsConfiguredFromCmd,
+  getOnlineAvail,
+  setIsConfiguredFromCmd,
+  setOnlineAvail,
 } from "./sharedState";
-import { getStateObject } from "./state";
+import { getStateObj } from "./state";
 import { UpdateReason, updateReasonMessages } from "./updateMessage";
 
-export const checkAvailability = async (): Promise<void> => {
+export const checkAvail = async (): Promise<void> => {
   const octokit = getOctokit();
   type GetRateLimitType = GetResponseTypeFromEndpointMethod<typeof octokit.rateLimit.get>;
   if (octokit) {
@@ -47,26 +46,26 @@ export const checkAvailability = async (): Promise<void> => {
       .get()
       .then((response: GetRateLimitType) => {
         if (response.data.rate.remaining > 0) {
-          setOnlineAvailability(true);
+          setOnlineAvail(true);
         } else {
-          setOnlineAvailability(false);
-          showWarningNotification(l10nT("message.error.apiRateLimitExceeded"), null, null);
+          setOnlineAvail(false);
+          showWarningNotification(l10nT("notification.msg.apiRateLimit"), null, null);
         }
         return;
       })
       .catch(() => {
-        setOnlineAvailability(false);
-        showWarningNotification(l10nT("notification.network.offline"), null, null);
+        setOnlineAvail(false);
+        showWarningNotification(l10nT("notification.full.offline"), null, null);
       });
   }
 };
 
 export const verifyState = (config?: Config): boolean => {
-  return JSON.stringify(getStateObject().config) === JSON.stringify(config ? config : getConfig());
+  return JSON.stringify(getStateObj().config) === JSON.stringify(config ? config : getConfig());
 };
 
 export const isUntouched = (): boolean => {
-  return getStateObject().isUntouched;
+  return getStateObj().isUntouched;
 };
 
 export const getActiveVariant = (): Variant | undefined => {
@@ -132,65 +131,67 @@ export const getActiveVariant = (): Variant | undefined => {
 };
 
 export const getConfig = (): Config => {
-  const extensionSection = workspace.getConfiguration("codemosModern");
+  const extSection = workspace.getConfiguration("codemosModern");
   return {
-    auxiliaryThemeRegistries: extensionSection.get<string[]>(
+    auxiliaryThemeRegistries: extSection.get<string[]>(
       "auxiliaryThemeRegistries",
       defaultConfig.auxiliaryThemeRegistries,
     ),
     textDecorations: {
-      strikeThrough: extensionSection.get<boolean>(
+      strikeThrough: extSection.get<boolean>(
         "textDecorations.strikeThrough",
         defaultConfig.textDecorations.strikeThrough,
       ),
-      bold: extensionSection.get<boolean>(
-        "textDecorations.bold",
-        defaultConfig.textDecorations.bold,
-      ),
-      italic: extensionSection.get<boolean>(
+      bold: extSection.get<boolean>("textDecorations.bold", defaultConfig.textDecorations.bold),
+      italic: extSection.get<boolean>(
         "textDecorations.italic",
         defaultConfig.textDecorations.italic,
       ),
-      underline: extensionSection.get<boolean>(
+      underline: extSection.get<boolean>(
         "textDecorations.underline",
         defaultConfig.textDecorations.underline,
       ),
-      forComments: extensionSection.get<Decoration[]>(
+      forComments: extSection.get<Decoration[]>(
         "textDecorations.forComments",
         defaultConfig.textDecorations.forComments,
       ),
     },
     dark: {
-      auxiliaryUiTheme: extensionSection.get<string | null>(
+      auxiliaryUiTheme: extSection.get<string | null>(
         "dark.auxiliaryUiTheme",
         defaultConfig.dark.auxiliaryUiTheme,
       ),
-      design: extensionSection.get<Design>("dark.design", defaultConfig.dark.design),
-      accentColor: extensionSection.get<string>("dark.accentColor", defaultConfig.dark.accentColor),
-      adaptiveMode: extensionSection.get<AdaptiveMode>(
-        "dark.adaptiveMode",
-        defaultConfig.dark.adaptiveMode,
+      design: extSection.get<Design>("dark.design", defaultConfig.dark.design),
+      accentColor: extSection.get<string>("dark.accentColor", defaultConfig.dark.accentColor),
+      adaptationColor: extSection.get<string>(
+        "dark.adaptationColor",
+        defaultConfig.dark.adaptationColor,
       ),
-      auxiliaryCodeTheme: extensionSection.get<string | null>(
+      adaptationIntensity: extSection.get<number>(
+        "dark.adaptationIntensity",
+        defaultConfig.dark.adaptationIntensity,
+      ),
+      auxiliaryCodeTheme: extSection.get<string | null>(
         "dark.auxiliaryCodeTheme",
         defaultConfig.dark.auxiliaryCodeTheme,
       ),
     },
     light: {
-      auxiliaryUiTheme: extensionSection.get<string | null>(
+      auxiliaryUiTheme: extSection.get<string | null>(
         "light.auxiliaryUiTheme",
         defaultConfig.light.auxiliaryUiTheme,
       ),
-      design: extensionSection.get<Design>("light.design", defaultConfig.dark.design),
-      accentColor: extensionSection.get<string>(
-        "light.accentColor",
-        defaultConfig.light.accentColor,
+      design: extSection.get<Design>("light.design", defaultConfig.dark.design),
+      accentColor: extSection.get<string>("light.accentColor", defaultConfig.light.accentColor),
+      adaptationColor: extSection.get<string>(
+        "light.adaptationColor",
+        defaultConfig.light.adaptationColor,
       ),
-      adaptiveMode: extensionSection.get<AdaptiveMode>(
-        "light.adaptiveMode",
-        defaultConfig.light.adaptiveMode,
+      adaptationIntensity: extSection.get<number>(
+        "light.adaptationIntensity",
+        defaultConfig.light.adaptationIntensity,
       ),
-      auxiliaryCodeTheme: extensionSection.get<string | null>(
+      auxiliaryCodeTheme: extSection.get<string | null>(
         "light.auxiliaryCodeTheme",
         defaultConfig.light.auxiliaryCodeTheme,
       ),
@@ -200,18 +201,24 @@ export const getConfig = (): Config => {
 
 export const updateConfig = async (
   variant: Variant,
-  auxiliaryUiTheme: string | null,
+  auxUiTheme: string | null,
   design: Design,
-  accentColorHex7: string,
-  adaptiveMode: AdaptiveMode,
-  auxiliaryCodeTheme: string | null,
+  accentColor: string,
+  adaptationColor: string,
+  adaptationIntensity: number,
+  auxCodeTheme: string | null,
 ) => {
   const variantSection = workspace.getConfiguration(`codemosModern.${variant}`);
-  await variantSection.update(`auxiliaryUiTheme`, auxiliaryUiTheme, ConfigurationTarget.Global);
+  await variantSection.update(`auxiliaryUiTheme`, auxUiTheme, ConfigurationTarget.Global);
   await variantSection.update(`design`, design, ConfigurationTarget.Global);
-  await variantSection.update(`accentColor`, accentColorHex7, ConfigurationTarget.Global);
-  await variantSection.update(`adaptiveMode`, adaptiveMode, ConfigurationTarget.Global);
-  await variantSection.update(`auxiliaryCodeTheme`, auxiliaryCodeTheme, ConfigurationTarget.Global);
+  await variantSection.update(`accentColor`, accentColor, ConfigurationTarget.Global);
+  await variantSection.update(`adaptationColor`, adaptationColor, ConfigurationTarget.Global);
+  await variantSection.update(
+    `adaptationIntensity`,
+    adaptationIntensity,
+    ConfigurationTarget.Global,
+  );
+  await variantSection.update(`auxiliaryCodeTheme`, auxCodeTheme, ConfigurationTarget.Global);
   await updateBridge(variant, UpdateReason.CONFIG_CHANGE);
 };
 
@@ -234,17 +241,17 @@ export const updateModern = async (
     default:
       variants = [updateTarget];
   }
-  let isOnlineAvailable = getOnlineAvailability();
-  if (!getIsConfiguredFromCommand()) {
-    await checkAvailability();
-    isOnlineAvailable = getOnlineAvailability();
-    if (isOnlineAvailable) {
-      const success = await prepareAuxiliaryThemeRegistries(config.auxiliaryThemeRegistries);
+  let isOnlineAvail = getOnlineAvail();
+  if (!getIsConfiguredFromCmd()) {
+    await checkAvail();
+    isOnlineAvail = getOnlineAvail();
+    if (isOnlineAvail) {
+      const success = await prepAuxThemeRegs(config.auxiliaryThemeRegistries);
       if (!success) {
         return;
       }
     } else {
-      const success = prepareAuxiliaryThemeRegistriesOffline(config.auxiliaryThemeRegistries);
+      const success = prepAuxThemeRegsOffline(config.auxiliaryThemeRegistries);
       if (!success) {
         return;
       }
@@ -256,13 +263,13 @@ export const updateModern = async (
       variant: variant,
       variantConfig: config[variant] as VariantConfig,
       styles: getStyles(variant, config),
-      auxiliaryUiThemeObject: null,
-      auxiliaryCodeThemeObject: null,
+      auxUiThemeObj: null,
+      auxCodeThemeObj: null,
     };
     if (themeContext.variantConfig.auxiliaryUiTheme) {
-      if (!getIsConfiguredFromCommand()) {
-        if (isOnlineAvailable) {
-          const success = await prepareAuxiliaryTheme(
+      if (!getIsConfiguredFromCmd()) {
+        if (isOnlineAvail) {
+          const success = await prepAuxTheme(
             config.auxiliaryThemeRegistries,
             themeContext.variantConfig.auxiliaryUiTheme,
             themeContext.variant,
@@ -271,7 +278,7 @@ export const updateModern = async (
             return false;
           }
         } else {
-          const success = await prepareAuxiliaryThemeOffline(
+          const success = await prepAuxThemeOffline(
             config.auxiliaryThemeRegistries,
             themeContext.variantConfig.auxiliaryUiTheme,
             themeContext.variant,
@@ -281,14 +288,14 @@ export const updateModern = async (
           }
         }
       }
-      themeContext.auxiliaryUiThemeObject = await getAuxiliaryThemeObject(
+      themeContext.auxUiThemeObj = await getAuxThemeObj(
         themeContext.variantConfig.auxiliaryUiTheme,
       );
     }
     if (themeContext.variantConfig.auxiliaryCodeTheme) {
-      if (!getIsConfiguredFromCommand()) {
-        if (isOnlineAvailable) {
-          const success = await prepareAuxiliaryTheme(
+      if (!getIsConfiguredFromCmd()) {
+        if (isOnlineAvail) {
+          const success = await prepAuxTheme(
             config.auxiliaryThemeRegistries,
             themeContext.variantConfig.auxiliaryCodeTheme,
             themeContext.variant,
@@ -297,7 +304,7 @@ export const updateModern = async (
             return false;
           }
         } else {
-          const success = await prepareAuxiliaryThemeOffline(
+          const success = await prepAuxThemeOffline(
             config.auxiliaryThemeRegistries,
             themeContext.variantConfig.auxiliaryCodeTheme,
             themeContext.variant,
@@ -307,11 +314,11 @@ export const updateModern = async (
           }
         }
       }
-      themeContext.auxiliaryCodeThemeObject = await getAuxiliaryThemeObject(
+      themeContext.auxCodeThemeObj = await getAuxThemeObj(
         themeContext.variantConfig.auxiliaryCodeTheme,
       );
     }
-    writeThemeFile(themePaths[variant], getThemeObject(themeContext));
+    writeThemeFile(themePaths[variant], getThemeObj(themeContext));
     return true;
   });
   Promise.all(promises).then((onFullFilled) => {
@@ -319,15 +326,15 @@ export const updateModern = async (
       return result === true;
     });
     if (allSuccess && updateTarget !== "none") {
-      showInformationNotification(
+      showInfoNotification(
         updateReasonMessages[updateReason],
         ["Apply", "Later"],
         "workbench.action.reloadWindow",
       );
     }
   });
-  if (getIsConfiguredFromCommand()) {
-    setIsConfiguredFromCommand(false);
+  if (getIsConfiguredFromCmd()) {
+    setIsConfiguredFromCmd(false);
   }
 };
 
@@ -338,8 +345,8 @@ export const updateSettings = (config: Config, activeVariant: Variant | undefine
       variant: activeVariant,
       variantConfig: config[activeVariant] as VariantConfig,
       styles: getStyles(activeVariant, config),
-      auxiliaryUiThemeObject: null,
-      auxiliaryCodeThemeObject: null,
+      auxUiThemeObj: null,
+      auxCodeThemeObj: null,
     };
     if (!themeContext.variantConfig.auxiliaryUiTheme) {
       configureSettings(themeContext);
@@ -351,11 +358,11 @@ export const updateSettings = (config: Config, activeVariant: Variant | undefine
   }
 };
 
-const writeThemeFile = (themePath: string, themeObject: object) => {
-  return writeFile(themePath, JSON.stringify(themeObject, null, 2), (error) => {
+const writeThemeFile = (themePath: string, themeObj: object) => {
+  return writeFile(themePath, JSON.stringify(themeObj, null, 2), (error) => {
     if (error) {
       showErrorNotification(
-        l10nT("notification.error.writingFailed$msg", [error.message]),
+        l10nT("notification.lead.writingFailed$msg", [error.message]),
         null,
         null,
       );

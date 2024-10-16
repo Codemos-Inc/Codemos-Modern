@@ -1,10 +1,11 @@
 import { existsSync, mkdirSync, writeFileSync } from "fs";
 import { join } from "path";
-import { Variant } from "../@types";
+import { Variant } from "../../../../@types";
 
-export const generateAccentColorIcons = (
+export const genPaletteIcons = (
   variant: Variant,
   inDarkTheme: boolean,
+  accent: string | null,
   brown: string,
   red: string,
   orange: string,
@@ -21,45 +22,50 @@ export const generateAccentColorIcons = (
       recursive: true,
     });
   }
-  const customIconPath = join(variantIconsDir, "accent_custom.svg");
-  const customSvg = generateCustomSvg(inDarkTheme);
+  const customIconPath = join(variantIconsDir, "palette_custom.svg");
+  const customSvg = genCustomSvg(inDarkTheme);
   writeFileSync(customIconPath, customSvg);
-  const brownIconPath = join(variantIconsDir, "accent_brown.svg");
-  const brownSvg = generateSvg(inDarkTheme, brown);
+  if (accent) {
+    const accentIconPath = join(variantIconsDir, "palette_accent.svg");
+    const accentSvg = genSvg(inDarkTheme, accent);
+    writeFileSync(accentIconPath, accentSvg);
+  }
+  const brownIconPath = join(variantIconsDir, "palette_brown.svg");
+  const brownSvg = genSvg(inDarkTheme, brown);
   writeFileSync(brownIconPath, brownSvg);
-  const redIconPath = join(variantIconsDir, "accent_red.svg");
-  const redSvg = generateSvg(inDarkTheme, red);
+  const redIconPath = join(variantIconsDir, "palette_red.svg");
+  const redSvg = genSvg(inDarkTheme, red);
   writeFileSync(redIconPath, redSvg);
-  const orangeIconPath = join(variantIconsDir, "accent_orange.svg");
-  const orangeSvg = generateSvg(inDarkTheme, orange);
+  const orangeIconPath = join(variantIconsDir, "palette_orange.svg");
+  const orangeSvg = genSvg(inDarkTheme, orange);
   writeFileSync(orangeIconPath, orangeSvg);
-  const yellowIconPath = join(variantIconsDir, "accent_yellow.svg");
-  const yellowSvg = generateSvg(inDarkTheme, yellow);
+  const yellowIconPath = join(variantIconsDir, "palette_yellow.svg");
+  const yellowSvg = genSvg(inDarkTheme, yellow);
   writeFileSync(yellowIconPath, yellowSvg);
-  const greenIconPath = join(variantIconsDir, "accent_green.svg");
-  const greenSvg = generateSvg(inDarkTheme, green);
+  const greenIconPath = join(variantIconsDir, "palette_green.svg");
+  const greenSvg = genSvg(inDarkTheme, green);
   writeFileSync(greenIconPath, greenSvg);
-  const mintIconPath = join(variantIconsDir, "accent_mint.svg");
-  const mintSvg = generateSvg(inDarkTheme, mint);
+  const mintIconPath = join(variantIconsDir, "palette_mint.svg");
+  const mintSvg = genSvg(inDarkTheme, mint);
   writeFileSync(mintIconPath, mintSvg);
-  const blueIconPath = join(variantIconsDir, "accent_blue.svg");
-  const blueSvg = generateSvg(inDarkTheme, blue);
+  const blueIconPath = join(variantIconsDir, "palette_blue.svg");
+  const blueSvg = genSvg(inDarkTheme, blue);
   writeFileSync(blueIconPath, blueSvg);
-  const purpleIconPath = join(variantIconsDir, "accent_purple.svg");
-  const purpleSvg = generateSvg(inDarkTheme, purple);
+  const purpleIconPath = join(variantIconsDir, "palette_purple.svg");
+  const purpleSvg = genSvg(inDarkTheme, purple);
   writeFileSync(purpleIconPath, purpleSvg);
-  const pinkIconPath = join(variantIconsDir, "accent_pink.svg");
-  const pinkSvg = generateSvg(inDarkTheme, pink);
+  const pinkIconPath = join(variantIconsDir, "palette_pink.svg");
+  const pinkSvg = genSvg(inDarkTheme, pink);
   writeFileSync(pinkIconPath, pinkSvg);
 };
 
-export const generateAdaptiveModeIcons = (
+export const genIntensityIcons = (
   variant: Variant,
   inDarkTheme: boolean,
-  noneModeColor: string,
-  gentleModeColor: string,
-  moderateModeColor: string,
-  aggressiveModeColor: string,
+  noneIntColor: string,
+  gentleIntColor: string,
+  moderateIntColor: string,
+  aggressiveIntColor: string,
 ) => {
   const variantIconsDir = join(__dirname, "..", "..", "res", "icons", variant);
   if (!existsSync(variantIconsDir)) {
@@ -67,21 +73,21 @@ export const generateAdaptiveModeIcons = (
       recursive: true,
     });
   }
-  const noneModeIconPath = join(variantIconsDir, "adaptation_none.svg");
-  const noneModeSvg = generateSvg(inDarkTheme, noneModeColor);
+  const noneModeIconPath = join(variantIconsDir, "intensity_none.svg");
+  const noneModeSvg = genSvg(inDarkTheme, noneIntColor);
   writeFileSync(noneModeIconPath, noneModeSvg);
-  const gentleModeIconPath = join(variantIconsDir, "adaptation_gentle.svg");
-  const gentleModeSvg = generateSvg(inDarkTheme, gentleModeColor);
+  const gentleModeIconPath = join(variantIconsDir, "intensity_gentle.svg");
+  const gentleModeSvg = genSvg(inDarkTheme, gentleIntColor);
   writeFileSync(gentleModeIconPath, gentleModeSvg);
-  const moderateModeIconPath = join(variantIconsDir, "adaptation_moderate.svg");
-  const moderateModeSvg = generateSvg(inDarkTheme, moderateModeColor);
+  const moderateModeIconPath = join(variantIconsDir, "intensity_moderate.svg");
+  const moderateModeSvg = genSvg(inDarkTheme, moderateIntColor);
   writeFileSync(moderateModeIconPath, moderateModeSvg);
-  const aggressiveModeIconPath = join(variantIconsDir, "adaptation_aggressive.svg");
-  const aggressiveModeSvg = generateSvg(inDarkTheme, aggressiveModeColor);
+  const aggressiveModeIconPath = join(variantIconsDir, "intensity_aggressive.svg");
+  const aggressiveModeSvg = genSvg(inDarkTheme, aggressiveIntColor);
   writeFileSync(aggressiveModeIconPath, aggressiveModeSvg);
 };
 
-const generateSvg = (inDarkTheme: boolean, color: string) => {
+const genSvg = (inDarkTheme: boolean, color: string) => {
   return `
     <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g clip-path="url(#clip0_6_2)">
@@ -98,7 +104,7 @@ const generateSvg = (inDarkTheme: boolean, color: string) => {
   `;
 };
 
-const generateCustomSvg = (inDarkTheme: boolean) => {
+const genCustomSvg = (inDarkTheme: boolean) => {
   return `
   <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g clip-path="url(#clip0_1_2)">

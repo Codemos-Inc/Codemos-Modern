@@ -20,10 +20,10 @@ export const getRules = (themeContext: ThemeContext): object => {
     "minimapSlider.hoverBackground": styles.fill.control.hover,
   };
   const design = themeContext.variantConfig.design;
-  if (design === "minimal") {
-    rules["minimap.background"] = styles.bg.solid.canvas;
+  if (design === "natural" || design === "minimal") {
+    rules["minimap.background"] = styles.bg.solid.layer;
   } else if (design === "flat") {
-    rules["minimap.background"] = styles.bg.solid.canvas;
+    rules["minimap.background"] = styles.bg.solid.layer;
   }
   return rules;
 };

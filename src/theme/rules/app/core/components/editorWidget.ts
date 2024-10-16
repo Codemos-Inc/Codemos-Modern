@@ -40,10 +40,10 @@ export const getRules = (themeContext: ThemeContext): object => {
     "editorWidget.resizeBorder": styles.fill.accent.pri,
   };
   const design = themeContext.variantConfig.design;
-  if (design === "minimal") {
-    rules["editorStickyScroll.background"] = styles.bg.solid.canvas;
+  if (design === "natural" || design === "minimal") {
+    rules["editorStickyScroll.background"] = styles.bg.solid.layer;
   } else if (design === "flat") {
-    rules["editorStickyScroll.background"] = styles.bg.solid.canvas;
+    rules["editorStickyScroll.background"] = styles.bg.solid.layer;
   }
   return rules;
 };

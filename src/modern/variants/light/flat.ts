@@ -1,14 +1,17 @@
-import { MimicInfo, Palette, Styles, VariantConfig } from "../../../@types";
+import { Palette, Styles, VariantConfig } from "../../../@types";
 import {
   chooseTextOnColor,
-  getContrastSafeAccentColorHex7,
+  getContrastSafeColorHex7,
   getHexAlpha,
   getMimicHex7,
   getMixedColorHex7,
   getMixedColorHex9,
 } from "../../../color";
+import { intensityToAlpha } from "../../../extension/helpers";
+import { LUM_SOURCE_ALPHA } from "./modern";
 
 const palette: Palette = {
+  base: "#F9F9F9",
   loc: "#FFFFFF",
   hic: "#000000",
   basic: {
@@ -46,91 +49,24 @@ const palette: Palette = {
   },
 };
 
-const mimic1Info: MimicInfo = {
-  none: {
-    referenceColor: "#F8F8F8",
-    saturation: 0,
-  },
-  gentle: {
-    referenceColor: "#F8F8F8",
-    saturation: 36,
-  },
-  moderate: {
-    referenceColor: "#F7F7F7",
-    saturation: 85,
-  },
-  aggressive: {
-    referenceColor: "#EBEBEB",
-    saturation: 95,
-  },
-};
-
-const mimic3Info: MimicInfo = {
-  none: {
-    referenceColor: "#F8F8F8",
-    saturation: 0,
-  },
-  gentle: {
-    referenceColor: "#F8F8F8",
-    saturation: 36,
-  },
-  moderate: {
-    referenceColor: "#F7F7F7",
-    saturation: 85,
-  },
-  aggressive: {
-    referenceColor: "#EBEBEB",
-    saturation: 95,
-  },
-};
-
-const mimic4Info: MimicInfo = {
-  none: {
-    referenceColor: "#FBFBFB",
-    saturation: 0,
-  },
-  gentle: {
-    referenceColor: "#FBFBFB",
-    saturation: 60,
-  },
-  moderate: {
-    referenceColor: "#FAFAFA",
-    saturation: 100,
-  },
-  aggressive: {
-    referenceColor: "#EFEFEF",
-    saturation: 100,
-  },
-};
-
-const mimic5Info: MimicInfo = {
-  none: {
-    referenceColor: "#D4D4D4",
-    saturation: 0,
-  },
-  gentle: {
-    referenceColor: "#D4D4D4",
-    saturation: 10,
-  },
-  moderate: {
-    referenceColor: "#D5D5D5",
-    saturation: 24,
-  },
-  aggressive: {
-    referenceColor: "#CCCCCC",
-    saturation: 42,
-  },
-};
-
 export const getStyles = (variantConfig: VariantConfig): Styles => {
+  // Mimics
+  const baseColor = getMimicHex7({
+    backdropColor: variantConfig.adaptationColor,
+    lumSourceColor: palette.base,
+    lumSourceAlpha: LUM_SOURCE_ALPHA,
+    colSourceColor: palette.base,
+    colSourceAlpha: intensityToAlpha(variantConfig.adaptationIntensity),
+  });
+  const flyoutColor = getMixedColorHex7(palette.loc, 50, baseColor);
+  // Accents
   const accentColor = variantConfig.accentColor;
   const textOnColor = chooseTextOnColor(accentColor, palette.loc, palette.hic);
-  const mimic1Color = getMimicHex7(mimic1Info, accentColor, variantConfig.adaptiveMode, false);
-  const mimic3Color = getMimicHex7(mimic3Info, accentColor, variantConfig.adaptiveMode, false);
-  const mimic4Color = getMimicHex7(mimic4Info, accentColor, variantConfig.adaptiveMode, false);
-  const mimic5Color = getMimicHex7(mimic5Info, accentColor, variantConfig.adaptiveMode, false);
-  const mixedFgColor = getMixedColorHex7(palette.hic, 72, mimic3Color);
-  let accentTextColor = getContrastSafeAccentColorHex7(accentColor, mixedFgColor, true);
+  let accentTextColor = getContrastSafeColorHex7(
+    getMixedColorHex7(palette.hic, 72, baseColor),
+    accentColor,
+    true,
+  );
   if (!accentTextColor) {
     accentTextColor = palette.basic.def.blue;
   }
@@ -369,10 +305,10 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
         rest: `${palette.hic}${getHexAlpha(5)}`,
         restSolid: getMixedColorHex9(
           `${palette.hic}${getHexAlpha(5)}`,
-          `${mimic1Color}${getHexAlpha(100)}`,
+          `${baseColor}${getHexAlpha(100)}`,
         ),
         pressed: `${palette.hic}${getHexAlpha(3)}`,
-        prominent: `${mimic5Color}${getHexAlpha(100)}`,
+        prominent: `${getMixedColorHex7(palette.hic, 20, flyoutColor)}${getHexAlpha(100)}`,
         subtle: `${palette.hic}${getHexAlpha(3)}`,
       },
       accent: {
@@ -399,35 +335,35 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
         },
       },
       tab: {
-        activeFocused: `${mimic3Color}${getHexAlpha(100)}`,
-        activeUnfocused: `${mimic3Color}${getHexAlpha(100)}`,
-        inactiveFocused: `${mimic1Color}${getHexAlpha(100)}`,
-        inactiveUnfocused: `${mimic1Color}${getHexAlpha(100)}`,
+        activeFocused: `${baseColor}${getHexAlpha(100)}`,
+        activeUnfocused: `${baseColor}${getHexAlpha(100)}`,
+        inactiveFocused: `${baseColor}${getHexAlpha(100)}`,
+        inactiveUnfocused: `${baseColor}${getHexAlpha(100)}`,
       },
       terminal: {
         fg: `${getMixedColorHex9(
           `${palette.hic}${getHexAlpha(90)}`,
-          `${mimic1Color}${getHexAlpha(100)}`,
+          `${baseColor}${getHexAlpha(100)}`,
         )}`,
         hic: `${getMixedColorHex9(
           `${palette.hic}${getHexAlpha(100)}`,
-          `${mimic1Color}${getHexAlpha(100)}`,
+          `${baseColor}${getHexAlpha(100)}`,
         )}`,
         hiq: `${getMixedColorHex9(
           `${palette.hic}${getHexAlpha(72)}`,
-          `${mimic1Color}${getHexAlpha(100)}`,
+          `${baseColor}${getHexAlpha(100)}`,
         )}`,
         loq: `${getMixedColorHex9(
           `${palette.hic}${getHexAlpha(50)}`,
-          `${mimic1Color}${getHexAlpha(100)}`,
+          `${baseColor}${getHexAlpha(100)}`,
         )}`,
         loc: `${getMixedColorHex9(
           `${palette.hic}${getHexAlpha(32)}`,
-          `${mimic1Color}${getHexAlpha(100)}`,
+          `${baseColor}${getHexAlpha(100)}`,
         )}`,
         stickyScrollHover: getMixedColorHex9(
           `${palette.hic}${getHexAlpha(8)}`,
-          `${mimic1Color}${getHexAlpha(100)}`,
+          `${baseColor}${getHexAlpha(100)}`,
         ),
       },
     },
@@ -449,11 +385,10 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
     },
     bg: {
       solid: {
-        base: `${mimic1Color}${getHexAlpha(100)}`,
-        surface: `${mimic1Color}${getHexAlpha(100)}`,
-        canvas: `${mimic3Color}${getHexAlpha(100)}`,
-        onCanvas: `${mimic4Color}${getHexAlpha(100)}`,
-        flyout: `${mimic4Color}${getHexAlpha(100)}`,
+        base: `${baseColor}${getHexAlpha(100)}`,
+        surface: `${baseColor}${getHexAlpha(100)}`,
+        layer: `${baseColor}${getHexAlpha(100)}`,
+        flyout: `${flyoutColor}${getHexAlpha(100)}`,
       },
     },
     effect: {

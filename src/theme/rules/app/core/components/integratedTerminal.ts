@@ -48,7 +48,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     "terminalStickyScrollHover.background": styles.fill.terminal.stickyScrollHover, // 🟢 Undesired solution
   };
   const design = themeContext.variantConfig.design;
-  if (design === "minimal") {
+  if (design === "natural" || design === "minimal") {
     rules["terminal.background"] = styles.bg.solid.base;
   } else if (design === "flat") {
     rules["terminal.background"] = styles.bg.solid.base;

@@ -23,7 +23,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     "panelTitle.inactiveForeground": styles.fill.text.sec,
   };
   const design = themeContext.variantConfig.design;
-  if (design === "minimal") {
+  if (design === "natural" || design === "minimal") {
     rules["outputView.background"] = styles.bg.solid.base;
     rules["panelSectionHeader.background"] = TRANSPARENT;
     rules["panelSectionHeader.border"] = styles.stroke.control.default;

@@ -56,7 +56,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     "statusBarItem.warningHoverForeground": styles.fill.text.pri,
   };
   const design = themeContext.variantConfig.design;
-  if (design === "minimal") {
+  if (design === "natural" || design === "minimal") {
     rules["statusBar.noFolderBackground"] = styles.bg.solid.base;
     rules["statusBar.noFolderForeground"] = styles.fill.text.pri;
   } else if (design === "flat") {

@@ -10,7 +10,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     "scrollbarSlider.hoverBackground": styles.fill.control.hover,
   };
   const design = themeContext.variantConfig.design;
-  if (design === "minimal") {
+  if (design === "natural" || design === "minimal") {
     rules["scrollbar.shadow"] = TRANSPARENT;
   } else if (design === "flat") {
     rules["scrollbar.shadow"] = TRANSPARENT;

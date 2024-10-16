@@ -1,25 +1,19 @@
-import { AuxiliaryThemeId, AuxiliaryThemeRegistryId } from "../@types/index";
+import { AuxThemeId, AuxThemeRegId } from "../@types/index";
 
-export const getAuxiliaryThemeRegistryIds = (
-  auxiliaryThemeRegistries: string[],
-): AuxiliaryThemeRegistryId[] => {
-  return auxiliaryThemeRegistries.map((auxiliaryThemeRegistry) => {
-    const [owner, repo] = auxiliaryThemeRegistry.split("/");
+export const getAuxThemeRegIds = (auxThemeRegs: string[]): AuxThemeRegId[] => {
+  return auxThemeRegs.map((auxThemeReg) => {
+    const [owner, repo] = auxThemeReg.split("/");
     if (!owner || !repo) {
-      throw new Error(
-        `Invalid auxiliary theme registry: ${auxiliaryThemeRegistry}`,
-      );
+      throw new Error(`Invalid auxiliary theme registry: ${auxThemeReg}`);
     }
     return { owner, repo };
   });
 };
 
-export const getAuxiliaryThemeId = (
-  auxiliaryTheme: string,
-): AuxiliaryThemeId => {
-  const [owner, repo, publisher, extension, theme] = auxiliaryTheme.split("/");
+export const getAuxThemeId = (auxTheme: string): AuxThemeId => {
+  const [owner, repo, publisher, extension, theme] = auxTheme.split("/");
   if (!owner || !repo || !publisher || !extension || !theme) {
-    throw new Error(`Invalid auxiliary theme: ${auxiliaryTheme}`);
+    throw new Error(`Invalid auxiliary theme: ${auxTheme}`);
   }
   return { owner, repo, publisher, extension, theme };
 };

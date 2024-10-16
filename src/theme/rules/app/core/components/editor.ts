@@ -5,7 +5,7 @@ import { matchHex9Alpha } from "../../../../../color/utils";
 export const getRules = (themeContext: ThemeContext): object => {
   const styles = themeContext.styles;
   const rules = {
-    "editor.background": styles.bg.solid.canvas,
+    "editor.background": styles.bg.solid.layer,
     "editor.findMatchBackground": styles.basic.def.mint.qua,
     "editor.findMatchBorder": styles.stroke.control.default,
     "editor.findMatchForeground": null,
@@ -150,13 +150,13 @@ export const getRules = (themeContext: ThemeContext): object => {
     "searchEditor.textInputBorder": styles.stroke.control.default,
   };
   const design = themeContext.variantConfig.design;
-  if (design === "minimal") {
-    rules["editorGutter.background"] = styles.bg.solid.canvas;
-    rules["editorOverviewRuler.background"] = styles.bg.solid.canvas;
+  if (design === "natural" || design === "minimal") {
+    rules["editorGutter.background"] = styles.bg.solid.layer;
+    rules["editorOverviewRuler.background"] = styles.bg.solid.layer;
   } else if (design === "flat") {
     rules["editor.lineHighlightBorder"] = TRANSPARENT;
-    rules["editorGutter.background"] = styles.bg.solid.canvas;
-    rules["editorOverviewRuler.background"] = styles.bg.solid.canvas;
+    rules["editorGutter.background"] = styles.bg.solid.layer;
+    rules["editorOverviewRuler.background"] = styles.bg.solid.layer;
   }
   return rules;
 };

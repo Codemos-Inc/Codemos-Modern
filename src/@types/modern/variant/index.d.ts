@@ -1,14 +1,5 @@
-import { AdaptiveMode, Design } from "..";
-
-export type VariantConfig = {
-  auxiliaryUiTheme: string | null;
-  design: Design;
-  accentColor: string;
-  adaptiveMode: AdaptiveMode;
-  auxiliaryCodeTheme: string | null;
-};
-
 export type Palette = {
+  base: string;
   loc: string;
   hic: string;
   basic: {
@@ -47,22 +38,11 @@ export type Palette = {
 };
 
 export type MimicInfo = {
-  none: {
-    referenceColor: string;
-    saturation: number;
-  };
-  gentle: {
-    referenceColor: string;
-    saturation: number;
-  };
-  moderate: {
-    referenceColor: string;
-    saturation: number;
-  };
-  aggressive: {
-    referenceColor: string;
-    saturation: number;
-  };
+  backdropColor: string;
+  lumSourceColor: string;
+  lumSourceAlpha: number;
+  colSourceColor: string;
+  colSourceAlpha: number;
 };
 
 export type Styles = {
@@ -361,8 +341,7 @@ export type Styles = {
     solid: {
       base: string;
       surface: string;
-      canvas: string;
-      onCanvas: string;
+      layer: string;
       flyout: string;
     };
   };

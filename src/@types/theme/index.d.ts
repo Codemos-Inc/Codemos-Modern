@@ -1,5 +1,5 @@
-import { Variant } from "../modern";
-import { Styles, VariantConfig } from "../modern/variant";
+import { Variant, type VariantConfig } from "../modern";
+import type { Styles } from "../modern/variant";
 
 export type ThemePaths = {
   dark: string;
@@ -21,6 +21,6 @@ export type ThemeContext = {
   variant: Variant;
   variantConfig: VariantConfig;
   styles: Styles;
-  auxiliaryUiThemeObject: any | null;
-  auxiliaryCodeThemeObject: any | null;
+  auxUiThemeObj: any | null;
+  auxCodeThemeObj: any | null;
 };

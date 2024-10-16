@@ -2,9 +2,18 @@ import { Decoration } from "../theme";
 
 export type Variant = "dark" | "light";
 
-export type Design = "modern" | "minimal" | "flat";
+export type Design = "modern" | "natural" | "minimal" | "flat";
 
-export type AdaptiveMode = "none" | "gentle" | "moderate" | "aggressive";
+export type AdaptationPreset = "none" | "gentle" | "moderate" | "aggressive";
+
+export type VariantConfig = {
+  auxiliaryUiTheme: string | null;
+  design: Design;
+  accentColor: string;
+  adaptationColor: string;
+  adaptationIntensity: number;
+  auxiliaryCodeTheme: string | null;
+};
 
 export type Config = {
   auxiliaryThemeRegistries: string[];
@@ -15,18 +24,6 @@ export type Config = {
     underline: boolean;
     forComments: Decoration[];
   };
-  dark: {
-    auxiliaryUiTheme: string | null;
-    design: Design;
-    accentColor: string;
-    adaptiveMode: AdaptiveMode;
-    auxiliaryCodeTheme: string | null;
-  };
-  light: {
-    auxiliaryUiTheme: string | null;
-    design: Design;
-    accentColor: string;
-    adaptiveMode: AdaptiveMode;
-    auxiliaryCodeTheme: string | null;
-  };
+  dark: VariantConfig;
+  light: VariantConfig;
 };

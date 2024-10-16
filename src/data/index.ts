@@ -1,84 +1,62 @@
 import { join } from "path";
 import {
-  AuxiliaryThemeId,
-  AuxiliaryThemeRegistryId,
-  AuxiliaryThemeRegistryIndex,
-  AuxiliaryThemeRegistryIndexWithId,
-  NetworkBoundResult,
+  AuxThemeId,
+  AuxThemeRegId,
+  AuxThemeRegIndex,
   OfflineResult,
+  OnlineResult,
   Variant,
+  type AuxThemeRegIndexWithId,
 } from "../@types/index";
-import {
-  checkIfRepoExists,
-  getLatestVersionTag,
-  getSingleContentFromRelease,
-} from "../api/index";
-import { isAuxiliaryThemeRegistryIndex } from "../auxiliary/helpers";
-import {
-  showErrorNotification,
-  showProgressNotification,
-} from "../extension/notifications";
+import { checkRepo, getContentFromRelease, getLatestVerTag } from "../api/index";
+import { isAuxThemeRegIndex } from "../auxiliary/helpers";
+import { showErrorNotification, showProgressNotification } from "../extension/notifications";
 import { l10nT } from "../l10n/index";
-import { getAuxiliaryThemeId, getAuxiliaryThemeRegistryIds } from "./helpers";
+import { getAuxThemeId, getAuxThemeRegIds } from "./helpers";
 import {
   cacheFile,
   checkCacheForFile,
   checkIfFileCached,
   deleteCachedDir,
-  getCachedFileContents,
+  getCachedFileContent,
 } from "./utils";
 
-export const prepareAuxiliaryThemeRegistries = async (
-  auxiliaryThemeRegistries: string[],
-): Promise<boolean> => {
-  const auxiliaryThemeRegistryIds = getAuxiliaryThemeRegistryIds(
-    auxiliaryThemeRegistries,
-  );
-  const areAuxiliaryThemeRegistriesAvailable =
-    await verifyAvailabilityForAuxiliaryThemeRegistries(
-      auxiliaryThemeRegistryIds,
-    );
-  if (!areAuxiliaryThemeRegistriesAvailable) {
+export const prepAuxThemeRegs = async (auxThemeRegs: string[]): Promise<boolean> => {
+  const auxThemeRegIds = getAuxThemeRegIds(auxThemeRegs);
+  const areAuxThemeRegsAvail = await checkAuxThemeRegAvail(auxThemeRegIds);
+  if (!areAuxThemeRegsAvail) {
     return false;
   }
-  const uncachedAuxiliaryThemeRegistryIds: AuxiliaryThemeRegistryId[] = [];
-  const obsoleteAuxiliaryThemeRegistryIds: AuxiliaryThemeRegistryId[] = [];
-  for (const auxiliaryThemeRegistryId of auxiliaryThemeRegistryIds) {
+  const uncachedAuxThemeRegIds: AuxThemeRegId[] = [];
+  const obsoleteAuxThemeRegIds: AuxThemeRegId[] = [];
+  for (const auxThemeRegId of auxThemeRegIds) {
     if (
-      checkCacheForFile(
-        "auxiliary",
-        join(auxiliaryThemeRegistryId.owner, auxiliaryThemeRegistryId.repo),
-        "index.json",
-      )
+      checkCacheForFile("auxiliary", join(auxThemeRegId.owner, auxThemeRegId.repo), "index.json")
     ) {
-      const networkBoundResult = await auxiliaryThemeRegistryHasUpdates(
-        auxiliaryThemeRegistryId,
-      );
-      if (!networkBoundResult.success) {
+      const hasUpdates = await auxThemeRegHasUpdates(auxThemeRegId);
+      if (!hasUpdates.success) {
         return false;
       }
-      if (networkBoundResult.data) {
-        obsoleteAuxiliaryThemeRegistryIds.push(auxiliaryThemeRegistryId);
+      if (hasUpdates.data) {
+        obsoleteAuxThemeRegIds.push(auxThemeRegId);
       }
     } else {
-      uncachedAuxiliaryThemeRegistryIds.push(auxiliaryThemeRegistryId);
+      uncachedAuxThemeRegIds.push(auxThemeRegId);
     }
   }
-  if (uncachedAuxiliaryThemeRegistryIds.length > 0) {
+  if (uncachedAuxThemeRegIds.length > 0) {
     let success = true;
     await showProgressNotification(
-      l10nT("notification.download.index.title"),
+      l10nT("notification.title.downloadingIndexes"),
       async (progress) => {
-        const increment = 100 / uncachedAuxiliaryThemeRegistryIds.length;
-        for (const auxiliaryThemeRegistryId of uncachedAuxiliaryThemeRegistryIds) {
+        const increment = 100 / uncachedAuxThemeRegIds.length;
+        for (const auxThemeRegId of uncachedAuxThemeRegIds) {
           progress.report({
-            message: `"${auxiliaryThemeRegistryId.owner}/${auxiliaryThemeRegistryId.repo}"`,
+            message: `"${auxThemeRegId.owner}/${auxThemeRegId.repo}"`,
             increment: increment === 100 ? undefined : increment,
           });
-          const result = await getAuxiliaryThemeRegistryIndex(
-            auxiliaryThemeRegistryId,
-          );
-          if (!result) {
+          const auxThemeRegIndex = await getAuxThemeRegIndex(auxThemeRegId);
+          if (!auxThemeRegIndex) {
             success = false;
             break;
           }
@@ -89,35 +67,32 @@ export const prepareAuxiliaryThemeRegistries = async (
       return false;
     }
   }
-  if (obsoleteAuxiliaryThemeRegistryIds.length > 0) {
+  if (obsoleteAuxThemeRegIds.length > 0) {
     let success = true;
     await showProgressNotification(
-      l10nT("notification.update.index.title"),
+      l10nT("notification.title.updatingIndexes"),
       async (progress) => {
-        const increment = 100 / obsoleteAuxiliaryThemeRegistryIds.length;
-        for (const auxiliaryThemeRegistryId of obsoleteAuxiliaryThemeRegistryIds) {
+        const increment = 100 / obsoleteAuxThemeRegIds.length;
+        for (const auxThemeRegId of obsoleteAuxThemeRegIds) {
           progress.report({
-            message: `"${auxiliaryThemeRegistryId.owner}/${auxiliaryThemeRegistryId.repo}"`,
+            message: `"${auxThemeRegId.owner}/${auxThemeRegId.repo}"`,
             increment: increment === 100 ? undefined : increment,
           });
-          await deleteCachedDir(
-            "auxiliary",
-            join(auxiliaryThemeRegistryId.owner, auxiliaryThemeRegistryId.repo),
-          ).catch((error: NodeJS.ErrnoException) => {
-            showErrorNotification(
-              l10nT("notification.remove.index.error$msg", [error.message]),
-              null,
-              null,
-            );
-            success = false;
-          });
+          await deleteCachedDir("auxiliary", join(auxThemeRegId.owner, auxThemeRegId.repo)).catch(
+            (error: NodeJS.ErrnoException) => {
+              showErrorNotification(
+                l10nT("notification.full.removeFailure$msg", [error.message]),
+                null,
+                null,
+              );
+              success = false;
+            },
+          );
           if (!success) {
             break;
           }
-          const result = await getAuxiliaryThemeRegistryIndex(
-            auxiliaryThemeRegistryId,
-          );
-          if (!result) {
+          const auxThemeRegIndex = await getAuxThemeRegIndex(auxThemeRegId);
+          if (!auxThemeRegIndex) {
             success = false;
             break;
           }
@@ -131,24 +106,16 @@ export const prepareAuxiliaryThemeRegistries = async (
   return true;
 };
 
-export const prepareAuxiliaryThemeRegistriesOffline = (
-  auxiliaryThemeRegistries: string[],
-): boolean => {
-  const auxiliaryThemeRegistryIds = getAuxiliaryThemeRegistryIds(
-    auxiliaryThemeRegistries,
-  );
+export const prepAuxThemeRegsOffline = (auxThemeRegs: string[]): boolean => {
+  const auxThemeRegIds = getAuxThemeRegIds(auxThemeRegs);
   let success = true;
-  for (const auxiliaryThemeRegistryId of auxiliaryThemeRegistryIds) {
+  for (const auxThemeRegId of auxThemeRegIds) {
     if (
-      !checkCacheForFile(
-        "auxiliary",
-        join(auxiliaryThemeRegistryId.owner, auxiliaryThemeRegistryId.repo),
-        "index.json",
-      )
+      !checkCacheForFile("auxiliary", join(auxThemeRegId.owner, auxThemeRegId.repo), "index.json")
     ) {
       showErrorNotification(
-        l10nT("notification.error.registryNotAvailableOffline$id", [
-          `${auxiliaryThemeRegistryId.owner}/${auxiliaryThemeRegistryId.repo}`,
+        l10nT("notification.full.regNotAvailOffline$id", [
+          `${auxThemeRegId.owner}/${auxThemeRegId.repo}`,
         ]),
         null,
         null,
@@ -156,16 +123,16 @@ export const prepareAuxiliaryThemeRegistriesOffline = (
       success = false;
       break;
     } else {
-      const indexContents = getCachedFileContents(
+      const indexContents = getCachedFileContent(
         "auxiliary",
-        join(auxiliaryThemeRegistryId.owner, auxiliaryThemeRegistryId.repo),
+        join(auxThemeRegId.owner, auxThemeRegId.repo),
         "index.json",
       );
       const data = JSON.parse(indexContents);
-      if (!isAuxiliaryThemeRegistryIndex(data)) {
+      if (!isAuxThemeRegIndex(data)) {
         showErrorNotification(
-          l10nT("notification.error.invalidRegistry$id", [
-            `${auxiliaryThemeRegistryId.owner}/${auxiliaryThemeRegistryId.repo}`,
+          l10nT("notification.full.invalidReg$id", [
+            `${auxThemeRegId.owner}/${auxThemeRegId.repo}`,
           ]),
           null,
           null,
@@ -178,113 +145,85 @@ export const prepareAuxiliaryThemeRegistriesOffline = (
   return success;
 };
 
-export const getAllAuxiliaryThemeRegistryIndexes = (
-  auxiliaryThemeRegistries: string[],
-): AuxiliaryThemeRegistryIndexWithId[] => {
-  const auxiliaryThemeRegistryIds = getAuxiliaryThemeRegistryIds(
-    auxiliaryThemeRegistries,
-  );
-  const auxiliaryThemeRegistryIndexesWithId: AuxiliaryThemeRegistryIndexWithId[] =
-    [];
-  for (const auxiliaryThemeRegistryId of auxiliaryThemeRegistryIds) {
-    const indexContents = getCachedFileContents(
+export const getAuxThemeRegIndexesWithId = (auxThemeRegs: string[]): AuxThemeRegIndexWithId[] => {
+  const auxThemeRegIds = getAuxThemeRegIds(auxThemeRegs);
+  const auxThemeRegIndexesWithId: AuxThemeRegIndexWithId[] = [];
+  for (const auxThemeRegId of auxThemeRegIds) {
+    const indexContent = getCachedFileContent(
       "auxiliary",
-      join(auxiliaryThemeRegistryId.owner, auxiliaryThemeRegistryId.repo),
+      join(auxThemeRegId.owner, auxThemeRegId.repo),
       "index.json",
     );
-    const auxiliaryThemeRegistryIndex = JSON.parse(
-      indexContents,
-    ) as AuxiliaryThemeRegistryIndex;
-    auxiliaryThemeRegistryIndexesWithId.push({
-      auxiliaryThemeRegistryId,
-      auxiliaryThemeRegistryIndex,
+    const auxThemeRegIndex = JSON.parse(indexContent) as AuxThemeRegIndex;
+    auxThemeRegIndexesWithId.push({
+      auxThemeRegId: auxThemeRegId,
+      auxThemeRegIndex: auxThemeRegIndex,
     });
   }
-  return auxiliaryThemeRegistryIndexesWithId;
+  return auxThemeRegIndexesWithId;
 };
 
-export const prepareAuxiliaryTheme = async (
-  auxiliaryThemeRegistries: string[],
-  auxiliaryTheme: string,
+export const prepAuxTheme = async (
+  auxThemeRegs: string[],
+  auxTheme: string,
   variant: Variant,
 ): Promise<boolean> => {
-  const auxiliaryThemeRegistryIds = getAuxiliaryThemeRegistryIds(
-    auxiliaryThemeRegistries,
+  const auxThemeRegIds = getAuxThemeRegIds(auxThemeRegs);
+  const auxThemeId = getAuxThemeId(auxTheme);
+  const isRegInRegs = auxThemeRegIds.some(
+    (auxThemeRegId) =>
+      auxThemeRegId.owner === auxThemeId.owner && auxThemeRegId.repo === auxThemeId.repo,
   );
-  const auxiliaryThemeId = getAuxiliaryThemeId(auxiliaryTheme);
-  const isRegistryInRegistries = auxiliaryThemeRegistryIds.some(
-    (auxiliaryThemeRegistryId) =>
-      auxiliaryThemeRegistryId.owner === auxiliaryThemeId.owner &&
-      auxiliaryThemeRegistryId.repo === auxiliaryThemeId.repo,
-  );
-  if (!isRegistryInRegistries) {
+  if (!isRegInRegs) {
     showErrorNotification(
-      l10nT("notification.error.registryNotInRegistries$id", [
-        `${auxiliaryThemeId.owner}/${auxiliaryThemeId.repo}`,
-      ]),
+      l10nT("notification.full.regNotInRegs$id", [`${auxThemeId.owner}/${auxThemeId.repo}`]),
       null,
       null,
     );
     return false;
   }
-  const checkResult = checkAuxiliaryRegistryIndexForAuxiliaryTheme(
-    auxiliaryThemeId,
-    variant,
-  );
-  if (!checkResult.success) {
+  const isInReg = checkAuxThemeInReg(auxThemeId, variant);
+  if (!isInReg.success) {
     return false;
   }
   const isCached = checkIfFileCached(
     "auxiliary",
-    join(
-      auxiliaryThemeId.owner,
-      auxiliaryThemeId.repo,
-      auxiliaryThemeId.publisher,
-      auxiliaryThemeId.extension,
-    ),
-    `${auxiliaryThemeId.theme}.json`,
+    join(auxThemeId.owner, auxThemeId.repo, auxThemeId.publisher, auxThemeId.extension),
+    `${auxThemeId.theme}.json`,
   );
   if (isCached) {
     return true;
   }
-  return await getAuxiliaryTheme(auxiliaryThemeId);
+  return await getAuxTheme(auxThemeId);
 };
 
-export const prepareAuxiliaryThemeOffline = async (
-  auxiliaryThemeRegistries: string[],
-  auxiliaryTheme: string,
+export const prepAuxThemeOffline = async (
+  auxThemeRegs: string[],
+  auxTheme: string,
   variant: Variant,
 ): Promise<boolean> => {
-  const auxiliaryThemeRegistryIds = getAuxiliaryThemeRegistryIds(
-    auxiliaryThemeRegistries,
+  const auxThemeRegIds = getAuxThemeRegIds(auxThemeRegs);
+  const auxThemeId = getAuxThemeId(auxTheme);
+  const isRegInRegs = auxThemeRegIds.some(
+    (auxThemeRegId) =>
+      auxThemeRegId.owner === auxThemeId.owner && auxThemeRegId.repo === auxThemeId.repo,
   );
-  const auxiliaryThemeId = getAuxiliaryThemeId(auxiliaryTheme);
-  const isRegistryInRegistries = auxiliaryThemeRegistryIds.some(
-    (auxiliaryThemeRegistryId) =>
-      auxiliaryThemeRegistryId.owner === auxiliaryThemeId.owner &&
-      auxiliaryThemeRegistryId.repo === auxiliaryThemeId.repo,
-  );
-  if (!isRegistryInRegistries) {
+  if (!isRegInRegs) {
     showErrorNotification(
-      l10nT("notification.error.registryNotInRegistries$id", [
-        `${auxiliaryThemeId.owner}/${auxiliaryThemeId.repo}`,
-      ]),
+      l10nT("notification.full.regNotInRegs$id", [`${auxThemeId.owner}/${auxThemeId.repo}`]),
       null,
       null,
     );
     return false;
   }
-  const checkResult = checkAuxiliaryRegistryIndexForAuxiliaryTheme(
-    auxiliaryThemeId,
-    variant,
-  );
-  if (!checkResult.success) {
+  const isAuxThemeInReg = checkAuxThemeInReg(auxThemeId, variant);
+  if (!isAuxThemeInReg.success) {
     return false;
   }
-  if (!checkResult.data.installed) {
+  if (!isAuxThemeInReg.data.installed) {
     showErrorNotification(
-      l10nT("notification.error.themeNotAvailableOffline$id", [
-        `${auxiliaryThemeId.publisher}/${auxiliaryThemeId.extension}/${auxiliaryThemeId.theme}`,
+      l10nT("notification.full.themeNotAvailOffline$id", [
+        `${auxThemeId.publisher}/${auxThemeId.extension}/${auxThemeId.theme}`,
       ]),
       null,
       null,
@@ -293,18 +232,13 @@ export const prepareAuxiliaryThemeOffline = async (
   }
   const isCached = checkIfFileCached(
     "auxiliary",
-    join(
-      auxiliaryThemeId.owner,
-      auxiliaryThemeId.repo,
-      auxiliaryThemeId.publisher,
-      auxiliaryThemeId.extension,
-    ),
-    `${auxiliaryThemeId.theme}.json`,
+    join(auxThemeId.owner, auxThemeId.repo, auxThemeId.publisher, auxThemeId.extension),
+    `${auxThemeId.theme}.json`,
   );
   if (!isCached) {
     showErrorNotification(
-      l10nT("notification.error.themeNotAvailableOfflineUnexpected$id", [
-        `${auxiliaryThemeId.publisher}/${auxiliaryThemeId.extension}/${auxiliaryThemeId.theme}`,
+      l10nT("notification.full.themeNotAvailOfflineUnexpected$id", [
+        `${auxThemeId.publisher}/${auxThemeId.extension}/${auxThemeId.theme}`,
       ]),
       null,
       null,
@@ -314,34 +248,22 @@ export const prepareAuxiliaryThemeOffline = async (
   return true;
 };
 
-export const getAuxiliaryThemeObject = (auxiliaryTheme: string): any => {
-  const auxiliaryThemeId = getAuxiliaryThemeId(auxiliaryTheme);
-  const auxiliaryThemeObject = getCachedFileContents(
+export const getAuxThemeObj = (auxTheme: string): any => {
+  const auxThemeId = getAuxThemeId(auxTheme);
+  const auxThemeObj = getCachedFileContent(
     "auxiliary",
-    join(
-      auxiliaryThemeId.owner,
-      auxiliaryThemeId.repo,
-      auxiliaryThemeId.publisher,
-      auxiliaryThemeId.extension,
-    ),
-    `${auxiliaryThemeId.theme}.json`,
+    join(auxThemeId.owner, auxThemeId.repo, auxThemeId.publisher, auxThemeId.extension),
+    `${auxThemeId.theme}.json`,
   );
-  return JSON.parse(auxiliaryThemeObject);
+  return JSON.parse(auxThemeObj);
 };
 
-const verifyAvailabilityForAuxiliaryThemeRegistries = async (
-  auxiliaryThemeRegistryIds: AuxiliaryThemeRegistryId[],
-): Promise<boolean> => {
-  for (const auxiliaryThemeRegistryId of auxiliaryThemeRegistryIds) {
-    const networkBoundResult = await checkIfRepoExists(
-      auxiliaryThemeRegistryId.owner,
-      auxiliaryThemeRegistryId.repo,
-    );
-    if (!networkBoundResult.success) {
+const checkAuxThemeRegAvail = async (auxThemeRegIds: AuxThemeRegId[]): Promise<boolean> => {
+  for (const auxThemeRegId of auxThemeRegIds) {
+    const doesRepoExist = await checkRepo(auxThemeRegId.owner, auxThemeRegId.repo);
+    if (!doesRepoExist.success) {
       showErrorNotification(
-        l10nT("notification.error.requestFailed$msg", [
-          networkBoundResult.message,
-        ]),
+        l10nT("notification.lead.requestFailed$msg", [doesRepoExist.message]),
         null,
         null,
       );
@@ -351,105 +273,85 @@ const verifyAvailabilityForAuxiliaryThemeRegistries = async (
   return true;
 };
 
-const auxiliaryThemeRegistryHasUpdates = async (
-  auxiliaryThemeRegistryId: AuxiliaryThemeRegistryId,
-): Promise<NetworkBoundResult> => {
-  const indexContents = getCachedFileContents(
+const auxThemeRegHasUpdates = async (auxThemeRegId: AuxThemeRegId): Promise<OnlineResult> => {
+  const indexContent = getCachedFileContent(
     "auxiliary",
-    join(auxiliaryThemeRegistryId.owner, auxiliaryThemeRegistryId.repo),
+    join(auxThemeRegId.owner, auxThemeRegId.repo),
     "index.json",
   );
-  const auxiliaryThemeRegistryVersion = (
-    JSON.parse(indexContents) as AuxiliaryThemeRegistryIndex
-  ).version;
-  const networkBoundResult = await getLatestVersionTag(
-    auxiliaryThemeRegistryId.owner,
-    auxiliaryThemeRegistryId.repo,
-  );
-  if (!networkBoundResult.success) {
+  const auxThemeRegVer = (JSON.parse(indexContent) as AuxThemeRegIndex).version;
+  const latestVerTag = await getLatestVerTag(auxThemeRegId.owner, auxThemeRegId.repo);
+  if (!latestVerTag.success) {
     showErrorNotification(
-      l10nT("notification.error.requestFailed$msg", [
-        networkBoundResult.message,
-      ]),
+      l10nT("notification.lead.requestFailed$msg", [latestVerTag.message]),
       null,
       null,
     );
-    return { success: false, message: networkBoundResult.message, data: null };
+    return { success: false, message: latestVerTag.message, data: null };
   } else {
-    const auxiliaryThemeRegistryLatestVersion = networkBoundResult.data;
-    if (auxiliaryThemeRegistryVersion === auxiliaryThemeRegistryLatestVersion) {
+    const auxThemeRegLatestVer = latestVerTag.data;
+    if (auxThemeRegVer === auxThemeRegLatestVer) {
       return {
         success: true,
-        message: networkBoundResult.message,
+        message: latestVerTag.message,
         data: false,
       };
     }
   }
   return {
     success: true,
-    message: networkBoundResult.message,
+    message: latestVerTag.message,
     data: true,
   };
 };
 
-const getAuxiliaryThemeRegistryIndex = async (
-  auxiliaryThemeRegistryId: AuxiliaryThemeRegistryId,
-): Promise<boolean> => {
-  const networkBoundResultTag = await getLatestVersionTag(
-    auxiliaryThemeRegistryId.owner,
-    auxiliaryThemeRegistryId.repo,
-  );
-  if (!networkBoundResultTag.success) {
+const getAuxThemeRegIndex = async (auxThemeRegId: AuxThemeRegId): Promise<boolean> => {
+  const latestVerTag = await getLatestVerTag(auxThemeRegId.owner, auxThemeRegId.repo);
+  if (!latestVerTag.success) {
     showErrorNotification(
-      l10nT("notification.error.requestFailed$msg", [
-        networkBoundResultTag.message,
-      ]),
+      l10nT("notification.lead.requestFailed$msg", [latestVerTag.message]),
       null,
       null,
     );
     return false;
   }
-  const auxiliaryThemeRegistryLatestVersion = networkBoundResultTag.data;
-  const networkBoundResultIndex = await getSingleContentFromRelease(
-    auxiliaryThemeRegistryId.owner,
-    auxiliaryThemeRegistryId.repo,
+  const auxThemeRegLatestVer = latestVerTag.data;
+  const indexContent = await getContentFromRelease(
+    auxThemeRegId.owner,
+    auxThemeRegId.repo,
     "index.json",
-    auxiliaryThemeRegistryLatestVersion,
+    auxThemeRegLatestVer,
   );
-  if (!networkBoundResultIndex.success) {
+  if (!indexContent.success) {
     showErrorNotification(
-      l10nT("notification.error.requestFailed$msg", [
-        networkBoundResultIndex.message,
-      ]),
+      l10nT("notification.lead.requestFailed$msg", [indexContent.message]),
       null,
       null,
     );
     return false;
   }
-  const data = JSON.parse(networkBoundResultIndex.data);
-  if (!isAuxiliaryThemeRegistryIndex(data)) {
+  const data = JSON.parse(indexContent.data);
+  if (!isAuxThemeRegIndex(data)) {
     showErrorNotification(
-      l10nT("notification.error.invalidRegistry$id", [
-        `${auxiliaryThemeRegistryId.owner}/${auxiliaryThemeRegistryId.repo}`,
-      ]),
+      l10nT("notification.full.invalidReg$id", [`${auxThemeRegId.owner}/${auxThemeRegId.repo}`]),
       null,
       null,
     );
     return false;
   }
-  const auxiliaryThemeRegistryIndex = data as AuxiliaryThemeRegistryIndex;
+  const auxThemeRegIndex = data as AuxThemeRegIndex;
   return await cacheFile(
     "auxiliary",
-    join(auxiliaryThemeRegistryId.owner, auxiliaryThemeRegistryId.repo),
+    join(auxThemeRegId.owner, auxThemeRegId.repo),
     "index.json",
-    JSON.stringify(auxiliaryThemeRegistryIndex, null, 2),
+    JSON.stringify(auxThemeRegIndex, null, 2),
   )
     .then(() => {
       return true;
     })
     .catch((error: NodeJS.ErrnoException) => {
       showErrorNotification(
-        l10nT("notification.error.cachingFailed$msg", [error.message]),
+        l10nT("notification.lead.cachingFailed$msg", [error.message]),
         null,
         null,
       );
@@ -457,37 +359,32 @@ const getAuxiliaryThemeRegistryIndex = async (
     });
 };
 
-const checkAuxiliaryRegistryIndexForAuxiliaryTheme = (
-  auxiliaryThemeId: AuxiliaryThemeId,
-  variant: Variant,
-): OfflineResult => {
-  const indexContents = getCachedFileContents(
+const checkAuxThemeInReg = (auxThemeId: AuxThemeId, variant: Variant): OfflineResult => {
+  const indexContent = getCachedFileContent(
     "auxiliary",
-    join(auxiliaryThemeId.owner, auxiliaryThemeId.repo),
+    join(auxThemeId.owner, auxThemeId.repo),
     "index.json",
   );
-  const auxiliaryThemeRegistryIndex = JSON.parse(
-    indexContents,
-  ) as AuxiliaryThemeRegistryIndex;
-  const auxiliaryThemeDark = auxiliaryThemeRegistryIndex.themes.dark.find(
-    (auxiliaryThemeInfo) =>
-      auxiliaryThemeInfo.publisher === auxiliaryThemeId.publisher &&
-      auxiliaryThemeInfo.extension === auxiliaryThemeId.extension &&
-      auxiliaryThemeInfo.theme === auxiliaryThemeId.theme,
+  const auxThemeRegIndex = JSON.parse(indexContent) as AuxThemeRegIndex;
+  const auxThemeDark = auxThemeRegIndex.themes.dark.find(
+    (auxThemeInfo) =>
+      auxThemeInfo.publisher === auxThemeId.publisher &&
+      auxThemeInfo.extension === auxThemeId.extension &&
+      auxThemeInfo.theme === auxThemeId.theme,
   );
-  const auxiliaryThemeLight = auxiliaryThemeRegistryIndex.themes.light.find(
-    (auxiliaryThemeInfo) =>
-      auxiliaryThemeInfo.publisher === auxiliaryThemeId.publisher &&
-      auxiliaryThemeInfo.extension === auxiliaryThemeId.extension &&
-      auxiliaryThemeInfo.theme === auxiliaryThemeId.theme,
+  const auxThemeLight = auxThemeRegIndex.themes.light.find(
+    (auxThemeInfo) =>
+      auxThemeInfo.publisher === auxThemeId.publisher &&
+      auxThemeInfo.extension === auxThemeId.extension &&
+      auxThemeInfo.theme === auxThemeId.theme,
   );
   switch (variant) {
     case "dark":
-      if (!auxiliaryThemeDark) {
-        if (auxiliaryThemeLight) {
+      if (!auxThemeDark) {
+        if (auxThemeLight) {
           showErrorNotification(
-            l10nT("notification.error.themeVariantMismatch$id$variant", [
-              `${auxiliaryThemeId.publisher}/${auxiliaryThemeId.extension}/${auxiliaryThemeId.theme}`,
+            l10nT("notification.full.variantMismatch$id$variant", [
+              `${auxThemeId.publisher}/${auxThemeId.extension}/${auxThemeId.theme}`,
               variant,
             ]),
             null,
@@ -496,9 +393,9 @@ const checkAuxiliaryRegistryIndexForAuxiliaryTheme = (
           return { success: false, data: null };
         } else {
           showErrorNotification(
-            l10nT("notification.error.themeNotInRegistry$rid$tid", [
-              `${auxiliaryThemeId.owner}/${auxiliaryThemeId.repo}`,
-              `${auxiliaryThemeId.publisher}/${auxiliaryThemeId.extension}/${auxiliaryThemeId.theme}`,
+            l10nT("notification.full.themeNotInReg$rid$tid", [
+              `${auxThemeId.owner}/${auxThemeId.repo}`,
+              `${auxThemeId.publisher}/${auxThemeId.extension}/${auxThemeId.theme}`,
             ]),
             null,
             null,
@@ -506,14 +403,14 @@ const checkAuxiliaryRegistryIndexForAuxiliaryTheme = (
           return { success: false, data: null };
         }
       } else {
-        return { success: true, data: auxiliaryThemeDark };
+        return { success: true, data: auxThemeDark };
       }
     case "light":
-      if (!auxiliaryThemeLight) {
-        if (auxiliaryThemeDark) {
+      if (!auxThemeLight) {
+        if (auxThemeDark) {
           showErrorNotification(
-            l10nT("notification.error.themeVariantMismatch$id$variant", [
-              `${auxiliaryThemeId.publisher}/${auxiliaryThemeId.extension}/${auxiliaryThemeId.theme}`,
+            l10nT("notification.full.variantMismatch$id$variant", [
+              `${auxThemeId.publisher}/${auxThemeId.extension}/${auxThemeId.theme}`,
               variant,
             ]),
             null,
@@ -522,9 +419,9 @@ const checkAuxiliaryRegistryIndexForAuxiliaryTheme = (
           return { success: false, data: null };
         } else {
           showErrorNotification(
-            l10nT("notification.error.themeNotInRegistry$rid$tid", [
-              `${auxiliaryThemeId.owner}/${auxiliaryThemeId.repo}`,
-              `${auxiliaryThemeId.publisher}/${auxiliaryThemeId.extension}/${auxiliaryThemeId.theme}`,
+            l10nT("notification.full.themeNotInReg$rid$tid", [
+              `${auxThemeId.owner}/${auxThemeId.repo}`,
+              `${auxThemeId.publisher}/${auxThemeId.extension}/${auxThemeId.theme}`,
             ]),
             null,
             null,
@@ -532,7 +429,7 @@ const checkAuxiliaryRegistryIndexForAuxiliaryTheme = (
           return { success: false, data: null };
         }
       } else {
-        return { success: true, data: auxiliaryThemeLight };
+        return { success: true, data: auxThemeLight };
       }
     default: {
       const exhaustiveCheck: never = variant;
@@ -541,69 +438,52 @@ const checkAuxiliaryRegistryIndexForAuxiliaryTheme = (
   }
 };
 
-const getAuxiliaryTheme = async (
-  auxiliaryThemeId: AuxiliaryThemeId,
-): Promise<boolean> => {
-  const indexContents = getCachedFileContents(
+const getAuxTheme = async (auxThemeId: AuxThemeId): Promise<boolean> => {
+  const indexContent = getCachedFileContent(
     "auxiliary",
-    join(auxiliaryThemeId.owner, auxiliaryThemeId.repo),
+    join(auxThemeId.owner, auxThemeId.repo),
     "index.json",
   );
-  const auxiliaryThemeRegistryIndex = JSON.parse(
-    indexContents,
-  ) as AuxiliaryThemeRegistryIndex;
-  const auxiliaryThemeRegistryVersion = auxiliaryThemeRegistryIndex.version;
-  let networkBoundResult: NetworkBoundResult = {
+  const auxThemeRegIndex = JSON.parse(indexContent) as AuxThemeRegIndex;
+  const auxThemeRegVer = auxThemeRegIndex.version;
+  let auxTheme: OnlineResult = {
     success: false,
-    message: l10nT("message.error.unexpectedDummyData"),
+    message: l10nT("notification.msg.unexpectedDummyData"),
     data: null,
   };
-  await showProgressNotification(
-    l10nT("notification.download.theme.title"),
-    async (progress) => {
-      progress.report({
-        message: `"${auxiliaryThemeId.owner}/${auxiliaryThemeId.repo}/${auxiliaryThemeId.publisher}/${auxiliaryThemeId.extension}/${auxiliaryThemeId.theme}"`,
-        increment: undefined,
-      });
-      networkBoundResult = await getSingleContentFromRelease(
-        auxiliaryThemeId.owner,
-        auxiliaryThemeId.repo,
-        `registry/${auxiliaryThemeId.publisher}/${auxiliaryThemeId.extension}/${auxiliaryThemeId.theme}.json`,
-        auxiliaryThemeRegistryVersion,
-      );
-    },
-  );
-  if (!networkBoundResult.success) {
+  await showProgressNotification(l10nT("notification.title.downloadingTheme"), async (progress) => {
+    progress.report({
+      message: `"${auxThemeId.owner}/${auxThemeId.repo}/${auxThemeId.publisher}/${auxThemeId.extension}/${auxThemeId.theme}"`,
+      increment: undefined,
+    });
+    auxTheme = await getContentFromRelease(
+      auxThemeId.owner,
+      auxThemeId.repo,
+      `registry/${auxThemeId.publisher}/${auxThemeId.extension}/${auxThemeId.theme}.json`,
+      auxThemeRegVer,
+    );
+  });
+  if (!auxTheme.success) {
     showErrorNotification(
-      l10nT("notification.error.requestFailed$msg", [
-        networkBoundResult.message,
-      ]),
+      l10nT("notification.lead.requestFailed$msg", [auxTheme.message]),
       null,
       null,
     );
     return false;
   }
-  const data = JSON.parse(networkBoundResult.data);
+  const auxThemeObj = JSON.parse(auxTheme.data);
   return await cacheFile(
     "auxiliary",
-    join(
-      auxiliaryThemeId.owner,
-      auxiliaryThemeId.repo,
-      auxiliaryThemeId.publisher,
-      auxiliaryThemeId.extension,
-    ),
-    `${auxiliaryThemeId.theme}.json`,
-    JSON.stringify(data, null, 2),
+    join(auxThemeId.owner, auxThemeId.repo, auxThemeId.publisher, auxThemeId.extension),
+    `${auxThemeId.theme}.json`,
+    JSON.stringify(auxThemeObj, null, 2),
   )
     .then(async () => {
-      return await updateAuxiliaryThemeCachedKey(
-        auxiliaryThemeId,
-        auxiliaryThemeRegistryIndex,
-      );
+      return await updateAuxThemeCachedKey(auxThemeId, auxThemeRegIndex);
     })
     .catch((error: NodeJS.ErrnoException) => {
       showErrorNotification(
-        l10nT("notification.error.cachingFailed$msg", [error.message]),
+        l10nT("notification.lead.cachingFailed$msg", [error.message]),
         null,
         null,
       );
@@ -611,34 +491,34 @@ const getAuxiliaryTheme = async (
     });
 };
 
-const updateAuxiliaryThemeCachedKey = async (
-  auxiliaryThemeId: AuxiliaryThemeId,
-  auxiliaryThemeRegistryIndex: AuxiliaryThemeRegistryIndex,
+const updateAuxThemeCachedKey = async (
+  auxThemeId: AuxThemeId,
+  auxThemeRegIndex: AuxThemeRegIndex,
 ): Promise<boolean> => {
-  const auxiliaryTheme = auxiliaryThemeRegistryIndex.themes.dark
-    .concat(auxiliaryThemeRegistryIndex.themes.light)
+  const auxThemeInfo = auxThemeRegIndex.themes.dark
+    .concat(auxThemeRegIndex.themes.light)
     .find(
-      (auxiliaryThemeInfo) =>
-        auxiliaryThemeInfo.publisher === auxiliaryThemeId.publisher &&
-        auxiliaryThemeInfo.extension === auxiliaryThemeId.extension &&
-        auxiliaryThemeInfo.theme === auxiliaryThemeId.theme,
+      (auxThemeInfo) =>
+        auxThemeInfo.publisher === auxThemeId.publisher &&
+        auxThemeInfo.extension === auxThemeId.extension &&
+        auxThemeInfo.theme === auxThemeId.theme,
     );
-  if (!auxiliaryTheme) {
+  if (!auxThemeInfo) {
     return false;
   }
-  auxiliaryTheme.installed = true;
+  auxThemeInfo.installed = true;
   return await cacheFile(
     "auxiliary",
-    join(auxiliaryThemeId.owner, auxiliaryThemeId.repo),
+    join(auxThemeId.owner, auxThemeId.repo),
     "index.json",
-    JSON.stringify(auxiliaryThemeRegistryIndex, null, 2),
+    JSON.stringify(auxThemeRegIndex, null, 2),
   )
     .then(() => {
       return true;
     })
     .catch((error: NodeJS.ErrnoException) => {
       showErrorNotification(
-        l10nT("notification.error.cachingFailed$msg", [error.message]),
+        l10nT("notification.lead.cachingFailed$msg", [error.message]),
         null,
         null,
       );

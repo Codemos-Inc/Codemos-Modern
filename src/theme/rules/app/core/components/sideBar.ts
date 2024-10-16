@@ -19,7 +19,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     "sideBarTitle.foreground": styles.fill.text.pri,
   };
   const design = themeContext.variantConfig.design;
-  if (design === "minimal") {
+  if (design === "natural" || design === "minimal") {
     rules["sideBarSectionHeader.background"] = TRANSPARENT;
     rules["sideBarSectionHeader.border"] = styles.stroke.control.default;
   } else if (design === "flat") {

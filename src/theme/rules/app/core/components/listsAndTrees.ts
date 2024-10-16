@@ -35,6 +35,6 @@ export const getRules = (themeContext: ThemeContext): object => {
     "tree.inactiveIndentGuidesStroke": styles.basic.neutral.qui,
     "tree.indentGuidesStroke": styles.basic.neutral.qua,
     "tree.tableColumnsBorder": styles.stroke.divider.default,
-    "tree.tableOddRowsBackground": styles.bg.solid.onCanvas,
+    "tree.tableOddRowsBackground": styles.bg.solid.flyout,
   };
 };

@@ -3,7 +3,7 @@ import { ThemeContext, Variant } from "../@types";
 import { getThemePaths } from "../extension/helpers";
 import { defaultConfig } from "../modern";
 import { getStyles } from "../modern/variants";
-import { getThemeObject } from "../theme";
+import { getThemeObj } from "../theme";
 
 const themePaths = getThemePaths();
 const variants: Variant[] = ["dark", "light"];
@@ -13,8 +13,8 @@ variants.map((variant) => {
     variant: variant,
     variantConfig: defaultConfig[variant],
     styles: getStyles(variant, defaultConfig),
-    auxiliaryUiThemeObject: null,
-    auxiliaryCodeThemeObject: null,
+    auxUiThemeObj: null,
+    auxCodeThemeObj: null,
   };
-  writeFileSync(themePaths[variant], JSON.stringify(getThemeObject(themeContext), null, 2));
+  writeFileSync(themePaths[variant], JSON.stringify(getThemeObj(themeContext), null, 2));
 });

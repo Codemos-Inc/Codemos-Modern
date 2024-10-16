@@ -1,0 +1,1 @@
+type ThemeKind = "ui" | "code";

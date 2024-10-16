@@ -48,14 +48,14 @@ export const getRules = (themeContext: ThemeContext): object => {
     "tab.unfocusedInactiveModifiedBorder": styles.basic.def.blue.qua,
   };
   const design = themeContext.variantConfig.design;
-  if (design === "minimal") {
+  if (design === "natural" || design === "minimal") {
     rules["editorGroupHeader.border"] = TRANSPARENT;
-    rules["tab.activeBorder"] = styles.bg.solid.canvas;
-    rules["tab.unfocusedActiveBorder"] = styles.bg.solid.canvas;
+    rules["tab.activeBorder"] = styles.bg.solid.layer;
+    rules["tab.unfocusedActiveBorder"] = styles.bg.solid.layer;
   } else if (design === "flat") {
     rules["editorGroupHeader.border"] = TRANSPARENT;
-    rules["tab.activeBorder"] = styles.bg.solid.canvas;
-    rules["tab.unfocusedActiveBorder"] = styles.bg.solid.canvas;
+    rules["tab.activeBorder"] = styles.bg.solid.layer;
+    rules["tab.unfocusedActiveBorder"] = styles.bg.solid.layer;
   }
   return rules;
 };

@@ -10,10 +10,10 @@ export const getRules = (themeContext: ThemeContext): object => {
     "breadcrumbPicker.background": styles.bg.solid.flyout,
   };
   const design = themeContext.variantConfig.design;
-  if (design === "minimal") {
-    rules["breadcrumb.background"] = styles.bg.solid.canvas;
+  if (design === "natural" || design === "minimal") {
+    rules["breadcrumb.background"] = styles.bg.solid.layer;
   } else if (design === "flat") {
-    rules["breadcrumb.background"] = styles.bg.solid.canvas;
+    rules["breadcrumb.background"] = styles.bg.solid.layer;
   }
   return rules;
 };

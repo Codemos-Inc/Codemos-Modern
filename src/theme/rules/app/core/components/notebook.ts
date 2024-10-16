@@ -9,7 +9,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     "notebook.cellInsertionIndicator": styles.fill.accent.pri,
     "notebook.cellStatusBarItemHoverBackground": styles.fill.control.rest,
     "notebook.cellToolbarSeparator": styles.stroke.surface.flyout,
-    "notebook.editorBackground": styles.bg.solid.canvas,
+    "notebook.editorBackground": styles.bg.solid.layer,
     "notebook.focusedCellBackground": styles.fill.control.subtle,
     "notebook.focusedCellBorder": styles.fill.accent.pri,
     "notebook.focusedEditorBorder": styles.stroke.focus.default,

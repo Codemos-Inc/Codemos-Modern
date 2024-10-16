@@ -1,40 +1,40 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
 import { join } from "path";
-import { StateObject } from "../@types";
+import { StateObj } from "../@types";
 import { defaultConfig } from "../modern";
 
-export const defaultStateObject: StateObject = {
+export const defaultStateObj: StateObj = {
   isUntouched: true,
   config: defaultConfig,
 };
 
-export const getStateObject = (): StateObject => {
+export const getStateObj = (): StateObj => {
   try {
-    const stateString = readFileSync(join(__dirname, "..", "..", "data", ".state.json"), "utf-8");
-    const stateObject = JSON.parse(stateString);
-    return stateObject as StateObject;
+    const stateStr = readFileSync(join(__dirname, "..", "..", "data", ".state.json"), "utf-8");
+    const stateObj = JSON.parse(stateStr);
+    return stateObj as StateObj;
   } catch (error) {
     console.log(error);
     // 🔴 Write to output
     console.warn(
       "Codemos Modern: Unexpected error ocurred while trying to read state file, recreating it with default values.",
     );
-    writeStateFile(defaultStateObject);
-    return defaultStateObject;
+    writeStateFile(defaultStateObj);
+    return defaultStateObj;
   }
 };
 
-export const updateState = (stateObject: StateObject) => {
-  writeStateFile(stateObject);
+export const updateState = (stateObj: StateObj) => {
+  writeStateFile(stateObj);
 };
 
-const writeStateFile = (stateObject: StateObject) => {
-  const stateString = JSON.stringify(stateObject, null, 2);
+const writeStateFile = (stateObj: StateObj) => {
+  const stateStr = JSON.stringify(stateObj, null, 2);
   const path = join(__dirname, "..", "..", "data", ".state.json");
   if (!existsSync(join(__dirname, "..", "..", "data"))) {
     mkdirSync(join(__dirname, "..", "..", "data"), {
       recursive: true,
     });
   }
-  writeFileSync(path, stateString);
+  writeFileSync(path, stateStr);
 };

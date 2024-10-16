@@ -3,12 +3,11 @@ import { getRules as getCoreRules } from "./core";
 import { getRules as getOtherRules } from "./other";
 
 export const getRules = (themeContext: ThemeContext): object => {
-  if (themeContext.auxiliaryUiThemeObject) {
-    const hasColorsProperty =
-      themeContext.auxiliaryUiThemeObject.colors !== undefined ? true : false;
+  if (themeContext.auxUiThemeObj) {
+    const hasColorsProperty = themeContext.auxUiThemeObj.colors !== undefined ? true : false;
     return {
       ...(hasColorsProperty && {
-        colors: themeContext.auxiliaryUiThemeObject.colors,
+        colors: themeContext.auxUiThemeObj.colors,
       }),
     };
   }

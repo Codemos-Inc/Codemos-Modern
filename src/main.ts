@@ -1,12 +1,13 @@
 import { ConfigurationChangeEvent, ExtensionContext, commands, workspace } from "vscode";
 import type { Variant } from "./@types";
 import { authenticate } from "./extension/authentication";
-import { authenticateCommand, configureCommand } from "./extension/commands";
+import { authenticateCommand } from "./extension/commands/authenticate";
+import { configureCommand } from "./extension/commands/configure";
 import { GLOBAL_STATE_MRV_KEY } from "./extension/constants";
 import { getThemePaths } from "./extension/helpers";
-import { showInformationNotification } from "./extension/notifications";
-import { getIsConfiguredFromCommand } from "./extension/sharedState";
-import { getStateObject, updateState } from "./extension/state";
+import { showInfoNotification } from "./extension/notifications";
+import { getIsConfiguredFromCmd } from "./extension/sharedState";
+import { getStateObj, updateState } from "./extension/state";
 import { UpdateReason, updateReasonMessages } from "./extension/updateMessage";
 import {
   getActiveVariant,
@@ -31,11 +32,11 @@ export const activate = async (extensionContext: ExtensionContext) => {
     } else if (event.affectsConfiguration("codemosModern.textDecorations")) {
       await updateBridge("all", UpdateReason.CONFIG_CHANGE);
     } else if (event.affectsConfiguration("codemosModern.dark")) {
-      if (!getIsConfiguredFromCommand()) {
+      if (!getIsConfiguredFromCmd()) {
         await updateBridge("dark", UpdateReason.CONFIG_CHANGE);
       }
     } else if (event.affectsConfiguration("codemosModern.light")) {
-      if (!getIsConfiguredFromCommand()) {
+      if (!getIsConfiguredFromCmd()) {
         await updateBridge("light", UpdateReason.CONFIG_CHANGE);
       }
     } else if (
@@ -55,7 +56,7 @@ export const updateBridge = async (
   const config = getConfig();
   if (!verifyState(config)) {
     await updateModern(updateTarget, updateReason, config, getThemePaths(), getActiveVariant());
-    const stateObject = getStateObject();
+    const stateObject = getStateObj();
     if (stateObject.isUntouched) {
       stateObject.isUntouched = false;
     }
@@ -109,7 +110,7 @@ const onStart = async (extensionContext: ExtensionContext) => {
 
 const firstInstallExperience = () => {
   commands.executeCommand("codemosModern.configure");
-  showInformationNotification(updateReasonMessages[UpdateReason.FIRST_INSTALL], null, null);
+  showInfoNotification(updateReasonMessages[UpdateReason.FIRST_INSTALL], null, null);
 };
 
 export const deactivate = () => {};

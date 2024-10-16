@@ -1,11 +1,11 @@
 import { ThemeContext } from "../@types";
-import { toggleFirstLetterCase } from "../extension/helpers";
+import { toggleInitialCase } from "../extension/helpers";
 import { getRules } from "./rules";
 
-export const getThemeObject = (themeContext: ThemeContext): object => {
+export const getThemeObj = (themeContext: ThemeContext): object => {
   return {
     $schema: "vscode://schemas/color-theme",
-    name: `Codemos Modern (${toggleFirstLetterCase(themeContext.variant)})`,
+    name: `Codemos Modern (${toggleInitialCase(themeContext.variant)})`,
     type: `${themeContext.variant}`,
     ...getRules(themeContext),
   };

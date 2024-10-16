@@ -1,22 +1,22 @@
-export type AuxiliaryThemeRegistryIndex = {
+export type AuxThemeRegIndex = {
   version: string;
   themes: {
-    dark: AuxiliaryThemeInfo[];
-    light: AuxiliaryThemeInfo[];
+    dark: AuxThemeInfo[];
+    light: AuxThemeInfo[];
   };
 };
 
-export type AuxiliaryThemeRegistryId = {
+export type AuxThemeRegId = {
   owner: string;
   repo: string;
 };
 
-export type AuxiliaryThemeRegistryIndexWithId = {
-  auxiliaryThemeRegistryId: AuxiliaryThemeRegistryId;
-  auxiliaryThemeRegistryIndex: AuxiliaryThemeRegistryIndex;
+export type AuxThemeRegIndexWithId = {
+  auxThemeRegId: AuxThemeRegId;
+  auxThemeRegIndex: AuxThemeRegIndex;
 };
 
-export type AuxiliaryThemeInfo = {
+export type AuxThemeInfo = {
   publisher: string;
   extension: string;
   theme: string;
@@ -25,15 +25,10 @@ export type AuxiliaryThemeInfo = {
   installed: boolean;
 };
 
-export type AuxiliaryThemeId = {
+export type AuxThemeId = {
   owner: string;
   repo: string;
   publisher: string;
   extension: string;
   theme: string;
-};
-
-export type AuxiliaryThemeInfoWithId = {
-  auxiliaryThemeId: AuxiliaryThemeId;
-  auxiliaryThemeInfo: AuxiliaryThemeInfo;
 };

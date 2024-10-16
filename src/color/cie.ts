@@ -1,13 +1,12 @@
 import { LAB } from "../@types";
 
 export function computeCIEDE2000(lab1: LAB, lab2: LAB): number {
-  const [L1, a1, b1] = lab1;
-  const [L2, a2, b2] = lab2;
+  const [L1, a1, b1]: number[] = lab1;
+  const [L2, a2, b2]: number[] = lab2;
 
-  // Weight factors
-  const kL = 1;
-  const kC = 1;
-  const kH = 1;
+  const kL: number = 1;
+  const kC: number = 1;
+  const kH: number = 1;
 
   const C1: number = Math.sqrt(Math.pow(a1, 2) + Math.pow(b1, 2));
   const C2: number = Math.sqrt(Math.pow(a2, 2) + Math.pow(b2, 2));
@@ -43,7 +42,7 @@ export function computeCIEDE2000(lab1: LAB, lab2: LAB): number {
     0.32 * Math.cos(radians(3 * aHp + 6)) -
     0.2 * Math.cos(radians(4 * aHp - 63));
   const dRo: number = 30 * Math.exp(-Math.pow((aHp - 275) / 25, 2));
-  const RC: number = Math.sqrt(Math.pow(aCp, 7.0) / (Math.pow(aCp, 7.0) + Math.pow(25.0, 7.0))); // (17)
+  const RC: number = Math.sqrt(Math.pow(aCp, 7.0) / (Math.pow(aCp, 7.0) + Math.pow(25.0, 7.0)));
   const SL: number = 1 + (0.015 * Math.pow(aL - 50, 2)) / Math.sqrt(20 + Math.pow(aL - 50, 2.0));
   const SC: number = 1 + 0.045 * aCp;
   const SH: number = 1 + 0.015 * aCp * T;
@@ -65,14 +64,7 @@ function radians(n: number): number {
   return n * (Math.PI / 180);
 }
 
-/**
- *
- * @param {number} x
- * @param {number} y
- * @returns {number}
- */
 function hpF(x: number, y: number): number {
-  // (7)
   if (x === 0 && y === 0) {
     return 0;
   } else {
@@ -86,7 +78,6 @@ function hpF(x: number, y: number): number {
 }
 
 function dhpF(C1: number, C2: number, h1p: number, h2p: number): number {
-  // (10)
   if (C1 * C2 === 0) {
     return 0;
   } else if (Math.abs(h2p - h1p) <= 180) {
@@ -101,7 +92,6 @@ function dhpF(C1: number, C2: number, h1p: number, h2p: number): number {
 }
 
 function aHpF(C1: number, C2: number, h1p: number, h2p: number): number {
-  // (14)
   if (C1 * C2 === 0) {
     return h1p + h2p;
   } else if (Math.abs(h1p - h2p) <= 180) {

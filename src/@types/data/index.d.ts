@@ -1,4 +1,4 @@
-export type NetworkBoundResult = {
+export type OnlineResult = {
   success: boolean;
   message: string;
   data: any | null;

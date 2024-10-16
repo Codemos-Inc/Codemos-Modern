@@ -1,7 +1,7 @@
 import { Progress, ProgressLocation, commands, window } from "vscode";
 import { NOTIFICATION_SIGNATURE } from "./constants";
 
-export const showInformationNotification = (
+export const showInfoNotification = (
   message: string,
   actions: string[] | null,
   command: string | null,
