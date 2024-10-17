@@ -59,9 +59,26 @@ export const getRules = (themeContext: ThemeContext): object => {
   if (design === "natural" || design === "minimal") {
     rules["statusBar.noFolderBackground"] = styles.bg.solid.base;
     rules["statusBar.noFolderForeground"] = styles.fill.text.pri;
+    rules["statusBarItem.remoteBackground"] = styles.fill.accent.pri;
+    rules["statusBarItem.remoteForeground"] = styles.fill.textOnColor.pri;
+    rules["statusBarItem.remoteHoverBackground"] = getMixedColorHex9(
+      styles.fill.accent.sec,
+      styles.bg.solid.base,
+    );
+    rules["statusBarItem.remoteHoverForeground"] = styles.fill.textOnColor.pri;
   } else if (design === "flat") {
     rules["statusBar.noFolderBackground"] = styles.bg.solid.base;
     rules["statusBar.noFolderForeground"] = styles.fill.text.pri;
+    rules["statusBarItem.remoteBackground"] = getMixedColorHex9(
+      styles.fill.control.hover,
+      styles.bg.solid.base,
+    );
+    rules["statusBarItem.remoteForeground"] = styles.fill.accentText.pri;
+    rules["statusBarItem.remoteHoverBackground"] = getMixedColorHex9(
+      styles.fill.control.doubleHover,
+      styles.bg.solid.base,
+    );
+    rules["statusBarItem.remoteHoverForeground"] = styles.fill.accentText.sec;
   }
   return rules;
 };
