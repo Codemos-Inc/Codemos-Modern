@@ -4,20 +4,20 @@ export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles.code;
   return {
     // Annotation
-    annotation: colors.s01,
+    annotation: colors.scope01,
     // Annotation members
-    annotationMember: colors.s09,
+    annotationMember: colors.scope09,
     // Modifier keywords
-    modifier: colors.s06,
+    modifier: colors.scope06,
     // Records
-    record: colors.s03,
+    record: colors.scope03,
     // Record components
-    recordComponent: colors.s11,
+    recordComponent: colors.scope11,
     // Documentation keywords
-    "keyword.documentation": colors.s06,
+    "keyword.documentation": colors.scope06,
     // Constructors
-    "*.declaration.constructor": colors.s02,
+    "*.declaration.constructor": colors.scope02,
     // Constructor calls
-    "*.constructor": colors.s03,
+    "*.constructor": colors.scope03,
   };
 };

@@ -4,32 +4,32 @@ export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles.code;
   return {
     // C++/CLI reference types
-    referenceType: colors.s03,
+    referenceType: colors.scope03,
     // C++/CLI properties
-    cliProperty: colors.s11,
+    cliProperty: colors.scope11,
     // C++/CLI generic types
-    genericType: colors.s03,
+    genericType: colors.scope03,
     // C++/CLI value types
-    valueType: colors.s01,
+    valueType: colors.scope01,
     // Templated functions
-    templateFunction: colors.s02,
+    templateFunction: colors.scope02,
     // Templated types
-    templateType: colors.s03,
+    templateType: colors.scope03,
     // Operator overloads
-    operatorOverload: colors.s02,
+    operatorOverload: colors.scope02,
     // Member operator overloads
-    memberOperatorOverload: colors.s02,
+    memberOperatorOverload: colors.scope02,
     // New/Delete operators
-    newOperator: colors.s01,
+    newOperator: colors.scope01,
     // Custom literals
-    customLiteral: colors.s14,
+    customLiteral: colors.scope14,
     // Number literals
-    numberLiteral: colors.s12,
+    numberLiteral: colors.scope12,
     // String literals
-    stringLiteral: colors.s00,
+    stringLiteral: colors.scope00,
     // Global variables
-    "variable.global": colors.s13,
+    "variable.global": colors.scope13,
     // Local variables
-    "variable.local": colors.s10,
+    "variable.local": colors.scope10,
   };
 };

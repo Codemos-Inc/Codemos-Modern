@@ -4,14 +4,14 @@ export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles.code;
   return {
     // Magic functions
-    magicFunction: colors.s07,
+    magicFunction: colors.scope07,
     // Self parameters
-    selfParameter: colors.s03,
+    selfParameter: colors.scope03,
     // Class parameters
-    clsParameter: colors.s03,
+    clsParameter: colors.scope03,
     // Builtins types
-    "class.builtin": colors.s06,
+    "class.builtin": colors.scope06,
     // Decorator functions
-    "function.decorator": colors.s01,
+    "function.decorator": colors.scope01,
   };
 };

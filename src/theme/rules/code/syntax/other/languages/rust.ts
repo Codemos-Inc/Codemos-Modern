@@ -7,7 +7,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["entity.name.function.macro"],
       settings: {
-        foreground: colors.s07,
+        foreground: colors.scope07,
         fontStyle: "",
       },
     },
@@ -18,7 +18,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.rust entity.name.function.macro.rules",
       ],
       settings: {
-        foreground: colors.s16,
+        foreground: colors.scope16,
         fontStyle: "",
       },
     },
@@ -30,7 +30,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.rust variable.other.metavariable.name",
       ],
       settings: {
-        foreground: colors.s15,
+        foreground: colors.scope15,
         fontStyle: "",
       },
     },
@@ -41,7 +41,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.rust variable.other.metavariable.specifier",
       ],
       settings: {
-        foreground: colors.s06,
+        foreground: colors.scope06,
         fontStyle: "",
       },
     },
@@ -49,7 +49,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["entity.name.type.lifetime", "punctuation.definition.lifetime"],
       settings: {
-        foreground: colors.s01,
+        foreground: colors.scope01,
         fontStyle: "",
       },
     },
@@ -57,7 +57,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["meta.attribute keyword.operator.namespace"],
       settings: {
-        foreground: colors.s09,
+        foreground: colors.scope09,
         fontStyle: "",
       },
     },
@@ -65,7 +65,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["keyword.operator.dereference", "keyword.operator.borrow"],
       settings: {
-        foreground: colors.s09,
+        foreground: colors.scope09,
         fontStyle: "",
       },
     },

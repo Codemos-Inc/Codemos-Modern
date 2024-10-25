@@ -10,7 +10,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "variable.other.razor.directive.sectionName",
       ],
       settings: {
-        foreground: colors.s16,
+        foreground: colors.scope16,
         fontStyle: "",
       },
     },

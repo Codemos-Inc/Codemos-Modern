@@ -4,12 +4,12 @@ export const getRules = (themeContext: ThemeContext): object => {
   const colors = themeContext.styles.code;
   return {
     // Escape characters
-    "string.escape": colors.s01,
+    "string.escape": colors.scope01,
     // Source texts
-    source: colors.sxx,
+    source: colors.scopeXX,
     // Interpolated strings
-    "source.interpolation": colors.s14,
+    "source.interpolation": colors.scope14,
     // Annotations
-    "*.annotation": colors.s01,
+    "*.annotation": colors.scope01,
   };
 };

@@ -1,44 +1,44 @@
 import { ThemeContext } from "../../../../../@types";
-import { getRules as getS00Rules } from "./scopes/s00";
-import { getRules as getS01Rules } from "./scopes/s01";
-import { getRules as getS02Rules } from "./scopes/s02";
-import { getRules as getS03Rules } from "./scopes/s03";
-import { getRules as getS04Rules } from "./scopes/s04";
-import { getRules as getS05Rules } from "./scopes/s05";
-import { getRules as getS06Rules } from "./scopes/s06";
-import { getRules as getS07Rules } from "./scopes/s07";
-import { getRules as getS08Rules } from "./scopes/s08";
-import { getRules as getS09Rules } from "./scopes/s09";
-import { getRules as getS10Rules } from "./scopes/s10";
-import { getRules as getS11Rules } from "./scopes/s11";
-import { getRules as getS12Rules } from "./scopes/s12";
-import { getRules as getS13Rules } from "./scopes/s13";
-import { getRules as getS14Rules } from "./scopes/s14";
-import { getRules as getS15Rules } from "./scopes/s15";
-import { getRules as getS16Rules } from "./scopes/s16";
-import { getRules as getSnoRules } from "./scopes/sno";
-import { getRules as getSxxRules } from "./scopes/sxx";
+import { getRules as getScope00Rules } from "./scopes/00";
+import { getRules as getScope01Rules } from "./scopes/01";
+import { getRules as getScope02Rules } from "./scopes/02";
+import { getRules as getScope03Rules } from "./scopes/03";
+import { getRules as getScope04Rules } from "./scopes/04";
+import { getRules as getScope05Rules } from "./scopes/05";
+import { getRules as getScope06Rules } from "./scopes/06";
+import { getRules as getScope07Rules } from "./scopes/07";
+import { getRules as getScope08Rules } from "./scopes/08";
+import { getRules as getScope09Rules } from "./scopes/09";
+import { getRules as getScope10Rules } from "./scopes/10";
+import { getRules as getScope11Rules } from "./scopes/11";
+import { getRules as getScope12Rules } from "./scopes/12";
+import { getRules as getScope13Rules } from "./scopes/13";
+import { getRules as getScope14Rules } from "./scopes/14";
+import { getRules as getScope15Rules } from "./scopes/15";
+import { getRules as getScope16Rules } from "./scopes/16";
+import { getRules as getScopeNARules } from "./scopes/NA";
+import { getRules as getScopeXXRules } from "./scopes/XX";
 
 export const getRules = (themeContext: ThemeContext): object => {
   return {
-    ...getS00Rules(themeContext),
-    ...getS01Rules(themeContext),
-    ...getS02Rules(themeContext),
-    ...getS03Rules(themeContext),
-    ...getS04Rules(themeContext),
-    ...getS05Rules(themeContext),
-    ...getS06Rules(themeContext),
-    ...getS07Rules(themeContext),
-    ...getS08Rules(themeContext),
-    ...getS09Rules(themeContext),
-    ...getS10Rules(themeContext),
-    ...getS11Rules(themeContext),
-    ...getS12Rules(themeContext),
-    ...getS13Rules(themeContext),
-    ...getS14Rules(themeContext),
-    ...getS15Rules(themeContext),
-    ...getS16Rules(themeContext),
-    ...getSnoRules(themeContext),
-    ...getSxxRules(themeContext),
+    ...getScope00Rules(themeContext),
+    ...getScope01Rules(themeContext),
+    ...getScope02Rules(themeContext),
+    ...getScope03Rules(themeContext),
+    ...getScope04Rules(themeContext),
+    ...getScope05Rules(themeContext),
+    ...getScope06Rules(themeContext),
+    ...getScope07Rules(themeContext),
+    ...getScope08Rules(themeContext),
+    ...getScope09Rules(themeContext),
+    ...getScope10Rules(themeContext),
+    ...getScope11Rules(themeContext),
+    ...getScope12Rules(themeContext),
+    ...getScope13Rules(themeContext),
+    ...getScope14Rules(themeContext),
+    ...getScope15Rules(themeContext),
+    ...getScope16Rules(themeContext),
+    ...getScopeNARules(themeContext),
+    ...getScopeXXRules(themeContext),
   };
 };

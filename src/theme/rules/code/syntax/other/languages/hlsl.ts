@@ -7,7 +7,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["source.hlsl support.variable"],
       settings: {
-        foreground: colors.s13,
+        foreground: colors.scope13,
         fontStyle: "",
       },
     },

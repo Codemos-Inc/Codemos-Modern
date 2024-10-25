@@ -10,7 +10,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "text.bibtex support.function.key",
       ],
       settings: {
-        foreground: colors.s14,
+        foreground: colors.scope14,
         fontStyle: "",
       },
     },
@@ -21,7 +21,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "text.bibtex entity.name.type.entry-key",
       ],
       settings: {
-        foreground: colors.s10,
+        foreground: colors.scope10,
         fontStyle: "",
       },
     },
@@ -29,7 +29,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["meta.embedded.block.bibtex support.variable", "text.bibtex support.variable"],
       settings: {
-        foreground: colors.s13,
+        foreground: colors.scope13,
         fontStyle: "",
       },
     },
@@ -44,7 +44,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "text.bibtex meta.string-constant",
       ],
       settings: {
-        foreground: colors.s00,
+        foreground: colors.scope00,
         fontStyle: "",
       },
     },

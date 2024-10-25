@@ -7,7 +7,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["meta.embedded.block.groovy storage.type", "source.groovy storage.type"],
       settings: {
-        foreground: colors.s03,
+        foreground: colors.scope03,
         fontStyle: "",
       },
     },
@@ -20,7 +20,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.groovy storage.type.def",
       ],
       settings: {
-        foreground: colors.s06,
+        foreground: colors.scope06,
         fontStyle: "",
       },
     },
@@ -28,7 +28,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["meta.embedded.block.groovy constant.enum.name", "source.groovy constant.enum.name"],
       settings: {
-        foreground: colors.s13,
+        foreground: colors.scope13,
         fontStyle: "",
       },
     },
@@ -43,7 +43,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.groovy meta.definition.variable.name",
       ],
       settings: {
-        foreground: colors.s10,
+        foreground: colors.scope10,
         fontStyle: "",
       },
     },
@@ -54,7 +54,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.groovy variable.other.interpolated",
       ],
       settings: {
-        foreground: colors.s14,
+        foreground: colors.scope14,
         fontStyle: "",
       },
     },
@@ -62,7 +62,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["meta.embedded.block.groovy meta.method-call", "source.groovy meta.method-call"],
       settings: {
-        foreground: colors.s02,
+        foreground: colors.scope02,
         fontStyle: "",
       },
     },
@@ -75,7 +75,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.groovy punctuation.definition.method-parameters.end",
       ],
       settings: {
-        foreground: colors.sxx,
+        foreground: colors.scopeXX,
         fontStyle: "",
       },
     },
@@ -86,7 +86,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.groovy meta.declaration.annotation constant.other.key",
       ],
       settings: {
-        foreground: colors.s09,
+        foreground: colors.scope09,
         fontStyle: "",
       },
     },

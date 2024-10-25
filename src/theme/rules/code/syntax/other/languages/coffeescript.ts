@@ -7,7 +7,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["source.coffee meta.arguments"],
       settings: {
-        foreground: colors.s10,
+        foreground: colors.scope10,
         fontStyle: "",
       },
     },
@@ -15,7 +15,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["source.coffee support.variable"],
       settings: {
-        foreground: colors.s13,
+        foreground: colors.scope13,
         fontStyle: "",
       },
     },

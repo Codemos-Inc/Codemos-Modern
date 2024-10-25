@@ -12,7 +12,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.kotlin entity.string.template.element",
       ],
       settings: {
-        foreground: colors.s14,
+        foreground: colors.scope14,
         fontStyle: "",
       },
     },
@@ -20,7 +20,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["meta.embedded.block.kotlin keyword.operator", "source.kotlin keyword.operator"],
       settings: {
-        foreground: colors.s06,
+        foreground: colors.scope06,
         fontStyle: "",
       },
     },
@@ -41,7 +41,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.kotlin keyword.operator.logical",
       ],
       settings: {
-        foreground: colors.sxx,
+        foreground: colors.scopeXX,
         fontStyle: "",
       },
     },

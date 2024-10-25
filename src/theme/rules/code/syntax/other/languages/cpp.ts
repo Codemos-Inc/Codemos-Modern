@@ -7,7 +7,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["entity.other.attribute-name.pragma"],
       settings: {
-        foreground: colors.s16,
+        foreground: colors.scope16,
         fontStyle: "",
       },
     },
@@ -15,7 +15,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["punctuation.definition.function.return-type", "storage.modifier.reference"],
       settings: {
-        foreground: colors.sxx,
+        foreground: colors.scopeXX,
         fontStyle: "",
       },
     },
@@ -28,7 +28,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.cpp keyword.operator.new",
       ],
       settings: {
-        foreground: colors.s01,
+        foreground: colors.scope01,
         fontStyle: "",
       },
     },
@@ -36,7 +36,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["keyword.other.operator.overload"],
       settings: {
-        foreground: colors.s02,
+        foreground: colors.scope02,
         fontStyle: "",
       },
     },
@@ -68,7 +68,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.cpp keyword.operator.wordlike",
       ],
       settings: {
-        foreground: colors.s06,
+        foreground: colors.scope06,
         fontStyle: "",
       },
     },

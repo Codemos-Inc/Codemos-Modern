@@ -5,95 +5,95 @@ export const getRules = (themeContext: ThemeContext): object => {
   const decorations = themeContext.textDecorations;
   return {
     // Angle punctuations
-    angle: colors.sxx,
+    angle: colors.scopeXX,
     // Arithmetic operators
-    arithmetic: colors.sxx,
+    arithmetic: colors.scopeXX,
     // Attributes
-    attribute: colors.s01,
+    attribute: colors.scope01,
     // Attributes brackets
-    attributeBracket: colors.s01,
+    attributeBracket: colors.scope01,
     // Bitwise operators
-    bitwise: colors.sxx,
+    bitwise: colors.scopeXX,
     // Boolean literals
-    boolean: colors.s06,
+    boolean: colors.scope06,
     // Braces
-    brace: colors.sxx,
+    brace: colors.scopeXX,
     // Brackets
-    bracket: colors.sxx,
+    bracket: colors.scopeXX,
     // Builtin attributes
-    builtinAttribute: colors.s01,
+    builtinAttribute: colors.scope01,
     // Builtin types
-    builtinType: colors.s06,
+    builtinType: colors.scope06,
     // Character literals
-    character: colors.s00,
+    character: colors.scope00,
     // Colons
-    colon: colors.sxx,
+    colon: colors.scopeXX,
     // Commas
-    comma: colors.sxx,
+    comma: colors.scopeXX,
     // Comparison operators
-    comparison: colors.sxx,
+    comparison: colors.scopeXX,
     // Const generics
-    constParameter: colors.s13,
+    constParameter: colors.scope13,
     // Consts
-    const: colors.s10,
+    const: colors.scope10,
     // Derives
-    derive: colors.s03,
+    derive: colors.scope03,
     // Derive helpers
-    deriveHelper: colors.s03,
+    deriveHelper: colors.scope03,
     // Dots
-    dot: colors.sxx,
+    dot: colors.scopeXX,
     // Escape sequences
-    escapeSequence: colors.s01,
+    escapeSequence: colors.scope01,
     // Format specifiers
-    formatSpecifier: colors.s14,
+    formatSpecifier: colors.scope14,
     // Invalid escape sequences
     invalidEscapeSequence: {
-      foreground: colors.s01,
+      foreground: colors.scope01,
       strikethrough: decorations.strikeThrough,
     },
     // Labels
-    label: colors.s16,
+    label: colors.scope16,
     // Lifetimes
-    lifetime: colors.s01,
+    lifetime: colors.scope01,
     // Logical operators
-    logical: colors.sxx,
+    logical: colors.scopeXX,
     // Macro bang punctuations
-    macroBang: colors.s07,
+    macroBang: colors.scope07,
     // Parenthesis
-    parenthesis: colors.sxx,
+    parenthesis: colors.scopeXX,
     // Procedural macros
-    procMacro: colors.s07,
+    procMacro: colors.scope07,
     // Punctuations
-    punctuation: colors.sxx,
+    punctuation: colors.scopeXX,
     // Parenthesis inside attributes
-    "punctuation.attribute": colors.s01,
+    "punctuation.attribute": colors.scope01,
     // Self keywords
-    selfKeyword: colors.s03,
+    selfKeyword: colors.scope03,
     // Self type keywords
-    selfTypeKeywords: colors.s03,
+    selfTypeKeywords: colors.scope03,
     // Semicolons
-    semicolon: colors.sxx,
+    semicolon: colors.scopeXX,
     // Statics
     static: {
       italic: decorations.italic,
     },
     // Tool module attributes
-    toolModule: colors.s01,
+    toolModule: colors.scope01,
     // Type aliases
-    typeAlias: colors.s03,
+    typeAlias: colors.scope03,
     // Unions
-    union: colors.s03,
+    union: colors.scope03,
     // Unresolved references
-    unresolvedReference: colors.s01,
+    unresolvedReference: colors.scope01,
     // Control keywords
-    "keyword.controlFlow": colors.s08,
+    "keyword.controlFlow": colors.scope08,
     // Unsafe keywords
-    "keyword.unsafe": colors.s01,
+    "keyword.unsafe": colors.scope01,
     // Mutables
     "*.mutable": {
       underline: decorations.underline,
     },
     // Attribute generics
-    "generic.attribute": colors.s09,
+    "generic.attribute": colors.scope09,
   };
 };

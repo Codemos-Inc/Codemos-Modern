@@ -8,7 +8,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["heading.1", "markup.heading.setext.1"],
       settings: {
-        foreground: colors.s01,
+        foreground: colors.scope01,
         fontStyle: "bold",
       },
     },
@@ -16,7 +16,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["heading.2", "markup.heading.setext.2"],
       settings: {
-        foreground: colors.s02,
+        foreground: colors.scope02,
         fontStyle: "bold",
       },
     },
@@ -24,7 +24,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["heading.3", "markup.heading.setext.3"],
       settings: {
-        foreground: colors.s03,
+        foreground: colors.scope03,
         fontStyle: "bold",
       },
     },
@@ -32,7 +32,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["heading.4", "markup.heading.setext.4"],
       settings: {
-        foreground: colors.s04,
+        foreground: colors.scope04,
         fontStyle: "bold",
       },
     },
@@ -40,7 +40,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["heading.5", "markup.heading.setext.5"],
       settings: {
-        foreground: colors.s05,
+        foreground: colors.scope05,
         fontStyle: "bold",
       },
     },
@@ -48,7 +48,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["heading.6", "markup.heading.setext.6"],
       settings: {
-        foreground: colors.s06,
+        foreground: colors.scope06,
         fontStyle: "bold",
       },
     },
@@ -84,7 +84,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["markup.underline.link"],
       settings: {
-        foreground: colors.s06,
+        foreground: colors.scope06,
         fontStyle: "underline",
       },
     },
@@ -116,7 +116,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["punctuation.definition.quote.begin"],
       settings: {
-        foreground: colors.s07,
+        foreground: colors.scope07,
         fontStyle: "",
       },
     },
@@ -124,7 +124,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["markup.quote"],
       settings: {
-        foreground: colors.s15,
+        foreground: colors.scope15,
         fontStyle: "",
       },
     },
@@ -132,7 +132,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["meta.separator"],
       settings: {
-        foreground: colors.s00,
+        foreground: colors.scope00,
         fontStyle: "",
       },
     },

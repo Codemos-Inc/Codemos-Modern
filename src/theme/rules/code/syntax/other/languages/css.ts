@@ -7,7 +7,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["support.type.vendored.property-name"],
       settings: {
-        foreground: colors.s09,
+        foreground: colors.scope09,
         fontStyle: "",
       },
     },
@@ -15,7 +15,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["keyword.other.important"],
       settings: {
-        foreground: colors.s01,
+        foreground: colors.scope01,
         fontStyle: "",
       },
     },
@@ -23,7 +23,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["entity.other.attribute-name.id"],
       settings: {
-        foreground: colors.s07,
+        foreground: colors.scope07,
         fontStyle: "",
       },
     },
@@ -31,7 +31,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["entity.other.attribute-name.pseudo-element"],
       settings: {
-        foreground: colors.s15,
+        foreground: colors.scope15,
         fontStyle: "",
       },
     },
@@ -39,7 +39,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["entity.other.attribute-name.class"],
       settings: {
-        foreground: colors.s03,
+        foreground: colors.scope03,
         fontStyle: "",
       },
     },
@@ -47,7 +47,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["entity.other.attribute-name.pseudo-class"],
       settings: {
-        foreground: colors.s11,
+        foreground: colors.scope11,
         fontStyle: "",
       },
     },
@@ -55,7 +55,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["entity.other.keyframe-offset"],
       settings: {
-        foreground: colors.s16,
+        foreground: colors.scope16,
         fontStyle: "",
       },
     },
@@ -70,7 +70,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.scss punctuation.definition.keyword",
       ],
       settings: {
-        foreground: colors.s08,
+        foreground: colors.scope08,
         fontStyle: "",
       },
     },
@@ -78,7 +78,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["punctuation.definition.entity"],
       settings: {
-        foreground: colors.s05,
+        foreground: colors.scope05,
         fontStyle: "",
       },
     },

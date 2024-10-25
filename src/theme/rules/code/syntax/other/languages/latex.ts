@@ -12,7 +12,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "text.tex punctuation.definition.keyword",
       ],
       settings: {
-        foreground: colors.s08,
+        foreground: colors.scope08,
         fontStyle: "",
       },
     },
@@ -25,7 +25,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "text.tex storage.type.function punctuation.definition.function",
       ],
       settings: {
-        foreground: colors.s06,
+        foreground: colors.scope06,
         fontStyle: "",
       },
     },

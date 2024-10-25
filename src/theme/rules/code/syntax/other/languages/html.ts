@@ -7,7 +7,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["punctuation.definition.entity"],
       settings: {
-        foreground: colors.s15,
+        foreground: colors.scope15,
         fontStyle: "",
       },
     },

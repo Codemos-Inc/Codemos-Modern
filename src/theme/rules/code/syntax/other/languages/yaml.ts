@@ -10,7 +10,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.yaml constant.other.timestamp",
       ],
       settings: {
-        foreground: colors.s15,
+        foreground: colors.scope15,
         fontStyle: "",
       },
     },
@@ -21,7 +21,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.yaml keyword.control.flow.block-scalar",
       ],
       settings: {
-        foreground: colors.s16,
+        foreground: colors.scope16,
         fontStyle: "",
       },
     },
@@ -34,7 +34,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.yaml entity.name.type.anchor",
       ],
       settings: {
-        foreground: colors.s02,
+        foreground: colors.scope02,
         fontStyle: "",
       },
     },
@@ -47,7 +47,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.yaml entity.name.type.alias",
       ],
       settings: {
-        foreground: colors.s10,
+        foreground: colors.scope10,
         fontStyle: "",
       },
     },
@@ -58,7 +58,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.yaml storage.modifier.chomping-indicator",
       ],
       settings: {
-        foreground: colors.s08,
+        foreground: colors.scope08,
         fontStyle: "",
       },
     },
@@ -69,7 +69,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.yaml entity.other.document",
       ],
       settings: {
-        foreground: colors.s14,
+        foreground: colors.scope14,
         fontStyle: "",
       },
     },

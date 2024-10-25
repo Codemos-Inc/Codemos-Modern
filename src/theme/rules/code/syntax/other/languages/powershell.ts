@@ -10,7 +10,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.powershell support.function.attribute",
       ],
       settings: {
-        foreground: colors.s01,
+        foreground: colors.scope01,
         fontStyle: "",
       },
     },
@@ -21,7 +21,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.powershell support.function",
       ],
       settings: {
-        foreground: colors.s03,
+        foreground: colors.scope03,
         fontStyle: "",
       },
     },
@@ -36,7 +36,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.powershell keyword.operator.logical",
       ],
       settings: {
-        foreground: colors.s06,
+        foreground: colors.scope06,
         fontStyle: "",
       },
     },

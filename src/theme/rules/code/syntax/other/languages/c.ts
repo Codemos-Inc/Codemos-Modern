@@ -10,7 +10,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.c storage.modifier.array.bracket",
       ],
       settings: {
-        foreground: colors.sxx,
+        foreground: colors.scopeXX,
         fontStyle: "",
       },
     },
@@ -23,7 +23,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.c keyword.operator.new",
       ],
       settings: {
-        foreground: colors.s01,
+        foreground: colors.scope01,
         fontStyle: "",
       },
     },

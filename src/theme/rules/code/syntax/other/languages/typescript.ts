@@ -7,7 +7,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["keyword.operator.expression"],
       settings: {
-        foreground: colors.s06,
+        foreground: colors.scope06,
         fontStyle: "",
       },
     },
@@ -15,7 +15,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["storage.type.numeric.bigint"],
       settings: {
-        foreground: colors.s12,
+        foreground: colors.scope12,
         fontStyle: "",
       },
     },

@@ -4,11 +4,17 @@
   "publisher": "Codemos",
   "icon": "res/icon.gif",
   "description": "%ext.desc%",
+  "pricing": "Free",
   "version": "2.9.0",
   "license": "MIT",
+  "homepage": "https://github.com/Codemos-Inc/Codemos-Modern",
   "repository": {
     "type": "git",
     "url": "https://github.com/Codemos-Inc/Codemos-Modern"
+  },
+  "bugs": {
+    "url": "https://github.com/Codemos-Inc/Codemos-Modern/issues",
+    "email": "developer@karacayir.com"
   },
   "sponsor": {
     "url": "https://github.com/sponsors/EmrecanKaracayir"
@@ -24,7 +30,6 @@
     "Themes"
   ],
   "keywords": [
-    "color-theme",
     "theme",
     "dark",
     "light",
@@ -72,6 +77,7 @@
         "properties": {
           "codemosModern.auxiliaryThemeRegistries": {
             "order": 0,
+            "scope": "window",
             "type": "array",
             "default": [
               "Codemos-Inc/Auxiliary-Theme-Registry"
@@ -88,30 +94,35 @@
         "properties": {
           "codemosModern.textDecorations.strikethrough": {
             "order": 0,
+            "scope": "window",
             "type": "boolean",
             "default": true,
             "markdownDescription": "%conf.textDec.strikethrough.desc%"
           },
           "codemosModern.textDecorations.bold": {
             "order": 1,
+            "scope": "window",
             "type": "boolean",
             "default": true,
             "markdownDescription": "%conf.textDec.bold.desc%"
           },
           "codemosModern.textDecorations.italic": {
             "order": 2,
+            "scope": "window",
             "type": "boolean",
             "default": true,
             "markdownDescription": "%conf.textDec.italic.desc%"
           },
           "codemosModern.textDecorations.underline": {
             "order": 3,
+            "scope": "window",
             "type": "boolean",
             "default": false,
             "markdownDescription": "%conf.textDec.underline.desc%"
           },
           "codemosModern.textDecorations.forComments": {
             "order": 4,
+            "scope": "window",
             "type": "array",
             "items": {
               "type": "string",
@@ -140,6 +151,7 @@
         "properties": {
           "codemosModern.dark.auxiliaryUiTheme": {
             "order": 0,
+            "scope": "window",
             "type": [
               "string",
               "null"
@@ -151,6 +163,7 @@
           },
           "codemosModern.dark.design": {
             "order": 1,
+            "scope": "window",
             "type": "string",
             "default": "modern",
             "enum": [
@@ -169,6 +182,7 @@
           },
           "codemosModern.dark.accentColor": {
             "order": 2,
+            "scope": "window",
             "type": "string",
             "default": "#CB8569",
             "markdownDescription": "%conf.dark.accentColor.desc%",
@@ -177,6 +191,7 @@
           },
           "codemosModern.dark.adaptationColor": {
             "order": 3,
+            "scope": "window",
             "type": "string",
             "default": "#CB8569",
             "markdownDescription": "%conf.dark.adaptationColor.desc%",
@@ -185,6 +200,7 @@
           },
           "codemosModern.dark.adaptationIntensity": {
             "order": 4,
+            "scope": "window",
             "type": "integer",
             "default": 0,
             "minimum": 0,
@@ -193,6 +209,7 @@
           },
           "codemosModern.dark.auxiliaryCodeTheme": {
             "order": 5,
+            "scope": "window",
             "type": [
               "string",
               "null"
@@ -201,6 +218,136 @@
             "markdownDescription": "%conf.dark.auxiliaryCodeTheme.desc%",
             "pattern": "^[a-zA-Z0-9-]+/[a-zA-Z0-9._-]+/.+/.+/.+$",
             "patternErrorMessage": "%conf.dark.auxiliary*Theme.err%"
+          },
+          "codemosModern.dark.codeColors": {
+            "order": 6,
+            "scope": "window",
+            "type": "object",
+            "additionalProperties": false,
+            "description": "%%",
+            "properties": {
+              "scope00": {
+                "type": "string",
+                "markdownDescription": "%%",
+                "pattern": "^#[0-9A-Fa-f]{6}$",
+                "patternErrorMessage": "%conf.dark.*Color.err%"
+              },
+              "scope01": {
+                "type": "string",
+                "markdownDescription": "%%",
+                "pattern": "^#[0-9A-Fa-f]{6}$",
+                "patternErrorMessage": "%conf.dark.*Color.err%"
+              },
+              "scope02": {
+                "type": "string",
+                "markdownDescription": "%%",
+                "pattern": "^#[0-9A-Fa-f]{6}$",
+                "patternErrorMessage": "%conf.dark.*Color.err%"
+              },
+              "scope03": {
+                "type": "string",
+                "markdownDescription": "%%",
+                "pattern": "^#[0-9A-Fa-f]{6}$",
+                "patternErrorMessage": "%conf.dark.*Color.err%"
+              },
+              "scope04": {
+                "type": "string",
+                "markdownDescription": "%%",
+                "pattern": "^#[0-9A-Fa-f]{6}$",
+                "patternErrorMessage": "%conf.dark.*Color.err%"
+              },
+              "scope05": {
+                "type": "string",
+                "markdownDescription": "%%",
+                "pattern": "^#[0-9A-Fa-f]{6}$",
+                "patternErrorMessage": "%conf.dark.*Color.err%"
+              },
+              "scope06": {
+                "type": "string",
+                "markdownDescription": "%%",
+                "pattern": "^#[0-9A-Fa-f]{6}$",
+                "patternErrorMessage": "%conf.dark.*Color.err%"
+              },
+              "scope07": {
+                "type": "string",
+                "markdownDescription": "%%",
+                "pattern": "^#[0-9A-Fa-f]{6}$",
+                "patternErrorMessage": "%conf.dark.*Color.err%"
+              },
+              "scope08": {
+                "type": "string",
+                "markdownDescription": "%%",
+                "pattern": "^#[0-9A-Fa-f]{6}$",
+                "patternErrorMessage": "%conf.dark.*Color.err%"
+              },
+              "scope09": {
+                "type": "string",
+                "markdownDescription": "%%",
+                "pattern": "^#[0-9A-Fa-f]{6}$",
+                "patternErrorMessage": "%conf.dark.*Color.err%"
+              },
+              "scope10": {
+                "type": "string",
+                "markdownDescription": "%%",
+                "pattern": "^#[0-9A-Fa-f]{6}$",
+                "patternErrorMessage": "%conf.dark.*Color.err%"
+              },
+              "scope11": {
+                "type": "string",
+                "markdownDescription": "%%",
+                "pattern": "^#[0-9A-Fa-f]{6}$",
+                "patternErrorMessage": "%conf.dark.*Color.err%"
+              },
+              "scope12": {
+                "type": "string",
+                "markdownDescription": "%%",
+                "pattern": "^#[0-9A-Fa-f]{6}$",
+                "patternErrorMessage": "%conf.dark.*Color.err%"
+              },
+              "scope13": {
+                "type": "string",
+                "markdownDescription": "%%",
+                "pattern": "^#[0-9A-Fa-f]{6}$",
+                "patternErrorMessage": "%conf.dark.*Color.err%"
+              },
+              "scope14": {
+                "type": "string",
+                "markdownDescription": "%%",
+                "pattern": "^#[0-9A-Fa-f]{6}$",
+                "patternErrorMessage": "%conf.dark.*Color.err%"
+              },
+              "scope15": {
+                "type": "string",
+                "markdownDescription": "%%",
+                "pattern": "^#[0-9A-Fa-f]{6}$",
+                "patternErrorMessage": "%conf.dark.*Color.err%"
+              },
+              "scope16": {
+                "type": "string",
+                "markdownDescription": "%%",
+                "pattern": "^#[0-9A-Fa-f]{6}$",
+                "patternErrorMessage": "%conf.dark.*Color.err%"
+              }
+            },
+            "default": {
+              "scope00": true,
+              "scope01": true,
+              "scope02": true,
+              "scope03": true,
+              "scope04": true,
+              "scope05": true,
+              "scope06": true,
+              "scope07": true,
+              "scope08": true,
+              "scope09": true,
+              "scope10": true,
+              "scope11": true,
+              "scope12": true,
+              "scope13": true,
+              "scope14": true,
+              "scope15": true,
+              "scope16": true
+            }
           }
         }
       },
@@ -209,6 +356,7 @@
         "properties": {
           "codemosModern.light.auxiliaryUiTheme": {
             "order": 0,
+            "scope": "window",
             "type": [
               "string",
               "null"
@@ -220,6 +368,7 @@
           },
           "codemosModern.light.design": {
             "order": 1,
+            "scope": "window",
             "type": "string",
             "default": "modern",
             "enum": [
@@ -238,6 +387,7 @@
           },
           "codemosModern.light.accentColor": {
             "order": 2,
+            "scope": "window",
             "type": "string",
             "default": "#784F3F",
             "markdownDescription": "%conf.light.accentColor.desc%",
@@ -246,6 +396,7 @@
           },
           "codemosModern.light.adaptationColor": {
             "order": 3,
+            "scope": "window",
             "type": "string",
             "default": "#784F3F",
             "markdownDescription": "%conf.light.adaptationColor.desc%",
@@ -254,6 +405,7 @@
           },
           "codemosModern.light.adaptationIntensity": {
             "order": 4,
+            "scope": "window",
             "type": "integer",
             "default": 0,
             "minimum": 0,
@@ -262,6 +414,7 @@
           },
           "codemosModern.light.auxiliaryCodeTheme": {
             "order": 5,
+            "scope": "window",
             "type": [
               "string",
               "null"

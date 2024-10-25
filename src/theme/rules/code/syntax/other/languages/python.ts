@@ -7,21 +7,21 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["support.function.magic", "support.variable.magic"],
       settings: {
-        foreground: colors.s07,
+        foreground: colors.scope07,
       },
     },
     // Member access
     {
       scope: ["meta.embedded.block.python meta.attribute", "source.python meta.attribute"],
       settings: {
-        foreground: colors.s11,
+        foreground: colors.scope11,
       },
     },
     // Function calls
     {
       scope: ["meta.embedded.block.python meta.function-call", "source.python meta.function-call"],
       settings: {
-        foreground: colors.s02,
+        foreground: colors.scope02,
       },
     },
     // Function parenthesis
@@ -31,7 +31,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.python punctuation.definition.arguments",
       ],
       settings: {
-        foreground: colors.sxx,
+        foreground: colors.scopeXX,
       },
     },
     // String literal prefix
@@ -41,7 +41,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.python storage.type.string",
       ],
       settings: {
-        foreground: colors.s00,
+        foreground: colors.scope00,
       },
     },
     // Logical operators
@@ -51,14 +51,14 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.python keyword.operator.logical",
       ],
       settings: {
-        foreground: colors.s06,
+        foreground: colors.scope06,
       },
     },
     // Fstrings
     {
       scope: ["meta.embedded.block.python meta.fstring", "source.python meta.fstring"],
       settings: {
-        foreground: colors.s00,
+        foreground: colors.scope00,
       },
     },
     // Format function
@@ -68,7 +68,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.python storage.type.format",
       ],
       settings: {
-        foreground: colors.s02,
+        foreground: colors.scope02,
       },
     },
     // Type hints
@@ -78,7 +78,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.python meta.typehint.comment",
       ],
       settings: {
-        foreground: colors.s07,
+        foreground: colors.scope07,
       },
     },
     // Type hint directives
@@ -90,7 +90,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.python comment.typehint.punctuation",
       ],
       settings: {
-        foreground: colors.s15,
+        foreground: colors.scope15,
       },
     },
   ];

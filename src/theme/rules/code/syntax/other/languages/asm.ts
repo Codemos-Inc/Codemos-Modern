@@ -9,7 +9,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["source.asm entity.name.function"],
       settings: {
-        foreground: colors.s03,
+        foreground: colors.scope03,
         fontStyle: "",
       },
     },
@@ -17,7 +17,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["source.asm meta.preprocessor"],
       settings: {
-        foreground: colors.s07,
+        foreground: colors.scope07,
         fontStyle: "",
       },
     },
@@ -25,7 +25,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["source.asm meta.preprocessor keyword.control"],
       settings: {
-        foreground: colors.s16,
+        foreground: colors.scope16,
         fontStyle: "",
       },
     },
@@ -33,7 +33,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["source.asm entity.name.section"],
       settings: {
-        foreground: colors.s08,
+        foreground: colors.scope08,
         fontStyle: "",
       },
     },
@@ -41,7 +41,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["source.asm keyword.operator.word"],
       settings: {
-        foreground: colors.s02,
+        foreground: colors.scope02,
         fontStyle: "",
       },
     },
@@ -49,7 +49,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["source.asm keyword.operator.word.mnemonic.general-purpose.control-transfer"],
       settings: {
-        foreground: colors.s08,
+        foreground: colors.scope08,
         fontStyle: "",
       },
     },
@@ -57,7 +57,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["source.asm entity.directive"],
       settings: {
-        foreground: colors.s06,
+        foreground: colors.scope06,
         fontStyle: "",
       },
     },
@@ -67,7 +67,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["source.arm storage.memaddress"],
       settings: {
-        foreground: colors.s14,
+        foreground: colors.scope14,
         fontStyle: "",
       },
     },
@@ -75,7 +75,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["source.arm routine"],
       settings: {
-        foreground: colors.s03,
+        foreground: colors.scope03,
         fontStyle: "",
       },
     },

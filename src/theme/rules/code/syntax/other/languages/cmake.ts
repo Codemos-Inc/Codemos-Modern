@@ -7,7 +7,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["source.cmake command-identifier"],
       settings: {
-        foreground: colors.s07,
+        foreground: colors.scope07,
         fontStyle: "",
       },
     },
@@ -15,21 +15,21 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["source.cmake punctuation.parenthesis", "source.cmake punctuation.section.parens"],
       settings: {
-        foreground: colors.sxx,
+        foreground: colors.scopeXX,
       },
     },
     // Expression groups
     {
       scope: ["source.cmake expression.group"],
       settings: {
-        foreground: colors.s09,
+        foreground: colors.scope09,
       },
     },
     // All other tokens
     {
       scope: ["source.cmake"],
       settings: {
-        foreground: colors.s01,
+        foreground: colors.scope01,
       },
     },
   ];

@@ -7,7 +7,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["source.matlab storage.type.number.imaginary"],
       settings: {
-        foreground: colors.s12,
+        foreground: colors.scope12,
         fontStyle: "",
       },
     },

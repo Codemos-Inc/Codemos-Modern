@@ -7,7 +7,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["meta.embedded.block.perl constant.other.key", "source.perl constant.other.key"],
       settings: {
-        foreground: colors.s11,
+        foreground: colors.scope11,
         fontStyle: "",
       },
     },

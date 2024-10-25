@@ -7,7 +7,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["source.vue meta.attribute"],
       settings: {
-        foreground: colors.sxx,
+        foreground: colors.scopeXX,
         fontStyle: "",
       },
     },

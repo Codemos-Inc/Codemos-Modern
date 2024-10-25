@@ -58,7 +58,7 @@ export const showErrorNotification = (
   }
 };
 
-export const showProgressNotification = async (
+export const showProgresscopeNAtification = async (
   title: string,
   task: (
     progress: Progress<{

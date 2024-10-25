@@ -9,173 +9,173 @@ export const getRules = (themeContext: ThemeContext): object => {
     // Excluded codes
     excludedCode: styles.fill.text.disabled,
     // Control keywords
-    controlKeyword: colors.s08,
+    controlKeyword: colors.scope08,
     // Overloaded operators
-    operatorOverloaded: colors.s02,
+    operatorOverloaded: colors.scope02,
     // Overloaded operators
     whitspace: styles.fill.text.ghost,
     // Preprocessor texts
-    preprocessorText: colors.s16,
+    preprocessorText: colors.scope16,
     // Punctuations
-    punctuation: colors.sxx,
+    punctuation: colors.scopeXX,
     // Verbatim strings
-    stringVerbatim: colors.s00,
+    stringVerbatim: colors.scope00,
     // Escape characters
-    stringEscapeCharacter: colors.s01,
+    stringEscapeCharacter: colors.scope01,
     // Record classes
-    recordClass: colors.s03,
+    recordClass: colors.scope03,
     // Delegates
-    delegate: colors.s03,
+    delegate: colors.scope03,
     // Modules
-    module: colors.s05,
+    module: colors.scope05,
     // Record structs
-    recordStruct: colors.s03,
+    recordStruct: colors.scope03,
     // Fields
-    field: colors.s11,
+    field: colors.scope11,
     // Constants
-    constant: colors.s10,
+    constant: colors.scope10,
     // Extension methods
-    extensionMethod: colors.s02,
+    extensionMethod: colors.scope02,
 
     // >---------------------------------------< RAZOR >----------------------------------------< //
 
     // Razor component elements
-    razorComponentElement: colors.s01, // Unknown
+    razorComponentElement: colors.scope01, // Unknown
     // Razor component attributes
-    razorComponentAttribute: colors.s01, // Unknown
+    razorComponentAttribute: colors.scope01, // Unknown
     // Razor tag helper elements
-    razorTagHelperElement: colors.s05,
+    razorTagHelperElement: colors.scope05,
     // Razor tag helper attributes
-    razorTagHelperAttribute: colors.s14,
+    razorTagHelperAttribute: colors.scope14,
     // Razor transitions
-    razorTransition: colors.s08,
+    razorTransition: colors.scope08,
     // Razor directive attributes
-    razorDirectiveAttribute: colors.s14,
+    razorDirectiveAttribute: colors.scope14,
     // Razor directive colons
-    razorDirectiveColon: colors.s08,
+    razorDirectiveColon: colors.scope08,
     // Razor razor directives
-    razorDirective: colors.s08,
+    razorDirective: colors.scope08,
     // Razor comments
-    razorComment: colors.s04,
+    razorComment: colors.scope04,
     // Razor comment transitions
-    razorCommentTransition: colors.s04,
+    razorCommentTransition: colors.scope04,
     // Razor comment stars
-    razorCommentStar: colors.s04,
+    razorCommentStar: colors.scope04,
     // Angle brackets
-    angleBracket: colors.sxx,
+    angleBracket: colors.scopeXX,
     // Forward slashes
-    forwardSlash: colors.sxx,
+    forwardSlash: colors.scopeXX,
     // Equal signs
-    equals: colors.sxx,
+    equals: colors.scopeXX,
 
     // >---------------------------------------< REGEX >----------------------------------------< //
 
     // Comments
-    regexComment: colors.s04,
+    regexComment: colors.scope04,
     // Character classes
-    regexCharacterClass: colors.s15,
+    regexCharacterClass: colors.scope15,
     // Anchors
-    regexAnchor: colors.s14,
+    regexAnchor: colors.scope14,
     // Quantifier
-    regexQuantifier: colors.s14,
+    regexQuantifier: colors.scope14,
     // Groups
-    regexGrouping: colors.s16,
+    regexGrouping: colors.scope16,
     // Alternations
-    regexAlternation: colors.s16,
+    regexAlternation: colors.scope16,
     // Texts
-    regexText: colors.s07,
+    regexText: colors.scope07,
     // Self escaped characters
-    regexSelfEscapedCharacter: colors.s01,
+    regexSelfEscapedCharacter: colors.scope01,
     // Other escaped characters
-    regexOtherEscape: colors.s01,
+    regexOtherEscape: colors.scope01,
 
     // >---------------------------------------< MARKUP >---------------------------------------< //
 
     // Comment punctuations
-    markupCommentPunctuation: colors.s04,
+    markupCommentPunctuation: colors.scope04,
     // Tag delimiters
-    markupTagDelimiter: colors.sxx,
+    markupTagDelimiter: colors.scopeXX,
     // Operators
-    markupOperator: colors.sxx,
+    markupOperator: colors.scopeXX,
     // Elements
-    markupElement: colors.s05,
+    markupElement: colors.scope05,
     // Attributes
-    markupAttribute: colors.s14,
+    markupAttribute: colors.scope14,
     // Attribute quotes
-    markupAttributeQuote: colors.s00,
+    markupAttributeQuote: colors.scope00,
     // Attribute values
-    markupAttributeValue: colors.s00,
+    markupAttributeValue: colors.scope00,
     // Comments
-    markupComment: colors.s04,
+    markupComment: colors.scope04,
 
     // >----------------------------------------< XML >-----------------------------------------< //
 
     // Doc comments attribute names
-    xmlDocCommentAttributeName: colors.s14,
+    xmlDocCommentAttributeName: colors.scope14,
     // Doc comments attribute quotes
-    xmlDocCommentAttributeQuotes: colors.s00,
+    xmlDocCommentAttributeQuotes: colors.scope00,
     // Doc comments attribute values
-    xmlDocCommentAttributeValue: colors.s00,
+    xmlDocCommentAttributeValue: colors.scope00,
     // Doc comments cdata sections
-    xmlDocCommentCDataSection: colors.s01,
+    xmlDocCommentCDataSection: colors.scope01,
     // Doc comments comments
-    xmlDocCommentComment: colors.s12,
+    xmlDocCommentComment: colors.scope12,
     // Doc comments delimiters
-    xmlDocCommentDelimiter: colors.s04,
+    xmlDocCommentDelimiter: colors.scope04,
     // Doc comments entity references
-    xmlDocCommentEntityReference: colors.s15,
+    xmlDocCommentEntityReference: colors.scope15,
     // Doc comments names
-    xmlDocCommentName: colors.s05,
+    xmlDocCommentName: colors.scope05,
     // Doc comments processing instructions
-    xmlDocCommentProcessingInstruction: colors.s16,
+    xmlDocCommentProcessingInstruction: colors.scope16,
     // Doc comments texts
-    xmlDocCommentText: colors.s05,
+    xmlDocCommentText: colors.scope05,
     // Literal attribute names
-    xmlLiteralAttributeName: colors.s14,
+    xmlLiteralAttributeName: colors.scope14,
     // Literal attribute quotes
-    xmlLiteralAttributeQuotes: colors.s00,
+    xmlLiteralAttributeQuotes: colors.scope00,
     // Literal attribute values
-    xmlLiteralAttributeValue: colors.s00,
+    xmlLiteralAttributeValue: colors.scope00,
     // Literal cdata sections
-    xmlLiteralCDataSection: colors.s01,
+    xmlLiteralCDataSection: colors.scope01,
     // Literal comments
-    xmlLiteralComment: colors.s12,
+    xmlLiteralComment: colors.scope12,
     // Literal delimiters
-    xmlLiteralDelimiter: colors.s04,
+    xmlLiteralDelimiter: colors.scope04,
     // Literal embedded expressions
-    xmlLiteralEmbeddedExpression: colors.s09,
+    xmlLiteralEmbeddedExpression: colors.scope09,
     // Literal entity references
-    xmlLiteralEntityReference: colors.s15,
+    xmlLiteralEntityReference: colors.scope15,
     // Literal names
-    xmlLiteralName: colors.s05,
+    xmlLiteralName: colors.scope05,
     // Literal processing instructions
-    xmlLiteralProcessingInstruction: colors.s16,
+    xmlLiteralProcessingInstruction: colors.scope16,
     // Literal texts
-    xmlLiteralText: colors.s05,
+    xmlLiteralText: colors.scope05,
 
     // >----------------------------------------< JSON >----------------------------------------< //
 
     // Comments
-    jsonComment: colors.s04,
+    jsonComment: colors.scope04,
     // Number literals
-    jsonNumber: colors.s12,
+    jsonNumber: colors.scope12,
     // String literals
-    jsonString: colors.s00,
+    jsonString: colors.scope00,
     // Keywords
-    jsonKeyword: colors.s06,
+    jsonKeyword: colors.scope06,
     // Texts
-    jsonText: colors.s00,
+    jsonText: colors.scope00,
     // Operators
-    jsonOperator: colors.sxx,
+    jsonOperator: colors.scopeXX,
     // Punctuations
-    jsonPunctuation: colors.sxx,
+    jsonPunctuation: colors.scopeXX,
     // Arrays
-    jsonArray: colors.sxx,
+    jsonArray: colors.scopeXX,
     // Objects
-    jsonObject: colors.sxx,
+    jsonObject: colors.scopeXX,
     // Property names
-    jsonPropertyName: colors.s14,
+    jsonPropertyName: colors.scope14,
     // Constructor names
-    jsonConstructorName: colors.sxx,
+    jsonConstructorName: colors.scopeXX,
   };
 };

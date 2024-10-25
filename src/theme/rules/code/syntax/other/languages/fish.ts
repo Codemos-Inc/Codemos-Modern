@@ -7,7 +7,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["meta.embedded.block.fish support.function", "source.fish support.function"],
       settings: {
-        foreground: colors.s03,
+        foreground: colors.scope03,
       },
     },
     // Options
@@ -19,14 +19,14 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.fish string.other.option",
       ],
       settings: {
-        foreground: colors.s11,
+        foreground: colors.scope11,
       },
     },
     // Language variables
     {
       scope: ["meta.embedded.block.fish variable.language", "source.fish variable.language"],
       settings: {
-        foreground: colors.s13,
+        foreground: colors.scope13,
       },
     },
     // Operators
@@ -40,7 +40,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.fish keyword.operator.redirect",
       ],
       settings: {
-        foreground: colors.s06,
+        foreground: colors.scope06,
       },
     },
   ];

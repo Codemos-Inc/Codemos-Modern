@@ -10,7 +10,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.ruby constant.other.symbol",
       ],
       settings: {
-        foreground: colors.s11,
+        foreground: colors.scope11,
         fontStyle: "",
       },
     },
@@ -23,7 +23,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.ruby variable.other.readwrite.instance",
       ],
       settings: {
-        foreground: colors.s11,
+        foreground: colors.scope11,
         fontStyle: "",
       },
     },

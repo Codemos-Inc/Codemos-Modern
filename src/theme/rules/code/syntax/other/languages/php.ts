@@ -7,7 +7,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["meta.embedded.block.php constant.other", "source.php constant.other"],
       settings: {
-        foreground: colors.s10,
+        foreground: colors.scope10,
         fontStyle: "",
       },
     },
@@ -18,7 +18,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.php string punctuation.definition.variable",
       ],
       settings: {
-        foreground: colors.s14,
+        foreground: colors.scope14,
         fontStyle: "",
       },
     },
@@ -29,7 +29,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.php string variable punctuation.definition.variable",
       ],
       settings: {
-        foreground: colors.s10,
+        foreground: colors.scope10,
         fontStyle: "",
       },
     },
@@ -40,7 +40,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.php string variable.language punctuation.definition.variable",
       ],
       settings: {
-        foreground: colors.s03,
+        foreground: colors.scope03,
         fontStyle: "",
       },
     },
@@ -53,7 +53,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.php keyword.operator.nowdoc",
       ],
       settings: {
-        foreground: colors.s09,
+        foreground: colors.scope09,
         fontStyle: "",
       },
     },
@@ -64,7 +64,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.php keyword.operator.logical",
       ],
       settings: {
-        foreground: colors.s06,
+        foreground: colors.scope06,
         fontStyle: "",
       },
     },
@@ -75,7 +75,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.php punctuation.section.array",
       ],
       settings: {
-        foreground: colors.sxx,
+        foreground: colors.scopeXX,
         fontStyle: "",
       },
     },
@@ -83,7 +83,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["source.sql.embedded"],
       settings: {
-        foreground: colors.sxx,
+        foreground: colors.scopeXX,
         fontStyle: "",
       },
     },

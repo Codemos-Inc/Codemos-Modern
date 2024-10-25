@@ -7,7 +7,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["meta.attribute punctuation.definition.arguments", "storage.modifier.attribute"],
       settings: {
-        foreground: colors.s01,
+        foreground: colors.scope01,
         fontStyle: "",
       },
     },
@@ -15,7 +15,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["meta.arguments.attribute"],
       settings: {
-        foreground: colors.s09,
+        foreground: colors.scope09,
         fontStyle: "",
       },
     },

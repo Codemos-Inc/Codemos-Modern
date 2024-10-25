@@ -11,7 +11,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.shell support.function",
       ],
       settings: {
-        foreground: colors.s03,
+        foreground: colors.scope03,
       },
     },
     // Options
@@ -21,7 +21,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.shell constant.other.option",
       ],
       settings: {
-        foreground: colors.s11,
+        foreground: colors.scope11,
       },
     },
     // Operators
@@ -35,7 +35,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.shell keyword.operator.redirect",
       ],
       settings: {
-        foreground: colors.s06,
+        foreground: colors.scope06,
       },
     },
     // Pipe operator
@@ -45,7 +45,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.shell keyword.operator.pipe",
       ],
       settings: {
-        foreground: colors.s16,
+        foreground: colors.scope16,
       },
     },
     // Herestring operator
@@ -55,7 +55,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.shell keyword.operator.herestring",
       ],
       settings: {
-        foreground: colors.s09,
+        foreground: colors.scope09,
       },
     },
     // Case entries
@@ -71,7 +71,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.shell meta.case.entry string.regexp",
       ],
       settings: {
-        foreground: colors.s16,
+        foreground: colors.scope16,
       },
     },
     // Interpolated strings
@@ -83,7 +83,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.shell punctuation.definition.variable",
       ],
       settings: {
-        foreground: colors.s14,
+        foreground: colors.scope14,
       },
     },
     // Language variables
@@ -93,7 +93,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.shell variable.language",
       ],
       settings: {
-        foreground: colors.s13,
+        foreground: colors.scope13,
       },
     },
     // And punctuation
@@ -103,7 +103,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.shell punctuation.separator.statement.and",
       ],
       settings: {
-        foreground: colors.s12,
+        foreground: colors.scope12,
       },
     },
     // Array punctuation
@@ -113,7 +113,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.shell punctuation.section.array",
       ],
       settings: {
-        foreground: colors.sxx,
+        foreground: colors.scopeXX,
       },
     },
     // Semicolon separator
@@ -123,7 +123,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.shell punctuation.terminator",
       ],
       settings: {
-        foreground: colors.s09,
+        foreground: colors.scope09,
       },
     },
   ];

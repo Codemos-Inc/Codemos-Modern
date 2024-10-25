@@ -10,7 +10,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.toml support.type.property-name",
       ],
       settings: {
-        foreground: colors.s05,
+        foreground: colors.scope05,
         fontStyle: "",
       },
     },
@@ -21,7 +21,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.toml punctuation.definition.table.inline",
       ],
       settings: {
-        foreground: colors.sxx,
+        foreground: colors.scopeXX,
         fontStyle: "",
       },
     },
@@ -34,7 +34,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.toml punctuation.definition.table",
       ],
       settings: {
-        foreground: colors.s01,
+        foreground: colors.scope01,
         fontStyle: "",
       },
     },
@@ -51,7 +51,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.toml support.type.property-name.table",
       ],
       settings: {
-        foreground: colors.s09,
+        foreground: colors.scope09,
         fontStyle: "",
       },
     },
@@ -62,7 +62,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.toml constant.other.time.date",
       ],
       settings: {
-        foreground: colors.s10,
+        foreground: colors.scope10,
         fontStyle: "",
       },
     },
@@ -73,7 +73,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.toml constant.other.time.time",
       ],
       settings: {
-        foreground: colors.s11,
+        foreground: colors.scope11,
         fontStyle: "",
       },
     },
@@ -84,7 +84,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.toml constant.other.time.datetime",
       ],
       settings: {
-        foreground: colors.s15,
+        foreground: colors.scope15,
         fontStyle: "",
       },
     },
@@ -95,7 +95,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.toml constant.other.time.datetime.offset",
       ],
       settings: {
-        foreground: colors.s16,
+        foreground: colors.scope16,
         fontStyle: "",
       },
     },

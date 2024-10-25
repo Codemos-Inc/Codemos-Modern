@@ -240,24 +240,24 @@ export type Styles = {
     };
   };
   code: {
-    s00: string;
-    s01: string;
-    s02: string;
-    s03: string;
-    s04: string;
-    s05: string;
-    s06: string;
-    s07: string;
-    s08: string;
-    s09: string;
-    s10: string;
-    s11: string;
-    s12: string;
-    s13: string;
-    s14: string;
-    s15: string;
-    s16: string;
-    sxx: string;
+    scope00: string;
+    scope01: string;
+    scope02: string;
+    scope03: string;
+    scope04: string;
+    scope05: string;
+    scope06: string;
+    scope07: string;
+    scope08: string;
+    scope09: string;
+    scope10: string;
+    scope11: string;
+    scope12: string;
+    scope13: string;
+    scope14: string;
+    scope15: string;
+    scope16: string;
+    scopeXX: string;
   };
   fill: {
     text: {

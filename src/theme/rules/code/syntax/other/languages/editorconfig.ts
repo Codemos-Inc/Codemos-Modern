@@ -7,7 +7,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["source.editorconfig keyword.other.definition"],
       settings: {
-        foreground: colors.s05,
+        foreground: colors.scope05,
         fontStyle: "",
       },
     },
@@ -15,7 +15,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["source.editorconfig meta.section.header"],
       settings: {
-        foreground: colors.s01,
+        foreground: colors.scope01,
         fontStyle: "",
       },
     },
@@ -23,7 +23,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["source.editorconfig meta.section.header keyword.operator"],
       settings: {
-        foreground: colors.s09,
+        foreground: colors.scope09,
         fontStyle: "",
       },
     },

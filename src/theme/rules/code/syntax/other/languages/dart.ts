@@ -7,7 +7,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["meta.embedded.block.dart string.interpolated", "source.dart string.interpolated"],
       settings: {
-        foreground: colors.s00,
+        foreground: colors.scope00,
         fontStyle: "",
       },
     },
@@ -18,7 +18,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.dart string.interpolated meta.embedded.expression",
       ],
       settings: {
-        foreground: colors.s14,
+        foreground: colors.scope14,
         fontStyle: "",
       },
     },

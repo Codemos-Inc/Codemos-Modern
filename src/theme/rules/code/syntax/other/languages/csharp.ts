@@ -7,7 +7,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["meta.preprocessor punctuation.separator.hash"],
       settings: {
-        foreground: colors.s16,
+        foreground: colors.scope16,
       },
     },
   ];

@@ -7,7 +7,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["meta.embedded.block.batchfile keyword.command", "source.batchfile keyword.command"],
       settings: {
-        foreground: colors.s03,
+        foreground: colors.scope03,
         fontStyle: "",
       },
     },
@@ -20,7 +20,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.batchfile keyword.operator.logical",
       ],
       settings: {
-        foreground: colors.s06,
+        foreground: colors.scope06,
         fontStyle: "",
       },
     },
@@ -31,7 +31,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.batchfile keyword.command.rem",
       ],
       settings: {
-        foreground: colors.s07,
+        foreground: colors.scope07,
         fontStyle: "",
       },
     },
@@ -42,7 +42,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.batchfile keyword.operator.at",
       ],
       settings: {
-        foreground: colors.s16,
+        foreground: colors.scope16,
         fontStyle: "",
       },
     },

@@ -10,7 +10,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.lua entity.other.attribute",
       ],
       settings: {
-        foreground: colors.s11,
+        foreground: colors.scope11,
         fontStyle: "",
       },
     },

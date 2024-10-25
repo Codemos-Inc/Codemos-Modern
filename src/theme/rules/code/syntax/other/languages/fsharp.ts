@@ -7,7 +7,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["meta.embedded.block.fsharp keyword.symbol", "source.fsharp keyword.symbol"],
       settings: {
-        foreground: colors.sxx,
+        foreground: colors.scopeXX,
         fontStyle: "",
       },
     },
@@ -18,7 +18,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.fsharp entity.name.section",
       ],
       settings: {
-        foreground: colors.s05,
+        foreground: colors.scope05,
         fontStyle: "",
       },
     },
@@ -29,7 +29,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.fsharp keyword.format.specifier",
       ],
       settings: {
-        foreground: colors.s14,
+        foreground: colors.scope14,
         fontStyle: "",
       },
     },
@@ -40,7 +40,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.fsharp support.function.attribute",
       ],
       settings: {
-        foreground: colors.s01,
+        foreground: colors.scope01,
         fontStyle: "",
       },
     },
@@ -51,7 +51,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.fsharp support.function.attribute keyword.symbol",
       ],
       settings: {
-        foreground: colors.s09,
+        foreground: colors.scope09,
         fontStyle: "",
       },
     },

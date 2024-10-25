@@ -7,7 +7,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["meta.embedded.block.sql storage.type", "source.sql storage.type"],
       settings: {
-        foreground: colors.s03,
+        foreground: colors.scope03,
         fontStyle: "",
       },
     },
@@ -20,7 +20,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.sql keyword.other.DML",
       ],
       settings: {
-        foreground: colors.s08,
+        foreground: colors.scope08,
         fontStyle: "",
       },
     },
@@ -28,7 +28,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     {
       scope: ["meta.embedded.block.sql keyword.operator.star", "source.sql keyword.operator.star"],
       settings: {
-        foreground: colors.s12,
+        foreground: colors.scope12,
         fontStyle: "",
       },
     },
@@ -45,7 +45,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.sql keyword.other.order",
       ],
       settings: {
-        foreground: colors.s05,
+        foreground: colors.scope05,
         fontStyle: "",
       },
     },

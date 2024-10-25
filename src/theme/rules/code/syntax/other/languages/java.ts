@@ -10,21 +10,21 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.java meta.declaration.annotation storage.modifier",
       ],
       settings: {
-        foreground: colors.s09,
+        foreground: colors.scope09,
       },
     },
     // Types
     {
       scope: ["meta.embedded.block.java storage.type", "source.java storage.type"],
       settings: {
-        foreground: colors.s03,
+        foreground: colors.scope03,
       },
     },
     // Storage keywords
     {
       scope: ["meta.embedded.block.java storage.type.local", "source.java storage.type.local"],
       settings: {
-        foreground: colors.s06,
+        foreground: colors.scope06,
       },
     },
     // Operators
@@ -36,7 +36,7 @@ export const getRules = (themeContext: ThemeContext): object => {
         "source.java variable.language.wildcard",
       ],
       settings: {
-        foreground: colors.sxx,
+        foreground: colors.scopeXX,
       },
     },
   ];
