@@ -9,7 +9,7 @@ export default [
   ...tslint.configs.recommended,
   prettier,
   {
-    files: ["src/**/*.ts"],
+    files: ["source/**/*.ts"],
     ignores: ["**/*.config.js", "out/**", "**/esbuild.js"],
     languageOptions: {
       parser: tslintParser,

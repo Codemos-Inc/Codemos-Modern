@@ -1,10 +1,11 @@
+/* eslint-disable */
 const esbuild = require("esbuild");
 
 const production = process.argv.includes("--prod");
 
 async function main() {
   await esbuild.build({
-    entryPoints: ["src/main.ts"],
+    entryPoints: ["source/main.ts"],
     bundle: true,
     format: "cjs",
     minify: production,

@@ -979,6 +979,7 @@
     "*.documentation": "#5B79A2FF",
     "regexp": "#8E64B9FF",
     "label": "#AF5A92FF",
+    "operator": "#000000B8",
     "*.readonly": {
       "underline": false
     },
@@ -991,7 +992,6 @@
     "*.abstract": {
       "bold": true
     },
-    "operator": "#000000B8",
     "enum:cmake": "#7D7852FF",
     "referenceType": "#7D7000FF",
     "cliProperty": "#7D7852FF",
@@ -1010,7 +1010,7 @@
     "excludedCode": "#00000080",
     "controlKeyword": "#AC0074FF",
     "operatorOverloaded": "#9F5500FF",
-    "whitspace": "#00000052",
+    "whitespace": "#00000052",
     "preprocessorText": "#AF5A92FF",
     "punctuation": "#000000B8",
     "stringVerbatim": "#784F3FFF",
@@ -1890,6 +1890,29 @@
     },
     {
       "scope": [
+        "entity.name.operator",
+        "keyword.operator",
+        "punctuation.brackets",
+        "punctuation.separator",
+        "storage.type.function.arrow",
+        "support.operator"
+      ],
+      "settings": {
+        "foreground": "#000000B8",
+        "fontStyle": ""
+      }
+    },
+    {
+      "scope": [
+        "punctuation.definition.tag"
+      ],
+      "settings": {
+        "foreground": "#000000B8",
+        "fontStyle": ""
+      }
+    },
+    {
+      "scope": [
         "emphasis"
       ],
       "settings": {
@@ -1930,29 +1953,6 @@
       "settings": {
         "foreground": "#B70004FF",
         "fontStyle": "strikethrough"
-      }
-    },
-    {
-      "scope": [
-        "entity.name.operator",
-        "keyword.operator",
-        "punctuation.brackets",
-        "punctuation.separator",
-        "storage.type.function.arrow",
-        "support.operator"
-      ],
-      "settings": {
-        "foreground": "#000000B8",
-        "fontStyle": ""
-      }
-    },
-    {
-      "scope": [
-        "punctuation.definition.tag"
-      ],
-      "settings": {
-        "foreground": "#000000B8",
-        "fontStyle": ""
       }
     },
     {

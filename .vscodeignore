@@ -5,7 +5,7 @@ fonts/**
 images/**
 node_modules/**
 out/int/**
-src/**
+source/**
 **/.cspell.json
 **/.editorconfig
 **/.eslintrc.json
