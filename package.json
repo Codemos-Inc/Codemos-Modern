@@ -5,8 +5,9 @@
   "icon": "res/icon.gif",
   "description": "%ext.desc%",
   "pricing": "Free",
-  "version": "2.9.0",
+  "version": "3.0.0",
   "license": "MIT",
+  "preview": true,
   "homepage": "https://github.com/Codemos-Inc/Codemos-Modern",
   "repository": {
     "type": "git",
