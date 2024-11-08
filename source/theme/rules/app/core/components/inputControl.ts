@@ -9,7 +9,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     "input.placeholderForeground": styles.fill.text.sec,
     "inputOption.activeBackground": styles.fill.accent.pri,
     "inputOption.activeBorder": styles.stroke.control.default,
-    "inputOption.activeForeground": styles.fill.textOnColor.pri,
+    "inputOption.activeForeground": styles.fill.onAccent.pri,
     "inputOption.hoverBackground": styles.fill.control.rest,
     "inputValidation.errorBackground": styles.fill.system.bg.red,
     "inputValidation.errorBorder": styles.basic.def.red.qua,

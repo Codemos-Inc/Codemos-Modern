@@ -16,16 +16,16 @@ export const variantView = async (): Promise<Variant | null> => {
   let lightModeIconUri: Uri;
   switch (window.activeColorTheme.kind) {
     case ColorThemeKind.Dark || ColorThemeKind.HighContrast:
-      darkModeIconUri = Uri.file(`${__dirname}/../../res/icons/dark/dark_mode.svg`);
-      lightModeIconUri = Uri.file(`${__dirname}/../../res/icons/dark/light_mode.svg`);
+      darkModeIconUri = Uri.file(`${__dirname}/../../resource/icons/dark/dark_mode.svg`);
+      lightModeIconUri = Uri.file(`${__dirname}/../../resource/icons/dark/light_mode.svg`);
       break;
     case ColorThemeKind.Light || ColorThemeKind.HighContrastLight:
-      darkModeIconUri = Uri.file(`${__dirname}/../../res/icons/light/dark_mode.svg`);
-      lightModeIconUri = Uri.file(`${__dirname}/../../res/icons/light/light_mode.svg`);
+      darkModeIconUri = Uri.file(`${__dirname}/../../resource/icons/light/dark_mode.svg`);
+      lightModeIconUri = Uri.file(`${__dirname}/../../resource/icons/light/light_mode.svg`);
       break;
     default:
-      darkModeIconUri = Uri.file(`${__dirname}/../../res/icons/dark/dark_mode.svg`);
-      lightModeIconUri = Uri.file(`${__dirname}/../../res/icons/dark/light_mode.svg`);
+      darkModeIconUri = Uri.file(`${__dirname}/../../resource/icons/dark/dark_mode.svg`);
+      lightModeIconUri = Uri.file(`${__dirname}/../../resource/icons/dark/light_mode.svg`);
       break;
   }
   const selectedItem = await window.showQuickPick<VariantQPI>(

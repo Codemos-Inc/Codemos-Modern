@@ -4,7 +4,7 @@ export const getRules = (themeContext: ThemeContext): object => {
   const styles = themeContext.styles;
   return {
     "testing.coverCountBadgeBackground": styles.fill.accent.pri,
-    "testing.coverCountBadgeForeground": styles.fill.textOnColor.pri,
+    "testing.coverCountBadgeForeground": styles.fill.onAccent.pri,
     "testing.coveredBackground": "#ff0000", // 🔵 Unknown attribute
     "testing.coveredBorder": "#ff0000", // 🔵 Unknown attribute
     "testing.coveredGutterBackground": "#ff0000", // 🔵 Unknown attribute

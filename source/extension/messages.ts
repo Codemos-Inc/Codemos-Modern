@@ -10,11 +10,11 @@ export enum UpdateReason {
   PROFILE_CHANGE,
 }
 
-export type UpdateReasonMessages = {
+export type UpdateMessages = {
   [key in UpdateReason]: string;
 };
 
-export const updateReasonMessages: UpdateReasonMessages = {
+export const updateMessages: UpdateMessages = {
   [UpdateReason.CONFIG_CHANGE]: l10nT("notification.update.configChange"),
   [UpdateReason.FIRST_INSTALL]: l10nT("notification.update.firstInstall"),
   [UpdateReason.MAJOR_UPDATE]: l10nT("notification.update.majorUpdate"),

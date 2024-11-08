@@ -25,6 +25,7 @@ import { defaultConfig } from "../modern";
 import { getStyles } from "../modern/variants";
 import { getThemeObj } from "../theme";
 import { configureSettings } from "../theme/configs";
+import { UpdateReason, updateMessages } from "./messages";
 import {
   showErrorNotification,
   showInfoNotification,
@@ -35,9 +36,8 @@ import {
   getOnlineAvail,
   setIsConfiguredFromCmd,
   setOnlineAvail,
-} from "./sharedState";
+} from "./shared";
 import { getStateObj } from "./state";
-import { UpdateReason, updateReasonMessages } from "./updateMessage";
 
 export const checkAvail = async (): Promise<void> => {
   const octokit = getOctokit();
@@ -216,20 +216,50 @@ export const updateConfig = async (
   adaptationColor: string,
   adaptationIntensity: number,
   auxCodeTheme: string | null,
-  codeColors: CodeColors,
+  // codeColors: CodeColors,
 ) => {
   const variantSection = workspace.getConfiguration(`codemosModern.${variant}`);
-  await variantSection.update(`auxiliaryUiTheme`, auxUiTheme, ConfigurationTarget.Global);
-  await variantSection.update(`design`, design, ConfigurationTarget.Global);
-  await variantSection.update(`accentColor`, accentColor, ConfigurationTarget.Global);
-  await variantSection.update(`adaptationColor`, adaptationColor, ConfigurationTarget.Global);
-  await variantSection.update(
-    `adaptationIntensity`,
-    adaptationIntensity,
-    ConfigurationTarget.Global,
-  );
-  await variantSection.update(`auxiliaryCodeTheme`, auxCodeTheme, ConfigurationTarget.Global);
-  await variantSection.update(`codeColors`, codeColors, ConfigurationTarget.Global);
+  // codemosModern.*.auxiliaryUiTheme
+  if (auxUiTheme !== defaultConfig[variant].auxiliaryUiTheme) {
+    await variantSection.update(`auxiliaryUiTheme`, auxUiTheme, ConfigurationTarget.Global);
+  } else {
+    await variantSection.update(`auxiliaryUiTheme`, undefined, ConfigurationTarget.Global);
+  }
+  // codemosModern.*.design
+  if (design !== defaultConfig[variant].design) {
+    await variantSection.update(`design`, design, ConfigurationTarget.Global);
+  } else {
+    await variantSection.update(`design`, undefined, ConfigurationTarget.Global);
+  }
+  // codemosModern.*.accentColor
+  if (accentColor !== defaultConfig[variant].accentColor) {
+    await variantSection.update(`accentColor`, accentColor, ConfigurationTarget.Global);
+  } else {
+    await variantSection.update(`accentColor`, undefined, ConfigurationTarget.Global);
+  }
+  // codemosModern.*.adaptationColor
+  if (adaptationColor !== defaultConfig[variant].adaptationColor) {
+    await variantSection.update(`adaptationColor`, adaptationColor, ConfigurationTarget.Global);
+  } else {
+    await variantSection.update(`adaptationColor`, undefined, ConfigurationTarget.Global);
+  }
+  // codemosModern.*.adaptationIntensity
+  if (adaptationIntensity !== defaultConfig[variant].adaptationIntensity) {
+    await variantSection.update(
+      `adaptationIntensity`,
+      adaptationIntensity,
+      ConfigurationTarget.Global,
+    );
+  } else {
+    await variantSection.update(`adaptationIntensity`, undefined, ConfigurationTarget.Global);
+  }
+  // codemosModern.*.auxiliaryCodeTheme
+  if (auxCodeTheme !== defaultConfig[variant].auxiliaryCodeTheme) {
+    await variantSection.update(`auxiliaryCodeTheme`, auxCodeTheme, ConfigurationTarget.Global);
+  } else {
+    await variantSection.update(`auxiliaryCodeTheme`, undefined, ConfigurationTarget.Global);
+  }
+  // await variantSection.update(`codeColors`, codeColors, ConfigurationTarget.Global);
   await updateBridge(variant, UpdateReason.CONFIG_CHANGE);
 };
 
@@ -338,7 +368,7 @@ export const updateModern = async (
     });
     if (allSuccess && updateTarget !== "none") {
       showInfoNotification(
-        updateReasonMessages[updateReason],
+        updateMessages[updateReason],
         ["Apply", "Later"],
         "workbench.action.reloadWindow",
       );

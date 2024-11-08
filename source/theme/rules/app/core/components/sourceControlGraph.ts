@@ -13,7 +13,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     "scmGraph.historyItemHoverDefaultLabelBackground": styles.fill.control.prominent,
     "scmGraph.historyItemHoverDefaultLabelForeground": styles.fill.text.sec,
     "scmGraph.historyItemHoverDeletionsForeground": styles.basic.def.red.pri,
-    "scmGraph.historyItemHoverLabelForeground": styles.fill.textOnColor.pri,
+    "scmGraph.historyItemHoverLabelForeground": styles.fill.onColor.pri,
     "scmGraph.historyItemRefColor": styles.basic.def.blue.pri,
     "scmGraph.historyItemRemoteRefColor": styles.basic.def.mint.pri,
   };

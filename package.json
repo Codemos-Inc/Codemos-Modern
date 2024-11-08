@@ -2,7 +2,7 @@
   "name": "codemos-modern",
   "displayName": "Codemos Modern",
   "publisher": "Codemos",
-  "icon": "res/icon.gif",
+  "icon": "resource/icon.gif",
   "description": "%ext.desc%",
   "pricing": "Free",
   "version": "3.0.0",

@@ -38,7 +38,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     "terminalCommandDecoration.errorBackground": styles.basic.def.red.pri,
     "terminalCommandDecoration.successBackground": styles.basic.def.green.pri,
     "terminalCommandGuide.foreground": styles.fill.control.hover,
-    "terminalCursor.background": styles.fill.textOnColor.pri,
+    "terminalCursor.background": styles.fill.onAccent.pri,
     "terminalCursor.foreground": styles.fill.accent.pri,
     "terminalOverviewRuler.border": TRANSPARENT,
     "terminalOverviewRuler.cursorForeground": styles.fill.accent.pri,

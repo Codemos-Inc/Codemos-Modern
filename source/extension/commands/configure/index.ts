@@ -1,4 +1,4 @@
-import { getOnlineAvail, setIsConfiguredFromCmd } from "../../sharedState";
+import { getOnlineAvail, setIsConfiguredFromCmd } from "../../shared";
 import { checkAvail, getConfig, updateConfig } from "../../utils";
 import { applyTheme } from "./helpers";
 import { accentView } from "./views/accent";
@@ -126,13 +126,13 @@ export const configureCommand = async () => {
   setIsConfiguredFromCmd(true);
   await updateConfig(
     variant,
-    auxUiThemeId,
+    auxUiThemeId === null ? getConfig()[variant].auxiliaryUiTheme : auxUiThemeId,
     design === null ? getConfig()[variant].design : design,
     accentColor === null ? getConfig()[variant].accentColor : accentColor,
     adaptationColor === null ? getConfig()[variant].adaptationColor : adaptationColor,
     intensityNumber === null ? getConfig()[variant].adaptationIntensity : intensityNumber,
-    auxCodeThemeId,
-    getConfig()[variant].codeColors,
+    auxCodeThemeId === null ? getConfig()[variant].auxiliaryCodeTheme : auxCodeThemeId,
+    // getConfig()[variant].codeColors,
   );
   await applyTheme(variant);
 };

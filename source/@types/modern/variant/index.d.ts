@@ -247,11 +247,7 @@ export type Styles = {
       disabled: string;
       ghost: string;
     };
-    accentText: {
-      pri: string;
-      sec: string;
-    };
-    textOnColor: {
+    onColor: {
       pri: string;
     };
     control: {
@@ -267,6 +263,13 @@ export type Styles = {
       pri: string;
       sec: string;
       ter: string;
+    };
+    accentText: {
+      pri: string;
+      sec: string;
+    };
+    onAccent: {
+      pri: string;
     };
     system: {
       fg: {

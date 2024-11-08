@@ -60,12 +60,12 @@ export const getRules = (themeContext: ThemeContext): object => {
     rules["statusBar.noFolderBackground"] = styles.bg.solid.base;
     rules["statusBar.noFolderForeground"] = styles.fill.text.pri;
     rules["statusBarItem.remoteBackground"] = styles.fill.accent.pri;
-    rules["statusBarItem.remoteForeground"] = styles.fill.textOnColor.pri;
+    rules["statusBarItem.remoteForeground"] = styles.fill.onAccent.pri;
     rules["statusBarItem.remoteHoverBackground"] = getMixedColorHex9(
       styles.fill.accent.sec,
       styles.bg.solid.base,
     );
-    rules["statusBarItem.remoteHoverForeground"] = styles.fill.textOnColor.pri;
+    rules["statusBarItem.remoteHoverForeground"] = styles.fill.onAccent.pri;
   } else if (design === "flat") {
     rules["statusBar.noFolderBackground"] = styles.bg.solid.base;
     rules["statusBar.noFolderForeground"] = styles.fill.text.pri;

@@ -13,7 +13,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     "debugToolBar.background": styles.bg.solid.flyout,
     "debugToolBar.border": styles.stroke.surface.flyout,
     "debugView.exceptionLabelBackground": styles.basic.def.red.pri,
-    "debugView.exceptionLabelForeground": styles.fill.textOnColor.pri,
+    "debugView.exceptionLabelForeground": styles.fill.onColor.pri,
     "debugView.stateLabelBackground": styles.fill.control.subtle,
     "debugView.stateLabelForeground": styles.fill.text.pri,
     "debugView.valueChangedHighlight": styles.basic.alt.blue.pri,

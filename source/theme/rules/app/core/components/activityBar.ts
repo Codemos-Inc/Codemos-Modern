@@ -13,7 +13,7 @@ export const getRules = (themeContext: ThemeContext): object => {
     "activityBar.foreground": styles.fill.text.pri,
     "activityBar.inactiveForeground": styles.fill.text.sec,
     "activityBarBadge.background": styles.fill.accent.pri,
-    "activityBarBadge.foreground": styles.fill.textOnColor.pri,
+    "activityBarBadge.foreground": styles.fill.onAccent.pri,
     "activityBarTop.activeBackground": styles.fill.control.rest,
     "activityBarTop.activeBorder": styles.fill.accent.pri,
     "activityBarTop.background": styles.bg.solid.base,
@@ -21,9 +21,9 @@ export const getRules = (themeContext: ThemeContext): object => {
     "activityBarTop.foreground": styles.fill.text.pri,
     "activityBarTop.inactiveForeground": styles.fill.text.sec,
     "activityErrorBadge.background": styles.basic.def.red.pri,
-    "activityErrorBadge.foreground": styles.fill.textOnColor.pri,
+    "activityErrorBadge.foreground": styles.fill.onColor.pri,
     "activityWarningBadge.background": styles.basic.def.orange.pri,
-    "activityWarningBadge.foreground": styles.fill.textOnColor.pri,
+    "activityWarningBadge.foreground": styles.fill.onColor.pri,
   };
   const design = themeContext.variantConfig.design;
   if (design === "natural" || design === "minimal") {

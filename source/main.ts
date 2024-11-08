@@ -5,10 +5,10 @@ import { authenticateCommand } from "./extension/commands/authenticate";
 import { configureCommand } from "./extension/commands/configure";
 import { GLOBAL_STATE_MRV_KEY } from "./extension/constants";
 import { getThemePaths } from "./extension/helpers";
+import { UpdateReason, updateMessages } from "./extension/messages";
 import { showInfoNotification } from "./extension/notifications";
-import { getIsConfiguredFromCmd } from "./extension/sharedState";
+import { getIsConfiguredFromCmd } from "./extension/shared";
 import { getStateObj, updateState } from "./extension/state";
-import { UpdateReason, updateReasonMessages } from "./extension/updateMessage";
 import {
   getActiveVariant,
   getConfig,
@@ -56,14 +56,16 @@ export const updateBridge = async (
   const config = getConfig();
   if (!verifyState(config)) {
     await updateModern(updateTarget, updateReason, config, getThemePaths(), getActiveVariant());
-    const stateObject = getStateObj();
-    if (stateObject.isUntouched) {
-      stateObject.isUntouched = false;
+    const stateObj = getStateObj();
+    if (stateObj.isUntouched) {
+      stateObj.isUntouched = false;
     }
-    stateObject.config = config;
-    updateState(stateObject);
+    stateObj.config = config;
+    updateState(stateObj);
   }
 };
+
+export const deactivate = () => {};
 
 const onStart = async (extensionContext: ExtensionContext) => {
   await authenticate(false);
@@ -110,7 +112,5 @@ const onStart = async (extensionContext: ExtensionContext) => {
 
 const firstInstallExperience = () => {
   commands.executeCommand("codemosModern.configure");
-  showInfoNotification(updateReasonMessages[UpdateReason.FIRST_INSTALL], null, null);
+  showInfoNotification(updateMessages[UpdateReason.FIRST_INSTALL], null, null);
 };
-
-export const deactivate = () => {};

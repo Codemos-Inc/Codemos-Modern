@@ -16,7 +16,7 @@ export const genPaletteIcons = (
   purple: string,
   pink: string,
 ) => {
-  const variantIconsDir = join(__dirname, "..", "..", "res", "icons", variant);
+  const variantIconsDir = join(__dirname, "..", "..", "resource", "icons", variant);
   if (!existsSync(variantIconsDir)) {
     mkdirSync(variantIconsDir, {
       recursive: true,
@@ -67,7 +67,7 @@ export const genIntensityIcons = (
   moderateIntColor: string,
   aggressiveIntColor: string,
 ) => {
-  const variantIconsDir = join(__dirname, "..", "..", "res", "icons", variant);
+  const variantIconsDir = join(__dirname, "..", "..", "resource", "icons", variant);
   if (!existsSync(variantIconsDir)) {
     mkdirSync(variantIconsDir, {
       recursive: true,

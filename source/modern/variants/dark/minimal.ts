@@ -1,11 +1,11 @@
 import { Palette, Styles, VariantConfig } from "../../../@types";
 import {
-  chooseTextOnColor,
   getContrastSafeColorHex7,
   getHexAlpha,
   getMimicHex7,
   getMixedColorHex7,
   getMixedColorHex9,
+  getOnAccentColor,
 } from "../../../color";
 import { intensityToAlpha } from "../../../extension/helpers";
 import { LUM_SOURCE_ALPHA } from "./modern";
@@ -62,7 +62,6 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
   const flyoutColor = getMixedColorHex7(palette.hic, 3, layerColor);
   // Accents
   const accentColor = variantConfig.accentColor;
-  const textOnColor = chooseTextOnColor(accentColor, palette.loc, palette.hic);
   let accentTextColor = getContrastSafeColorHex7(
     getMixedColorHex7(palette.hic, 54, layerColor),
     accentColor,
@@ -71,6 +70,7 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
   if (!accentTextColor) {
     accentTextColor = palette.basic.def.blue;
   }
+  const onAccentColor = getOnAccentColor(accentColor, palette.loc, palette.hic);
   return {
     basic: {
       def: {
@@ -273,12 +273,20 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
         disabled: `${palette.hic}${getHexAlpha(36)}`,
         ghost: `${palette.hic}${getHexAlpha(20)}`,
       },
+      onColor: {
+        pri: `${palette.loc}${getHexAlpha(100)}`,
+      },
+      accent: {
+        pri: `${accentColor}${getHexAlpha(100)}`,
+        sec: `${accentColor}${getHexAlpha(86)}`,
+        ter: `${accentColor}${getHexAlpha(54)}`,
+      },
       accentText: {
         pri: `${accentTextColor}${getHexAlpha(100)}`,
         sec: `${accentTextColor}${getHexAlpha(86)}`,
       },
-      textOnColor: {
-        pri: `${textOnColor}${getHexAlpha(100)}`,
+      onAccent: {
+        pri: `${onAccentColor}${getHexAlpha(100)}`,
       },
       control: {
         doubleHover: `${palette.hic}${getHexAlpha(16)}`,
@@ -291,11 +299,6 @@ export const getStyles = (variantConfig: VariantConfig): Styles => {
         pressed: `${palette.hic}${getHexAlpha(3)}`,
         prominent: `${getMixedColorHex7(palette.hic, 6, flyoutColor)}${getHexAlpha(100)}`,
         subtle: `${palette.hic}${getHexAlpha(3)}`,
-      },
-      accent: {
-        pri: `${accentColor}${getHexAlpha(100)}`,
-        sec: `${accentColor}${getHexAlpha(86)}`,
-        ter: `${accentColor}${getHexAlpha(54)}`,
       },
       system: {
         fg: {

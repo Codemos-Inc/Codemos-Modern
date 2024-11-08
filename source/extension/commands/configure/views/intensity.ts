@@ -36,7 +36,7 @@ export const intensityView = async (
       label: l10nT("quickPick.*.item.custom.label"),
       description: l10nT("quickPick.intensity.item.desc"),
       detail: l10nT("quickPick.intensity.item.custom.detail"),
-      iconPath: Uri.file(`${__dirname}/../../res/icons/${variant}/palette_custom.svg`),
+      iconPath: Uri.file(`${__dirname}/../../resource/icons/${variant}/palette_custom.svg`),
     },
     {
       _intensity: -1,
@@ -48,28 +48,28 @@ export const intensityView = async (
       label: `${l10nT("quickPick.intensity.item.none.label")} (${getIntensity(variant, "none")}%)`,
       description: l10nT("quickPick.intensity.item.desc"),
       detail: l10nT("quickPick.intensity.item.none.detail"),
-      iconPath: Uri.file(`${__dirname}/../../res/icons/${variant}/intensity_none.svg`),
+      iconPath: Uri.file(`${__dirname}/../../resource/icons/${variant}/intensity_none.svg`),
     },
     {
       _intensity: getIntensity(variant, "gentle"),
       label: `${l10nT("quickPick.intensity.item.gentle.label")} (${getIntensity(variant, "gentle")}%)`,
       description: l10nT("quickPick.intensity.item.desc"),
       detail: l10nT("quickPick.intensity.item.gentle.detail"),
-      iconPath: Uri.file(`${__dirname}/../../res/icons/${variant}/intensity_gentle.svg`),
+      iconPath: Uri.file(`${__dirname}/../../resource/icons/${variant}/intensity_gentle.svg`),
     },
     {
       _intensity: getIntensity(variant, "moderate"),
       label: `${l10nT("quickPick.intensity.item.moderate.label")} (${getIntensity(variant, "moderate")}%)`,
       description: l10nT("quickPick.intensity.item.desc"),
       detail: l10nT("quickPick.intensity.item.moderate.detail"),
-      iconPath: Uri.file(`${__dirname}/../../res/icons/${variant}/intensity_moderate.svg`),
+      iconPath: Uri.file(`${__dirname}/../../resource/icons/${variant}/intensity_moderate.svg`),
     },
     {
       _intensity: getIntensity(variant, "aggressive"),
       label: `${l10nT("quickPick.intensity.item.aggressive.label")} (${getIntensity(variant, "aggressive")}%)`,
       description: l10nT("quickPick.intensity.item.desc"),
       detail: l10nT("quickPick.intensity.item.aggressive.detail"),
-      iconPath: Uri.file(`${__dirname}/../../res/icons/${variant}/intensity_aggressive.svg`),
+      iconPath: Uri.file(`${__dirname}/../../resource/icons/${variant}/intensity_aggressive.svg`),
     },
   ];
   quickPick.busy = false;

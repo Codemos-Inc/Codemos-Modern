@@ -13,7 +13,7 @@ export const validateHex6 = (value: string): boolean => {
   return value.match(/[0-9A-Fa-f]{6}/g) !== null;
 };
 
-export const chooseTextOnColor = (bgHex7: string, locHex7: string, hicHex7: string): string => {
+export const getOnAccentColor = (bgHex7: string, locHex7: string, hicHex7: string): string => {
   const bgHex6 = getHex6FromHex7(bgHex7);
   const locHex6 = getHex6FromHex7(locHex7);
   const hicHex6 = getHex6FromHex7(hicHex7);
