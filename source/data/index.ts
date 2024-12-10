@@ -10,7 +10,7 @@ import {
 } from "../@types/index";
 import { checkRepo, getContentFromRelease, getLatestVerTag } from "../api/index";
 import { isAuxThemeRegIndex } from "../auxiliary/helpers";
-import { showErrorNotification, showProgresscopeNAtification } from "../extension/notifications";
+import { showErrorNotification, showProgressNotification } from "../extension/notifications";
 import { l10nT } from "../l10n/index";
 import { getAuxThemeId, getAuxThemeRegIds } from "./helpers";
 import {
@@ -46,7 +46,7 @@ export const prepAuxThemeRegs = async (auxThemeRegs: string[]): Promise<boolean>
   }
   if (uncachedAuxThemeRegIds.length > 0) {
     let success = true;
-    await showProgresscopeNAtification(
+    await showProgressNotification(
       l10nT("notification.title.downloadingIndexes"),
       async (progress) => {
         const increment = 100 / uncachedAuxThemeRegIds.length;
@@ -69,7 +69,7 @@ export const prepAuxThemeRegs = async (auxThemeRegs: string[]): Promise<boolean>
   }
   if (obsoleteAuxThemeRegIds.length > 0) {
     let success = true;
-    await showProgresscopeNAtification(
+    await showProgressNotification(
       l10nT("notification.title.updatingIndexes"),
       async (progress) => {
         const increment = 100 / obsoleteAuxThemeRegIds.length;
@@ -451,21 +451,18 @@ const getAuxTheme = async (auxThemeId: AuxThemeId): Promise<boolean> => {
     message: l10nT("notification.msg.unexpectedDummyData"),
     data: null,
   };
-  await showProgresscopeNAtification(
-    l10nT("notification.title.downloadingTheme"),
-    async (progress) => {
-      progress.report({
-        message: `"${auxThemeId.owner}/${auxThemeId.repo}/${auxThemeId.publisher}/${auxThemeId.extension}/${auxThemeId.theme}"`,
-        increment: undefined,
-      });
-      auxTheme = await getContentFromRelease(
-        auxThemeId.owner,
-        auxThemeId.repo,
-        `registry/${auxThemeId.publisher}/${auxThemeId.extension}/${auxThemeId.theme}.json`,
-        auxThemeRegVer,
-      );
-    },
-  );
+  await showProgressNotification(l10nT("notification.title.downloadingTheme"), async (progress) => {
+    progress.report({
+      message: `"${auxThemeId.owner}/${auxThemeId.repo}/${auxThemeId.publisher}/${auxThemeId.extension}/${auxThemeId.theme}"`,
+      increment: undefined,
+    });
+    auxTheme = await getContentFromRelease(
+      auxThemeId.owner,
+      auxThemeId.repo,
+      `registry/${auxThemeId.publisher}/${auxThemeId.extension}/${auxThemeId.theme}.json`,
+      auxThemeRegVer,
+    );
+  });
   if (!auxTheme.success) {
     showErrorNotification(
       l10nT("notification.lead.requestFailed$msg", [auxTheme.message]),

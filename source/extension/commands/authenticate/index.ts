@@ -3,11 +3,11 @@ import { authenticate } from "../../authentication";
 import {
   showErrorNotification,
   showInfoNotification,
-  showProgresscopeNAtification,
+  showProgressNotification,
 } from "../../notifications";
 
 export const authenticateCommand = async () => {
-  await showProgresscopeNAtification(l10nT("notification.full.authenticating"), async () => {
+  await showProgressNotification(l10nT("notification.full.authenticating"), async () => {
     const result = await authenticate(true);
     if (!result.success) {
       showErrorNotification(
