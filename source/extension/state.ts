@@ -17,7 +17,7 @@ export const getStateObj = (): StateObj => {
     console.log(error);
     // 🔴 Write to output
     console.warn(
-      "Codemos Modern: Unexpected error ocurred while trying to read state file, recreating it with default values.",
+      "Codemos Modern: Unexpected error occurred while trying to read state file, recreating it with default values.",
     );
     writeStateFile(defaultStateObj);
     return defaultStateObj;
