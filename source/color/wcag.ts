@@ -26,6 +26,18 @@ export const getColCompRgb = (source: RGB, backdrop: RGB, alpha: number): RGB =>
   return result;
 };
 
+export const getSoftLightBlendRgb = (source: RGB, backdrop: RGB, alpha: number): RGB => {
+  normalizeRgb(source);
+  normalizeRgb(backdrop);
+  const result: RGB = [
+    getSoftLightBlendChannelRgb(source[0], backdrop[0], alpha),
+    getSoftLightBlendChannelRgb(source[1], backdrop[1], alpha),
+    getSoftLightBlendChannelRgb(source[2], backdrop[2], alpha),
+  ];
+  denormalizeRgb(result);
+  return result;
+};
+
 const getContrastRgb = (fgRgb: RGB, bgRgb: RGB): number => {
   normalizeRgb(fgRgb);
   normalizeRgb(bgRgb);
@@ -92,4 +104,22 @@ const getAlphaCompRgb = (opaque: RGB, transparent: RGB, alpha: number): RGB => {
     (1 - alpha) * opaque[1] + alpha * transparent[1],
     (1 - alpha) * opaque[2] + alpha * transparent[2],
   ];
+};
+
+const getSoftLightBlendChannelRgb = (cs: number, cb: number, alpha: number): number => {
+  const d = (cb: number): number => {
+    return cb <= 0.25 ? ((16 * cb - 12) * cb + 4) * cb : Math.sqrt(cb);
+  };
+
+  const clamp = (value: number): number => {
+    return Math.max(0, Math.min(1, value));
+  };
+
+  let Cm: number = 0;
+  if (cs <= 0.5) {
+    Cm = cb - (1 - 2 * cs) * cb * (1 - cb);
+  } else {
+    Cm = cb + (2 * cs - 1) * (d(cb) - cb);
+  }
+  return clamp(alpha * cs + (1 - alpha) * Cm);
 };

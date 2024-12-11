@@ -7,7 +7,7 @@ import {
 } from "./constants";
 import { hex6ToRgb, hslToHex6, rgbToHex7, rgbToHsl, rgbToLab } from "./conversions";
 import { getHex6FromHex7, getHex7FromHex6, splitHex9 } from "./utils";
-import { getColCompRgb, getContrastRatioHex6, getLumCompRgb } from "./wcag";
+import { getContrastRatioHex6, getSoftLightBlendRgb } from "./wcag";
 
 export const validateHex6 = (value: string): boolean => {
   return value.match(/[0-9A-Fa-f]{6}/g) !== null;
@@ -37,15 +37,27 @@ export const getContrastSafeColorHex7 = (
   return colorDif > ACCENT_TEXT_MINIMUM_COLOR_DIF ? getHex7FromHex6(safeHex6) : undefined;
 };
 
+// export const getMimicHex7 = (mimicInfo: MimicInfo): string => {
+//   if (mimicInfo.colSourceAlpha === 1) {
+//     return mimicInfo.colSourceColor;
+//   }
+//   const colSource = hex6ToRgb(getHex6FromHex7(mimicInfo.colSourceColor));
+//   const lumSource = hex6ToRgb(getHex6FromHex7(mimicInfo.lumSourceColor));
+//   const backdrop = hex6ToRgb(getHex6FromHex7(mimicInfo.backdropColor));
+//   const lumBlended = getLumCompRgb(lumSource, backdrop, mimicInfo.lumSourceAlpha);
+//   const colBlended = getColCompRgb(colSource, lumBlended, mimicInfo.colSourceAlpha);
+//   return rgbToHex7(colBlended);
+// };
+
 export const getMimicHex7 = (mimicInfo: MimicInfo): string => {
   if (mimicInfo.colSourceAlpha === 1) {
     return mimicInfo.colSourceColor;
   }
-  const colSource = hex6ToRgb(getHex6FromHex7(mimicInfo.colSourceColor));
-  const lumSource = hex6ToRgb(getHex6FromHex7(mimicInfo.lumSourceColor));
-  const backdrop = hex6ToRgb(getHex6FromHex7(mimicInfo.backdropColor));
-  const lumBlended = getLumCompRgb(lumSource, backdrop, mimicInfo.lumSourceAlpha);
-  const colBlended = getColCompRgb(colSource, lumBlended, mimicInfo.colSourceAlpha);
+  const colBlended = getSoftLightBlendRgb(
+    hex6ToRgb(getHex6FromHex7(mimicInfo.colSourceColor)),
+    hex6ToRgb(getHex6FromHex7(mimicInfo.backdropColor)),
+    mimicInfo.colSourceAlpha,
+  );
   return rgbToHex7(colBlended);
 };
 
