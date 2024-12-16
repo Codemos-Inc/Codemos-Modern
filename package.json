@@ -582,7 +582,7 @@
   "devDependencies": {
     "@types/jsdom": "^21.1.6",
     "@types/node": "^22.5.1",
-    "@types/vscode": "^1.79.0",
+    "@types/vscode": "^1.96.0",
     "@typescript-eslint/eslint-plugin": "^8.3.0",
     "@typescript-eslint/parser": "^8.3.0",
     "esbuild": "^0.24.0",
