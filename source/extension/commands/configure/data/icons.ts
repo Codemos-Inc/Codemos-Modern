@@ -1,6 +1,7 @@
 import { existsSync, mkdirSync, writeFileSync } from "fs";
 import { join } from "path";
 import { Variant } from "../../../../@types";
+import { ICONS_DIR_PATH } from "../../../../data/paths";
 
 export function genPaletteIcons(
   variant: Variant,
@@ -16,14 +17,7 @@ export function genPaletteIcons(
   purple: string,
   pink: string,
 ) {
-  const variantIconsDir = join(
-    __dirname,
-    "..",
-    "..",
-    "resource",
-    "icons",
-    variant,
-  );
+  const variantIconsDir = join(ICONS_DIR_PATH, variant);
   if (!existsSync(variantIconsDir)) {
     mkdirSync(variantIconsDir, {
       recursive: true,

@@ -1,5 +1,11 @@
 import { join } from "path";
 import { ThemePaths, Variant } from "../@types";
+import {
+  FISH_DIR_PATH,
+  GHOSTTY_DIR_PATH,
+  STARSHIP_DIR_PATH,
+  VSCODE_DIR_PATH,
+} from "../data/paths";
 
 export function toggleInitialCase(s: string): string {
   const c = s.charAt(0);
@@ -20,16 +26,24 @@ export function intensityToAlpha(intensity: number): number {
 export function getThemePaths(): ThemePaths {
   const variants: Variant[] = ["dark", "light"];
   const themePaths: ThemePaths = {
-    dark: "",
-    light: "",
+    vscode: {
+      dark: "",
+      light: "",
+    },
+    fish: join(FISH_DIR_PATH, "codemos-modern.theme"),
+    ghostty: {
+      dark: join(GHOSTTY_DIR_PATH, "Codemos Modern (Dark)"),
+      light: join(GHOSTTY_DIR_PATH, "Codemos Modern (Light)"),
+    },
+    starship: {
+      dark: join(STARSHIP_DIR_PATH, "codemos-modern-dark.toml"),
+      light: join(STARSHIP_DIR_PATH, "codemos-modern-light.toml"),
+    },
   };
   variants.map(
     (variant) =>
-      (themePaths[variant] = join(
-        __dirname,
-        "..",
-        "..",
-        "themes",
+      (themePaths.vscode[variant] = join(
+        VSCODE_DIR_PATH,
         `Codemos Modern (${toggleInitialCase(variant)})-color-theme.json`,
       )),
   );

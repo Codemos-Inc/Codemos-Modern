@@ -1,75 +1,43 @@
 import * as fs from "fs";
 import { join } from "path";
+import type { CacheCategory } from "../@types";
+import { CACHE_DIR_PATH } from "./paths";
 
 export function checkCacheForFile(
-  category: string,
+  category: CacheCategory,
   directory: string,
   file: string,
 ): boolean {
   directory = directory.toLowerCase();
   file = file.toLowerCase();
-  const path = join(
-    __dirname,
-    "..",
-    "..",
-    "data",
-    "cache",
-    category,
-    directory,
-    file,
-  );
+  const path = join(CACHE_DIR_PATH, category, directory, file);
   return fs.existsSync(path);
 }
 
 export function getCachedFileContent(
-  category: string,
+  category: CacheCategory,
   directory: string,
   file: string,
 ): string {
   directory = directory.toLowerCase();
   file = file.toLowerCase();
-  const path = join(
-    __dirname,
-    "..",
-    "..",
-    "data",
-    "cache",
-    category,
-    directory,
-    file,
-  );
+  const path = join(CACHE_DIR_PATH, category, directory, file);
   return fs.readFileSync(path, "utf-8");
 }
 
 export async function cacheFile(
-  category: string,
+  category: CacheCategory,
   directory: string,
   file: string,
   contents: string,
 ): Promise<void> {
   directory = directory.toLowerCase();
   file = file.toLowerCase();
-  const path = join(
-    __dirname,
-    "..",
-    "..",
-    "data",
-    "cache",
-    category,
-    directory,
-    file,
-  );
-  if (
-    !fs.existsSync(
-      join(__dirname, "..", "..", "data", "cache", category, directory),
-    )
-  ) {
-    fs.mkdirSync(
-      join(__dirname, "..", "..", "data", "cache", category, directory),
-      {
-        recursive: true,
-      },
-    );
+  const path = join(CACHE_DIR_PATH, category, directory, file);
+  if (!fs.existsSync(join(CACHE_DIR_PATH, category, directory))) {
+    fs.mkdirSync(join(CACHE_DIR_PATH, category, directory), {
+      recursive: true,
+    });
   }
   return new Promise((resolve, reject) => {
     fs.writeFile(path, contents, (error) => {
@@ -83,19 +51,11 @@ export async function cacheFile(
 }
 
 export async function deleteCachedDir(
-  category: string,
+  category: CacheCategory,
   directory: string,
 ): Promise<void> {
   directory = directory.toLowerCase();
-  const path = join(
-    __dirname,
-    "..",
-    "..",
-    "data",
-    "cache",
-    category,
-    directory,
-  );
+  const path = join(CACHE_DIR_PATH, category, directory);
   return new Promise((resolve, reject) => {
     fs.rm(path, { recursive: true }, (error) => {
       if (error) {
@@ -108,21 +68,12 @@ export async function deleteCachedDir(
 }
 
 export function checkIfFileCached(
-  category: string,
+  category: CacheCategory,
   directory: string,
   file: string,
 ): boolean {
   directory = directory.toLowerCase();
   file = file.toLowerCase();
-  const path = join(
-    __dirname,
-    "..",
-    "..",
-    "data",
-    "cache",
-    category,
-    directory,
-    file,
-  );
+  const path = join(CACHE_DIR_PATH, category, directory, file);
   return fs.existsSync(path);
 }

@@ -87,11 +87,11 @@ export function getMixedColorHex9(
 ): string {
   const [color1Hex7, color1AlphaHex] = splitHex9(sourceHex9);
   const color1AlphaPercent = getAlphaPercent(color1AlphaHex);
-  return getMixedColorHex7(
+  return `${getMixedColorHex7(
     color1Hex7,
     color1AlphaPercent,
     splitHex9(backdropHex9)[0],
-  );
+  )}FF`;
 }
 
 function getMixedColorRgb(
@@ -135,32 +135,26 @@ function getContrastSafeHex6(
   getsDarker: boolean,
 ): string {
   const hsl = rgbToHsl(hex6ToRgb(hex6));
-  let found = false;
-  let curColor = hslToHex6(hsl);
-  let prevColor = hslToHex6(hsl);
-  while (!found) {
-    const curContrastRatio = getContrastRatioHex6(curColor, refHex6);
-    if (curContrastRatio > ACCENT_MIN_CONTRAST_RATIO) {
-      found = true;
-      if (curContrastRatio > ACCENT_MAX_CONTRAST_RATIO) {
-        found = false;
-      }
-      break;
-    }
-    prevColor = curColor;
+
+  // Phase 1: Adjust lightness until contrast exceeds minimum
+  let color = hslToHex6(hsl);
+  let prevColor = color;
+  while (getContrastRatioHex6(color, refHex6) <= ACCENT_MIN_CONTRAST_RATIO) {
+    prevColor = color;
     hsl[2] = getsDarker ? hsl[2] - 1 : hsl[2] + 1;
-    curColor = hslToHex6(hsl);
+    color = hslToHex6(hsl);
   }
-  getsDarker = !getsDarker;
-  while (!found) {
-    const curContrastRatio = getContrastRatioHex6(curColor, refHex6);
-    if (curContrastRatio < ACCENT_MAX_CONTRAST_RATIO) {
-      found = true;
-      break;
-    }
-    prevColor = curColor;
-    hsl[2] = getsDarker ? hsl[2] - 1 : hsl[2] + 1;
-    curColor = hslToHex6(hsl);
+
+  // Within [MIN, MAX] — done
+  if (getContrastRatioHex6(color, refHex6) <= ACCENT_MAX_CONTRAST_RATIO) {
+    return prevColor;
+  }
+
+  // Phase 2: Overshot MAX — reverse direction and walk back to the boundary
+  while (getContrastRatioHex6(color, refHex6) >= ACCENT_MAX_CONTRAST_RATIO) {
+    prevColor = color;
+    hsl[2] = getsDarker ? hsl[2] + 1 : hsl[2] - 1;
+    color = hslToHex6(hsl);
   }
   return prevColor;
 }

@@ -25,7 +25,7 @@ jobs:
 
       - name: Install Fonts
         run: |
-          cp -R fonts/* /usr/share/fonts/
+          cp -R resources/fonts/* /usr/share/fonts/
           fc-cache -f
 
       - name: Update badges
@@ -35,6 +35,6 @@ jobs:
         run: |
           git config --local user.email "actions@karacayir.com"
           git config --local user.name "GitHub Actions"
-          git add images
-          git diff --quiet && git diff --staged --quiet || git commit -n -m "Updated: badges."
+          git add resources/badges
+          git diff --quiet && git diff --staged --quiet || git commit -n -m "Updated: badges"
           git push

@@ -1,0 +1,160 @@
+"$schema" = "https://starship.rs/config-schema.json"
+
+# THEME
+format = """
+[╭─](lq)\
+[](def_purple)\
+$os\
+[](fg:def_purple bg:lc_blue)\
+$directory\
+[](fg:lc_blue bg:def_mint)\
+$git_branch\
+[](fg:def_mint bg:lc_green)\
+$shell\
+[](fg:lc_green bg:def_yellow)\
+$cmd_duration\
+[](def_yellow)\
+$fill\
+[](lc_neutral)\
+$status\
+[](fg:def_orange bg:lc_neutral)\
+$memory_usage\
+[](fg:lc_red bg:def_orange)\
+${custom.directory}\
+[](fg:def_pink bg:lc_red)\
+$time\
+[](def_pink)\
+[─╮](lq)\
+$line_break\
+[╰─](lq)\
+$character"""
+
+right_format = """
+[❯](lq)\
+[─╯](lq)\
+"""
+
+# COLORS
+palette = "CodemosModernLight"
+[palettes.CodemosModernLight]
+lc = "@light/flat/{hex7:fill.terminal.loc}"
+lq = "@light/flat/{hex7:fill.terminal.loq}"
+hq = "@light/flat/{hex7:fill.terminal.hiq}"
+hc = "@light/flat/{hex7:fill.terminal.hic}"
+
+def_brown = "@light/flat/{hex7:basic.def.brown.pri}"
+def_red = "@light/flat/{hex7:basic.def.red.pri}"
+def_orange = "@light/flat/{hex7:basic.def.orange.pri}"
+def_yellow = "@light/flat/{hex7:basic.def.yellow.pri}"
+def_green = "@light/flat/{hex7:basic.def.green.pri}"
+def_mint = "@light/flat/{hex7:basic.def.mint.pri}"
+def_blue = "@light/flat/{hex7:basic.def.blue.pri}"
+def_purple = "@light/flat/{hex7:basic.def.purple.pri}"
+def_pink = "@light/flat/{hex7:basic.def.pink.pri}"
+
+alt_red = "@light/flat/{hex7:basic.alt.red.pri}"
+alt_orange = "@light/flat/{hex7:basic.alt.orange.pri}"
+alt_yellow = "@light/flat/{hex7:basic.alt.yellow.pri}"
+alt_green = "@light/flat/{hex7:basic.alt.green.pri}"
+alt_mint = "@light/flat/{hex7:basic.alt.mint.pri}"
+alt_blue = "@light/flat/{hex7:basic.alt.blue.pri}"
+alt_purple = "@light/flat/{hex7:basic.alt.purple.pri}"
+alt_pink = "@light/flat/{hex7:basic.alt.pink.pri}"
+
+lc_neutral = "@light/flat/{hex7:basic.neutral.qui&bg.solid.base}"
+lc_red = "@light/flat/{hex7:basic.def.red.qui&bg.solid.base}"
+lc_orange = "@light/flat/{hex7:basic.def.orange.qui&bg.solid.base}"
+lc_yellow = "@light/flat/{hex7:basic.def.yellow.qui&bg.solid.base}"
+lc_green = "@light/flat/{hex7:basic.def.green.qui&bg.solid.base}"
+lc_mint = "@light/flat/{hex7:basic.def.mint.qui&bg.solid.base}"
+lc_blue = "@light/flat/{hex7:basic.def.blue.qui&bg.solid.base}"
+lc_purple = "@light/flat/{hex7:basic.def.purple.qui&bg.solid.base}"
+lc_pink = "@light/flat/{hex7:basic.def.pink.qui&bg.solid.base}"
+
+# LEFT ALIGNED PROMPT
+
+[os]
+style = "fg:lc_purple bg:def_purple"
+format = "[$symbol]($style)"
+disabled = false
+
+[os.symbols]
+Macos = " "
+Windows = " "
+
+[directory]
+style = "fg:alt_blue bg:lc_blue"
+repo_root_style = "fg:def_blue bg:lc_blue"
+read_only = ""
+read_only_style = "fg:def_red bg:lc_blue"
+format = """
+[ $path ]($style)\
+([]($style)[ $read_only ]($read_only_style))"""
+repo_root_format = """
+[  ]($repo_root_style)\
+([$path ]($style))\
+([]($style)[ $read_only ]($read_only_style))"""
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = ""
+style = "fg:lc_mint bg:def_mint"
+format = "[ $symbol $branch ]($style)"
+
+[shell]
+style = "fg:def_green bg:lc_green"
+bash_indicator = "[]($style)"
+fish_indicator = "[󰈺]($style)"
+zsh_indicator = "[]($style)"
+powershell_indicator = "[󰨊]($style)"
+cmd_indicator = "[]($style)"
+unknown_indicator = "[]($style)"
+format = "[ $indicator ]($style)"
+disabled = false
+
+[cmd_duration]
+min_time = 25
+style = "fg:lc_yellow bg:def_yellow"
+format = "[  $duration ]($style)"
+
+# CENTER ALIGNED PROMPT
+
+[fill]
+symbol = "•"
+style = "fg:lc"
+
+# RIGHT ALIGNED PROMPT
+
+[status]
+symbol = "[ ](fg:def_red bg:lc_neutral)"
+success_symbol = "[ ](fg:def_green bg:lc_neutral)"
+format = "$symbol"
+disabled = false
+
+[memory_usage]
+threshold = 75
+style = "fg:lc_orange bg:def_orange"
+symbol = "  "
+format = "[$symbol$ram_pct ]($style)"
+disabled = false
+
+[custom.directory]
+command = "basename `git rev-parse --show-toplevel`"
+shell = ["bash"]
+require_repo = true
+when = "true"
+symbol = ""
+style = "fg:def_red bg:lc_red"
+format = "[ $symbol]($style)[ $output ](fg:alt_red bg:lc_red)"
+
+[time]
+disabled = false
+time_format = "%R"
+style = "fg:lc_pink bg:def_pink"
+format = "[  $time]($style)"
+
+# CHARACTER
+[character]
+success_symbol = "[❯](bold def_green)"
+error_symbol = "[❯](bold def_red)"

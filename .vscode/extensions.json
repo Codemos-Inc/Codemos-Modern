@@ -1,8 +1,8 @@
 {
   "recommendations": [
     "editorConfig.editorConfig",
-    "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
     "gruntfuggly.todo-tree"
   ]
 }

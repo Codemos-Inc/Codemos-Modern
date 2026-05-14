@@ -439,7 +439,7 @@ export async function updateModern(
         themeContext.variantConfig.auxiliaryCodeTheme,
       );
     }
-    writeThemeFile(themePaths[variant], getThemeObj(themeContext));
+    writeThemeFile(themePaths.vscode[variant], getThemeObj(themeContext));
     return true;
   });
   Promise.all(promises).then((onFullFilled) => {

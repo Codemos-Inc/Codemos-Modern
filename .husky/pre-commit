@@ -1,1 +1,1 @@
-fish -c "nvm use --silent && npx lint-staged"
+npm run build

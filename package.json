@@ -2,10 +2,10 @@
   "name": "codemos-modern",
   "displayName": "Codemos Modern",
   "publisher": "Codemos",
-  "icon": "resource/icon.gif",
+  "icon": "assets/icon.gif",
   "description": "%ext.desc%",
   "pricing": "Free",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "license": "MIT",
   "homepage": "https://github.com/EmrecanKaracayir/Codemos-Modern",
   "repository": {
@@ -66,12 +66,12 @@
       {
         "label": "Codemos Modern (Dark)",
         "uiTheme": "vs-dark",
-        "path": "./themes/Codemos Modern (Dark)-color-theme.json"
+        "path": "./themes/vscode/Codemos Modern (Dark)-color-theme.json"
       },
       {
         "label": "Codemos Modern (Light)",
         "uiTheme": "vs",
-        "path": "./themes/Codemos Modern (Light)-color-theme.json"
+        "path": "./themes/vscode/Codemos Modern (Light)-color-theme.json"
       }
     ],
     "configuration": [
@@ -342,7 +342,7 @@
               },
               "scope16": {
                 "type": "string",
-                "default": "#CD95b8FF",
+                "default": "#CD95B8FF",
                 "description": "%conf.*.scope16.desc%",
                 "pattern": "^#[0-9A-Fa-f]{8}$",
                 "patternErrorMessage": "%conf.dark.codeColor.err%"
@@ -570,36 +570,32 @@
       }
     ]
   },
-  "lint-staged": {
-    "*.ts": "eslint --fix",
-    "*.{ts,json,md}": "prettier --write"
-  },
   "dependencies": {
     "@octokit/rest": "^22.0.0",
     "@resvg/resvg-js": "^2.6.0",
     "axios": "^1.6.5",
-    "jsdom": "^28.0.0"
+    "jsdom": "^29.0.0"
   },
   "devDependencies": {
-    "@types/jsdom": "^27.0.0",
+    "@eslint/js": "^10.0.1",
+    "@types/jsdom": "^28.0.0",
     "@types/node": "^25.0.0",
     "@types/vscode": "^1.79.0",
     "@typescript-eslint/eslint-plugin": "^8.3.0",
     "@typescript-eslint/parser": "^8.3.0",
     "esbuild": "^0.27.0",
-    "eslint": "^9.9.1",
-    "eslint-config-prettier": "^10.0.0",
+    "eslint": "^10.0.0",
+    "eslint-config-prettier": "^10.1.8",
     "husky": "^9.0.10",
-    "lint-staged": "^16.1.2",
     "prettier": "^3.1.1",
     "tsx": "^4.16.2",
-    "typescript": "^5.0.4",
-    "typescript-eslint": "^8.3.0"
+    "typescript": "^5.0.0",
+    "typescript-eslint": "^8.57.2"
   },
   "scripts": {
     "prepare": "husky",
-    "clean": "rm -rf out && rm -rf data/.state.json && rm -rf data/cache/*",
-    "winClean": "if exist out (rmdir /s /q out 2>nul) && if exist data\\.state.json (del /q data\\.state.json 2>nul) && if exist data\\cache (rmdir /s /q data\\cache 2>nul)",
+    "clean": "rm -rf out && rm -rf data",
+    "winClean": "rmdir /s /q out && rmdir /s /q data",
     "format": "prettier --write .",
     "lint": "eslint source && tsc --noEmit",
     "beforeBuild": "npm run clean && npm run format && npm run lint",
@@ -609,8 +605,8 @@
     "compile:themes": "tsx source/hooks/compileThemes.ts",
     "compile": "tsc",
     "compile-all": "npm run compile && npm run compile:stateFile && npm run compile:themes",
-    "package:dev": "node esbuild.js --dev",
-    "package:prod": "node esbuild.js --prod",
+    "package:dev": "node esbuild.config.mjs --dev",
+    "package:prod": "node esbuild.config.mjs --prod",
     "build": "npm run beforeBuild && npm run compile-all && npm run package:prod",
     "winBuild": "npm run winBeforeBuild && npm run compile-all && npm run package:prod",
     "debug": "DEBUG=1 && npm run beforeBuild && npm run compile-all && npm run package:dev",

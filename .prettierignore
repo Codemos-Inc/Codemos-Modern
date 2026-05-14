@@ -1,5 +1,3 @@
-/images
-/resource
-/out
-**/.state.json
-/themes
+out/
+resources/
+themes/

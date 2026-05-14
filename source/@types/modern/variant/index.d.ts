@@ -4,6 +4,7 @@ export type Palette = {
   hic: string;
   basic: {
     def: {
+      gray: string;
       brown: string;
       red: string;
       orange: string;
@@ -288,7 +289,7 @@ export type Styles = {
     accent: {
       pri: string;
       sec: string;
-      ter: string;
+      ghost: string;
     };
     onAccent: {
       pri: string;

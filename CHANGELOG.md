@@ -4,6 +4,16 @@ All notable changes to the "codemos-modern" extension will be documented in this
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.1.1] - 2026-05-14 - Themes for other apps 🎨
+
+### Added
+
+- Theming for apps: Fish shell, Ghostty terminal, Starship prompt. They can be accessed from `themes/<app>` directory in the extension's installation folder.
+
+### Fixed
+
+- Large registries not loading due to GitHub API content size limits. Thanks to [AvinashReddy3108](https://github.com/EmrecanKaracayir/Codemos-Modern/issues/269) for reporting.
+
 ## [3.1.0] - 2026-02-17 - Reintroducing localizations 🌐
 
 ### Added
@@ -566,7 +576,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - Initial release
 
-[3.0.10]: https://github.com/EmrecanKaracayir/codemos-modern/compare/v3.0.9...v3.0.10
+[3.1.1]: https://github.com/EmrecanKaracayir/codemos-modern/compare/v3.1.0...v3.1.1
+[3.1.0]: https://github.com/EmrecanKaracayir/codemos-modern/compare/v3.0.9...v3.1.0
 [3.0.9]: https://github.com/EmrecanKaracayir/codemos-modern/compare/v3.0.8...v3.0.9
 [3.0.8]: https://github.com/EmrecanKaracayir/codemos-modern/compare/v3.0.7...v3.0.8
 [3.0.7]: https://github.com/EmrecanKaracayir/codemos-modern/compare/v3.0.6...v3.0.7

@@ -1,0 +1,160 @@
+"$schema" = "https://starship.rs/config-schema.json"
+
+# THEME
+format = """
+[╭─](lq)\
+[](def_purple)\
+$os\
+[](fg:def_purple bg:lc_blue)\
+$directory\
+[](fg:lc_blue bg:def_mint)\
+$git_branch\
+[](fg:def_mint bg:lc_green)\
+$shell\
+[](fg:lc_green bg:def_yellow)\
+$cmd_duration\
+[](def_yellow)\
+$fill\
+[](lc_neutral)\
+$status\
+[](fg:def_orange bg:lc_neutral)\
+$memory_usage\
+[](fg:lc_red bg:def_orange)\
+${custom.directory}\
+[](fg:def_pink bg:lc_red)\
+$time\
+[](def_pink)\
+[─╮](lq)\
+$line_break\
+[╰─](lq)\
+$character"""
+
+right_format = """
+[❯](lq)\
+[─╯](lq)\
+"""
+
+# COLORS
+palette = "CodemosModernLight"
+[palettes.CodemosModernLight]
+lc = "#A9A9A9"
+lq = "#7D7D7D"
+hq = "#464646"
+hc = "#000000"
+
+def_brown = "#784F3F"
+def_red = "#B70004"
+def_orange = "#9F5500"
+def_yellow = "#7D7000"
+def_green = "#006904"
+def_mint = "#006560"
+def_blue = "#0052C6"
+def_purple = "#7700EE"
+def_pink = "#AC0074"
+
+alt_red = "#C35354"
+alt_orange = "#8D7252"
+alt_yellow = "#7D7852"
+alt_green = "#528256"
+alt_mint = "#567E7C"
+alt_blue = "#5B79A2"
+alt_purple = "#8E64B9"
+alt_pink = "#AF5A92"
+
+lc_neutral = "#D6D6D6"
+lc_red = "#F0D6D7"
+lc_orange = "#ECE2D6"
+lc_yellow = "#E8E6D6"
+lc_green = "#D6E5D7"
+lc_mint = "#D6E4E4"
+lc_blue = "#D6E2F2"
+lc_purple = "#E7D6F7"
+lc_pink = "#EED6E6"
+
+# LEFT ALIGNED PROMPT
+
+[os]
+style = "fg:lc_purple bg:def_purple"
+format = "[$symbol]($style)"
+disabled = false
+
+[os.symbols]
+Macos = " "
+Windows = " "
+
+[directory]
+style = "fg:alt_blue bg:lc_blue"
+repo_root_style = "fg:def_blue bg:lc_blue"
+read_only = ""
+read_only_style = "fg:def_red bg:lc_blue"
+format = """
+[ $path ]($style)\
+([]($style)[ $read_only ]($read_only_style))"""
+repo_root_format = """
+[  ]($repo_root_style)\
+([$path ]($style))\
+([]($style)[ $read_only ]($read_only_style))"""
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = ""
+style = "fg:lc_mint bg:def_mint"
+format = "[ $symbol $branch ]($style)"
+
+[shell]
+style = "fg:def_green bg:lc_green"
+bash_indicator = "[]($style)"
+fish_indicator = "[󰈺]($style)"
+zsh_indicator = "[]($style)"
+powershell_indicator = "[󰨊]($style)"
+cmd_indicator = "[]($style)"
+unknown_indicator = "[]($style)"
+format = "[ $indicator ]($style)"
+disabled = false
+
+[cmd_duration]
+min_time = 25
+style = "fg:lc_yellow bg:def_yellow"
+format = "[  $duration ]($style)"
+
+# CENTER ALIGNED PROMPT
+
+[fill]
+symbol = "•"
+style = "fg:lc"
+
+# RIGHT ALIGNED PROMPT
+
+[status]
+symbol = "[ ](fg:def_red bg:lc_neutral)"
+success_symbol = "[ ](fg:def_green bg:lc_neutral)"
+format = "$symbol"
+disabled = false
+
+[memory_usage]
+threshold = 75
+style = "fg:lc_orange bg:def_orange"
+symbol = "  "
+format = "[$symbol$ram_pct ]($style)"
+disabled = false
+
+[custom.directory]
+command = "basename `git rev-parse --show-toplevel`"
+shell = ["bash"]
+require_repo = true
+when = "true"
+symbol = ""
+style = "fg:def_red bg:lc_red"
+format = "[ $symbol]($style)[ $output ](fg:alt_red bg:lc_red)"
+
+[time]
+disabled = false
+time_format = "%R"
+style = "fg:lc_pink bg:def_pink"
+format = "[  $time]($style)"
+
+# CHARACTER
+[character]
+success_symbol = "[❯](bold def_green)"
+error_symbol = "[❯](bold def_red)"

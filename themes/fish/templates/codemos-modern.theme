@@ -1,0 +1,127 @@
+# name: "Codemos Modern"
+
+[dark]
+# preferred_background: @dark/flat/{hex6:bg.solid.base}
+fish_color_autosuggestion @dark/flat/{hex6:fill.terminal.loq}
+fish_color_cancel @dark/flat/{hex6:basic.alt.red.pri}
+fish_color_command @dark/flat/{hex6:basic.def.yellow.pri}
+fish_color_comment @dark/flat/{hex6:basic.def.green.pri}
+fish_color_cwd @dark/flat/{hex6:basic.alt.blue.pri}
+fish_color_cwd_root @dark/flat/{hex6:basic.alt.blue.pri} --bold
+fish_color_end @dark/flat/{hex6:basic.alt.pink.pri}
+fish_color_error @dark/flat/{hex6:basic.def.red.pri}
+fish_color_escape @dark/flat/{hex6:basic.def.red.pri}
+fish_color_history_current @dark/flat/{hex6:basic.alt.blue.pri} --bold
+fish_color_host @dark/flat/{hex6:basic.def.purple.pri}
+fish_color_host_remote @dark/flat/{hex6:basic.def.mint.pri}
+fish_color_keyword @dark/flat/{hex6:basic.def.pink.pri}
+fish_color_match --background=@dark/flat/{hex6:basic.def.brown.qua&bg.solid.base}
+fish_color_normal @dark/flat/{hex6:fill.terminal.fg}
+fish_color_operator @dark/flat/{hex6:basic.alt.orange.pri}
+fish_color_option @dark/flat/{hex6:basic.alt.yellow.pri}
+fish_color_param @dark/flat/{hex6:basic.def.orange.pri}
+fish_color_quote @dark/flat/{hex6:basic.def.brown.pri}
+fish_color_redirection @dark/flat/{hex6:basic.def.blue.pri}
+fish_color_search_match --background=@dark/flat/{hex6:basic.def.mint.qua&bg.solid.base}
+fish_color_selection --background=@dark/flat/{hex6:basic.neutral.sen&bg.solid.base}
+fish_color_status @dark/flat/{hex6:basic.def.red.pri}
+fish_color_user @dark/flat/{hex6:basic.alt.purple.pri}
+fish_color_valid_path @dark/flat/{hex6:basic.alt.blue.pri} --underline
+
+fish_pager_color_background
+fish_pager_color_completion @dark/flat/{hex6:basic.alt.mint.pri}
+fish_pager_color_description @dark/flat/{hex6:basic.alt.green.pri}
+fish_pager_color_prefix @dark/flat/{hex6:basic.def.mint.pri} --bold
+fish_pager_color_progress @dark/flat/{hex6:fill.terminal.loq}
+fish_pager_color_secondary_background --background=@dark/flat/{hex6:basic.neutral.oct&bg.solid.base}
+fish_pager_color_secondary_completion @dark/flat/{hex6:basic.alt.mint.pri}
+fish_pager_color_secondary_description @dark/flat/{hex6:basic.alt.green.pri}
+fish_pager_color_secondary_prefix @dark/flat/{hex6:basic.def.mint.pri} --bold
+fish_pager_color_selected_background --background=@dark/flat/{hex6:basic.neutral.sen&bg.solid.base}
+fish_pager_color_selected_completion @dark/flat/{hex6:basic.alt.mint.pri}
+fish_pager_color_selected_description @dark/flat/{hex6:basic.alt.green.pri}
+fish_pager_color_selected_prefix @dark/flat/{hex6:basic.def.mint.pri} --bold
+
+[light]
+# preferred_background: @light/flat/{hex6:bg.solid.base}
+fish_color_autosuggestion @light/flat/{hex6:fill.terminal.loq}
+fish_color_cancel @light/flat/{hex6:basic.alt.red.pri}
+fish_color_command @light/flat/{hex6:basic.def.yellow.pri}
+fish_color_comment @light/flat/{hex6:basic.def.green.pri}
+fish_color_cwd @light/flat/{hex6:basic.alt.blue.pri}
+fish_color_cwd_root @light/flat/{hex6:basic.alt.blue.pri} --bold
+fish_color_end @light/flat/{hex6:basic.alt.pink.pri}
+fish_color_error @light/flat/{hex6:basic.def.red.pri}
+fish_color_escape @light/flat/{hex6:basic.def.red.pri}
+fish_color_history_current @light/flat/{hex6:basic.alt.blue.pri} --bold
+fish_color_host @light/flat/{hex6:basic.def.purple.pri}
+fish_color_host_remote @light/flat/{hex6:basic.def.mint.pri}
+fish_color_keyword @light/flat/{hex6:basic.def.pink.pri}
+fish_color_match --background=@light/flat/{hex6:basic.def.brown.qua&bg.solid.base}
+fish_color_normal @light/flat/{hex6:fill.terminal.fg}
+fish_color_operator @light/flat/{hex6:basic.alt.orange.pri}
+fish_color_option @light/flat/{hex6:basic.alt.yellow.pri}
+fish_color_param @light/flat/{hex6:basic.def.orange.pri}
+fish_color_quote @light/flat/{hex6:basic.def.brown.pri}
+fish_color_redirection @light/flat/{hex6:basic.def.blue.pri}
+fish_color_search_match --background=@light/flat/{hex6:basic.def.mint.qua&bg.solid.base}
+fish_color_selection --background=@light/flat/{hex6:basic.neutral.sen&bg.solid.base}
+fish_color_status @light/flat/{hex6:basic.def.red.pri}
+fish_color_user @light/flat/{hex6:basic.alt.purple.pri}
+fish_color_valid_path @light/flat/{hex6:basic.alt.blue.pri} --underline
+
+fish_pager_color_background
+fish_pager_color_completion @light/flat/{hex6:basic.alt.mint.pri}
+fish_pager_color_description @light/flat/{hex6:basic.alt.green.pri}
+fish_pager_color_prefix @light/flat/{hex6:basic.def.mint.pri} --bold
+fish_pager_color_progress @light/flat/{hex6:fill.terminal.loq}
+fish_pager_color_secondary_background --background=@light/flat/{hex6:basic.neutral.oct&bg.solid.base}
+fish_pager_color_secondary_completion @light/flat/{hex6:basic.alt.mint.pri}
+fish_pager_color_secondary_description @light/flat/{hex6:basic.alt.green.pri}
+fish_pager_color_secondary_prefix @light/flat/{hex6:basic.def.mint.pri} --bold
+fish_pager_color_selected_background --background=@light/flat/{hex6:basic.neutral.sen&bg.solid.base}
+fish_pager_color_selected_completion @light/flat/{hex6:basic.alt.mint.pri}
+fish_pager_color_selected_description @light/flat/{hex6:basic.alt.green.pri}
+fish_pager_color_selected_prefix @light/flat/{hex6:basic.def.mint.pri} --bold
+
+[unknown]
+# preferred_background: @dark/flat/{hex6:bg.solid.base}
+fish_color_autosuggestion @dark/flat/{hex6:fill.terminal.loq}
+fish_color_cancel @dark/flat/{hex6:basic.alt.red.pri}
+fish_color_command @dark/flat/{hex6:basic.def.yellow.pri}
+fish_color_comment @dark/flat/{hex6:basic.def.green.pri}
+fish_color_cwd @dark/flat/{hex6:basic.alt.blue.pri}
+fish_color_cwd_root @dark/flat/{hex6:basic.alt.blue.pri} --bold
+fish_color_end @dark/flat/{hex6:basic.alt.pink.pri}
+fish_color_error @dark/flat/{hex6:basic.def.red.pri}
+fish_color_escape @dark/flat/{hex6:basic.def.red.pri}
+fish_color_history_current @dark/flat/{hex6:basic.alt.blue.pri} --bold
+fish_color_host @dark/flat/{hex6:basic.def.purple.pri}
+fish_color_host_remote @dark/flat/{hex6:basic.def.mint.pri}
+fish_color_keyword @dark/flat/{hex6:basic.def.pink.pri}
+fish_color_match --background=@dark/flat/{hex6:basic.def.brown.qua&bg.solid.base}
+fish_color_normal @dark/flat/{hex6:fill.terminal.fg}
+fish_color_operator @dark/flat/{hex6:basic.alt.orange.pri}
+fish_color_option @dark/flat/{hex6:basic.alt.yellow.pri}
+fish_color_param @dark/flat/{hex6:basic.def.orange.pri}
+fish_color_quote @dark/flat/{hex6:basic.def.brown.pri}
+fish_color_redirection @dark/flat/{hex6:basic.def.blue.pri}
+fish_color_search_match --background=@dark/flat/{hex6:basic.def.mint.qua&bg.solid.base}
+fish_color_selection --background=@dark/flat/{hex6:basic.neutral.sen&bg.solid.base}
+fish_color_status @dark/flat/{hex6:basic.def.red.pri}
+fish_color_user @dark/flat/{hex6:basic.alt.purple.pri}
+fish_color_valid_path @dark/flat/{hex6:basic.alt.blue.pri} --underline
+
+fish_pager_color_background
+fish_pager_color_completion @dark/flat/{hex6:basic.alt.mint.pri}
+fish_pager_color_description @dark/flat/{hex6:basic.alt.green.pri}
+fish_pager_color_prefix @dark/flat/{hex6:basic.def.mint.pri} --bold
+fish_pager_color_progress @dark/flat/{hex6:fill.terminal.loq}
+fish_pager_color_secondary_background --background=@dark/flat/{hex6:basic.neutral.oct&bg.solid.base}
+fish_pager_color_secondary_completion @dark/flat/{hex6:basic.alt.mint.pri}
+fish_pager_color_secondary_description @dark/flat/{hex6:basic.alt.green.pri}
+fish_pager_color_secondary_prefix @dark/flat/{hex6:basic.def.mint.pri} --bold
+fish_pager_color_selected_background --background=@dark/flat/{hex6:basic.neutral.sen&bg.solid.base}
+fish_pager_color_selected_completion @dark/flat/{hex6:basic.alt.mint.pri}
+fish_pager_color_selected_description @dark/flat/{hex6:basic.alt.green.pri}
+fish_pager_color_selected_prefix @dark/flat/{hex6:basic.def.mint.pri} --bold

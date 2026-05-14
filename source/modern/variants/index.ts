@@ -10,7 +10,7 @@ import { getStyles as getLightNaturalStyles } from "./light/natural";
 
 export function getStyles(variant: Variant, config: Config): Styles {
   switch (variant) {
-    case "dark":
+    case "dark": {
       if (config[variant].design === "modern") {
         return getDarkModernStyles(config.dark);
       } else if (config[variant].design === "natural") {
@@ -20,9 +20,10 @@ export function getStyles(variant: Variant, config: Config): Styles {
       } else if (config[variant].design === "flat") {
         return getDarkFlatStyles(config.dark);
       } else {
-        return getDarkModernStyles(config.dark);
+        return getDarkMinimalStyles(config.dark);
       }
-    case "light":
+    }
+    case "light": {
       if (config[variant].design === "modern") {
         return getLightModernStyles(config.light);
       } else if (config[variant].design === "natural") {
@@ -32,8 +33,9 @@ export function getStyles(variant: Variant, config: Config): Styles {
       } else if (config[variant].design === "flat") {
         return getLightFlatStyles(config.light);
       } else {
-        return getLightModernStyles(config.light);
+        return getLightNaturalStyles(config.light);
       }
+    }
   }
 }
 

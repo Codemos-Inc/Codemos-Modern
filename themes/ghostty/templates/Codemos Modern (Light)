@@ -1,0 +1,33 @@
+# General
+foreground           = @light/flat/{hex7:fill.terminal.fg}
+background           = @light/flat/{hex7:bg.solid.base}
+selection-foreground = @light/flat/{hex7:fill.terminal.hic}
+selection-background = @light/flat/{hex7:basic.neutral.sen&bg.solid.base}
+
+# Palette
+palette =  0=@light/flat/{hex7:fill.terminal.loc}
+palette =  1=@light/flat/{hex7:basic.def.red.pri}
+palette =  2=@light/flat/{hex7:basic.def.green.pri}
+palette =  3=@light/flat/{hex7:basic.def.yellow.pri}
+palette =  4=@light/flat/{hex7:basic.def.blue.pri}
+palette =  5=@light/flat/{hex7:basic.def.pink.pri}
+palette =  6=@light/flat/{hex7:basic.def.mint.pri}
+palette =  7=@light/flat/{hex7:fill.terminal.hiq}
+palette =  8=@light/flat/{hex7:fill.terminal.loq}
+palette =  9=@light/flat/{hex7:basic.alt.red.pri}
+palette = 10=@light/flat/{hex7:basic.alt.green.pri}
+palette = 11=@light/flat/{hex7:basic.alt.yellow.pri}
+palette = 12=@light/flat/{hex7:basic.alt.blue.pri}
+palette = 13=@light/flat/{hex7:basic.alt.pink.pri}
+palette = 14=@light/flat/{hex7:basic.alt.mint.pri}
+palette = 15=@light/flat/{hex7:fill.terminal.hic}
+
+# Cursor
+cursor-color = @light/flat/{hex7:fill.accent.pri}
+cursor-text  = @light/flat/{hex7:fill.onAccent.pri}
+
+# Search
+search-foreground          = @light/flat/{hex7:fill.terminal.fg}
+search-background          = @light/flat/{hex7:basic.def.mint.qui&bg.solid.base}
+search-selected-foreground = @light/flat/{hex7:fill.terminal.hic}
+search-selected-background = @light/flat/{hex7:basic.def.mint.qua&bg.solid.base}

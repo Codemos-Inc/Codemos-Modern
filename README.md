@@ -2,36 +2,36 @@
 
 <br/>
 
-<img src="resource/icon.gif" width="200"/>
+<img src="assets/icon.gif" width="200"/>
 
 <br/>
 
 # **Codemos Modern**
 
-<a href="https://github.com/EmrecanKaracayir/Codemos-Modern/releases/latest"><img src="images/badge-release.png" height="32" alt="Latest release"></a>&nbsp;
-<a href="https://code.visualstudio.com/updates/"><img src="images/badge-vscode.png" height="32" alt="Supported VS Code release"></a>&nbsp;
-<a href="https://marketplace.visualstudio.com/items?itemName=Codemos.codemos-modern"><img src="images/badge-downloads.png" height="32" alt="Download count"></a>&nbsp;
-<a href="https://github.com/sponsors/EmrecanKaracayir"><img src="images/badge-sponsors.png" height="32" alt="Sponsor count"></a>&nbsp;
-<a href="https://marketplace.visualstudio.com/items?itemName=Codemos.codemos-modern&ssr=false#review-details"><img src="images/badge-rating.png" height="32" alt="Rating"></a>
+<a href="https://github.com/EmrecanKaracayir/Codemos-Modern/releases/latest"><img src="resources/badges/badge-release.png" height="32" alt="Latest release"></a>&nbsp;
+<a href="https://code.visualstudio.com/updates/"><img src="resources/badges/badge-vscode.png" height="32" alt="Supported VS Code release"></a>&nbsp;
+<a href="https://marketplace.visualstudio.com/items?itemName=Codemos.codemos-modern"><img src="resources/badges/badge-downloads.png" height="32" alt="Download count"></a>&nbsp;
+<a href="https://github.com/sponsors/EmrecanKaracayir"><img src="resources/badges/badge-sponsors.png" height="32" alt="Sponsor count"></a>&nbsp;
+<a href="https://marketplace.visualstudio.com/items?itemName=Codemos.codemos-modern&ssr=false#review-details"><img src="resources/badges/badge-rating.png" height="32" alt="Rating"></a>
 
 <div style="margin-bottom: 16px;"></div>
 
 Innovative, modern theme suite/hub for VS Code
 
-<img src="images/badge-loc-en.png" height="24" alt="English (US)">&nbsp;
-<img src="images/badge-loc-zh-cn.png" height="24" alt="Simplified Chinese">&nbsp;
-<img src="images/badge-loc-ja.png" height="24" alt="Japanese">&nbsp;
-<img src="images/badge-loc-es.png" height="24" alt="Spanish">&nbsp;
-<img src="images/badge-loc-ru.png" height="24" alt="Russian">&nbsp;
-<img src="images/badge-loc-pt-br.png" height="24" alt="Portuguese (Brazil)">&nbsp;
-<img src="images/badge-loc-fr.png" height="24" alt="French">&nbsp;
-<img src="images/badge-loc-ko.png" height="24" alt="Korean">&nbsp;
-<img src="images/badge-loc-de.png" height="24" alt="German">&nbsp;
-<img src="images/badge-loc-zh-tw.png" height="24" alt="Traditional Chinese">&nbsp;
-<img src="images/badge-loc-it.png" height="24" alt="Italian">&nbsp;
-<img src="images/badge-loc-tr.png" height="24" alt="Turkish">
+<img src="resources/badges/badge-loc-en.png" height="24" alt="English (US)">&nbsp;
+<img src="resources/badges/badge-loc-zh-cn.png" height="24" alt="Simplified Chinese">&nbsp;
+<img src="resources/badges/badge-loc-ja.png" height="24" alt="Japanese">&nbsp;
+<img src="resources/badges/badge-loc-es.png" height="24" alt="Spanish">&nbsp;
+<img src="resources/badges/badge-loc-ru.png" height="24" alt="Russian">&nbsp;
+<img src="resources/badges/badge-loc-pt-br.png" height="24" alt="Portuguese (Brazil)">&nbsp;
+<img src="resources/badges/badge-loc-fr.png" height="24" alt="French">&nbsp;
+<img src="resources/badges/badge-loc-ko.png" height="24" alt="Korean">&nbsp;
+<img src="resources/badges/badge-loc-de.png" height="24" alt="German">&nbsp;
+<img src="resources/badges/badge-loc-zh-tw.png" height="24" alt="Traditional Chinese">&nbsp;
+<img src="resources/badges/badge-loc-it.png" height="24" alt="Italian">&nbsp;
+<img src="resources/badges/badge-loc-tr.png" height="24" alt="Turkish">
 
-![overview](images/header-1.png)
+![overview](resources/images/header-1.png)
 
 </div>
 
@@ -112,36 +112,36 @@ Codemos Modern provides three configuration options through the command **Codemo
 
 1. **Variant:** You can select which variant your Modern will use. (Dark/Light)
 
-![variant](images/conf-variant.png)
+![variant](resources/images/conf-variant.png)
 
 2. **UI Theme:** You can select which UI theme your Modern will use. (Bundled/From Registries)
 
-![ui-theme](images/conf-ui-theme-1.png)
+![ui-theme](resources/images/conf-ui-theme-1.png)
 
 - **Bundled:** If you choose a bundled theme, there are additional configurations you can configure. See [modularity section](#modularity) for more information.
   1. **Design:** You can choose which design your Modern will use. (Design determines the overall look of the theme)
-     ![ui-theme-bundled](images/conf-ui-theme-2.png)
+     ![ui-theme-bundled](resources/images/conf-ui-theme-2.png)
   2. **Accent color:** You can configure which accent color your theme will use. Accent color can be selected from Modern's excellent palette or you can provide a custom one with its hex color code. (Accent color determines the color of the important ui elements; buttons, badges, links, emphasized text, etc. and effects the adaptability mode)
-     ![accent-color](images/conf-ui-theme-3.png)
+     ![accent-color](resources/images/conf-ui-theme-3.png)
   3. **Adaptation Mode:** You can select which adaptation mode your theme would use. (Adaptation mode determines how much your accent color influence the rest of the UI. See [adaptability section](#adaptability) for more information)
-     ![adaptation-mode](images/conf-ui-theme-4.png)
+     ![adaptation-mode](resources/images/conf-ui-theme-4.png)
 
 - **From Registries:** You can also choose an auxiliary theme. Auxiliary themes are the themes that are not bundled with Modern but can be installed from the auxiliary theme registries. Codemos provides a built-in registry that features some of the most popular themes. You can also create your own registries. See [modularity section](#modularity) for more information.
   1. **Auxiliary UI Theme:** You can select which auxiliary theme your Modern will use as the UI theme. (Auxiliary theme will be installed and activated automatically from the indicated registry)
-     ![ui-theme-from-registries](images/conf-ui-theme-2-a.png)
+     ![ui-theme-from-registries](resources/images/conf-ui-theme-2-a.png)
 
 3. **Code Theme:** You can select which code theme your Modern will use. (Code theme determines the colors of your codes)
-   ![code-theme](images/conf-code-theme-1.png)
+   ![code-theme](resources/images/conf-code-theme-1.png)
 
 - **Bundled:** We worked hard to make sure that our bundled code theme provides the best developer experience possible. (See [color and code intelligibility section](#color-and-code-intelligibility) for more information) However, if you want to use an auxiliary code theme, you can select **From Registries** option and choose a code theme from the registries.
 
 - **From Registries:** You can also choose an auxiliary theme. Auxiliary themes are the themes that are not bundled with Modern but can be installed from the auxiliary theme registries. Codemos provides a built-in registry that features some of the most popular themes. You can also create your own registries. See [modularity section](#modularity) for more information.
   1. **Auxiliary Code Theme:** You can select which auxiliary theme your Modern will use as the code theme. (Auxiliary theme will be installed and activated automatically from the indicated registry)
-     ![code-theme-from-registries](images/conf-code-theme-2-a.png)
+     ![code-theme-from-registries](resources/images/conf-code-theme-2-a.png)
 
 4. **Enjoy 🎉:** When you are done with your configurations, you can click **Apply** to apply your Modern.
 
-![apply](images/conf-apply.png)
+![apply](resources/images/conf-apply.png)
 
 ### **Modularity**
 
@@ -161,7 +161,7 @@ You don't have to do anything special. Just add your favorite registry to your r
 
 #### A little taste of modularity
 
-![modularity](images/docs-modularity.png)
+![modularity](resources/images/docs-modularity.png)
 
 <div align="center">
 
@@ -195,7 +195,7 @@ When creating your Codemos Modern, if you chose the bundled theme for your UI th
 
 - **Aggressive:** When you select this option, UI elements such as background colors will adapt to your accent color as much as possible. This option is the most extreme option.
 
-![adaptability-modes](images/docs-2-1.png)
+![adaptability-modes](resources/images/docs-2-1.png)
 
 <br/>
 
@@ -220,7 +220,7 @@ These decorations are:
 
 <br/>
 
-![color-reference](images/docs-3-1.png)
+![color-reference](resources/images/docs-3-1.png)
 
 <br/>
 
@@ -285,31 +285,31 @@ In this section you can find how Codemos Modern looks and feels in most used lan
 
 ### JavaScript
 
-![javascript](images/js.png)
+![javascript](resources/images/js.png)
 
 ### Python
 
-![python](images/py.png)
+![python](resources/images/py.png)
 
 ### Java
 
-![java](images/java.png)
+![java](resources/images/java.png)
 
 <h3 id="cpp">C++</h3>
 
-![cpp](images/cpp.png)
+![cpp](resources/images/cpp.png)
 
 ### HTML
 
-![html](images/html.png)
+![html](resources/images/html.png)
 
 ### CSS
 
-![css](images/css.png)
+![css](resources/images/css.png)
 
 ### JSON
 
-![json](images/json.png)
+![json](resources/images/json.png)
 
 <br/>
 

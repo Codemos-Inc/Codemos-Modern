@@ -2,8 +2,19 @@ import { Variant, type VariantConfig } from "../modern";
 import type { Styles } from "../modern/variant";
 
 export type ThemePaths = {
-  dark: string;
-  light: string;
+  vscode: {
+    dark: string;
+    light: string;
+  };
+  fish: string;
+  ghostty: {
+    dark: string;
+    light: string;
+  };
+  starship: {
+    dark: string;
+    light: string;
+  };
 };
 
 export type Decoration = "strikeThrough" | "bold" | "italic" | "underline";

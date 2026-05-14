@@ -19,7 +19,7 @@ export function getRules(themeContext: ThemeContext): object {
     "notebook.outputContainerBorderColor": styles.stroke.control.default,
     "notebook.selectedCellBackground": styles.fill.control.subtle,
     "notebook.selectedCellBorder": styles.fill.accent.pri,
-    "notebook.symbolHighlightBackground": "#ff0000", // 🔵 Unknown attribute
+    "notebook.symbolHighlightBackground": "#FF0000FF", // 🔵 Unknown attribute
     "notebookEditorOverviewRuler.runningCellForeground":
       styles.basic.def.yellow.pri,
     "notebookScrollbarSlider.activeBackground": styles.fill.control.pressed,

@@ -1,3 +1,5 @@
+export type CacheCategory = "auxiliary";
+
 export type OnlineResult = {
   success: boolean;
   message: string;

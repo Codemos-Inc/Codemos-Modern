@@ -129,7 +129,7 @@ export function getRules(themeContext: ThemeContext): object {
     "editorMultiCursor.primary.background": styles.fill.onAccent.pri,
     "editorMultiCursor.primary.foreground": styles.fill.accent.pri,
     "editorMultiCursor.secondary.background": styles.fill.onAccent.pri,
-    "editorMultiCursor.secondary.foreground": styles.fill.accent.ter,
+    "editorMultiCursor.secondary.foreground": styles.fill.accent.ghost,
     "editorOverviewRuler.addedForeground": styles.basic.def.green.sec,
     "editorOverviewRuler.background": styles.bg.solid.base,
     "editorOverviewRuler.border": TRANSPARENT,

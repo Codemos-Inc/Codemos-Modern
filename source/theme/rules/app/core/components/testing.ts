@@ -9,6 +9,7 @@ export function getRules(themeContext: ThemeContext): object {
     "testing.coveredBackground": styles.basic.def.green.qui,
     "testing.coveredBorder": TRANSPARENT,
     "testing.coveredGutterBackground": styles.basic.def.green.qui,
+    "testing.coveredMinimapBackground": "#FF0000FF", // 🔵 Unknown attribute
     "testing.iconErrored.retired": styles.basic.alt.red.pri,
     "testing.iconErrored": styles.basic.def.red.pri,
     "testing.iconFailed.retired": styles.basic.alt.red.pri,
@@ -36,5 +37,6 @@ export function getRules(themeContext: ThemeContext): object {
     "testing.uncoveredBorder": TRANSPARENT,
     "testing.uncoveredBranchBackground": "#FF0000FF", // 🔵 Unknown attribute
     "testing.uncoveredGutterBackground": styles.basic.def.red.qui,
+    "testing.uncoveredMinimapBackground": "#FF0000FF", // 🔵 Unknown attribute
   };
 }

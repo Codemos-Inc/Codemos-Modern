@@ -1,0 +1,33 @@
+# General
+foreground           = #191919
+background           = #F9F9F9
+selection-foreground = #000000
+selection-background = #E5E5E5
+
+# Palette
+palette =  0=#A9A9A9
+palette =  1=#B70004
+palette =  2=#006904
+palette =  3=#7D7000
+palette =  4=#0052C6
+palette =  5=#AC0074
+palette =  6=#006560
+palette =  7=#464646
+palette =  8=#7D7D7D
+palette =  9=#C35354
+palette = 10=#528256
+palette = 11=#7D7852
+palette = 12=#5B79A2
+palette = 13=#AF5A92
+palette = 14=#567E7C
+palette = 15=#000000
+
+# Cursor
+cursor-color = #784F3F
+cursor-text  = #FFFFFF
+
+# Search
+search-foreground          = #191919
+search-background          = #D6E4E4
+search-selected-foreground = #000000
+search-selected-background = #C7DBDA

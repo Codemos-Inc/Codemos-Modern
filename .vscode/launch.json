@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug Extension",
+      "name": "Debug",
       "type": "extensionHost",
       "request": "launch",
       "args": ["--extensionDevelopmentPath=${workspaceFolder}"],
@@ -10,7 +10,7 @@
       "preLaunchTask": "npm: debug"
     },
     {
-      "name": "Debug Extension (Win)",
+      "name": "Debug (Win)",
       "type": "extensionHost",
       "request": "launch",
       "args": ["--extensionDevelopmentPath=${workspaceFolder}"],
