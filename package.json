@@ -167,7 +167,7 @@
             "order": 1,
             "scope": "window",
             "type": "string",
-            "default": "modern",
+            "default": "minimal",
             "enum": [
               "modern",
               "natural",
@@ -377,7 +377,7 @@
             "order": 1,
             "scope": "window",
             "type": "string",
-            "default": "modern",
+            "default": "natural",
             "enum": [
               "modern",
               "natural",
