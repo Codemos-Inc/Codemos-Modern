@@ -4,6 +4,12 @@ All notable changes to the "codemos-modern" extension will be documented in this
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.1.2] - 2026-05-14 - A minor fix 🛠️
+
+### Fixed
+
+- Default design for Modern's variants. Dark variant's default design is now **"Minimal"** and Light variant's default design is now **"Natural"**.
+
 ## [3.1.1] - 2026-05-14 - Themes for other apps 🎨
 
 ### Added
@@ -576,6 +582,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - Initial release
 
+[3.1.2]: https://github.com/EmrecanKaracayir/codemos-modern/compare/v3.1.1...v3.1.2
 [3.1.1]: https://github.com/EmrecanKaracayir/codemos-modern/compare/v3.1.0...v3.1.1
 [3.1.0]: https://github.com/EmrecanKaracayir/codemos-modern/compare/v3.0.9...v3.1.0
 [3.0.9]: https://github.com/EmrecanKaracayir/codemos-modern/compare/v3.0.8...v3.0.9
