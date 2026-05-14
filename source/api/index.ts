@@ -101,34 +101,16 @@ export async function getContentFromRelease(
       repo,
       path,
       ref,
+      mediaType: {
+        format: "raw",
+      },
     })
     .then((response: GetContentType) => {
-      if (!Array.isArray(response.data)) {
-        if (response.data.type === "file") {
-          return {
-            success: true,
-            message: RESPONSE_OK,
-            data: Buffer.from(
-              response.data.content,
-              response.data.encoding as BufferEncoding,
-            ).toString(),
-          };
-        } else {
-          return {
-            success: false,
-            message: l10nT("notification.msg.contentNotFile$path", [
-              response.data.path,
-            ]),
-            data: null,
-          };
-        }
-      } else {
-        return {
-          success: false,
-          message: l10nT("notification.msg.contentNotFile$path", [path]),
-          data: null,
-        };
-      }
+      return {
+        success: true,
+        message: RESPONSE_OK,
+        data: response.data,
+      };
     })
     .catch((error: RequestError) => {
       let message: string;

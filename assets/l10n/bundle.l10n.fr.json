@@ -18,7 +18,6 @@
   "notification.msg.apiRateLimit": "Limite de débit de l’API dépassée ! Utilisez la commande \"Codemos Modern: Authenticate 🔗\" pour augmenter votre limite.",
   "notification.msg.apiUnauthorized": "Accès non autorisé ! Contactez GitHub.",
   "notification.msg.authSessionNotFound": "Session d’authentification introuvable ! Contactez Microsoft.",
-  "notification.msg.contentNotFile$path": "Le contenu au chemin \"{0}\" n’est pas un fichier ! Contactez Codemos.",
   "notification.msg.contentNotFound$path$id": "Le chemin \"{0}\" dans le dépôt \"{1}\" n’est pas valide ! Vérifiez que le chemin existe et est accessible.",
   "notification.msg.networkError$status": "Erreur réseau avec le code d’état \"{0}\" ! Contactez Codemos.",
   "notification.msg.releaseNotFound$id": "Dernière version pour \"{0}\" introuvable ! Vérifiez que le dépôt a au moins une version.",

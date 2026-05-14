@@ -18,7 +18,6 @@
   "notification.msg.apiRateLimit": "超出 API 速率限制！使用 \"Codemos Modern: Authenticate 🔗\" 命令增加您的限制。",
   "notification.msg.apiUnauthorized": "未经授权的访问！请联系 GitHub。",
   "notification.msg.authSessionNotFound": "未找到身份验证会话！请联系 Microsoft。",
-  "notification.msg.contentNotFile$path": "路径 \"{0}\" 的内容不是文件！请联系 Codemos。",
   "notification.msg.contentNotFound$path$id": "仓库 \"{1}\" 中的路径 \"{0}\" 无效！请验证路径存在且可访问。",
   "notification.msg.networkError$status": "发生网络错误，状态码为 \"{0}\"！请联系 Codemos。",
   "notification.msg.releaseNotFound$id": "未找到 \"{0}\" 的最新版本！请验证仓库至少有一个版本。",

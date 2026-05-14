@@ -18,7 +18,6 @@
   "notification.msg.apiRateLimit": "APIレート制限を超えました! 制限を増やすには\"Codemos Modern: Authenticate 🔗\"コマンドを使用してください。",
   "notification.msg.apiUnauthorized": "不正なアクセスです! GitHubに連絡してください。",
   "notification.msg.authSessionNotFound": "認証セッションが見つかりません! Microsoftに連絡してください。",
-  "notification.msg.contentNotFile$path": "パス\"{0}\"のコンテンツはファイルではありません! Codemosに連絡してください。",
   "notification.msg.contentNotFound$path$id": "リポジトリ\"{1}\"のパス\"{0}\"は無効です! パスが存在しアクセス可能か確認してください。",
   "notification.msg.networkError$status": "ステータスコード\"{0}\"でネットワークエラーが発生しました! Codemosに連絡してください。",
   "notification.msg.releaseNotFound$id": "\"{0}\"の最新リリースが見つかりません! リポジトリに少なくとも1つのリリースがあるか確認してください。",

@@ -18,7 +18,6 @@
   "notification.msg.apiRateLimit": "API 속도 제한을 초과했습니다! 제한을 늘리려면 \"Codemos Modern: Authenticate 🔗\" 명령을 사용하세요.",
   "notification.msg.apiUnauthorized": "무단 액세스입니다! GitHub에 문의하세요.",
   "notification.msg.authSessionNotFound": "인증 세션을 찾을 수 없습니다! Microsoft에 문의하세요.",
-  "notification.msg.contentNotFile$path": "경로 \"{0}\"의 콘텐츠가 파일이 아닙니다! Codemos에 문의하세요.",
   "notification.msg.contentNotFound$path$id": "리포지토리 \"{1}\"의 경로 \"{0}\"이(가) 유효하지 않습니다! 경로가 존재하고 액세스 가능한지 확인하세요.",
   "notification.msg.networkError$status": "상태 코드 \"{0}\"로 네트워크 오류가 발생했습니다! Codemos에 문의하세요.",
   "notification.msg.releaseNotFound$id": "\"{0}\"의 최신 릴리스를 찾을 수 없습니다! 리포지토리에 릴리스가 하나 이상 있는지 확인하세요.",

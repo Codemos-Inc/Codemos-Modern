@@ -18,7 +18,6 @@
   "notification.msg.apiRateLimit": "API-Ratenlimit überschritten! Verwenden Sie den Befehl \"Codemos Modern: Authenticate 🔗\", um Ihr Limit zu erhöhen.",
   "notification.msg.apiUnauthorized": "Unbefugter Zugriff! Kontaktieren Sie GitHub.",
   "notification.msg.authSessionNotFound": "Authentifizierungssitzung nicht gefunden! Kontaktieren Sie Microsoft.",
-  "notification.msg.contentNotFile$path": "Inhalt unter Pfad \"{0}\" ist keine Datei! Kontaktieren Sie Codemos.",
   "notification.msg.contentNotFound$path$id": "Pfad \"{0}\" im Repository \"{1}\" ist ungültig! Prüfen Sie, ob der Pfad existiert und zugänglich ist.",
   "notification.msg.networkError$status": "Netzwerkfehler mit Statuscode \"{0}\"! Kontaktieren Sie Codemos.",
   "notification.msg.releaseNotFound$id": "Neueste Veröffentlichung für \"{0}\" nicht gefunden! Prüfen Sie, ob das Repository mindestens eine Veröffentlichung hat.",

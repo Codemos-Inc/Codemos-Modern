@@ -18,7 +18,6 @@
   "notification.msg.apiRateLimit": "API rate limit exceeded! Use \"Codemos Modern: Authenticate 🔗\" command to increase your limit.",
   "notification.msg.apiUnauthorized": "Unauthorized access! Contact with GitHub.",
   "notification.msg.authSessionNotFound": "Authentication session not found! Contact with Microsoft.",
-  "notification.msg.contentNotFile$path": "Content at path \"{0}\" is not a file! Contact with Codemos.",
   "notification.msg.contentNotFound$path$id": "Path \"{0}\" in repository \"{1}\" is not valid! Verify that path exists and is accessible.",
   "notification.msg.networkError$status": "Network error occurred with status code \"{0}\"! Contact with Codemos.",
   "notification.msg.releaseNotFound$id": "Latest release for \"{0}\" not found! Verify that repository has at least one release.",

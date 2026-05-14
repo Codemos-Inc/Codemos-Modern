@@ -18,7 +18,6 @@
   "notification.msg.apiRateLimit": "API oran sınırı aşıldı! Sınırınızı artırmak için \"Codemos Modern: Authenticate 🔗\" komutunu kullanın.",
   "notification.msg.apiUnauthorized": "Yetkisiz erişim! GitHub ile iletişime geçin.",
   "notification.msg.authSessionNotFound": "Kimlik doğrulama oturumu bulunamadı! Microsoft ile iletişime geçin.",
-  "notification.msg.contentNotFile$path": "\"{0}\" yolundaki içerik bir dosya değil! Codemos ile iletişime geçin.",
   "notification.msg.contentNotFound$path$id": "\"{1}\" deposundaki \"{0}\" yolu geçerli değil! Yolun var olduğunu ve erişilebilir olduğunu doğrulayın.",
   "notification.msg.networkError$status": "\"{0}\" durum koduyla ağ hatası oluştu! Codemos ile iletişime geçin.",
   "notification.msg.releaseNotFound$id": "\"{0}\" için en son sürüm bulunamadı! Deponun en az bir sürümü olduğunu doğrulayın.",

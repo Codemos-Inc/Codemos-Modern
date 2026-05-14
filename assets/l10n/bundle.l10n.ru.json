@@ -18,7 +18,6 @@
   "notification.msg.apiRateLimit": "Превышен лимит запросов API! Используйте команду \"Codemos Modern: Authenticate 🔗\" для увеличения лимита.",
   "notification.msg.apiUnauthorized": "Несанкционированный доступ! Свяжитесь с GitHub.",
   "notification.msg.authSessionNotFound": "Сеанс аутентификации не найден! Свяжитесь с Microsoft.",
-  "notification.msg.contentNotFile$path": "Содержимое по пути \"{0}\" не является файлом! Свяжитесь с Codemos.",
   "notification.msg.contentNotFound$path$id": "Путь \"{0}\" в репозитории \"{1}\" недействителен! Убедитесь, что путь существует и доступен.",
   "notification.msg.networkError$status": "Произошла сетевая ошибка с кодом состояния \"{0}\"! Свяжитесь с Codemos.",
   "notification.msg.releaseNotFound$id": "Последний релиз для \"{0}\" не найден! Убедитесь, что в репозитории есть хотя бы один релиз.",

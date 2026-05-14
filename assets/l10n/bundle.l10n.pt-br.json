@@ -18,7 +18,6 @@
   "notification.msg.apiRateLimit": "Limite de taxa da API excedido! Use o comando \"Codemos Modern: Authenticate 🔗\" para aumentar seu limite.",
   "notification.msg.apiUnauthorized": "Acesso não autorizado! Entre em contato com o GitHub.",
   "notification.msg.authSessionNotFound": "Sessão de autenticação não encontrada! Entre em contato com a Microsoft.",
-  "notification.msg.contentNotFile$path": "O conteúdo no caminho \"{0}\" não é um arquivo! Entre em contato com a Codemos.",
   "notification.msg.contentNotFound$path$id": "O caminho \"{0}\" no repositório \"{1}\" não é válido! Verifique se o caminho existe e está acessível.",
   "notification.msg.networkError$status": "Ocorreu um erro de rede com o código de status \"{0}\"! Entre em contato com a Codemos.",
   "notification.msg.releaseNotFound$id": "Versão mais recente para \"{0}\" não encontrada! Verifique se o repositório tem pelo menos uma versão.",
