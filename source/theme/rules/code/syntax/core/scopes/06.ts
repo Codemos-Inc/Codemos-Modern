@@ -10,6 +10,7 @@ export function getRules(themeContext: ThemeContext): object {
         "keyword.control.delete",
         "keyword.control.new",
         "keyword.operator.delete",
+        "keyword.operator.logical",
         "keyword.operator.new",
         "keyword",
         "punctuation.definition.keyword",
