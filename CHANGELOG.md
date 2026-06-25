@@ -585,6 +585,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 [3.1.2]: https://github.com/EmrecanKaracayir/codemos-modern/compare/v3.1.1...v3.1.2
 [3.1.1]: https://github.com/EmrecanKaracayir/codemos-modern/compare/v3.1.0...v3.1.1
 [3.1.0]: https://github.com/EmrecanKaracayir/codemos-modern/compare/v3.0.9...v3.1.0
+[3.0.10]: https://github.com/EmrecanKaracayir/codemos-modern/compare/v3.0.9...v3.0.10
 [3.0.9]: https://github.com/EmrecanKaracayir/codemos-modern/compare/v3.0.8...v3.0.9
 [3.0.8]: https://github.com/EmrecanKaracayir/codemos-modern/compare/v3.0.7...v3.0.8
 [3.0.7]: https://github.com/EmrecanKaracayir/codemos-modern/compare/v3.0.6...v3.0.7
