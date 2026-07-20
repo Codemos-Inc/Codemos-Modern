@@ -573,7 +573,7 @@
   "dependencies": {
     "@octokit/rest": "^22.0.0",
     "@resvg/resvg-js": "^2.6.0",
-    "axios": "^1.6.5",
+    "axios": "^1.18.0",
     "jsdom": "^29.0.0"
   },
   "devDependencies": {
